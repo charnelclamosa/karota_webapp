@@ -781,8 +781,14 @@ const Composer = RestModel.extend({
       });
     }
 
+    // Use to set properties to the 'post' object
     this.setProperties({
       draftKey: opts.draftKey,
+      summaries: [],
+      sponsors: [],
+      opinions: [],
+      sponsorTextBoxVisible: true,
+      opinionTextBoxVisible: true,
       draftSequence: opts.draftSequence,
       composeState: opts.composerState || OPEN,
       action: opts.action,
@@ -904,6 +910,16 @@ const Composer = RestModel.extend({
     Object.keys(_add_draft_fields).forEach((f) => {
       this.set(_add_draft_fields[f], opts[f]);
     });
+    const summaryEntry = {
+      content: this.reply,
+      userId: this.user.id,
+      userName: this.user.username
+    }
+    this.summaries.push(summaryEntry)
+    // console.log("user", this.user)
+    // console.log("summaries", this.summaries)
+    // console.log("title", this.title)
+    // console.log("reply", this.reply)
 
     return promise.finally(() => {
       this.set("loading", false);
@@ -1067,6 +1083,7 @@ const Composer = RestModel.extend({
     this.serialize(_create_serializer, createdPost);
 
     if (post) {
+      // console.log("post", post)
       createdPost.setProperties({
         reply_to_post_number: post.post_number,
         reply_to_user: post.getProperties("username", "avatar_template"),
@@ -1077,6 +1094,7 @@ const Composer = RestModel.extend({
 
     // If we're in a topic, we can append the post instantly.
     if (postStream) {
+      // console.log("postStream", postStream)
       // If it's in reply to another post, increase the reply count
       post?.setProperties({
         reply_count: (post.reply_count || 0) + 1,
@@ -1099,10 +1117,68 @@ const Composer = RestModel.extend({
       composeState: SAVING,
       stagedPost: state === "staged" && createdPost,
     });
+    // console.log("createdPost", createdPost)
 
+<<<<<<< HEAD
     try {
       const result = await createdPost.save();
       let saving = true;
+=======
+    return createdPost
+      .save()
+      .then((result) => {
+        let saving = true;
+
+        if (result.responseJson.action === "enqueued") {
+          if (postStream) {
+            postStream.undoPost(createdPost);
+          }
+          return result;
+        }
+
+        // We sometimes want to hide the `reply_to_user` if the post contains a quote
+        if (
+          result.responseJson &&
+          result.responseJson.post &&
+          !result.responseJson.post.reply_to_user
+        ) {
+          createdPost.set("reply_to_user", null);
+        }
+
+        if (topic) {
+          // It's no longer a new post
+          topic.set("draft_sequence", result.target.draft_sequence);
+          postStream.commitPost(createdPost);
+          addedToStream = true;
+        } else {
+          // We created a new topic, let's show it.
+          composer.set("composeState", CLOSED);
+          saving = false;
+
+          // Update topic_count for the category
+          const category = composer.site.categories.find(
+            (x) => x.id === (parseInt(createdPost.category, 10) || 1)
+          );
+          if (category) {
+            category.incrementProperty("topic_count");
+          }
+        }
+
+        composer.clearState();
+        composer.set("createdPost", createdPost);
+        // console.log("createdPost", createdPost)
+        if (composer.replyingToTopic) {
+          this.appEvents.trigger("post:created", createdPost);
+        } else {
+          this.appEvents.trigger("topic:created", createdPost, composer);
+        }
+
+        if (addedToStream) {
+          composer.set("composeState", CLOSED);
+        } else if (saving) {
+          composer.set("composeState", SAVING);
+        }
+>>>>>>> 403a97a38c (Change the layout of composer when creating new post)
 
       if (result.responseJson.action === "enqueued") {
         postStream?.undoPost(createdPost);
