@@ -702,20 +702,7 @@ export default Controller.extend({
       await this.cancelComposer();
     },
 
-    /**
-     * Create a topic or reply to a topic. 
-     * Charnel: don't remove this comment for easier finding of this function.
-     */
     save(ignore, event) {
-      if (this.get("model.replyingToTopic")) {
-        const topicTitle = this.get("model.topic.title")
-        console.log(`Replying to topic: '${topicTitle}'`)
-        console.log(this.get("model"))
-      }
-      if (this.get("model.creatingTopic")) {
-        const topicTitle = this.get("model.title")
-        console.log(`Creating new topic. Title: '${topicTitle}'`)
-      }
       this.save(false, {
         jump:
           !(event?.shiftKey && this.get("model.replyingToTopic")) &&
@@ -838,7 +825,6 @@ export default Controller.extend({
     }
 
     const composer = this.model;
-    console.log("composer", composer)
 
     if (composer?.cantSubmitPost) {
       if (composer?.viewFullscreen) {
@@ -1070,6 +1056,10 @@ export default Controller.extend({
       @param {Boolean} [opts.skipJumpOnSave] Option to skip navigating to the post when saved in this composer session
   **/
   async open(opts = {}) {
+    console.log("app/assets/javascripts/discourse/app/controllers/composer.js")
+    console.log("async open()")
+    console.log("opts", opts)
+    console.log("-------")
     if (!opts.draftKey) {
       throw new Error("composer opened without a proper draft key");
     }
@@ -1090,6 +1080,7 @@ export default Controller.extend({
       scopedCategoryId: null,
       prioritizedCategoryId: null,
       skipAutoSave: true,
+      metaTagId: opts.metaTagId
     });
 
     this.set("skipJumpOnSave", !!opts.skipJumpOnSave);

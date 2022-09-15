@@ -86,8 +86,7 @@ export default Component.extend(LoadMore, {
             if (!draft) {
               return;
             }
-
-            this.composer.open({
+            composer.open({
               draft,
               draftKey: item.draft_key,
               draftSequence: d.draft_sequence,
