@@ -88,7 +88,8 @@ class PostSerializer < BasicPostSerializer
              :reviewable_score_pending_count,
              :user_suspended,
              :user_status,
-             :mentioned_users
+             :mentioned_users,
+             :meta_tag_id
 
   def initialize(object, opts)
     super(object, opts)
@@ -591,6 +592,10 @@ class PostSerializer < BasicPostSerializer
 
   def include_mentioned_users?
     SiteSetting.enable_user_status
+  end
+
+  def meta_tag_id
+    return object
   end
 
   private
