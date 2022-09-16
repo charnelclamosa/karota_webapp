@@ -792,18 +792,21 @@ class PostsController < ApplicationController
   end
 
   def create_params
-    permitted = %i[
-      raw
-      topic_id
-      archetype
-      category
-      target_recipients
-      reply_to_post_number
-      auto_track
-      typing_duration_msecs
-      composer_open_duration_msecs
-      visible
-      draft_key
+    permitted = [
+      :raw,
+      :topic_id,
+      :archetype,
+      :category,
+      # TODO remove together with 'targetUsername' deprecations
+      :target_usernames,
+      :target_recipients,
+      :reply_to_post_number,
+      :auto_track,
+      :typing_duration_msecs,
+      :composer_open_duration_msecs,
+      :visible,
+      :draft_key,
+      :meta_tag_id
     ]
 
     Post.plugin_permitted_create_params.each do |key, value|

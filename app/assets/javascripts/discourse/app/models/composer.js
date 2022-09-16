@@ -68,6 +68,7 @@ const CLOSED = "closed",
     shared_draft: "sharedDraft",
     no_bump: "noBump",
     draft_key: "draftKey",
+    meta_tag_id: "metaTagId",
   },
   _update_serializer = {
     raw: "reply",
@@ -93,6 +94,7 @@ const CLOSED = "closed",
     typingTime: "typingTime",
     postId: "post.id",
     recipients: "targetRecipients",
+    meta_tag_id: "metaTagId",
   },
   _add_draft_fields = {},
   FAST_REPLY_LENGTH_THRESHOLD = 10000;
@@ -1161,6 +1163,8 @@ const Composer = RestModel.extend({
         composer.clearState();
         composer.set("createdPost", createdPost);
         if (composer.replyingToTopic) {
+          console.log("Replying to a topic -----------")
+          console.log("createdPost param:", createdPost)
           this.appEvents.trigger("post:created", createdPost);
         } else {
           this.appEvents.trigger("topic:created", createdPost, composer);
