@@ -264,6 +264,8 @@ class PostCreator
   end
 
   def self.create(user, opts)
+    Rails.logger.info("*******************************************************************************************************")
+    Rails.logger.info(opts)
     PostCreator.new(user, opts).create
   end
 
@@ -527,13 +529,11 @@ class PostCreator
   def setup_post
     @opts[:raw] = TextCleaner.normalize_whitespaces(@opts[:raw] || "").rstrip
 
-    post =
-      Post.new(
-        raw: @opts[:raw],
-        topic_id: @topic.try(:id),
-        user: @user,
-        reply_to_post_number: @opts[:reply_to_post_number],
-      )
+    post = Post.new(raw: @opts[:raw],
+                    topic_id: @topic.try(:id),
+                    user: @user,
+                    reply_to_post_number: @opts[:reply_to_post_number],
+                    meta_tag_id: @opts[:meta_tag_id])
 
     # Attributes we pass through to the post instance if present
     %i[
@@ -551,13 +551,14 @@ class PostCreator
 
     post.extract_quoted_post_numbers
 
-    post.created_at =
-      if @opts[:created_at].is_a?(Time)
-        @opts[:created_at]
-      elsif @opts[:created_at].present?
-        Time.zone.parse(@opts[:created_at].to_s)
-      end
-
+    post.created_at = if @opts[:created_at].is_a?(Time)
+      @opts[:created_at]
+    elsif @opts[:created_at].present?
+      Time.zone.parse(@opts[:created_at].to_s)
+    end
+    Rails.logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    # The `meta_tag_id` is inside the @opts
+    Rails.logger.info(@opts)
     if fields = @opts[:custom_fields]
       post.custom_fields = fields
     end
