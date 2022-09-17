@@ -79,7 +79,8 @@ class Post < ActiveRecord::Base
 
   MISSING_UPLOADS ||= "missing uploads"
   MISSING_UPLOADS_IGNORED ||= "missing uploads ignored"
-  NOTICE ||= "notice"
+  NOTICE                  ||= "notice"
+  META_TAG                ||= "meta_tag"
 
   SHORT_POST_CHARS ||= 1200
 
@@ -88,10 +89,11 @@ class Post < ActiveRecord::Base
 
   register_custom_field_type(NOTICE, :json)
 
-  scope :private_posts_for_user,
-        ->(user) {
-          where(
-            "topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_USER})
+  register_custom_field_type(META_TAG, :string)
+
+  scope :private_posts_for_user, ->(user) do
+    where(
+      "topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_USER})
       OR topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_GROUP})",
             user_id: user.id,
           )
@@ -496,11 +498,6 @@ class Post < ActiveRecord::Base
 
   def external_id
     "#{topic_id}/#{post_number}"
-  end
-
-  def meta_tag_id
-    # Not sure if this is really needed or used
-    'summary' 
   end
 
   def reply_to_post
@@ -1277,7 +1274,6 @@ end
 # Table name: posts
 #
 #  id                      :integer          not null, primary key
-#  meta_tag_id             :text             not null
 #  user_id                 :integer
 #  topic_id                :integer          not null
 #  post_number             :integer          not null

@@ -186,6 +186,7 @@ class PostCreator
         create_topic
         create_post_notice
         save_post
+        create_meta_tag_custom_field
         UserActionManager.post_created(@post)
         extract_links
         track_topic
@@ -264,8 +265,6 @@ class PostCreator
   end
 
   def self.create(user, opts)
-    Rails.logger.info("*******************************************************************************************************")
-    Rails.logger.info(opts)
     PostCreator.new(user, opts).create
   end
 
@@ -408,6 +407,18 @@ class PostCreator
     rollback_from_errors!(embed) unless embed.save
   end
 
+  # This will create an entry 
+  def create_meta_tag_custom_field
+    Rails.logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    Rails.logger.info(@post)
+    Rails.logger.info(@opts[:meta_tag_id])
+    PostCustomField.create!(post_id: @post.id, name: 'meta_tag', value: @opts[:meta_tag_id])
+  end
+
+  def update_uploads_secure_status
+    @post.update_uploads_secure_status(source: "post creator") if SiteSetting.secure_media?
+  end
+
   def delete_owned_bookmarks
     return if !@post.topic_id
     BookmarkManager.new(@user).destroy_for_topic(
@@ -532,8 +543,7 @@ class PostCreator
     post = Post.new(raw: @opts[:raw],
                     topic_id: @topic.try(:id),
                     user: @user,
-                    reply_to_post_number: @opts[:reply_to_post_number],
-                    meta_tag_id: @opts[:meta_tag_id])
+                    reply_to_post_number: @opts[:reply_to_post_number])
 
     # Attributes we pass through to the post instance if present
     %i[
@@ -556,9 +566,7 @@ class PostCreator
     elsif @opts[:created_at].present?
       Time.zone.parse(@opts[:created_at].to_s)
     end
-    Rails.logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    # The `meta_tag_id` is inside the @opts
-    Rails.logger.info(@opts)
+
     if fields = @opts[:custom_fields]
       post.custom_fields = fields
     end

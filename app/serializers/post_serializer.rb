@@ -483,6 +483,10 @@ class PostSerializer < BasicPostSerializer
     post_custom_fields[Post::NOTICE]
   end
 
+  def meta_tag
+    post_custom_fields[Post::META_TAG]
+  end
+
   def include_notice?
     return false if notice.blank?
 
