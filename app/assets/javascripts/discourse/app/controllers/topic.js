@@ -664,7 +664,7 @@ export default Controller.extend(bufferedProperty("model"), {
           action: Composer.REPLY,
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
-          meta_tag_id: 'summary'
+          meta_tag: 'summary'
         };
 
         if (quotedText) {
@@ -714,7 +714,7 @@ export default Controller.extend(bufferedProperty("model"), {
           action: Composer.REPLY,
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
-          meta_tag_id: 'sponsor'
+          meta_tag: 'sponsor'
         };
 
         if (quotedText) {
@@ -764,7 +764,7 @@ export default Controller.extend(bufferedProperty("model"), {
           action: Composer.REPLY,
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
-          meta_tag_id: 'opinion'
+          meta_tag: 'opinion'
         };
 
         if (quotedText) {
