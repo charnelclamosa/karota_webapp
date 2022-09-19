@@ -81,6 +81,7 @@ class Post < ActiveRecord::Base
   MISSING_UPLOADS_IGNORED ||= "missing uploads ignored"
   NOTICE                  ||= "notice"
   META_TAG                ||= "meta_tag"
+  USER_GENERATED_TAGS     ||= "user_generated_tags"
 
   SHORT_POST_CHARS ||= 1200
 
@@ -90,6 +91,7 @@ class Post < ActiveRecord::Base
   register_custom_field_type(NOTICE, :json)
 
   register_custom_field_type(META_TAG, :string)
+  register_custom_field_type(USER_GENERATED_TAGS, :string)
 
   scope :private_posts_for_user, ->(user) do
     where(

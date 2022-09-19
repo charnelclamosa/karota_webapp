@@ -453,6 +453,26 @@ createWidget("post-group-request", {
   },
 });
 
+createWidget("post-user-generated-tags", {
+  buildKey: (attrs) => `post-user-generated-tags-${attrs.id}`,
+
+  buildClasses() {
+    return "user-generated-tags"
+  },
+
+  html(attrs) {
+    let tags = []
+    attrs.user_generated_tags.forEach(tag => {
+      tags.push(
+        new RawHtml({
+          html: `<li><a href='/tag/${tag}'>#${tag}</a></li>`
+        })
+      )
+    })
+    return h("ul", tags)
+  }
+});
+
 createWidget("post-contents", {
   buildKey: (attrs) => `post-contents-${attrs.id}`,
 
@@ -499,6 +519,10 @@ createWidget("post-contents", {
 
     if (attrs.cooked_hidden && attrs.canSeeHiddenPost) {
       result.push(this.attach("expand-hidden", attrs));
+    }
+
+    if (attrs.user_generated_tags !== undefined) {
+      result.push(this.attach("post-user-generated-tags", attrs))
     }
 
     if (!state.expandedFirstPost && attrs.expandablePost) {
