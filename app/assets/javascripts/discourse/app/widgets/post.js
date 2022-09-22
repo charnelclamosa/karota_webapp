@@ -462,6 +462,9 @@ createWidget("post-user-generated-tags", {
 
   html(attrs) {
     let tags = []
+    if (typeof attrs.user_generated_tags == 'string') {
+      attrs.user_generated_tags = [attrs.user_generated_tags]
+    }
     attrs.user_generated_tags.forEach(tag => {
       tags.push(
         new RawHtml({
@@ -521,7 +524,7 @@ createWidget("post-contents", {
       result.push(this.attach("expand-hidden", attrs));
     }
 
-    if (attrs.user_generated_tags !== undefined) {
+    if (attrs.user_generated_tags !== undefined && attrs.user_generated_tags !== null) {
       result.push(this.attach("post-user-generated-tags", attrs))
     }
 
