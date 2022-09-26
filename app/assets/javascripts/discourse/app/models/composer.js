@@ -415,7 +415,8 @@ const Composer = RestModel.extend({
     "tags",
     "topicFirstPost",
     "minimumRequiredTags",
-    "user.staff"
+    "user.staff",
+    "user_generated_tags"
   )
   cantSubmitPost(
     loading,
@@ -805,13 +806,14 @@ const Composer = RestModel.extend({
       tags: opts.tags,
       noBump: opts.noBump,
       meta_tag: opts.meta_tag,
-      user_generated_tags: null
+      user_generated_tags: opts.user_generated_tags
     });
 
     if (opts.post) {
       this.setProperties({
         post: opts.post,
         whisper: opts.post.post_type === this.site.post_types.whisper,
+        first_post: opts.post.firstPost
       });
 
       if (!this.topic) {
@@ -966,6 +968,9 @@ const Composer = RestModel.extend({
   editPost(opts) {
     const post = this.post;
     const oldCooked = post.cooked;
+
+    const usgProp = this.getProperties('user_generated_tags')
+    const user_generated_tags = usgProp.user_generated_tags === null ? null : usgProp.user_generated_tags
     let promise = Promise.resolve();
 
     // Update the topic if we're editing the first post
@@ -1000,6 +1005,7 @@ const Composer = RestModel.extend({
       edit_reason: opts.editReason,
       image_sizes: opts.imageSizes,
       cooked: this.getCookedHtml(),
+      user_generated_tags: user_generated_tags
     };
 
     this.serialize(_update_serializer, props);
