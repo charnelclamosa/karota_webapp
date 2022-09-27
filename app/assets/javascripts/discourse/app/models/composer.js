@@ -54,6 +54,7 @@ const CLOSED = "closed",
   _create_serializer = {
     raw: "reply",
     title: "title",
+    subtitle: "subtitle",
     unlist_topic: "unlistTopic",
     category: "categoryId",
     topic_id: "topic.id",
@@ -86,6 +87,7 @@ const CLOSED = "closed",
     reply: "reply",
     action: "action",
     title: "title",
+    subtitle: "subtitle",
     categoryId: "categoryId",
     tags: "tags",
     archetypeId: "archetypeId",
@@ -423,7 +425,8 @@ const Composer = RestModel.extend({
     "topicFirstPost",
     "minimumRequiredTags",
     "user.staff",
-    "user_generated_tags"
+    "user_generated_tags",
+    "subtitle"
   )
   cantSubmitPost(
     loading,
@@ -813,7 +816,8 @@ const Composer = RestModel.extend({
       tags: opts.tags,
       noBump: opts.noBump,
       meta_tag: opts.meta_tag,
-      user_generated_tags: opts.user_generated_tags
+      user_generated_tags: opts.user_generated_tags,
+      subtitle: opts.subtitle
     });
 
     if (opts.post) {
@@ -1133,6 +1137,9 @@ const Composer = RestModel.extend({
     createdPost.setProperties({
       // Incorporate the user-generated tags
       user_generated_tags: this.parseUserGeneratedTags(composer.tags)
+    })
+    createdPost.setProperties({
+      subtitle: composer.subtitle
     })
 
 <<<<<<< HEAD
