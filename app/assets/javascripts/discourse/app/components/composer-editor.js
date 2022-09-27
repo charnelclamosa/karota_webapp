@@ -271,12 +271,10 @@ export default Component.extend(ComposerUploadUppy, {
     minimumPostLength,
     lastValidatedAt
   ) {
-    const action = this.get("composer.action") 
     const postType = this.get("composer.post.post_type");
     if (postType === this.site.get("post_types.small_action")) {
       return;
     }
-    if (action == 'createTopic') return
 
     let reason;
     if (replyLength < 1) {
