@@ -79,6 +79,7 @@ class TopicViewSerializer < ApplicationSerializer
     :is_shared_draft,
     :slow_mode_enabled_until,
     :summarizable,
+    :subtitle
   )
 
   has_one :details, serializer: TopicViewDetailsSerializer, root: false, embed: :objects
@@ -315,5 +316,9 @@ class TopicViewSerializer < ApplicationSerializer
 
   def summarizable
     object.summarizable?
+  end
+  
+  def subtitle
+    object.topic.custom_fields[:subtitle]
   end
 end
