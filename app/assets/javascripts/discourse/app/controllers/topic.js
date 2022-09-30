@@ -38,6 +38,7 @@ import { BookmarkFormData } from "discourse/lib/bookmark";
 import DeleteTopicConfirmModal from "discourse/components/modal/delete-topic-confirm";
 import ConvertToPublicTopicModal from "discourse/components/modal/convert-to-public-topic";
 import JumpToPost from "discourse/components/modal/jump-to-post";
+import { getActionCost } from "discourse/lib/credits/action_to_credits";
 
 let customPostMessageCallbacks = {};
 
@@ -666,6 +667,7 @@ export default Controller.extend(bufferedProperty("model"), {
       } else {
         const opts = {
           action: Composer.REPLY,
+          action_cost: getActionCost(Composer.REPLY),
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
           meta_tag: META_TAG_SUMMARY
@@ -716,6 +718,7 @@ export default Controller.extend(bufferedProperty("model"), {
       } else {
         const opts = {
           action: Composer.REPLY,
+          action_cost: getActionCost(Composer.REPLY),
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
           meta_tag: META_TAG_SPONSOR
@@ -766,6 +769,7 @@ export default Controller.extend(bufferedProperty("model"), {
       } else {
         const opts = {
           action: Composer.REPLY,
+          action_cost: getActionCost(Composer.REPLY),
           draftKey: topic.get("draft_key"),
           draftSequence: topic.get("draft_sequence"),
           meta_tag: META_TAG_OPINION
