@@ -110,9 +110,7 @@ export default createWidget("poster-name", {
     const classNames = nameFirst
       ? ["first", "full-name"]
       : ["first", "username"];
-    console.log("username", username)
-    console.log("name", name)
-    console.log("nameFirst", nameFirst)
+
     if (attrs.staff) {
       classNames.push("staff");
     }
@@ -128,7 +126,6 @@ export default createWidget("poster-name", {
     if (attrs.new_user) {
       classNames.push("new-user");
     }
-    console.log("classNames", classNames)
 
     const primaryGroupName = attrs.primary_group_name;
     if (primaryGroupName && primaryGroupName.length) {

@@ -21,6 +21,7 @@ import { isEmpty } from "@ember/utils";
 import { propertyNotEqual } from "discourse/lib/computed";
 import { extractError, throwAjaxError } from "discourse/lib/ajax-error";
 import { prioritizeNameFallback } from "discourse/lib/settings";
+import { getActionCost } from "discourse/lib/credits/action_to_credits"
 
 let _customizations = [];
 export function registerCustomizationCallback(cb) {
@@ -765,6 +766,8 @@ const Composer = RestModel.extend({
     if (opts.action == 'createTopic') {
       opts.meta_tag = 'summary'
     }
+    opts.action_cost = getActionCost(opts.action)
+    console.log("opts", opts)
 
     let promise = Promise.resolve();
 
@@ -808,6 +811,7 @@ const Composer = RestModel.extend({
       draftSequence: opts.draftSequence,
       composeState: opts.composerState || OPEN,
       action: opts.action,
+      action_cost: opts.action_cost,
       topic: opts.topic,
       targetRecipients: opts.usernames || opts.recipients,
       composerTotalOpened: opts.composerTime,
@@ -1062,6 +1066,7 @@ const Composer = RestModel.extend({
     if (CREATE_TOPIC === this.action || PRIVATE_MESSAGE === this.action) {
       this.set("topic", null);
     }
+    console.log("opts", opts)
 
     const post = this.post;
     const topic = this.topic;
@@ -1129,7 +1134,7 @@ const Composer = RestModel.extend({
       composeState: SAVING,
       stagedPost: state === "staged" && createdPost,
     });
-
+    console.log("composer", composer)
     createdPost.setProperties({
       // Incorporate the meta tag
       meta_tag: composer.meta_tag
