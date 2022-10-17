@@ -110,15 +110,24 @@ class Reporter extends TapReporter {
     this.reportDeprecations();
 
     if (this.failReports.length > 0) {
+<<<<<<< HEAD
       this.out.write("\nFailures:\n\n");
+=======
+      process.stdout.write("\nFailures:\n\n");
+>>>>>>> 85d03045c7 (Sync to forked branch)
 
       this.failReports.forEach(([prefix, data, id]) => {
         if (process.env.GITHUB_ACTIONS) {
           this.out.write(`::error ::QUnit Test Failure: ${data.name}\n`);
         }
 
+<<<<<<< HEAD
         this.id = id;
         super.report(prefix, data);
+=======
+        this._tapReporter.id = id;
+        this._tapReporter.report(prefix, data);
+>>>>>>> 85d03045c7 (Sync to forked branch)
       });
     }
   }

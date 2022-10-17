@@ -452,4 +452,6 @@ RSpec.describe UserSerializer do
       expect(serializer.as_json[:display_sidebar_tags]).to eq(nil)
     end
   end
+
+  include_examples "#display_sidebar_tags", UserSerializer
 end

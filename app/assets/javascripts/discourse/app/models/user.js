@@ -498,6 +498,18 @@ const User = RestModel.extend({
       type: "PUT",
     })
       .then((result) => {
+<<<<<<< HEAD
+=======
+        this.set("bio_excerpt", result.user.bio_excerpt);
+        const userProps = getProperties(
+          this.user_option,
+          "enable_quoting",
+          "enable_defer",
+          "external_links_in_new_tab",
+          "dynamic_favicon"
+        );
+        User.current()?.setProperties(userProps);
+>>>>>>> 85d03045c7 (Sync to forked branch)
         this.setProperties(updatedState);
         this.setProperties(getProperties(result.user, "bio_excerpt"));
         return result;
@@ -1170,6 +1182,80 @@ const User = RestModel.extend({
   trackedTags(trackedTags, watchedTags, watchingFirstPostTags) {
     return [...trackedTags, ...watchedTags, ...watchingFirstPostTags];
   },
+<<<<<<< HEAD
+=======
+
+  @discourseComputed("staff", "groups.[]")
+  allowPersonalMessages() {
+    return (
+      this.staff ||
+      this.isInAnyGroups(
+        this.siteSettings.personal_message_enabled_groups
+          .split("|")
+          .map((groupId) => parseInt(groupId, 10))
+      )
+    );
+  },
+
+  showPopup(options) {
+    const popupTypes = Site.currentProp("onboarding_popup_types");
+    if (!popupTypes[options.id]) {
+      // eslint-disable-next-line no-console
+      console.warn("Cannot display popup with type =", options.id);
+      return;
+    }
+
+    const seenPopups = this.seen_popups || [];
+    if (seenPopups.includes(popupTypes[options.id])) {
+      return;
+    }
+
+    showPopup({
+      ...options,
+      onDismiss: () => this.hidePopupForever(options.id),
+      onDismissAll: () => this.hidePopupForever(),
+    });
+  },
+
+  hidePopupForever(popupId) {
+    // Empty popupId means all popups.
+    const popupTypes = Site.currentProp("onboarding_popup_types");
+    if (popupId && !popupTypes[popupId]) {
+      // eslint-disable-next-line no-console
+      console.warn("Cannot hide popup with type =", popupId);
+      return;
+    }
+
+    // Hide any shown popups.
+    let seenPopups = this.seen_popups || [];
+    if (popupId) {
+      hidePopup(popupId);
+      if (!seenPopups.includes(popupTypes[popupId])) {
+        seenPopups.push(popupTypes[popupId]);
+      }
+    } else {
+      Object.keys(popupTypes).forEach(hidePopup);
+      seenPopups = Object.values(popupTypes);
+    }
+
+    // Show next popup in queue.
+    showNextPopup();
+
+    // Save seen popups on the server.
+    if (!this.user_option) {
+      this.set("user_option", {});
+    }
+    this.set("seen_popups", seenPopups);
+    this.set("user_option.seen_popups", seenPopups);
+    if (popupId) {
+      return this.save(["seen_popups"]);
+    } else {
+      this.set("skip_new_user_tips", true);
+      this.set("user_option.skip_new_user_tips", true);
+      return this.save(["seen_popups", "skip_new_user_tips"]);
+    }
+  },
+>>>>>>> 85d03045c7 (Sync to forked branch)
 });
 
 User.reopenClass(Singleton, {

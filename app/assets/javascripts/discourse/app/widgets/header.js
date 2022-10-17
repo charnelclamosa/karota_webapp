@@ -151,6 +151,37 @@ createWidget("header-notifications", {
       !attrs.active
     );
   },
+
+  didRenderWidget() {
+    if (
+      !this.currentUser ||
+      !this.siteSettings.enable_onboarding_popups ||
+      !this._shouldHighlightAvatar()
+    ) {
+      return;
+    }
+
+    this.currentUser.showPopup({
+      id: "first_notification",
+
+      titleText: I18n.t("popup.first_notification.title"),
+      contentText: I18n.t("popup.first_notification.content"),
+
+      reference: document
+        .querySelector(".badge-notification")
+        ?.parentElement?.querySelector(".avatar"),
+
+      placement: "bottom-end",
+    });
+  },
+
+  destroy() {
+    hidePopup("first_notification");
+  },
+
+  willRerenderWidget() {
+    hidePopup("first_notification");
+  },
 });
 
 createWidget(

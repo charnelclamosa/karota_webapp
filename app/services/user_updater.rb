@@ -235,6 +235,10 @@ class UserUpdater
         update_user_status(attributes[:status]) if attributes.has_key?(:status)
       end
 
+      if SiteSetting.enable_user_status?
+        update_user_status(attributes[:status])
+      end
+
       name_changed = user.name_changed?
       saved =
         (!save_options || user.user_option.save) &&
@@ -356,6 +360,14 @@ class UserUpdater
       )
     else
       sso.destroy!
+    end
+  end
+
+  def update_user_status(status)
+    if status.blank?
+      @user.clear_status!
+    else
+      @user.set_status!(status[:description], status[:emoji], status[:ends_at])
     end
   end
 

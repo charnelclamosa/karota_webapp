@@ -75,6 +75,24 @@ export default class SidebarUserTagsSection extends Component {
     return hasDefaultSidebarTags(this.siteSettings);
   }
 
+  /**
+   * If a site has no default sidebar tags configured, show tags section if the user has personal sidebar tags configured.
+   * Otherwise, hide the tags section from the sidebar for the user.
+   *
+   * If a site has default sidebar tags configured, always display the tags section.
+   */
+  get shouldDisplay() {
+    if (this.hasDefaultSidebarTags) {
+      return true;
+    } else {
+      return this.currentUser.sidebarTags.length > 0;
+    }
+  }
+
+  get hasDefaultSidebarTags() {
+    return this.siteSettings.default_sidebar_tags.length > 0;
+  }
+
   @action
   showModal() {
     this.modal.show(SidebarEditNavigationMenuTagsModal);

@@ -137,6 +137,60 @@
       }
     }
 
+    .nav-overflow__scroll-right,
+    .nav-overflow__scroll-left {
+      --fade-width: 20px;
+      opacity: 1;
+      position: absolute;
+      z-index: 2;
+      background-color: var(--secondary);
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      transition: opacity 0.25s;
+      .d-icon {
+        pointer-events: none;
+        margin-bottom: 0.2em;
+        color: var(--tertiary);
+      }
+      &.transparent {
+        // hiding with opacity so we can transition visibility
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .nav-overflow__scroll-right {
+      right: 0;
+      &:before {
+        content: "";
+        margin-left: -1.5em;
+        height: 100%;
+        width: 1.5em;
+        background: linear-gradient(
+          to left,
+          rgba(var(--secondary-rgb), 1),
+          rgba(var(--secondary-rgb), 0)
+        );
+      }
+    }
+
+    .nav-overflow__scroll-left {
+      left: 0;
+      &:after {
+        content: "";
+        margin-right: -1.5em;
+        height: 100%;
+        width: 1.5em;
+        background: linear-gradient(
+          to right,
+          rgba(var(--secondary-rgb), 1),
+          rgba(var(--secondary-rgb), 0)
+        );
+      }
+    }
+
     .nav-pills {
       flex: 1 1 auto;
       font-size: var(--font-down-1);

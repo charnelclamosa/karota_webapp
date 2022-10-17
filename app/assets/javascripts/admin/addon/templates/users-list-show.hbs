@@ -228,6 +228,8 @@
               @outletArgs={{hash user=user query=this.query}}
             />
 
+            <PluginOutlet @name="admin-users-list-td-after" @args={{hash user=user query=this.query}} />
+
             {{#if this.siteSettings.must_approve_users}}
               <div class="directory-table__cell">
                 <span class="directory-table__label">
