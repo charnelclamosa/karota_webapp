@@ -811,15 +811,22 @@ createWidget("post-article", {
       rows.push(h("div.row", [this.attach("post-notice", attrs)]));
     }
 
-    rows.push(
-      h("div.row", [
-        this.attach("post-avatar", attrs),
-        this.attach("post-body", {
-          ...attrs,
-          repliesAbove: state.repliesAbove,
-        }),
-      ])
-    );
+    if (attrs.replyToUsername) {
+      rows.push(
+        h("div.row", [
+          h("div.nested-reply"),
+          this.attach("post-avatar", attrs),
+          this.attach("post-body", attrs),
+        ])
+      );
+    } else {
+      rows.push(
+        h("div.row", [
+          this.attach("post-avatar", attrs),
+          this.attach("post-body", attrs),
+        ])
+      );
+    }
     return rows;
   },
 
