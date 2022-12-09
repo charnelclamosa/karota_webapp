@@ -10,7 +10,30 @@ class RemoteTheme < ActiveRecord::Base
     maximum_discourse_version
   ]
 
+<<<<<<< HEAD
   class ImportError < StandardError
+=======
+  class ImportError < StandardError; end
+
+  ALLOWED_FIELDS = %w{scss embedded_scss head_tag header after_header body_tag footer}
+
+  GITHUB_REGEXP = /^https?:\/\/github\.com\//
+  GITHUB_SSH_REGEXP = /^ssh:\/\/git@github\.com:/
+
+  has_one :theme, autosave: false
+  scope :joined_remotes, -> {
+    joins("JOIN themes ON themes.remote_theme_id = remote_themes.id").where.not(remote_url: "")
+  }
+
+  validates_format_of :minimum_discourse_version, :maximum_discourse_version, with: Discourse::VERSION_REGEXP, allow_nil: true
+
+  def self.extract_theme_info(importer)
+    json = JSON.parse(importer["about.json"])
+    json.fetch("name")
+    json
+  rescue TypeError, JSON::ParserError, KeyError
+    raise ImportError.new I18n.t("themes.import_error.about_json")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   ALLOWED_FIELDS = %w[

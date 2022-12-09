@@ -4,7 +4,11 @@ import {
   exists,
   visible,
 } from "discourse/tests/helpers/qunit-helpers";
+<<<<<<< HEAD
 import { skip } from "qunit";
+=======
+import { test } from "qunit";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 acceptance("Discourse Chat - Chat live pane collapse", function (needs) {
   needs.user({
@@ -30,7 +34,11 @@ acceptance("Discourse Chat - Chat live pane collapse", function (needs) {
             id: 1,
             message: "https://www.youtube.com/watch?v=aOWkVdU4NH0",
             cooked:
+<<<<<<< HEAD
               '<div class="youtube-onebox lazy-video-container" data-video-id="aOWkVdU4NH0" data-video-title="Picnic with my cat (shaved ice &amp; lemonade)" data-provider-name="youtube"> <a href="https://www.youtube.com/watch?v=aOWkVdU4NH0" target="_blank" rel="nofollow ugc noopener"> <img class="youtube-thumbnail" src="https://img.youtube.com/vi/aOWkVdU4NH0/maxresdefault.jpg" title="Picnic with my cat (shaved ice &amp; lemonade)"> </a> </div>',
+=======
+              '<div class="onebox lazyYT lazyYT-container" data-youtube-id="aOWkVdU4NH0" data-youtube-title="Picnic with my cat (shaved ice &amp; lemonade)" data-parameters="feature=oembed&amp;wmode=opaque"> <a href="https://www.youtube.com/watch?v=aOWkVdU4NH0" target="_blank" rel="nofollow ugc noopener"> <img class="ytp-thumbnail-image" src="/images/discourse-logo-sketch.png" title="Picnic with my cat (shaved ice &amp; lemonade)"></a></div>',
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             excerpt:
               '<a href="https://www.youtube.com/watch?v=aOWkVdU4NH0">[Picnic with my cat (shaved ice &amp; lemonade&hellip;</a>',
             created_at: "2021-07-20T08:14:16.950Z",
@@ -106,34 +114,57 @@ acceptance("Discourse Chat - Chat live pane collapse", function (needs) {
     );
   });
 
+<<<<<<< HEAD
   skip("can collapse and expand videos in chat", async function (assert) {
     const videoContainer =
       ".chat-message-container[data-id='1'] .lazy-video-container";
+=======
+  test("can collapse and expand youtube chat", async function (assert) {
+    const youtubeContainer = ".chat-message-container[data-id='1'] .lazyYT";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const expandImage =
       ".chat-message-container[data-id='1'] .chat-message-collapser-closed";
     const collapseImage =
       ".chat-message-container[data-id='1'] .chat-message-collapser-opened";
 
+<<<<<<< HEAD
     await visit("/chat/c/cat/1");
 
     assert.ok(visible(videoContainer));
+=======
+    await visit("/chat/channel/1/cat");
+
+    assert.ok(visible(youtubeContainer));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(visible(collapseImage), "the open arrow is shown");
     assert.notOk(exists(expandImage), "the close arrow is hidden");
 
     await click(collapseImage);
 
+<<<<<<< HEAD
     assert.notOk(visible(videoContainer));
+=======
+    assert.notOk(visible(youtubeContainer));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(visible(expandImage), "the close arrow is shown");
     assert.notOk(exists(collapseImage), "the open arrow is hidden");
 
     await click(expandImage);
 
+<<<<<<< HEAD
     assert.ok(visible(videoContainer));
+=======
+    assert.ok(visible(youtubeContainer));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(visible(collapseImage), "the open arrow is shown again");
     assert.notOk(exists(expandImage), "the close arrow is hidden again");
   });
 
+<<<<<<< HEAD
   skip("lightbox shows up before and after expand and collapse", async function (assert) {
+=======
+  test("lightbox shows up before and after expand and collapse", async function (assert) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const lightboxImage = ".mfp-img";
     const image = ".chat-message-container[data-id='2'] .chat-img-upload";
     const expandImage =
@@ -141,7 +172,11 @@ acceptance("Discourse Chat - Chat live pane collapse", function (needs) {
     const collapseImage =
       ".chat-message-container[data-id='2'] .chat-message-collapser-opened";
 
+<<<<<<< HEAD
     await visit("/chat/c/cat/1");
+=======
+    await visit("/chat/channel/1/cat");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     await click(image);
 

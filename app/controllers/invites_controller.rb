@@ -17,8 +17,13 @@ class InvitesController < ApplicationController
   skip_before_action :preload_json, except: [:show]
   skip_before_action :redirect_to_login_if_required
 
+<<<<<<< HEAD
   before_action :ensure_invites_allowed, only: %i[show perform_accept_invitation]
   before_action :ensure_new_registrations_allowed, only: %i[show perform_accept_invitation]
+=======
+  before_action :ensure_invites_allowed, only: [:show, :perform_accept_invitation]
+  before_action :ensure_new_registrations_allowed, only: [:show, :perform_accept_invitation]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def show
     expires_now
@@ -255,7 +260,14 @@ class InvitesController < ApplicationController
 
     if invite.present?
       begin
+<<<<<<< HEAD
         attrs = { ip_address: request.remote_ip, session: session }
+=======
+        attrs = {
+          ip_address: request.remote_ip,
+          session: session
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         if redeeming_user
           attrs[:redeeming_user] = redeeming_user
@@ -289,7 +301,13 @@ class InvitesController < ApplicationController
         return render json: failed_json.merge(message: I18n.t("invite.not_found_json")), status: 404
       end
 
+<<<<<<< HEAD
       log_on_user(user) if !redeeming_user && user.active? && user.guardian.can_access_forum?
+=======
+      if !redeeming_user && user.active? && user.guardian.can_access_forum?
+        log_on_user(user)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       user.update_timezone_if_missing(params[:timezone])
       post_process_invite(user)
@@ -300,7 +318,13 @@ class InvitesController < ApplicationController
 
       if user.present?
         if user.active? && user.guardian.can_access_forum?
+<<<<<<< HEAD
           response[:message] = I18n.t("invite.existing_user_success") if redeeming_user
+=======
+          if redeeming_user
+            response[:message] = I18n.t("invite.existing_user_success")
+          end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           if user.guardian.can_see?(topic)
             response[:redirect_to] = path(topic.relative_url)
@@ -439,7 +463,13 @@ class InvitesController < ApplicationController
 
     email_verified_by_link = invite.email_token.present? && params[:t] == invite.email_token
 
+<<<<<<< HEAD
     email = invite.email if email_verified_by_link
+=======
+    if email_verified_by_link
+      email = invite.email
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     hidden_email = email != invite.email
 
@@ -455,10 +485,19 @@ class InvitesController < ApplicationController
       hidden_email: hidden_email,
       username: username,
       is_invite_link: invite.is_invite_link?,
+<<<<<<< HEAD
       email_verified_by_link: email_verified_by_link,
     }
 
     info[:different_external_email] = true if different_external_email
+=======
+      email_verified_by_link: email_verified_by_link
+    }
+
+    if different_external_email
+      info[:different_external_email] = true
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if staged_user = User.where(staged: true).with_email(invite.email).first
       info[:username] = staged_user.username
@@ -477,6 +516,7 @@ class InvitesController < ApplicationController
 
     secure_session["invite-key"] = invite.invite_key
 
+<<<<<<< HEAD
     render layout: "application"
   end
 
@@ -502,6 +542,26 @@ class InvitesController < ApplicationController
     end
 
     render layout: "no_ember"
+=======
+    render layout: 'application'
+  end
+
+  def show_irredeemable_invite(invite)
+    flash.now[:error] = \
+      if invite.blank?
+        I18n.t('invite.not_found', base_url: Discourse.base_url)
+      elsif invite.redeemed?
+        if invite.is_invite_link?
+          I18n.t('invite.not_found_template_link', site_name: SiteSetting.title, base_url: Discourse.base_url)
+        else
+          I18n.t('invite.not_found_template', site_name: SiteSetting.title, base_url: Discourse.base_url)
+        end
+      elsif invite.expired?
+        I18n.t('invite.expired', base_url: Discourse.base_url)
+      end
+
+    render layout: 'no_ember'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def ensure_invites_allowed
@@ -515,8 +575,13 @@ class InvitesController < ApplicationController
 
   def ensure_new_registrations_allowed
     unless SiteSetting.allow_new_registrations
+<<<<<<< HEAD
       flash[:error] = I18n.t("login.new_registrations_disabled")
       render layout: "no_ember"
+=======
+      flash[:error] = I18n.t('login.new_registrations_disabled')
+      render layout: 'no_ember'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       false
     end
   end

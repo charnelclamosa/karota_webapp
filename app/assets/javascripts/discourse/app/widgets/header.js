@@ -12,7 +12,11 @@ import { wantsNewWindow } from "discourse/lib/intercept-click";
 import { logSearchLinkClick } from "discourse/lib/search";
 import RenderGlimmer from "discourse/widgets/render-glimmer";
 import { hbs } from "ember-cli-htmlbars";
+<<<<<<< HEAD
 import { SEARCH_BUTTON_ID } from "discourse/components/search-menu";
+=======
+import { hideUserTip } from "discourse/lib/user-tips";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let _extraHeaderIcons = [];
 
@@ -85,6 +89,7 @@ createWidget("header-notifications", {
     if (user.isInDoNotDisturb()) {
       contents.push(h("div.do-not-disturb-background", iconNode("moon")));
     } else {
+<<<<<<< HEAD
       if (user.new_personal_messages_notifications_count) {
         contents.push(
           this.attach("link", {
@@ -136,6 +141,85 @@ createWidget("header-notifications", {
             },
           })
         );
+=======
+      if (this.currentUser.redesigned_user_menu_enabled) {
+        let ringClass = null;
+        if (user.new_personal_messages_notifications_count) {
+          ringClass = "personal-messages";
+          contents.push(
+            this.attach("link", {
+              action: attrs.action,
+              className: "badge-notification with-icon new-pms",
+              icon: "envelope",
+              omitSpan: true,
+              title: "notifications.tooltip.new_message_notification",
+              titleOptions: {
+                count: user.new_personal_messages_notifications_count,
+              },
+            })
+          );
+        } else if (user.unseen_reviewable_count) {
+          contents.push(
+            this.attach("link", {
+              action: attrs.action,
+              className: "badge-notification with-icon new-reviewables",
+              icon: "flag",
+              omitSpan: true,
+              title: "notifications.tooltip.new_reviewable",
+              titleOptions: { count: user.unseen_reviewable_count },
+            })
+          );
+        } else if (user.all_unread_notifications_count) {
+          ringClass = "regular-notifications";
+          contents.push(
+            this.attach("link", {
+              action: attrs.action,
+              className: "badge-notification unread-notifications",
+              rawLabel: user.all_unread_notifications_count,
+              omitSpan: true,
+              title: "notifications.tooltip.regular",
+              titleOptions: { count: user.all_unread_notifications_count },
+            })
+          );
+        }
+        if (ringClass && this._shouldHighlightAvatar()) {
+          contents.push(h(`span.ring.revamped.${ringClass}`));
+        }
+      } else {
+        const unreadNotifications = user.unread_notifications;
+        if (!!unreadNotifications) {
+          contents.push(
+            this.attach("link", {
+              action: attrs.action,
+              className: "badge-notification unread-notifications",
+              rawLabel: unreadNotifications,
+              omitSpan: true,
+              title: "notifications.tooltip.regular",
+              titleOptions: { count: unreadNotifications },
+            })
+          );
+        }
+
+        const unreadHighPriority = user.unread_high_priority_notifications;
+        if (!!unreadHighPriority) {
+          if (this._shouldHighlightAvatar()) {
+            contents.push(h("span.ring"));
+          }
+
+          // add the counter for the unread high priority
+          contents.push(
+            this.attach("link", {
+              action: attrs.action,
+              className:
+                "badge-notification unread-high-priority-notifications",
+              rawLabel: unreadHighPriority,
+              omitSpan: true,
+              title: "notifications.tooltip.high_priority",
+              titleOptions: { count: unreadHighPriority },
+            })
+          );
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     }
 
@@ -153,34 +237,31 @@ createWidget("header-notifications", {
   },
 
   didRenderWidget() {
-    if (
-      !this.currentUser ||
-      !this.siteSettings.enable_onboarding_popups ||
-      !this._shouldHighlightAvatar()
-    ) {
+    if (!this.currentUser || !this._shouldHighlightAvatar()) {
       return;
     }
 
-    this.currentUser.showPopup({
+    this.currentUser.showUserTip({
       id: "first_notification",
 
-      titleText: I18n.t("popup.first_notification.title"),
-      contentText: I18n.t("popup.first_notification.content"),
+      titleText: I18n.t("user_tips.first_notification.title"),
+      contentText: I18n.t("user_tips.first_notification.content"),
 
       reference: document
-        .querySelector(".badge-notification")
+        .querySelector(".d-header .badge-notification")
         ?.parentElement?.querySelector(".avatar"),
+      appendTo: document.querySelector(".d-header .panel"),
 
       placement: "bottom-end",
     });
   },
 
   destroy() {
-    hidePopup("first_notification");
+    hideUserTip("first_notification");
   },
 
   willRerenderWidget() {
-    hidePopup("first_notification");
+    hideUserTip("first_notification");
   },
 });
 
@@ -306,7 +387,15 @@ createWidget("header-icons", {
       },
     });
 
+<<<<<<< HEAD
     if (!attrs.sidebarEnabled || this.site.mobileView) {
+=======
+    if (
+      this.siteSettings.navigation_menu === "legacy" ||
+      !attrs.sidebarEnabled ||
+      this.site.mobileView
+    ) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       icons.push(hamburger);
     }
 
@@ -487,7 +576,11 @@ export default createWidget("header", {
       const headerIcons = this.attach("header-icons", {
         hamburgerVisible: state.hamburgerVisible,
         userVisible: state.userVisible,
+<<<<<<< HEAD
         searchVisible: state.searchVisible || this.search.visible,
+=======
+        searchVisible: state.searchVisible,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         flagCount: attrs.flagCount,
         user: this.currentUser,
         sidebarEnabled: attrs.sidebarEnabled,
@@ -512,6 +605,7 @@ export default createWidget("header", {
           );
         }
       } else if (state.hamburgerVisible) {
+<<<<<<< HEAD
         if (
           attrs.navigationMenuQueryParamOverride === "header_dropdown" ||
           (attrs.navigationMenuQueryParamOverride !== "legacy" &&
@@ -519,6 +613,12 @@ export default createWidget("header", {
             (!attrs.sidebarEnabled || this.site.narrowDesktopView))
         ) {
           panels.push(this.attach("revamped-hamburger-menu-wrapper", {}));
+=======
+        if (this.siteSettings.navigation_menu !== "legacy") {
+          if (!attrs.sidebarEnabled || this.site.narrowDesktopView) {
+            panels.push(this.attach("revamped-hamburger-menu-wrapper", {}));
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         } else {
           panels.push(this.attach("hamburger-menu"));
         }

@@ -2,6 +2,10 @@ import Service, { inject as service } from "@ember/service";
 import { cancel, debounce } from "@ember/runloop";
 import { isTesting } from "discourse-common/config/environment";
 
+<<<<<<< HEAD
+=======
+const CHAT_PRESENCE_CHANNEL_PREFIX = "/chat-reply";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 const KEEP_ALIVE_DURATION_SECONDS = 10;
 
 // This service is loosely based on discourse-presence's ComposerPresenceManager service
@@ -15,15 +19,25 @@ export default class ChatComposerPresenceManager extends Service {
     this.leave();
   }
 
+<<<<<<< HEAD
   notifyState(channelName, replying) {
+=======
+  notifyState(chatChannelId, replying) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (!replying) {
       this.leave();
       return;
     }
 
+<<<<<<< HEAD
     if (this._channelName !== channelName) {
       this._enter(channelName);
       this._channelName = channelName;
+=======
+    if (this._chatChannelId !== chatChannelId) {
+      this._enter(chatChannelId);
+      this._chatChannelId = chatChannelId;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     if (!isTesting()) {
@@ -38,16 +52,27 @@ export default class ChatComposerPresenceManager extends Service {
   leave() {
     this._presentChannel?.leave();
     this._presentChannel = null;
+<<<<<<< HEAD
     this._channelName = null;
+=======
+    this._chatChannelId = null;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (this._autoLeaveTimer) {
       cancel(this._autoLeaveTimer);
       this._autoLeaveTimer = null;
     }
   }
 
+<<<<<<< HEAD
   _enter(channelName) {
     this.leave();
 
+=======
+  _enter(chatChannelId) {
+    this.leave();
+
+    let channelName = `${CHAT_PRESENCE_CHANNEL_PREFIX}/${chatChannelId}`;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this._presentChannel = this.presence.getChannel(channelName);
     this._presentChannel.enter();
   }

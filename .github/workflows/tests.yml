@@ -48,8 +48,11 @@ jobs:
             target: plugins
           - build_type: frontend
             target: core # Handled by core_frontend_tests job (below)
+<<<<<<< HEAD
           - build_type: backend
             embroider: "1"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     steps:
       - name: Set working directory owner
@@ -218,12 +221,20 @@ jobs:
 
       - name: Core System Tests
         if: matrix.build_type == 'system' && matrix.target == 'core'
+<<<<<<< HEAD
         run: RAILS_ENABLE_TEST_LOG=1 RAILS_TEST_LOG_LEVEL=error PARALLEL_TEST_PROCESSORS=4 bin/turbo_rspec --use-runtime-info --profile=50 --verbose --format documentation spec/system
 
       - name: Plugin System Tests
         if: matrix.build_type == 'system' && matrix.target == 'plugins'
         run: LOAD_PLUGINS=1 RAILS_ENABLE_TEST_LOG=1 RAILS_TEST_LOG_LEVEL=error PARALLEL_TEST_PROCESSORS=4 bin/turbo_rspec --use-runtime-info --profile=50 --verbose --format documentation plugins/*/spec/system
         timeout-minutes: 30
+=======
+        run: bin/rspec spec/system --format documentation --profile
+
+      - name: Plugin System Tests
+        if: matrix.build_type == 'system' && matrix.target == 'plugins'
+        run: LOAD_PLUGINS=1 bin/rspec plugins/*/spec/system
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       - name: Upload failed system test screenshots
         uses: actions/upload-artifact@v3
@@ -277,7 +288,11 @@ jobs:
       TESTEM_FIREFOX_PATH: ${{ (matrix.browser == 'Firefox Evergreen') && '/opt/firefox-evergreen/firefox' }}
 
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v4
+=======
+      - uses: actions/checkout@v3
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         with:
           fetch-depth: 1
 

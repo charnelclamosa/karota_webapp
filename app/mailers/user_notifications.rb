@@ -601,6 +601,7 @@ class UserNotifications < ActionMailer::Base
 
     # tag names
     if opts[:show_tags_in_subject] && post.topic_id
+<<<<<<< HEAD
       max_tags =
         if SiteSetting.enable_max_tags_per_email_subject
           SiteSetting.max_tags_per_email_subject
@@ -608,13 +609,19 @@ class UserNotifications < ActionMailer::Base
           SiteSetting.max_tags_per_topic
         end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       tags =
         DiscourseTagging
           .visible_tags(Guardian.new(user))
           .joins(:topic_tags)
           .where("topic_tags.topic_id = ?", post.topic_id)
+<<<<<<< HEAD
           .order("tags.public_topic_count DESC", "tags.name ASC")
           .limit(max_tags)
+=======
+          .limit(3)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           .pluck(:name)
 
       show_tags_in_subject = tags.any? ? tags.join(" ") : nil

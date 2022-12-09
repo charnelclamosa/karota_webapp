@@ -10,8 +10,13 @@ import {
 import { test } from "qunit";
 
 acceptance("Composer - Image Preview", function (needs) {
+<<<<<<< HEAD
   needs.user({});
   needs.settings({ allow_uncategorized_topics: true });
+=======
+  needs.user();
+  needs.settings({ enable_whispers: true, allow_uncategorized_topics: true });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   needs.site({ can_tag_topics: true });
   needs.pretender((server, helper) => {
     server.post("/uploads/lookup-urls", () => {

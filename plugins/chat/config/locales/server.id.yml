@@ -5,6 +5,7 @@
 # https://translate.discourse.org/
 
 id:
+<<<<<<< HEAD
   site_settings:
     chat_enabled: "Aktifkan obrolan."
     enable_public_channels: "Aktifkan saluran publik berdasarkan kategori."
@@ -229,3 +230,23 @@ id:
   category:
     cannot_delete:
       has_chat_channels: "Tidak dapat menghapus kategori ini karena memiliki kanal obrolan."
+=======
+  chat:
+    deleted_chat_username: dihapus
+    reviewables:
+      actions:
+        ignore:
+          title: "Abaikan"
+    channel:
+      statuses:
+        closed: "Tertutup"
+        open: "Buka"
+  reviewable_score_types:
+    notify_user:
+      chat_pm_body: "%{link}\n\n%{message}"
+    notify_moderators:
+      chat_pm_body: "%{link}\n\n%{message}"
+  unsubscribe:
+    chat_summary:
+      never: Tidak pernah
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

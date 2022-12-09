@@ -90,6 +90,7 @@ RSpec.describe InvitesController do
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
         expect(response.body).to have_tag(:script, with: { src: "/assets/discourse.js" })
+<<<<<<< HEAD
         expect(response.body).not_to include(
           I18n.t(
             "invite.not_found_template",
@@ -105,16 +106,32 @@ RSpec.describe InvitesController do
           expect(invite_info["email"]).to eq(user.email)
           expect(invite_info["existing_user_id"]).to eq(user.id)
           expect(invite_info["existing_user_can_redeem"]).to eq(true)
+=======
+        expect(response.body).not_to include(I18n.t('invite.not_found_template', site_name: SiteSetting.title, base_url: Discourse.base_url))
+
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['username']).to eq(user.username)
+          expect(invite_info['email']).to eq(user.email)
+          expect(invite_info['existing_user_id']).to eq(user.id)
+          expect(invite_info['existing_user_can_redeem']).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
       it "shows the accept invite page when user's email domain matches the domain an invite link is restricted to" do
+<<<<<<< HEAD
         invite.update!(email: nil, domain: "discourse.org")
+=======
+        invite.update!(email: nil, domain: 'discourse.org')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         user.update!(email: "someguy@discourse.org")
 
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
         expect(response.body).to have_tag(:script, with: { src: "/assets/discourse.js" })
+<<<<<<< HEAD
         expect(response.body).not_to include(
           I18n.t(
             "invite.not_found_template",
@@ -130,6 +147,17 @@ RSpec.describe InvitesController do
           expect(invite_info["email"]).to eq(user.email)
           expect(invite_info["existing_user_id"]).to eq(user.id)
           expect(invite_info["existing_user_can_redeem"]).to eq(true)
+=======
+        expect(response.body).not_to include(I18n.t('invite.not_found_template', site_name: SiteSetting.title, base_url: Discourse.base_url))
+
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['username']).to eq(user.username)
+          expect(invite_info['email']).to eq(user.email)
+          expect(invite_info['existing_user_id']).to eq(user.id)
+          expect(invite_info['existing_user_can_redeem']).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -140,6 +168,7 @@ RSpec.describe InvitesController do
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
 
+<<<<<<< HEAD
         expect(response.body).to have_tag("div#data-preloaded") do |element|
           json = JSON.parse(element.current_scope.attribute("data-preloaded").value)
           invite_info = JSON.parse(json["invite_info"])
@@ -147,6 +176,13 @@ RSpec.describe InvitesController do
           expect(invite_info["existing_user_can_redeem_error"]).to eq(
             I18n.t("invite.existing_user_cannot_redeem"),
           )
+=======
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['existing_user_can_redeem']).to eq(false)
+          expect(invite_info['existing_user_can_redeem_error']).to eq(I18n.t("invite.existing_user_cannot_redeem"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -156,10 +192,17 @@ RSpec.describe InvitesController do
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
 
+<<<<<<< HEAD
         expect(response.body).to have_tag("div#data-preloaded") do |element|
           json = JSON.parse(element.current_scope.attribute("data-preloaded").value)
           invite_info = JSON.parse(json["invite_info"])
           expect(invite_info["existing_user_can_redeem"]).to eq(false)
+=======
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['existing_user_can_redeem']).to eq(false)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -170,6 +213,7 @@ RSpec.describe InvitesController do
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
 
+<<<<<<< HEAD
         expect(response.body).to have_tag("div#data-preloaded") do |element|
           json = JSON.parse(element.current_scope.attribute("data-preloaded").value)
           invite_info = JSON.parse(json["invite_info"])
@@ -178,6 +222,14 @@ RSpec.describe InvitesController do
           expect(invite_info["existing_user_can_redeem_error"]).to eq(
             I18n.t("invite.existing_user_already_redemeed"),
           )
+=======
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['existing_user_id']).to eq(user.id)
+          expect(invite_info['existing_user_can_redeem']).to eq(false)
+          expect(invite_info['existing_user_can_redeem_error']).to eq(I18n.t("invite.existing_user_already_redemeed"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -187,11 +239,19 @@ RSpec.describe InvitesController do
         get "/invites/#{invite.invite_key}"
         expect(response.status).to eq(200)
 
+<<<<<<< HEAD
         expect(response.body).to have_tag("div#data-preloaded") do |element|
           json = JSON.parse(element.current_scope.attribute("data-preloaded").value)
           invite_info = JSON.parse(json["invite_info"])
           expect(invite_info["existing_user_id"]).to eq(user.id)
           expect(invite_info["existing_user_can_redeem"]).to eq(true)
+=======
+        expect(response.body).to have_tag('div#data-preloaded') do |element|
+          json = JSON.parse(element.current_scope.attribute('data-preloaded').value)
+          invite_info = JSON.parse(json['invite_info'])
+          expect(invite_info['existing_user_id']).to eq(user.id)
+          expect(invite_info['existing_user_can_redeem']).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -727,8 +787,13 @@ RSpec.describe InvitesController do
         expect(user.user_option.timezone).to eq("Australia/Melbourne")
       end
 
+<<<<<<< HEAD
       it "does not log in the user if there are validation errors" do
         put "/invites/show/#{invite.invite_key}.json", params: { password: "password" }
+=======
+      it 'does not log in the user if there are validation errors' do
+        put "/invites/show/#{invite.invite_key}.json", params: { password: 'password' }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(412)
         expect(session[:current_user_id]).to eq(nil)
@@ -984,6 +1049,7 @@ RSpec.describe InvitesController do
         Fabricate(:invite, email: nil, emailed_status: Invite.emailed_status_types[:not_required])
       end
 
+<<<<<<< HEAD
       it "does not create multiple users for a single use invite" do
         user_count = User.count
 
@@ -1012,6 +1078,11 @@ RSpec.describe InvitesController do
                 email: "test@example.com",
                 password: "verystrongpassword",
               }
+=======
+      it 'sends an activation email and does not activate the user' do
+        expect {
+          put "/invites/show/#{invite.invite_key}.json", params: { email: 'test@example.com', password: 'verystrongpassword' }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }.not_to change { UserAuthToken.count }
 
         expect(response.status).to eq(200)
@@ -1059,6 +1130,24 @@ RSpec.describe InvitesController do
         expect(response.parsed_body["message"]).to include("Primary email has already been taken")
         expect(invite.reload.redemption_count).to eq(0)
       end
+
+      it "does not automatically log in the user if their email matches an existing user's and shows an error" do
+        Fabricate(:user, email: 'test@example.com')
+        put "/invites/show/#{invite.invite_key}.json", params: { email: 'test@example.com', password: 'verystrongpassword' }
+        expect(session[:current_user_id]).to be_blank
+        expect(response.status).to eq(412)
+        expect(response.parsed_body['message']).to include("Primary email has already been taken")
+        expect(invite.reload.redemption_count).to eq(0)
+      end
+
+      it "does not automatically log in the user if their email matches an existing admin's and shows an error" do
+        Fabricate(:admin, email: 'test@example.com')
+        put "/invites/show/#{invite.invite_key}.json", params: { email: 'test@example.com', password: 'verystrongpassword' }
+        expect(session[:current_user_id]).to be_blank
+        expect(response.status).to eq(412)
+        expect(response.parsed_body['message']).to include("Primary email has already been taken")
+        expect(invite.reload.redemption_count).to eq(0)
+      end
     end
 
     context "when new registrations are disabled" do
@@ -1076,6 +1165,7 @@ RSpec.describe InvitesController do
       end
     end
 
+<<<<<<< HEAD
     context "when user is already logged in" do
       before { sign_in(user) }
 
@@ -1085,6 +1175,17 @@ RSpec.describe InvitesController do
         fab!(:group) { Fabricate(:group) }
 
         it "redeems the invitation and creates the invite accepted notification" do
+=======
+    context 'when user is already logged in' do
+      before { sign_in(user) }
+
+      context "for an email invite" do
+        fab!(:invite) { Fabricate(:invite, email: 'test@example.com') }
+        fab!(:user) { Fabricate(:user, email: 'test@example.com') }
+        fab!(:group) { Fabricate(:group) }
+
+        it 'redeems the invitation and creates the invite accepted notification' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
           expect(response.parsed_body["message"]).to eq(I18n.t("invite.existing_user_success"))
@@ -1093,6 +1194,7 @@ RSpec.describe InvitesController do
           expect(invite.redeemed?).to be_truthy
           expect(
             Notification.exists?(
+<<<<<<< HEAD
               user: invite.invited_by,
               notification_type: Notification.types[:invitee_accepted],
             ),
@@ -1100,10 +1202,19 @@ RSpec.describe InvitesController do
         end
 
         it "redirects to the first topic the user was invited to and creates the topic notification" do
+=======
+              user: invite.invited_by, notification_type: Notification.types[:invitee_accepted]
+            )
+          ).to eq(true)
+        end
+
+        it 'redirects to the first topic the user was invited to and creates the topic notification' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           topic = Fabricate(:topic)
           TopicInvite.create!(invite: invite, topic: topic)
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
+<<<<<<< HEAD
           expect(response.parsed_body["redirect_to"]).to eq(topic.relative_url)
           expect(
             Notification.where(
@@ -1111,6 +1222,10 @@ RSpec.describe InvitesController do
               topic: topic,
             ).count,
           ).to eq(1)
+=======
+          expect(response.parsed_body['redirect_to']).to eq(topic.relative_url)
+          expect(Notification.where(notification_type: Notification.types[:invited_to_topic], topic: topic).count).to eq(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "adds the user to the private topic" do
@@ -1118,7 +1233,11 @@ RSpec.describe InvitesController do
           TopicInvite.create!(invite: invite, topic: topic)
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
+<<<<<<< HEAD
           expect(response.parsed_body["redirect_to"]).to eq(topic.relative_url)
+=======
+          expect(response.parsed_body['redirect_to']).to eq(topic.relative_url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(TopicAllowedUser.exists?(user: user, topic: topic)).to eq(true)
         end
 
@@ -1135,6 +1254,7 @@ RSpec.describe InvitesController do
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
           expect(response.parsed_body["message"]).to eq(I18n.t("invite.existing_user_success"))
+<<<<<<< HEAD
           expect(response.parsed_body["redirect_to"]).to eq(topic.relative_url)
           invite.reload
           expect(invite.redeemed?).to be_truthy
@@ -1145,6 +1265,13 @@ RSpec.describe InvitesController do
               topic: topic,
             ).count,
           ).to eq(1)
+=======
+          expect(response.parsed_body['redirect_to']).to eq(topic.relative_url)
+          invite.reload
+          expect(invite.redeemed?).to be_truthy
+          expect(user.reload.groups).to include(group)
+          expect(Notification.where(notification_type: Notification.types[:invited_to_topic], topic: topic).count).to eq(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "does not try to log in the user automatically" do
@@ -1173,10 +1300,17 @@ RSpec.describe InvitesController do
 
       context "for an invite link" do
         fab!(:invite) { Fabricate(:invite, email: nil) }
+<<<<<<< HEAD
         fab!(:user) { Fabricate(:user, email: "test@example.com") }
         fab!(:group) { Fabricate(:group) }
 
         it "redeems the invitation and creates the invite accepted notification" do
+=======
+        fab!(:user) { Fabricate(:user, email: 'test@example.com') }
+        fab!(:group) { Fabricate(:group) }
+
+        it 'redeems the invitation and creates the invite accepted notification' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
           expect(response.parsed_body["message"]).to eq(I18n.t("invite.existing_user_success"))
@@ -1185,6 +1319,7 @@ RSpec.describe InvitesController do
           expect(invite.redeemed?).to be_truthy
           expect(
             Notification.exists?(
+<<<<<<< HEAD
               user: invite.invited_by,
               notification_type: Notification.types[:invitee_accepted],
             ),
@@ -1192,10 +1327,19 @@ RSpec.describe InvitesController do
         end
 
         it "redirects to the first topic the user was invited to and creates the topic notification" do
+=======
+              user: invite.invited_by, notification_type: Notification.types[:invitee_accepted]
+            )
+          ).to eq(true)
+        end
+
+        it 'redirects to the first topic the user was invited to and creates the topic notification' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           topic = Fabricate(:topic)
           TopicInvite.create!(invite: invite, topic: topic)
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
+<<<<<<< HEAD
           expect(response.parsed_body["redirect_to"]).to eq(topic.relative_url)
           expect(
             Notification.where(
@@ -1203,6 +1347,10 @@ RSpec.describe InvitesController do
               topic: topic,
             ).count,
           ).to eq(1)
+=======
+          expect(response.parsed_body['redirect_to']).to eq(topic.relative_url)
+          expect(Notification.where(notification_type: Notification.types[:invited_to_topic], topic: topic).count).to eq(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "adds the user to the groups specified on the invite and allows them to access the secure topic" do
@@ -1218,6 +1366,7 @@ RSpec.describe InvitesController do
           put "/invites/show/#{invite.invite_key}.json", params: { id: invite.invite_key }
           expect(response.status).to eq(200)
           expect(response.parsed_body["message"]).to eq(I18n.t("invite.existing_user_success"))
+<<<<<<< HEAD
           expect(response.parsed_body["redirect_to"]).to eq(topic.relative_url)
           invite.reload
           expect(invite.redeemed?).to be_truthy
@@ -1228,6 +1377,13 @@ RSpec.describe InvitesController do
               topic: topic,
             ).count,
           ).to eq(1)
+=======
+          expect(response.parsed_body['redirect_to']).to eq(topic.relative_url)
+          invite.reload
+          expect(invite.redeemed?).to be_truthy
+          expect(user.reload.groups).to include(group)
+          expect(Notification.where(notification_type: Notification.types[:invited_to_topic], topic: topic).count).to eq(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "does not try to log in the user automatically" do

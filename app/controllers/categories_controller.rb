@@ -316,7 +316,14 @@ class CategoriesController < ApplicationController
       include_topics: false,
     }
 
+<<<<<<< HEAD
     topic_options = { per_page: CategoriesController.topics_per_page, no_definitions: true }
+=======
+    topic_options = {
+      per_page: CategoriesController.topics_per_page,
+      no_definitions: true,
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     topic_options.merge!(build_topic_list_options)
     style = SiteSetting.desktop_category_page_style

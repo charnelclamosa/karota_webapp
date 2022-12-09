@@ -6,6 +6,15 @@ export default DiscourseRoute.extend(ViewingActionType, {
   controllerName: "user-notifications",
   queryParams: { filter: { refreshModel: true } },
 
+<<<<<<< HEAD
+=======
+  @action
+  didTransition() {
+    this.controllerFor("user-notifications")._showFooter();
+    return true;
+  },
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   model(params) {
     const username = this.modelFor("user").get("username");
 

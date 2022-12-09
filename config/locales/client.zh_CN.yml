@@ -161,7 +161,15 @@ zh_CN:
     software_update_prompt:
       message: "我们已经更新此站点，请 <span>刷新页面</span>，否则可能会遇到意外行为。"
       dismiss: "忽略"
+<<<<<<< HEAD
     bootstrap_mode: "使用入门"
+=======
+    bootstrap_mode_enabled:
+      other: "为了更轻松地启动您的新站点，您现在处于引导模式。所有新用户都将被授予信任级别 1，并且已启用每日摘要电子邮件。引导模式会在达到 %{count} 个用户时自动关闭。"
+    bootstrap_mode_disabled: "引导模式将在 24 小时内禁用。"
+    bootstrap_invite_button_title: "发送邀请"
+    bootstrap_wizard_link_title: "完成设置向导"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "默认"
       broken_theme_alert: "您的站点可能无法运行，因为主题/组件有错误。"
@@ -1079,10 +1087,21 @@ zh_CN:
       experimental_sidebar:
         enable: "启用边栏"
         options: "选项"
+<<<<<<< HEAD
         navigation_section: "导航"
         navigation_section_instruction: "当导航菜单中的话题列表有新的或未读条目时…"
         link_to_filtered_list_checkbox_description: "链接到筛选后的列表"
         show_count_new_items_checkbox_description: "显示新条目的数量"
+=======
+        categories_section: "类别版块"
+        categories_section_instruction: "所选类别将显示在边栏的类别版块下。"
+        tags_section: "标签版块"
+        tags_section_instruction: "所选标签将显示在边栏的标签版块下。"
+        navigation_section: "导航"
+        list_destination_instruction: "当边栏中有新内容时…"
+        list_destination_default: "使用默认链接并为新条目显示徽章"
+        list_destination_unread_new: "链接到未读/新条目并显示新条目的数量"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "更改"
       featured_topic: "精选话题"
       moderator: "%{user} 是版主"
@@ -1188,6 +1207,7 @@ zh_CN:
         warnings: "官方警告"
         read_more_in_group: "想阅读更多？浏览 %{groupLink} 中的其他消息。"
         read_more: "想阅读更多？在<a href='%{basePath}/u/%{username}/messages'>个人消息</a>中浏览其他消息。"
+<<<<<<< HEAD
         read_more_group_pm_MF: |
           { HAS_UNREAD_AND_NEW, select,
             true {
@@ -1236,6 +1256,10 @@ zh_CN:
             }
             other {}
           }
+=======
+        read_more_group_pm_MF: "还有 { UNREAD, plural, =0 {} other {<a href='{basePath}/u/{username}/messages/group/{groupName}/unread'># 条未读消息</a>} }{NEW, plural, =0 {} other{ {BOTH, select, true{和} false {are } other{}} <a href='{basePath}/u/{username}/messages/group/{groupName}/new'># 条新消息</a>} }，或者在{groupLink}中浏览其他消息"
+        read_more_personal_pm_MF: "还有{ UNREAD, plural, =0 {} other { <a href='{basePath}/u/{username}/messages/unread'># 条未读消息</a>} }{ NEW, plural, =0 {} other { {BOTH, select, true{和} false {are } other{}} <a href='{basePath}/u/{username}/messages/new'># 条新个人消息</a>} }，或者浏览其他<a href='{basePath}/u/{username}/messages'>个人消息</a>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       preferences_nav:
         account: "帐户"
         security: "安全性"
@@ -1694,7 +1718,12 @@ zh_CN:
       pause_notifications: "暂停通知"
       remove_status: "移除状态"
     user_tips:
+<<<<<<< HEAD
       button: "知道了！"
+=======
+      primary: "知道了！"
+      secondary: "不要为我显示这些提示"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "您的第一个通知！"
         content: "通知用于让您了解社区中发生的最新情况。"
@@ -1710,11 +1739,15 @@ zh_CN:
       suggested_topics:
         title: "继续阅读！"
         content: "下面是我们认为您接下来可能想要阅读的一些话题。"
+<<<<<<< HEAD
       admin_guide:
         title: "欢迎来到您的新站点！"
         content: "<a href='%{admin_guide_url}'>阅读管理指南</a> 以继续构建你的网站和社区。"
         content_no_url: "阅读管理指南以继续建设您的站点和社区。"
     loading: "加载…"
+=======
+    loading: "正在加载…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "无法加载"
       reasons:
@@ -2490,6 +2523,7 @@ zh_CN:
         dismiss_tooltip: "仅忽略新帖子或停止跟踪话题"
         also_dismiss_topics: "停止跟踪这些话题，以便它们不再显示为我的未读话题"
         dismiss_new: "忽略新话题"
+<<<<<<< HEAD
         dismiss_new_modal:
           title: "关闭新话题"
           topics: "关闭新话题"
@@ -2500,6 +2534,8 @@ zh_CN:
             other: "忽略 %{count} 新回复"
           replies: "忽略新回复"
           untrack: "停止跟踪这些话题，以便它们不再出现在我的新列表中"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         dismiss_new_with_selected:
           other: "忽略新话题（%{count} 个）…"
         toggle: "切换话题批量选择"
@@ -2835,7 +2871,11 @@ zh_CN:
           other: "当前全站置顶的话题数：<strong class='badge badge-notification unread'>%{count}</strong>"
         make_banner: "将此话题设为在所有页面顶部显示的横幅。"
         remove_banner: "移除在所有页面顶部显示的横幅。"
+<<<<<<< HEAD
         banner_note: "用户可以通过忽略话题来忽略横幅。任何时候都只能将一个话题设为横幅。"
+=======
+        banner_note: "用户可以通过关闭话题来忽略横幅。任何时候都只能将一个话题设为横幅。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         no_banner_exists: "没有横幅话题。"
         banner_exists: "当前设置了<strong class='badge badge-notification unread'>一个</strong>横幅话题。"
       inviting: "邀请…"
@@ -3949,16 +3989,32 @@ zh_CN:
             unread_with_count: "未读 (%{count})"
             archive: "归档"
         tags:
+          links:
+            add_tags:
+              content: "添加标签"
+              title: "您尚未添加任何标签。点击以开始。"
           none: "您还没有添加任何标签。"
           click_to_get_started: "点击此处开始。"
           header_link_text: "标签"
+<<<<<<< HEAD
           header_action_title: "编辑边栏标签"
+=======
+          header_action_title: "编辑您的边栏标签"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "配置默认值"
         categories:
+          links:
+            add_categories:
+              content: "添加类别"
+              title: "您尚未添加任何类别。点击以开始。"
           none: "您还没有添加任何类别。"
           click_to_get_started: "点击此处开始。"
           header_link_text: "类别"
+<<<<<<< HEAD
           header_action_title: "编辑边栏类别"
+=======
+          header_action_title: "编辑您的边栏类别"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "配置默认值"
         community:
           edit_section:
@@ -3979,7 +4035,10 @@ zh_CN:
               title: "所有话题"
             faq:
               content: "常见问题解答"
+<<<<<<< HEAD
               title: "使用此站点的准则"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "群组"
               title: "可用用户群组列表"
@@ -3988,9 +4047,12 @@ zh_CN:
               title: "所有用户列表"
             my_posts:
               content: "我的帖子"
+<<<<<<< HEAD
               content_drafts: "我的草稿"
               title: "我最近的话题活动"
               title_drafts: "我的未发布草稿"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 other: "%{count} 个草稿"
             review:
@@ -4195,12 +4257,15 @@ zh_CN:
         about: "在此处编辑您的群组成员资格和名称"
         group_members: "群组成员"
         delete: "删除"
+<<<<<<< HEAD
         delete_confirm: "确定要删除“%{group}”吗？"
         delete_details:
           other: "%{count} 人将无法访问此群组"
         delete_with_messages_confirm:
           other: "%{count} 条消息将无法被群组成员访问"
         delete_warning: "删除的群组无法恢复"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "无法删除群组。如果此群组是自动生成的，则无法删除。"
         delete_automatic_group: 这是一个自动生成的群组，无法删除。
         delete_owner_confirm: "移除 '%{username}' 的所有者权限？"
@@ -4425,10 +4490,13 @@ zh_CN:
         howto: "如何安装插件？"
         official: "官方插件"
         broken_route: "无法配置“%{name}”的链接。确保禁用广告拦截器并尝试重新加载页面。"
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "边栏"
         header_dropdown: "标题下拉菜单"
         legacy: "旧版"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "备份"
         menu:
@@ -5566,7 +5634,11 @@ zh_CN:
           search: "搜索"
           groups: "群组"
           dashboard: "信息中心"
+<<<<<<< HEAD
           navigation: "导航"
+=======
+          sidebar: "边栏"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "输入字段不能为空或包含竖线字符。"
         default_categories:

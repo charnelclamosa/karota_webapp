@@ -9,12 +9,16 @@ import discourseComputed from "discourse-common/utils/decorators";
 import { findAll } from "discourse/models/login-method";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { inject as service } from "@ember/service";
+<<<<<<< HEAD
 import SecondFactorConfirmPhrase from "discourse/components/dialog-messages/second-factor-confirm-phrase";
 import SecondFactorAddSecurityKey from "discourse/components/modal/second-factor-add-security-key";
 import SecondFactorEditSecurityKey from "discourse/components/modal/second-factor-edit-security-key";
 import SecondFactorEdit from "discourse/components/modal/second-factor-edit";
 import SecondFactorAddTotp from "discourse/components/modal/second-factor-add-totp";
 import SecondFactorBackupEdit from "discourse/components/modal/second-factor-backup-edit";
+=======
+import { htmlSafe } from "@ember/template";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Controller.extend(CanCheckEmails, {
   dialog: service(),
@@ -132,6 +136,29 @@ export default Controller.extend(CanCheckEmails, {
       .finally(() => this.set("resetPasswordLoading", false));
   },
 
+  disableAllMessage() {
+    let templateElements = [I18n.t("user.second_factor.delete_confirm_header")];
+    templateElements.push("<ul>");
+    this.totps.forEach((totp) => {
+      templateElements.push(`<li>${totp.name}</li>`);
+    });
+    this.security_keys.forEach((key) => {
+      templateElements.push(`<li>${key.name}</li>`);
+    });
+    if (this.currentUser.second_factor_backup_enabled) {
+      templateElements.push(
+        `<li>${I18n.t("user.second_factor_backup.title")}</li>`
+      );
+    }
+    templateElements.push("</ul>");
+    templateElements.push(
+      I18n.t("user.second_factor.delete_confirm_instruction", {
+        confirm: I18n.t("user.second_factor.disable"),
+      })
+    );
+    return htmlSafe(templateElements.join(""));
+  },
+
   actions: {
     confirmPassword() {
       if (!this.password) {
@@ -149,6 +176,7 @@ export default Controller.extend(CanCheckEmails, {
 
       this.dialog.deleteConfirm({
         title: I18n.t("user.second_factor.disable_confirm"),
+<<<<<<< HEAD
         bodyComponent: SecondFactorConfirmPhrase,
         bodyComponentModel: {
           totps: this.totps,
@@ -156,6 +184,11 @@ export default Controller.extend(CanCheckEmails, {
         },
         confirmButtonLabel: "user.second_factor.disable",
         confirmButtonDisabled: true,
+=======
+        message: this.disableAllMessage(),
+        confirmButtonLabel: "user.second_factor.disable",
+        confirmPhrase: I18n.t("user.second_factor.disable"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirmButtonIcon: "ban",
         cancelButtonClass: "btn-flat",
         didConfirm: () => {
@@ -184,6 +217,7 @@ export default Controller.extend(CanCheckEmails, {
         confirmButtonIcon: "ban",
         cancelButtonClass: "btn-flat",
         didConfirm: () => {
+<<<<<<< HEAD
           if (this.totps.includes(secondFactorMethod)) {
             this.currentUser
               .updateSecondFactor(
@@ -211,6 +245,76 @@ export default Controller.extend(CanCheckEmails, {
                 this.set("loading", false);
               });
           }
+=======
+          this.currentUser
+            .updateSecondFactor(
+              secondFactorMethod.id,
+              secondFactorMethod.name,
+              true,
+              secondFactorMethod.method
+            )
+            .then((response) => {
+              if (response.error) {
+                return;
+              }
+              this.markDirty();
+            })
+            .catch((e) => this.handleError(e))
+            .finally(() => {
+              this.setProperties({
+                totps: this.totps.filter(
+                  (totp) =>
+                    totp.id !== secondFactorMethod.id ||
+                    totp.method !== secondFactorMethod.method
+                ),
+                security_keys: this.security_keys.filter(
+                  (key) =>
+                    key.id !== secondFactorMethod.id ||
+                    key.method !== secondFactorMethod.method
+                ),
+              });
+
+              this.set("loading", false);
+            });
+        },
+      });
+    },
+
+    disableSecondFactorBackup() {
+      this.dialog.deleteConfirm({
+        title: I18n.t("user.second_factor.delete_backup_codes_confirm_title"),
+        message: I18n.t(
+          "user.second_factor.delete_backup_codes_confirm_message"
+        ),
+        confirmButtonLabel: "user.second_factor.delete",
+        confirmButtonIcon: "ban",
+        cancelButtonClass: "btn-flat",
+        didConfirm: () => {
+          this.set("backupCodes", []);
+          this.set("loading", true);
+
+          this.model
+            .updateSecondFactor(0, "", true, SECOND_FACTOR_METHODS.BACKUP_CODE)
+            .then((response) => {
+              if (response.error) {
+                this.set("errorMessage", response.error);
+                return;
+              }
+
+              this.set("errorMessage", null);
+              this.model.set("second_factor_backup_enabled", false);
+              this.markDirty();
+              this.send("closeModal");
+            })
+            .catch((error) => {
+              this.send("closeModal");
+              this.onError(error);
+            })
+            .finally(() => this.set("loading", false));
+        },
+      });
+    },
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           if (this.security_keys.includes(secondFactorMethod)) {
             this.currentUser

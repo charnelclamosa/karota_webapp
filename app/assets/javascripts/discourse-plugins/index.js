@@ -263,4 +263,8 @@ module.exports = {
       return true;
     }
   },
+
+  shouldLoadPluginTestJs() {
+    return EmberApp.env() === "development" || process.env.LOAD_PLUGINS === "1";
+  },
 };

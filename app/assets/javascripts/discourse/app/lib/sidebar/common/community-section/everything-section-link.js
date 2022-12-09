@@ -6,6 +6,8 @@ import BaseSectionLink from "discourse/lib/sidebar/base-community-section-link";
 export default class EverythingSectionLink extends BaseSectionLink {
   @tracked totalUnread = 0;
   @tracked totalNew = 0;
+  @tracked hideCount =
+    this.currentUser?.sidebarListDestination !== UNREAD_LIST_DESTINATION;
 
   constructor() {
     super(...arguments);
@@ -56,6 +58,7 @@ export default class EverythingSectionLink extends BaseSectionLink {
   }
 
   get badgeText() {
+<<<<<<< HEAD
     if (!this.showCount) {
       return;
     }
@@ -63,6 +66,12 @@ export default class EverythingSectionLink extends BaseSectionLink {
     if (this.#newNewViewEnabled && this.#unreadAndNewCount > 0) {
       return this.#unreadAndNewCount.toString();
     } else if (this.totalUnread > 0) {
+=======
+    if (this.hideCount) {
+      return;
+    }
+    if (this.totalUnread > 0) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return I18n.t("sidebar.unread_count", {
         count: this.totalUnread,
       });
@@ -99,6 +108,7 @@ export default class EverythingSectionLink extends BaseSectionLink {
   }
 
   get suffixValue() {
+<<<<<<< HEAD
     if (!this.showCount && (this.totalUnread || this.totalNew)) {
       return "circle";
     }
@@ -111,4 +121,10 @@ export default class EverythingSectionLink extends BaseSectionLink {
   get #newNewViewEnabled() {
     return !!this.currentUser?.new_new_view_enabled;
   }
+=======
+    if (this.hideCount && (this.totalUnread || this.totalNew)) {
+      return "circle";
+    }
+  }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

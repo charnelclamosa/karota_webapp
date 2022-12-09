@@ -157,6 +157,14 @@ zh_TW:
     software_update_prompt:
       message: "我們更新了這個網站， <span>請重新整理</span>，否則您可能會遇到預期之外的狀況。"
       dismiss: "忽略"
+<<<<<<< HEAD
+=======
+    bootstrap_mode_enabled:
+      other: "為了讓您更輕鬆地建設網站，您正處於初始模式。將會自動授予所有新註冊的使用者信任等級 1，並自動啟用每日摘要電子郵件。該功能將於 %{count} 個使用者註冊後自動關閉。"
+    bootstrap_mode_disabled: "初始模式將會在 24 小時後自動禁用。"
+    bootstrap_invite_button_title: "送出邀請"
+    bootstrap_wizard_link_title: "完成安裝精靈"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "預設"
       broken_theme_alert: "您的網站可能無法運行，因為主題/組件有錯誤。"
@@ -256,7 +264,10 @@ zh_TW:
       like_count: "讚"
       topic_count: "話題"
       post_count: "貼文"
+<<<<<<< HEAD
       user_count: "註冊"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "活躍使用者"
       contact: "聯絡我們"
       contact_info: "若有重大問題或關係到網站的緊急時間，請透過 %{contact_info} 聯絡我們"
@@ -942,6 +953,12 @@ zh_TW:
         enable: "啟用側選單"
         options: "選項"
         navigation_section: "導覽"
+<<<<<<< HEAD
+=======
+        list_destination_instruction: "當側邊欄中有新內容時..."
+        list_destination_default: "使用預設連結並顯示新項目的徽章"
+        list_destination_unread_new: "連結至未讀/新的並顯示新項目的數量"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "修改"
       featured_topic: "特色主題"
       moderator: "%{user} 是板主"
@@ -1111,7 +1128,10 @@ zh_TW:
         title: "使用者卡背景"
         instructions: "背景會被置中，且默認寬度為850px。"
       change_featured_topic:
+<<<<<<< HEAD
         title: "特色主題"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         instructions: "此主題的連結將顯示您的使用者卡和個人檔案上。"
       email:
         title: "電子郵件"
@@ -1592,7 +1612,10 @@ zh_TW:
       drafts_offline: "離線草稿"
       edit_conflict: "編輯衝突"
       esc: "退出"
+<<<<<<< HEAD
       ok_proceed: "好的，繼續"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       group_mentioned_limit:
         other: "<b>提醒</b>你提及了<a href='%{group_link}'>%{group}</a>，但此群組的人數多於管理員配置的提及人數上限（%{count}位），因此不會有任何人收到通知。"
       group_mentioned:
@@ -1766,8 +1789,13 @@ zh_TW:
       too_short: "你的搜尋詞語太短。"
       result_count:
         other: "關於<span class='term'>%{term}</span>的<span>%{count}%{plus} 個結果 </span>"
+<<<<<<< HEAD
       title: "搜尋"
       full_page_title: "搜尋"
+=======
+      title: "搜索"
+      full_page_title: "搜索"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       results: "結果"
       no_results: "未找到任何結果。"
       no_more_results: "沒有找到更多的結果。"
@@ -1939,14 +1967,28 @@ zh_TW:
       back_to_list: "回到話題列表"
       options: "話題選項"
       show_links: "在話題裡顯示連結"
+<<<<<<< HEAD
       bumped_at: "最新：%{date}"
       suggest_create_topic: 準備好 <a href>開始新的對話了嗎？</a>
+=======
+      read_more_in_category: "要閱讀更多貼文嗎? 瀏覽 %{catLink} 裡的話題或 %{latestLink}。"
+      read_more: "要閱讀更多貼文嗎? 請按 %{catLink} 或 %{latestLink}。"
+      browse_all_categories: 瀏覽所有分類
+      browse_all_tags: 瀏覽所有標籤
+      view_latest_topics: 檢視最近的貼文
+      suggest_create_topic: 準備好 <a href>開始新的對話了嗎？</a>
+      jump_reply_up: 跳到更早的回覆
+      jump_reply_down: 跳到更晚的回覆
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       deleted: "此話題已被刪除"
       slow_mode_update:
         title: "慢速模式"
         select: "使用者在本主題的發文頻率限制："
         enable: "啟用"
+<<<<<<< HEAD
         update: "更新"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         enabled_until: "啟用直到："
         remove: "停用"
         hours: "小時:"
@@ -2058,6 +2100,11 @@ zh_TW:
         open: "開放話題"
         close: "關閉話題"
         multi_select: "選擇貼文"
+<<<<<<< HEAD
+=======
+        slow_mode: "設定慢速模式..."
+        timed_update: "設定話題計時器"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         pin: "置頂話題"
         unpin: "取消置頂話題"
         unarchive: "復原已封存的話題"
@@ -2806,7 +2853,11 @@ zh_TW:
           description: "你將不會收到這些分類中的新討論話題通知，它們也不會出現在你的未讀欄內。"
       groups:
         back_btn: "返回所有標籤"
+<<<<<<< HEAD
         title: "標記群組"
+=======
+        title: "標籤組"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         about_heading: "選取一個標籤群組或建立一個新標籤群組"
         about_description: "標記組可協助您集中管理多個標籤的權限。"
         new: "新標籤組"
@@ -2943,12 +2994,15 @@ zh_TW:
               pending_count: "剩餘 %{count}"
     welcome_topic_banner:
       title: "建立您的歡迎主題"
+<<<<<<< HEAD
       button_title: "開始編輯"
     until: "直到："
     form_templates:
       errors:
         typeMismatch:
           default: "請輸入一個有效的值。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   admin_js:
     admin:
       title: "論壇管理員"
@@ -3800,6 +3854,8 @@ zh_TW:
         suspend_reason_hidden_label: "您為何要將該使用者停權？使用者在登入時會看見這段文字，請簡短描述。"
         suspend_reason: "原因"
         suspend_reason_title: "停權原因"
+        suspend_reasons:
+          custom: "自訂..."
         suspend_message: "Email 訊息"
         suspend_message_placeholder: "提供更多停權使用者的原因，並且會以郵件發信給該使用者。（可選）"
         suspended_by: "將其停權者"
@@ -3992,8 +4048,12 @@ zh_TW:
           enabled: "在使用者卡片上顯示"
           disabled: "在使用者卡片上隱藏"
         searchable:
+<<<<<<< HEAD
           title: "可搜尋"
           enabled: "可搜尋"
+=======
+          title: "可搜索"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         field_types:
           text: "文字區域"
           confirm: "確認"

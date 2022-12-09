@@ -23,7 +23,10 @@ const _builders = {};
 export let apiExtraButtons = {};
 let _extraButtons = {};
 let _buttonsToRemoveCallbacks = {};
+<<<<<<< HEAD
 let _buttonsToReplace = {};
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export function addButton(name, builder) {
   _extraButtons[name] = builder;
@@ -36,17 +39,23 @@ export function resetPostMenuExtraButtons() {
 
   _extraButtons = {};
   _buttonsToRemoveCallbacks = {};
+<<<<<<< HEAD
   _buttonsToReplace = {};
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 export function removeButton(name, callback) {
   // 🏌️
   _buttonsToRemoveCallbacks[name] ??= [];
   _buttonsToRemoveCallbacks[name].push(callback || (() => true));
+<<<<<<< HEAD
 }
 
 export function replaceButton(name, replaceWith) {
   _buttonsToReplace[name] = replaceWith;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 function registerButton(name, builder) {
@@ -66,6 +75,7 @@ export function buildButton(name, widget) {
     return;
   }
 
+<<<<<<< HEAD
   // Look for a button replacement, build and return widget attrs if present
   let replacement = _buttonsToReplace[name];
   if (replacement && replacement?.shouldRender(widget)) {
@@ -74,6 +84,12 @@ export function buildButton(name, widget) {
       name: replacement.name,
       attrs: replacement.buildAttrs(widget),
     };
+=======
+  if (_buttonsToRemoveCallbacks[name]) {
+    shouldAddButton = !_buttonsToRemoveCallbacks[name].some((c) =>
+      c(attrs, state, siteSettings, settings, currentUser)
+    );
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   let builder = _builders[name];
@@ -799,6 +815,10 @@ export default createWidget("post-menu", {
   },
 
   showMoreActions() {
+    if (this.currentUser && this.siteSettings.enable_user_tips) {
+      this.currentUser.hideUserTipForever("post_menu");
+    }
+
     this.state.collapsed = false;
     const likesPromise = !this.state.likedUsers.length
       ? this.getWhoLiked()
@@ -818,6 +838,10 @@ export default createWidget("post-menu", {
       keyValueStore &&
         keyValueStore.set({ key: "likedPostId", value: attrs.id });
       return this.sendWidgetAction("showLogin");
+    }
+
+    if (this.currentUser && this.siteSettings.enable_user_tips) {
+      this.currentUser.hideUserTipForever("post_menu");
     }
 
     if (this.capabilities.canVibrate && !isTesting()) {

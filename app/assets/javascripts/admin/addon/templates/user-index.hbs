@@ -64,6 +64,7 @@
         {{#if this.model.email}}
           <a href="mailto:{{this.model.email}}">{{this.model.email}}</a>
         {{else}}
+<<<<<<< HEAD
           <DButton
             @action={{fn (route-action "checkEmail") this.model}}
             @icon="envelope"
@@ -71,6 +72,9 @@
             @title="admin.users.check_email.title"
             class="btn-default"
           />
+=======
+          <DButton @class="btn-default" @action={{route-action "checkEmail"}} @actionParam={{this.model}} @icon="envelope" @label="admin.users.check_email.text" @title="admin.users.check_email.title" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         {{/if}}
       </div>
       <div class="controls">
@@ -99,6 +103,7 @@
             {{i18n "user.email.no_secondary"}}
           {{/if}}
         {{else}}
+<<<<<<< HEAD
           <DButton
             @action={{fn (route-action "checkEmail") this.model}}
             @icon="envelope"
@@ -106,6 +111,9 @@
             @title="admin.users.check_email.title"
             class="btn-default"
           />
+=======
+          <DButton @action={{route-action "checkEmail"}} @class="btn-default" @actionParam={{this.model}} @icon="envelope" @label="admin.users.check_email.text" @title="admin.users.check_email.title" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         {{/if}}
       </div>
 
@@ -148,6 +156,7 @@
         {{#if this.associatedAccountsLoaded}}
           {{this.associatedAccounts}}
         {{else}}
+<<<<<<< HEAD
           <DButton
             @action={{fn (route-action "checkEmail") this.model}}
             @icon="envelope"
@@ -155,6 +164,9 @@
             @title="admin.users.check_email.title"
             class="btn-default"
           />
+=======
+          <DButton @class="btn-default" @action={{route-action "checkEmail"}} @actionParam={{this.model}} @icon="envelope" @label="admin.users.check_email.text" @title="admin.users.check_email.title" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         {{/if}}
       </div>
     </div>
@@ -807,6 +819,7 @@
           {{#if this.ssoExternalEmail}}
             <div class="value">{{this.ssoExternalEmail}}</div>
           {{else}}
+<<<<<<< HEAD
             <DButton
               @action={{fn this.checkSsoEmail this.model}}
               @icon="envelope"
@@ -814,6 +827,9 @@
               @title="admin.users.check_email.title"
               class="btn-default"
             />
+=======
+            <DButton @class="btn-default" @action={{action "checkSsoEmail"}} @actionParam={{this.model}} @icon="envelope" @label="admin.users.check_email.text" @title="admin.users.check_email.title" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           {{/if}}
         </div>
       {{/if}}

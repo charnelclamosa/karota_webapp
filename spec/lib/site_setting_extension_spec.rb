@@ -790,9 +790,15 @@ RSpec.describe SiteSettingExtension do
     end
   end
 
+<<<<<<< HEAD
   describe ".all_settings" do
     describe "uploads settings" do
       it "should return the right values" do
+=======
+  describe '.all_settings' do
+    describe 'uploads settings' do
+      it 'should return the right values' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         negative_upload_id = [(Upload.minimum(:id) || 0) - 1, -10].min
         system_upload = Fabricate(:upload, id: negative_upload_id)
         settings.setting(:logo, system_upload.id, type: :upload)
@@ -853,6 +859,7 @@ RSpec.describe SiteSettingExtension do
       end
     end
   end
+<<<<<<< HEAD
 
   describe "_map extension for list settings" do
     it "handles splitting group_list settings" do
@@ -890,4 +897,6 @@ RSpec.describe SiteSettingExtension do
       expect(SiteSetting.exclude_rel_nofollow_domains_map).to eq([])
     end
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

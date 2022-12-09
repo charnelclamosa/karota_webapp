@@ -6,6 +6,7 @@
 
 sk:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -17,6 +18,9 @@ sk:
             chat_auto_remove_membership: "Automatické odstránenie členstiev z kanálov"
     chat:
       deleted_chat_username: vymazané
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Vytvoriť"
       cancel: "Zrušiť"
       channel_settings:
@@ -24,6 +28,7 @@ sk:
         add: "Pridať"
         join: "Pridať sa"
         leave: "Opustiť"
+<<<<<<< HEAD
       channel_delete:
         instructions: "<p>Odstráni kanál <strong>%{name}</strong> a históriu chatu. Všetky správy a súvisiace údaje, ako sú reakcie a médiá, budú natrvalo vymazané. Ak chcete zachovať históriu kanála a vyradiť ho z prevádzky, môžete namiesto toho kanál archivovať.</p> <p>Ste si istí, že chcete kanál <strong>natrvalo odstrániť</strong>? Pre potvrdenie zadajte názov kanála do poľa nižšie.</p>"
       close: "Zavrieť"
@@ -34,11 +39,15 @@ sk:
         few: "%{count} správ bolo vymazaných. [zobraziť všetky]"
         many: "%{count} správ bolo vymazaných. [zobraziť všetky]"
         other: "%{count} správ bolo vymazaných. [zobraziť všetky]"
+=======
+      close: "Zavrieť"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Odstrániť"
       muted: "ignorovaní"
       joined: "vytvorený"
       email_frequency:
         never: "Nikdy"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "Zobrazenie indikátora aktivity v záhlaví"
         all_new: "Všetky nové správy"
@@ -68,11 +77,18 @@ sk:
         archived: "Kanál je archivovaný, nie je možné posielať nové správy."
         closed: "Kanál je zatvorený, nie je možné posielať nové správy."
         read_only: "Kanál je len na čítanie, nie je možné posielať nové správy."
+=======
+      flag: "Označenie"
+      join: "Pridať sa"
+      mention_warning:
+        dismiss: "zahodiť"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odpoveď"
       edit: "Upraviť"
       rebake_message: "Pregenerovať HTML"
       bookmark_message: "Záložka"
       save: "Uložiť"
+<<<<<<< HEAD
       return_to_threads_list: "Návrat k prebiehajúcim diskusiám"
       unread_threads_count:
         one: "Máte %{count} neprečítanú diskusiu"
@@ -83,6 +99,10 @@ sk:
         none: "Žiadny"
       upload_to_channel: "Nahrať do %{title}"
       upload_to_thread: "Nahrať do vlákna"
+=======
+      sounds:
+        none: "Žiadny"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exit: "späť"
       channel_status:
         closed: "Zatvorené"
@@ -96,7 +116,10 @@ sk:
         yesterday: Včera
       about_view:
         title: Názov
+<<<<<<< HEAD
         name: Meno
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Popis
       channel_info:
         back_to_channel: "Späť"
@@ -104,6 +127,7 @@ sk:
           about: O stránke
           members: Členovia
           settings: Nastavenia
+<<<<<<< HEAD
       new_message_modal:
         title: Odoslať správu
         add_user_long: <kbd>shift + klik</kbd> alebo <kbd>shift + enter</kbd><span>Pridať @%{username}</span>
@@ -120,17 +144,23 @@ sk:
         input_placeholder: Pridať meno
         name: Názov kanála
         slug: URL adresa kanála (voliteľné)
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nová správa
         prefix: "Komu:"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "Povoliť vytváranie podvlákien"
         slug: "URL adresa kanála (voliteľné)"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Typ"
         types:
           category: "Kategória"
           topic: "Témy"
+<<<<<<< HEAD
       reactions:
         you_and_single_user: "Vy a %{username} ste reagovali s :%{emoji}:"
         you_and_multiple_users: "Vy, %{commaSeparatedUsernames} a %{username} ste reagovali s :%{emoji}:"
@@ -147,17 +177,30 @@ sk:
         followed: "Vytvorený"
         threading_enabled: "Povolené"
         threading_disabled: "Vypnuté"
+=======
+      composer:
+        italic_text: "zdôraznený text"
+        bold_text: "výrazný text"
+      notification_levels:
+        never: "Nikdy"
+      settings:
+        follow: "Pridať sa"
+        followed: "Vytvorený"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Upozornenia"
         preview: "Ukážka"
         save: "Uložiť"
         saved: "Uložené"
         unfollow: "Opustiť"
         admin_title: "Admin"
+<<<<<<< HEAD
       admin:
         export_messages:
           title: "Exportovať správy z chatu"
           create_export: "Vytvoriť export"
           export_has_started: "Export sa začal. Keď bude hotový, budeme Vás informovať cez súkromnú správu."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       incoming_webhooks:
         back: "Späť"
         description: "Popis"
@@ -176,6 +219,7 @@ sk:
           title: "Presuň na novú tému"
         existing_topic:
           title: "Presuň do existujúcej témy."
+<<<<<<< HEAD
       retention_reminders:
         public_none: "História kanálov sa uchováva na neurčito."
         dm_none: "História osobných chatov sa uchováva na neurčito."
@@ -217,6 +261,11 @@ sk:
         open: "Otvoriť vlákno"
         list: "Prebiehajúca diskusia"
         none: "Nezúčastňujete sa na žiadnych vláknach v tomto kanáli."
+=======
+      emoji_picker:
+        objects: "Objekty"
+        flags: "Označenia"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nová správa"
         cancel: "Zrušiť"
@@ -226,6 +275,7 @@ sk:
           fields:
             message:
               label: Správa
+<<<<<<< HEAD
     review:
       types:
         chat_reviewable_message:
@@ -242,3 +292,5 @@ sk:
       panels:
         chat:
           label: "Chat"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

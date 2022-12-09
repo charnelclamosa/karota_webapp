@@ -3,6 +3,7 @@
 module PageObjects
   module Pages
     class Sidebar < PageObjects::Pages::Base
+<<<<<<< HEAD
       PUBLIC_CHANNELS_SECTION_SELECTOR = ".sidebar-section[data-section-name='chat-channels']"
       DM_CHANNELS_SECTION_SELECTOR = ".sidebar-section[data-section-name='chat-dms']"
 
@@ -49,6 +50,18 @@ module PageObjects
         has_no_css?(
           ".sidebar-section-link.channel-#{channel.id} .sidebar-section-link-suffix.unread",
         )
+=======
+      def open_draft_channel
+        find(".sidebar-section-chat-dms .sidebar-section-header-button", visible: false).click
+      end
+
+      def open_browse
+        find(".sidebar-section-chat-channels .sidebar-section-header-button", visible: false).click
+      end
+
+      def open_channel(channel)
+        find(".sidebar-section-link[href='/chat/channel/#{channel.id}/#{channel.slug}']").click
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end

@@ -205,8 +205,12 @@ pt_BR:
       page_publishing_requirements: "A publicação da página não pode ser ativada se houver mídias seguras ativadas."
       s3_backup_requires_s3_settings: "Você não pode usar o S3 como local de backup, a não ser que você tenha informado o \"%{setting_name}\"."
       s3_bucket_reused: "Você não pode usar o mesmo bucket para \"s3_upload_bucket\" e \"s3_backup_bucke\"'. Escolha um bucket diferente ou use um caminho diferente para cada bucket."
+<<<<<<< HEAD
       secure_uploads_requirements: "Envios S3 e ACLs S3 devem ser ativados antes dos envios seguros."
       s3_use_acls_requirements: "Você deve ter ACLs S3 ativadas quando os envios seguros estiverem ativados."
+=======
+      secure_uploads_requirements: "Envios S3 devem ser ativados antes dos envios seguros."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       share_quote_facebook_requirements: "É preciso definir uma id do app Facebook para permitir o compartilhamento de citação para Facebook."
       second_factor_cannot_enforce_with_socials: "Você não pode aplicar 2FA com entrada com contas de redes sociais ativada. Primeiro você deve desativar a entrada com conta via: %{auth_provider_names}"
       second_factor_cannot_be_enforced_with_disabled_local_login: "Você não pode impor a 2FA se a autenticação local estiver desativada."
@@ -215,7 +219,11 @@ pt_BR:
       cannot_enable_s3_uploads_when_s3_enabled_globally: "Não possível ativar envios S3 porque os envios S3 já estão ativados globalmente, e ativar este nível do site pode causar problemas críticos com os envios."
       cors_origins_should_not_have_trailing_slash: "Você não deve adicionar a barra à direita (/) às origens CORS."
       slow_down_crawler_user_agent_cannot_be_popular_browsers: "Não é possível adicionar nenhum dos valores a seguir à configuração: %{values}."
+<<<<<<< HEAD
       strip_image_metadata_cannot_be_disabled_if_composer_media_optimization_image_enabled: "Você não pode desativar a remoção de metadados de imagem se 'a imagem de otimização de mídia do compositor habilitada' estiver ativada. Desative a 'imagem de otimização de mídia do compositor ativada' antes de desativar a remoção dos metadados da imagem."
+=======
+      strip_image_metadata_cannot_be_disabled_if_composer_media_optimization_image_enabled: "Você não pode desabilitar a remoção de metadados de imagem se 'a imagem de otimização de mídia do compositor habilitada' estiver habilitada. Desative a 'imagem de otimização de mídia do compositor habilitada' antes de desativar a remoção dos metadados da imagem."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       twitter_summary_large_image_no_svg: "Imagens de resumo do Twitter usadas para metadados twitter:image não podem ser uma imagem .svg."
     conflicting_google_user_id: 'A ID da conta Google para esta conta foi alterada. A intervenção da equipe é necessária por razões de segurança. Entre em contato com a equipe e direcione para <br><a href="https://meta.discourse.org/t/76575">https://meta.discourse.org/t/76575</a>'
     onebox:
@@ -510,7 +518,10 @@ pt_BR:
       Você pode editar sua resposta anterior para adicionar uma citação selecionando um texto e clicando no botão <b>responder citação</b> que aparecerá.
 
       Fica mais fácil para todos(as) lerem tópicos com poucas respostas e muitas informações em vez de muitas respostas individuais e curtas.
+<<<<<<< HEAD
     dominating_topic: Você postou muito neste tópico! Considere dar a outras pessoas a oportunidade de responder e realizar discussões aqui também.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     get_a_room: Você respondeu a %{reply_username} %{count} vezes, sabia que poderia ter enviado uma mensagem pessoal em vez de fazer isso?
     dont_feed_the_trolls: Esta postagem já foi sinalizada para a atenção da moderação. Tem certeza de que deseja responder? Respostas a conteúdo inadequado costumam incentivar mais comportamento inadequado.
     too_many_replies: |
@@ -625,9 +636,14 @@ pt_BR:
   staff_category_name: "Equipe"
   staff_category_description: "Categoria particular para discussões da equipe. Tópicos só são visíveis para administradores(as) e moderadores(as)."
   discourse_welcome_topic:
+<<<<<<< HEAD
     title: "Boas-vindas ao %{site_title}! :wave:"
     body: |
       Estamos felizes que você se juntou à nossa comunidade.
+=======
+    title: "Boas-vindas à nossa comunidade!"
+    body: |2
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       %{site_info_quote}
 
@@ -659,7 +675,10 @@ pt_BR:
       disallowed_tags_generic: "Este tópico tem etiquetas não permitidas."
       slug_contains_non_ascii_chars: "contém caracteres não-ascii"
       is_already_in_use: "já está em uso"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "Você não pode mover este tópico para uma categoria em que você não tem permissão para criar novos tópicos."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "Esta categoria é especial. É concebida como uma área de espera para tópicos sem categoria e não pode ser excluída."
       has_subcategories: "Não é possível excluir essa categoria porque tem subcategorias."
@@ -784,12 +803,24 @@ pt_BR:
         one: "há quase %{count} ano"
         other: "há quase %{count} anos"
   password_reset:
+<<<<<<< HEAD
     no_token: 'Ops! O link que você usou não funciona mais. Agora você poderá <a href="%{base_url}/login">Log In</a>. Se tiver esquecido sua senha, você poderá <a href="%{base_url}/password-reset">pedir um link</a> para redefini-la.'
+=======
+    no_token: 'Ops! O link que você usou não funciona mais. Agora você poderá <a href="%{base_url}/login">Log In</a>. Se tiver esquecido sua senha, você poderá <a href="%{base_url}/password-reset">solicitar um link</a> para redefini-la.'
+    choose_new: "Escolha uma nova senha"
+    choose: "Escolha uma senha"
+    update: "Atualizar senha"
+    save: "Definir senha"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Redefinir senha"
     success: "Sua senha foi modificada com êxito e você já entrou com a sua conta."
     success_unapproved: "Senha modificada com êxito."
   email_login:
+<<<<<<< HEAD
     invalid_token: 'Ops! O link que você usou não funciona mais. Agora você poderá <a href="%{base_url}/login">fazer login</a>. Se tiver esquecido sua senha, você poderá <a href="%{base_url}/password-reset">pedir um link</a> para redefini-la.'
+=======
+    invalid_token: 'Ops! O link que você usou não funciona mais. Agora você poderá <a href="%{base_url}/login">fazer login</a>. Se tiver esquecido sua senha, você poderá <a href="%{base_url}/password-reset">solicitar um link</a> para redefini-la.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "E-mail para entrar"
   user_auth_tokens:
     browser:
@@ -978,8 +1009,11 @@ pt_BR:
     mailing_list_mode: "Desativar o modo lista de endereçamento"
     all: "Não enviar e-mail de %{sitename}"
     different_user_description: "No momento, você está entrou como um(a) usuário(a) diferente daquele(a) para quem mandamos o e-mail. Saia ou entre no modo anônimo(a) de seu navegador e tente novamente."
+<<<<<<< HEAD
     not_found_description: "Desculpe, não foi possível encontrar essa assinatura. Talvez o link no seu e-mail seja muito antigo e tenha expirado."
     user_not_found_description: "Desculpe, não foi possível encontrar um usuário para esta assinatura. Você provavelmente está tentando cancelar a assinatura de uma conta que não existe mais."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     log_out: "Sair"
     submit: "Salvar preferências"
     digest_frequency:
@@ -1506,9 +1540,13 @@ pt_BR:
     summary_percent_filter: "Quando um(a) usuário(a) clicar em \"Resuma este tópico\", exiba as % melhores postagens"
     summary_max_results: "Quantidade máxima de postagens retornadas por \"Resumir este tópico\""
     summary_timeline_button: "Exibir um botão \"Resumir\" na linha do tempo"
+<<<<<<< HEAD
     summarization_strategy: "Formas adicionais para resumir o conteúdo registrado pelos plugins"
     custom_summarization_allowed_groups: "Grupos com permissão para resumir conteúdos usando a \"summarization_strategy\"."
     enable_personal_messages: "PRETERIDO, use a configuração \"grupos habilitados para mensagens pessoais\". Permitir que usuários de nível de confiança 1 (configurável por meio de confiança mínima para enviar mensagens) criem e respondam a mensagens. Observe que a equipe sempre pode enviar mensagens, não importa como."
+=======
+    enable_personal_messages: "PRETERIDO, use a configuração 'grupos habilitados para mensagens pessoais'. Permitir que usuários de nível de confiança 1 (configurável por meio de confiança mínima para enviar mensagens) criem e respondam a mensagens. Observe que a equipe sempre pode enviar mensagens, não importa como."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     personal_message_enabled_groups: "Permitir que os usuários desses grupos criem e respondam a mensagens. Os grupos de nível de confiança incluem todos os níveis de confiança acima desse número, por exemplo, escolher trust_level_1 também permite que os usuários trust_level_2, 3, 4 enviem PMs. Observe que a equipe sempre pode enviar mensagens, não importa como."
     enable_system_message_replies: "Permite que os(as) usuários(as) respondam às mensagens do sistema, mesmo se as mensagens pessoais estiverem desativadas"
     enable_chunked_encoding: "Ative respostas de codificação em bloco no servidor. Esse recurso funciona na maioria das configurações, mas alguns proxies podem ser armazenados em buffer, atrasando as respostas"
@@ -1598,8 +1636,13 @@ pt_BR:
     email_token_valid_hours: "Tokens de Esqueceu a senha/ativar conta são válidos por (n) h."
     enable_badges: "Ativar o sistema de emblemas"
     max_favorite_badges: "Quantidade máxima de emblemas que o(a) usuário(a) pode selecionar"
+<<<<<<< HEAD
     whispers_allowed_groups: "Permitir comunicação privada dentro de tópicos para membros de grupos especificados."
     hidden_post_visible_groups: "Permita que membros destes grupos visualizem postagens ocultas. Usuários(as) da equipe sempre podem ser postagens ocultas."
+=======
+    enable_whispers: "Permitir a comunicação pessoal da equipe nos tópicos."
+    whispers_allowed_groups: "Permitir comunicação privada dentro de tópicos para membros de grupos especificados."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     allow_index_in_robots_txt: "Especifique em robots.txt que este site tem permissão para ser indexado por mecanismos de busca da web. Em casos excepcionais, é possível <a href='%{base_path}/admin/customize/robots'>substituir robots.txt</a>."
     blocked_email_domains: "Uma lista de domínios de e-mail determinada por barras com que os usuários não têm permissão para registrar contas. Os subdomínios são tratados para os domínios específicos. Os símbolos-curinga * e ? não são compatíveis. Exemplo: mailinator.com|trashmail.net"
     allowed_email_domains: "Uma lista de domínios de e-mail determinada por barras com que os usuários DEVEM registrar contas. Os subdomínios são tratados para os domínios específicos. Os símbolos-curinga * e ? não são compatíveis. AVISO: usuários(as) com domínios de e-mail que não sejam os listados aqui não são permitidos(as)!"
@@ -1782,7 +1825,11 @@ pt_BR:
     min_trust_to_edit_wiki_post: "O nível de confiança mínimo necessário para editar uma postagem marcada como wiki."
     min_trust_to_edit_post: "O nível mínimo de confiança necessário para editar postagens."
     min_trust_to_allow_self_wiki: "O nível de confiança mínimo necessário para criar o próprio wiki do(a) usuário(a)."
+<<<<<<< HEAD
     min_trust_to_send_messages: "PRETERIDO, use a configuração \"grupos ativados para mensagens pessoais\". O nível mínimo de confiança necessário para criar novas mensagens pessoais."
+=======
+    min_trust_to_send_messages: "PRETERIDO, use a configuração 'grupos habilitados para mensagens pessoais'. O nível mínimo de confiança necessário para criar novas mensagens pessoais."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     min_trust_to_send_email_messages: "O nível mínimo de confiança necessário para enviar mensagens pessoais via e-mail."
     min_trust_to_flag_posts: "O nível de confiança mínimo necessário para sinalizar postagens"
     min_trust_to_post_links: "O nível de confiança mínimo necessário para incluir links em postagens"
@@ -1968,7 +2015,10 @@ pt_BR:
     enable_user_directory: "Fornecer um diretório de usuários(as) para navegar"
     enable_group_directory: "Fornecer um diretório de grupos para navegação"
     enable_category_group_moderation: "Permitir que grupos moderem conteúdo em categorias específicas"
+<<<<<<< HEAD
     group_in_subject: "Definir %%{optional_pm} no assunto do e-mail como o nome do primeiro grupo em PM, consulte: <a href='https://meta.discourse.org/t/customize-specific-email-templates/88323' target='_blank'>Personalizar formato de assunto para e-mails padrão</a>"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     allow_anonymous_posting: "Permitir que usuários(as) quem para modo anônimo(a)"
     allow_anonymous_likes: "Permitir que usuários(as) anônimos curtam postagens"
     anonymous_posting_min_trust_level: "Nível de confiança mínimo necessário para ativar mensagens anônimas"
@@ -2020,7 +2070,11 @@ pt_BR:
     display_name_on_posts: "Exibir o nome completo do(a) usuário(a) em suas postagens, além de seu(sua) @username."
     show_time_gap_days: "Se duas postagens forem feitas com tantos dias de intervalo, mostre o intervalo de tempo no tópico."
     short_progress_text_threshold: "Após a quantidade de mensagens em um tópico ultrapassar este número, a barra de progresso exibirá apenas o número da postagem atual. Se você alterar a largura da barra de progresso, talvez seja necessário alterar este valor."
+<<<<<<< HEAD
     default_code_lang: "Realce de sintaxe em linguagem de programação padrão aplicado a blocos de código (auto, text, ruby, python etc.). Esse valor também deve estar presente na configuração do site 'linguagens realçadas'."
+=======
+    default_code_lang: "Destaque a sintaxe de linguagem de programação padrão aplicado a blocos de código (auto, nohighlight, ruby, python etc.). Esse valor também deve estar presente na configuração do site 'idiomas destacados'."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     warn_reviving_old_topic_age: "Quando alguém começa a responder a um tópico anterior a esta quantidade de dias, um aviso será exibido. Desative ao definir como 0."
     autohighlight_all_code: "Aplicar código destacando todos os blocos de código pré-formatados, mesmo quando não especificarem o idioma"
     highlighted_languages: "Regras de destaque de sintaxe incluídas. (Atenção: incluir muitos idiomas pode afetar o desempenho) consulte: <a href='https://highlightjs.org/static/demo/' target='_blank'>https://highlightjs.org/static/demo</a> para ver uma demonstração"
@@ -2040,8 +2094,16 @@ pt_BR:
     delete_merged_stub_topics_after_days: "Quantidade de dias para aguardar antes de excluir automaticamente tópicos de stub totalmente mesclados. Defina para 0 para nunca excluir tópicos de stub."
     bootstrap_mode_min_users: "Quantidade mínima de usuários(as) necessários(as) para desativar o modo de inicialização (defina como 0 para desativar, pode levar até 24 horas)"
     prevent_anons_from_downloading_files: "Impeça que usuários(as) anônimos(as) baixem anexos."
+<<<<<<< HEAD
     secure_uploads: 'Limita acesso a TODOS os envios (imagens, vídeo, áudio, texto, pdfs, zips e muito mais). Se “É necessário entrar com a conta” estiver ativado, apenas usuários(as) que entraram com a conta podem acessar os envios. Caso contrário, o acesso será limitado apenas a envios de mídias em mensagens e categorias privadas. AVISO: esta configuração é complexa e requer conhecimento de administração. Para mais detalhes, consulte <a target="_blank" href="https://meta.discourse.org/t/-/140017">o tópico de envios seguros em Meta</a>.'
     secure_uploads_allow_embed_images_in_emails: "Permite incorporação de imagens seguras que geralmente seriam escritas em e-mails, caso o tamanho seja menor do que a configuração 'tamanho máx. de imagem de envio incorporada no e-mail, em KB\"."
+=======
+    secure_media: "PRETERIDO: use a configuração secure_uploads, será removido no Discourse 3.0."
+    secure_uploads: 'Limita acesso a TODOS os envios (imagens, vídeo, áudio, texto, pdfs, zips e muito mais). Se “É necessário entrar com a conta” estiver ativado, apenas usuários(as) que entraram com a conta podem acessar os envios. Caso contrário, o acesso será limitado apenas a envios de mídias em mensagens e categorias privadas. AVISO: esta configuração é complexa e requer conhecimento de administração. Para mais detalhes, consulte <a target="_blank" href="https://meta.discourse.org/t/-/140017">o tópico de envios seguros em Meta</a>.'
+    secure_media_allow_embed_images_in_emails: "PRETERIDO: use secure_uploads_allow_embed_images_in_emails, será removido no Discourse 3.0."
+    secure_uploads_allow_embed_images_in_emails: "Permite incorporação de imagens seguras que geralmente seriam escritas em e-mails, caso o tamanho seja menor do que a configuração 'tamanho máx. de imagem de envio incorporada no e-mail, em KB\"."
+    secure_media_max_email_embed_image_size_kb: "PRETERIDO: Use secure_uploads_max_email_embed_image_size_kb, será removido no Discourse 3.0."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     secure_uploads_max_email_embed_image_size_kb: "A redução de tamanho para imagens seguras que serão incorporadas nos e-mails se a configuração 'Permissão de incorporação de envios seguros no e-mail'. Caso não esteja ativada, esta configuração não terá efeito."
     slug_generation_method: "Escolha um método para geração de slug. \"Codificado\" irá gerar linhas com \"%\". 'Nenhum\" irá desativar a geração de slugs."
     enable_emoji: "Ativar emoji"
@@ -2148,7 +2210,11 @@ pt_BR:
     enable_sitemap: "Gerar um mapa para o seu site e incluí-lo no arquivo robots.txt."
     sitemap_page_size: "Número de URLs a serem incluídas em cada página de mapa do site. Máx: 50.000"
     enable_user_status: "(experimental) Permitir que os usuários definam uma mensagem de status personalizada (emoji + descrição)."
+<<<<<<< HEAD
     enable_user_tips: "Ativar novas dicas de usuário que descrevem os principais recursos para os(as) usuários(as)"
+=======
+    enable_user_tips: "(experimental) Ativar novas dicas de usuário(s) que descrevem os principais recursos para os(as) usuários(as)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     short_title: "O título abreviado será usado na tela inicial do(a) usuário(a), no inicializador ou em outros locais com espaço limitado. Deveria ser limitado a 12 caracteres."
     dashboard_hidden_reports: "Permita que relatórios específicos sejam ocultos no painel de controle."
     dashboard_visible_tabs: "Escolha quais abas do painel de controle estão visíveis."
@@ -2164,6 +2230,7 @@ pt_BR:
     use_name_for_username_suggestions: "Use o nome completo de um usuário ao sugerir nomes de usuário."
     suggest_weekends_in_date_pickers: "Inclua fins de semana (sábado e domingo) nas sugestões do seletor de datas (desative isso se você usar o Discourse apenas durante a semana, de segunda a sexta)."
     splash_screen: "Exibe uma tela de carregamento temporária enquanto os ativos do site são carregados"
+<<<<<<< HEAD
     navigation_menu: "Determine qual menu de navegação usar. A barra lateral e a navegação no cabeçalho podem ser personalizadas pelos usuários. A opção legada está disponível para compatibilidade com versões anteriores."
     default_navigation_menu_categories: "As categorias selecionadas serão exibidas abaixo da seção de Categorias do Menu de Navegação por padrão."
     default_navigation_menu_tags: "As etiquetas selecionadas serão exibidas na seção Etiquetas do Menu de Navegação por padrão."
@@ -2174,6 +2241,11 @@ pt_BR:
     experimental_search_menu_groups: "EXPERIMENTAL: ativa o novo menu de busca que foi atualizado para usar o glimmer"
     enable_experimental_lightbox: "EXPERIMENTAL: substitua a lightbox da imagem padrão pelo design renovado."
     page_loading_indicator: "Configure o indicador de carregamento mostrado durante as navegações da página no Discourse. O \"Controle giratório\" é um indicador de página completo. O \"Controle deslizante\" mostra uma barra estreita no topo da tela."
+=======
+    default_sidebar_categories: "As categorias selecionadas serão exibidas abaixo da seção de Categorias do Painel Lateral por padrão."
+    default_sidebar_tags: "As etiquetas selecionadas serão exibidas na seção de Etiquetas da barra lateral por padrão."
+    enable_new_user_profile_nav_groups: "EXPERIMENTAL: os usuários dos grupos selecionados verão o novo menu de navegação do perfil de usuário"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       invalid_css_color: "Cor inválida. Digite o nome da cor ou valor hexadecimal."
       invalid_email: "Endereço de e-mail inválido"
@@ -2229,8 +2301,12 @@ pt_BR:
       search_tokenize_japanese_enabled: "Você deve desativar o 'search_tokenize_japanese' antes de ativar esta configuração."
       discourse_connect_cannot_be_enabled_if_second_factor_enforced: "Você não pode ativar o DiscourseConnect se o 2FA for aplicado."
       delete_rejected_email_after_days: "Esta configuração não pode ser inferior à configuração delete_email_logs_after_days ou superior a %{max}"
+<<<<<<< HEAD
       invalid_uncategorized_category_setting: 'A categoria "Não categorizado" não pode ser selecionada se "permitir tópicos não categorizados" não estiver ativado.'
       invalid_search_ranking_weights: "O valor é inválido para a configuração do site search_ranking_weights. Exemplo: '{0.1,0.2,0.3,1.0}'. Observe que o valor máximo para cada peso é 1,0."
+=======
+      invalid_uncategorized_category_setting: "A categoria Não categorizado não pode ser selecionada se permitir tópicos não categorizados não for permitido"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     placeholder:
       discourse_connect_provider_secrets:
         key: "www.exemplo.com.br"
@@ -4505,7 +4581,11 @@ pt_BR:
             placeholder: "Privado(a)"
             extra_description: "Somente usuários(as) que entraram com a conta podem acessar esta comunidade"
           invite_only:
+<<<<<<< HEAD
             placeholder: "Apenas convidados"
+=======
+            placeholder: "Apenas Convidados"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             extra_description: "Usuários(as) devem ser convidados(as) por usuários(as) confiáveis ou pela equipe. Caso contrário, poderão se cadastrar por conta própria"
           must_approve_users:
             placeholder: "Requerer aprovação"
@@ -4520,7 +4600,11 @@ pt_BR:
         title: "Seu site está pronto!"
         description: "É isso! Você fez o básico para configurar sua comunidade. Agora você pode entrar, dar uma olhada, escrever um tópico de boas-vindas e enviar convites!<br><br>Divirta-se!"
       styling:
+<<<<<<< HEAD
         title: "Aspecto e estilo"
+=======
+        title: "Aparência e Comportamento"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         fields:
           color_scheme:
             label: "Esquema de cores"
@@ -4552,17 +4636,27 @@ pt_BR:
               subcategories_with_featured_topics:
                 label: "Subcategorias com tópicos em destaque"
       branding:
+<<<<<<< HEAD
         title: "Logotipo do site"
+=======
+        title: "Personalizar logos"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         fields:
           logo:
             label: "Logotipo principal"
             description: "Tamanho recomendado: 600 x 200"
           logo_small:
             label: "Logotipo quadrado"
+<<<<<<< HEAD
             description: "Tamanho recomendado: 512 x 512. Também usado como favicon e ícone do aplicativo da tela inicial do celular."
       corporate:
         title: "Sua organização"
         description: "As informações a seguir serão usadas nas suas páginas Termos de Serviço e Sobre. Você pode ignorar se não houver empresa."
+=======
+            description: "Uma versão quadrada da sua logo. Exibida no canto superior esquerdo da página quando rolado para baixo em um navegador e exibido ao compartilhar em redes sociais. Idealmente deve ter ao menos 512x512."
+      corporate:
+        title: "Sua organização"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         fields:
           company_name:
             label: "Nome da empresa"
@@ -4768,11 +4862,14 @@ pt_BR:
     payload_url:
       blocked_or_internal: "A URL da Carga não poderá ser usada porque se refere a um IP interno ou bloqueado"
       unsafe: "A URL da carga útil não poderá ser usada porque não é segura"
+<<<<<<< HEAD
   form_templates:
     errors:
       invalid_yaml: "não é uma string YAML válida"
       invalid_type: "contém um tipo de modelo inválido: %{type} (os tipos válidos são: %{valid_types})"
       missing_type: "está faltando o tipo do campo"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   activemodel:
     errors:
       <<: *errors

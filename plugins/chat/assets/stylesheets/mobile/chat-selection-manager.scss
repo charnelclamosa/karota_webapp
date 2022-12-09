@@ -1,9 +1,16 @@
 .chat-selection-management {
+<<<<<<< HEAD
   &__buttons {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding-bottom: env(safe-area-inset-bottom);
+=======
+  .chat-selection-management-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     .cancel-btn {
       margin-left: initial;
@@ -11,10 +18,13 @@
 
     .btn {
       margin-bottom: 0.25em;
+<<<<<<< HEAD
 
       &:last-child {
         margin-bottom: 0;
       }
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 }

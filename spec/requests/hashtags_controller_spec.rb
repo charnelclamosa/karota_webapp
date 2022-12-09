@@ -297,4 +297,7 @@ RSpec.describe HashtagsController do
       end
     end
   end
+
+  # TODO (martin) write a spec here for the new
+  # #lookup behaviour and the new #search behaviour
 end

@@ -6,6 +6,7 @@
 
 lt:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ lt:
           never: "Niekada"
     chat:
       deleted_chat_username: ištrintas
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Sukurti"
       cancel: "Atšaukti"
       channel_settings:
@@ -21,13 +25,17 @@ lt:
         join: "Prisijungti"
         leave: "Palikti"
       close: "Uždaryti"
+<<<<<<< HEAD
       remove: "Pašalinti"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Pašalinti"
       edited: "taisytas"
       muted: "nutyldita"
       joined: "prisijungė"
       email_frequency:
         never: "Niekada"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Niekada"
       flag: "Pranešti"
@@ -35,6 +43,12 @@ lt:
       last_visit: "paskutinis apsilankymas"
       summarization:
         summarize: "Apibendrinti"
+=======
+      flag: "Pranešti"
+      join: "Prisijungti"
+      mention_warning:
+        dismiss: "praleisti"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Atsakyti"
       edit: "Redaguoti"
       rebake_message: "Perkurti HTML"
@@ -56,7 +70,10 @@ lt:
         yesterday: Vakar
       about_view:
         title: Antraštė
+<<<<<<< HEAD
         name: Vardas
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Aprašymas
       channel_info:
         back_to_channel: "Atgal"
@@ -64,8 +81,11 @@ lt:
           about: Apie
           members: Nariai
           settings: Nustatymai
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Nėra elementų"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nauja žinutė
         prefix: "Kam:"
@@ -77,14 +97,20 @@ lt:
       composer:
         italic_text: "pasviras tekstas"
         bold_text: "paryškintas tekstas"
+<<<<<<< HEAD
         send: "Siųsti"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Niekada"
       settings:
         follow: "Prisijungti"
         followed: "Prisijungė"
+<<<<<<< HEAD
         threading_enabled: "Galimas"
         threading_disabled: "Uždrausta"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Pranešimai"
         preview: "Peržiūrėti"
         save: "Išsaugoti"
@@ -116,6 +142,7 @@ lt:
         activities: "Veikla"
         flags: "Pažymėk!"
         symbols: "Simboliai"
+<<<<<<< HEAD
       thread:
         title: "Antraštė"
         replies:
@@ -135,6 +162,8 @@ lt:
           few: "+%{count}"
           many: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nauja žinutė"
         cancel: "Atšaukti"
@@ -146,3 +175,10 @@ lt:
           fields:
             message:
               label: Žinutės
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Pažymėjo"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

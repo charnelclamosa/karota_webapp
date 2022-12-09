@@ -6,6 +6,7 @@
 
 sq:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,21 +14,33 @@ sq:
           never: "Asnjëherë"
     chat:
       deleted_chat_username: deleted
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       cancel: "Anulo"
       channel_settings:
         edit: "Redakto"
         add: "Shto"
       close: "Mbyll"
+<<<<<<< HEAD
       remove: "Hiq"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Fshij"
       muted: "të heshtur"
       joined: "anëtarësuar"
       email_frequency:
         never: "Asnjëherë"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Asnjëherë"
       flag: "Sinjalizoni"
       last_visit: "vizita e fundit"
+=======
+      flag: "Sinjalizoni"
+      mention_warning:
+        dismiss: "hiqe"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Përgjigju"
       edit: "Redakto"
       rebake_message: "Rindërtoni HTML"
@@ -46,7 +59,10 @@ sq:
         yesterday: Dje
       about_view:
         title: Titulli
+<<<<<<< HEAD
         name: Emri
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Përshkrimi
       channel_info:
         back_to_channel: "Kthehu mbrapa"
@@ -69,7 +85,10 @@ sq:
         never: "Asnjëherë"
       settings:
         followed: "Anëtarësuar"
+<<<<<<< HEAD
         threading_enabled: "Aktivizuar"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Njoftimet"
         preview: "Parashikimi"
         save: "Ruaj"
@@ -95,6 +114,7 @@ sq:
           title: "Transfero tek një Temë tjetër"
       emoji_picker:
         flags: "Sinjalizime"
+<<<<<<< HEAD
       thread:
         title: "Titulli"
         replies:
@@ -107,6 +127,8 @@ sq:
             title: "Normal"
           tracking:
             title: "Në gjurmim"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Mesazh i ri"
         cancel: "Anulo"

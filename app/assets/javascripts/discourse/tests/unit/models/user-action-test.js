@@ -1,7 +1,11 @@
 import { module, test } from "qunit";
 import UserAction from "discourse/models/user-action";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user-action", function (hooks) {
   setupTest(hooks);

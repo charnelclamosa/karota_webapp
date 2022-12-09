@@ -269,13 +269,25 @@
     {{/if}}
 
     {{#unless this.model.component}}
+<<<<<<< HEAD
       <section
         class="form-horizontal theme settings control-unit theme-settings__color-scheme"
       >
+=======
+      <DSection @class="form-horizontal theme settings control-unit theme-settings__color-scheme">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         <div class="row setting">
           <div class="setting-label">
             {{i18n "admin.customize.theme.color_scheme"}}
           </div>
+<<<<<<< HEAD
+=======
+
+          <div class="setting-value">
+            <ColorPalettes @content={{this.colorSchemes}} @value={{this.colorSchemeId}} @icon="paint-brush" @options={{hash
+                filterable=true
+              }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           <div class="setting-value">
             <ColorPalettes

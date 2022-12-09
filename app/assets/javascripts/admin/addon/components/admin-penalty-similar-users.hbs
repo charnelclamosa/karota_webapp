@@ -1,4 +1,5 @@
 <div class="penalty-similar-users">
+<<<<<<< HEAD:app/assets/javascripts/admin/addon/components/admin-penalty-similar-users.hbs
   <p class="alert alert-warning">
     {{html-safe
       (i18n
@@ -6,6 +7,10 @@
         (hash count=this.user.similar_users_count username=this.user.username)
       )
     }}
+=======
+  <p class="alert alert-danger">
+    {{i18n "admin.user.other_matches" (hash count=this.user.similar_users_count username=this.user.username)}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/admin/addon/templates/components/admin-penalty-similar-users.hbs
   </p>
 
   <table class="table">
@@ -25,11 +30,15 @@
       {{#each this.user.similar_users as |user|}}
         <tr>
           <td>
+<<<<<<< HEAD:app/assets/javascripts/admin/addon/components/admin-penalty-similar-users.hbs
             <Input
               @type="checkbox"
               disabled={{not (get user this.penaltyField)}}
               {{on "click" (action "selectUserId" user.id)}}
             />
+=======
+            <Input @type="checkbox" disabled={{not (get user this.penaltyField)}} {{on "click" (action "selectUserId" user.id)}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/admin/addon/templates/components/admin-penalty-similar-users.hbs
           </td>
           <td>{{avatar user imageSize="small"}} {{user.username}}</td>
           <td>{{format-duration user.last_seen_age}}</td>
@@ -41,4 +50,8 @@
       {{/each}}
     </tbody>
   </table>
+<<<<<<< HEAD:app/assets/javascripts/admin/addon/components/admin-penalty-similar-users.hbs
 </div>
+=======
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/admin/addon/templates/components/admin-penalty-similar-users.hbs

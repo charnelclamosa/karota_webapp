@@ -671,6 +671,13 @@ lt:
         many: "beveik prieš %{count} metų"
         other: "beveik prieš %{count} metų"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Pasirinkite naują slaptažodį"
+    choose: "Pasirinkite slaptažodį"
+    update: "Atnaujinti slaptažodį"
+    save: "Nustatykite slaptažodį"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Keisti slaptažodį"
     success: "Jūs sėkmingai pasikeitėte savo slaptažodį ir dabar esate prisijungęs."
     success_unapproved: "Jūs sėkmingai pasikeitėte savo slaptažodį."
@@ -2672,6 +2679,15 @@ lt:
                 label: "Kategorijos su paskutinėmis temomis"
               categories_and_top_topics:
                 label: "Kategorijos ir Top temos"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Pirminis logotipas"
+          logo_small:
+            label: "Kvadratinis logotipas"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

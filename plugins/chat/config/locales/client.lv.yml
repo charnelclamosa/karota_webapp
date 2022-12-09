@@ -6,6 +6,7 @@
 
 lv:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ lv:
           never: "Nekad"
     chat:
       deleted_chat_username: dzēsts
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Izveidot"
       cancel: "Atcelt"
       channel_settings:
@@ -21,18 +25,28 @@ lv:
         join: "Pievienojieties"
         leave: "Iziet"
       close: "Aizvērt"
+<<<<<<< HEAD
       remove: "Atcelt"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Dzēst"
       edited: "rediģēts"
       muted: "klusināts"
       joined: "pievienojās"
       email_frequency:
         never: "Nekad"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Nekad"
       flag: "Sūdzība"
       join: "Pievienojieties"
       last_visit: "pēdējais apmeklējums"
+=======
+      flag: "Sūdzība"
+      join: "Pievienojieties"
+      mention_warning:
+        dismiss: "nerādīt"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Atbilde"
       edit: "Rediģēt"
       rebake_message: "Pārbūvēt HTML"
@@ -54,7 +68,10 @@ lv:
         yesterday: Vakar
       about_view:
         title: Virsraksts
+<<<<<<< HEAD
         name: Vārds
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Apraksts
       channel_info:
         back_to_channel: "Atpakaļ"
@@ -73,14 +90,20 @@ lv:
       composer:
         italic_text: "Uzsvērts teksts"
         bold_text: "treknrakstā"
+<<<<<<< HEAD
         send: "Sūtīt"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Nekad"
       settings:
         follow: "Pievienojieties"
         followed: "Pievienojās"
+<<<<<<< HEAD
         threading_enabled: "Ieslēgts"
         threading_disabled: "Atslēgt"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Paziņojumi"
         preview: "Priekšskatījums"
         save: "Saglabāt"
@@ -110,6 +133,7 @@ lv:
         activities: "Aktivitātes"
         flags: "Sūdzības"
         symbols: "Simboli"
+<<<<<<< HEAD
       thread:
         title: "Virsraksts"
         replies:
@@ -123,6 +147,8 @@ lv:
             title: "Normāls"
           tracking:
             title: "Sekot"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Jauns ziņa"
         cancel: "Atcelt"
@@ -132,3 +158,10 @@ lv:
           fields:
             message:
               label: Ziņa
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Atzīmēja"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

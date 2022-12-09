@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class ReviewableFlaggedPost < Reviewable
+<<<<<<< HEAD
   scope :pending_and_default_visible, -> { pending.default_visible }
+=======
+  scope :pending_and_default_visible, -> {
+    pending.default_visible
+  }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   # Penalties are handled by the modal after the action is performed
   def self.action_aliases
@@ -58,7 +64,32 @@ class ReviewableFlaggedPost < Reviewable
     if post.hidden?
       build_action(actions, :agree_and_keep_hidden, icon: "thumbs-up", bundle: agree_bundle)
     else
+<<<<<<< HEAD
       build_action(actions, :agree_and_keep, icon: "thumbs-up", bundle: agree_bundle)
+=======
+      build_action(actions, :agree_and_keep, icon: 'thumbs-up', bundle: agree)
+    end
+
+    if guardian.can_suspend?(target_created_by)
+      build_action(actions, :agree_and_suspend, icon: 'ban', bundle: agree, client_action: 'suspend')
+      build_action(actions, :agree_and_silence, icon: 'microphone-slash', bundle: agree, client_action: 'silence')
+    end
+
+    if post.user_deleted?
+      build_action(actions, :agree_and_restore, icon: 'far-eye', bundle: agree)
+    end
+
+    if post.hidden?
+      build_action(actions, :disagree_and_restore, icon: 'thumbs-down')
+    else
+      build_action(actions, :disagree, icon: 'thumbs-down')
+    end
+
+    build_action(actions, :ignore, icon: 'external-link-alt')
+
+    if potential_spam? && guardian.can_delete_user?(target_created_by)
+      delete_user_actions(actions)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     if guardian.can_delete_post_or_topic?(post)

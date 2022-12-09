@@ -6,6 +6,7 @@
   width: var(--message-left-width);
 }
 
+<<<<<<< HEAD
 .chat-message-container:hover .chat-message-left-gutter {
   .chat-time {
     color: var(--secondary-medium);
@@ -15,6 +16,18 @@
 .chat-message-left-gutter__date {
   color: var(--primary-high);
   font-size: var(--font-down-1);
+=======
+.chat-message-left-gutter__date {
+  color: var(--primary-high);
+  font-size: var(--font-down-1);
+
+  &:hover,
+  &:focus {
+    .chat-time {
+      color: var(--primary);
+    }
+  }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 .chat-message-left-gutter__flag {

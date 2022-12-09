@@ -28,6 +28,7 @@ RSpec.describe Admin::SiteSettingsController do
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
+<<<<<<< HEAD
       end
     end
 
@@ -69,7 +70,201 @@ RSpec.describe Admin::SiteSettingsController do
             }
 
         expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count - 1)
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
+    end
+
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "site settings inaccessible"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "site settings inaccessible"
+    end
+  end
+
+  describe "#user_count" do
+    fab!(:staged_user) { Fabricate(:staged) }
+    let(:tracking) { NotificationLevels.all[:tracking] }
+
+    before do
+      SiteSetting.setting(:test_setting, "default")
+      SiteSetting.setting(:test_upload, "", type: :upload)
+      SiteSetting.refresh!
+    end
+
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it 'should return correct user count for default categories change' do
+        category_id = Fabricate(:category).id
+
+        put "/admin/site_settings/default_categories_watching/user_count.json", params: {
+          default_categories_watching: category_id
+        }
+
+        expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count)
+
+        CategoryUser.create!(category_id: category_id, notification_level: tracking, user: user)
+
+        put "/admin/site_settings/default_categories_watching/user_count.json", params: {
+          default_categories_watching: category_id
+        }
+
+        expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count - 1)
+
+        SiteSetting.setting(:default_categories_watching, "")
+      end
+
+      it 'should return correct user count for default tags change' do
+        tag = Fabricate(:tag)
+
+        put "/admin/site_settings/default_tags_watching/user_count.json", params: {
+          default_tags_watching: tag.name
+        }
+
+        expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count)
+
+        TagUser.create!(tag_id: tag.id, notification_level: tracking, user: user)
+
+        put "/admin/site_settings/default_tags_watching/user_count.json", params: {
+          default_tags_watching: tag.name
+        }
+
+        expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count - 1)
+
+        SiteSetting.setting(:default_tags_watching, "")
+      end
+
+      context "for sidebar defaults" do
+        it 'returns the right count for the default_sidebar_categories site setting' do
+          category = Fabricate(:category)
+
+          put "/admin/site_settings/default_sidebar_categories/user_count.json", params: {
+            default_sidebar_categories: "#{category.id}"
+          }
+
+          expect(response.status).to eq(200)
+          expect(response.parsed_body["user_count"]).to eq(User.real.not_staged.count)
+        end
+
+        it 'returns the right count for the default_sidebar_tags site setting' do
+          tag = Fabricate(:tag)
+
+          put "/admin/site_settings/default_sidebar_tags/user_count.json", params: {
+            default_sidebar_tags: "#{tag.name}"
+          }
+
+          expect(response.status).to eq(200)
+          expect(response.parsed_body["user_count"]).to eq(User.real.not_staged.count)
+        end
+      end
+
+      context "with user options" do
+        def expect_user_count(site_setting_name:, user_setting_name:, current_site_setting_value:, new_site_setting_value:,
+                              current_user_setting_value: nil, new_user_setting_value: nil)
+
+          current_user_setting_value ||= current_site_setting_value
+          new_user_setting_value ||= new_site_setting_value
+
+          SiteSetting.public_send("#{site_setting_name}=", current_site_setting_value)
+          UserOption.human_users.update_all(user_setting_name => current_user_setting_value)
+          user_count = User.human_users.count
+
+          # Correctly counts users when all of them have default value
+          put "/admin/site_settings/#{site_setting_name}/user_count.json", params: {
+            site_setting_name => new_site_setting_value
+          }
+          expect(response.parsed_body["user_count"]).to eq(user_count)
+
+          # Correctly counts users when one of them already has new value
+          user.user_option.update!(user_setting_name => new_user_setting_value)
+          put "/admin/site_settings/#{site_setting_name}/user_count.json", params: {
+            site_setting_name => new_site_setting_value
+          }
+          expect(response.parsed_body["user_count"]).to eq(user_count - 1)
+
+          # Correctly counts users when site setting value has been changed
+          SiteSetting.public_send("#{site_setting_name}=", new_site_setting_value)
+          put "/admin/site_settings/#{site_setting_name}/user_count.json", params: {
+            site_setting_name => current_site_setting_value
+          }
+          expect(response.parsed_body["user_count"]).to eq(1)
+        end
+
+        it "should return correct user count for boolean setting" do
+          expect_user_count(
+            site_setting_name: "default_other_external_links_in_new_tab",
+            user_setting_name: "external_links_in_new_tab",
+            current_site_setting_value: false,
+            new_site_setting_value: true
+          )
+        end
+
+        it "should return correct user count for 'text_size_key'" do
+          expect_user_count(
+            site_setting_name: "default_text_size",
+            user_setting_name: "text_size_key",
+            current_site_setting_value: "normal",
+            new_site_setting_value: "larger",
+            current_user_setting_value: UserOption.text_sizes[:normal],
+            new_user_setting_value: UserOption.text_sizes[:larger]
+          )
+        end
+
+        it "should return correct user count for 'title_count_mode_key'" do
+          expect_user_count(
+            site_setting_name: "default_title_count_mode",
+            user_setting_name: "title_count_mode_key",
+            current_site_setting_value: "notifications",
+            new_site_setting_value: "contextual",
+            current_user_setting_value: UserOption.title_count_modes[:notifications],
+            new_user_setting_value: UserOption.title_count_modes[:contextual]
+          )
+        end
+      end
+    end
+
+    shared_examples "user counts inaccessible" do
+      it "denies access with a 404 response" do
+        category_id = Fabricate(:category).id
+
+        put "/admin/site_settings/default_categories_watching/user_count.json", params: {
+          default_categories_watching: category_id
+        }
+
+        expect(response.status).to eq(404)
+        expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
+      end
+    end
+
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "user counts inaccessible"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "user counts inaccessible"
+    end
+  end
+
+  describe '#update' do
+    before do
+      SiteSetting.setting(:test_setting, "default")
+      SiteSetting.setting(:test_upload, "", type: :upload)
+      SiteSetting.refresh!
+    end
+
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
 
       it "should return correct user count for default tags change" do
         tag = Fabricate(:tag)
@@ -319,6 +514,7 @@ RSpec.describe Admin::SiteSettingsController do
         end
       end
 
+<<<<<<< HEAD
       context "when updating default navigation menu categories and tags" do
         it "does not enqueue the backfilling job if update_existing_user param is not present" do
           expect_not_enqueued_with(job: :backfill_sidebar_site_settings) do
@@ -326,11 +522,20 @@ RSpec.describe Admin::SiteSettingsController do
                 params: {
                   default_navigation_menu_categories: "1|2",
                 }
+=======
+      context 'when updating default sidebar categories and tags' do
+        it 'does not enqueue the backfilling job if update_existing_user param is not present' do
+          expect_not_enqueued_with(job: :backfill_sidebar_site_settings) do
+            put "/admin/site_settings/default_sidebar_categories.json", params: {
+              default_sidebar_categories: "1|2",
+            }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
         end
 
+<<<<<<< HEAD
         it "enqueues the backfilling job if update_existing_user param is present when updating default navigation menu tags" do
           SiteSetting.default_navigation_menu_tags = "tag3"
 
@@ -347,11 +552,22 @@ RSpec.describe Admin::SiteSettingsController do
                   default_navigation_menu_tags: "tag1|tag2",
                   update_existing_user: true,
                 }
+=======
+        it 'enqueus the backfilling job if update_existing_user param is present when updating default sidebar tags' do
+          SiteSetting.default_sidebar_tags = "tag3"
+
+          expect_enqueued_with(job: :backfill_sidebar_site_settings, args: { setting_name: 'default_sidebar_tags', new_value: 'tag1|tag2', previous_value: 'tag3' }) do
+            put "/admin/site_settings/default_sidebar_tags.json", params: {
+              default_sidebar_tags: "tag1|tag2",
+              update_existing_user: true
+            }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
         end
 
+<<<<<<< HEAD
         it "enqueues the backfilling job if update_existing_user param is present when updating default navigation_menu categories" do
           SiteSetting.default_navigation_menu_categories = "3|4"
 
@@ -368,6 +584,16 @@ RSpec.describe Admin::SiteSettingsController do
                   default_navigation_menu_categories: "1|2",
                   update_existing_user: true,
                 }
+=======
+        it 'enqueus the backfilling job if update_existing_user param is present when updating default sidebar categories' do
+          SiteSetting.default_sidebar_categories = "3|4"
+
+          expect_enqueued_with(job: :backfill_sidebar_site_settings, args: { setting_name: 'default_sidebar_categories', new_value: '1|2', previous_value: '3|4' }) do
+            put "/admin/site_settings/default_sidebar_categories.json", params: {
+              default_sidebar_categories: "1|2",
+              update_existing_user: true
+            }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
@@ -530,6 +756,7 @@ RSpec.describe Admin::SiteSettingsController do
       end
 
       context "with upload site settings" do
+<<<<<<< HEAD
         it "can remove the site setting" do
           SiteSetting.push_notifications_icon = Fabricate(:upload)
 
@@ -537,6 +764,14 @@ RSpec.describe Admin::SiteSettingsController do
               params: {
                 push_notifications_icon: nil,
               }
+=======
+        it 'can remove the site setting' do
+          SiteSetting.test_upload = Fabricate(:upload)
+
+          put "/admin/site_settings/test_upload.json", params: {
+            test_upload: nil
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(200)
           expect(SiteSetting.push_notifications_icon).to eq(nil)
@@ -625,7 +860,13 @@ RSpec.describe Admin::SiteSettingsController do
 
     shared_examples "site setting update not allowed" do
       it "prevents updates with a 404 response" do
+<<<<<<< HEAD
         put "/admin/site_settings/test_setting.json", params: { test_setting: "hello" }
+=======
+        put "/admin/site_settings/test_setting.json", params: {
+          test_setting: 'hello'
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -639,7 +880,11 @@ RSpec.describe Admin::SiteSettingsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "site setting update not allowed"
     end

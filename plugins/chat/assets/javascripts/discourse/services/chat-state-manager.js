@@ -3,15 +3,19 @@ import { defaultHomepage } from "discourse/lib/utilities";
 import { tracked } from "@glimmer/tracking";
 import KeyValueStore from "discourse/lib/key-value-store";
 import Site from "discourse/models/site";
+<<<<<<< HEAD
 import getURL from "discourse-common/lib/get-url";
 import { getUserChatSeparateSidebarMode } from "discourse/plugins/chat/discourse/lib/get-user-chat-separate-sidebar-mode";
 import { withPluginApi } from "discourse/lib/plugin-api";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const PREFERRED_MODE_KEY = "preferred_mode";
 const PREFERRED_MODE_STORE_NAMESPACE = "discourse_chat_";
 const FULL_PAGE_CHAT = "FULL_PAGE_CHAT";
 const DRAWER_CHAT = "DRAWER_CHAT";
 
+<<<<<<< HEAD
 let chatDrawerStateCallbacks = [];
 
 export function addChatDrawerStateCallback(callback) {
@@ -30,6 +34,13 @@ export default class ChatStateManager extends Service {
   @tracked isDrawerExpanded = false;
   @tracked isDrawerActive = false;
 
+=======
+export default class ChatStateManager extends Service {
+  @service chat;
+  @service router;
+  isDrawerExpanded = false;
+  isDrawerActive = false;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @tracked _chatURL = null;
   @tracked _appURL = null;
 
@@ -49,6 +60,7 @@ export default class ChatStateManager extends Service {
     this._store.setObject({ key: PREFERRED_MODE_KEY, value: DRAWER_CHAT });
   }
 
+<<<<<<< HEAD
   openSidePanel() {
     this.isSidePanelExpanded = true;
   }
@@ -107,10 +119,33 @@ export default class ChatStateManager extends Service {
   didExpandDrawer() {
     this.isDrawerActive = true;
     this.isDrawerExpanded = true;
+=======
+  didOpenDrawer(URL = null) {
+    this.set("isDrawerActive", true);
+    this.set("isDrawerExpanded", true);
+
+    if (URL) {
+      this.storeChatURL(URL);
+    }
+
+    this.chat.updatePresence();
+  }
+
+  didCloseDrawer() {
+    this.set("isDrawerActive", false);
+    this.set("isDrawerExpanded", false);
+    this.chat.updatePresence();
+  }
+
+  didExpandDrawer() {
+    this.set("isDrawerActive", true);
+    this.set("isDrawerExpanded", true);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.chat.updatePresence();
   }
 
   didCollapseDrawer() {
+<<<<<<< HEAD
     this.isDrawerActive = true;
     this.isDrawerExpanded = false;
     this.#publishStateChange();
@@ -120,6 +155,15 @@ export default class ChatStateManager extends Service {
     this.isDrawerExpanded = !this.isDrawerExpanded;
     this.isDrawerActive = true;
     this.#publishStateChange();
+=======
+    this.set("isDrawerActive", true);
+    this.set("isDrawerExpanded", false);
+  }
+
+  didToggleDrawer() {
+    this.set("isDrawerExpanded", !this.isDrawerExpanded);
+    this.set("isDrawerActive", true);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get isFullPagePreferred() {
@@ -142,6 +186,7 @@ export default class ChatStateManager extends Service {
     return this.router.currentRouteName?.startsWith("chat");
   }
 
+<<<<<<< HEAD
   get isActive() {
     return this.isFullPageActive || this.isDrawerActive;
   }
@@ -158,6 +203,14 @@ export default class ChatStateManager extends Service {
 
   storeChatURL(url) {
     this._chatURL = url;
+=======
+  storeAppURL(URL = null) {
+    this._appURL = URL || this.router.currentURL;
+  }
+
+  storeChatURL(URL = null) {
+    this._chatURL = URL || this.router.currentURL;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get lastKnownAppURL() {
@@ -166,6 +219,7 @@ export default class ChatStateManager extends Service {
       url = this.router.urlFor(`discovery.${defaultHomepage()}`);
     }
 
+<<<<<<< HEAD
     return getURL(url);
   }
 
@@ -180,5 +234,12 @@ export default class ChatStateManager extends Service {
     };
 
     chatDrawerStateCallbacks.forEach((callback) => callback(state));
+=======
+    return url;
+  }
+
+  get lastKnownChatURL() {
+    return this._chatURL || "/chat";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

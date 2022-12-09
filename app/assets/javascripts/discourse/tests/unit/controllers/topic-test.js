@@ -4,8 +4,14 @@ import { settled } from "@ember/test-helpers";
 import pretender, { response } from "discourse/tests/helpers/create-pretender";
 import EmberObject from "@ember/object";
 import { Placeholder } from "discourse/lib/posts-with-placeholders";
+<<<<<<< HEAD
 import { next } from "@ember/runloop";
 import { getOwner } from "@ember/application";
+=======
+import User from "discourse/models/user";
+import { next } from "@ember/runloop";
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import sinon from "sinon";
 
 function topicWithStream(streamDetails) {
@@ -259,7 +265,11 @@ module("Unit | Controller | topic", function (hooks) {
   });
 
   test("canDeleteSelected", function (assert) {
+<<<<<<< HEAD
     const currentUser = this.store.createRecord("user", { admin: false });
+=======
+    const currentUser = User.create({ admin: false });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const model = topicWithStream.call(this, {
       posts: [
         { id: 1, can_delete: false },
@@ -352,7 +362,11 @@ module("Unit | Controller | topic", function (hooks) {
   });
 
   test("canChangeOwner", function (assert) {
+<<<<<<< HEAD
     const currentUser = this.store.createRecord("user", { admin: false });
+=======
+    const currentUser = User.create({ admin: false });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const model = topicWithStream.call(this, {
       posts: [
         { id: 1, username: "gary" },
@@ -384,7 +398,11 @@ module("Unit | Controller | topic", function (hooks) {
   });
 
   test("modCanChangeOwner", function (assert) {
+<<<<<<< HEAD
     const currentUser = this.store.createRecord("user", { moderator: false });
+=======
+    const currentUser = User.create({ moderator: false });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const model = topicWithStream.call(this, {
       posts: [
         { id: 1, username: "gary" },

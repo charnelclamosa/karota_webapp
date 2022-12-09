@@ -21,6 +21,7 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.showSidebar = this.calculateShowSidebar();
+<<<<<<< HEAD
   },
 
   get showFooter() {
@@ -33,6 +34,8 @@ export default Controller.extend({
       { id: "discourse.application-show-footer" }
     );
     this.footer.showFooter = value;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   @discourseComputed
@@ -64,13 +67,21 @@ export default Controller.extend({
   },
 
   @discourseComputed(
+<<<<<<< HEAD
     "navigationMenuQueryParamOverride",
+=======
+    "sidebarQueryParamOverride",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     "siteSettings.navigation_menu",
     "canDisplaySidebar",
     "sidebarDisabledRouteOverride"
   )
   sidebarEnabled(
+<<<<<<< HEAD
     navigationMenuQueryParamOverride,
+=======
+    sidebarQueryParamOverride,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     navigationMenu,
     canDisplaySidebar,
     sidebarDisabledRouteOverride

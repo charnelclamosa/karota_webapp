@@ -63,6 +63,7 @@ module HasCustomFields
   CUSTOM_FIELDS_MAX_ITEMS = 100
   CUSTOM_FIELDS_MAX_VALUE_LENGTH = 10_000_000
 
+<<<<<<< HEAD
   included do
     attr_reader :preloaded_custom_fields
 
@@ -72,6 +73,9 @@ module HasCustomFields
     validate :custom_fields_value_length, unless: :custom_fields_clean?
 
     after_save :save_custom_fields
+=======
+    attr_reader :preloaded_custom_fields
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     def custom_fields_fk
       @custom_fields_fk ||= "#{_custom_fields.reflect_on_all_associations(:belongs_to)[0].name}_id"

@@ -135,7 +135,11 @@ tr_TR:
       next_month: "Gelecek Ay"
       placeholder: tarih
       from_placeholder: "başlangıç tarihi"
+<<<<<<< HEAD
       to_placeholder: "bugüne kadar"
+=======
+      to_placeholder: "bitiş tarihi"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     share:
       topic_html: 'Konu: <span class="topic-title">%{topicTitle}</span>'
       post: "@%{username} adlı kullanıcının #%{postNumber}. gönderisi"
@@ -147,6 +151,7 @@ tr_TR:
     word_connector:
       comma: ", "
     action_codes:
+<<<<<<< HEAD
       public_topic: "Bu konuyu herkese açık yaptı, %{when}"
       open_topic: "Bunu bir konuya dönüştürdü, %{when}"
       private_topic: "Bu konuyu kişisel mesaj yaptı, %{when}"
@@ -165,31 +170,74 @@ tr_TR:
       closed:
         enabled: "Kapatıldı, %{when}"
         disabled: "Açıldı, %{when}"
+=======
+      public_topic: "bu konuyu %{when} tarihinde herkese açık yaptı"
+      open_topic: "bunu %{when} tarihinde bir konuya dönüştürdü"
+      private_topic: "bu konuyu %{when} tarihinde bir kişisel mesaj yaptı"
+      split_topic: "bu konuyu %{when} tarihinde ayırdı"
+      invited_user: "%{when} tarihinde %{who} adlı kullanıcıyı davet etti"
+      invited_group: "%{when} tarihinde %{who} adlı kullanıcıyı davet etti"
+      user_left: "%{who}, %{when} tarihinde bu mesajdan kendini çıkardı"
+      removed_user: "%{who} adlı kişiyi %{when} tarihinde çıkardı"
+      removed_group: "%{who} adlı kişiyi %{when} tarihinde çıkardı"
+      autobumped: "%{when} tarihinde otomatik olarak üste sıçradı"
+      autoclosed:
+        enabled: "%{when} tarihinde kapatıldı"
+        disabled: "%{when} tarihinde açıldı"
+      closed:
+        enabled: "%{when} tarihinde kapatıldı"
+        disabled: "%{when} tarihinde açıldı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       archived:
         enabled: "Arşivlendi, %{when}"
         disabled: "Arşivden çıkarıldı, %{when}"
       pinned:
+<<<<<<< HEAD
         enabled: "Sabitlendi, %{when}"
         disabled: "Sabitlemesi kaldırıldı, %{when}"
       pinned_globally:
         enabled: "Küresel olarak sabitlendi, %{when}"
         disabled: "Sabitlemesi kaldırıldı, %{when}"
+=======
+        enabled: "%{when} tarihinde sabitlendi"
+        disabled: "%{when} tarihinde sabitlenmesi kaldırıldı"
+      pinned_globally:
+        enabled: "%{when} tarihinde küresel olarak sabitlendi"
+        disabled: "%{when} en yukarıda sabitlenmesi kaldırıldı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       visible:
         enabled: "Listelendi, %{when}"
         disabled: "Listeden kaldırıldı, %{when}"
       banner:
+<<<<<<< HEAD
         enabled: "Bunu banner yaptı, %{when}. Kullanıcı tarafından kapatılana kadar her sayfanın en üstünde görünecek."
         disabled: "Bu banner'ı kaldırdı, %{when}. Bundan sonra her sayfanın en üstünde görünmeyecek."
       forwarded: "Yukarıdaki e-postayı iletti"
     topic_admin_menu: "konu eylemleri"
     skip_to_main_content: "Ana içeriğe atla"
     skip_user_nav: "Profil içeriğine atla"
+=======
+        enabled: "%{when} tarihinde bunu bir banner yaptı. Kullanıcı tarafından kapatılana kadar her sayfanın en üstünde görünecek."
+        disabled: "%{when} tarihinde bu banner'ı kaldırdı. Bundan sonra her sayfanın en üstünde görünmeyecek."
+      forwarded: "yukarıdaki e-postayı iletti"
+    topic_admin_menu: "konu eylemleri"
+    skip_to_main_content: "Ana içeriğe atla"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     emails_are_disabled: "Giden tüm e-postalar bir yönetici tarafından devre dışı bırakıldı. Herhangi bir e-posta bildirimi gönderilmeyecek."
     emails_are_disabled_non_staff: "Giden e-posta, personel olmayan kullanıcılar için devre dışı bırakıldı."
     software_update_prompt:
       message: "Siteyi güncelledik, <span>lütfen sayfayı yenileyin</span>, aksi takdirde beklenmedik davranışlarla karşılaşabilirsiniz."
       dismiss: "Kapat"
+<<<<<<< HEAD
     bootstrap_mode: "Başlarken"
+=======
+    bootstrap_mode_enabled:
+      one: "Yeni sitenizi başlatmayı kolaylaştırmak için önyükleme modundasınız. Tüm yeni kullanıcılara 1. güven seviyesi verilir ve günlük e-posta özeti e-postaları etkinleştirilir. Bu, %{count} kullanıcı katıldığında otomatik olarak kapatılır."
+      other: "Yeni sitenizi başlatmayı kolaylaştırmak için önyükleme modundasınız. Tüm yeni kullanıcılara 1. güven seviyesi verilir ve günlük e-posta özeti e-postaları etkinleştirilir. Bu, %{count} kullanıcı katıldığında otomatik olarak kapatılır."
+    bootstrap_mode_disabled: "Önyükleme modu 24 saat içinde devre dışı bırakılır."
+    bootstrap_invite_button_title: "Davet Gönder"
+    bootstrap_wizard_link_title: "Kurulum sihirbazını bitir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "Varsayılan"
       broken_theme_alert: "Bir temada / bileşende hata olduğu için siteniz çalışmayabilir."
@@ -233,7 +281,11 @@ tr_TR:
     generic_error: "Üzgünüz, bir hata oluştu."
     generic_error_with_reason: "Bir hata oluştu: %{error}"
     multiple_errors: "Birden fazla hata oluştu: %{errors}"
+<<<<<<< HEAD
     sign_up: "Kaydol"
+=======
+    sign_up: "Kayıt Ol"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     log_in: "Giriş Yap"
     age: "Yaş"
     joined: "Katılma Tarihi"
@@ -245,7 +297,11 @@ tr_TR:
       one: "bağlantı"
       other: "bağlantı"
     faq: "SSS"
+<<<<<<< HEAD
     guidelines: "Kılavuz"
+=======
+    guidelines: "Yönergeler"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     privacy_policy: "Gizlilik Politikası"
     privacy: "Gizlilik"
     tos: "Hizmet Şartları"
@@ -253,7 +309,12 @@ tr_TR:
     conduct: "Davranış Kuralları"
     mobile_view: "Mobil Görünüm"
     desktop_view: "Masaüstü Görünümü"
+<<<<<<< HEAD
     now: "az önce"
+=======
+    or: "veya"
+    now: "hemen şimdi"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     read_more: "devamını oku"
     more: "Daha fazla"
     x_more:
@@ -274,10 +335,16 @@ tr_TR:
       aria_label: "Döneme göre filtrele"
     related_messages:
       title: "İlgili Mesajlar"
+<<<<<<< HEAD
       pill: "İlgili Mesajlar"
     suggested_topics:
       title: "Yeni ve Okunmamış Konular"
       pill: "Önerilen"
+=======
+      see_all: '@%{username} adlı kullanıcıdan gelen <a href="%{path}">bütün mesajları</a> gör...'
+    suggested_topics:
+      title: "Önerilen Konular"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       pm_title: "Önerilen Mesajlar"
     about:
       simple_title: "Hakkında"
@@ -303,8 +370,13 @@ tr_TR:
       edit_bookmark: "Yer İmini Düzenle"
       clear_bookmarks: "Yer İmlerini Temizle"
       help:
+<<<<<<< HEAD
         bookmark: "Bu konuyu yer imlerine eklemek için tıklayın"
         edit_bookmark: "Bu konuda hakkında bir gönderi üzerine yer imini düzenlemek için tıklayın"
+=======
+        bookmark: "Bu konudaki ilk gönderiyi yer imlerine eklemek için tıklayın"
+        edit_bookmark: "Bu konudaki yer imini düzenlemek için tıklayın"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         edit_bookmark_for_topic: "Bu konunun yer imini düzenlemek için tıklayın"
         unbookmark: "Bu konudaki tüm yer imlerini kaldırmak için tıklayın"
         unbookmark_with_reminder: "Bu konudaki tüm yer imlerini ve anımsatıcıları kaldırmak için tıklayın"
@@ -317,6 +389,10 @@ tr_TR:
       remove_reminder_keep_bookmark: "Anımsatıcıyı kaldır ve yer imini tut"
       created_with_reminder: "Bu gönderiyi %{date} tarihli bir anımsatıcı ile yer imlerine eklediniz. %{name}"
       created_with_reminder_generic: "Bunu %{date} tarihli bir anımsatıcıyla yer imlerine eklediniz. %{name}"
+<<<<<<< HEAD
+=======
+      remove: "Yer İmini Kaldır"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Yer İmini Sil"
       confirm_delete: "Bu yer imini silmek istediğinizden emin misiniz? Anımsatıcı da silinir."
       confirm_clear: "Bu konudaki tüm yer imlerinizi silmek istediğinize emin misiniz?"
@@ -351,8 +427,13 @@ tr_TR:
       new_topic: "Yeni konu taslağı"
       new_private_message: "Yeni kişisel ileti taslağı"
       abandon:
+<<<<<<< HEAD
         confirm: "Halihazırda devam eden bir taslağınız var. Bununla ne yapmak istersiniz?"
         yes_value: "Kapat"
+=======
+        confirm: "Bu konu için devam eden bir taslağınız var. Bununla ne yapmak istersiniz?"
+        yes_value: "Sil"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         no_value: "Düzenlemeyi sürdür"
     topic_count_all:
       one: "%{count} yeni konuya bakın"
@@ -382,6 +463,12 @@ tr_TR:
     enable: "Etkinleştir"
     disable: "Devre dışı bırak"
     continue: "Devam et"
+<<<<<<< HEAD
+=======
+    undo: "Geri Al"
+    revert: "Eski Haline Getir"
+    failed: "Başarısız"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     switch_to_anon: "Anonim Moda Gir"
     switch_from_anon: "Anonim Moddan Çık"
     banner:
@@ -400,8 +487,11 @@ tr_TR:
         search: "Mesaj Arama"
         placeholder: "mesaj başlığını, url'yi veya kimliği buraya yazın"
     review:
+<<<<<<< HEAD
       show_more: "Daha fazla göster"
       show_less: "Daha az göster"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       order_by: "Şuna göre sırala"
       date_filter: "Şu tarihler arasında gönderildi"
       in_reply_to: "şuna yanıt olarak"
@@ -444,7 +534,11 @@ tr_TR:
         priorities:
           title: "İncelenebilir Öncelikler"
       moderation_history: "Moderasyon Tarihi"
+<<<<<<< HEAD
       view_all: "Tümünü görüntüle"
+=======
+      view_all: "Hepsini görüntüle"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       grouped_by_topic: "Konuya göre gruplandı"
       none: "İncelenecek öge yok."
       view_pending: "bekleyen görünüm"
@@ -473,7 +567,11 @@ tr_TR:
           other: "%{agreed}, %{disagreed}, %{ignored} (son %{count} bayraktan)"
         agreed:
           one: "%%{count} katılıyor"
+<<<<<<< HEAD
           other: "%%{count} katılıyor"
+=======
+          other: "% %{count} katılıyor"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         disagreed:
           one: "% %{count} katılmıyor"
           other: "% %{count} katılmıyor"
@@ -522,8 +620,13 @@ tr_TR:
       scores:
         about: "Bu puan, bildiren kişinin güven seviyesine, önceki bayraklarının doğruluğuna ve bildirilen ögenin önceliğine göre hesaplanır."
         score: "Puan"
+<<<<<<< HEAD
         date: "Rapor tarihi"
         type: "Sebep"
+=======
+        date: "Tarih"
+        type: "Tür"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         status: "Durum"
         submitted_by: "Bildiren:"
         reviewed_by: "İnceleyen:"
@@ -552,7 +655,11 @@ tr_TR:
         deleted:
           title: "Konu veya gönderi silindi"
         reviewed:
+<<<<<<< HEAD
           title: "Tümü incelendi"
+=======
+          title: "(hepsi incelendi)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         all:
           title: "Her şey"
       context_question:
@@ -560,6 +667,7 @@ tr_TR:
       types:
         reviewable_flagged_post:
           title: "Bayrak Eklenen Gönderi"
+<<<<<<< HEAD
           flagged_by: "Bayrak Ekleyen Kişi"
           noun: "i̇leti"
         reviewable_queued_topic:
@@ -568,6 +676,13 @@ tr_TR:
         reviewable_queued_post:
           title: "Kuyruğa Eklenen Gönderi"
           noun: "i̇leti"
+=======
+          flagged_by: "Bayrak Ekleyen"
+        reviewable_queued_topic:
+          title: "Kuyruğa Eklenen Konu"
+        reviewable_queued_post:
+          title: "Kuyruğa Eklenen Gönderi"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         reviewable_user:
           title: "Kullanıcı"
           noun: "kullanıcı"
@@ -575,7 +690,11 @@ tr_TR:
           title: "Gönderi"
           noun: "i̇leti"
       approval:
+<<<<<<< HEAD
         title: "Gönderi Onay Gerektiriyor"
+=======
+        title: "Gönderi Onay Gerektirir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: "Yeni gönderinizi aldık fakat görünmeden önce moderatör tarafından onaylanması gerekiyor. Lütfen sabırlı olun."
         pending_posts:
           one: "Bekleyen <strong>%{count}</strong> gönderiniz var."
@@ -700,7 +819,10 @@ tr_TR:
         denied: "reddedildi"
         undone: "talep reddedildi"
         handle: "üyelik talebini işle"
+<<<<<<< HEAD
         undo: "Geri Al"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       manage:
         title: "Yönet"
         name: "Ad"
@@ -893,7 +1015,11 @@ tr_TR:
           title: "İzleniyor"
           description: "Her mesajdaki her yeni gönderi için size bildirim gönderilir ve bir dizi yeni yanıt gösterilir."
         watching_first_post:
+<<<<<<< HEAD
           title: "İlk Gönderi izleniyor"
+=======
+          title: "İlk Gönderiyi izleme"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           description: "Mesajlara yanıtlar dışında, bu gruptaki yeni iletiler için bildirim alırsınız."
         tracking:
           title: "Takip ediliyor"
@@ -902,7 +1028,11 @@ tr_TR:
           title: "Normal"
           description: "Biri @adınızdan bahseder veya size yanıt verirse bildirim alırsınız."
         muted:
+<<<<<<< HEAD
           title: "Sessize alındı"
+=======
+          title: "Sessiz"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           description: "Bu gruptaki mesajlarla ilgili her konuda bildirim almazsınız."
       flair_url: "Gelişmiş Avatar Görüntüsü"
       flair_upload_description: "En küçük 20 x 20 px kare görüntüler kullanın."
@@ -969,6 +1099,10 @@ tr_TR:
       topic_stat_sentence_month:
         one: "Geçen ay %{count} yeni konu."
         other: "Geçen ay %{count} yeni konu."
+<<<<<<< HEAD
+=======
+      n_more: "Kategoriler (%{count} tane daha) ..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ip_lookup:
       title: IP Adresi Ara
       hostname: Sunucu Adı
@@ -996,12 +1130,19 @@ tr_TR:
       mute: "Sessiz"
       edit: "Tercihleri Düzenle"
       download_archive:
+<<<<<<< HEAD
         title: "Verilerinizi dışa aktarın"
         description: "Hesap aktivitenizin ve tercihlerinizin arşivini indirin."
         button_text: "Arşiv talep edin"
         confirm: "Hesap aktivitenizin ve tercihlerinizin arşivini indirmeyi gerçekten istiyor musunuz?"
         success: "Arşivinizi toplamaya başladık, işlem tamamlandığında bir mesaj alacaksınız."
         rate_limit_error: "Hesap arşivleri günde bir kez indirilebilir, lütfen yarın tekrar deneyin."
+=======
+        button_text: "Tümünü İndir"
+        confirm: "Gönderilerinizi indirmek istediğinize emin misiniz?"
+        success: "İndirme işlemi başlatıldı. İşlem tamamlandığında mesaj yoluyla bildirim alırsınız."
+        rate_limit_error: "Gönderiler günde bir kez indirilebilir, lütfen yarın tekrar deneyin."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       new_private_message: "Yeni Mesaj"
       private_message: "Mesaj"
       private_messages: "Mesajlar"
@@ -1021,6 +1162,10 @@ tr_TR:
         ignore_no_users: "Yok saydığınız kullanıcı bulunmuyor."
         ignore_option: "Yok sayıldı"
         ignore_option_title: "Bu kullanıcıyla ilgili bildirim almayacaksınız ve kullanıcının tüm başlık ve yanıtları gizlenecek."
+<<<<<<< HEAD
+=======
+        add_ignored_user: "Ekle..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         mute_option: "Sessize alındı"
         mute_option_title: "Bu kullanıcıyla ilgili bildirim almayacaksınız."
         normal_option: "Normal"
@@ -1028,7 +1173,11 @@ tr_TR:
       notification_schedule:
         title: "Bildirim Zamanlaması"
         label: "Özel bildirim zamanlamasını etkinleştir"
+<<<<<<< HEAD
         tip: "Bu saatler dışında bildirimleriniz duraklatılacak."
+=======
+        tip: "Bu saatler dışında otomatik olarak \"rahatsız etmeyin\" durumuna alınacaksınız."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         midnight: "Gece yarısı"
         none: "Hiçbiri"
         monday: "Pazartesi"
@@ -1039,7 +1188,11 @@ tr_TR:
         saturday: "Cumartesi"
         sunday: "Pazar"
         to: "kime"
+<<<<<<< HEAD
       activity_stream: "Aktivite"
+=======
+      activity_stream: "Etkinlik"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       read: "Okundu"
       read_help: "Son okunan konular"
       preferences: "Tercihler"
@@ -1073,7 +1226,11 @@ tr_TR:
         perm_denied_expl: "Bildirim izinlerini reddettiniz. Bildirimlere tarayıcı ayarlarınızdan izin verebilirsiniz."
         disable: "Bildirimleri Devre Dışı Bırak"
         enable: "Bildirimleri Etkinleştir"
+<<<<<<< HEAD
         each_browser_note: "Not: Kullandığınız her tarayıcıda bu ayarı değiştirmeniz gerekir. Bu ayardan bağımsız olarak, kullanıcı menüsünden bildirimleri duraklattığınızda tüm bildirimler devre dışı bırakılır."
+=======
+        each_browser_note: 'Not: Kullandığınız her tarayıcıda bu ayarı değiştirmeniz gerekir. Bu ayardan bağımsız olarak, "rahatsız etmeyin" modundayken tüm bildirimler devre dışı bırakılır.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         consent_prompt: "Gönderilerinize yanıt verildiğinde canlı bildirim almak ister misiniz?"
       dismiss: "Kapat"
       dismiss_notifications: "Tümünü Kapat"
@@ -1098,7 +1255,11 @@ tr_TR:
         Bu panelde, sizinle ilgili olabilecek diğer etkinlik türleri hakkında bildirim alısınız; örneğin, biri gönderilerinizden birine bağlantı eklediğinde veya gönderilerinizden birini düzenlediğinde.
       no_notifications_page_title: "Henüz bildiriminiz yok"
       no_notifications_page_body: >
+<<<<<<< HEAD
         Konu ve gönderilerinize verilen yanıtlar da dahil olmak üzere, doğrudan sizinle alakalı etkinlik olduğunda, biri sizden <b>@bahsettiğinde</b> veya sizden alıntı yaptığında bildirim alırsınız. Bir süredir giriş yapmadığınızda da bildirimler e-posta ile gönderilir. <br><br> Hangi konular, kategoriler ve etiketler hakkında bilgilendirilmek istediğinize karar vermek için %{icon} simgesini bulun. Daha fazlası için <a href='%{preferencesUrl}'> bildirim tercihlerinize bakın</a>.
+=======
+        Konu ve gönderilerinize verilen yanıtlar da dahil olmak üzere, doğrudan sizinle alakalı etkinlik olduğunda, biri sizden <b>@bahsettiğinde</b> veya sizden alıntı yaptığında  bildirim alırsınız. Bir süredir giriş yapmadığınızda da bildirimler e-posta ile gönderilir. <br><br> Hangi konular, kategoriler ve etiketler hakkında bilgilendirilmek istediğinize karar vermek için %{icon} simgesini bulun. Daha fazlası için <a href='%{preferencesUrl}'> bildirim tercihlerinize bakın</a>.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dynamic_favicon: "Sayıları, tarayıcı simgesi üzerinde göster"
       skip_new_user_tips:
         description: "Yeni kullanıcı ipuçlarını ve rozetlerini atla"
@@ -1124,10 +1285,21 @@ tr_TR:
       experimental_sidebar:
         enable: "Kenar çubuğunu etkinleştir"
         options: "Seçenekler"
+<<<<<<< HEAD
         navigation_section: "Gezinti"
         navigation_section_instruction: "Gezinme menüsündeki bir konu listesinde yeni veya okunmamış ögeler olduğunda…"
         link_to_filtered_list_checkbox_description: "Filtrelenmiş listeye bağlantı"
         show_count_new_items_checkbox_description: "Yeni ögelerin sayısını göster"
+=======
+        categories_section: "Kategoriler Bölümü"
+        categories_section_instruction: "Seçilen kategoriler Kenar Çubuğunun kategoriler bölümünde görüntülenir."
+        tags_section: "Etiketler Bölümü"
+        tags_section_instruction: "Seçilen etiketler Kenar Çubuğunun etiketler bölümünde görüntülenir."
+        navigation_section: "Gezinti"
+        list_destination_instruction: "Kenar çubuğunda yeni içerik olduğunda..."
+        list_destination_default: "varsayılan bağlantıyı kullan ve yeni ögeler için bir rozet göster"
+        list_destination_unread_new: "okunmamış/yeniye bağla ve yeni ögelerin sayısını göster"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "değiştir"
       featured_topic: "Öne Çıkan Konu"
       moderator: "%{user} bir moderatör"
@@ -1166,7 +1338,10 @@ tr_TR:
       watched_first_post_categories_instructions: "Bu kategorilerdeki tüm yeni konuların ilk gönderileri için bildirim alacaksınız."
       watched_first_post_tags: "İlk Gönderi izleniyor"
       watched_first_post_tags_instructions: "Bu etiketlere sahip olan her yeni konunun ilk gönderisi için bildirim alacaksınız."
+<<<<<<< HEAD
       watched_precedence_over_muted: "Sesi kapattıklarım dahil, izlediğim kategorilerdeki veya etiketlerdeki konular hakkında bana bildirim gönder"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       muted_categories: "Sessize alındı"
       muted_categories_instructions: "Bu kategorilerdeki yeni konular hakkında bildirim almayacaksınız ve kategorilerde ya da en son sayfalarda görünmeyecekler."
       muted_categories_instructions_dont_hide: "Bu kategorilerdeki yeni konular hakkında bildirim almayacaksınız."
@@ -1195,6 +1370,7 @@ tr_TR:
       api_approved: "Onaylandı:"
       api_last_used_at: "Son kullanım zamanı:"
       theme: "Tema"
+<<<<<<< HEAD
       save_to_change_theme: 'Tema "%{save_text}" düğmesine tıklandıktan sonra güncellenir'
       home: "Varsayılan Ana Sayfa"
       staged: "Aşamalı"
@@ -1217,6 +1393,18 @@ tr_TR:
         rejected_posts:
           one: '<span class="%{className}">%{count}</span> reddedilmiş gönderi'
           other: '<span class="%{className}">%{count}</span> reddedilmiş gönderi'
+=======
+      save_to_change_theme: 'Tema "%{save_text}” düğmesine tıklandıktan sonra güncellenir'
+      home: "Varsayılan Ana Sayfa"
+      staged: "Aşamalı"
+      staff_counters:
+        flags_given: "yardımcı bayraklar"
+        flagged_posts: "bayraklı gönderiler"
+        deleted_posts: "silinen gönderiler"
+        suspensions: "uzaklaştırmalar"
+        warnings_received: "uyarılar"
+        rejected_posts: "reddedilen gönderiler"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       messages:
         all: "tüm gelen kutuları"
         inbox: "Gelen Kutusu"
@@ -1241,6 +1429,7 @@ tr_TR:
         warnings: "Resmi Uyarılar"
         read_more_in_group: "Daha fazla okumak ister misiniz? %{groupLink} bağlantısındaki diğer mesajlara göz atın."
         read_more: "Daha fazla okumak isterseniz <a href='%{basePath}/u/%{username}/messages'>kişisel mesajlardaki</a> diğer mesajlara göz atın."
+<<<<<<< HEAD
         read_more_group_pm_MF: |
           { HAS_UNREAD_AND_NEW, select,
             true {
@@ -1297,6 +1486,10 @@ tr_TR:
             }
             other {}
           }
+=======
+        read_more_group_pm_MF: "{ UNREAD, plural, =0 {} one {<a href='{basePath}/u/{username}/messages/group/{groupName}/unread'># okunmamış</a> } other {<a href='{basePath}/u/{username}/messages/group/{groupName}/unread'># okunmamış</a> } } var { NEW, plural, =0 {} one { {BOTH, select, true{ve } false {kalan } other{}} <a href='{basePath}/u/{username}/messages/group/{groupName}/new'># yeni</a> mesajı} other { {BOTH, select, true{ve } false { } other{}} <a href='{basePath}/u/{username}/messages/group/{groupName}/new'># yeni</a> mesajı} } veya {groupLink} grubundaki diğer mesajlara göz atın"
+        read_more_personal_pm_MF: "{ UNREAD, plural, =0 {} one {<a href='{basePath}/u/{username}/messages/unread'># adet okunmamış</a>} other {<a href='{basePath}/u/{username}/messages/unread'># adet okunmamış</a> }} ileti { NEW, plural, =0 {} one { {BOTH, select, true{ve } false {var } other{}} <a href='{basePath}/u/{username}/messages/new'># adet yeni</a> ileti} other { {BOTH, select, true{ve } false {var } other{}} <a href='{basePath}/u/{username}/messages/new'># adet yeni</a> ileti} } var, ya da<a href='{basePath}/u/{username}/messages'>kişisel iletilere</a> göz atın"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       preferences_nav:
         account: "Hesap"
         security: "Güvenlik"
@@ -1309,7 +1502,11 @@ tr_TR:
         tags: "Etiketler"
         interface: "Arayüz"
         apps: "Uygulamalar"
+<<<<<<< HEAD
         navigation_menu: "Navigasyon Menüsü"
+=======
+        sidebar: "Kenar çubuğu"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change_password:
         success: "(e-posta gönderildi)"
         in_progress: "(e-posta gönderiliyor)"
@@ -1327,10 +1524,17 @@ tr_TR:
         enable_long: "Yedek kodları ekle"
         not_enabled: "Henüz yedek kod oluşturmadınız."
         manage:
+<<<<<<< HEAD
           one: "<strong>%{count}</strong> yedek kodunuz kaldı."
           other: "<strong>%{count}</strong> yedek kodunuz kaldı."
         copy_to_clipboard: "Panoya kopyala"
         copy_to_clipboard_error: "Veriler Panoya kopyalanırken hata oluştu"
+=======
+          one: "Yedek kodları yönetin. <strong>%{count}</strong> yedek kodunuz kaldı."
+          other: "Yedek kodları yönetin. <strong>%{count}</strong> yedek kodunuz kaldı."
+        copy_to_clipboard: "Panoya kopyala"
+        copy_to_clipboard_error: "Panoya kopyalanırken hata oluştu"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         copied_to_clipboard: "Panoya kopyalandı"
         download_backup_codes: "Yedek kodları indir"
         remaining_codes:
@@ -1362,6 +1566,7 @@ tr_TR:
         use: "Authenticator uygulamasını kullan"
         enforced_notice: "Bu siteye erişmeden önce iki adımlı kimlik doğrulamayı etkinleştirmeniz gerekir."
         disable: "Devre dışı bırak"
+<<<<<<< HEAD
         disable_confirm: "İki adımlı kimlik doğrulamayı devre dışı bırakmak istediğinizden emin misiniz?"
         delete: "Sil"
         delete_confirm_header: "Bu Token Tabanlı Kimlik Doğrulayıcılar ve Fiziksel Güvenlik Anahtarları silinecek:"
@@ -1370,6 +1575,9 @@ tr_TR:
         delete_single_confirm_message: "%{name} silinecek. Bu eylemi geri alamazsınız. Fikrinizi değiştirirseniz bu kimlik doğrulayıcıyı yeniden kaydetmeniz gerekiyor."
         delete_backup_codes_confirm_title: "Yedekleme kodlarını silme"
         delete_backup_codes_confirm_message: "Yedekleme kodlarını siliyorsunuz. Bu eylemi geri alamazsınız. Fikrinizi değiştirirseniz yedekleme kodları yeniden oluşturmanız gerekiyor."
+=======
+        disable_confirm: "Tüm iki adımlı yöntemleri devre dışı bırakmak istediğinizden emin misiniz?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         save: "Kaydet"
         edit: "Düzenle"
         edit_title: "Authenticator'ı Düzenle"
@@ -1382,7 +1590,11 @@ tr_TR:
           default_name: "Authenticator'ım"
           name_and_code_required_error: "Bir ad ve Authenticator uygulamanızdaki kodu girmeniz gerekiyor."
         security_key:
+<<<<<<< HEAD
           register: "Kayıt Ol"
+=======
+          register: "Kaydol"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           title: "Fiziksel Güvenlik Anahtarları"
           add: "Fiziksel Güvenlik Anahtarı Ekle"
           default_name: "Ana Güvenlik Anahtarı"
@@ -1412,7 +1624,10 @@ tr_TR:
         success: "Adrese bir e-posta gönderdik. Lütfen onaylama talimatlarını izleyin."
         success_via_admin: "Bu adrese bir e-posta gönderdik. Kullanıcının e-postadaki onay talimatlarını izlemesi gerekiyor."
         success_staff: "Mevcut adresinize bir e-posta gönderdik. Lütfen onay talimatlarını izleyin."
+<<<<<<< HEAD
         back_to_preferences: "Tercihlere geri dön"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change_avatar:
         title: "Profil resminizi değiştirin"
         gravatar: "<a href='//%{gravatarBaseUrl}%{gravatarLoginUrl}' target='_blank'>%{gravatarName}</a>, şuna dayalı"
@@ -1442,6 +1657,10 @@ tr_TR:
         primary_label: "birincil"
         unconfirmed_label: "onaylanmamış"
         resend_label: "onay e-postasını tekrar gönder"
+<<<<<<< HEAD
+=======
+        resending_label: "gönderiliyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         resent_label: "e-posta gönderildi"
         update_email: "E-postayı Değiştir"
         set_primary: "Birincil E-postayı Ayarla"
@@ -1457,6 +1676,10 @@ tr_TR:
         authenticated: "E-postanız %{provider} tarafından doğrulandı"
         invite_auth_email_invalid: "Davet e-postanız %{provider} tarafından doğrulanan e-postayla eşleşmiyor."
         authenticated_by_invite: "E-postanız davetle doğrulandı"
+<<<<<<< HEAD
+=======
+        frequency_immediately: "Gönderdiğimiz e-postayı okumadıysan sana hemen e-posta göndereceğiz."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         frequency:
           one: "Yalnızca sizi son dakika içinde görmemişsek e-posta göndeririz."
           other: "Yalnızca sizi son %{count} dakika içinde görmemişsek e-posta göndeririz."
@@ -1483,10 +1706,18 @@ tr_TR:
         instructions: "benzersiz, boşluksuz, kısa"
         short_instructions: "Kullanıcılar sizden @%{username} olarak bahsedebilirler"
         available: "Kullanıcı adı kullanılabilir"
+<<<<<<< HEAD
         not_available: "Kullanılamıyor. Şunu deneyin: %{suggestion}"
         not_available_no_suggestion: "Uygun değil"
         too_short: "Kullanıcı adınız çok kısa"
         too_long: "Kullanıcı adınız çok uzun"
+=======
+        not_available: "Uygun değil. %{suggestion} olsa?"
+        not_available_no_suggestion: "Uygun değil"
+        too_short: "Kullanıcı adınız çok kısa"
+        too_long: "Kullanıcı adınız çok uzun"
+        checking: "Kullanıcı adınızın uygun olup olmadığı kontrol ediliyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         prefilled: "E-posta bu kayıtlı kullanıcı adı ile eşleşiyor"
         required: "Lütfen bir kullanıcı adı girin"
         edit: "Kullanıcı adını düzenle"
@@ -1502,7 +1733,11 @@ tr_TR:
         instructions: "Kaydolmak için bir davet kodu gereklidir"
       auth_tokens:
         title: "Son Kullanılan Cihazlar"
+<<<<<<< HEAD
         details: "Ayrıntılar"
+=======
+        details: "Detaylar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         log_out_all: "Tümünden çıkış yap"
         not_you: "Siz değil misiniz?"
         show_all: "Tümünü göster (%{count})"
@@ -1607,6 +1842,10 @@ tr_TR:
         reinvite: "E-postayı yeniden gönder"
         reinvited: "Davet yeniden gönderildi"
         removed: "Kaldırıldı"
+<<<<<<< HEAD
+=======
+        search: "davetlerde aramak için yazın..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         user: "Davet Edilen Kullanıcı"
         none: "Görüntülenecek davet yok."
         truncated:
@@ -1624,7 +1863,11 @@ tr_TR:
         reinvite_all: "Tüm Davetleri Yeniden Gönder"
         reinvite_all_confirm: "Tüm davetleri yeniden göndermek istediğinizden emin misiniz?"
         reinvited_all: "Tüm Davetler Gönderildi!"
+<<<<<<< HEAD
         time_read: "Okuma Zamanı"
+=======
+        time_read: "Okunma Zamanı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         days_visited: "Ziyaret Edilen Gün"
         account_age_days: "Gün cinsinden hesap yaşı"
         create: "Davet et"
@@ -1666,6 +1909,10 @@ tr_TR:
             <p>Topluluğunuzu hızla harekete geçirmek için bir kullanıcı listesi davet edin. Her satırında bir adet olacak şekilde davet etmek istediğiniz kullanıcıların e-posta adreslerini içeren <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">bir CSV dosyası</a> hazırlayın. Kişileri doğrudan gruplara eklemek veya ilk kez oturum açtıklarında belirli bir konuya yönlendirmek istiyorsanız aşağıdaki örnekteki gibi virgülle ayrılmış bilgiler sağlayabilirsiniz.</p>
             <pre>john@smith.com,ilk_grup_adı;ikinci_grup_adı,konu_idsi</pre>
             <p>Yüklediğiniz CSV dosyanızdaki her e-posta adresine bir davetiye gönderilir ve bu davetiyeleri daha sonra yönetebilirsiniz.</p>
+<<<<<<< HEAD
+=======
+          progress: "%%{progress} yüklendi..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           success: "Dosya başarıyla yüklendi. İşlem tamamlandığında mesaj yoluyla bildirim alacaksınız."
           error: "Üzgünüz, dosya CSV biçiminde olmalı."
       password:
@@ -1679,7 +1926,11 @@ tr_TR:
         required: "lütfen bir şifre girin"
       summary:
         title: "Özet"
+<<<<<<< HEAD
         stats: "İstatistikler"
+=======
+        stats: "İstatistik"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         time_read: "okuma süresi"
         time_read_title: "%{duration} (tüm zamanlar)"
         recent_time_read: "son okuma süresi"
@@ -1760,10 +2011,17 @@ tr_TR:
       save: "Kaydet"
       set_custom_status: "Özel durum ayarla"
       what_are_you_doing: "Ne yapıyorsunuz?"
+<<<<<<< HEAD
       pause_notifications: "Bildirimleri duraklat"
       remove_status: "Durumu kaldır"
     user_tips:
       button: "Anladım!"
+=======
+      remove_status: "Durumu kaldır"
+    user_tips:
+      primary: "Anladım!"
+      secondary: "bana bu ipuçlarını gösterme"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "İlk bildiriminiz!"
         content: "Bildirimler, sizi toplulukta olup bitenlerden haberdar etmek için kullanılır."
@@ -1779,10 +2037,14 @@ tr_TR:
       suggested_topics:
         title: "Okumaya devam edin!"
         content: "İşte daha sonra okumak isteyebileceğinizi düşündüğümüz bazı konular."
+<<<<<<< HEAD
       admin_guide:
         title: "Yeni sitenize hoş geldiniz!"
         content: "Sitenizi ve topluluğunuzu oluşturmaya devam etmek için <a href='%{admin_guide_url}'>yönetici kılavuzunu okuyun</a>."
         content_no_url: "Sitenizi ve topluluğunuzu oluşturmaya devam etmek için yönetici kılavuzunu okuyun."
+=======
+    loading: "Yükleniyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "şunu yüklemeye çalışırken:"
       reasons:
@@ -1816,6 +2078,7 @@ tr_TR:
       logout_disabled: "Site salt okunur moddayken çıkış yapma devre dışı bırakılır."
     staff_writes_only_mode:
       enabled: "Bu site sadece personel modundadır. Lütfen göz atmaya devam edin, ancak yanıtlama, beğenme ve diğer işlemler yalnızca personel üyeleriyle sınırlıdır."
+<<<<<<< HEAD
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/saat}}</a> site limitlerine ulaştı {limit, plural, one {# hata/saat} other {# hata/saat}}.
@@ -1825,6 +2088,21 @@ tr_TR:
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/saat}}</a> site ayarlanmış limitini aştı {limit, plural, one {# hata/saat} other {# hata/saat}}.
       exceeded_minute_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/dakika}}</a> site ayarlanmış limitlerini aştı {limit, plural, one {# hata/dakika} other {# hata/dakika}}.
+=======
+    too_few_topics_and_posts_notice_MF: >-
+      Hadi <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">tartışmayı başlatalım!</a> {currentTopics, plural, one { <strong>#</strong> konu} other { <strong>#</strong> konu}} ve {currentPosts, plural, one {<strong>#</strong> gönderi} other {<strong>#</strong> gönderi}} var. Ziyaretçilerin okumak ve yanıtlamak için daha fazlasına ihtiyacı var, en azından {requiredTopics, plural, one {<strong>#</strong> konu} other {<strong>#</strong> konu}} ve {requiredPosts, plural, one {<strong>#</strong> gönderi} other {<strong>#</strong> gönderi}} var. Bu mesajı sadece personel görebilir.
+    too_few_topics_notice_MF: >-
+      Hadi <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">tartışmayı başlatalım!</a> Şu an {currentTopics, plural, one { <strong>#</strong> konu} other { <strong>#</strong> konu}} var. Ziyaretçilerin okumak ve yanıtlamak için daha fazlasına ihtiyacı var, en azından {requiredTopics, plural, one {<strong>#</strong> konu} other {<strong>#</strong> konu}} olmasını tavsiye ediyoruz. Bu mesajı yalnızca personel görebilir.
+    too_few_posts_notice_MF: >-
+      Hadi <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">tartışma başlatalım!</a> Şu an {currentPosts, plural, one { <strong>#</strong> gönderi} other { <strong>#</strong> gönderi}} var. Ziyaretçilerin okumak ve yanıtlamak için daha fazlasına ihtiyacı var; en azından {requiredPosts, plural, one {<strong>#</strong> gönderi} other {<strong>#</strong> gönderi}} olmasını tavsiye ediyoruz. Bu mesajı yalnızca personel görebilir.
+    logs_error_rate_notice:
+      reached_hour_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/saat}}</a> site limitlerine ulaştı {limit, plural, one {# hata/saat} other {# hata/saat}}."
+      reached_minute_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/dakika}}</a> site limitlerine ulaştı {limit, plural, one {# hata/dakika} other {# hata/dakika}}."
+      exceeded_hour_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/saat}}</a> site ayarlanmış limitini aştı {limit, plural, one {# hata/saat} other {# hata/saat}}."
+      exceeded_minute_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hata/saat} other {# hata/dakika}}</a> site ayarlanmış limitlerini aştı {limit, plural, one {# hata/dakika} other {# hata/dakika}}."
+    learn_more: "daha fazla bilgi edinin..."
+    first_post: İlk gönderi
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     mute: Sessize al
     unmute: Sesi aç
     last_post: Gönderildi
@@ -1844,6 +2122,7 @@ tr_TR:
       hidden_for_session: "Tamam, yarın yine sorarız. Hesap oluşturmak için dilediğiniz zaman \"Giriş Yap\"ı da kullanabilirsiniz."
       intro: "Merhaba! Tartışmanın tadını çıkarıyor gibisiniz, ancak henüz bir hesap açmadınız."
       value_prop: "Aynı gönderiler arasında gezinmekten bıktınız mı? Hesap oluşturduğunuzda kaldığınız yere geri dönebilirsiniz. Ayrıca hesabınız olursa yeni yanıtlar için bildirim alabilir, yer imlerini kaydedebilir ve başkalarına teşekkür etmek için beğenileri kullanabilirsiniz. Bu topluluğu harika kılmak için hep birlikte çalışabiliriz. :heart:"
+<<<<<<< HEAD
     offline_indicator:
       no_internet: "İnternet bağlantısı yok."
       refresh_page: "Sayfayı yenileyin"
@@ -1856,6 +2135,10 @@ tr_TR:
         one: "(%{count} gönderi eksik)"
         other: "(%{count} gönderi eksik)"
       enabled_description: "Bu konunun en iyi yanıtlarını görüntülüyorsunuz: topluluk tarafından belirlenen en ilginç gönderiler."
+=======
+    summary:
+      enabled_description: "Bu konunun bir özetini görüntülüyorsunuz: Topluluk tarafından belirlenen en ilginç gönderiler."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       description:
         one: "<b>%{count}</b> yanıt var."
         other: "<b>%{count}</b> yanıt var."
@@ -1867,8 +2150,13 @@ tr_TR:
         Tahmini okuma süresi <b>{readingTime, plural, one {# dakika} other {# dakika}}</b> olan {replyCount, plural, one {<b># yanıt</b>} other {<b># yanıt</b>}} var.
       enable: "En iyi yanıtları göster"
       disable: "Tüm Gönderileri Göster"
+<<<<<<< HEAD
       short_label: "En iyi yanıtlar"
       short_title: "Bu konuya en çok verilen yanıtları göster: topluluk tarafından belirlenen en ilginç gönderiler"
+=======
+      short_label: "Özetle"
+      short_title: "Bu konunun özetini göster: Topluluk tarafından belirlenen en ilginç gönderiler"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     deleted_filter:
       enabled_description: "Bu konu gizli durumdaki silinen gönderiler içeriyor."
       disabled_description: "Konudaki silinen gönderiler gösteriliyor."
@@ -1876,12 +2164,25 @@ tr_TR:
       disable: "Silinen Gönderileri Göster"
     private_message_info:
       title: "Mesaj"
+<<<<<<< HEAD
       leave_message: "Bu mesajdan gerçekten ayrılmak istiyor musunuz?"
       remove_allowed_user: "Bu mesajdan %{name} adlı kullanıcıyı çıkarmak istediğinize emin misiniz?"
       remove_allowed_group: "Bu mesajdan %{name} adlı kullanıcıyı çıkarmak istediğinize emin misiniz?"
       leave: "Ayrıl"
       remove_group: "Grubu kaldır"
       remove_user: "Kullanıcıyı kaldır"
+=======
+      invite: "Başkalarını Davet Et ..."
+      edit: "Ekle veya Kaldır..."
+      remove: "Kaldır..."
+      add: "Ekle..."
+      leave_message: "Bu mesajdan gerçekten ayrılmak istiyor musunuz?"
+      remove_allowed_user: "Bu mesajdan %{name} adlı kullanıcıyı çıkarmak istediğinize emin misiniz?"
+      remove_allowed_group: "%{name} adlı kullanıcıyı bu mesajdan gerçekten çıkarmak istiyor musunuz?"
+      leave: "Ayrıl"
+      remove_group: "Grubu kaldır"
+      remove_user: "Kullanıcıyı çıkar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     email: "E-posta"
     username: "Kullanıcı Adı"
     last_seen: "Görüldü"
@@ -1901,7 +2202,11 @@ tr_TR:
       action: "Şifremi unuttum"
       invite: "Kullanıcı adınızı veya e-posta adresinizi girin, size bir şifre sıfırlama e-postası gönderelim."
       invite_no_username: "E-posta adresinizi girin, size bir şifre sıfırlama e-postası gönderelim."
+<<<<<<< HEAD
       reset: "Şifreyi Sıfırlayın"
+=======
+      reset: "Şifre Sıfırlama "
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       complete_username: "<b>%{username}</b> kullanıcı adı ile eşleşen bir hesap bulunması durumunda, kısa bir süre içerisinde şifrenizi nasıl sıfırlayacağınızı açıklayan bir e-posta alırsınız. "
       complete_email: "<b>%{email}</b> adresi ile eşleşen bir hesap bulunması durumunda, kısa bir süre içerisinde şifrenizi nasıl sıfırlayacağınızı açıklayan bir e-posta alırsınız."
       complete_username_found: "<b>%{username}</b> kullanıcı adıyla eşleşen bir hesap bulduk. Kısa süre içinde şifrenizi nasıl sıfırlayacağınızla ilgili yönergeleri içeren bir e-posta alacaksınız."
@@ -1922,7 +2227,11 @@ tr_TR:
       complete_email_found: "<b>%{email}</b> e-posta adresi ile eşleşen bir hesap bulduk, kısa bir süre içinde giriş bağlantısına sahip bir e-posta alacaksınız."
       complete_username_not_found: "<b>%{username}</b> kullanıcı adıyla eşleşen bir hesap yok"
       complete_email_not_found: "<b>%{email}</b> ile eşleşen bir hesap yok"
+<<<<<<< HEAD
       confirm_title: '%{site_name} adresine devam edin'
+=======
+      confirm_title: '%{site_name} adresine gitmeye devam edin'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logging_in_as: '%{email} olarak giriş yapılıyor'
       confirm_button: Giriş yapmayı bitir
     login:
@@ -1931,14 +2240,18 @@ tr_TR:
       title: "Giriş Yap"
       username: "Kullanıcı"
       password: "Şifre"
+<<<<<<< HEAD
       show_password: "Göster"
       hide_password: "Gizle"
       show_password_title: "Şifreyi göster"
       hide_password_title: "Şifreyi gizle"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       second_factor_title: "İki Adımlı Kimlik Doğrulama"
       second_factor_description: "Lütfen uygulamanızdan kimlik doğrulama kodunu girin:"
       second_factor_backup: "Yedek kod kullanarak giriş yapın"
       second_factor_backup_title: "İki Adımlı Yedek"
+<<<<<<< HEAD
       second_factor_backup_description: "Lütfen yedekleme kodlarınızdan birini girin:"
       second_factor: "Authenticator uygulamasını kullanarak giriş yapın"
       security_key_description: "Fiziksel güvenlik anahtarınızı veya uyumlu mobil cihazınızı hazırladığınızda aşağıdaki Güvenlik Anahtarıyla Kimlik Doğrula düğmesine basın."
@@ -1947,6 +2260,16 @@ tr_TR:
       security_key_not_allowed_error: "Güvenlik anahtarı kimlik doğrulama işlemi zaman aşımına uğradı veya iptal edildi."
       security_key_no_matching_credential_error: "Sağlanan güvenlik anahtarında eşleşen kimlik bilgileri bulunamadı."
       security_key_support_missing_error: "Mevcut cihazınız veya tarayıcınız güvenlik anahtarlarının kullanımını desteklemiyor. Lütfen farklı bir yöntem kullanın."
+=======
+      second_factor_backup_description: "Lütfen yedek kodlarınızdan birini girin:"
+      second_factor: "Authenticator uygulamasını kullanarak giriş yapın"
+      security_key_description: "Fiziksel güvenlik anahtarınızı veya uyumlu mobil cihazınızı hazırladığınızda aşağıdaki Güvenlik Anahtarıyla Kimlik Doğrula düğmesine basın."
+      security_key_alternative: "Başka bir yol dene"
+      security_key_authenticate: "Güvenlik Anahtarı ile Kimlik Doğrulama"
+      security_key_not_allowed_error: "Güvenlik anahtarı kimlik doğrulama işlemi zaman aşımına uğradı veya iptal edildi."
+      security_key_no_matching_credential_error: "Sağlanan güvenlik anahtarında eşleşen kimlik bilgisi bulunamadı."
+      security_key_support_missing_error: "Geçerli cihazınız veya tarayıcınız güvenlik anahtarlarının kullanımını desteklemiyor. Lütfen farklı bir yöntem kullanın."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       email_placeholder: "E-posta / Kullanıcı adı"
       caps_lock_warning: "Caps Lock açık"
       error: "Bilinmeyen hata"
@@ -1955,8 +2278,15 @@ tr_TR:
       blank_username: "Lütfen e-postanızı veya kullanıcı adınızı girin."
       blank_username_or_password: "Lütfen e-postanızı veya kullanıcı adınızı ve şifrenizi girin."
       reset_password: "Şifre Sıfırlama"
+<<<<<<< HEAD
       previous_sign_up: "Zaten hesabınız var mı?"
       or: "Veya"
+=======
+      logging_in: "Oturum açılıyor..."
+      previous_sign_up: "Zaten hesabınız var mı?"
+      or: "Veya"
+      authenticating: "Kimlik doğruluyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       awaiting_activation: "Hesabınız etkinleştirilmeyi bekliyor, başka bir etkinleştirme e-postası göndermek için şifremi unuttum bağlantısını kullanın."
       awaiting_approval: "Hesabınız henüz bir personel tarafından onaylanmadı. Onaylandığında size bir e-posta gönderilecek."
       requires_invite: "Üzgünüz, bu foruma yalnızca davetliler erişebilir."
@@ -2000,7 +2330,11 @@ tr_TR:
         sr_title: "Discord ile Giriş Yapın"
       second_factor_toggle:
         totp: "Bunun yerine bir kimlik doğrulama uygulaması kullanın"
+<<<<<<< HEAD
         backup_code: "Bunun yerine bir yedekleme kodu kullanın"
+=======
+        backup_code: "Bunun yerine bir yedek kod kullanın"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         security_key: "Bunun yerine bir güvenlik anahtarı kullanın"
     invites:
       accept_title: "Davet"
@@ -2015,7 +2349,11 @@ tr_TR:
       password_label: "Şifre"
       existing_user_can_redeem: "Bir konuya veya gruba davetinizi kullanın."
     password_reset:
+<<<<<<< HEAD
       continue: "%{site_name} adresine devam edin"
+=======
+      continue: "%{site_name} adresine gitmeye devam edin"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     emoji_set:
       apple_international: "Apple/Uluslararası"
       google: "Google"
@@ -2027,16 +2365,29 @@ tr_TR:
       categories_only: "Yalnızca Kategoriler"
       categories_with_featured_topics: "Öne Çıkan Konuları içeren Kategoriler"
       categories_and_latest_topics: "Kategoriler ve En Son Konular"
+<<<<<<< HEAD
       categories_and_latest_topics_created_date: "Kategoriler ve En Son Konular (konu oluşturulma tarihine göre sıralayın)"
       categories_and_top_topics: "Kategoriler ve Popüler Konular"
       categories_boxes: "Alt Kategorili Kutular"
       categories_boxes_with_topics: "Öne Çıkan Konuları içeren Kutular"
       subcategories_with_featured_topics: "Öne Çıkan Konular içeren Alt Kategoriler"
+=======
+      categories_and_latest_topics_created_date: "Kategoriler ve En Son Konular (konu oluşturulma tarihine göre sırala)"
+      categories_and_top_topics: "Kategoriler ve Popüler Konular"
+      categories_boxes: "Alt Kategorili Kutular"
+      categories_boxes_with_topics: "Öne Çıkan Konuları içeren Kutular"
+      subcategories_with_featured_topics: "Öne Çıkan Konuları içeren alt kategoriler"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     shortcut_modifier_key:
       shift: "Shift"
       ctrl: "Ctrl"
       alt: "Alt"
       enter: "Enter"
+<<<<<<< HEAD
+=======
+    conditional_loading_section:
+      loading: Yükleniyor...
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     category_row:
       topic_count:
         one: "bu kategorideki %{count} konu"
@@ -2051,10 +2402,19 @@ tr_TR:
       delete_item: "Şunu sil: %{name}"
       filter_by: "Şuna göre filtrele: %{name}"
       select_to_filter: "Filtrelemek için bir değer seçin"
+<<<<<<< HEAD
+=======
+      default_header_text: Seç...
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_content: Eşleşme bulunamadı
       results_count:
         one: "%{count} sonuç"
         other: "%{count} sonuç"
+<<<<<<< HEAD
+=======
+      filter_placeholder: Ara...
+      filter_placeholder_with_any: Ara veya oluştur...
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Oluştur: \"%{content}\""
       max_content_reached:
         one: "Yalnızca %{count} öge seçebilirsiniz."
@@ -2093,16 +2453,31 @@ tr_TR:
       destination_category: "Hedef Kategori"
       publish: "Paylaşılan Taslağı Yayınla"
       confirm_publish: "Bu taslağı yayınlamak istediğinizden emin misiniz?"
+<<<<<<< HEAD
     composer:
       emoji: "Emoji :)"
+=======
+      publishing: "Konu Yayınlanıyor..."
+    composer:
+      emoji: "Emoji :)"
+      more_emoji: "daha fazla..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       options: "Seçenekler"
       whisper: "fısıltı"
       unlist: "listelenmedi"
       add_warning: "Bu resmi bir uyarıdır."
+<<<<<<< HEAD
       toggle_whisper: "Fısıltıyı Aç/Kapat"
       toggle_unlisted: "Liste Dışı Aç/Kapat"
       posting_not_on_topic: "Hangi konuya yanıt vermek istiyorsunuz?"
       saved_local_draft_tip: "yerel olarak kaydedildi"
+=======
+      toggle_whisper: "Fısıltı Aç/Kapat"
+      toggle_unlisted: "Liste Dışı Aç/Kapat"
+      posting_not_on_topic: "Hangi konuya yanıt vermek istiyorsunuz?"
+      saved_local_draft_tip: "yerel olarak kaydedildi"
+      similar_topics: "Konunuz şuna benziyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       drafts_offline: "taslaklar çevrimdışı"
       edit_conflict: "çakışmayı düzenle"
       esc: "esc"
@@ -2119,6 +2494,7 @@ tr_TR:
         private: "@%{username} adlı kullanıcıdan bahsettiniz, ancak bildirim gönderilmeyecek çünkü kullanıcı bu kişisel mesajı göremiyor. Kullanıcıyı bu kişisel mesaja davet etmeniz gerekiyor."
         muted_topic: "@%{username} adlı kullanıcıdan bahsettiniz, ancak bu konuyu sessize aldığı için kullanıcıya bildirim gönderilmeyecek."
         not_allowed: "@%{username} adlı kullanıcıdan bahsettiniz, ancak bu konuyu sessize aldığı için kullanıcıya bildirim gönderilmeyecek."
+<<<<<<< HEAD
       cannot_see_group_mention:
         not_mentionable: "%{group} adlı gruptan bahsedemezsiniz."
         some_not_allowed:
@@ -2129,6 +2505,12 @@ tr_TR:
         one: "<b>@%{here}</b> diyerek %{count} kullanıcıya bildirim göndermek üzeresiniz, emin misiniz?"
         other: "<b>@%{here}</b> diyerek %{count} kullanıcıya bildirim göndermek üzeresiniz, emin misiniz?"
       duplicate_link: "Görünüşe göre <b>%{domain}</b> alan adına bağlantınız <b>@%{username}</b> tarafından <a href='%{post_url}'>%{ago} bir yanıtta</a> konuda gönderi olarak zaten yayınlanmış. Tekrar göndermek istediğinizden emin misiniz?"
+=======
+      here_mention:
+        one: "<b>@%{here}</b> diyerek %{count} kullanıcıya bildirim göndermek üzeresiniz, emin misiniz?"
+        other: "<b>@%{here}</b> diyerek %{count} kullanıcıya bildirim göndermek üzeresiniz, emin misiniz?"
+      duplicate_link: "Görünüşe göre <b>%{domain}</b> alan adına bağlantınız <b>@%{username}</b> tarafından <a href='%{post_url}'>%{ago} bir yanıtta</a> konuda gönderi olarak zaten yayınlanmış. Tekrar  göndermek istediğinizden emin misiniz?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       duplicate_link_same_user: "Görünüşe göre <b>%{domain}</b> alan adının bağlantısını <a href='%{post_url}'>adresindeki bu konuya %{ago}</a> bir yanıtta zaten göndermişsiniz. Tekrar göndermek istediğinizden emin misiniz?"
       reference_topic_title: "YNT: %{title}"
       error:
@@ -2151,6 +2533,11 @@ tr_TR:
         topic_template_not_modified: "Lütfen konu şablonunu düzenleyerek daha fazla ayrıntı ekleyin."
       save_edit: "Düzenlemeyi Kaydet"
       overwrite_edit: "Düzenlemenin Üzerine Yaz"
+<<<<<<< HEAD
+=======
+      reply_original: "Asıl Konuda yanıtla"
+      reply_here: "Buradan Yanıtla"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Yanıtla"
       cancel: "İptal et"
       create_topic: "Konu Oluştur"
@@ -2172,6 +2559,10 @@ tr_TR:
       saving: "Kaydediliyor"
       saved: "Kaydedildi!"
       saved_draft: "Gönderi taslağı devam ediyor. Devam etmek için dokunun."
+<<<<<<< HEAD
+=======
+      uploading: "Yükleniyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       show_preview: "ön izlemeyi göster"
       hide_preview: "ön izlemeyi gizle"
       quote_post_title: "Tüm gönderiyi alıntıla"
@@ -2196,7 +2587,11 @@ tr_TR:
       olist_title: "Numaralandırılmış Liste"
       ulist_title: "Madde İşaretli Liste"
       list_item: "Liste ögesi"
+<<<<<<< HEAD
       toggle_direction: "Yönü Aç/Kapat"
+=======
+      toggle_direction: "Yönü Değiştir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       help: "Markdown Düzenleme Yardımı"
       collapse: "besteci panelini simge durumuna küçült"
       open: "besteci panelini aç"
@@ -2236,7 +2631,11 @@ tr_TR:
           label: Konuyu yanıtla
           desc: Belirli bir gönderiye değil, konuya yanıt verin
         toggle_whisper:
+<<<<<<< HEAD
           label: Fısıltıyı Aç/Kapat
+=======
+          label: Fısıltıyı değiştir
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           desc: Fısıltılar yalnızca personel tarafından görülebilir
         create_topic:
           label: "Yeni Konu"
@@ -2244,14 +2643,21 @@ tr_TR:
           label: "Paylaşılan Taslak"
           desc: "Yalnızca izin verilen kullanıcılar tarafından görülebilecek bir konu taslağı oluşturun"
         toggle_topic_bump:
+<<<<<<< HEAD
           label: "Konu üste sıçratmayı aç/kapat"
+=======
+          label: "Konu üste sıçratmayı değiştir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           desc: "En son yanıt tarihini değiştirmeden yanıtla"
       reload: "Yeniden Yükle"
       ignore: "Yok say"
       image_alt_text:
         aria_label: Görüntü için alternatif metin
       delete_image_button: Görüntüyü Sil
+<<<<<<< HEAD
       toggle_image_grid: Resim ızgarasını aç/kapat
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     notifications:
       tooltip:
         regular:
@@ -2286,10 +2692,20 @@ tr_TR:
       edited: "<span>%{username}</span> %{description}"
       liked: "<span>%{username}</span> %{description}"
       liked_2: "<span class='double-user'>%{username}, %{username2}</span> %{description}"
+<<<<<<< HEAD
       liked_by_2_users: "%{username}, %{username2}"
       liked_by_multiple_users:
         one: "%{username} ve %{count} kişi daha"
         other: "%{username} ve %{count} kişi daha"
+=======
+      liked_many:
+        one: "<span class='multi-user'>%{username}, %{username2} ve %{count} </span> %{description} daha"
+        other: "<span class='multi-user'>%{username}, %{username2} ve %{count} </span> %{description} daha"
+      liked_by_2_users: "%{username}, %{username2}"
+      liked_by_multiple_users:
+        one: "%{username}, %{username2} ve %{count} kişi daha"
+        other: "%{username}, %{username2} ve %{count} kişi daha"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       liked_consolidated_description:
         one: "gönderilerinizden %{count} tanesini beğendi"
         other: "gönderilerinizden %{count} tanesini beğendi"
@@ -2340,7 +2756,11 @@ tr_TR:
         watching_first_post: '%{username} yeni bir konu oluşturdu "%{topic}" - %{site_title}'
         confirm_title: "Bildirimler etkinleştirildi - %{site_title}"
         confirm_body: "Başarılı! Bildirimler etkinleştirildi."
+<<<<<<< HEAD
         custom: "%{site_title}'da %{username} adlı kullanıcıdan bildirim"
+=======
+        custom: "%{site_title} üzerinde %{username} adlı kullanıcıdan bildirim"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       titles:
         mentioned: "bahsedildi"
         replied: "yeni yanıt"
@@ -2367,7 +2787,10 @@ tr_TR:
         membership_request_consolidated: "yeni üyelik talepleri"
         reaction: "yeni tepki"
         votes_released: "Oy verildi"
+<<<<<<< HEAD
         new_features: "yeni Discourse özellikleri yayınlandı!"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     upload_selector:
       uploading: "Yükleniyor"
       processing: "Yükleme İşleniyor"
@@ -2452,6 +2875,10 @@ tr_TR:
           label: Etiketli
           aria_label: Etiketleri kullanarak filtrele
         filters:
+<<<<<<< HEAD
+=======
+          label: Yalnızca şu konulara/gönderilere dön...
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           title: Yalnızca başlıkta eşleşen
           likes: Beğendiğim
           posted: Gönderi yaptığım
@@ -2577,6 +3004,7 @@ tr_TR:
         dismiss_tooltip: "Yeni gönderileri kapat veya konuları takip etmeyi durdur"
         also_dismiss_topics: "Yeniden okunmamış olarak gösterilmemesi için bu konuları takip etmeyi durdur"
         dismiss_new: "Yenileri Kapat"
+<<<<<<< HEAD
         dismiss_new_modal:
           title: "Yeniyi kapat"
           topics: "Yeni konuları kapat"
@@ -2597,6 +3025,18 @@ tr_TR:
         close_topics: "Konuları Kapat"
         archive_topics: "Konuları Arşivle"
         move_messages_to_inbox: "Gelen kutusuna taşı"
+=======
+        dismiss_new_with_selected:
+          one: "Yenileri (%{count}) kapat"
+          other: "Yenileri (%{count}) kapat"
+        toggle: "konuların toplu seçimini değiştir"
+        actions: "Toplu Eylemler"
+        change_category: "Kategori ayarla..."
+        close_topics: "Konuları Kapat"
+        archive_topics: "Konuları Arşivle"
+        move_messages_to_inbox: "Gelen kutusuna taşı"
+        notification_level: "Bildirimler..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         change_notification_level: "Bildirim Seviyesini Değiştir"
         choose_new_category: "Konular için yeni kategoriyi seç:"
         selected:
@@ -2616,11 +3056,16 @@ tr_TR:
           other: "İlerleme: <strong>%{count}</strong> konu"
       none:
         unread: "Okunmamış konunuz bulunmuyor."
+<<<<<<< HEAD
         unseen: "Görülmemiş konunuz bulunmuyor."
+=======
+        unseen: "Görülmemiş konunuz yok."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         new: "Yeni konunuz yok."
         read: "Henüz herhangi bir konu okumadınız."
         posted: "Henüz herhangi bir konuda gönderi yapmadınız."
         latest: "Her şeyi tamamladınız!"
+<<<<<<< HEAD
         bookmarks: "Henüz hiçbir konuya yer imi eklemediniz."
         category: "%{category} konusu yok."
         top: "Popüler konu yok."
@@ -2629,6 +3074,14 @@ tr_TR:
           new: '<p>Yeni konularınız burada görünür. Varsayılan olarak, konular yeni kabul edilir ve son 2 gün içinde oluşturulmuşlarsa <span class="badge new-topic badge-notification" style="vertical-align:middle;line-height:inherit;"></span> göstergesi görünür.</p><p>Bunu değiştirmek için <a href="%{userPrefsUrl}"> tercihlerinizi</a> ziyaret edin.</p>'
           unread: "<p>Okunmamış konularınız burada görünür.</p><p>Konular varsayılan olarak okunmamış sayılır ve şu durumlarda okunmamış sayısı <span class=\"badge unread-posts badge-notification\">1</span> olarak gösterilir: </p><ul><li>Konuyu siz oluşturmuşsanız</li><li>Konuya yanıt vermişseniz</li><li>Konuyu 5 dakikadan fazla okumuşsanız</li></ul><p>Her bir konuda \U0001F514 aracılığıyla konuyu Takip Edildi veya İzlendi olarak seçmişseniz.</p><p><a href=\"%{userPrefsUrl}\">Tercihler</a> bölümünden bunu değiştirebilirsiniz.</p>"
           new_new: "<p>Yeni konularınız burada görünecek ve okunmamış konularınız da görüntülenecektir. Varsayılan olarak, konular yeni olarak kabul edilir ve son 2 gün içinde oluşturulmuşlarsa bir <span class=\"badge new-topic badge-notification\" style=\"vertical-align:middle;line-height:inherit;\"></span> göstergesi gösterilir. Okunmamış konular, aşağıdaki durumlarda okunmamış sayıları <span class=\"badge unread-posts badge-notification\">1</span> gösterecektir: Konuyu oluşturduysanız, konuya yanıt verdiyseniz, konuyu 5 dakikadan fazla okuduysanız veya konuyu her konudaki \U0001F514 işareti aracılığıyla açıkça İzlendi veya İzleniyor olarak ayarladıysanız.</p><p>Bunu değiştirmek için <a href=\"%{userPrefsUrl}\">tercihlerinizi</a> ziyaret edin.</p>"
+=======
+        bookmarks: "Henüz konulara yer imi eklemediniz."
+        category: "%{category} konusu yok."
+        top: "Popüler konu yok."
+        educate:
+          new: '<p>Yeni konularınız burada görünür. Varsayılan olarak, konular yeni kabul edilir ve son 2 gün içinde oluşturulmuşlarsa <span class="badge new-topic badge-notification" style="vertical-align:middle;line-height:inherit;"></span> göstergesi görünür.</p><p>Bunu değiştirmek için <a href="%{userPrefsUrl}"> tercihlerinizi</a> ziyaret edin.</p>'
+          unread: "<p>Okunmamış konularınız burada görünür.</p><p>Konular varsayılan olarak okunmamış sayılır ve şu durumlarda okunmamış ileti sayısı <span class=\"badge unread-posts badge-notification\">1</span> olarak gösterilir: </p><ul><li>Konuyu siz oluşturmuşsanız</li><li>Konuya yanıt vermişseniz</li><li>Konuyu 4 dakikadan fazla okumuşsanız</li></ul><p>Her bir konuda \U0001F514 aracılığıyla konuyu Takip Edildi veya İzlendi olarak seçmişseniz.</p><p><a href=\"%{userPrefsUrl}\">Tercihler</a> bölümünden bunu değiştirebilirsiniz.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       bottom:
         latest: "Başka en son konu yok."
         posted: "Başka gönderi yapılan konu yok."
@@ -2640,13 +3093,19 @@ tr_TR:
         tag: "Başka %{tag} konusu yok."
         top: "Başka popüler konu yok."
         bookmarks: "Başka yer imli konu yok."
+<<<<<<< HEAD
         filter: "Başka konu kalmadı."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic:
       filter_to:
         one: "Konuda %{count} gönderi"
         other: "Konuda %{count} gönderi"
       create: "Yeni Konu"
+<<<<<<< HEAD
       create_disabled_category: "Bu kategoride konu oluşturma izniniz yok"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create_long: "Yeni bir Konu oluştur"
       open_draft: "Taslağı aç"
       private_message: "Mesaj başlat"
@@ -2690,6 +3149,7 @@ tr_TR:
       show_links: "Bu konudaki bağlantıları göster"
       collapse_details: "konu ayrıntılarını daralt"
       expand_details: "konu ayrıntılarını genişlet"
+<<<<<<< HEAD
       read_more_in_category: "Daha fazla okumak ister misiniz? %{categoryLink} kategorisindeki diğer konulara göz atın veya <a href='%{latestLink}'>en son konuları görüntüleyin</a>."
       read_more: "Daha fazla okumak ister misiniz? <a href='%{categoryLink}'>Tüm kategorilere göz atın</a> veya <a href='%{latestLink}'>en son konuları görüntüleyin</a>."
       unread_indicator: "Bu konunun son gönderisini henüz hiçbir üye okumadı."
@@ -2735,6 +3195,19 @@ tr_TR:
       suggest_create_topic: <a href>Yeni bir konuşma başlatmaya</a> hazır mısınız?
       jump_reply: "Gönderinin orijinal konumuna atla"
       jump_reply_aria: "@%{username} adlı kullanıcının gönderisine orijinal konumunda atla"
+=======
+      read_more_in_category: "Daha fazla mı okumak istiyorsunuz? %{catLink} veya %{latestLink} bağlantılarındaki diğer konulara göz atın."
+      read_more: "Daha fazla mı okumak istiyorsunuz? %{catLink} veya %{latestLink}."
+      unread_indicator: "Bu konunun son gönderisini henüz hiçbir üye okumadı."
+      read_more_MF: "{ UNREAD, plural, =0 {} one {<a href='{basePath}/unread'># okunmamış</a> } other { <a href='{basePath}/unread'># okunmamış</a> } } { NEW, plural, =0 {} one { {BOTH, select, true{and } false {} other{}} <a href='{basePath}/new'># yeni</a> konu} other { {BOTH, select, true{and } false {are } other{}} <a href='{basePath}/new'># yeni</a> konu} } kaldı veya {CATEGORY, select, true {{catLink}} false {{latestLink}} other {}} adresindeki diğer konulara göz atın"
+      bumped_at_title_MF: "{FIRST_POST}: {CREATED_AT}\n{LAST_POST}: {BUMPED_AT}"
+      browse_all_categories: Bütün kategorilere göz atın
+      browse_all_tags: Tüm etiketlere göz atın
+      view_latest_topics: en son konuları görüntüleyin
+      suggest_create_topic: <a href>Yeni bir konuşma başlatmaya</a> hazır mısınız?
+      jump_reply_up: önceki yanıta geç
+      jump_reply_down: sonraki yanıta geç
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       deleted: "Konu silindi"
       slow_mode_update:
         title: "Yavaş Mod"
@@ -2818,9 +3291,17 @@ tr_TR:
         replies_short: "%{current} / %{total}"
       progress:
         title: konu ilerlemesi
+<<<<<<< HEAD
         jump_prompt_of:
           one: "/ %{count} gönderi"
           other: "/ %{count} gönderi"
+=======
+        jump_prompt: "şuraya atla..."
+        jump_prompt_of:
+          one: "/ %{count} gönderi"
+          other: "/ %{count} gönderi"
+        jump_prompt_long: "Şuraya atla..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         jump_prompt_to_date: "bugüne kadar"
         jump_prompt_or: "veya"
       notifications:
@@ -2840,8 +3321,13 @@ tr_TR:
           "2_4": "Bu konuya yanıt gönderdiğiniz için yeni yanıt sayısını göreceksiniz."
           "2_2": "Bu konuyu takip ettiğiniz için yeni yanıt sayısını göreceksiniz."
           "2": '<a href="%{basePath}/u/%{username}/preferences/notifications">Bu konuyu okuduğunuz</a> için yeni yanıt sayısını göreceksiniz.'
+<<<<<<< HEAD
           "1_2": "Biri @adınızdan bahseder veya size yanıt verirse bildirim alırsınız."
           "1": "Biri @adınızdan bahseder veya size yanıt verirse bildirim alırsınız."
+=======
+          "1_2": "Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+          "1": "Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           "0_7": "Bu kategorideki tüm bildirimleri yok sayıyorsunuz."
           "0_2": "Bu konudaki tüm bildirimleri yok sayıyorsunuz."
           "0": "Bu konudaki tüm bildirimleri yok sayıyorsunuz."
@@ -2853,6 +3339,7 @@ tr_TR:
           description: "Bu konudaki her yeni yanıt için bildirim alacaksınız ve yeni yanıt sayısı gösterilecek."
         tracking_pm:
           title: "Takip Ediliyor"
+<<<<<<< HEAD
           description: "Bu mesaj için yeni yanıt sayısı gösterilir. Biri @adınızdan bahseder veya size yanıt verirse bildirim alırsınız."
         tracking:
           title: "Takip Ediliyor"
@@ -2863,6 +3350,18 @@ tr_TR:
         regular_pm:
           title: "Normal"
           description: "Biri @adınızdan bahseder veya size yanıt verirse bildirim alırsınız."
+=======
+          description: "Bu mesaj için yeni yanıt sayısı gösterilecek. Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+        tracking:
+          title: "Takip Ediliyor"
+          description: "Bu konu için yeni yanıt sayısı gösterilecek. Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+        regular:
+          title: "Normal"
+          description: "Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+        regular_pm:
+          title: "Normal"
+          description: "Biri @adınızdan bahsederse veya size yanıt verirse bildirim alacaksınız."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_pm:
           title: "Sessize alındı"
           description: "Bu mesaj hakkında asla bildirim almayacaksınız."
@@ -2876,6 +3375,11 @@ tr_TR:
         open: "Konu Aç"
         close: "Konuyu Kapat"
         multi_select: "Gönderileri Seç..."
+<<<<<<< HEAD
+=======
+        slow_mode: "Yavaş Modu Ayarla..."
+        timed_update: "Konu Zamanlayıcısını Ayarla..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         pin: "Konuyu Sabitle..."
         unpin: "Konunun Sabitlemesini Kaldır..."
         unarchive: "Konuyu Arşivden Çıkar"
@@ -2883,6 +3387,10 @@ tr_TR:
         invisible: "Konuyu Listeden Kaldır"
         visible: "Konuyu Listele"
         reset_read: "Okundu Verilerini Sıfırla"
+<<<<<<< HEAD
+=======
+        make_public: "Herkese Açık Konu yap..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         make_private: "Kişisel Mesaj Yap"
         reset_bump_date: "Üste Sıçratma Tarihini Sıfırla"
       feature:
@@ -2941,6 +3449,10 @@ tr_TR:
         banner_note: "Kullanıcılar bu banner'ı kapatarak yok sayabilirler. Herhangi bir zamanda yalnızca bir konu banner yapılabilir."
         no_banner_exists: "Banner konusu yok."
         banner_exists: "Şu anda bir banner konusu <strong class='badge badge-notification unread'>var</strong>."
+<<<<<<< HEAD
+=======
+      inviting: "Davet Ediliyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       automatically_add_to_groups: "Bu davet aynı zamanda şu gruplara erişim sağlar:"
       invite_private:
         title: "Mesaja Davet Et"
@@ -3044,6 +3556,10 @@ tr_TR:
           one: "Lütfen gönderi için yeni bir sahip seçin"
           other: "Lütfen %{count} gönderi için yeni bir sahip seçin"
       change_timestamp:
+<<<<<<< HEAD
+=======
+        title: "Zaman Damgasını değiştir..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         action: "zaman damgasını değiştir"
         invalid_timestamp: "Zaman damgası gelecekte olamaz."
         error: "Konunun zaman damgası değiştirilirken bir hata oluştu."
@@ -3083,8 +3599,12 @@ tr_TR:
       ignored: "Yok sayılan içerik"
       wiki_last_edited_on: "wiki son düzenleme zamanı: %{dateTime}"
       last_edited_on: "gönderi en son %{dateTime} tarihinde düzenlendi"
+<<<<<<< HEAD
       edit_history: "gönderi düzenleme geçmişi"
       reply_as_new_topic: "Bağlantılı Konu olarak yanıtlayın"
+=======
+      reply_as_new_topic: "Bağlantılı Konu olarak yanıt ver"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply_as_new_private_message: "Aynı alıcılara yeni mesaj olarak yanıt ver"
       continue_discussion: "%{postLink} gönderisinden tartışılmaya devam ediliyor:"
       follow_quote: "alıntılanan gönderiye git"
@@ -3138,7 +3658,11 @@ tr_TR:
       errors:
         create: "Üzgünüz, gönderiniz oluşturulurken bir hata oluştu. Lütfen tekrar deneyin."
         edit: "Üzgünüz, gönderiniz düzenlenirken bir hata oluştu. Lütfen tekrar deneyin."
+<<<<<<< HEAD
         upload: "Üzgünüz, %{file_name} isimli dosya yüklenirken bir hata oluştu. Lütfen tekrar deneyin."
+=======
+        upload: "Üzgünüz, dosya yüklenirken bir hata oluştu. Lütfen tekrar deneyin."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         file_too_large: "Üzgünüz, bu dosya çok büyük (en fazla %{max_size_kb} kb). Paylaşımınızı bir bulut paylaşım hizmetine yükleyip bağlantısını paylaşmaya ne dersiniz?"
         file_size_zero: "Üzgünüz, bir şeyler ters gitmiş gibi görünüyor, yüklemeye çalıştığınız dosya 0 bayt. Lütfen tekrar deneyin."
         file_too_large_humanized: "Üzgünüz, bu dosya çok büyük (maksimum boyut %{max_size}). Dosyanızı bir bulut paylaşım hizmetine yükleyip bağlantıyı paylaşmaya ne dersiniz?"
@@ -3146,7 +3670,11 @@ tr_TR:
         too_many_dragged_and_dropped_files:
           one: "Üzgünüz, tek seferde yalnızca %{count} dosya yükleyebilirsiniz."
           other: "Üzgünüz, tek seferde yalnızca %{count} dosya yükleyebilirsiniz."
+<<<<<<< HEAD
         upload_not_authorized: "Üzgünüz, yüklemeye çalıştığınız dosyaya izin verilmiyor (izin verilen uzantılar: %{authorized_extensions})."
+=======
+        upload_not_authorized: "Üzgünüz, yüklemeye çalıştığınız dosya türüne izin verilmiyor (izin verilen uzantılar: %{authorized_extensions})."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         no_uploads_authorized: "Üzgünüz, hiçbir dosyanın yüklenmesine izin verilmiyor."
         image_upload_not_allowed_for_new_user: "Üzgünüz, yeni kullanıcılar görüntü yükleyemez."
         attachment_upload_not_allowed_for_new_user: "Üzgünüz, yeni kullanıcılar ek yükleyemez."
@@ -3158,8 +3686,12 @@ tr_TR:
         keep_editing: "Düzenlemeye devam et"
       via_email: "bu gönderi e-posta yoluyla geldi"
       via_auto_generated_email: "bu gönderi otomatik olarak oluşturulmuş bir e-posta yoluyla geldi"
+<<<<<<< HEAD
       whisper: "bu gönderi moderatörler için özel bir fısıltıdır"
       whisper_groups: "bu gönderi sadece %{groupNames} tarafından görülebilen özel bir fısıltıdır"
+=======
+      whisper: "bu gönderi yöneticiler için özel bir fısıltıdır"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       wiki:
         about: "bu gönderi bir wiki'dir"
       few_likes_left: "Beğendiğiniz için teşekkürler! Bugün için yalnızca birkaç beğeniniz kaldı."
@@ -3196,6 +3728,11 @@ tr_TR:
         rebake: "HTML'yi yeniden oluştur"
         publish_page: "Sayfa Yayınlama"
         unhide: "Göster"
+<<<<<<< HEAD
+=======
+        change_owner: "Sahipliği değiştir..."
+        grant_badge: "Rozet ver..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         lock_post: "Gönderiyi kilitle"
         lock_post_description: "gönderi sahibinin bu gönderiyi düzenlemesini engelle"
         unlock_post: "Gönderinin Kilidini Aç"
@@ -3209,6 +3746,11 @@ tr_TR:
         delete_topic_confirm_modal_no: "Hayır, bu konuyu silme"
         delete_topic_error: "Bu konuyu silerken bir hata oluştu"
         delete_topic: "konuyu sil"
+<<<<<<< HEAD
+=======
+        add_post_notice: "Personel Bildirimi ekle..."
+        change_post_notice: "Personel Bildirimini değiştir..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_post_notice: "Personel Bildirimini Sil"
         remove_timer: "zamanlayıcıyı kaldır"
         edit_timer: "zamanlayıcıyı düzenle"
@@ -3250,8 +3792,11 @@ tr_TR:
           last: "Son revizyon"
           hide: "Revizyonu gizle"
           show: "Revizyonu göster"
+<<<<<<< HEAD
           destroy: "Revizyonları sil"
           destroy_confirm: "Bu gönderideki tüm revizyonları silmek istediğinizden emin misiniz? Bu işlem kalıcıdır."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           revert: "Revizyona geri dönün %{revision}"
           edit_wiki: "Wiki'yi düzenle"
           edit_post: "Gönderiyi düzenle"
@@ -3282,10 +3827,17 @@ tr_TR:
         create_for_topic: "Konu için yer imi oluştur"
         edit: "Yer imini düzenle"
         edit_for_topic: "Bu konunun yer imini düzenle"
+<<<<<<< HEAD
         updated: "Güncellendi"
         name: "Ad"
         name_placeholder: "Bu yer imi ne için?"
         name_input_label: "Yer imi adı"
+=======
+        created: "Oluşturuldu"
+        updated: "Güncellendi"
+        name: "Ad"
+        name_placeholder: "Bu yer imi ne için?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         set_reminder: "Bana anımsat"
         options: "Seçenekler"
         actions:
@@ -3307,7 +3859,11 @@ tr_TR:
       filtered_replies:
         viewing_posts_by: "Şu kişinin %{post_count} gönderisi görüntüleniyor:"
         viewing_subset: "Bazı yanıtlar daraltıldı"
+<<<<<<< HEAD
         viewing_summary: "Bu konunun en iyi yanıtları görüntüleniyor"
+=======
+        viewing_summary: "Bu konunun özeti görüntüleniyor"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post_number: "%{username}, gönderi #%{post_number}"
         show_all: "Tümünü göster"
       share:
@@ -3337,6 +3893,10 @@ tr_TR:
         description: "Yeni konuların etiket gruplarından etiketlere sahip olmasını gerektirin:"
         delete: "Sil"
         add: "Gerekli etiket grubu ekleyin"
+<<<<<<< HEAD
+=======
+        placeholder: "etiket grubu seçin..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "Bu kategoride öne çıkan bağlantılara izin ver"
       delete: "Kategoriyi Sil"
       create: "Yeni Kategori"
@@ -3371,8 +3931,13 @@ tr_TR:
         create: "Oluştur"
         no_groups_selected: "Hiçbir gruba erişim izni verilmedi; bu kategori yalnızca personel tarafından görülebilir."
         everyone_has_access: 'Bu kategori herkese açık, herkes gönderileri görebilir, yanıtlayabilir ve oluşturabilir. İzinleri kısıtlamak için "herkes" grubuna verilen izinlerden birini veya birkaçını kaldırın.'
+<<<<<<< HEAD
         toggle_reply: "Yanıtlama iznini aç/kapat"
         toggle_full: "Oluşturma iznini aç/kapat"
+=======
+        toggle_reply: "Yanıtlama iznini değiştir"
+        toggle_full: "Oluşturma iznini değiştir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         inherited: 'Bu izin "herkesten" devralınır'
       special_warning: "Uyarı: Bu kategori önceden oluşturulmuş bir kategoridir ve güvenlik ayarları düzenlenemez. Bu kategoriyi kullanmak istemiyorsanız yeniden kullanmak yerine silin."
       uncategorized_security_warning: "Bu kategori özeldir. Kategorisi olmayan konular için tutma alanı olarak tasarlanmıştır; güvenlik ayarlarına sahip olamaz."
@@ -3382,7 +3947,12 @@ tr_TR:
       email_in: "Kişiselleştirilmiş gelen e-posta adresi:"
       email_in_tooltip: "Birden fazla e-posta adresini | karakteri ile ayırabilirsiniz."
       email_in_allow_strangers: "Hesabı olmayan anonim kullanıcılardan gelen e-postaları kabul edin"
+<<<<<<< HEAD
       email_in_disabled: "Yeni konuların e-posta yoluyla gönderilmesi devre dışı bırakıldı. Yeni konuların e-posta yoluyla gönderilmesini etkinleştirmek için <a href='%{setting_url}'>'email in'</a> ayarını etkinleştirin."
+=======
+      email_in_disabled: "E-posta yoluyla yeni konuların gönderilmesi Site Ayarlarında devre dışı bırakılmış. Yeni konuların e-posta yoluyla gönderilmesini etkinleştirmek için "
+      email_in_disabled_click: '"email in" ayarını etkinleştirin.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       mailinglist_mirror: "Kategori bir posta listesini yansıtır"
       show_subcategory_list: "Bu kategorideki konuların üzerinde alt kategori listesini göster."
       read_only_banner: "Bir kullanıcı bu kategoride konu oluşturamadığında banner metni:"
@@ -3409,7 +3979,10 @@ tr_TR:
       default_slow_mode: 'Bu kategorideki yeni konular için "Yavaş Modu" etkinleştirin.'
       parent: "Ana Kategori"
       num_auto_bump_daily: "Günlük olarak otomatik olarak üste çıkacak açık konu sayısı:"
+<<<<<<< HEAD
       auto_bump_cooldown_days: "Aynı konuyu tekrar açmadan önce geçmesi gereken gün sayısı:"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       navigate_to_first_post_after_read: "Konular okunduktan sonra ilk gönderiye gidin"
       notifications:
         title: "bu kategori için bildirim seviyesini değiştirin"
@@ -3453,7 +4026,11 @@ tr_TR:
         rows: "Satırlar"
         rows_with_featured_topics: "Öne çıkan konuların olduğu satırlar"
         boxes: "Kutular"
+<<<<<<< HEAD
         boxes_with_featured_topics: "Öne çıkan konuları içeren kutular"
+=======
+        boxes_with_featured_topics: "Öne çıkan konuların olduğu kutular"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       settings_sections:
         general: "Genel"
         moderation: "Moderasyon"
@@ -3466,6 +4043,10 @@ tr_TR:
     flagging:
       title: "Topluluğumuzun medeni kalmasına yardım ettiğiniz için teşekkürler!"
       action: "Gönderiye Bayrak Ekle"
+<<<<<<< HEAD
+=======
+      take_action: "Harekete Geçin..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       take_action_options:
         default:
           title: "Harekete Geç"
@@ -3480,8 +4061,12 @@ tr_TR:
       official_warning: "Resmi Uyarı"
       delete_spammer: "Spam Yapanları Sil"
       flag_for_review: "İnceleme Kuyruğu"
+<<<<<<< HEAD
       delete_confirm_MF: |
         Bu kullanıcının {POSTS, plural, one {<b>#</b> gönderisini} other {<b>#</b> gönderisini}} ve {TOPICS, plural, one {<b>#</b> konusunu} other {<b>#</b> konusunu}} silmek, hesabını kaldırmak, IP adresinden <b>{ip_address}</b> yeni kayıtları engellemek ve e-posta adresini <b>{email}</b> kalıcı bir engelleme listesine eklemek üzeresiniz. Bu kullanıcının gerçekten spam yaptığından emin misiniz??
+=======
+      delete_confirm_MF: "Bu kullanıcının {POSTS, plural, one {<b>#</b> gönderisini} other {<b>#</b> gönderisini}} ve {TOPICS, plural, one {<b>#</b> konusunu} other {<b>#</b> konusunu}} silmek, hesabını kaldırmak, IP adresinden <b>{ip_address}</b> yeni kayıtları engellemek ve e-posta adresini <b>{email}</b> kalıcı bir engelleme listesine eklemek üzeresiniz. Bu kullanıcının gerçekten spam yaptığından emin misiniz??"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       yes_delete_spammer: "Evet, Spam Yapanı Sil"
       ip_address_missing: "(Geçersiz)"
       hidden_email_address: "(gizli)"
@@ -3494,13 +4079,23 @@ tr_TR:
         inappropriate: "Uygunsuz"
         spam: "Spam"
       custom_placeholder_notify_user: "Spesifik, yapıcı ve her zaman kibar olun."
+<<<<<<< HEAD
       notify_user_textarea_label: "Kullanıcı için mesaj"
       custom_placeholder_notify_moderators: "Bize özellikle ne konuda endişe duyduğunuzu bildirin ve mümkünse ilgili bağlantı ve örnekler ekleyin."
       notify_moderators_textarea_label: "Moderatörler için mesaj"
+=======
+      custom_placeholder_notify_moderators: "Bize özellikle ne konuda endişe duyduğunuzu bildirin ve mümkünse ilgili bağlantı ve örnekler ekleyin."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       custom_message:
         at_least:
           one: "en az %{count} karakter girin"
           other: "en az %{count} karakter girin"
+<<<<<<< HEAD
+=======
+        more:
+          one: "%{count} daha..."
+          other: "%{count} daha..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         left:
           one: "%{count} kaldı"
           other: "%{count} kaldı"
@@ -3581,6 +4176,10 @@ tr_TR:
     category_title: "Kategori"
     history_capped_revisions: "Geçmiş, son 100 revizyon"
     history: "Geçmiş"
+<<<<<<< HEAD
+=======
+    changed_by: "Yazan: %{author}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     raw_email:
       title: "Gelen E-posta"
       not_available: "Kullanılamıyor!"
@@ -3667,7 +4266,13 @@ tr_TR:
         this_month: "Ay"
         this_week: "Hafta"
         today: "Bugün"
+<<<<<<< HEAD
     browser_update: 'Ne yazık ki <a href="https://www.discourse.org/faq/#browser">tarayıcınız desteklenmiyor</a>. Lütfen zengin içeriği görüntülemek, giriş yapmak ve yanıtlamak için <a href="https://browsehappy.com">desteklenen bir tarayıcıya geçin.</a>'
+=======
+        other_periods: "popülerlere bakın:"
+    browser_update: 'Ne yazık ki <a href="https://www.discourse.org/faq/#browser">tarayıcınız desteklenmiyor</a>. Lütfen zengin içeriği görüntülemek, giriş yapmak ve yanıtlamak için <a href="https://browsehappy.com">desteklenen bir tarayıcıya geçin.</a>'
+    safari_13_warning: Bu site yakında iOS ve Safari sürüm 13 ve altını desteklemeyecek. Basitleştirilmiş ve salt okunur bir sürüm kullanılabilir olmaya devam edecek. (<a href="https://meta.discourse.org/t/224747">daha fazla bilgi</a>)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     permission_types:
       full: "Oluştur / Yanıtla / Bak"
       create_post: "Yanıtla / Bak"
@@ -3682,6 +4287,7 @@ tr_TR:
       close: "Kapat (Esc)"
       content_load_error: '<a href="%url%">İçerik</a> yüklenemedi.'
       image_load_error: '<a href="%url%">Görüntü</a> yüklenemedi.'
+<<<<<<< HEAD
     experimental_lightbox:
       image_load_error: "Resim yüklenemedi."
       screen_reader_image_title: "Resim %{current} / %{total}: %{title}"
@@ -3696,6 +4302,8 @@ tr_TR:
         fullscreen: "Tarayıcı tam ekran modunda geçiş yap (M tuşu)"
         carousel: "Tüm resimleri bir karuselde göster (A tuşu)"
         retry: "Resmi yüklemeyi yeniden dene"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_render_video: Tarayıcınız codec'i desteklemediği için bu video işlenemiyor.
     keyboard_shortcuts_help:
       shortcut_key_delimiter_comma: ", "
@@ -3743,7 +4351,10 @@ tr_TR:
         title: "Beste yapma"
         return: "%{shortcut} Besteciye dön"
         fullscreen: "%{shortcut} Tam ekran besteci"
+<<<<<<< HEAD
         insert_current_time: "%{shortcut} Mevcut saati girin"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       bookmarks:
         title: "Yer İmi Ekleme"
         enter: "%{shortcut} Kaydet ve kapat"
@@ -3759,7 +4370,11 @@ tr_TR:
         delete: "%{shortcut} Yer imini sil"
       actions:
         title: "Eylemler"
+<<<<<<< HEAD
         bookmark_topic: "%{shortcut} Konu yer imini aç/kapat"
+=======
+        bookmark_topic: "%{shortcut} Konu yer imini değiştir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         pin_unpin_topic: "%{shortcut} Konuyu sabitle/sabitlemesini kaldır"
         share_topic: "%{shortcut} Konuyu paylaş"
         share_post: "%{shortcut} Gönderiyi paylaş"
@@ -3802,9 +4417,15 @@ tr_TR:
       more_badges:
         one: "+%{count} Daha"
         other: "+%{count} Daha"
+<<<<<<< HEAD
       awarded:
         one: "%{number} verildi"
         other: "%{number} verildi"
+=======
+      granted:
+        one: "%{count} verildi"
+        other: "%{count} verildi"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       select_badge_for_title: Başlığınız olarak kullanmak için bir rozet seçin
       none: "(hiçbiri)"
       successfully_granted: "%{username} adlı kullanıcıya başarıyla %{badge} verildi"
@@ -3842,6 +4463,15 @@ tr_TR:
       changed: "değişen etiketler:"
       tags: "Etiketler"
       choose_for_topic: "isteğe bağlı etiketler"
+<<<<<<< HEAD
+=======
+      choose_for_topic_required:
+        one: "en az %{count} etiket seçin..."
+        other: "en az %{count} etiket seçin..."
+      choose_for_topic_required_group:
+        one: "\"%{name}\" adlı kullanıcıdan %{count} etiket seçin..."
+        other: "\"%{name}\" adlı kullanıcıdan %{count} etiket seçin..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       info: "Bilgi"
       default_info: "Bu etiket hiçbir kategoriyle sınırlı değil ve eş anlamlısı yok."
       staff_info: "Kısıtlama eklemek için bu etiketi bir <a href=%{basePath}/tag_groups>etiket grubuna</a> koyun."
@@ -3903,7 +4533,11 @@ tr_TR:
           title: "İzleniyor"
           description: "Bu etikete sahip tüm konuları otomatik olarak izleyeceksiniz. Tüm yeni gönderiler ve konulardan haberdar edileceksiniz, ayrıca okunmamış ve yeni gönderilerin sayısı da konunun yanında görüntülenecek."
         watching_first_post:
+<<<<<<< HEAD
           title: "İlk Gönderi izleniyor"
+=======
+          title: "İlk gönderi izleniyor"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           description: "Bu etikette yeni konular hakkında bildirim alacak, ancak konulara verilen yanıtlar için bildirim almayacaksınız."
         tracking:
           title: "Takip ediliyor"
@@ -3938,17 +4572,29 @@ tr_TR:
         cannot_save: "Etiket grubu kaydedilemiyor. En az bir etiket bulunduğundan, etiket grubu adının boş olmadığından ve etiket izni için bir grubun seçildiğinden emin olun."
         tags_placeholder: "Etiket arayın veya oluşturun"
         parent_tag_placeholder: "İsteğe bağlı"
+<<<<<<< HEAD
+=======
+        select_groups_placeholder: "Grupları seçin..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         disabled: "Etiketleme devre dışı. "
       topics:
         none:
           unread: "Okunmamış konunuz bulunmuyor."
           unseen: "Görülmemiş konunuz bulunmuyor."
+<<<<<<< HEAD
           new: "Yeni konunuz yok."
+=======
+          new: "Yeni konunuz bulunmuyor"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           read: "Henüz herhangi bir konu okumadınız."
           posted: "Henüz herhangi bir konuda gönderi yapmadınız."
           latest: "En son konu bulunmuyor."
           bookmarks: "Henüz hiçbir konuya yer imi eklemediniz."
+<<<<<<< HEAD
           top: "Popüler konu yok."
+=======
+          top: "Popüler bir konu bulunmuyor."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     invite:
       custom_message: "<a href>Özel bir mesaj</a>yazarak davetinizi biraz daha kişisel hale getirin."
       custom_message_placeholder: "Özel mesajınızı girin"
@@ -3965,8 +4611,15 @@ tr_TR:
     safe_mode:
       enabled: "Güvenli mod etkin, güvenli moddan çıkmak için bu tarayıcı penceresini kapatın"
     image_removed: "(görüntü kaldırıldı)"
+<<<<<<< HEAD
     pause_notifications:
       label: "Bildirimleri duraklat"
+=======
+    do_not_disturb:
+      title: "Rahatsız etmeyin..."
+      label: "Rahatsız etmeyin"
+      remaining: "%{remaining} kaldı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       options:
         half_hour: "30 dakika"
         one_hour: "1 saat"
@@ -4079,7 +4732,11 @@ tr_TR:
           header_link_text: "Hakkında"
         messages:
           header_link_text: "Mesajlar"
+<<<<<<< HEAD
           header_action_title: "Kişisel mesaj oluşturun"
+=======
+          header_action_title: "kişisel mesaj oluştur"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             inbox: "Gelen Kutusu"
             sent: "Gönderilen"
@@ -4089,6 +4746,7 @@ tr_TR:
             unread_with_count: "Okunmamış (%{count})"
             archive: "Arşiv"
         tags:
+<<<<<<< HEAD
           none: "Etiket eklemediniz."
           click_to_get_started: "Başlamak için buraya tıklayın."
           header_link_text: "Etiketler"
@@ -4104,6 +4762,30 @@ tr_TR:
           edit_section:
             sidebar: "Bu bölümü kişiselleştirin"
             header_dropdown: "Kişiselleştir"
+=======
+          links:
+            add_tags:
+              content: "Etiket ekle"
+              title: "Etiket eklemediniz. Başlamak için tıklayın."
+          none: "Etiket eklemediniz."
+          click_to_get_started: "Başlamak için buraya tıklayın."
+          header_link_text: "Etiketler"
+          header_action_title: "kenar çubuğu etiketlerinizi düzenleyin"
+          configure_defaults: "Varsayılanları yapılandır"
+        categories:
+          links:
+            add_categories:
+              content: "Kategori ekle"
+              title: "Kategori eklemediniz. Başlamak için tıklayın."
+          none: "Kategori eklemediniz."
+          click_to_get_started: "Başlamak için buraya tıklayın."
+          header_link_text: "Kategoriler"
+          header_action_title: "kenar çubuğu kategorilerinizi düzenleyin"
+          configure_defaults: "Varsayılanları yapılandır"
+        community:
+          header_link_text: "Topluluk"
+          header_action_title: "yeni bir konu oluştur"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             about:
               content: "Hakkında"
@@ -4119,7 +4801,10 @@ tr_TR:
               title: "Tüm konular"
             faq:
               content: "SSS"
+<<<<<<< HEAD
               title: "Bu siteyi kullanmak için kılavuz"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Gruplar"
               title: "Mevcut kullanıcı gruplarının listesi"
@@ -4128,7 +4813,10 @@ tr_TR:
               title: "Tüm kullanıcıların listesi"
             my_posts:
               content: "Gönderilerim"
+<<<<<<< HEAD
               content_drafts: "Taslaklarım"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "Son konu etkinliğim"
               title_drafts: "Gönderilmemiş taslaklarım"
               draft_count:
@@ -4136,12 +4824,17 @@ tr_TR:
                 other: "%{count} taslak"
             review:
               content: "İncele"
+<<<<<<< HEAD
               title: "Bayrak eklenen gönderiler ve diğer sıraya alınmış ögeler"
               pending_count: "%{count} beklemede"
         global_section: "Genel bölüm, herkes tarafından görülebilir"
       panels:
         forum:
           label: Forum
+=======
+              title: "incele"
+              pending_count: "%{count} beklemede"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "Karşılama Konunuzu oluşturun"
       description: "Karşılama konunuz, yeni üyelerin okuyacağı ilk şeydir. Bunu “asansör konuşmanız” veya “hedef tanımınız” olarak düşünün. Herkese bu topluluğun kimler için olduğunu, burada ne bulmayı bekleyebileceklerini ve önce ne yapmalarını istediğinizi açıklayın."
@@ -4184,7 +4877,11 @@ tr_TR:
         patternMismatch: "Lütfen istenen formata uyun."
         badInput: "Lütfen geçerli bir girdi girin."
   admin_js:
+<<<<<<< HEAD
     type_to_filter: "filtrelemek için yazın…"
+=======
+    type_to_filter: "filtrelemek için yazın..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     admin:
       title: "Discourse Yöneticisi"
       moderator: "Moderatör"
@@ -4296,6 +4993,10 @@ tr_TR:
           name:
             too_short: "Grup adı çok kısa"
             too_long: "Grup adı çok uzun"
+<<<<<<< HEAD
+=======
+            checking: "Grup adı kullanılabilirliği kontrol ediliyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             available: "Grup adı kullanılabilir"
             not_available: "Grup adı kullanılamaz"
             blank: "Grup adı boş olamaz"
@@ -4329,9 +5030,12 @@ tr_TR:
               other: "%{count} kullanıcı yeni e-posta alan adlarına sahip ve gruba eklenecek."
             automatic_membership_associated_groups: "Burada listelenen bir hizmette bir grubun üyesi olan kullanıcılar, hizmete giriş yaptıklarında otomatik olarak bu gruba eklenir."
             primary_group: "Otomatik olarak birincil grup olarak ayarla"
+<<<<<<< HEAD
           alert:
             primary_group: "Bu birincil bir grup olduğundan, herkes tarafından görüntülenebilen CSS sınıflarında \"%{group_name}\" adı kullanılacak."
             flair_group: "Bu grubun üyelerine karşı becerisi olduğu için \"%{group_name}\" adı herkes tarafından görünür olacak."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         name_placeholder: "Grup adı, boşluk yok, kullanıcı adı kuralıyla aynı şekilde"
         primary: "Birincil grup"
         no_primary: "(birincil grup yok)"
@@ -4341,6 +5045,7 @@ tr_TR:
         about: "Grup üyeliğinizi ve adlarınızı burada düzenleyin"
         group_members: "Grup üyeleri"
         delete: "Sil"
+<<<<<<< HEAD
         delete_confirm: "%{group} adlı grubu silmek istediğinizden emin misiniz?"
         delete_details:
           one: "%{count} kişi bu gruba erişimini kaybedecek"
@@ -4349,6 +5054,12 @@ tr_TR:
           one: "%{count} mesaj grup üyeleri tarafından erişilemez hale gelecek"
           other: "%{count} mesaj grup üyeleri tarafından erişilemez hale gelecek"
         delete_warning: "Silinen gruplar kurtarılamaz"
+=======
+        delete_confirm: "Bu grubu silmek istediğinizden emin misiniz?"
+        delete_with_messages_confirm:
+          one: "Bu grubun silinmesi %{count} mesajın artık olmasına neden olacak, grup üyeleri artık mesaja erişemeyecek."
+          other: "Bu grubun silinmesi %{count} mesajın artık olmasına neden olacak, grup üyeleri artık bu mesajlara erişemeyecek."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Grup silinemiyor. Bu otomatik bir grupsa yok edilemez."
         delete_automatic_group: Bu otomatik bir grup ve silinemez.
         delete_owner_confirm: "\"%{username}\" için sahiplik ayrıcalığı kaldırılsın mı?"
@@ -4373,7 +5084,11 @@ tr_TR:
         never_used: (asla)
         generate: "Oluştur"
         undo_revoke: "İptal İşlemini Geri Al"
+<<<<<<< HEAD
         revoke: "Geri çek"
+=======
+        revoke: "İptal Et"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         all_users: "Tüm Kullanıcılar"
         active_keys: "Aktif API Anahtarları"
         manage_keys: Anahtarları Yönet
@@ -4414,16 +5129,23 @@ tr_TR:
             topics:
               read: Bir konuyu veya içindeki belirli bir gönderiyi okuyun. RSS de desteklenir.
               write: Yeni bir konu oluşturun veya mevcut bir konuya gönderin.
+<<<<<<< HEAD
               update: Bir konuyu güncelleyin. Başlığı, kategoriyi, etiketleri, durumu, arketipi, öne çıkan_bağlantıyı vb. değiştirin.
               delete: Bir konu silin.
+=======
+              update: Bir konuyu güncelleyin. Başlığı, kategoriyi, etiketleri vb. değiştirin.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               read_lists: En iyi, yeni, en son vb. gibi konu listelerini okuyun. RSS de desteklenir.
               status: "Bir konunun durumunu güncelleyin. Durum: kapalı, arşiv, görünür, sabitlenmiş. Etkin: true, false. Yalnızca o kategorideki konuların durum değişikliklerine izin vermek için burada ve request içeriğinde bir category_id belirtin."
             posts:
               edit: Herhangi bir gönderiyi veya belirli bir gönderiyi düzenleyin.
+<<<<<<< HEAD
               delete: Bir gönderi silin.
               list: Son gönderileri ve özel gönderileri listeleyin. RSS de desteklenir.
             tags:
               list: Etiketleri listeleyin.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             categories:
               list: Kategorilerin bir listesini alın.
               show: Kimliğe göre tek bir kategori alın.
@@ -4437,7 +5159,10 @@ tr_TR:
               update: Kullanıcı profili bilgilerini güncelleyin.
               log_out: Bir kullanıcı için tüm oturumları kapatın.
               anonymize: Kullanıcı hesaplarını anonimleştirin.
+<<<<<<< HEAD
               suspend: Kullanıcı hesaplarını askıya alın.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               delete: Kullanıcı hesaplarını silin.
               list: Kullanıcıların bir listesini alın.
             user_status:
@@ -4445,8 +5170,11 @@ tr_TR:
               update: Kullanıcı durumunu güncelleyin.
             email:
               receive_emails: Gelen e-postaları işlemek için bu kapsamı posta alıcısı ile birleştirin.
+<<<<<<< HEAD
             invites:
               create: E-posta davetiyeleri gönderin veya davet bağlantıları oluşturun.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             badges:
               create: Yeni bir rozet oluşturun.
               show: Bir rozet hakkında bilgi edinin.
@@ -4491,7 +5219,11 @@ tr_TR:
         individual_event: "Bireysel olayları seçin."
         verify_certificate: "Yük url'sinin TLS sertifikasını kontrol edin"
         active: "Aktif"
+<<<<<<< HEAD
         active_notice: "Gerçekleştiğinde, etkinlik ayrıntılarını göndereceğiz."
+=======
+        active_notice: "Olay olduğunda, detaylarını göndereceğiz."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         categories_filter_instructions: "İlgili web kancaları, yalnızca olay belirtilen kategorilerle ilgiliyse tetiklenir. Tüm kategoriler için web kancalarını tetiklemek için boş bırakın."
         categories_filter: "Tetiklenen Kategoriler"
         tags_filter_instructions: "İlgili web kancaları, yalnızca olay belirtilen etiketlerle ilgiliyse tetiklenir. Tüm etiketler için web kancalarını tetiklemek üzere boş bırakın."
@@ -4556,6 +5288,12 @@ tr_TR:
           headers: "Başlıklar"
           payload: "Yük"
           body: "Gövde"
+<<<<<<< HEAD
+=======
+          go_list: "Listeye git"
+          go_details: "Web kancasını düzenle"
+          go_events: "Olaylara git"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           ping: "Ping"
           status: "Durum Kodu"
           event_id: "Kimlik"
@@ -4575,10 +5313,13 @@ tr_TR:
         howto: "Eklentileri nasıl yüklerim?"
         official: "Resmi Eklenti"
         broken_route: "\"%{name}\" bağlantısı yapılandırılamıyor. Reklam engelleyicilerin devre dışı bırakıldığından emin olun ve sayfayı yeniden yüklemeyi deneyin."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Kenar çubuğu"
         header_dropdown: "Başlık Açılır Menüsü"
         legacy: "Eski"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Yedeklemeler"
         menu:
@@ -4593,15 +5334,29 @@ tr_TR:
           disable:
             title: "Salt okunur modu devre dışı bırak"
             label: "Salt okunuru devre dışı bırak"
+<<<<<<< HEAD
+=======
+        logs:
+          none: "Henüz günlük yok..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         columns:
           filename: "Dosya adı"
           size: "Boyut"
         upload:
           label: "Yükle"
           title: "Bu örneğe bir yedekleme yükleyin"
+<<<<<<< HEAD
           success: "\"%{filename}\" başarıyla yüklendi. Dosya şu anda işleniyor ve listede görünmesi bir dakika kadar sürecek."
           error: "\"%{filename}\" yüklenirken bir hata oluştu: %{message}"
         operations:
+=======
+          uploading: "Yükleniyor..."
+          uploading_progress: "Yükleniyor... %%{progress}"
+          success: "\"%{filename}\" başarıyla yüklendi. Dosya şu anda işleniyor ve listede görünmesi bir dakika kadar sürecek."
+          error: "\"%{filename}\" yüklenirken bir hata oluştu: %{message}"
+        operations:
+          is_running: "Şu anda bir işlem yürütülüyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           failed: "%{operation} başarısız oldu. Lütfen günlükleri kontrol edin."
           cancel:
             label: "İptal et"
@@ -4611,8 +5366,12 @@ tr_TR:
             label: "Yedekleme"
             title: "Yedekleme oluştur"
             confirm: "Yeni bir yedekleme başlatmak ister misiniz?"
+<<<<<<< HEAD
             include_uploads: "tüm yüklemeleri dahil et"
             s3_upload_warning: 'Bu yalnızca veritabanı yedeklemeleri içindir. Yüklemeler dahil edilmeyecektir; bu, yedeklemenin başka bir barındırma kurulumuna geri yüklenmesi durumunda tüm görsellerin ve diğer dosya yüklemelerinin eksik olabileceği anlamına gelir. <b>S3 yüklemeleriniz de dahil olmak üzere tam yedeklemeyi etkinleştirmek için lütfen <a href="https://meta.discourse.org/t/-/276535" target="_blank">bu kılavuza</a> göz atın.</b>'
+=======
+            without_uploads: "Evet (yüklemeleri dahil etme)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           download:
             label: "İndir"
             title: "İndirme bağlantısını içeren e-posta gönder"
@@ -4650,6 +5409,7 @@ tr_TR:
         button_title: "Davet Gönder"
       customize:
         title: "Özelleştir"
+<<<<<<< HEAD
         preview: "ön izleme"
         explain_preview: "Bu temanın etkin olduğu siteye bakın"
         syntax_error: "Sözdizimi Hatası"
@@ -4657,6 +5417,11 @@ tr_TR:
         validation_settings_keys: "Her ögenin yalnızca bir \"ayar\" ve bir \"değer\" anahtarı olmalıdır."
         validation_settings_deleted: "Bu ayarlar silindi. Lütfen bu ayarları geri yükleyin ve tekrar deneyin."
         validation_settings_added: "Bu ayarlar eklendi. Lütfen bu ayarları kaldırın ve tekrar deneyin."
+=======
+        long_title: "Site Özelleştirmeleri"
+        preview: "ön izleme"
+        explain_preview: "Bu temanın etkin olduğu siteye bakın"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         save: "Kaydet"
         new: "Yeni"
         new_style: "Yeni Stil"
@@ -4684,7 +5449,11 @@ tr_TR:
           filter_placeholder: "filtrelemek için yazın…"
           theme_name: "Tema adı"
           component_name: "Bileşen adı"
+<<<<<<< HEAD
           themes_intro: "Başlamak için mevcut bir tema seçin veya yeni bir tema\nyükleyin"
+=======
+          themes_intro: "Başlamak için mevcut bir tema seçin veya yeni bir tema\n yükleyin"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           themes_intro_emoji: "kadın sanatçı emojisi"
           beginners_guide_title: "Yeni Başlayanlar İçin Discourse Temaları kılavuzu"
           developers_guide_title: "Discourse Temaları için geliştirici kılavuzu"
@@ -4694,7 +5463,10 @@ tr_TR:
           create: "Oluştur"
           create_type: "Tür"
           create_name: "Ad"
+<<<<<<< HEAD
           save: "Kaydet"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           long_title: "Sitenizin renklerini, CSS ve HTML içeriğini değiştirin"
           edit: "Düzenle"
           edit_confirm: "Bu uzak bir temadır, CSS/HTML'yi düzenlerseniz temayı bir dahaki sefere güncellemeniz için değişiklikleriniz silinir."
@@ -4710,7 +5482,10 @@ tr_TR:
           extra_files_upload: "Bu dosyaları görüntülemek için temayı dışa aktarın."
           extra_files_remote: "Bu dosyaları görüntülemek için temayı dışa aktarın veya git deposunu kontrol edin."
           preview: "Ön İzleme"
+<<<<<<< HEAD
           settings_editor: "Ayar Düzenleyici"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           show_advanced: "Gelişmiş alanları göster"
           hide_advanced: "Gelişmiş alanları gizle"
           hide_unused_fields: "Kullanılmayan alanları gizle"
@@ -4742,6 +5517,10 @@ tr_TR:
           uploads: "Yüklemeler"
           no_uploads: "Yazı tipleri ve resimler gibi temanızla ilişkili varlıkları yükleyebilirsiniz"
           add_upload: "Yükleme Ekle"
+<<<<<<< HEAD
+=======
+          upload_file_tip: "Yüklemek için bir varlık seçin (png, woff2, vb...)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           variable_name: "SCSS var adı:"
           variable_name_invalid: "Geçersiz değişken adı. Sadece alfanümerike izin verilir. Bir harfle başlamalı. Benzersiz olmalı."
           variable_name_error:
@@ -4749,6 +5528,10 @@ tr_TR:
             no_overwrite: "Geçersiz değişken adı. Mevcut bir değişkenin üzerine yazılmamalıdır."
             must_be_unique: "Geçersiz değişken adı. Benzersiz olmalı."
           upload: "Yükle"
+<<<<<<< HEAD
+=======
+          select_component: "Bileşen seçin..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           unsaved_changes_alert: "Değişikliklerinizi henüz kaydetmediniz, bunları silip devam etmek istiyor musunuz?"
           unsaved_parent_themes: "Bileşeni temalara atamadınız, devam etmek istiyor musunuz?"
           discard: "Kapat"
@@ -4762,6 +5545,10 @@ tr_TR:
           add_all: "Tümünü ekle"
           import_web_tip: "Tema içeren depo"
           direct_install_tip: "Aşağıda listelenen depodan şunu yüklemek istediğinizden emin misiniz: <strong>%{name}</strong>?"
+<<<<<<< HEAD
+=======
+          import_web_advanced: "Gelişmiş..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           import_file_tip: "Tema içeren .tar.gz, .zip veya .dcstyle.json dosyası"
           is_private: "Tema özel bir git deposunda"
           finish_install: "Tema Yüklemesini Bitir"
@@ -4789,10 +5576,19 @@ tr_TR:
           disabled_by: "Bu bileşeni devre dışı bırakan kişi"
           required_version:
             error: "Bu tema, Discourse'un bu sürümüyle uyumlu olmadığı için otomatik olarak devre dışı bırakıldı."
+<<<<<<< HEAD
             minimum: "Dircourse %{version} sürümü veya üstünü gerektirir."
             maximum: "Discourse sürüm %{version} veya altı gerektirir."
           update_to_latest: "En Sona Güncelle"
           check_for_updates: "Güncellemeleri kontrol et"
+=======
+            minimum: "Dircourse sürüm %{version} veya üzerini gerektirir."
+            maximum: "Discourse sürüm %{version} veya altı gerektirir."
+          component_of: "Şunun bileşeni:"
+          update_to_latest: "En Sona Güncelle"
+          check_for_updates: "Güncellemeleri kontrol et"
+          updating: "Güncelleniyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           up_to_date: "Tema güncel, son kontrol:"
           has_overwritten_history: "Geçerli tema sürümü artık mevcut değil çünkü Git geçmişi zorla gönderilerek üzerine yazıldı."
           add: "Ekle"
@@ -4812,10 +5608,17 @@ tr_TR:
             text: "CSS"
             title: "Özel CSS girin, tüm geçerli CSS ve SCSS stillerini kabul ediyoruz"
           header:
+<<<<<<< HEAD
             text: "Başlık"
             title: "Site başlığının üstünde görüntülenecek HTML'yi girin"
           after_header:
             text: "Başlıktan Sonra"
+=======
+            text: "Üstbilgi"
+            title: "Site üstbilgisinin üstünde görüntülenecek HTML'yi girin"
+          after_header:
+            text: "Üstbilgiden sonra"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             title: "Üstbilgiden sonra tüm sayfalarda görüntülenecek HTML'yi girin"
           footer:
             text: "Altbilgi"
@@ -4823,9 +5626,12 @@ tr_TR:
           embedded_scss:
             text: "Gömülü CSS"
             title: "Yorumların gömülü sürümü ile teslim etmek için özel CSS girin"
+<<<<<<< HEAD
           embedded_header:
             text: "Gömülü Başlık"
             title: "Yorumların gömülü sürümünün üzerinde gösterilecek HTML'yi girin"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           color_definitions:
             text: "Renk Tanımları"
             title: "Özel renk tanımları girin (yalnızca ileri seviye kullanıcılar)"
@@ -4860,9 +5666,15 @@ tr_TR:
           new_name: "Yeni Renk Paleti"
           copy_name_prefix: "Şunun kopyası:"
           delete_confirm: "Bu renk paleti silinsin mi?"
+<<<<<<< HEAD
           undo: "Geri Al"
           undo_title: "Bu rengin son kaydedilmesinden bu yana yaptığınız değişiklikleri geri alın."
           revert: "Eski Haline Getir"
+=======
+          undo: "geri al"
+          undo_title: "Bu rengin son kaydedilmesinden bu yana yaptığınız değişiklikleri geri alın."
+          revert: "eski haline getir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           revert_title: "Bu rengi Discourse'un varsayılan renk paletine sıfırlayın."
           primary:
             name: "birincil"
@@ -4946,7 +5758,11 @@ tr_TR:
         time: "Saat"
         user: "Kullanıcı"
         email_type: "E-posta Türü"
+<<<<<<< HEAD
         details_title: "E-posta ayrıntılarını göster"
+=======
+        details_title: "E-posta detaylarını göster"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         to_address: "Kime Adresi"
         test_email_address: "test için e-posta adresi"
         send_test: "Test E-postası Gönder"
@@ -4963,7 +5779,11 @@ tr_TR:
         last_seen_user: "Son Görülen Kullanıcı:"
         no_result: "Özet için sonuç bulunamadı."
         reply_key: "Yanıtla Tuşu"
+<<<<<<< HEAD
         post_link_with_smtp: "Posta ve SMTP Ayrıntıları"
+=======
+        post_link_with_smtp: "Posta ve SMTP Detayları"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         skipped_reason: "Nedeni Atla"
         incoming_emails:
           from_address: "Kimden"
@@ -4983,6 +5803,10 @@ tr_TR:
             from_placeholder: "kimden@ornek.com"
             to_placeholder: "kime@ornek.com"
             cc_placeholder: "cc@ornek.com"
+<<<<<<< HEAD
+=======
+            subject_placeholder: "Konu..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             error_placeholder: "Hata"
         logs:
           none: "Günlük bulunamadı."
@@ -4990,6 +5814,10 @@ tr_TR:
             title: "Filtrele"
             user_placeholder: "kullanıcı adı"
             address_placeholder: "ad@ornek.com"
+<<<<<<< HEAD
+=======
+            type_placeholder: "özet, kayıt..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             reply_key_placeholder: "yanıtla tuşu"
             smtp_transaction_response_placeholder: "SMTP Kimliği"
       moderation_history:
@@ -5052,9 +5880,15 @@ tr_TR:
             revoke_badge: "rozeti iptal et"
             check_email: "e-postayı kontrol et"
             delete_topic: "konuyu sil"
+<<<<<<< HEAD
             recover_topic: "konuyu silmeyi geri al"
             delete_post: "gönderiyi sil"
             impersonate: "kimliğine bürün"
+=======
+            recover_topic: "konuyu silme işlemini geri al"
+            delete_post: "gönderiyi sil"
+            impersonate: "yerine geç"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             anonymize_user: "kullanıcıyı anonimleştir"
             roll_up: "IP bloklarını topla"
             change_category_settings: "kategori ayarlarını değiştir"
@@ -5067,7 +5901,11 @@ tr_TR:
             grant_admin: "yönetici yetkisi ver"
             revoke_admin: "yönetici yetkisini iptal et"
             grant_moderation: "moderasyon yetkisi ver"
+<<<<<<< HEAD
             revoke_moderation: "moderasyonu iptal et"
+=======
+            revoke_moderation: "moderasyon yetkisini iptal et"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             backup_create: "yedekleme oluştur"
             deleted_tag: "silinmiş etiket"
             update_directory_columns: "dizin sütunlarını güncelle"
@@ -5129,10 +5967,13 @@ tr_TR:
             delete_group: "grubu sil"
             watched_word_create: "izlenen kelime ekle"
             watched_word_destroy: "izlenen kelimeyi sil"
+<<<<<<< HEAD
             create_public_sidebar_section: "herkese açık kenar çubuğu bölümü oluştur"
             update_public_sidebar_section: "herkese açık kenar çubuğu bölümünü güncelle"
             destroy_public_sidebar_section: "herkese açık kenar çubuğu bölümünü yok et"
             reset_bounce_score: "geri dönme puanını sıfırla"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         screened_emails:
           title: "Taranan E-postalar"
           description: "Biri yeni bir hesap oluşturmaya çalıştığında, aşağıdaki e-posta adresleri kontrol edilir ve kayıt engellenir veya başka bir işlem gerçekleştirilir."
@@ -5170,7 +6011,11 @@ tr_TR:
             header: "Başlık"
             full_page: "Tam Sayfa"
             click_through_only: "Tümü (yalnızca tıklayın)"
+<<<<<<< HEAD
           header_search_results: "Başlık Arama Sonuçları"
+=======
+          header_search_results: "Üstbilgi Arama Sonuçları"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         logster:
           title: "Hata Kayıtları"
       watched_words:
@@ -5196,6 +6041,7 @@ tr_TR:
           silence: "Sustur"
           link: "Bağlantı"
         action_descriptions:
+<<<<<<< HEAD
           block: "Bu kelimeleri içeren bir gönderi oluşturulmaya çalışıldığında bir hata mesajı görüntülenir."
           censor: "Bu kelimeleri içeren gönderilere izin verin, ancak bunları sansürlü kelimeleri gizleyen karakterlerle değiştirin."
           require_approval: "Bu kelimeleri içeren gönderilerin başkaları tarafından görülebilmesi için önce personel onayı gerektirin."
@@ -5204,6 +6050,16 @@ tr_TR:
           tag: "İlk gönderi belirli bir kelime içeriyorsa konuları otomatik olarak etiketleyin."
           silence: "İlk gönderileri bu kelimelerden herhangi birini içeriyorsa yeni hesapları sessize alın. Personel onaylayana kadar gönderi otomatik olarak gizlenir."
           link: "Gönderilerdeki kelimeleri bağlantılarla değiştirin."
+=======
+          block: "Bu kelimeleri içeren gönderilerin yayınlanmasını engelleyin. Kullanıcı, gönderisini göndermeye çalıştığında bir hata mesajı görür."
+          censor: "Bu kelimeleri içeren gönderilere izin verin, ancak bunları sansürlü kelimeleri gizleyen karakterlerle değiştirin."
+          require_approval: "Bu kelimeleri içeren gönderilerin görülebilmesi için personel tarafından onaylanması gerekir."
+          flag: "Bu kelimeleri içeren gönderilere izin verin, ancak moderatörlerin inceleyebilmesi için bunlara uygunsuz bayrağı ekleyin."
+          replace: "Gönderilerdeki kelimeleri başka kelimelerle değiştirin"
+          tag: "Konuları ilk gönderiye göre otomatik olarak etiketleyin"
+          silence: "Kullanıcıların bu kelimeleri içeren ilk gönderilerinin görülebilmesi için personel tarafından onaylanması gerekir ve kullanıcı otomatik olarak susturulur."
+          link: "Gönderilerdeki kelimeleri bağlantılarla değiştirin"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         form:
           label: "Kelime veya kelime öbeği içerir"
           placeholder: "Kelime veya kelime öbeği girin (* joker karakterdir)"
@@ -5226,6 +6082,7 @@ tr_TR:
           description: "İzlenen kelimelerle eşleşmeleri kontrol etmek için aşağıya metin girin"
           found_matches: "Bulunan eşlemeler:"
           no_matches: "Eşleşme bulunamadı"
+<<<<<<< HEAD
       form_templates:
         nav_title: "Şablonlar"
         title: "Form Şablonları"
@@ -5306,6 +6163,8 @@ tr_TR:
           toggle_form_template: "form şablonu etkin"
           select_template: "Form şablonları seçin"
           select_template_help: "Form Şablonları Ekle/Düzenle"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       impersonate:
         title: "Kimliğine Bürün"
         help: "Hata ayıklama amacıyla bir kullanıcı hesabının kimliğine bürünmek için bu aracı kullanın. Bittiğinde oturumu kapatmanız gerekecek."
@@ -5354,7 +6213,11 @@ tr_TR:
       user:
         suspend_failed: "Bu kullanıcı askıya alınırken bir sorun oluştu %{error}"
         unsuspend_failed: "Bu kullanıcının askıya alınması kaldırılırken bir sorun oluştu %{error}"
+<<<<<<< HEAD
         suspend_duration: "Kullanıcıyı şu tarihe kadar askıya al:"
+=======
+        suspend_duration: "Kullanıcı ne kadar süreyle askıya alınacak?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_reason_label: "Neden askıya alıyorsunuz? Bu metin bu kullanıcının profil sayfasında <b>herkes tarafından görülebilecek</b> ve kullanıcı sisteme giriş yapmaya çalıştığında kullanıcıya gösterilecek. Metni kısa tutun."
         suspend_reason_hidden_label: "Neden askıya alıyorsunuz? Bu metin, kullanıcı oturum açmaya çalıştığında kullanıcıya gösterilecek. Kısa tutun."
         suspend_reason: "Neden"
@@ -5365,6 +6228,10 @@ tr_TR:
           combative: "Çok kavgacı"
           in_wrong_place: "Yanlış yerde"
           no_constructive_purpose: "Eylemlerinde topluluk içinde muhalefet yaratmaktan başka yapıcı bir amacı yok"
+<<<<<<< HEAD
+=======
+          custom: "Özel..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_message: "E-posta Mesajı"
         suspend_message_placeholder: "İsteğe bağlı olarak, askıya alma hakkında daha fazla bilgi sağlayın. Kullanıcıya e-posta ile gönderilir."
         suspended_by: "Askıya alan:"
@@ -5377,7 +6244,10 @@ tr_TR:
         silence_message: "E-posta Mesajı"
         silence_message_placeholder: "(varsayılan mesajı göndermek için boş bırakın)"
         suspended_until: "(şu zamana kadar: %{until})"
+<<<<<<< HEAD
         suspend_forever: "Sonsuza kadar askıya al"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         cant_suspend: "Bu kullanıcı askıya alınamaz."
         cant_silence: "Bu kullanıcı susturulamaz."
         delete_posts_failed: "Gönderiler silinirken bir sorun oluştu."
@@ -5389,6 +6259,7 @@ tr_TR:
         penalty_post_edit: "Gönderiyi düzenleyin"
         penalty_post_none: "Hiçbir şey yapma"
         penalty_count: "Ceza Sayısı"
+<<<<<<< HEAD
         penalty_history_MF: >-
           Son 6 ay içinde bu kullanıcı <b>{ SUSPENDED, plural, one {# kez} other {# kez} } askıya alındı</b> ve <b>{ SILENCED, plural, one {# kez} other {# kez} } susturuldu</b>.
         clear_penalty_history:
@@ -5396,6 +6267,13 @@ tr_TR:
           description: "cezası olan kullanıcılar 3 TL'ye ulaşamaz"
         delete_all_posts_confirm_MF: |
           {POSTS, plural, one {1 gönderi} other {# gönderi}} ve {TOPICS, plural, one {1 konu} other {# konu}} silmek üzeresiniz. Bunu yapmak istediğinizden emin misiniz?
+=======
+        penalty_history: "Ceza Geçmişi"
+        clear_penalty_history:
+          title: "Ceza Geçmişini Temizle"
+          description: "cezası olan kullanıcılar 3 TL'ye ulaşamaz"
+        delete_all_posts_confirm_MF: "{POSTS, plural, one {1 gönderi} other {# gönderi}} ve {TOPICS, plural, one {1 konu} other {# konu}} silmek üzeresiniz. Bunu yapmak istediğinizden emin misiniz?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         silence: "Sustur"
         unsilence: "Susturmayı kaldır"
         silenced: "Susturuldu mu?"
@@ -5406,6 +6284,10 @@ tr_TR:
         show_admin_profile: "Yönetici"
         manage_user: "Kullanıcıyı yönet"
         show_public_profile: "Herkese Açık Profili Göster"
+<<<<<<< HEAD
+=======
+        impersonate: "Kimliğine Bürün"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         action_logs: "Eylem Günlükleri"
         ip_lookup: "IP Arama"
         log_out: "Çıkış Yap"
@@ -5452,6 +6334,10 @@ tr_TR:
           button: "Tüm gönderileri sil"
           progress:
             title: "Gönderileri silme ilerleme durumu"
+<<<<<<< HEAD
+=======
+            description: "Gönderiler siliniyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           confirmation:
             title: "@%{username} tarafından gönderilen tüm gönderileri sil"
             description: |
@@ -5487,6 +6373,10 @@ tr_TR:
             text: "@%{username} adlı kullanıcıyı @%{targetUsername} adlı kullanıcıya aktar"
             transfer_and_delete: "@%{username} adlı kullanıcıyı Aktar ve Sil"
             cancel: "İptal et"
+<<<<<<< HEAD
+=======
+        merging_user: "Kullanıcı birleştiriliyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         merge_failed: "Kullanıcılar birleştirilirken bir hata oluştu."
         delete_forbidden_because_staff: "Yöneticiler ve moderatörler silinemez."
         delete_posts_forbidden_because_staff: "Yöneticilerin ve moderatörlerin tüm gönderileri silinemez."
@@ -5503,6 +6393,10 @@ tr_TR:
         delete_confirm: "Mevcut tartışmalardan içeriğin kaldırılmasını önlemek için kullanıcıları silmek yerine anonimleştirmek genellikle tercih edilir."
         delete_and_block: "Sil ve bu e-posta ve IP adresini <b>engelle</b>"
         delete_dont_block: "Yalnızca sil"
+<<<<<<< HEAD
+=======
+        deleting_user: "Kullanıcı siliniyor..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         deleted: "Kullanıcı silindi."
         delete_failed: "Bu kullanıcı silinirken bir hata oluştu. Kullanıcıyı silmeye çalışmadan önce tüm gönderilerin silindiğinden emin olun."
         send_activation_email: "Aktivasyon E-postası Gönder"
@@ -5638,6 +6532,7 @@ tr_TR:
         go_back: "Aramaya geri dön"
         recommended: "Aşağıdaki metni ihtiyaçlarınıza göre özelleştirmenizi öneririz:"
         show_overriden: "Yalnızca geçersiz kılınanları göster"
+<<<<<<< HEAD
         show_outdated: "Yalnızca eski/geçersiz olanları göster"
         locale: "Dil:"
         more_than_50_results: "50'den fazla sonuç var. Lütfen aramanızı daraltın."
@@ -5649,6 +6544,10 @@ tr_TR:
           old_default: "Eski varsayılan"
           new_default: "Yeni varsayılan"
           dismiss: "Kapat"
+=======
+        locale: "Dil:"
+        more_than_50_results: "50'den fazla sonuç var. Lütfen aramanızı daraltın."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       settings:
         show_overriden: "Yalnızca geçersiz kılınanları göster"
         history: "Değişiklik geçmişini görüntüle"
@@ -5661,9 +6560,13 @@ tr_TR:
             label: "Emoji ekle"
         title: "Ayarlar"
         no_results: "Sonuç bulunamadı."
+<<<<<<< HEAD
         more_site_setting_results:
           one: "%{count} adetten fazla sonuç var. Lütfen aramanızı daraltın veya bir kategori seçin."
           other: "%{count} adetten fazla sonuç var. Lütfen aramanızı daraltın veya bir kategori seçin."
+=======
+        more_than_30_results: "30'dan fazla sonuç var. Lütfen aramanızı daraltın veya bir kategori seçin."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         clear_filter: "Temizle"
         add_url: "URL ekle"
         add_host: "sunucu ekle"
@@ -5692,7 +6595,7 @@ tr_TR:
           spam: "Spam"
           rate_limits: "Oran Limitleri"
           developer: "Geliştirici"
-          embedding: "Yerleştirme"
+          embedding: "Gömme"
           legal: "Yasal"
           api: "API"
           user_api: "Kullanıcı API'sı"
@@ -5705,6 +6608,7 @@ tr_TR:
           search: "Ara"
           groups: "Gruplar"
           dashboard: "Pano"
+<<<<<<< HEAD
           navigation: "Navigasyon"
         secret_list:
           invalid_input: "Girdi alanları boş olamaz veya dikey çubuk karakteri içeremez."
@@ -5712,6 +6616,17 @@ tr_TR:
           modal_description: "Bu değişikliği tarihsel olarak uygulamak ister misiniz? Bu, %{count} mevcut kullanıcının tercihlerini değiştirir."
           modal_yes: "Evet"
           modal_no: "Hayır, yalnızca ileriye dönük değişiklikleri uygula"
+=======
+          sidebar: "Kenar çubuğu"
+        secret_list:
+          invalid_input: "Girdi alanları boş olamaz veya dikey çubuk karakteri içeremez."
+        default_categories:
+          modal_description: "Bu değişikliği tarihsel olarak uygulamak ister misiniz? Bu, %{count} mevcut kullanıcının tercihlerini değiştirecektir."
+          modal_yes: "Evet"
+          modal_no: "Hayır, yalnızca ileriye dönük değişiklikleri uygula"
+        simple_list:
+          add_item: "Öge ekle..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         json_schema:
           edit: Düzenleyiciyi Başlat
           modal_title: "Düzenle: %{name}"
@@ -5734,7 +6649,11 @@ tr_TR:
         save: Kaydet
         delete: Sil
         delete_confirm: Bu rozeti silmek istediğinizden emin misiniz?
+<<<<<<< HEAD
         revoke: Geri çek
+=======
+        revoke: İptal Et
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         reason: Neden
         expand: Genişlet &hellip;
         revoke_confirm: Bu rozeti iptal etmek istediğinizden emin misiniz?
@@ -5748,8 +6667,12 @@ tr_TR:
         allow_title: Rozetin başlık olarak kullanılmasına izin verin
         multiple_grant: Birden çok kez verilebilir
         listable: Rozeti herkese açık rozetler sayfasında gösterin
+<<<<<<< HEAD
         enabled: etkin
         disabled: devre dışı
+=======
+        enabled: Rozeti etkinleştir
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         icon: Simge
         image: Görsel
         graphic: Grafik
@@ -5818,6 +6741,7 @@ tr_TR:
       embedding:
         get_started: "Discourse'u başka bir web sitesine yerleştirmek istiyorsanız bu sitenin sunucusunu eklemekle işe başlayın."
         confirm_delete: "Bu sunucuyu silmek istediğinizden emin misiniz?"
+<<<<<<< HEAD
         sample: |
           <p>Discourse konuları oluşturmak ve gömmek için aşağıdaki HTML kodunu sitenize yapıştırın. <b>EMBED_URL</b> yerine bunu gömdüğünüz sayfanın kanonik URL'sini yazın.</p>
 
@@ -5826,6 +6750,12 @@ tr_TR:
           <p> <b>DISCOURSE_USERNAME</b> yerine konuyu oluşturacak yazarın Discourse kullanıcı adını yazın. Discourse kullanıcıyı otomatik olarak <code>name</code> niteliği <code>discourse-username</code> veya <code>author</code>olarak ayarlanmış <code>&lt;meta&gt;</code> etiketlerinin <code>content</code> niteliğine göre arayacaktır. <code>discourseUserName</code> parametresi kullanımdan kaldırıldı ve Discourse 3.2'de kaldırılacaktır.</p>
         title: "Yerleştirme"
         host: "İzin Verilen Sunucular"
+=======
+        sample: "Discourse konuları oluşturmak ve gömmek için aşağıdaki HTML kodunu sitenize yapıştırın. <b>REPLACE_ME</b> kısmını, gömdüğünüz sayfanın standart URL'si ile değiştirin."
+        title: "Yerleştirme"
+        host: "İzin Verilen Sunucular"
+        class_name: "Sınıf adı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         allowed_paths: "Yol İzin Verilenler Listesi"
         edit: "düzenle"
         category: "Kategoriye Gönder"
@@ -5878,6 +6808,10 @@ tr_TR:
       finish: "Kurulumdan çık"
       back: "Geri"
       next: "İleri"
+<<<<<<< HEAD
+=======
+      configure_more: "Daha Fazla Yapılandır..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       step-text: "Adım"
       step: "%{current} / %{total}"
       upload: "Dosya yükle"

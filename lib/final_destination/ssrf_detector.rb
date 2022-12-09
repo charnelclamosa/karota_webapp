@@ -2,6 +2,7 @@
 
 class FinalDestination
   module SSRFDetector
+<<<<<<< HEAD
     class DisallowedIpError < SSRFError
     end
     class LookupFailedError < SSRFError
@@ -48,6 +49,23 @@ class FinalDestination
     ]
 
     PRIVATE_IP_RANGES = PRIVATE_IPV4_RANGES + PRIVATE_IPV6_RANGES
+=======
+    class DisallowedIpError < SocketError
+    end
+
+    def self.standard_private_ranges
+      @private_ranges ||= [
+        IPAddr.new("0.0.0.0/8"),
+        IPAddr.new("127.0.0.1"),
+        IPAddr.new("172.16.0.0/12"),
+        IPAddr.new("192.168.0.0/16"),
+        IPAddr.new("10.0.0.0/8"),
+        IPAddr.new("::1"),
+        IPAddr.new("fc00::/7"),
+        IPAddr.new("fe80::/10"),
+      ]
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     def self.blocked_ip_blocks
       SiteSetting
@@ -83,20 +101,31 @@ class FinalDestination
 
     def self.ip_allowed?(ip)
       ip = ip.is_a?(IPAddr) ? ip : IPAddr.new(ip)
+<<<<<<< HEAD
       ip = ip.native
 
       return false if ip_in_ranges?(ip, blocked_ip_blocks) || ip_in_ranges?(ip, PRIVATE_IP_RANGES)
+=======
+
+      if ip_in_ranges?(ip, blocked_ip_blocks) || ip_in_ranges?(ip, standard_private_ranges)
+        return false
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       true
     end
 
     def self.lookup_and_filter_ips(name, timeout: nil)
+<<<<<<< HEAD
       begin
         ips = lookup_ips(name, timeout: timeout)
       rescue SocketError
         raise LookupFailedError, "FinalDestination: lookup failed"
       end
 
+=======
+      ips = lookup_ips(name, timeout: timeout)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return ips if host_bypasses_checks?(name)
 
       ips.filter! { |ip| FinalDestination::SSRFDetector.ip_allowed?(ip) }
@@ -106,6 +135,7 @@ class FinalDestination
       ips
     end
 
+<<<<<<< HEAD
     def self.allow_ip_lookups_in_test!
       @allow_ip_lookups_in_test = true
     end
@@ -114,6 +144,8 @@ class FinalDestination
       @allow_ip_lookups_in_test = false
     end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     private
 
     def self.ip_in_ranges?(ip, ranges)
@@ -121,7 +153,11 @@ class FinalDestination
     end
 
     def self.lookup_ips(name, timeout: nil)
+<<<<<<< HEAD
       if Rails.env.test? && !@allow_ip_lookups_in_test
+=======
+      if Rails.env.test?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ["1.2.3.4"]
       else
         FinalDestination::Resolver.lookup(name, timeout: timeout)

@@ -1,6 +1,10 @@
 import I18n from "I18n";
 import Controller, { inject as controller } from "@ember/controller";
+<<<<<<< HEAD
 import { action, computed } from "@ember/object";
+=======
+import { computed } from "@ember/object";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default class extends Controller {
   @controller user;
@@ -11,8 +15,12 @@ export default class extends Controller {
 
   @computed(
     "pmTopicTrackingState.newIncoming.[]",
+<<<<<<< HEAD
     "pmTopicTrackingState.statesModificationCounter",
     "pmTopicTrackingState.isTracking"
+=======
+    "pmTopicTrackingState.statesModificationCounter"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   )
   get newLinkText() {
     return this.#linkText("new");
@@ -20,13 +28,18 @@ export default class extends Controller {
 
   @computed(
     "pmTopicTrackingState.newIncoming.[]",
+<<<<<<< HEAD
     "pmTopicTrackingState.statesModificationCounter",
     "pmTopicTrackingState.isTracking"
+=======
+    "pmTopicTrackingState.statesModificationCounter"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   )
   get unreadLinkText() {
     return this.#linkText("unread");
   }
 
+<<<<<<< HEAD
   get navigationControlsButton() {
     return document.getElementById("navigation-controls__button");
   }
@@ -35,6 +48,12 @@ export default class extends Controller {
     const count = this.pmTopicTrackingState?.lookupCount(type, {
       inboxFilter: "group",
       groupName: this.group.name,
+=======
+  #linkText(type) {
+    const count = this.pmTopicTrackingState?.lookupCount(type, {
+      inboxFilter: "group",
+      groupName: this.groupName,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     if (count === 0) {
@@ -43,9 +62,12 @@ export default class extends Controller {
       return I18n.t(`user.messages.${type}_with_count`, { count });
     }
   }
+<<<<<<< HEAD
 
   @action
   changeGroupNotificationLevel(notificationLevel) {
     this.group.setNotification(notificationLevel, this.get("user.model.id"));
   }
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

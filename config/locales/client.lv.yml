@@ -1457,6 +1457,11 @@ lv:
       enabled: "Vietne ir \"tikai lasīšanas\" režīmā. Lūdzu turpiniet lasīt, taču atbildēšana, atzinības izteikšana un citas funkcijas šobrīd ir atslēgtas."
       login_disabled: "Pieslēgšanās ir atslēgta, kamēr vietne ir \"tikai lasīšanas\" režīmā."
       logout_disabled: "Iziešana ir atslēgta, kamēr vietne ir \"tikai lasīšanas\" režīmā."
+<<<<<<< HEAD
+=======
+    learn_more: "uzzināt vairāk..."
+    first_post: Pirmais ieraksts
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     mute: Noklusināt
     unmute: Pārtraukt klusināšanu
     last_post: Ierakstīts

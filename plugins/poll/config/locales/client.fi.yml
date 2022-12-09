@@ -42,10 +42,17 @@ fi:
         label: "Äänestä nyt!"
       show-results:
         title: "Näytä kyselyn tulos"
+<<<<<<< HEAD
         label: "Tulokset"
       remove-vote:
         title: "Poista äänesi"
         label: "Kumoa äänestys"
+=======
+        label: "Näytä tulokset"
+      remove-vote:
+        title: "Poista äänesi"
+        label: "Poista ääni"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hide-results:
         title: "Palaa äänestysvalintaasi"
         label: "Äänestä"

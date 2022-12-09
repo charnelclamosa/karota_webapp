@@ -13,9 +13,12 @@ te:
           title: "సభ్యుడిని సస్పెండు చేయి"
         disagree:
           title: "ఒప్పుకోకు"
+<<<<<<< HEAD
     channel:
       dm_title:
         single_user: "%{username}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   reviewable_score_types:
     notify_user:
       chat_pm_body: "%{link}\n\n%{message}"

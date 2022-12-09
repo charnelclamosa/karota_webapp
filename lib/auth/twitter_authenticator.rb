@@ -30,4 +30,10 @@ class Auth::TwitterAuthenticator < Auth::ManagedAuthenticator
   def primary_email_verified?(auth_token)
     true
   end
+
+  # twitter doesn't return unverfied email addresses in the API
+  # https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials
+  def primary_email_verified?(auth_token)
+    true
+  end
 end

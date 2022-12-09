@@ -2,11 +2,15 @@ import Component from "@glimmer/component";
 import I18n from "I18n";
 import { htmlSafe } from "@ember/template";
 import { inject as service } from "@ember/service";
+<<<<<<< HEAD
 import getURL from "discourse-common/lib/get-url";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default class ChatMentionWarnings extends Component {
   @service siteSettings;
   @service currentUser;
+<<<<<<< HEAD
   @service chatComposerWarningsTracker;
 
   get unreachableGroupMentions() {
@@ -35,6 +39,19 @@ export default class ChatMentionWarnings extends Component {
 
   get overMembersLimitMentionsCount() {
     return this.overMembersLimitGroupMentions.length;
+=======
+
+  get unreachableGroupMentionsCount() {
+    return this.args?.unreachableGroupMentions.length;
+  }
+
+  get overMembersLimitMentionsCount() {
+    return this.args?.overMembersLimitGroupMentions.length;
+  }
+
+  get hasTooManyMentions() {
+    return this.args?.tooManyMentions;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get hasUnreachableGroupMentions() {
@@ -54,7 +71,10 @@ export default class ChatMentionWarnings extends Component {
   get show() {
     return (
       this.hasTooManyMentions ||
+<<<<<<< HEAD
       this.channelWideMentionDisallowed ||
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.hasUnreachableGroupMentions ||
       this.hasOverMembersLimitGroupMentions
     );
@@ -73,7 +93,14 @@ export default class ChatMentionWarnings extends Component {
   }
 
   get warningHeaderText() {
+<<<<<<< HEAD
     if (this.mentionsCount <= this.warningsCount || this.hasTooManyMentions) {
+=======
+    if (
+      this.args?.mentionsCount <= this.warningsCount ||
+      this.hasTooManyMentions
+    ) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return I18n.t("chat.mention_warning.groups.header.all");
     } else {
       return I18n.t("chat.mention_warning.groups.header.some");
@@ -85,6 +112,7 @@ export default class ChatMentionWarnings extends Component {
       return;
     }
 
+<<<<<<< HEAD
     if (this.currentUser.admin) {
       return htmlSafe(
         I18n.t("chat.mention_warning.too_many_mentions_admin", {
@@ -101,6 +129,33 @@ export default class ChatMentionWarnings extends Component {
         })
       );
     }
+=======
+    let notificationLimit = I18n.t(
+      "chat.mention_warning.groups.notification_limit"
+    );
+
+    if (this.currentUser.staff) {
+      notificationLimit = htmlSafe(
+        `<a 
+          target="_blank" 
+          href="/admin/site_settings/category/plugins?filter=max_mentions_per_chat_message"
+        >
+          ${notificationLimit}
+        </a>`
+      );
+    }
+
+    const settingLimit = I18n.t("chat.mention_warning.mentions_limit", {
+      count: this.siteSettings.max_mentions_per_chat_message,
+    });
+
+    return htmlSafe(
+      I18n.t("chat.mention_warning.too_many_mentions", {
+        notification_limit: notificationLimit,
+        limit: settingLimit,
+      })
+    );
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get unreachableBody() {
@@ -108,6 +163,7 @@ export default class ChatMentionWarnings extends Component {
       return;
     }
 
+<<<<<<< HEAD
     switch (this.unreachableGroupMentionsCount) {
       case 1:
         return I18n.t("chat.mention_warning.groups.unreachable_1", {
@@ -123,6 +179,19 @@ export default class ChatMentionWarnings extends Component {
           group: this.unreachableGroupMentions[0],
           count: this.unreachableGroupMentionsCount - 1,
         });
+=======
+    if (this.unreachableGroupMentionsCount <= 2) {
+      return I18n.t("chat.mention_warning.groups.unreachable", {
+        group: this.args.unreachableGroupMentions[0],
+        group_2: this.args.unreachableGroupMentions[1],
+        count: this.unreachableGroupMentionsCount,
+      });
+    } else {
+      return I18n.t("chat.mention_warning.groups.unreachable_multiple", {
+        group: this.args.unreachableGroupMentions[0],
+        count: this.unreachableGroupMentionsCount - 1, //N others
+      });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
@@ -131,6 +200,7 @@ export default class ChatMentionWarnings extends Component {
       return;
     }
 
+<<<<<<< HEAD
     return htmlSafe(
       I18n.messageFormat("chat.mention_warning.groups.too_many_members_MF", {
         groupCount: this.overMembersLimitMentionsCount,
@@ -144,5 +214,46 @@ export default class ChatMentionWarnings extends Component {
         group2: this.overMembersLimitGroupMentions[1],
       })
     );
+=======
+    let notificationLimit = I18n.t(
+      "chat.mention_warning.groups.notification_limit"
+    );
+
+    if (this.currentUser.staff) {
+      notificationLimit = htmlSafe(
+        `<a 
+          target="_blank" 
+          href="/admin/site_settings/category/plugins?filter=max_users_notified_per_group_mention"
+        >
+          ${notificationLimit}
+        </a>`
+      );
+    }
+
+    const settingLimit = I18n.t("chat.mention_warning.groups.users_limit", {
+      count: this.siteSettings.max_users_notified_per_group_mention,
+    });
+
+    if (this.hasOverMembersLimitGroupMentions <= 2) {
+      return htmlSafe(
+        I18n.t("chat.mention_warning.groups.too_many_members", {
+          group: this.args.overMembersLimitGroupMentions[0],
+          group_2: this.args.overMembersLimitGroupMentions[1],
+          count: this.overMembersLimitMentionsCount,
+          notification_limit: notificationLimit,
+          limit: settingLimit,
+        })
+      );
+    } else {
+      return htmlSafe(
+        I18n.t("chat.mention_warning.groups.too_many_members_multiple", {
+          group: this.args.overMembersLimitGroupMentions[0],
+          count: this.overMembersLimitMentionsCount - 1, //N others
+          notification_limit: notificationLimit,
+          limit: settingLimit,
+        })
+      );
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

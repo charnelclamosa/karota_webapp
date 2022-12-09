@@ -56,7 +56,11 @@ export default class ModalUserStatus extends Component {
   @action
   delete() {
     Promise.resolve(this.model.deleteAction())
+<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/modal/user-status.js
       .then(() => this.closeModal())
+=======
+      .then(() => this.send("closeModal"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/controllers/user-status.js
       .catch((e) => this._handleError(e));
   }
 
@@ -73,8 +77,13 @@ export default class ModalUserStatus extends Component {
       ends_at: this.status.endsAt?.toISOString(),
     };
 
+<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/modal/user-status.js
     Promise.resolve(this.model.saveAction(newStatus, this.pauseNotifications))
       .then(() => this.closeModal())
+=======
+    Promise.resolve(this.model.saveAction(newStatus))
+      .then(() => this.send("closeModal"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/controllers/user-status.js
       .catch((e) => this._handleError(e));
   }
 

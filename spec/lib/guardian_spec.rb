@@ -28,6 +28,13 @@ RSpec.describe Guardian do
   before do
     Group.refresh_automatic_groups!
     Guardian.enable_topic_can_see_consistency_check
+<<<<<<< HEAD
+=======
+  end
+
+  after do
+    Guardian.disable_topic_can_see_consistency_check
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   after { Guardian.disable_topic_can_see_consistency_check }
@@ -457,10 +464,15 @@ RSpec.describe Guardian do
     end
   end
 
+<<<<<<< HEAD
   describe "can_send_private_messages" do
     fab!(:suspended_user) do
       Fabricate(:user, suspended_till: 1.week.from_now, suspended_at: 1.day.ago)
     end
+=======
+  describe 'can_send_private_messages' do
+    fab!(:suspended_user) { Fabricate(:user, suspended_till: 1.week.from_now, suspended_at: 1.day.ago) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "returns false when the user is nil" do
       expect(Guardian.new(nil).can_send_private_messages?).to be_falsey
@@ -480,7 +492,13 @@ RSpec.describe Guardian do
 
     context "when personal_message_enabled_groups does contain the user" do
       let(:group) { Fabricate(:group) }
+<<<<<<< HEAD
       before { SiteSetting.personal_message_enabled_groups = group.id }
+=======
+      before do
+        SiteSetting.personal_message_enabled_groups = group.id
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns true" do
         expect(Guardian.new(user).can_send_private_messages?).to be_falsey
@@ -492,7 +510,13 @@ RSpec.describe Guardian do
 
     context "when personal_message_enabled_groups does not contain the user" do
       let(:group) { Fabricate(:group) }
+<<<<<<< HEAD
       before { SiteSetting.personal_message_enabled_groups = group.id }
+=======
+      before do
+        SiteSetting.personal_message_enabled_groups = group.id
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns false if user is not staff member" do
         expect(Guardian.new(trust_level_4).can_send_private_messages?).to be_falsey
@@ -527,7 +551,11 @@ RSpec.describe Guardian do
     end
   end
 
+<<<<<<< HEAD
   describe "can_reply_as_new_topic" do
+=======
+  describe 'can_reply_as_new_topic' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:topic) { Fabricate(:topic) }
     fab!(:private_message) { Fabricate(:private_message_topic) }
 
@@ -1320,7 +1348,13 @@ RSpec.describe Guardian do
       end
 
       context "with trashed topic" do
+<<<<<<< HEAD
         before { topic.trash!(admin) }
+=======
+        before do
+          topic.trash!(admin)
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "doesn't allow new posts from regular users" do
           expect(Guardian.new(coding_horror).can_create?(Post, topic)).to be_falsey
@@ -1930,6 +1964,7 @@ RSpec.describe Guardian do
         end
       end
 
+<<<<<<< HEAD
       context "with private message" do
         fab!(:private_message) { Fabricate(:private_message_topic) }
 
@@ -1938,6 +1973,16 @@ RSpec.describe Guardian do
         end
 
         it "returns false at trust level 4" do
+=======
+      context 'with private message' do
+        fab!(:private_message) { Fabricate(:private_message_topic) }
+
+        it 'returns false at trust level 3' do
+          expect(Guardian.new(trust_level_3).can_edit?(private_message)).to eq(false)
+        end
+
+        it 'returns false at trust level 4' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(Guardian.new(trust_level_4).can_edit?(private_message)).to eq(false)
         end
       end
@@ -3079,6 +3124,40 @@ RSpec.describe Guardian do
     it "returns false without a logged in user" do
       expect(Guardian.new(nil).can_change_primary_group?(user, group)).to eq(false)
     end
+<<<<<<< HEAD
+=======
+
+    it "returns false for regular users" do
+      expect(Guardian.new(user).can_change_primary_group?(user, group)).to eq(false)
+    end
+
+    it "returns true for admins" do
+      expect(Guardian.new(admin).can_change_primary_group?(user, group)).to eq(true)
+    end
+
+    context "when moderators_manage_categories_and_groups site setting is enabled" do
+      before do
+        SiteSetting.moderators_manage_categories_and_groups = true
+      end
+
+      it "returns true for moderators" do
+        expect(Guardian.new(moderator).can_change_primary_group?(user, group)).to eq(true)
+      end
+    end
+
+    context "when moderators_manage_categories_and_groups site setting is disabled" do
+      before do
+        SiteSetting.moderators_manage_categories_and_groups = false
+      end
+
+      it "returns false for moderators" do
+        expect(Guardian.new(moderator).can_change_primary_group?(user, group)).to eq(false)
+      end
+    end
+  end
+
+  describe 'can_change_trust_level?' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "returns false for regular users" do
       expect(Guardian.new(user).can_change_primary_group?(user, group)).to eq(false)

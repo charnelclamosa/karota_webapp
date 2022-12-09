@@ -22,7 +22,10 @@ acceptance("Sidebar - Plugin API", function (needs) {
   needs.user({});
 
   needs.settings({
+<<<<<<< HEAD
     tagging_enabled: true,
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     navigation_menu: "sidebar",
   });
 

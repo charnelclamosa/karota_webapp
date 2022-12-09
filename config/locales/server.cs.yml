@@ -1153,6 +1153,13 @@ cs:
                 label: "Kategorie a nejnovější témata"
               categories_and_top_topics:
                 label: "Kategorie a populární témata"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Primární loga"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:

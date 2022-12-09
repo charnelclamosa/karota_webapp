@@ -51,10 +51,40 @@ export default {
         DiscoverySortableController.extend()
       );
 
+<<<<<<< HEAD:app/assets/javascripts/discourse/app/initializers/dynamic-route-builders.js
       app.register(
         `route:discovery.${filterDasherized}`,
         buildTopicRoute(filter)
       );
+=======
+      if (filter === "top") {
+        app.register(
+          "route:discovery.top",
+          buildTopicRoute("top", {
+            actions: {
+              willTransition() {
+                User.currentProp(
+                  "user_option.should_be_redirected_to_top",
+                  false
+                );
+                if (User.currentProp("user_option.redirected_to_top")) {
+                  User.currentProp(
+                    "user_option.redirected_to_top.reason",
+                    null
+                  );
+                }
+                return this._super(...arguments);
+              },
+            },
+          })
+        );
+      } else {
+        app.register(
+          `route:discovery.${filterDasherized}`,
+          buildTopicRoute(filter)
+        );
+      }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/pre-initializers/dynamic-route-builders.js
 
       app.register(
         `route:discovery.${filterDasherized}-category`,

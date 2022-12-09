@@ -263,7 +263,10 @@ id:
       like_count: "Suka"
       topic_count: "Topik"
       post_count: "Pos"
+<<<<<<< HEAD
       user_count: "Pendaftaran"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Pengguna Aktif"
       contact: "Kontak kami"
       contact_info: "Pada kegiatan dari sebuah isu kritikal atau penting terjadi pada situs ini, silahkan kontak kami di %{contact_info}."
@@ -967,7 +970,10 @@ id:
       dismiss: "Bubar"
       dismiss_notifications: "Bubarkan Semua"
       dismiss_notifications_tooltip: "Tandai semua notifikasi belum dibaca telah dibaca"
+<<<<<<< HEAD
       no_messages_title: "Anda tidak memiliki pesan apa pun"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       theme_default_on_all_devices: "Jadikan ini tema default di semua perangkat saya"
       color_scheme_default_on_all_devices: "Setel skema warna default di semua perangkat saya"
       color_scheme: "Skema warna"
@@ -989,9 +995,12 @@ id:
         enable: "Aktifkan bilah sisi"
         options: "Pilihan"
         navigation_section: "Navigasi"
+<<<<<<< HEAD
         navigation_section_instruction: "Saat daftar topik di menu navigasi memiliki item baru atau belum dibaca…"
         link_to_filtered_list_checkbox_description: "Tautkan ke daftar yang difilter"
         show_count_new_items_checkbox_description: "Menampilkan jumlah item baru"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "ubah"
       featured_topic: "Topik Unggulan"
       moderator: "%{user} adalah moderator"
@@ -1605,7 +1614,10 @@ id:
       title: "Cari"
       full_page_title: "Cari"
       results: "hasil"
+<<<<<<< HEAD
       post_format: "#%{post_number} oleh %{username}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       search_google_button: "Google"
       search_button: "Cari"
       categories: "Kategori"

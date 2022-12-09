@@ -13,6 +13,30 @@ import discoveryFixture from "discourse/tests/fixtures/discovery-fixtures";
 import { cloneJSON } from "discourse-common/lib/object";
 import { NotificationLevels } from "discourse/lib/notification-levels";
 
+<<<<<<< HEAD
+=======
+acceptance(
+  "Sidebar - Logged on user - Tags section - tagging disabled",
+  function (needs) {
+    needs.settings({
+      tagging_enabled: false,
+      navigation_menu: "sidebar",
+    });
+
+    needs.user();
+
+    test("tags section is not shown", async function (assert) {
+      await visit("/");
+
+      assert.ok(
+        !exists(".sidebar-section-tags"),
+        "does not display the tags section"
+      );
+    });
+  }
+);
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 acceptance("Sidebar - Logged on user - Tags section", function (needs) {
   needs.settings({
     tagging_enabled: true,
@@ -69,6 +93,87 @@ acceptance("Sidebar - Logged on user - Tags section", function (needs) {
     });
   });
 
+<<<<<<< HEAD
+=======
+  test("section is not displayed when display_sidebar_tags property is false", async function (assert) {
+    updateCurrentUser({ display_sidebar_tags: false });
+
+    await visit("/");
+
+    assert.notOk(
+      exists(".sidebar-section-tags"),
+      "tags section is not displayed"
+    );
+  });
+
+  test("clicking on section header button", async function (assert) {
+    await visit("/");
+    await click(".sidebar-section-tags .sidebar-section-header-button");
+
+    assert.strictEqual(
+      currentURL(),
+      "/u/eviltrout/preferences/sidebar",
+      "it should transition to user preferences sidebar page"
+    );
+  });
+
+  test("tags section is hidden when user has not added any tags and there are no default tags configured", async function (assert) {
+    updateCurrentUser({
+      sidebar_tags: [],
+    });
+
+    await visit("/");
+
+    assert.notOk(
+      exists(".sidebar-section-tags"),
+      "tags section is not displayed"
+    );
+  });
+
+  test("tags section is shown when user has not added any tags but default tags have been configured", async function (assert) {
+    updateCurrentUser({
+      sidebar_tags: [],
+    });
+
+    this.siteSettings.default_sidebar_tags = "tag1|tag2";
+
+    await visit("/");
+
+    assert.ok(exists(".sidebar-section-tags"), "tags section is shown");
+
+    assert.ok(
+      exists(".sidebar-section-tags .sidebar-section-link-configure-tags"),
+      "section link to add tags to sidebar is displayed"
+    );
+
+    await click(".sidebar-section-tags .sidebar-section-link-configure-tags");
+
+    assert.strictEqual(
+      currentURL(),
+      "/u/eviltrout/preferences/sidebar",
+      "it should transition to user preferences sidebar page"
+    );
+  });
+
+  test("tag section links are sorted alphabetically by tag's name", async function (assert) {
+    await visit("/");
+
+    const tagSectionLinks = queryAll(
+      ".sidebar-section-tags .sidebar-section-link:not(.sidebar-section-link-all-tags)"
+    );
+
+    const tagNames = [...tagSectionLinks].map((tagSectionLink) =>
+      tagSectionLink.textContent.trim()
+    );
+
+    assert.deepEqual(
+      tagNames,
+      ["tag1", "tag2", "tag3", "tag4"],
+      "tag section links are displayed in the right order"
+    );
+  });
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("tag section links for user", async function (assert) {
     await visit("/");
 
@@ -343,9 +448,13 @@ acceptance("Sidebar - Logged on user - Tags section", function (needs) {
 
   test("show suffix indicator for new content on tag section links", async function (assert) {
     updateCurrentUser({
+<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: false,
       },
+=======
+      sidebar_list_destination: "default",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([
@@ -387,23 +496,35 @@ acceptance("Sidebar - Logged on user - Tags section", function (needs) {
     await visit("/");
 
     assert.ok(
+<<<<<<< HEAD
       exists(
         `.sidebar-section-link-wrapper[data-tag-name=tag1] .sidebar-section-link-suffix`
       ),
+=======
+      exists(`.sidebar-section-link-tag1 .sidebar-section-link-suffix`),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "shows suffix indicator for new content on tag1 link"
     );
 
     assert.ok(
+<<<<<<< HEAD
       exists(
         `.sidebar-section-link-wrapper[data-tag-name=tag2] .sidebar-section-link-suffix`
       ),
+=======
+      exists(`.sidebar-section-link-tag2 .sidebar-section-link-suffix`),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "shows suffix indicator for new content on tag2 link"
     );
 
     assert.ok(
+<<<<<<< HEAD
       !exists(
         `.sidebar-section-link-wrapper[data-tag-name=tag3] .sidebar-section-link-suffix`
       ),
+=======
+      !exists(`.sidebar-section-link-tag3 .sidebar-section-link-suffix`),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "hides suffix indicator when there's no new content on tag3 link"
     );
 
@@ -417,9 +538,13 @@ acceptance("Sidebar - Logged on user - Tags section", function (needs) {
     });
 
     assert.ok(
+<<<<<<< HEAD
       exists(
         `.sidebar-section-link-wrapper[data-tag-name=tag1] .sidebar-section-link-suffix`
       ),
+=======
+      exists(`.sidebar-section-link-tag1 .sidebar-section-link-suffix`),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "shows suffix indicator for new topic on tag1 link"
     );
 
@@ -433,18 +558,26 @@ acceptance("Sidebar - Logged on user - Tags section", function (needs) {
     });
 
     assert.ok(
+<<<<<<< HEAD
       !exists(
         `.sidebar-section-link-wrapper[data-tag-name=tag1] .sidebar-section-link-suffix`
       ),
+=======
+      !exists(`.sidebar-section-link-tag1 .sidebar-section-link-suffix`),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "hides suffix indicator for tag1 section link"
     );
   });
 
   test("new and unread count for tag section links", async function (assert) {
     updateCurrentUser({
+<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: true,
       },
+=======
+      sidebar_list_destination: "unread_new",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{#if @channel.currentUserMembership.following}}
   <DButton
     @action={{this.onLeaveChannel}}
@@ -23,3 +24,30 @@
     }}
   />
 {{/if}}
+=======
+{{#if this.channel.isFollowing}}
+  <DButton
+    @action={{action "onLeaveChannel"}}
+    @translatedLabel={{this.label}}
+    @translatedTitle={{this.options.leaveTitle}}
+    @class={{concat-class
+      "toggle-channel-membership-button -leave btn-flat"
+      this.options.leaveClass
+    }}
+    @icon={{this.options.leaveIcon}}
+    @disabled={{this.isLoading}}
+  />
+{{else}}
+  <DButton
+    @action={{action "onJoinChannel"}}
+    @translatedLabel={{this.label}}
+    @translatedTitle={{this.options.joinTitle}}
+    @class={{concat-class
+      "toggle-channel-membership-button -join"
+      this.options.joinClass
+    }}
+    @icon={{this.options.joinIcon}}
+    @disabled={{this.isLoading}}
+  />
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

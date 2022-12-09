@@ -37,6 +37,7 @@ RSpec.describe Onebox::Engine::YoutubeOnebox do
       body: onebox_response("youtube-playlist"),
     )
 
+<<<<<<< HEAD
     stub_request(:get, "https://www.youtube.com/embed/KCyIfcevExE").to_return(
       status: 200,
       body: onebox_response("youtube-embed"),
@@ -46,6 +47,11 @@ RSpec.describe Onebox::Engine::YoutubeOnebox do
       status: 200,
       body: onebox_response("youtube-shorts"),
     )
+=======
+    stub_request(:get, "https://www.youtube.com/embed/KCyIfcevExE").to_return(status: 200, body: onebox_response("youtube-embed"))
+
+    stub_request(:get, "https://www.youtube.com/embed/VvoFuaLAslw").to_return(status: 200, body: onebox_response("youtube-shorts"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   it "adds wmode=opaque" do
@@ -182,7 +188,11 @@ RSpec.describe Onebox::Engine::YoutubeOnebox do
   end
 
   it "can parse youtube shorts results" do
+<<<<<<< HEAD
     preview = expect(Onebox.preview("https://youtube.com/shorts/VvoFuaLAslw").placeholder_html)
+=======
+    preview = expect(Onebox.preview('https://youtube.com/shorts/VvoFuaLAslw').placeholder_html)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     preview.to match(/POMBO/)
     preview.to match(/hqdefault/)
   end

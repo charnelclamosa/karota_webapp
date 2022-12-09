@@ -1176,7 +1176,11 @@ blockquote > *:last-child {
 
     p {
       margin: 0;
+<<<<<<< HEAD
       padding: 0.15em 0.5em 0 0;
+=======
+      padding-right: 0.5em;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
@@ -1256,12 +1260,15 @@ a.mention,
 a.mention-group {
   // linked
   @include mention;
+<<<<<<< HEAD
 }
 
 .mention .emoji {
   margin-left: 0.3em;
   width: 15px;
   height: 15px;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 span.mention {
@@ -1411,7 +1418,11 @@ span.mention {
   box-sizing: border-box;
   max-width: calc(var(--topic-body-width) + 4.5em);
   padding: 3em 5em 2em
+<<<<<<< HEAD
     calc(var(--topic-avatar-width) + var(--topic-body-width-padding));
+=======
+    calc(var(--topic-avatar-width + var(--topic-body-width-padding)));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @include breakpoint(mobile-extra-large) {
     padding: 1.5em 1.5em 0.25em;
   }

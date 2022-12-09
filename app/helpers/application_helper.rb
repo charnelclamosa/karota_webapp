@@ -93,6 +93,7 @@ module ApplicationHelper
     path = ActionController::Base.helpers.asset_path("#{script}.js")
 
     if GlobalSetting.use_s3? && GlobalSetting.s3_cdn_url
+<<<<<<< HEAD
       resolved_s3_asset_cdn_url =
         GlobalSetting.s3_asset_cdn_url.presence || GlobalSetting.s3_cdn_url
       if GlobalSetting.cdn_url
@@ -102,6 +103,12 @@ module ApplicationHelper
             File.join(GlobalSetting.cdn_url, folder, "/"),
             File.join(resolved_s3_asset_cdn_url, "/"),
           )
+=======
+      resolved_s3_asset_cdn_url = GlobalSetting.s3_asset_cdn_url.presence || GlobalSetting.s3_cdn_url
+      if GlobalSetting.cdn_url
+        folder = ActionController::Base.config.relative_url_root || "/"
+        path = path.gsub(File.join(GlobalSetting.cdn_url, folder, "/"), File.join(resolved_s3_asset_cdn_url, "/"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       else
         # we must remove the subfolder path here, assets are uploaded to s3
         # without it getting involved
@@ -666,12 +673,21 @@ module ApplicationHelper
     result = +""
     if dark_scheme_id != -1
       result << <<~HTML
+<<<<<<< HEAD
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="##{ColorScheme.hex_for_name("header_background", scheme_id)}">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="##{ColorScheme.hex_for_name("header_background", dark_scheme_id)}">
       HTML
     else
       result << <<~HTML
         <meta name="theme-color" media="all" content="##{ColorScheme.hex_for_name("header_background", scheme_id)}">
+=======
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="##{ColorScheme.hex_for_name('header_background', scheme_id)}">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="##{ColorScheme.hex_for_name('header_background', dark_scheme_id)}">
+      HTML
+    else
+      result << <<~HTML
+        <meta name="theme-color" media="all" content="##{ColorScheme.hex_for_name('header_background', scheme_id)}">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       HTML
     end
     result.html_safe

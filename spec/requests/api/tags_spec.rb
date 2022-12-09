@@ -17,6 +17,7 @@ RSpec.describe "tags" do
       tags "Tags"
       operationId "listTagGroups"
 
+<<<<<<< HEAD
       produces "application/json"
       response "200", "tags" do
         schema type: :object,
@@ -57,6 +58,41 @@ RSpec.describe "tags" do
                    },
                  },
                }
+=======
+    get 'Get a list of tag groups' do
+      tags 'Tags'
+      operationId 'listTagGroups'
+
+      produces 'application/json'
+      response '200', 'tags' do
+        schema type: :object, properties: {
+          tag_groups: {
+            type: :array,
+            items: {
+              type: :object,
+              properties: {
+                id: { type: :integer },
+                name: { type: :string },
+                tag_names: {
+                  type: :array,
+                  items: {},
+                },
+                parent_tag_name: {
+                  type: :array,
+                  items: {},
+                },
+                one_per_topic: { type: :boolean },
+                permissions: {
+                  type: :object,
+                  properties: {
+                    staff: { type: :integer },
+                  }
+                },
+              }
+            },
+          },
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         run_test!
       end
@@ -95,6 +131,7 @@ RSpec.describe "tags" do
       consumes "application/json"
       parameter name: :id, in: :path, schema: { type: :string }
 
+<<<<<<< HEAD
       produces "application/json"
       response "200", "notifications" do
         schema type: :object,
@@ -132,6 +169,34 @@ RSpec.describe "tags" do
                    },
                  },
                }
+=======
+      produces 'application/json'
+      response '200', 'notifications' do
+        schema type: :object, properties: {
+          tag_group: {
+            type: :object,
+            properties: {
+              id: { type: :integer },
+              name: { type: :string },
+              tag_names: {
+                type: :array,
+                items: {},
+              },
+              parent_tag_name: {
+                type: :array,
+                items: {},
+              },
+              one_per_topic: { type: :boolean },
+              permissions: {
+                type: :object,
+                properties: {
+                  everyone: { type: :integer },
+                }
+              },
+            }
+          },
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         let(:id) { tag_group.id }
         run_test!
@@ -145,6 +210,7 @@ RSpec.describe "tags" do
       operationId "updateTagGroup"
       consumes "application/json"
       parameter name: :id, in: :path, schema: { type: :string }
+<<<<<<< HEAD
       parameter name: :put_body,
                 in: :body,
                 schema: {
@@ -154,6 +220,37 @@ RSpec.describe "tags" do
                       type: :string,
                     },
                   },
+=======
+      parameter name: :put_body, in: :body, schema: {
+        type: :object,
+        properties: {
+          name: { type: :string }
+        }
+      }
+
+      produces 'application/json'
+      response '200', 'Tag group updated' do
+        schema type: :object, properties: {
+          success: { type: :string },
+          tag_group: {
+            type: :object,
+            properties: {
+              id: { type: :integer },
+              name: { type: :string },
+              tag_names: {
+                type: :array,
+                items: {},
+              },
+              parent_tag_name: {
+                type: :array,
+                items: {},
+              },
+              one_per_topic: { type: :boolean },
+              permissions: {
+                type: :object,
+                properties: {
+                  everyone: { type: :integer },
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                 }
 
       produces "application/json"
@@ -209,6 +306,7 @@ RSpec.describe "tags" do
       tags "Tags"
       operationId "listTags"
 
+<<<<<<< HEAD
       produces "application/json"
       response "200", "notifications" do
         schema type: :object,
@@ -247,6 +345,38 @@ RSpec.describe "tags" do
                    },
                  },
                }
+=======
+    get 'Get a list of tags' do
+      tags 'Tags'
+      operationId 'listTags'
+
+      produces 'application/json'
+      response '200', 'notifications' do
+        schema type: :object, properties: {
+          tags: {
+            type: :array,
+            items: {
+              type: :object,
+              properties: {
+                id: { type: :string },
+                text: { type: :string },
+                count: { type: :integer },
+                pm_count: { type: :integer },
+                target_tag: { type: [:string, :null] },
+              }
+            },
+          },
+          extras: {
+            type: :object,
+            properties: {
+              categories: {
+                type: :array,
+                items: {},
+              },
+            }
+          },
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         run_test!
       end
@@ -259,6 +389,7 @@ RSpec.describe "tags" do
       operationId "getTag"
       parameter name: :name, in: :path, schema: { type: :string }
 
+<<<<<<< HEAD
       produces "application/json"
       response "200", "notifications" do
         schema type: :object,
@@ -455,6 +586,105 @@ RSpec.describe "tags" do
                    },
                  },
                }
+=======
+      produces 'application/json'
+      response '200', 'notifications' do
+        schema type: :object, properties: {
+          users: {
+            type: :array,
+            items: {
+              type: :object,
+              properties: {
+                id: { type: :integer },
+                username: { type: :string },
+                name: { type: [:string, :null] },
+                avatar_template: { type: :string },
+              }
+            },
+          },
+          primary_groups: {
+            type: :array,
+            items: {},
+          },
+          topic_list: {
+            type: :object,
+            properties: {
+              can_create_topic: { type: :boolean },
+              draft: { type: [:string, :null] },
+              draft_key: { type: :string },
+              draft_sequence: { type: :integer },
+              per_page: { type: :integer },
+              tags: {
+                type: :array,
+                items: {
+                  type: :object,
+                  properties: {
+                    id: { type: :integer },
+                    name: { type: :string },
+                    topic_count: { type: :integer },
+                    staff: { type: :boolean },
+                  }
+                },
+              },
+              topics: {
+                type: :array,
+                items: {
+                  type: :object,
+                  properties: {
+                    id: { type: :integer },
+                    title: { type: :string },
+                    fancy_title: { type: :string },
+                    slug: { type: :string },
+                    posts_count: { type: :integer },
+                    reply_count: { type: :integer },
+                    highest_post_number: { type: :integer },
+                    image_url: { type: [:string, :null] },
+                    created_at: { type: :string },
+                    last_posted_at: { type: :string },
+                    bumped: { type: :boolean },
+                    bumped_at: { type: :string },
+                    archetype: { type: :string },
+                    unseen: { type: :boolean },
+                    last_read_post_number: { type: :integer },
+                    unread_posts: { type: :integer },
+                    pinned: { type: :boolean },
+                    unpinned: { type: [:string, :null] },
+                    visible: { type: :boolean },
+                    closed: { type: :boolean },
+                    archived: { type: :boolean },
+                    notification_level: { type: :integer },
+                    bookmarked: { type: :boolean },
+                    liked: { type: :boolean },
+                    tags: {
+                      type: :array,
+                      items: {},
+                    },
+                    views: { type: :integer },
+                    like_count: { type: :integer },
+                    has_summary: { type: :boolean },
+                    last_poster_username: { type: :string },
+                    category_id: { type: :integer },
+                    pinned_globally: { type: :boolean },
+                    featured_link: { type: [:string, :null] },
+                    posters: {
+                      type: :array,
+                      items: {
+                        type: :object,
+                        properties: {
+                          extras: { type: :string },
+                          description: { type: :string },
+                          user_id: { type: :integer },
+                          primary_group_id: { type: [:string, :null] },
+                        }
+                      },
+                    },
+                  }
+                },
+              },
+            }
+          },
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         let(:name) { tag.name }
         run_test!
       end

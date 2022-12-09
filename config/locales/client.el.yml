@@ -261,7 +261,10 @@ el:
       like_count: "Μου αρέσει"
       topic_count: "Θέματα"
       post_count: "Αναρτήσεις"
+<<<<<<< HEAD
       user_count: "Εγγραφές"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Ενεργοί χρήστες"
       contact: "Επικοινωνήστε μαζί μας"
       contact_info: "Σε περίπτωση που προκύψει κάποιο κρίσιμο πρόβλημα ή κάποιο επείγον θέμα που αφορά αυτόν τον ιστότοπο, παρακαλούμε να επικοινωνήσετε μαζί μας στο %{contact_info}."
@@ -314,7 +317,10 @@ el:
       remove: "Αφαίρεση"
       remove_confirmation: "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προσχέδιο;"
       new_topic: "Νέο προσχέδιο θέματος"
+<<<<<<< HEAD
       new_private_message: "Νέο πρόχειρο προσωπικό μήνυμα"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       abandon:
         yes_value: "Απόρριψη"
         no_value: "Συνέχιση επεξεργασίας"
@@ -964,9 +970,12 @@ el:
       dismiss: "Απόρριψη"
       dismiss_notifications: "Απόρριψη Όλων"
       dismiss_notifications_tooltip: "Όλες οι αδιάβαστες ειδοποιήσεις να χαρακτηριστούν διαβασμένες"
+<<<<<<< HEAD
       no_likes_title: "Δεν έχετε λάβει ακόμα likes"
       no_messages_title: "Δεν έχετε κανένα μήνυμα"
       no_notifications_page_title: "Δεν έχετε ειδοποιήσεις ακόμα"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dynamic_favicon: "Εμφάνιση μετρήσεων στο εικονίδιο του περιηγητή"
       skip_new_user_tips:
         description: "Παράλειψη συμβουλών και σημάτων για την ενσωμάτωση νέου χρήστη"

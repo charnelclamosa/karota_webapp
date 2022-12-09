@@ -6,6 +6,7 @@
 
 gl:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ gl:
           never: "Nunca"
     chat:
       deleted_chat_username: eliminado
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Crear"
       cancel: "Cancelar"
       channel_settings:
@@ -21,18 +25,28 @@ gl:
         join: "Participar"
         leave: "Abandonar"
       close: "Pechar"
+<<<<<<< HEAD
       remove: "Retirar"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Eliminar"
       edited: "editado"
       muted: "silenciado"
       joined: "uniuse"
       email_frequency:
         never: "Nunca"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Nunca"
       flag: "Sinalar"
       join: "Participar"
       last_visit: "última visita"
+=======
+      flag: "Sinalar"
+      join: "Participar"
+      mention_warning:
+        dismiss: "desbotar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Responder"
       edit: "Editar"
       rebake_message: "Reconstruír HTML"
@@ -53,7 +67,10 @@ gl:
         yesterday: Onte
       about_view:
         title: Título
+<<<<<<< HEAD
         name: Nome
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Descrición
       channel_info:
         back_to_channel: "Volver"
@@ -61,8 +78,11 @@ gl:
           about: Verbo de
           members: Membros
           settings: Configuración
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Sen elementos"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nova mensaxe
         prefix: "A:"
@@ -74,14 +94,20 @@ gl:
       composer:
         italic_text: "texto recalcado"
         bold_text: "texto groso"
+<<<<<<< HEAD
         send: "Enviar"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Nunca"
       settings:
         follow: "Participar"
         followed: "Uniuse"
+<<<<<<< HEAD
         threading_enabled: "Activado"
         threading_disabled: "Desactivado"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Notificacións"
         preview: "Visualizar"
         save: "Gardar"
@@ -113,6 +139,7 @@ gl:
         activities: "Actividades"
         flags: "Alertas"
         symbols: "Símbolos"
+<<<<<<< HEAD
       thread:
         title: "Título"
         replies:
@@ -128,6 +155,8 @@ gl:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nova mensaxe"
         cancel: "Cancelar"
@@ -139,3 +168,10 @@ gl:
           fields:
             message:
               label: Mensaxe
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Sinalado por"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -167,9 +167,13 @@ def insert_user_options
                   notification_level_when_replying,
                   like_notification_frequency,
                   skip_new_user_tips,
+<<<<<<< HEAD
                   hide_profile_and_presence,
                   sidebar_link_to_filtered_list,
                   sidebar_show_count_of_new_items
+=======
+                  hide_profile_and_presence
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                 )
              SELECT u.id
                   , #{SiteSetting.default_email_mailing_list_mode}
@@ -191,8 +195,11 @@ def insert_user_options
                   , #{SiteSetting.default_other_like_notification_frequency}
                   , #{SiteSetting.default_other_skip_new_user_tips}
                   , #{SiteSetting.default_hide_profile_and_presence}
+<<<<<<< HEAD
                   , #{SiteSetting.default_sidebar_link_to_filtered_list}
                   , #{SiteSetting.default_sidebar_show_count_of_new_items}
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                FROM users u
           LEFT JOIN user_options uo ON uo.user_id = u.id
               WHERE uo.user_id IS NULL

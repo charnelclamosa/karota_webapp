@@ -41,6 +41,7 @@ import { addModuleExcludeMatcher } from "ember-cli-test-loader/test-support/inde
 import SiteSettingService from "discourse/services/site-settings";
 import jQuery from "jquery";
 import { setupDeprecationCounter } from "discourse/tests/helpers/deprecation-counter";
+<<<<<<< HEAD
 import { configureRaiseOnDeprecation } from "discourse/tests/helpers/raise-on-deprecation";
 import SourceMapSupport from "source-map-support";
 
@@ -49,6 +50,8 @@ import SourceMapSupport from "source-map-support";
 SourceMapSupport.install({
   handleUncaughtExceptions: false,
 });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const Plugin = $.fn.modal;
 const Modal = Plugin.Constructor;

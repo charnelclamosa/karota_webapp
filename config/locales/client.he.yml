@@ -1251,9 +1251,15 @@ he:
         enable: "הפעלת סרגל צד"
         options: "אפשרויות"
         navigation_section: "ניווט"
+<<<<<<< HEAD
         navigation_section_instruction: "כאשר לנושא בתפריט הניווט יש פריטים חדשים או שלא נקראו…"
         link_to_filtered_list_checkbox_description: "קישור לרשימה המסוננת"
         show_count_new_items_checkbox_description: "הצגת מניין הפריטים החדשים"
+=======
+        list_destination_instruction: "כשיש תוכן חדש בסרגל הצד…"
+        list_destination_default: "להשתמש בקישור ברירת המחדל ולהציג עיטור לפריטים חדשים"
+        list_destination_unread_new: "קישור לכאלו שלא נקראו/חדשים ולהציג את מניין הפריטים החדשים"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "שנה"
       featured_topic: "נושא מומלץ"
       moderator: "ל־%{user} יש תפקיד פיקוח"
@@ -1951,7 +1957,12 @@ he:
       pause_notifications: "השהיית התראות"
       remove_status: "הסרת מצב"
     user_tips:
+<<<<<<< HEAD
       button: "הבנתי!"
+=======
+      primary: "הבנתי!"
+      secondary: "לא להציג יותר את העצות האלה"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "ההתראה הראשונה שלך!"
         content: "התראות משמשות לעדכן אותך במה שקורה בקהילה."
@@ -1967,11 +1978,15 @@ he:
       suggested_topics:
         title: "אפשר להמשיך לקרוא!"
         content: "הינה כמה נושאים שלדעתנו יעניין אותך לקרוא בהמשך."
+<<<<<<< HEAD
       admin_guide:
         title: "ברוך בואך לאתר החדש שלך!"
         content: "<a href='%{admin_guide_url}'>כדאי לקרוא את המדריך למנהלים</a> כדי להמשיך לבנות את האתר והקהילה שלך."
         content_no_url: "כדאי לקרוא את המדריך למנהלים בטרם בניית האתר והקהילה שלך."
     loading: "בטעינה…"
+=======
+    loading: "טוען..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "בזמן הניסיון לטעון"
       reasons:
@@ -2005,6 +2020,15 @@ he:
       logout_disabled: "היציאה מושבתת בזמן שהאתר במצב של קריאה בלבד."
     staff_writes_only_mode:
       enabled: "אתר זה נמצא במצב סגל בלבד. אפשר להמשיך לשוטט, אך תגובות, לייקים, ופעולות נוספות כרגע מוגבלות לחברי הסגל בלבד."
+<<<<<<< HEAD
+=======
+    too_few_topics_and_posts_notice_MF: >-
+      הבה <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">נתחיל להתדיין!</a> כרגע יש {currentTopics, plural, one {נושא <strong>אחד</strong>} other {<strong>#</strong> נושאים}} ו{currentPosts, plural, one {פוסט <strong>אחד</strong>} other {־<strong>#</strong> פוסטים}}. המבקרים זקוקים ליותר מכך כדי לקרוא ולהיות מעורבים – אנו ממליצים על {requiredTopics, plural, one {נושא<strong>אחד</strong>} other {<strong>#</strong> נושאים}} ו{requiredPosts, plural, one {פוסט <strong>אחד</strong>} other {־<strong>#</strong> פוסטים}} לפחות. רק חברי הסגל יכולים לראות את ההודעה הזאת.
+    too_few_topics_notice_MF: >-
+      הבה <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">נתחיל להתדיין!</a> כרגע יש {currentTopics, plural, one {נושא <strong>אחד</strong>} other {<strong>#</strong> נושאים}}. המבקרים זקוקים ליותר מכך כדי לקרוא ולהיות מעורבים – אנו ממליצים על {requiredTopics, plural, one {נושא <strong>אחד</strong>} other {<strong>#</strong> נושאים}} לפחות. רק חברי הסגל יכולים לראות את ההודעה הזאת.
+    too_few_posts_notice_MF: >-
+      הבה <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">נתחיל להתדיין!</a> כרגע יש {currentPosts, plural, one {פוסט <strong>אחד</strong>} other {<strong>#</strong> פוסטים}}. המבקרים זקוקים ליותר מכך כדי לקרוא ולהיות מעורבים – אנו ממליצים על {requiredPosts, plural, one {פוסט <strong>אחד</strong>} other {<strong>#</strong> פוסטים}} לפחות. רק חברי הסגל יכולים לראות את ההודעה הזאת.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {שגיאה אחת בשעה הגיעה} other {# שגיאות בשעה הגיעו}}</a> למגבלת האתר שהיא {limit, plural, one {שגיאה אחת בשעה} other {# שגיאות בשעה}}.
@@ -2155,7 +2179,11 @@ he:
       blank_username: "נא למלא כתובת דוא״ל או שם משתמש."
       blank_username_or_password: "נא למלא את כתובת הדוא״ל או את שם המשתמש שלך וסיסמה."
       reset_password: "אפס סיסמה"
+<<<<<<< HEAD
       logging_in: "מתבצעת כניסה…"
+=======
+      logging_in: "מתחבר...."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       previous_sign_up: "כבר יש לך חשבון?"
       or: "או"
       authenticating: "מתבצע אימות…"
@@ -2349,11 +2377,14 @@ he:
         not_allowed: "אזכרת את ‎@%{username} אבל לא תישלח התראה כיוון שמי שאוזכר לא הוזמן לנושא הזה."
       cannot_see_group_mention:
         not_mentionable: "לא ניתן להזכיר את הקבוצה ‎@%{group}."
+<<<<<<< HEAD
         some_not_allowed:
           one: "אזכרת את ‎@%{group} אבל תישלח התראה רק ל־%{count} מהחברים כיוון ששאר החברים לא יכולים לראות את ההודעה האישית הזאת. יש להזמין את מי שאוזכר להודעה האישית הזאת."
           two: "אזכרת את ‎@%{group} אבל תישלח התראה רק ל־%{count} מהחברים כיוון ששאר החברים לא יכולים לראות את ההודעה האישית הזאת. יש להזמין את מי שאוזכר להודעה האישית הזאת."
           many: "אזכרת את ‎@%{group} אבל תישלח התראה רק ל־%{count} מהחברים כיוון ששאר החברים לא יכולים לראות את ההודעה האישית הזאת. יש להזמין את מי שאוזכר להודעה האישית הזאת."
           other: "אזכרת את ‎@%{group} אבל תישלח התראה רק ל־%{count} מהחברים כיוון ששאר החברים לא יכולים לראות את ההודעה האישית הזאת. יש להזמין את מי שאוזכר להודעה האישית הזאת."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         not_allowed: "אזכרת את ‎@%{group} אבל לא תישלח התראה לאף אחד מחברי הקבוצה כיוון שאין להם איך לצפות בהודעה האישית הזאת. צריך להזמין את מי שאוזכר להודעה האישית הזאת."
       here_mention:
         one: "אזכור של <b>‎@%{here}</b> יודיע למשתמש %{count}, להמשיך?"
@@ -4570,12 +4601,20 @@ he:
             unread_with_count: "לא נקראה (%{count})"
             archive: "ארכיון"
         tags:
+          links:
+            add_tags:
+              content: "הוספת תגיות"
+              title: "לא הוספת תגיות כלל. יש ללחוץ כדי להתחיל."
           none: "עדיין לא הוספת תגיות."
           click_to_get_started: "ללחוץ כאן כדי להתחיל."
           header_link_text: "תגיות"
           header_action_title: "לערוך את תגיות סרגל הצד שלך"
           configure_defaults: "הגדרת ברירות מחדל"
         categories:
+          links:
+            add_categories:
+              content: "הוספת קטגוריות"
+              title: "לא הוספת קטגוריות כלל. יש ללחוץ כדי להתחיל."
           none: "עדיין לא הוספת קטגוריות."
           click_to_get_started: "ללחוץ כאן כדי להתחיל."
           header_link_text: "קטגוריות"
@@ -4600,7 +4639,10 @@ he:
               title: "כל הנושאים"
             faq:
               content: "שאלות נפוצות"
+<<<<<<< HEAD
               title: "הנחיות לשימוש באתר הזה"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "קבוצות"
               title: "רשימת קבוצות משתמשים זמינות"
@@ -4609,7 +4651,10 @@ he:
               title: "רשימת כל המשתמשים"
             my_posts:
               content: "הפוסטים שלי"
+<<<<<<< HEAD
               content_drafts: "הטיוטות שלי"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "הפעילות האחרונה שלי בנושא"
               title_drafts: "הטיוטות שלא פרסמתי"
               draft_count:
@@ -4837,6 +4882,7 @@ he:
         about: "עריכת חברות הקבוצה שלך והשמות כאן"
         group_members: "חברי הקבוצה"
         delete: "מחיקה"
+<<<<<<< HEAD
         delete_confirm: "למחוק את %{group}?"
         delete_details:
           one: "משתמש %{count} יאבד את הגישה לקבוצה הזאת"
@@ -4849,6 +4895,14 @@ he:
           many: "תיחסם הגישה ל־%{count} הודעות לחברי הקבוצה"
           other: "תיחסם הגישה ל־%{count} הודעות לחברי הקבוצה"
         delete_warning: "לא ניתן לשחזר קבוצות שנמחקו"
+=======
+        delete_confirm: "למחוק את הקבוצה הזאת?"
+        delete_with_messages_confirm:
+          one: "מחיקת הקבוצה הזאת תוביל להתייתמותה של הודעה %{count}, חברי הקבוצה לא יוכלו לגשת אליה עוד."
+          two: "מחיקת הקבוצה הזאת תוביל להתייתמותן של %{count} הודעות, חברי הקבוצה לא יוכלו לגשת אליהן עוד."
+          many: "מחיקת הקבוצה הזאת תוביל להתייתמותן של %{count} הודעות, חברי הקבוצה לא יוכלו לגשת אליהן עוד."
+          other: "מחיקת הקבוצה הזאת תוביל להתייתמותן של %{count} הודעות, חברי הקבוצה לא יוכלו לגשת אליהן עוד."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "לא ניתן להסיר קבוצה זו. אם זו קבוצה אוטומטית, היא בלתי ניתנת למחיקה."
         delete_automatic_group: זו קבוצה אוטומטית ולא ניתן למחוק אותה.
         delete_owner_confirm: "להסיר את הרשאות הניהול של ‚%{username}’?"
@@ -5079,10 +5133,13 @@ he:
         howto: "איך אני מתקין/ה הרחבות?"
         official: "תוסף רשמי"
         broken_route: "לא ניתן להגדיר את הקישור אל ‚%{name}’. כדאי לוודא שחוסמי פרסומות מושבתים ואז לנסות לטעון את הדף מחדש."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "סרגל צד"
         header_dropdown: "שורת כותרת נגללת"
         legacy: "מיושן"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "גיבויים"
         menu:
@@ -6363,12 +6420,16 @@ he:
       embedding:
         get_started: "כדי להטמיע את Discourse באתר אחר, יש להתחיל בהוספת השרת שלו."
         confirm_delete: "האם ברצונכם להסיר את הhost הזה? "
+<<<<<<< HEAD
         sample: |
           <p>יש להדביק את קוד ה־HTML לאתר שלך כדי ליצור ולהטמיע נושאים מ־Discourse. את <b>EMBED_URL</b> רצוי להחליף לשם הקנוני של העמוד אליו מבוצעת ההטמעה.</p>
 
           p>כדי להתאים את הסגנון יש להסיר את ההערה ולהחליף את <b>CLASS_NAME</b> במחלקת ה־CSS שמוגדרת ב־<i>CSS המוטמע</i> של ערכת העיצוב שלך.</p>
 
           <p>יש להחליף את <b>DISCOURSE_USERNAME</b> בשם המשתמש ב־Discourse של מי שאמור ליצור את הנושא. Discourse יחפש את המשתמש אוטומטית לפי המאפיין <code>content</code> (תוכן) של התגיות <code>&lt;meta&gt;</code> עם המאפיין <code>name</code> (שם) שמוגדר ל־<code>discourse-username</code> או ל־<code>author</code> (מחבר). המשתנה <code>discourseUserName</code> לא בשימוש עוד והוא יוסר ב־Discourse 3.2.</p>
+=======
+        sample: "יש להדביק את קוד ה־HTML הבא באתר שלך כדי ליצור ולהטמיע נושאים של Discourse. יש להחליף את <b>REPLACE_ME</b> בכתובת היחסית של העמוד בו תתבצע ההטמעה."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "שילוב (embedding)"
         host: "שרתים מורשים"
         allowed_paths: "רשימת נתיבים מותרים"

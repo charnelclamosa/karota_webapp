@@ -6,7 +6,10 @@ import Application from "@ember/application";
 import { buildResolver } from "discourse-common/resolver";
 import { isTesting } from "discourse-common/config/environment";
 import { normalizeEmberEventHandling } from "./lib/ember-events";
+<<<<<<< HEAD
 import { registerDiscourseImplicitInjections } from "discourse/lib/implicit-injections";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const _pluginCallbacks = [];
 let _unhandledThemeErrors = [];
@@ -30,9 +33,12 @@ const Discourse = Application.extend({
     // between Glimmer and Classic components.
     normalizeEmberEventHandling(this);
 
+<<<<<<< HEAD
     // Register Discourse's standard implicit injections on common framework classes.
     registerDiscourseImplicitInjections();
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (Error.stackTraceLimit) {
       // We need Errors to have full stack traces for `lib/source-identifier`
       Error.stackTraceLimit = Infinity;

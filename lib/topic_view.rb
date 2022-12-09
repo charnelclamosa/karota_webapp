@@ -31,6 +31,11 @@ class TopicView
     :personal_message,
     :can_review_topic,
     :page,
+<<<<<<< HEAD
+=======
+    :mentioned_users,
+    :mentions
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   )
   alias queued_posts_enabled? queued_posts_enabled
 
@@ -156,6 +161,9 @@ class TopicView
         @topic_custom_fields = Topic.custom_fields_for_ids(@topic[:id].to_i, allowed_topic_fields)
       end
     end
+
+    parse_mentions
+    load_mentioned_users
 
     TopicView.preload(self)
 
@@ -720,6 +728,7 @@ class TopicView
     @topic.published_page
   end
 
+<<<<<<< HEAD
   def mentioned_users
     @mentioned_users ||=
       begin
@@ -739,6 +748,23 @@ class TopicView
 
   def summarizable?
     Summarization::Base.can_see_summary?(@topic, @user)
+=======
+  def parse_mentions
+    @mentions = @posts
+      .to_h { |p| [p.id, p.mentions] }
+      .reject { |_, v| v.empty? }
+  end
+
+  def load_mentioned_users
+    usernames = @mentions.values.flatten.uniq
+    mentioned_users = User.where(username: usernames)
+
+    if SiteSetting.enable_user_status
+      mentioned_users = mentioned_users.includes(:user_status)
+    end
+
+    @mentioned_users = mentioned_users.to_h { |u| [u.username, u] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   protected

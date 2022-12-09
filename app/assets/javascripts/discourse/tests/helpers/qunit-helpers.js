@@ -91,8 +91,11 @@ import { reset as resetLinkLookup } from "discourse/lib/link-lookup";
 import { resetMentions } from "discourse/lib/link-mentions";
 import { resetModelTransformers } from "discourse/lib/model-transformers";
 import { cleanupTemporaryModuleRegistrations } from "./temporary-module-helper";
+<<<<<<< HEAD
 import { clearBulkButtons } from "discourse/components/modal/topic-bulk-actions";
 import { resetBeforeAuthCompleteCallbacks } from "discourse/instance-initializers/auth-complete";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export function currentUser() {
   return User.create(sessionFixtures["/session/current.json"].current_user);
@@ -228,6 +231,7 @@ export function testCleanup(container, app) {
   resetModelTransformers();
   resetMentions();
   cleanupTemporaryModuleRegistrations();
+<<<<<<< HEAD
   cleanupCssGeneratorTags();
   clearBulkButtons();
   resetBeforeAuthCompleteCallbacks();
@@ -236,6 +240,8 @@ export function testCleanup(container, app) {
 function cleanupCssGeneratorTags() {
   document.querySelector("style#category-color-css-generator")?.remove();
   document.querySelector("style#hashtag-css-generator")?.remove();
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 export function discourseModule(name, options) {

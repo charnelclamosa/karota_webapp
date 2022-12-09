@@ -3,6 +3,7 @@ import { alias, equal } from "@ember/object/computed";
 import Controller, { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import Category from "discourse/models/category";
+import discourseComputed from "discourse-common/utils/decorators";
 import DiscourseURL from "discourse/lib/url";
 
 export default class DiscoveryController extends Controller {
@@ -17,6 +18,24 @@ export default class DiscoveryController extends Controller {
   @alias("navigationCategory.noSubcategories") noSubcategories;
 
   loading = false;
+
+  @discourseComputed(
+    "router.currentRouteName",
+    "router.currentRoute.queryParams.f",
+    "site.show_welcome_topic_banner"
+  )
+  showEditWelcomeTopicBanner(
+    currentRouteName,
+    hasParams,
+    showWelcomeTopicBanner
+  ) {
+    return (
+      this.currentUser?.staff &&
+      currentRouteName === "discovery.latest" &&
+      showWelcomeTopicBanner &&
+      !hasParams
+    );
+  },
 
   @action
   loadingBegan() {

@@ -40,6 +40,7 @@ RSpec.describe CategoryHashtagDataSource do
       group.add(user)
       expect(described_class.lookup(Guardian.new(user), ["secret"]).first).not_to eq(nil)
     end
+<<<<<<< HEAD
 
     context "with sub-sub-categories" do
       before { SiteSetting.max_category_nesting = 3 }
@@ -81,6 +82,8 @@ RSpec.describe CategoryHashtagDataSource do
         expect(result.map(&:relative_url)).to eq([parent2_child_grandchild.url])
       end
     end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   describe "#search" do
@@ -112,7 +115,11 @@ RSpec.describe CategoryHashtagDataSource do
   describe "#search_without_term" do
     it "returns distinct categories ordered by topic_count" do
       expect(described_class.search_without_term(guardian, 5).map(&:slug)).to eq(
+<<<<<<< HEAD
         %w[books movies casual random fun],
+=======
+        ["books", "movies", "casual", "random", "fun"],
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
@@ -132,6 +139,7 @@ RSpec.describe CategoryHashtagDataSource do
       )
       expect(described_class.search_without_term(guardian, 5).map(&:slug)).not_to include("random")
     end
+<<<<<<< HEAD
 
     it "does not return child categories where the user has muted the parent" do
       CategoryUser.create!(
@@ -159,5 +167,7 @@ RSpec.describe CategoryHashtagDataSource do
         %w[dev dev-lore dev-tools ruby-dev system-test-development],
       )
     end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end

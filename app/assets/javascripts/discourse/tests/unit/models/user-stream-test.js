@@ -1,14 +1,21 @@
 import { module, test } from "qunit";
 import UserAction from "discourse/models/user-action";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user-stream", function (hooks) {
   setupTest(hooks);
 
   test("basics", function (assert) {
+<<<<<<< HEAD
     const store = getOwner(this).lookup("service:store");
     const user = store.createRecord("user", { id: 1, username: "eviltrout" });
+=======
+    const user = User.create({ id: 1, username: "eviltrout" });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const stream = user.stream;
     assert.present(stream, "a user has a stream by default");
     assert.strictEqual(stream.user, user, "the stream points back to the user");
@@ -21,8 +28,12 @@ module("Unit | Model | user-stream", function (hooks) {
   });
 
   test("filterParam", function (assert) {
+<<<<<<< HEAD
     const store = getOwner(this).lookup("service:store");
     const user = store.createRecord("user", { id: 1, username: "eviltrout" });
+=======
+    const user = User.create({ id: 1, username: "eviltrout" });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const stream = user.stream;
 
     // defaults to posts/topics

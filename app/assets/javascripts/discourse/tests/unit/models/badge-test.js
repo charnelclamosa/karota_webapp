@@ -5,7 +5,11 @@ import pretender, {
 } from "discourse/tests/helpers/create-pretender";
 import Badge from "discourse/models/badge";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | badge", function (hooks) {
   setupTest(hooks);
@@ -65,14 +69,22 @@ module("Unit | Model | badge", function (hooks) {
     );
   });
 
+<<<<<<< HEAD
   test("save", async function (assert) {
     const store = getOwner(this).lookup("service:store");
     const badge = store.createRecord("badge", {
       id: 1999,
+=======
+  test("save", function (assert) {
+    assert.expect(0);
+    const store = getOwner(this).lookup("service:store");
+    const badge = store.createRecord("badge", {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       name: "New Badge",
       description: "This is a new badge.",
       badge_type_id: 1,
     });
+<<<<<<< HEAD
 
     pretender.put("/admin/badges/1999", (request) => {
       const params = parsePostData(request.requestBody);
@@ -89,6 +101,13 @@ module("Unit | Model | badge", function (hooks) {
   });
 
   test("destroy", async function (assert) {
+=======
+    badge.save(["name", "description", "badge_type_id"]);
+  });
+
+  test("destroy", function (assert) {
+    assert.expect(0);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const store = getOwner(this).lookup("service:store");
     const badge = store.createRecord("badge", {
       name: "New Badge",
@@ -105,8 +124,12 @@ module("Unit | Model | badge", function (hooks) {
     await badge.destroy();
 
     badge.set("id", 3);
+<<<<<<< HEAD
     await badge.destroy();
 
     assert.verifySteps(["called API"]);
+=======
+    badge.destroy();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 });

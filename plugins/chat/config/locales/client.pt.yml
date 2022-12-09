@@ -6,6 +6,7 @@
 
 pt:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -67,10 +68,22 @@ pt:
       collapse: "Colapsar gaveta de Chat"
       confirm_flag: "Tem certeza de que deseja sinalizar a mensagem de %{username}?"
       hidden: "Uma mensagem foi ocultada. [view]"
+=======
+    chat:
+      create: "Criar"
+      cancel: "Cancelar"
+      channel_settings:
+        edit: "Editar"
+        add: "Adicionar"
+        join: "Entrar"
+        leave: "Sair"
+      close: "Fechar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Eliminar"
       edited: "editado"
       muted: "silenciado"
       joined: "juntou-se"
+<<<<<<< HEAD
       empty_state:
         direct_message_cta: "Iniciar um Chat pessoal"
         direct_message: "Você também pode iniciar um Chat pessoal com um ou mais utilizadores."
@@ -109,11 +122,32 @@ pt:
       exit: "retroceder"
       channel_status:
         archive_failed_no_topic: "O canal de arquivo falhou. %{completed}/%{total} mensagens foram arquivadas, o tópico de destino não foi criado. Clica Tentar de novo para tentar completar o arquivo."
+=======
+      email_frequency:
+        never: "Nunca"
+      flag: "Denunciar"
+      join: "Entrar"
+      mention_warning:
+        dismiss: "marcar Visto"
+      reply: "Responder"
+      edit: "Editar"
+      rebake_message: "Reconstruir HTML"
+      bookmark_message: "Adicionar Marcador"
+      bookmark_message_edit: "Editar Favorito"
+      save: "Guardar"
+      sounds:
+        none: "Nenhuma"
+      exit: "retroceder"
+      channel_status:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         closed: "Fechado"
         open: "Abrir"
       browse:
         back: "Retroceder"
+<<<<<<< HEAD
         title: Canais
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         filter_all: Tudo
         filter_closed: Fechado
       chat_message_separator:
@@ -121,7 +155,10 @@ pt:
         yesterday: Ontem
       about_view:
         title: Título
+<<<<<<< HEAD
         name: Nome
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Descrição
       channel_info:
         back_to_channel: "Retroceder"
@@ -129,17 +166,23 @@ pt:
           about: Sobre
           members: Membros
           settings: Configurações
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Sem itens"
       channel_edit_name_slug_modal:
         input_placeholder: Adicionar um nome
         slug: Slug do canal (opcional)
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nova Mensagem
         prefix: "Para:"
       create_channel:
+<<<<<<< HEAD
         slug: "Slug do canal (opcional)"
         title: "Novo canal"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Tipo"
         types:
           category: "Categoria"
@@ -147,6 +190,7 @@ pt:
       composer:
         italic_text: "texto em itálico"
         bold_text: "texto em negrito"
+<<<<<<< HEAD
         send: "Enviar"
       notification_levels:
         never: "Nunca"
@@ -157,6 +201,13 @@ pt:
         followed: "Juntou-se"
         threading_enabled: "Ativado"
         threading_disabled: "Desativado"
+=======
+      notification_levels:
+        never: "Nunca"
+      settings:
+        follow: "Entrar"
+        followed: "Juntou-se"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Notificações"
         preview: "Pré-visualização"
         save: "Guardar"
@@ -188,6 +239,7 @@ pt:
         activities: "Atividades"
         flags: "Sinalizações"
         symbols: "Símbolos"
+<<<<<<< HEAD
       thread:
         title: "Título"
         replies:
@@ -203,6 +255,8 @@ pt:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nova Mensagem"
         cancel: "Cancelar"
@@ -214,3 +268,10 @@ pt:
           fields:
             message:
               label: Mensagem
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Sinalizado por"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

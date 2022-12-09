@@ -1,11 +1,15 @@
 import { buildRawConnectorCache } from "discourse-common/lib/raw-templates";
 import deprecated from "discourse-common/lib/deprecated";
+<<<<<<< HEAD
 import {
   getComponentTemplate,
   hasInternalComponentManager,
   setComponentTemplate,
 } from "@glimmer/manager";
 import templateOnly from "@ember/component/template-only";
+=======
+import DiscourseTemplateMap from "discourse-common/lib/discourse-template-map";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let _connectorCache;
 let _rawConnectorCache;
@@ -25,6 +29,7 @@ const OUTLET_REGEX =
   /^discourse(\/[^\/]+)*?(?<template>\/templates)?\/connectors\/(?<outlet>[^\/]+)\/(?<name>[^\/\.]+)$/;
 
 function findOutlets(keys, callback) {
+<<<<<<< HEAD
   return keys.forEach((res) => {
     const match = res.match(OUTLET_REGEX);
     if (match) {
@@ -34,6 +39,15 @@ function findOutlets(keys, callback) {
         moduleName: res,
         isTemplate: !!match.groups.template,
       });
+=======
+  keys.forEach(function (res) {
+    const segments = res.split("/");
+    if (segments.includes("connectors")) {
+      const outletName = segments[segments.length - 2];
+      const uniqueName = segments[segments.length - 1];
+
+      callback(outletName, res, uniqueName);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   });
 }
@@ -43,6 +57,7 @@ export function clearCache() {
   _rawConnectorCache = null;
 }
 
+<<<<<<< HEAD
 /**
  * Sets component template, ignoring errors if it's already set to the same template
  */
@@ -71,6 +86,19 @@ class ConnectorInfo {
   constructor(outletName, connectorName) {
     this.outletName = outletName;
     this.connectorName = connectorName;
+=======
+function findClass(outletName, uniqueName) {
+  if (!_classPaths) {
+    _classPaths = {};
+    findOutlets(Object.keys(require._eak_seen), (outlet, res, un) => {
+      const possibleConnectorClass = requirejs(res).default;
+      if (possibleConnectorClass.__id) {
+        // This is the template, not the connector class
+        return;
+      }
+      _classPaths[`${outlet}/${un}`] = possibleConnectorClass;
+    });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get componentClass() {
@@ -141,9 +169,18 @@ class ConnectorInfo {
   }
 }
 
+/**
+ * Clear the cache of connectors. Should only be used in tests when
+ * `requirejs.entries` is changed.
+ */
+export function expireConnectorCache() {
+  _connectorCache = null;
+}
+
 function buildConnectorCache() {
   _connectorCache = {};
 
+<<<<<<< HEAD
   const outletsByModuleName = {};
   findOutlets(
     Object.keys(require.entries),
@@ -176,6 +213,22 @@ export function connectorsExist(outletName) {
     buildConnectorCache();
   }
   return Boolean(_connectorCache[outletName]);
+=======
+  findOutlets(
+    DiscourseTemplateMap.keys(),
+    (outletName, resource, uniqueName) => {
+      _connectorCache[outletName] = _connectorCache[outletName] || [];
+
+      _connectorCache[outletName].push({
+        outletName,
+        templateName: resource,
+        template: require(DiscourseTemplateMap.resolve(resource)).default,
+        classNames: `${outletName}-outlet ${uniqueName}`,
+        connectorClass: findClass(outletName, uniqueName),
+      });
+    }
+  );
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 export function connectorsFor(outletName) {

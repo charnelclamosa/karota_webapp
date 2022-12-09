@@ -87,6 +87,7 @@ fi:
           title: "Latausnäkymät"
         empty_state:
           title: "Tyhjä tila"
+<<<<<<< HEAD
         tooltips:
           description: "Kuvaus"
           header: "Yläpalkki"
@@ -94,3 +95,10 @@ fi:
         char_counter:
           title: "Merkkilaskuri"
           placeholder: "Kirjoita tekstisi tähän..."
+=======
+        rich_tooltip:
+          title: "Monipuolinen työkaluvihje"
+          description: "Kuvaus"
+          header: "Yläpalkki"
+          hover_to_see: "Katso työkaluvihje osoittamalla"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

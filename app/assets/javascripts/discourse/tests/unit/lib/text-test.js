@@ -1,4 +1,5 @@
 import { module, test } from "qunit";
+<<<<<<< HEAD
 import { setupTest } from "ember-qunit";
 import {
   cookAsync,
@@ -9,6 +10,9 @@ import {
 
 module("Unit | Utility | text", function (hooks) {
   setupTest(hooks);
+=======
+import { cookAsync, excerpt, parseAsync } from "discourse/lib/text";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   test("parseAsync", async function (assert) {
     await parseAsync("**test**").then((tokens) => {
@@ -42,6 +46,7 @@ module("Unit | Utility | text", function (hooks) {
       "<a><code>&lt;script&gt;alert('hi')&lt;/script&gt;</code></a>"
     );
   });
+<<<<<<< HEAD
 });
 
 module("Unit | Utility | text | parseMentions", function (hooks) {
@@ -77,4 +82,6 @@ module("Unit | Utility | text | parseMentions", function (hooks) {
     const mentions = await parseMentions(markdown);
     assert.equal(mentions.length, 0);
   });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

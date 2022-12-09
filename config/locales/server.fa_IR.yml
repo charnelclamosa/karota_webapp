@@ -488,6 +488,13 @@ fa_IR:
         one: "تقریبا %{count} سال قبل"
         other: "تقریبا %{count} سال قبل"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "رمز‌عبور جدید را وارد کنید"
+    choose: "رمز‌عبور وارد کنید"
+    update: "به‌روز کردن رمز‌عبور"
+    save: "تنظیم رمز‌عبور"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "بازیابی رمز‌عبور"
     success: "شما با موفقیت رمز‌عبورتان را تغییر دادید و الان وارد سیستم هستید. "
     success_unapproved: "شما با موفقیت رمز‌عبورتان را تغییر دادید."
@@ -614,6 +621,7 @@ fa_IR:
     unwatch_category: "موضوعات دسته‌بندی %{category} را مشاهده نکنید"
     mailing_list_mode: "غیرفعال سازی حالت فهرست ایمیل"
     different_user_description: "در حال حاضر با نام کاربری متفاوتی با آن که برایتان ایمیل شده است وارد شده‌اید. لطفا خارج شوید یا در حالت ناشناس وارد شده و دوباره تلاش کنید."
+    not_found_description: با عرض پوزش، نتوانستیم آن اشتراک را پیدا کنیم. ممکن است پیوند ایمیل شما خیلی قدیمی باشد و منقضی شده باشد؟
     log_out: "خروج"
     digest_frequency:
       never: "هیچوقت"
@@ -2276,10 +2284,14 @@ fa_IR:
         title: "لوگوی سایت"
         fields:
           logo:
+<<<<<<< HEAD
             label: "لوگوی اصلی"
             description: "اندازه پیشنهادی: 600*200"
           logo_small:
             label: "لوگو مربع"
+=======
+            label: "لوگو اصلی"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         title: "سازمان شما"
         fields:

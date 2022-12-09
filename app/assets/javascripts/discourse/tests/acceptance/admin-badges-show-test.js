@@ -47,10 +47,18 @@ acceptance("Admin - Badges - Show", function (needs) {
       "image uploader becomes visible after clicking the upload image radio button"
     );
 
+<<<<<<< HEAD
     assert.true(
       exists("label[for=query]"),
       "sql input is visible when enabled"
     );
+=======
+    // SQL fields
+    assert.false(exists("label[for=query]"), "sql input is hidden by default");
+    this.siteSettings.enable_badge_sql = true;
+    await settled();
+    assert.true(exists("label[for=query]"), "sql input shows when enabled");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     assert.false(
       exists("input[name=auto_revoke]"),

@@ -929,6 +929,10 @@ posting:
   max_mentions_per_post: 10
   max_users_notified_per_group_mention:
     default: 100
+<<<<<<< HEAD
+=======
+    max: 250
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     client: true
   newuser_max_replies_per_topic: 3
   newuser_max_mentions_per_post: 2
@@ -1846,6 +1850,7 @@ security:
   suppress_secured_categories_from_admin:
     default: false
     hidden: true
+<<<<<<< HEAD
   include_secure_categories_in_tag_counts:
     default: false
   display_personal_messages_tag_counts:
@@ -1858,6 +1863,8 @@ security:
       - "same-origin"
       - "same-origin-allow-popups"
     hidden: true
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 onebox:
   post_onebox_maxlength:
@@ -2134,6 +2141,9 @@ developer:
   enable_experimental_hashtag_autocomplete:
     default: true
     client: true
+  experimental_hashtag_search_result_limit:
+    default: 20
+    client: true
     hidden: true
   experimental_hashtag_search_result_limit:
     default: 20
@@ -2170,6 +2180,7 @@ developer:
   instrument_gc_stat_per_request:
     default: false
     hidden: true
+<<<<<<< HEAD
 
 navigation:
   navigation_menu:
@@ -2178,6 +2189,23 @@ navigation:
     type: enum
     enum: "NavigationMenuSiteSetting"
   default_navigation_menu_categories:
+=======
+  enable_experimental_topic_timeline_groups:
+    client: true
+    type: group_list
+    list_type: compact
+    default: ""
+    allow_any: false
+    refresh: true
+
+navigation:
+  navigation_menu:
+    client: true
+    default: "legacy"
+    type: enum
+    enum: "NavigationMenuSiteSetting"
+  default_sidebar_categories:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     type: category_list
     default: ""
     client: true
@@ -2464,7 +2492,10 @@ uncategorized:
   educate_until_posts: 2
   sequential_replies_threshold: 2
   get_a_room_threshold: 3
+<<<<<<< HEAD
   dont_feed_the_trolls_threshold: 2
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   dominating_topic_minimum_percent: 40
   disable_avatar_education_message: false
   pm_warn_user_last_seen_months_ago: 24
@@ -2691,6 +2722,10 @@ user_preferences:
     default: false
   default_hide_profile_and_presence:
     default: false
+<<<<<<< HEAD
+=======
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   default_other_new_topic_duration_minutes:
     enum: "NewTopicDurationSiteSetting"
     default: 2880

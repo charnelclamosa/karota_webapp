@@ -21,7 +21,11 @@ const chatTranscriptRule = {
     const channelName = tagInfo.attrs.channel;
     const channelId = tagInfo.attrs.channelId;
     const channelLink = channelId
+<<<<<<< HEAD
       ? options.getURL(`/chat/c/-/${channelId}`)
+=======
+      ? options.getURL(`/chat/channel/${channelId}/-`)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       : null;
 
     if (!username || !messageIdStart || !messageTimeStart) {
@@ -122,7 +126,11 @@ const chatTranscriptRule = {
     } else {
       let linkToken = state.push("link_open", "a", 1);
       linkToken.attrs = [
+<<<<<<< HEAD
         ["href", `${channelLink}/${messageIdStart}`],
+=======
+        ["href", `${channelLink}?messageId=${messageIdStart}`],
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ["title", messageTimeStart],
       ];
 
@@ -232,7 +240,11 @@ export function setup(helper) {
   });
 
   helper.buildCookFunction((opts, generateCookFunction) => {
+<<<<<<< HEAD
     if (!opts.discourse.additionalOptions?.chat) {
+=======
+    if (!opts.discourse.additionalOptions) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return;
     }
 

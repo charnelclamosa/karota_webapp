@@ -41,7 +41,11 @@ RSpec.shared_examples "a chat channel model" do
       before { category_channel_1.chatable.destroy! }
 
       it "doesn’t list the channel" do
+<<<<<<< HEAD
         ids = Chat::Channel.public_channels.pluck(:chatable_id)
+=======
+        ids = ChatChannel.public_channels.pluck(:chatable_id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(ids).to_not include(category_channel_1.chatable_id)
         expect(ids).to include(category_channel_2.chatable_id)
       end
@@ -235,7 +239,11 @@ RSpec.shared_examples "a chat channel model" do
       expect(membership.chat_channel).to eq(private_category_channel)
       expect(private_category_channel.user_count_stale).to eq(true)
       expect_job_enqueued(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -244,7 +252,11 @@ RSpec.shared_examples "a chat channel model" do
 
     it "updates an existing membership for the user and enqueues a job to update the count" do
       membership =
+<<<<<<< HEAD
         Chat::UserChatChannelMembership.create!(
+=======
+        UserChatChannelMembership.create!(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           chat_channel: private_category_channel,
           user: user1,
           following: false,
@@ -256,7 +268,11 @@ RSpec.shared_examples "a chat channel model" do
       expect(membership.reload.following).to eq(true)
       expect(private_category_channel.user_count_stale).to eq(true)
       expect_job_enqueued(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -265,7 +281,11 @@ RSpec.shared_examples "a chat channel model" do
 
     it "does nothing if the user is already a member" do
       membership =
+<<<<<<< HEAD
         Chat::UserChatChannelMembership.create!(
+=======
+        UserChatChannelMembership.create!(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           chat_channel: private_category_channel,
           user: user1,
           following: true,
@@ -273,7 +293,11 @@ RSpec.shared_examples "a chat channel model" do
 
       expect(private_category_channel.user_count_stale).to eq(false)
       expect_not_enqueued_with(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -283,7 +307,11 @@ RSpec.shared_examples "a chat channel model" do
     it "does not recalculate user count if it's already been marked as stale" do
       private_category_channel.update!(user_count_stale: true)
       expect_not_enqueued_with(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -306,7 +334,11 @@ RSpec.shared_examples "a chat channel model" do
       expect(@membership.reload.following).to eq(false)
       expect(private_category_channel.user_count_stale).to eq(true)
       expect_job_enqueued(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -325,7 +357,11 @@ RSpec.shared_examples "a chat channel model" do
 
       expect(private_category_channel.user_count_stale).to eq(false)
       expect_job_enqueued(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },
@@ -335,7 +371,11 @@ RSpec.shared_examples "a chat channel model" do
     it "does not recalculate user count if it's already been marked as stale" do
       private_category_channel.update!(user_count_stale: true)
       expect_not_enqueued_with(
+<<<<<<< HEAD
         job: Jobs::Chat::UpdateChannelUserCount,
+=======
+        job: :update_channel_user_count,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         args: {
           chat_channel_id: private_category_channel.id,
         },

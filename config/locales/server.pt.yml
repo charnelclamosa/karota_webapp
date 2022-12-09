@@ -583,6 +583,13 @@ pt:
         one: "há quase %{count} ano atrás"
         other: "há quase %{count} anos atrás"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Escolha uma nova palavra-passe"
+    choose: "Escolha uma palavra-passe"
+    update: "Atualizar Palavra-passe"
+    save: "Definir Palavra-passe"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Redefinir Palavra-passe"
     success: "A sua palavra-passe foi alterada com sucesso e está agora ligado."
     success_unapproved: "Palavra-passe modificada com sucesso."
@@ -2091,6 +2098,13 @@ pt:
                 label: "Categorias e Tópicos Recentes"
               categories_and_top_topics:
                 label: "Categorias e Melhores Tópicos"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Logo Primário"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:

@@ -37,6 +37,7 @@ export default class AdminLogsStaffActionLogsRoute extends DiscourseRoute {
     return super.serializeQueryParam(value, urlKey, defaultValueType);
   }
 
+<<<<<<< HEAD
   @action
   onFiltersChange(filters) {
     this.router.transitionTo("adminLogs.staffActionLogs", {
@@ -44,3 +45,17 @@ export default class AdminLogsStaffActionLogsRoute extends DiscourseRoute {
     });
   }
 }
+=======
+  actions: {
+    onFiltersChange(filters) {
+      if (filters && Object.keys(filters) === 0) {
+        this.transitionTo("adminLogs.staffActionLogs");
+      } else {
+        this.transitionTo("adminLogs.staffActionLogs", {
+          queryParams: { filters },
+        });
+      }
+    },
+  },
+});
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

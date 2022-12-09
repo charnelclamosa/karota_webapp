@@ -205,10 +205,17 @@ uk:
     action_codes:
       public_topic: "Робить цю тему публічною %{when}"
       open_topic: "Перетворив це на тему %{when}"
+<<<<<<< HEAD
       private_topic: "Зробив цю тему особистим повідомленням %{when}"
       split_topic: "Розділив цю тему %{when}"
       invited_user: "Запросив %{who} %{when}"
       invited_group: "Запросив %{who} %{when}"
+=======
+      private_topic: "зробив цю тему особистим повідомленням %{when}"
+      split_topic: "розділив цю тему %{when}"
+      invited_user: "запросив %{who} %{when}"
+      invited_group: "запросив %{who} %{when}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_left: "%{who} вилучив себе з цього повідомлення %{when}"
       removed_user: "Вилучив %{who} %{when}"
       removed_group: "Вилучив %{who} %{when}"
@@ -222,8 +229,13 @@ uk:
         enabled: "Закрито %{when}"
         disabled: "Відкрито %{when}"
       archived:
+<<<<<<< HEAD
         enabled: "Заархівовано %{when}"
         disabled: "Розархівовано %{when}"
+=======
+        enabled: "заархівовано %{when}"
+        disabled: "розархівовано %{when}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       pinned:
         enabled: "Закріплено %{when}"
         disabled: "Відкріплено %{when}"
@@ -234,9 +246,15 @@ uk:
         enabled: "Додано у список %{when}"
         disabled: "Вилучено зі списку %{when}"
       banner:
+<<<<<<< HEAD
         enabled: "Робить це банером %{when}. Він зʼявлятиметься угорі кожної сторінки, поки користувач його не прибере."
         disabled: "Вилучає цей банер %{when}. Він більше не зʼявлятиметься угорі кожної сторінки."
       forwarded: "Переслано вказаний вище електронний лист"
+=======
+        enabled: "робить це банером %{when}. Він зʼявлятиметься угорі кожної сторінки, поки користувач його не прибере."
+        disabled: "вилучає цей банер %{when}. Він більше не зʼявлятиметься угорі кожної сторінки."
+      forwarded: "переслано вищевказаний електронний лист"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_admin_menu: "дії теми"
     skip_to_main_content: "Перейти до основного вмісту"
     skip_user_nav: "Перейти до вмісту профілю"
@@ -245,7 +263,18 @@ uk:
     software_update_prompt:
       message: "Ми оновили цей сайт, <span>оновіть сторінку</span>, інакше у вас може виникнути неочікувана поведінка."
       dismiss: "Відхилити"
+<<<<<<< HEAD
     bootstrap_mode: "Початок роботи"
+=======
+    bootstrap_mode_enabled:
+      one: "Щоб полегшити запуск вашого нового сайту, ви перебуваєте в режимі початкового завантаження. Усім новим користувачам буде надано рівень довіри 1 і їм буде ввімкнено щоденні електронні листи з підсумками. Це буде автоматично вимкнено, коли приєднається %{count} користувач."
+      few: "Щоб полегшити запуск вашого нового сайту, ви перебуваєте в режимі початкового завантаження. Усім новим користувачам буде надано рівень довіри 1 і їм буде ввімкнено щоденні електронні листи з підсумками. Це буде автоматично вимкнено, коли приєднається %{count} користувачі."
+      many: "Щоб полегшити запуск вашого нового сайту, ви перебуваєте в режимі початкового завантаження. Усім новим користувачам буде надано рівень довіри 1 і їм буде ввімкнено щоденні електронні листи з підсумками. Це буде автоматично вимкнено, коли приєднається %{count} користувачів."
+      other: "Щоб полегшити запуск вашого нового сайту, ви перебуваєте в режимі початкового завантаження. Усім новим користувачам буде надано рівень довіри 1 і їм буде ввімкнено щоденні електронні листи з підсумками. Це буде автоматично вимкнено, коли приєднається %{count} користувачів."
+    bootstrap_mode_disabled: "Режим початкового завантаження буде вимкнено протягом 24 годин."
+    bootstrap_invite_button_title: "Надіслати запрошення"
+    bootstrap_wizard_link_title: "Завершити роботу майстра налаштування"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "Типово"
       broken_theme_alert: "Ваш сайт не може працювати, оскільки тема / компонент має помилки."
@@ -336,8 +365,12 @@ uk:
       aria_label: "Фільтрувати за періодом"
     related_messages:
       title: "Повʼязані повідомлення"
+<<<<<<< HEAD
       pill: "Повʼязані повідомлення"
       see_all: 'Переглянути <a href="%{path}">усі повідомлення</a> від @%{username}…'
+=======
+      see_all: 'Переглянути <a href="%{path}">усі дописи </a> від @%{username}…'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     suggested_topics:
       title: "Нові та непрочитані теми"
       pill: "Запропоновано"
@@ -366,11 +399,19 @@ uk:
       edit_bookmark: "Редагувати закладку"
       clear_bookmarks: "Очистити закладки"
       help:
+<<<<<<< HEAD
         bookmark: "Натисніть, щоб додати цю тему до закладок"
         edit_bookmark: "Натисніть, щоб змінити закладку на повідомлення в цій темі"
         edit_bookmark_for_topic: "Натисніть, щоб редагувати закладку для цієї теми"
         unbookmark: "Натисніть, щоб видалити всі закладки в цій темі"
         unbookmark_with_reminder: "Натисніть, щоб видалити всі закладки та нагадування в цій темі"
+=======
+        bookmark: "Клацніть, щоб додати перший допис на цю тему в закладки"
+        edit_bookmark: "Натисніть, щоб редагувати закладку на цю тему"
+        edit_bookmark_for_topic: "Натисніть, щоб редагувати закладку для цієї теми"
+        unbookmark: "Натисніть, щоб видалити всі закладки в цій темі"
+        unbookmark_with_reminder: "Натисніть, щоб видалити всі закладки та нагадування в цій темі."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     bookmarks:
       created: "Ви додали цей допис в закладки. %{name}"
       created_generic: "Ви створили закладку. %{name}"
@@ -449,14 +490,24 @@ uk:
       other: "Переглянути %{count} нових тем"
     preview: "попередній перегляд"
     cancel: "скасувати"
+<<<<<<< HEAD
     deleting: "Видалення"
+=======
+    deleting: "Видалення…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     save: "Зберегти зміни"
     saving: "Збереження"
     saved: "Збережено!"
     upload: "Надіслати"
+<<<<<<< HEAD
     uploading: "Завантаження…"
     processing: "Обробка…"
     uploading_filename: "Завантаження: %{filename}…"
+=======
+    uploading: "Надсилання…"
+    processing: "Обробка…"
+    uploading_filename: "Надсилання: %{filename}…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     processing_filename: "Обробка: %{filename}…"
     clipboard: "буфер обміну"
     uploaded: "Надіслано!"
@@ -621,9 +672,14 @@ uk:
         date: "Дата звіту"
         type: "Причина"
         status: "Статус"
+<<<<<<< HEAD
         submitted_by: "Повідомлення від"
         reviewed_by: "Розглянуто"
         reviewed_timestamp: "Дата розгляду"
+=======
+        submitted_by: "Подано"
+        reviewed_by: "Розглянуто"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       statuses:
         pending:
           title: "В очікуванні"
@@ -648,7 +704,11 @@ uk:
         deleted:
           title: "Тему або допис видалено"
         reviewed:
+<<<<<<< HEAD
           title: "Усі розглянуті"
+=======
+          title: "(усі розглянуті)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         all:
           title: "Усе"
       context_question:
@@ -1093,7 +1153,11 @@ uk:
         few: "%{count} нові теми за минулий місяць."
         many: "%{count} нових тем за минулий місяць."
         other: "%{count} нових тем за минулий місяць."
+<<<<<<< HEAD
       n_more: "Категорії (ще %{count} )…"
+=======
+      n_more: "Розділи (ще %{count})…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ip_lookup:
       title: Пошук IP адреси
       hostname: Імʼя хоста
@@ -1146,7 +1210,11 @@ uk:
         ignore_no_users: "У вас немає ігнорованих користувачів."
         ignore_option: "Ігноровано"
         ignore_option_title: "Ви не отримуватимете сповіщення, повʼязані з цим користувачем, а всі їхні теми та відповіді буде приховано."
+<<<<<<< HEAD
         add_ignored_user: "Додавання…"
+=======
+        add_ignored_user: "Додати…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         mute_option: "Приглушено"
         mute_option_title: "Ви не отримуватимете жодних сповіщень, повʼязаних з цим користувачем."
         normal_option: "Нормальний"
@@ -1154,7 +1222,11 @@ uk:
       notification_schedule:
         title: "Розклад сповіщень"
         label: "Увімкнути власний розклад сповіщень"
+<<<<<<< HEAD
         tip: "Поза цими годинами ваші сповіщення буде призупинено."
+=======
+        tip: "За межами цих годин ви будете автоматично у режимі «не турбувати»."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         midnight: "Опівночі"
         none: "Немає"
         monday: "Понеділок"
@@ -1199,7 +1271,11 @@ uk:
         perm_denied_expl: "Ви заборонили сповіщення. Дозвольте сповіщення у налаштуваннях свого оглядача."
         disable: "Вимкнути сповіщення"
         enable: "Увімкнути сповіщення"
+<<<<<<< HEAD
         each_browser_note: "Примітка. Вам потрібно змінити це налаштування в кожному браузері, який ви використовуєте. Усі сповіщення буде вимкнено, якщо призупинити сповіщення в меню користувача, незалежно від цього налаштування."
+=======
+        each_browser_note: 'Примітка. Вам потрібно змінити це налаштування в кожному оглядачі, який ви використовуєте. У режимі «не турбувати» всі сповіщення буде вимкнено незалежно від цього налаштування.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         consent_prompt: "Хочете отримувати сповіщення в реальному часі, коли люди відповідають на ваші дописи?"
       dismiss: "Відкинути"
       dismiss_notifications: "Відхилити всі"
@@ -1250,10 +1326,21 @@ uk:
       experimental_sidebar:
         enable: "Увімкнути бічну панель"
         options: "Параметри"
+<<<<<<< HEAD
         navigation_section: "Навігація"
         navigation_section_instruction: "Коли список тем у навігаційному меню містить нові або непрочитані елементи…"
         link_to_filtered_list_checkbox_description: "Посилання на відфільтрований список"
         show_count_new_items_checkbox_description: "Показати кількість нових елементів"
+=======
+        categories_section: "Розділи"
+        categories_section_instruction: "Вибрані розділи будуть показуватись у списку розділів бічної панелі."
+        tags_section: "Теґи"
+        tags_section_instruction: "Вибрані теґи показуватимуться в розділі теґів бічної панелі."
+        navigation_section: "Навігація"
+        list_destination_instruction: "Коли на бічній панелі є новий вміст…"
+        list_destination_default: "використовувати типове посилання і показати значок для нових елементів"
+        list_destination_unread_new: "посилання на непрочитане/нове і показати кількість нових елементів"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "змінити"
       featured_topic: "Закріплені теми"
       moderator: "%{user} є модератором"
@@ -1292,7 +1379,10 @@ uk:
       watched_first_post_categories_instructions: "Ви отримуватимете сповіщення про перший допис у кожній новій темі у цих розділах."
       watched_first_post_tags: "Слідкувати за першим дописом"
       watched_first_post_tags_instructions: "Ви отримуватимете сповіщення про перший допис у кожній новій темі з цими теґами."
+<<<<<<< HEAD
       watched_precedence_over_muted: "Сповіщати мене про теми в категоріях або тегах, які я переглядаю і які також належать до тих, які я вимкнув"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       muted_categories: "Приглушено"
       muted_categories_instructions: "Ви не будете отримувати жодних сповіщень про нові теми у цих розділах, і вони не зʼявлятимуться на сторінках розділів чи найсвіжіших."
       muted_categories_instructions_dont_hide: "Ви не отримуватимете сповіщень про нові теми в цих розділах."
@@ -1325,6 +1415,7 @@ uk:
       home: "Типова головна сторінка"
       staged: "Попередньо"
       staff_counters:
+<<<<<<< HEAD
         flags_given:
           one: '<span class="%{className}">%{count}</span> корисний прапор'
           few: '<span class="%{className}">%{count}</span> корисні прапори'
@@ -1355,6 +1446,14 @@ uk:
           few: '<span class="%{className}">%{count}</span> відхилені дописи'
           many: '<span class="%{className}">%{count}</span> відхилених дописів'
           other: '<span class="%{className}">%{count}</span> відхилених дописів'
+=======
+        flags_given: "корисні позначки"
+        flagged_posts: "позначені дописи"
+        deleted_posts: "видалені дописи"
+        suspensions: "тимчасові призупинення"
+        warnings_received: "попередження"
+        rejected_posts: "відхилені дописи"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       messages:
         all: "усі вхідні"
         inbox: "Вхідні"
@@ -1467,7 +1566,11 @@ uk:
         tags: "Теґи"
         interface: "Інтерфейс"
         apps: "Застосунки"
+<<<<<<< HEAD
         navigation_menu: "Навігаційне меню"
+=======
+        sidebar: "Бічна панель"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change_password:
         success: "(лист надіслано)"
         in_progress: "(надсилання листа)"
@@ -1524,6 +1627,7 @@ uk:
         use: "Використовуйте застосунок для перевірки автентифікації"
         enforced_notice: "Ви мусите увімкнути двофакторну автентифікацію, щоб отримати доступ до цього сайту."
         disable: "Вимкнути"
+<<<<<<< HEAD
         disable_confirm: "Ви впевнені, що бажаєте вимкнути двофакторну автентифікацію?"
         delete: "Видалити"
         delete_confirm_header: "Ці автентифікатори на основі токенів та фізичні ключі безпеки будуть видалені:"
@@ -1532,6 +1636,9 @@ uk:
         delete_single_confirm_message: "Ви видаляєте %{name}. Ви не можете скасувати цю дію. Якщо ви передумаєте, вам доведеться знову зареєструвати цей аутентифікатор."
         delete_backup_codes_confirm_title: "Видалення резервних кодів"
         delete_backup_codes_confirm_message: "Ви видаляєте резервні коди. Ви не можете скасувати цю дію. Якщо ви передумаєте, вам доведеться повторно створити резервні коди."
+=======
+        disable_confirm: "Ви впевнені, що хочете вимкнути всі методи двофакторної автентифікації?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         save: "Зберегти"
         edit: "Редагувати"
         edit_title: "Змінити автентифікатор"
@@ -1620,6 +1727,10 @@ uk:
         authenticated: "Вашу адресу електронної пошти підтверджено через %{provider}"
         invite_auth_email_invalid: "Електронна пошта із запрошення не збігається з адресою, яку підтверджено через %{provider}"
         authenticated_by_invite: "Ваша електронна пошта була підтверджена за допомогою запрошення"
+<<<<<<< HEAD
+=======
+        frequency_immediately: "Отримувати повідомлення про нові непрочитані повідомлення негайно."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         frequency:
           one: "Ми надішлемо вам листа тільки в тому випадку, якщо ви більше %{count} хвилину перебуваєте оффлайн."
           few: "Ми надішлемо вам листа тільки в тому випадку, якщо ви більше %{count} хвилин перебуваєте оффлайн."
@@ -1949,7 +2060,12 @@ uk:
       pause_notifications: "Призупинити сповіщення"
       remove_status: "Видалити статус"
     user_tips:
+<<<<<<< HEAD
       button: "Зрозуміло!"
+=======
+      primary: "Зрозуміло!"
+      secondary: "не показувати ці поради"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Ваше перше сповіщення!"
         content: "Сповіщення використовуються для того, щоб тримати вас в курсі того, що відбувається в спільноті."
@@ -1965,10 +2081,13 @@ uk:
       suggested_topics:
         title: "Продовжуйте читати!"
         content: "Ось кілька тем, які, на нашу думку, ви можете прочитати далі."
+<<<<<<< HEAD
       admin_guide:
         title: "Ласкаво просимо на ваш новий сайт!"
         content: "<a href='%{admin_guide_url}'>Прочитайте посібник адміністратора</a> , щоб продовжити розбудову свого сайту та спільноти."
         content_no_url: "Прочитайте посібник адміністратора, щоб продовжити розбудову свого сайту та спільноти."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     loading: "Завантаження…"
     errors:
       prev_page: "при спробі завантаження"
@@ -2003,6 +2122,7 @@ uk:
       logout_disabled: "Вихід вимкнено, поки сайт перебуває в режимі лише для читання."
     staff_writes_only_mode:
       enabled: "Сайт працює в режимі \"тільки для команди обслуговування\". Зараз ви можете продовжувати переглядати сайт, але інші дії доступні лише членам команди обслуговування."
+<<<<<<< HEAD
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/година} other {# помилок/година}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/година} other {# помилок/година}}.
@@ -2013,6 +2133,17 @@ uk:
       exceeded_minute_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/хвилина} few {# помилки/хвилина} many {# помилок/хвилина} other {# помилок/хвилина}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/хвилина} few {# помилки/хвилина} many {# помилок/хвилина} other {# помилок/хвилина}}.
     learn_more: "дізнатися більше…"
+=======
+    too_few_posts_notice_MF: >-
+      Почнемо <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">старт дискусії!</a> Тут {currentPosts, plural, one {<strong>#</strong> допис} few {<strong>#</strong> дописи} many {<strong>#</strong> дописів} other {<strong>#</strong> дописів}}. Відвідувачам потрібно більше читати та відповідати – ми рекомендуємо {requiredPosts, plural, one {<strong>#</strong> допис} few {<strong>#</strong> дописи} many {<strong>#</strong> дописів} other {<strong>#</strong> дописів}}. Це повідомлення може бачити лише члени команди обслуговування.
+    logs_error_rate_notice:
+      reached_hour_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/година} other {# помилок/година}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/година} other {# помилок/година}}."
+      reached_minute_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/хвилина} other {# помилок/хвилина}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/хвилина} other {# помилок/хвилина}}."
+      exceeded_hour_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/година} few {# помилки/година} many {# помилок/година} other {# помилок/година}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/година} few {# помилки/година} many {# помилок/година} other {# помилок/година}}."
+      exceeded_minute_MF: "<b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# помилка/хвилина} few {# помилки/хвилина} many {# помилок/хвилина} other {# помилок/хвилина}}</a> досягнуто обмеження налаштувань сайту {limit, plural, one {# помилка/хвилина} few {# помилки/хвилина} many {# помилок/хвилина} other {# помилок/хвилина}}."
+    learn_more: "дізнатися більше…"
+    first_post: Перший допис
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     mute: Приглушити
     unmute: Розблокувати
     last_post: Опубліковано
@@ -2034,6 +2165,7 @@ uk:
       hidden_for_session: "Гаразд, ми запитаємо вас завтра. Ви завжди можете використати меню 'Увійти', щоб створити обліковий запис теж."
       intro: "Вітаємо! Схоже, вам подобається обговорення, але ви ще не зареєстрували обліковий запис."
       value_prop: "Втомились від прокручування тих самих дописів? Якщо ви створите обліковий запис, ви завжди будете повертатися до тих дописів, на яких зупинилися. За допомогою облікового запису ви також зможете отримувати повідомлення про нові відповіді, зберігати закладки і використовувати вподобання, щоб подякувати іншим. Ми можемо працювати разом, щоб зробити цю спільноту цікавою. :heart:"
+<<<<<<< HEAD
     offline_indicator:
       no_internet: "Немає з’єднання з Інтернетом."
       refresh_page: "Оновити сторінку"
@@ -2048,11 +2180,16 @@ uk:
         many: "(%{count} повідомлень відсутні)"
         other: "(%{count} повідомлень відсутні)"
       enabled_description: "Ви переглядаєте найкращі відповіді на цю тему: найцікавіші публікації, визначені спільнотою."
+=======
+    summary:
+      enabled_description: "Ви переглядаєте витяг з теми – тільки найцікавіші дописи на думку спільноти."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       description:
         one: "Тут <b>%{count}</b> відповідь."
         few: "Тут <b>%{count}</b> відповіді."
         many: "Тут <b>%{count}</b> відповідей."
         other: "Тут <b>%{count}</b> відповідей."
+<<<<<<< HEAD
       buttons:
         hide: "Приховати підсумок"
         generate: "Підведіть підсумки за допомогою ШІ"
@@ -2063,6 +2200,13 @@ uk:
       disable: "Показати всі дописи"
       short_label: "Найпопулярніші відповіді"
       short_title: "Показати в цій темі найпопулярніші відповіді: найцікавіші публікації, визначені спільнотою"
+=======
+      description_time_MF: "Тут є {replyCount, plural, one {<b>#</b> відповідь} few {<b>#</b> відповіді} many {<b>#</b> відповідей} other {<b>#</b> відповідей}} з розрахунковим часом читання <b>{readingTime, plural, one {# хвилина} few {# хвилини} many {# хвилин} other {# хвилин}}</b>."
+      enable: "Підсумки цієї теми"
+      disable: "Показати всі дописи"
+      short_label: "Підсумок"
+      short_title: "Показати підсумок цієї теми: найцікавіші дописи, визначені спільнотою"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     deleted_filter:
       enabled_description: "Ця тема містить видалені дописи, які були сховані."
       disabled_description: "Показуються видалені дописи в темі."
@@ -2154,7 +2298,10 @@ uk:
       blank_username_or_password: "Введіть ваш e-mail (або псевдонім) та пароль."
       reset_password: "Скинути пароль"
       logging_in: "Вхід…"
+<<<<<<< HEAD
       previous_sign_up: "Вже маєте обліковий запис?"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       or: "Або"
       authenticating: "Автентифікація…"
       awaiting_activation: "Ваш обліковий запис очікує на активацію, скористайтеся посиланням «Забули пароль», щоб надіслати інший електронний лист для активації."
@@ -2259,7 +2406,11 @@ uk:
       delete_item: "Видалити %{name}"
       filter_by: "Фільтрувати за: %{name}"
       select_to_filter: "Виберіть значення для фільтрування"
+<<<<<<< HEAD
       default_header_text: Виберіть…
+=======
+      default_header_text: Вибрати…
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_content: Збігів, не знайдено
       results_count:
         one: "%{count} результат"
@@ -2267,7 +2418,11 @@ uk:
         many: "%{count} результатів"
         other: "%{count} результатів"
       filter_placeholder: Пошук…
+<<<<<<< HEAD
       filter_placeholder_with_any: Знайти або створити
+=======
+      filter_placeholder_with_any: Знайти або створити…
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Створити: '%{content}'"
       max_content_reached:
         one: "Можна вибрати тільки %{count} елемент."
@@ -2312,10 +2467,17 @@ uk:
       destination_category: "Розділ Призначення"
       publish: "Опублікувати спільну чернетку"
       confirm_publish: "Ви впевнені, що хочете опублікувати цю чернетку?"
+<<<<<<< HEAD
       publishing: "Публікація теми"
     composer:
       emoji: "Емодзі :)"
       more_emoji: "ще"
+=======
+      publishing: "Публікація теми…"
+    composer:
+      emoji: "Емодзі :)"
+      more_emoji: "ще…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       options: "Параметри"
       whisper: "шепотіння"
       unlist: "приховане зі стрічок"
@@ -2345,6 +2507,7 @@ uk:
         private: "Ви згадали @%{username}, але користувач не одержить сповіщення, оскільки не можуть побачити це особисте повідомлення. Вам потрібно буде запросити їх до цього спілкування."
         muted_topic: "Ви згадали @%{username}, але користувач не одержить сповіщення, оскільки вимкнули сповіщення в цій темі."
         not_allowed: "Ви згадали @%{username}, але користувач не одержить сповіщення, оскільки його (її) не запрошено до цієї теми."
+<<<<<<< HEAD
       cannot_see_group_mention:
         not_mentionable: "Ви не можете згадувати групу @%{group}."
         some_not_allowed:
@@ -2353,13 +2516,18 @@ uk:
           many: "Ви згадали @%{group}, але лише %{count} учасників отримають сповіщення, оскільки інші учасники не можуть побачити це особисте повідомлення. Вам потрібно буде запросити їх у це особисте повідомлення."
           other: "Ви згадали @%{group}, але лише %{count} учасників отримають сповіщення, оскільки інші учасники не можуть побачити це особисте повідомлення. Вам потрібно буде запросити їх у це особисте повідомлення."
         not_allowed: "Ви згадали @%{group} , але жоден з її учасників не буде сповіщений, тому що вони не можуть бачити це особисте повідомлення. Вам потрібно буде запросити їх до цього особистого повідомлення."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       here_mention:
         one: "Використовуючи <b>@%{here}</b>, ви повідомите %{count} користувача – ви впевнені?"
         few: "Використовуючи <b>@%{here}</b>, ви повідомите %{count} користувачів – ви впевнені?"
         many: "Використовуючи <b>@%{here}</b>, ви повідомите %{count} користувачів – ви впевнені?"
         other: "Використовуючи <b>@%{here}</b>, ви повідомите %{count} користувачів – ви впевнені?"
       duplicate_link: "Схоже, ваше посилання на <b>%{domain}</b> уже було опубліковано в темі <b>@%{username}</b> у <a href='%{post_url}'>відповіді на %{ago}</a> – Ви впевнені, що хочете опублікувати його знову?"
+<<<<<<< HEAD
       duplicate_link_same_user: "Схоже, ви вже опублікували посилання на <b>%{domain}</b> у цій темі у <a href='%{post_url}'>відповіді на %{ago}</a> – ви впевнені, що хочете опублікувати це знову?"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reference_topic_title: "RE: %{title}"
       error:
         title_missing: "Необхідно вказати назву"
@@ -2389,6 +2557,11 @@ uk:
         topic_template_not_modified: "Будь ласка, додайте деталі та особливості до вашої теми, відредагувавши шаблон теми."
       save_edit: "Зберегти зміни"
       overwrite_edit: "Перезаписати зміни"
+<<<<<<< HEAD
+=======
+      reply_original: "Відповісти в початковій темі"
+      reply_here: "Відповісти тут"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Відповісти"
       cancel: "Скасувати"
       create_topic: "Створити тему"
@@ -2410,7 +2583,11 @@ uk:
       saving: "Збереження"
       saved: "Збережено!"
       saved_draft: "Опублікувати чернетку. Торкніться, щоб продовжити."
+<<<<<<< HEAD
       uploading: "Завантаження…"
+=======
+      uploading: "Надсилання…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       show_preview: "показати попередній перегляд"
       hide_preview: "приховати попередній перегляд"
       quote_post_title: "Процитувати весь допис повністю"
@@ -2508,6 +2685,7 @@ uk:
           few: "%{count} непрочитані сповіщення з високим пріоритетом"
           many: "%{count} непрочитаних сповіщень з високим пріоритетом"
           other: "%{count} непрочитані сповіщення з високим пріоритетом"
+<<<<<<< HEAD
         new_message_notification:
           one: "%{count} сповіщення про нове повідомлення"
           few: "%{count} сповіщення про нові повідомлення"
@@ -2518,6 +2696,8 @@ uk:
           few: "%{count} нових для перегляду"
           many: "%{count} нові для перегляду"
           other: "%{count} нові для перегляду"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       title: "сповіщення при згадці @name, відповідях на ваші дописи та теми, повідомлення та т.і."
       none: "Наразі неможливо завантажити сповіщення."
       empty: "Сповіщень не знайдено."
@@ -2536,6 +2716,7 @@ uk:
       liked: "<span>%{username}</span> %{description}"
       liked_2: "<span class='double-user'>%{username}, %{username2}</span> %{description}"
       liked_many:
+<<<<<<< HEAD
         one: "<span class='multi-user'>%{username} та %{count} інший</span> %{description}"
         few: "<span class='multi-user'>%{username} та %{count} інших</span> %{description}"
         many: "<span class='multi-user'>%{username} та %{count} інші</span> %{description}"
@@ -2546,6 +2727,18 @@ uk:
         few: "%{username} і ще %{count}"
         many: "%{username} і ще %{count}"
         other: "%{username} і ще %{count}"
+=======
+        one: "<span class='multi-user'>%{username}, %{username2} та %{count} інший</span>, %{description}"
+        few: "<span class='multi-user'>%{username}, %{username2} та %{count} інших</span>, %{description}"
+        many: "<span class='multi-user'>%{username}, %{username2} та %{count} інших</span>, %{description}"
+        other: "<span class='multi-user'>%{username}, %{username2} та %{count} інших</span>, %{description}"
+      liked_by_2_users: "%{username}, %{username2}"
+      liked_by_multiple_users:
+        one: "%{username}, %{username2} та %{count} інший"
+        few: "%{username}, %{username2} та %{count} інші"
+        many: "%{username}, %{username2} та %{count} інших"
+        other: "%{username}, %{username2} та %{count} інших"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       liked_consolidated_description:
         one: "вподобав(ла) %{count} ваш допис"
         few: "вподобав(ла) %{count} ваших дописи"
@@ -2619,7 +2812,10 @@ uk:
         invited_to_private_message: "запрошений в приватне повідомлення"
         invitee_accepted: "запрошення прийнято"
         posted: "новий допис"
+<<<<<<< HEAD
         watching_category_or_tag: "новий допис"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         moved_post: "допис переміщено"
         linked: "пов’язаний"
         bookmark_reminder: "Нагадування про закладку"
@@ -2635,7 +2831,10 @@ uk:
         membership_request_consolidated: "нові запити на членство"
         reaction: "нова реакція"
         votes_released: "Голосування опубліковано"
+<<<<<<< HEAD
         new_features: "з’явилися нові функції Discourse!"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     upload_selector:
       uploading: "Надсилання"
       processing: "Обробка надсилання"
@@ -2722,7 +2921,7 @@ uk:
           label: З теґами
           aria_label: Фільтруйте за теґами
         filters:
-          label: Обмежити пошук по темам/повідомленням...
+          label: Повертати лише теми/дописи…
           title: Збігам в заголовку
           likes: Мені сподобалося
           posted: В яких я писав
@@ -2868,6 +3067,7 @@ uk:
         dismiss_tooltip: "Відхилити нові дописи, або перестати стежити за цими темами"
         also_dismiss_topics: "Перестати стежити за цими темами, щоб вони ніколи більше не показувались як непрочитані"
         dismiss_new: "Відхилити Нові"
+<<<<<<< HEAD
         dismiss_new_modal:
           title: "Відхилити нові"
           topics: "Відхилити нові теми"
@@ -2884,6 +3084,8 @@ uk:
             other: "Відхилено %{count} нових відповідей"
           replies: "Відхиляти нові відповіді"
           untrack: "Припинити відстежувати ці теми, щоб вони більше не з’являлися в моєму списку нового"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         dismiss_new_with_selected:
           one: "Відхилити (%{count}) новий…"
           few: "Відхилити (%{count}) нових…"
@@ -2891,7 +3093,11 @@ uk:
           other: "Відхилити (%{count}) нових…"
         toggle: "перемикання масового вибору тем"
         actions: "Масові дії"
+<<<<<<< HEAD
         change_category: "Обрати категорію"
+=======
+        change_category: "Обрати розділ…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         close_topics: "Закрити теми"
         archive_topics: "Архівувати теми"
         move_messages_to_inbox: "Перемістити у Вхідні"
@@ -2929,11 +3135,17 @@ uk:
         bookmarks: "У вас немає обраних тем."
         category: "В розділі %{category} немає тем."
         top: "Топових тем немає."
+<<<<<<< HEAD
         filter: "Немає тем."
         educate:
           new: '<p>Ваші нові теми з’являтимуться тут. Типово теми вважаються новими і показуватимуть індикатор <span class="badge new-topic badge-notification" style="vertical-align:middle;line-height:inherit;"></span>, якщо її створено за останні 2 дні.</p><p>Відвідайте свої <a href="%{userPrefsUrl}">налаштування</a>, щоб змінити це.</p>'
           unread: "<p>Ваші непрочитані теми показуватимуться тут.</p><p>Типово теми вважаються непрочитаними та показують кількість непрочитаних <span class=\"badge unread-posts badge-notification\">1</span>, якщо ви:</p><ul><li>створили тему</li><li>відповіли на тему</li><li>читали тему більше ніж 5 хвилини,</li></ul><p>або якщо ви явно додасте тему у перелік на Відстеження або Перегляд за допомогою \U0001F514 в кожній темі.</p><p>Відвідайте свої <a href=\"%{userPrefsUrl}\">налаштування</a>, щоб змінити це.</p>"
           new_new: "<p>Тут з’являться ваші нові теми, а також непрочитані теми. За замовчуванням теми вважаються новими та відображатимуть індикатор <span class=\"badge new-topic badge-notification\" style=\"vertical-align:middle;line-height:inherit;\"></span> , якщо вони були створені протягом останніх 2 днів. Непрочитані теми відображатимуть кількість непрочитаних <span class=\"badge unread-posts badge-notification\">1</span> , якщо ви: створили тему, відповіли на тему, читали тему більше 5 хвилин, або якщо ви явно встановили тему як Відстежувана або Спостережувана через \U0001F514 у кожній темі.</p><p>Відвідайте свої <a href=\"%{userPrefsUrl}\">налаштування</a> , щоб змінити це.</p>"
+=======
+        educate:
+          new: '<p>Ваші нові теми з’являтимуться тут. Типово теми вважаються новими і показуватимуть індикатор <span class="badge new-topic badge-notification" style="vertical-align:middle;line-height:inherit;"></span>, якщо її створено за останні 2 дні.</p><p>Відвідайте свої <a href="%{userPrefsUrl}">налаштування</a>, щоб змінити це.</p>'
+          unread: "<p>Ваші непрочитані теми показуватимуться тут.</p><p>Типово теми вважаються непрочитаними та показують кількість непрочитаних <span class=\"badge unread-posts badge-notification\">1</span>, якщо ви:</p><ul><li>створили тему</li><li>відповіли на тему</li><li>читали тему більше ніж 4 хвилини,</li></ul><p>або якщо ви явно додасте тему у перелік на Відстеження або Перегляд за допомогою \U0001F514 в кожній темі.</p><p>Відвідайте свої <a href=\"%{userPrefsUrl}\">налаштування</a>, щоб змінити це.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       bottom:
         latest: "Більше немає останніх тем."
         posted: "Створених тем більше немає."
@@ -3005,6 +3217,7 @@ uk:
       show_links: "показати посилання в цій темі"
       collapse_details: "згорнути детальну інформацію теми"
       expand_details: "розгорнути детальну інформацію"
+<<<<<<< HEAD
       read_more_in_category: "Хочете прочитати більше? Перегляньте інші теми на %{categoryLink} або <a href='%{latestLink}'>перегляньте останні теми</a>."
       read_more: "Хочете прочитати більше? <a href='%{categoryLink}'>Перегляньте всі категорії</a> або <a href='%{latestLink}'>перегляньте останні теми</a>."
       unread_indicator: "Поки що ніхто з учасників не прочитав останній допис цієї теми."
@@ -3057,6 +3270,19 @@ uk:
       suggest_create_topic: Готові <a href>почати нову розмову?</a>
       jump_reply: "Перейти до початкового розташування публікації"
       jump_reply_aria: "Перейти до повідомлення @%{username} в його оригінальному розташуванні"
+=======
+      read_more_in_category: "Хочете почитати ще? Перегляньте інші теми в %{catLink} або %{latestLink}."
+      read_more: "Хочете почитати ще? %{catLink} або %{latestLink}."
+      unread_indicator: "Поки що ніхто з учасників не прочитав останній допис цієї теми."
+      read_more_MF: "У вас залишилося { UNREAD, plural, =0 {0 непрочитаних } one { <a href='{basePath}/unread'> # непрочитана</a> } other { <a href='{basePath}/unread'># непрочитаних</a> } } { NEW, plural, =0 {} one { {BOTH, select, true{ та } false { } other{}} <a href='{basePath}/new'> # нова</a> тема} other { {BOTH, select, true{и } false { } other{}} <a href='{basePath}/new'># нових</a> тем} }, або {CATEGORY, select, true {подивіться інші теми в розділі {catLink}} false {{latestLink}} other {}}"
+      bumped_at_title_MF: "{FIRST_POST}: {CREATED_AT}\n{LAST_POST}: {BUMPED_AT}"
+      browse_all_categories: Переглянути всі розділи
+      browse_all_tags: Переглянути всі теґи
+      view_latest_topics: перегляньте останні теми
+      suggest_create_topic: Готові <a href>почати нову розмову?</a>
+      jump_reply_up: перейти до попередньої відповіді
+      jump_reply_down: перейти до пізнішої відповіді
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       deleted: "Тему було видалено"
       slow_mode_update:
         title: "Повільний режим"
@@ -3207,7 +3433,11 @@ uk:
         close: "Закрити тему"
         multi_select: "Вибрати допис…"
         slow_mode: "Встановити повільний режим…"
+<<<<<<< HEAD
         timed_update: "Встановити таймер теми…"
+=======
+        timed_update: "Дія за таймером…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         pin: "Закріпити тему…"
         unpin: "Відмінити закріплення теми…"
         unarchive: "Розархівувати тему"
@@ -3282,7 +3512,11 @@ uk:
         banner_note: "Користувачі можуть закривати оголошення, кожен сам для себе, після чого воно більше не буде для них покиваться. Тільки одна тема може бути зроблена активним оголошенням в будь-який момент часу."
         no_banner_exists: "Немає поточних тем-оголошень."
         banner_exists: "На даний момент <strong class='badge badge-notification unread'>вже є</strong> тема-оголошення."
+<<<<<<< HEAD
       inviting: "Запрошення…"
+=======
+      inviting: "Запрошуємо…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       automatically_add_to_groups: "Це запрошення надасть доступ до таких груп:"
       invite_private:
         title: "Запросити в бесіду"
@@ -3344,7 +3578,10 @@ uk:
           few: "Будь ласка, виберіть тему, в яку ви хотіли б перемістити ці <b>%{count}</b> дописи."
           many: "Будь ласка, виберіть тему, в яку ви хотіли б перемістити цих <b>%{count}</b> дописів."
           other: "Будь ласка, виберіть тему, в яку ви хотіли б перемістити цих <b>%{count}</b> дописів."
+<<<<<<< HEAD
         chronological_order: "зберегти хронологічний порядок після злиття"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       move_to_new_message:
         title: "Перейти до нового повідомленням"
         action: "перейти до нового повідомлення"
@@ -3442,7 +3679,10 @@ uk:
       ignored: "Ігнорований вміст"
       wiki_last_edited_on: "останнє редагування wiki %{dateTime}"
       last_edited_on: "останнє редагування допису %{dateTime}"
+<<<<<<< HEAD
       edit_history: "історія редагування публікацій"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply_as_new_topic: "Відповісти в новій пов’язаної темі"
       reply_as_new_private_message: "Відповісти новим повідомленням тим же адресатам"
       continue_discussion: "В продовження дискусії %{postLink}:"
@@ -3515,8 +3755,12 @@ uk:
       errors:
         create: "Вибачте, під час створення допису сталася помилка. Будь ласка, спробуйте ще раз."
         edit: "Вибачте, під час редагування вашого допису сталася помилка. Будь ласка, спробуйте ще раз."
+<<<<<<< HEAD
         upload: "Вибачте, сталася помилка при завантаженні %{file_name}. Будь ласка, спробуйте ще раз."
         backup_too_large: "Вибачте, файл резервної копії занадто великий."
+=======
+        upload: "На жаль, під час завантаження файлу сталася помилка. Будь ласка спробуйте ще раз."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         file_too_large: "Вибачте, файл завеликий (максимальний розмір %{max_size_kb}Кб). Чому б не завантажити свій великий файл у хмарну службу обміну, а потім вставити посилання?"
         file_size_zero: "Вибачте, схоже, щось пішло не так. Файл, який ви намагаєтеся завантажити, має 0 байтів. Будь ласка, спробуйте ще раз."
         file_too_large_humanized: "Вибачте, цей файл завеликий (максимальний розмір %{max_size}). Чому б не завантажити свій великий файл у хмарну службу обміну, а потім вставити посилання?"
@@ -3527,7 +3771,10 @@ uk:
           many: "Вибачте, ви можете завантажити тільки %{count} файлів."
           other: "Вибачте, ви можете завантажити тільки %{count} файлів."
         upload_not_authorized: "На жаль, ви не можете завантажити файл даного типу (список дозволених типів файлів: %{authorized_extensions})."
+<<<<<<< HEAD
         no_uploads_authorized: "Вибачте, немає дозволу на завантаження файлів."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         image_upload_not_allowed_for_new_user: "На жаль, нові користувачі не можуть завантажувати зображення."
         attachment_upload_not_allowed_for_new_user: "На жаль, нові користувачі не можуть завантажувати вкладені файли."
         attachment_download_requires_login: "Вибачте, вам потрібно увійти, щоб завантажити вкладення."
@@ -3539,7 +3786,10 @@ uk:
       via_email: "цей допис надійшов електронною поштою"
       via_auto_generated_email: "цей допис прийшов з автоматично згенерованого e-mail"
       whisper: "це внутрішній допис, тобто його видно тільки модераторам"
+<<<<<<< HEAD
       whisper_groups: "це повідомлення є приватним шепітом, видимим тільки для %{groupNames}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       wiki:
         about: "це вікі-допис"
       few_likes_left: "Дякуємо, що поділилися своїм захопленням! На сьогодні у вас залишилося лише кілька вподобань."
@@ -3597,7 +3847,11 @@ uk:
         delete_topic_confirm_modal_no: "Ні, зберегти цю тему"
         delete_topic_error: "Сталася помилка під час видалення теми"
         delete_topic: "видалити тему"
+<<<<<<< HEAD
         add_post_notice: "Повідомлення модератору"
+=======
+        add_post_notice: "Повідомлення модератору…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         change_post_notice: "Змінити повідомлення модератору…"
         delete_post_notice: "Видалити повідомлення модератору"
         remove_timer: "видалити таймер"
@@ -3709,7 +3963,11 @@ uk:
       filtered_replies:
         viewing_posts_by: "Перегляд %{post_count} дописів від"
         viewing_subset: "Деякі відповіді згорнуті"
+<<<<<<< HEAD
         viewing_summary: "Перегляд найкращих відповідей на цю тему"
+=======
+        viewing_summary: "Перегляд резюме цієї теми"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post_number: "%{username}, допис #%{post_number}"
         show_all: "Показати всі"
       share:
@@ -3726,7 +3984,11 @@ uk:
       back: "Повернутися до розділу"
       general: "Основне"
       settings: "Налаштування"
+<<<<<<< HEAD
       topic_template: "Шаблон"
+=======
+      topic_template: "Шаблон теми"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       tags: "Теґи"
       tags_allowed_tags: "Обмежити ці теґи цим розділом:"
       tags_allowed_tag_groups: "Обмежити ці групи теґів цим розділом:"
@@ -3739,7 +4001,11 @@ uk:
         description: "Вимагати, щоб нові теми мали теґи з групи теґів:"
         delete: "Вилучити"
         add: "Додайте необхідну групу теґів"
+<<<<<<< HEAD
         placeholder: "вибрати групу тегів…"
+=======
+        placeholder: "вибрати групу теґів…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "Дозволити популярні посилання в цьому розділі"
       delete: "Видалити розділ"
       create: "Новий розділ"
@@ -3785,7 +4051,12 @@ uk:
       email_in: "Custom incoming email address:"
       email_in_tooltip: "Ви можете розділити кілька адрес за допомогою символу |."
       email_in_allow_strangers: "Приймати листи від анонімних користувачів без облікових записів"
+<<<<<<< HEAD
       email_in_disabled: "Надсилання нових тем електронною поштою вимкнено. Щоб увімкнути надсилання нових тем електронною поштою, увімкніть параметр <a href='%{setting_url}'>'email in'</a> ."
+=======
+      email_in_disabled: "Створення нових тем електронною поштою вимкнено в налаштуваннях сайту. Щоб увімкнути публікацію нових тем електронною поштою, "
+      email_in_disabled_click: 'активуйте налаштування "email in".'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       mailinglist_mirror: "Розділ показує список розсилки"
       show_subcategory_list: "Показувати список підрозділів над списком тем в цьому розділі."
       read_only_banner: "Текст банера, коли користувач не може створити тему в цьому розділі:"
@@ -3812,7 +4083,10 @@ uk:
       default_slow_mode: 'Увімкнути "Повільний режим" для нових тем в цьому розділі.'
       parent: "Батьківський розділ"
       num_auto_bump_daily: "Кількість відкритих тем для автоматичного підняття щодня:"
+<<<<<<< HEAD
       auto_bump_cooldown_days: "Мінімальна кількість днів до повторного підняття тієї самої теми:"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       navigate_to_first_post_after_read: "Перейдіть до першого допису після прочитання тем"
       notifications:
         title: "змінити рівень сповіщень для цього розділу"
@@ -3884,8 +4158,12 @@ uk:
       official_warning: "Офіційне попередження"
       delete_spammer: "Видалити спамера"
       flag_for_review: "Черга рецензування"
+<<<<<<< HEAD
       delete_confirm_MF: |
         Ви збираєтеся видалити {POSTS, plural, one {<b>#</b> допис} few {<b>#</b> дописи} many {<b>#</b> дописів} other {<b>#</b> дописів}} та {TOPICS, plural, one {<b>#</b> тему} few {<b>#</b> теми} many {<b>#</b> тем} other {<b>#</b> теми}} цього користувача, а також видалити його обліковий запис, додати його IP адресу <b>{ip_address}</b> та його поштову адресу <b>{email}</b> в чорний список. Ви дійсно впевнені, що цей дописувач спамер?
+=======
+      delete_confirm_MF: "Ви збираєтеся видалити {POSTS, plural, one {<b>#</b> допис} few {<b>#</b> дописи} many {<b>#</b> дописів} other {<b>#</b> дописів}} та {TOPICS, plural, one {<b>#</b> тему} few {<b>#</b> теми} many {<b>#</b> тем} other {<b>#</b> теми}} цього користувача, а також видалити його обліковий запис, додати його IP адресу <b>{ip_address}</b> та його поштову адресу <b>{email}</b> в чорний список. Ви дійсно впевнені, що цей дописувач спамер?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       yes_delete_spammer: "Так, видалити спамера"
       ip_address_missing: "(не доступно)"
       hidden_email_address: "(приховано)"
@@ -3898,9 +4176,13 @@ uk:
         inappropriate: "Це не прийнятно"
         spam: "Це спам"
       custom_placeholder_notify_user: "Будьте конкретні, конструктивні та доброзичливі."
+<<<<<<< HEAD
       notify_user_textarea_label: "Повідомлення для користувача"
       custom_placeholder_notify_moderators: "Поясніть суть проблеми: на що потрібно звернути увагу. Надайте відповідні посилання, якщо це можливо."
       notify_moderators_textarea_label: "Повідомлення для модераторів"
+=======
+      custom_placeholder_notify_moderators: "Поясніть суть проблеми: на що потрібно звернути увагу. Надайте відповідні посилання, якщо це можливо."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       custom_message:
         at_least:
           one: "Введіть хоча б %{count} символ"
@@ -3908,10 +4190,17 @@ uk:
           many: "Введіть хоча б %{count} символів"
           other: "Введіть хоча б %{count} символів"
         more:
+<<<<<<< HEAD
           one: "Ще %{count} символ"
           few: "Ще %{count} символи"
           many: "Ще %{count} символів"
           other: "Ще %{count} символів"
+=======
+          one: "ще %{count} символ для продовження…"
+          few: "ще %{count} символи для продовження…"
+          many: "ще %{count} символів для продовження…"
+          other: "ще %{count} символів для продовження…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         left:
           one: "Залишилося не більше %{count} символ"
           few: "Залишилося не більше %{count} символи"
@@ -4291,6 +4580,7 @@ uk:
       tags: "Теґи"
       choose_for_topic: "додаткові теґи"
       choose_for_topic_required:
+<<<<<<< HEAD
         one: "виберіть принаймні %{count} тег…"
         few: "виберіть принаймні %{count} теги…"
         many: "виберіть принаймні %{count} тегів…"
@@ -4300,6 +4590,17 @@ uk:
         few: "виберіть теги %{count} з '%{name}'…"
         many: "виберіть %{count} теґів з '%{name}'.…"
         other: "вибрати %{count} тегів з '%{name}'..."
+=======
+        one: "Ви повинні вибрати принаймні %{count} теґ"
+        few: "Ви повинні вибрати принаймні %{count} теґи"
+        many: "Ви повинні вибрати принаймні %{count} теґів"
+        other: "Ви повинні вибрати принаймні %{count} теґів"
+      choose_for_topic_required_group:
+        one: "виберіть %{count} теґ з '%{name}'…"
+        few: "виберіть %{count} теґи з '%{name}'.…"
+        many: "виберіть %{count} теґів з '%{name}'.…"
+        other: "виберіть %{count} теґів з '%{name}'.…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       info: "Інформація"
       default_info: "Цей теґ не обмежений розділами та не має синонімів."
       staff_info: "Щоб додати обмеження, додайте цей теґ у <a href=%{basePath}/tag_groups>групу теґів</a>."
@@ -4438,9 +4739,16 @@ uk:
     safe_mode:
       enabled: "Включено безпечний режим, щоб вийти з безпечного режиму, закрийте поточне вікно браузера"
     image_removed: "(зображення видалено)"
+<<<<<<< HEAD
     pause_notifications:
       title: "Призупинити сповіщення для"
       label: "Призупинити сповіщення"
+=======
+    do_not_disturb:
+      title: "Не турбувати…"
+      label: "Не турбувати"
+      remaining: "%{remaining} залишилось"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       options:
         half_hour: "30 хвилин"
         one_hour: "1 година"
@@ -4498,6 +4806,7 @@ uk:
       more: "Більше"
       all_categories: "Всі розділи"
       all_tags: "Всі теґи"
+<<<<<<< HEAD
       categories_form_modal:
         title: "Редагувати навігацію по категоріях"
         subtitle:
@@ -4517,6 +4826,8 @@ uk:
           all: "Все"
           selected: "Вибрано"
           unselected: "Не вибрано"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sections:
         custom:
           add: "Додати власний розділ"
@@ -4567,6 +4878,7 @@ uk:
             unread_with_count: "Непрочитані (%{count})"
             archive: "Архів"
         tags:
+<<<<<<< HEAD
           none: "Ви не додали жодного теґу."
           click_to_get_started: "Натисніть тут, щоб почати."
           header_link_text: "Теґи"
@@ -4577,6 +4889,26 @@ uk:
           click_to_get_started: "Натисніть тут, щоб почати."
           header_link_text: "Розділи"
           header_action_title: "Редагувати розділи бічної панелі"
+=======
+          links:
+            add_tags:
+              content: "Додати теґи"
+              title: "Ви не додали жодного теґу. Натисніть, щоб почати."
+          none: "Ви не додали жодного теґу."
+          click_to_get_started: "Натисніть тут, щоб почати."
+          header_link_text: "Теґи"
+          header_action_title: "Редагувати теґи бічної панелі"
+          configure_defaults: "Налаштувати типові значення"
+        categories:
+          links:
+            add_categories:
+              content: "Всі розділи"
+              title: "Ви не додали жодного розділу. Натисніть, щоб почати."
+          none: "Ви не додали жодного розділу."
+          click_to_get_started: "Натисніть тут, щоб почати."
+          header_link_text: "Розділи"
+          header_action_title: "редагувати розділи бічної панелі"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Налаштувати типові значення"
         community:
           edit_section:
@@ -4597,7 +4929,10 @@ uk:
               title: "Всі теми"
             faq:
               content: "Часті запитання"
+<<<<<<< HEAD
               title: "Правила використання цього сайту"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Групи"
               title: "Список доступних груп користувачів"
@@ -4606,9 +4941,12 @@ uk:
               title: "Список усіх користувачів"
             my_posts:
               content: "Мої дописи"
+<<<<<<< HEAD
               content_drafts: "Мої чернетки"
               title: "Моя нещодавня активність в темі"
               title_drafts: "Мої неопубліковані чернетки"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} чернетка"
                 few: "%{count} чернетки"
@@ -4616,12 +4954,17 @@ uk:
                 other: "%{count} чернеток"
             review:
               content: "Переглянути"
+<<<<<<< HEAD
               title: "Позначені публікації та інші елементи в черзі"
               pending_count: "%{count} очікує на розгляд"
         global_section: "Глобальний розділ, видимий для всіх"
       panels:
         forum:
           label: Форум
+=======
+              title: "переглянути"
+              pending_count: "%{count} очікує на розгляд"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "Створіть тему привітання"
       description: "Ваша привітальна тема – це перше, що прочитають нові учасники. Думайте про це як про свою «початкову презентацію» або «програмну заяву». Повідомте всім, для кого ця спільнота, що вони можуть очікувати тут знайти та що ви хочете, щоб вони зробили в першу чергу."
@@ -4672,7 +5015,11 @@ uk:
         patternMismatch: "Будь ласка, використовуйте правильний формат."
         badInput: "Будь ласка, введіть коректне значення."
   admin_js:
+<<<<<<< HEAD
     type_to_filter: "текст для пошуку…"
+=======
+    type_to_filter: "введіть, щоб фільтрувати…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     admin:
       title: "Адміністратор Discourse"
       moderator: "Модератор"
@@ -4834,6 +5181,7 @@ uk:
         about: "Edit your group membership and names here"
         group_members: "Учасники групи"
         delete: "Видалити"
+<<<<<<< HEAD
         delete_confirm: "Ви дійсно бажаєте видалити %{group}?"
         delete_details:
           one: "%{count} людина втратить доступ до цієї групи"
@@ -4846,6 +5194,8 @@ uk:
           many: "%{count} повідомлень стануть недоступними для учасників групи"
           other: "%{count} повідомлень стануть недоступними для учасників групи"
         delete_warning: "Видалені групи не можуть бути відновлені"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Не вдалося видалити групу. Якщо це - автоматична група, її неможливо знищити."
         delete_automatic_group: Це автоматична група, яку не можна видалити.
         delete_owner_confirm: "Відкликати права власника у користувача '%{username}'?"
@@ -4911,16 +5261,23 @@ uk:
             topics:
               read: Читати тему або певні дописи в ній. Також підтримується RSS.
               write: Створіть нову тему чи допис в наявній.
+<<<<<<< HEAD
               update: Оновлення теми. Змініть заголовок, категорію, теги, статус, архетип, featured_link тощо.
               delete: Видалити тему.
+=======
+              update: Оновіть тему. Змініть назву, розділ, теґи тощо.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               read_lists: Читайте списки тем, як топ, нові, останні тощо. RSS також підтримується.
               status: "Оновлення статусу теми. Статуси: закрита, архівна, видима, закріплена. Увімкнено: true, false. Укажіть category_id тут і в параметрах запиту, щоб дозволити зміну статусу лише для тем у цій категорії."
             posts:
               edit: Редагуйте будь-який допис або якийсь конкретний.
+<<<<<<< HEAD
               delete: Видалити допис.
               list: Список останніх публікацій і приватних повідомлень. Також підтримується RSS.
             tags:
               list: Список тегів.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             categories:
               list: Отримати список розділів.
               show: Отримайте розділ за його ID.
@@ -5076,10 +5433,13 @@ uk:
         howto: "Як встановити плагін?"
         official: "Офіційний плагін"
         broken_route: "Не вдалося налаштувати посилання на «%{name}». Переконайтеся, що блокувальники реклами вимкнено, і спробуйте перезавантажити сторінку."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Бічна панель"
         header_dropdown: "Випадаючий заголовок"
         legacy: "Стара версія"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Backups"
         menu:
@@ -5102,12 +5462,21 @@ uk:
         upload:
           label: "Вивантажити"
           title: "Завантажити копію на сервер"
+<<<<<<< HEAD
           uploading: "Завантаження…"
           uploading_progress: "Завантаження: %{progress}…"
           success: "'%{filename}' успішно завантажений. Файл тепер обробляється та займе хвилин, щоб його рядки відбилися в списку."
           error: "There has been an error while uploading '%{filename}': %{message}"
         operations:
           is_running: "Зараз виконується операція…"
+=======
+          uploading: "Надсилання…"
+          uploading_progress: "Завантаження… %{progress}%"
+          success: "'%{filename}' успішно завантажений. Файл тепер обробляється та займе хвилин, щоб його рядки відбилися в списку."
+          error: "There has been an error while uploading '%{filename}': %{message}"
+        operations:
+          is_running: "Наразі виконується операція…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           failed: "The %{operation} failed. Please check the logs."
           cancel:
             label: "Скасувати"
@@ -5270,7 +5639,11 @@ uk:
           add_all: "Додати все"
           import_web_tip: "Репозиторій стилю"
           direct_install_tip: "Ви дійсно хочете встановити <strong>%{name}</strong> зі сховища, наведеного нижче?"
+<<<<<<< HEAD
           import_web_advanced: "Додатково"
+=======
+          import_web_advanced: "Додатково…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           import_file_tip: ".tar.gz, .zip, або .dcstyle .json файл, який містить тему"
           is_private: "Тема знаходиться в приватному репозиторії git"
           finish_install: "Завершити встановлення теми"
@@ -5505,7 +5878,11 @@ uk:
             title: "Filter"
             user_placeholder: "username"
             address_placeholder: "name@example.com"
+<<<<<<< HEAD
             type_placeholder: "дайджест, підписка"
+=======
+            type_placeholder: "дайджест, підписка…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             reply_key_placeholder: "Ключ відповіді"
             smtp_transaction_response_placeholder: "SMTP ID"
       moderation_history:
@@ -5586,7 +5963,10 @@ uk:
             revoke_moderation: "відкликати повноваження модератора"
             backup_create: "створити резервну копію"
             deleted_tag: "вилучити теґ"
+<<<<<<< HEAD
             update_directory_columns: "оновити стовпці каталогу"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             deleted_unused_tags: "вилучити теґи, що не використовуються"
             renamed_tag: "перейменований теґ"
             revoke_email: "відкликати e-mail"
@@ -5714,6 +6094,7 @@ uk:
           silence: "Відключити"
           link: "Посилання"
         action_descriptions:
+<<<<<<< HEAD
           block: "При спробі створити допис, що містить ці слова, буде відображено повідомлення про помилку."
           censor: "Дозволити дописи, що містять ці слова, але замінити їх символами, що приховують нецензурні слова."
           require_approval: "Вимагати схвалення персоналу для публікацій, які містять ці слова, перш ніж вони стануть видимими для інших."
@@ -5722,6 +6103,16 @@ uk:
           tag: "Автоматично позначати теми, якщо перше повідомлення містить певне слово."
           silence: "Ігнорувати нові акаунти, якщо їхній перший допис містить будь-яке з цих слів. Допис буде автоматично приховано, доки співробітники не схвалять його."
           link: "Замінити слова в дописах посиланнями."
+=======
+          block: "Заборонити публікацію дописів, що містять ці слова. Користувач побачить повідомлення про помилку, коли спробує надіслати свій допис."
+          censor: "Дозволити дописи, що містять ці слова, але замінювати їх символами, що приховують нецензурні вирази."
+          require_approval: "Коментарі, що містять ці слова, вимагатимуть схвалення команди обслуговування, перш ніж їх можна буде побачити."
+          flag: "Дозволити дописи, що містять ці слова, але позначати їх як неприйнятні, щоб модератори могли їх оцінювати."
+          replace: "Замінити слова в дописах іншими словами"
+          tag: "Автоматично додавати теґи темі на основі першого допису"
+          silence: "Перші дописи користувачів, що містять ці слова, вимагатимуть схвалення від команди обслуговування, перш ніж їх можна буде побачити, і користувача буде автоматично заблоковано."
+          link: "Замінити слова в дописах посиланнями"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         form:
           label: "Має слово або словосполучення"
           placeholder: "Введіть слово або фразу (* - символ підстановки)"
@@ -5886,7 +6277,11 @@ uk:
           combative: "Занадто агресивний"
           in_wrong_place: "Не в тому місці"
           no_constructive_purpose: "Немає конструктиву його дій, окрім створення розколу у спільноті"
+<<<<<<< HEAD
           custom: "Користувацька"
+=======
+          custom: "Власний…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_message: "Повідомлення пошти"
         suspend_message_placeholder: "При бажанні, надайте додаткову інформацію про припинення, та вона буде відправлена ​​користувачеві по електронній пошті."
         suspended_by: "Призупинено"
@@ -5901,7 +6296,10 @@ uk:
         suspended_until: "(Поки не буде %{until})"
         suspend_forever: "Призупинити назавжди"
         cant_suspend: "Цього користувача не можна заморозити."
+<<<<<<< HEAD
         cant_silence: "Цього користувача неможливо вимкнути."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_posts_failed: "При видаленні дописів виникла проблема."
         post_edits: "Редагувати допис"
         view_edits: "Перегляд змін"
@@ -5916,8 +6314,12 @@ uk:
         clear_penalty_history:
           title: "Очистити Історію Штрафів"
           description: "користувачі зі штрафами не можуть досягти TL3"
+<<<<<<< HEAD
         delete_all_posts_confirm_MF: |
           Ви збираєтеся видалити {POSTS, plural, one {# допис} few {# дописи}  many{# допісів} other {# дописів}} та {TOPICS, plural, one {# тему} few {# теми} many {# тем} other {# тем}}. Ви впевнені?
+=======
+        delete_all_posts_confirm_MF: "Ви збираєтеся видалити {POSTS, plural, one {# допис} few {# дописи}  many{# допісів} other {# дописів}} та {TOPICS, plural, one {# тему} few {# теми} many {# тем} other {# тем}}. Ви впевнені?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         silence: "Відключити"
         unsilence: "Підключити"
         silenced: "Відключений?"
@@ -6010,7 +6412,11 @@ uk:
             text: "перенесення @%{username} в @%{targetUsername}"
             transfer_and_delete: "Передача та видалення @%{username}"
             cancel: "Скасувати"
+<<<<<<< HEAD
         merging_user: "Приєднання користувача…"
+=======
+        merging_user: "Об’єднання користувачів…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         merge_failed: "Помилка під час об'єднання користувачів."
         delete_forbidden_because_staff: "Адміністраторів та модераторів видалити не можливо."
         delete_posts_forbidden_because_staff: "Не можна видалити всі повідомлення адміністраторів та модераторів."
@@ -6033,7 +6439,11 @@ uk:
         delete_confirm: "Загалом краще анонімізувати користувачів, а не видаляти їх, щоб уникнути видалення вмісту з існуючих обговорень."
         delete_and_block: "Видалити та <b>заблокувати</b> цей e-mail та IP адресу"
         delete_dont_block: "Лише видалення"
+<<<<<<< HEAD
         deleting_user: "Видалення користувача…"
+=======
+        deleting_user: "Видалити користувача…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         deleted: "Користувача було видалено."
         delete_failed: "Під час видалення цього користувача сталася помилка. Перш ніж намагатися видалити користувача, переконайтеся, що всі дописи видалено."
         send_activation_email: "Надіслати листа для активації"
@@ -6359,12 +6769,16 @@ uk:
       embedding:
         get_started: "Для вбудовування на Інший сайт необхідно додати відповідний хост."
         confirm_delete: "Ви впевнені, що хочете видалити цей хост?"
+<<<<<<< HEAD
         sample: |
           <p>Щоб створити та вбудувати теми Discourse, вставте наступний HTML-код на свій сайт. Замініть <b>EMBED_URL</b> на канонічну URL-адресу сторінки, на яку ви її вставляєте.</p>
 
           <p>Якщо ви хочете налаштувати стиль, видаліть коментар і замініть <b>CLASS_NAME</b> на клас CSS, визначений у <i>Embedded CSS</i> вашої теми.</p>
 
           <p>Замініть <b>DISCOURSE_USERNAME</b> на ім'я користувача Discourse автора, який має створити тему. Дискурс автоматично шукатиме користувача за атрибутом <code>content</code> тегів <code>&lt;meta&gt;</code> з атрибутом <code>name</code> , встановленим у значення <code>discourse-username</code> або <code>author</code>. Параметр <code>discourseUserName</code> є застарілим і його буде вилучено у Discourse 3.2.</p>
+=======
+        sample: "Вставте наступний HTML-код на свій сайт, щоб створити та вставити теми Discourse. Замініть <b>REPLACE_ME</b> на канонічну URL-адресу сторінки, на яку ви його вставляєте."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Взаємодія"
         host: "Дозволені Хости"
         allowed_paths: "Список дозволених шляхів"
@@ -6419,11 +6833,19 @@ uk:
       finish: "Вийти з налаштування"
       back: "Назад"
       next: "Далі"
+<<<<<<< HEAD
       configure_more: "Більше налаштувань"
       step-text: "Крок"
       step: "%{current} з %{total}"
       upload: "Завантажити файл"
       uploading: "Завантаження…"
+=======
+      configure_more: "Більше налаштувань…"
+      step-text: "Крок"
+      step: "%{current} з %{total}"
+      upload: "Вивантажити"
+      uploading: "Надсилання…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       upload_error: "Даруйте, під час завантаження цього файлу трапилася помилка. Будь ласка, спробуйте ще раз."
       staff_count:
         one: "У вашій спільноті %{count} співробітник (це ви)."

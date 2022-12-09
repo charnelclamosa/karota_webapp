@@ -28,8 +28,12 @@ module TopicGuardianCanSeeConsistencyCheck
     result = super
 
     if self.class.run_topic_can_see_consistency_check?
+<<<<<<< HEAD
       new_result =
         self.can_see_topic_ids(topic_ids: [topic&.id], hide_deleted: hide_deleted).present?
+=======
+      new_result = self.can_see_topic_ids(topic_ids: [topic&.id], hide_deleted: hide_deleted).present?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       if result != new_result
         raise "result between TopicGuardian#can_see_topic? (#{result}) and TopicGuardian#can_see_topic_ids (#{new_result}) has drifted and returned different results for the same input"

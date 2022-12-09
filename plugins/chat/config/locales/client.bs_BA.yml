@@ -6,6 +6,7 @@
 
 bs_BA:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ bs_BA:
           never: "Nikad"
     chat:
       deleted_chat_username: obrisano
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "napravi"
       cancel: "Odustani"
       channel_settings:
@@ -21,18 +25,28 @@ bs_BA:
         join: "Učlani se"
         leave: "Napusti"
       close: "Zatvori"
+<<<<<<< HEAD
       remove: "Ukloni"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Delete"
       edited: "promjenjeno"
       muted: "utišani"
       joined: "pridružio se"
       email_frequency:
         never: "Nikad"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Nikad"
       flag: "Prijavi"
       join: "Učlani se"
       last_visit: "zadnja posjeta"
+=======
+      flag: "Prijavi"
+      join: "Učlani se"
+      mention_warning:
+        dismiss: "odbaci"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odgovori"
       edit: "Edit"
       rebake_message: "Popravi HTML"
@@ -53,7 +67,10 @@ bs_BA:
         yesterday: Yesterday
       about_view:
         title: Naslov
+<<<<<<< HEAD
         name: Ime
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Opis
       channel_info:
         back_to_channel: "Prethodno"
@@ -61,8 +78,11 @@ bs_BA:
           about: O nama
           members: Članovi
           settings: Postavke
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Nema stavki"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nova poruka
         prefix: "Za:"
@@ -74,14 +94,20 @@ bs_BA:
       composer:
         italic_text: "ukošen tekst"
         bold_text: "bold tekst"
+<<<<<<< HEAD
         send: "Pošalji"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Nikad"
       settings:
         follow: "Učlani se"
         followed: "Pridružio se"
+<<<<<<< HEAD
         threading_enabled: "Omogućen"
         threading_disabled: "Neomogućen"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Obavijest"
         preview: "Pregled"
         save: "Save"
@@ -113,6 +139,7 @@ bs_BA:
         activities: "Aktivnosti"
         flags: "Flags"
         symbols: "Simboli"
+<<<<<<< HEAD
       thread:
         title: "Naslov"
         replies:
@@ -126,6 +153,8 @@ bs_BA:
             title: "Normalno"
           tracking:
             title: "Praćenje"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nova poruka"
         cancel: "Odustani"
@@ -137,3 +166,10 @@ bs_BA:
           fields:
             message:
               label: Privatna Poruka
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Kaznio je"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

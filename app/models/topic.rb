@@ -471,6 +471,10 @@ class Topic < ActiveRecord::Base
     ReviewableFlaggedPost.pending_and_default_visible
   end
 
+  def self.has_flag_scope
+    ReviewableFlaggedPost.pending_and_default_visible
+  end
+
   def has_flags?
     self.class.has_flag_scope.exists?(topic_id: self.id)
   end
@@ -724,6 +728,7 @@ class Topic < ActiveRecord::Base
 
     guardian = Guardian.new(user)
 
+<<<<<<< HEAD
     excluded_category_ids_sql =
       Category
         .secured(guardian)
@@ -749,6 +754,29 @@ class Topic < ActiveRecord::Base
         .where("topics.category_id NOT IN (#{excluded_category_ids_sql})")
         .order("ts_rank(search_data, #{tsquery}) DESC")
         .limit(SiteSetting.max_similar_results * 3)
+=======
+    excluded_category_ids_sql = Category.secured(guardian).where(search_priority: Searchable::PRIORITIES[:ignore]).select(:id).to_sql
+
+    if user
+      excluded_category_ids_sql = <<~SQL
+      #{excluded_category_ids_sql}
+      UNION
+      #{CategoryUser.where(notification_level: CategoryUser.notification_levels[:muted], user: user).select(:category_id).to_sql}
+      SQL
+    end
+
+    candidates = Topic
+      .visible
+      .listable_topics
+      .secured(guardian)
+      .joins("JOIN topic_search_data s ON topics.id = s.topic_id")
+      .joins("LEFT JOIN categories c ON topics.id = c.topic_id")
+      .where("search_data @@ #{tsquery}")
+      .where("c.topic_id IS NULL")
+      .where("topics.category_id NOT IN (#{excluded_category_ids_sql})")
+      .order("ts_rank(search_data, #{tsquery}) DESC")
+      .limit(SiteSetting.max_similar_results * 3)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     candidate_ids = candidates.pluck(:id)
 

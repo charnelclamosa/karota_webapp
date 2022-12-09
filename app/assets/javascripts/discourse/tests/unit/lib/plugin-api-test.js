@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { module, test } from "qunit";
 import EmberObject from "@ember/object";
 import discourseComputed from "discourse-common/utils/decorators";
@@ -8,6 +9,15 @@ import { getOwner } from "@ember/application";
 module("Unit | Utility | plugin-api", function (hooks) {
   setupTest(hooks);
 
+=======
+import { discourseModule } from "discourse/tests/helpers/qunit-helpers";
+import { test } from "qunit";
+import EmberObject from "@ember/object";
+import discourseComputed from "discourse-common/utils/decorators";
+import { withPluginApi } from "discourse/lib/plugin-api";
+
+discourseModule("Unit | Utility | plugin-api", function () {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("modifyClass works with classic Ember objects", function (assert) {
     const TestThingy = EmberObject.extend({
       @discourseComputed
@@ -16,7 +26,11 @@ module("Unit | Utility | plugin-api", function (hooks) {
       },
     });
 
+<<<<<<< HEAD
     getOwner(this).register("test-thingy:main", TestThingy);
+=======
+    this.registry.register("test-thingy:main", TestThingy);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     withPluginApi("1.1.0", (api) => {
       api.modifyClass("test-thingy:main", {
@@ -29,7 +43,11 @@ module("Unit | Utility | plugin-api", function (hooks) {
       });
     });
 
+<<<<<<< HEAD
     const thingy = getOwner(this).lookup("test-thingy:main");
+=======
+    const thingy = this.container.lookup("test-thingy:main");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.strictEqual(thingy.prop, "hello there");
   });
 
@@ -41,7 +59,11 @@ module("Unit | Utility | plugin-api", function (hooks) {
       }
     }
 
+<<<<<<< HEAD
     getOwner(this).register("native-test-thingy:main", NativeTestThingy);
+=======
+    this.registry.register("native-test-thingy:main", NativeTestThingy);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     withPluginApi("1.1.0", (api) => {
       api.modifyClass("native-test-thingy:main", {
@@ -54,7 +76,11 @@ module("Unit | Utility | plugin-api", function (hooks) {
       });
     });
 
+<<<<<<< HEAD
     const thingy = getOwner(this).lookup("native-test-thingy:main");
+=======
+    const thingy = this.container.lookup("native-test-thingy:main");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.strictEqual(thingy.prop, "howdy partner");
   });
 
@@ -69,7 +95,11 @@ module("Unit | Utility | plugin-api", function (hooks) {
       }
     }
 
+<<<<<<< HEAD
     getOwner(this).register("class-test-thingy:main", new ClassTestThingy(), {
+=======
+    this.registry.register("class-test-thingy:main", new ClassTestThingy(), {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       instantiate: false,
     });
 
@@ -83,6 +113,7 @@ module("Unit | Utility | plugin-api", function (hooks) {
       });
     });
 
+<<<<<<< HEAD
     const thingy = getOwner(this).lookup("class-test-thingy:main");
     assert.strictEqual(thingy.keep, "hey!");
     assert.strictEqual(thingy.prop, "g'day");
@@ -118,4 +149,10 @@ module("Unit | Utility | plugin-api", function (hooks) {
 
     assert.strictEqual(obj.foo, "modified getter", "returns correct result");
   });
+=======
+    const thingy = this.container.lookup("class-test-thingy:main");
+    assert.strictEqual(thingy.keep, "hey!");
+    assert.strictEqual(thingy.prop, "g'day");
+  });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

@@ -12,4 +12,8 @@ export default class UserMenuLikesNotificationsList extends UserMenuNotification
   get emptyStateComponent() {
     return "user-menu/likes-list-empty-state";
   }
+
+  get emptyStateComponent() {
+    return "user-menu/likes-list-empty-state";
+  }
 }

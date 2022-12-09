@@ -134,14 +134,26 @@ class ExcerptParser < Nokogiri::XML::SAX::Document
         @summary_contents = +""
         @in_summary = true
       end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     when "svg"
       attributes = Hash[*attributes.flatten]
       if attributes["class"]&.include?("d-icon") && @keep_svg
         include_tag(name, attributes)
         @in_svg = true
       end
+<<<<<<< HEAD
     when "use"
       include_tag(name, attributes) if @in_svg && @keep_svg
+=======
+
+    when "use"
+      if @in_svg && @keep_svg
+        include_tag(name, attributes)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -189,12 +201,20 @@ class ExcerptParser < Nokogiri::XML::SAX::Document
       @in_summary = false if @in_details_depth == 1
     when "div", "span"
       throw :done if @start_excerpt
+<<<<<<< HEAD
       characters("</span>", truncate: false, count_it: false, encode: false) if @start_hashtag_icon
     when "svg"
       characters("</svg>", truncate: false, count_it: false, encode: false) if @keep_svg
       @in_svg = false
     when "use"
       characters("</use>", truncate: false, count_it: false, encode: false) if @keep_svg
+=======
+    when "svg"
+      characters("</svg>", truncate: false, count_it: false, encode: false)
+      @in_svg = false
+    when "use"
+      characters("</use>", truncate: false, count_it: false, encode: false)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

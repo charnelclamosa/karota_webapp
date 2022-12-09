@@ -102,6 +102,12 @@ RSpec.describe ApplicationHelper do
           "https://s3-asset-cdn.example.com/assets/start-discourse.js",
         )
       end
+
+      it "uses separate asset CDN if configured" do
+        global_setting :s3_asset_cdn_url, "https://s3-asset-cdn.example.com"
+        expect(helper.preload_script("discourse")).to include("https://s3-asset-cdn.example.com/assets/discourse.js")
+      end
+
     end
   end
 

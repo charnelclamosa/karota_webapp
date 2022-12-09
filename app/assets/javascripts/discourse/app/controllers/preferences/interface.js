@@ -434,6 +434,11 @@ export default Controller.extend({
     },
 
     resetSeenUserTips() {
+<<<<<<< HEAD
+=======
+      this.model.set("skip_new_user_tips", false);
+      this.model.set("seen_popups", null);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.model.set("user_option.skip_new_user_tips", false);
       this.model.set("user_option.seen_popups", null);
       return this.model.save(["skip_new_user_tips", "seen_popups"]);

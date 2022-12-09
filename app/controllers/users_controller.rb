@@ -225,10 +225,15 @@ class UsersController < ApplicationController
       attributes[:user_associated_accounts] = []
 
       params[:external_ids].each do |provider_name, provider_uid|
+<<<<<<< HEAD
         if provider_name == "discourse_connect"
           unless SiteSetting.enable_discourse_connect
             raise Discourse::InvalidParameters.new(:external_ids)
           end
+=======
+        if provider_name == 'discourse_connect'
+          raise Discourse::InvalidParameters.new(:external_ids) unless SiteSetting.enable_discourse_connect
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           attributes[:discourse_connect] = { external_id: provider_uid }
 
@@ -1982,7 +1987,11 @@ class UsersController < ApplicationController
       @user = User.find(user_id) if user_id > 0
     end
 
+<<<<<<< HEAD
     @error = I18n.t("password_reset.no_token", base_url: Discourse.base_url) if !@user
+=======
+    @error = I18n.t('password_reset.no_token', base_url: Discourse.base_url) if !@user
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def respond_to_suspicious_request
@@ -2054,7 +2063,11 @@ class UsersController < ApplicationController
 
     if SiteSetting.enable_user_status
       permitted << :status
+<<<<<<< HEAD
       permitted << { status: %i[emoji description ends_at] }
+=======
+      permitted << { status: [:emoji, :description, :ends_at] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     result =

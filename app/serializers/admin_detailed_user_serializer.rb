@@ -160,6 +160,10 @@ class AdminDetailedUserSerializer < AdminUserSerializer
   def similar_users
     ActiveModel::ArraySerializer.new(
       @options[:similar_users],
+<<<<<<< HEAD
+=======
+      each_serializer: AdminUserListSerializer,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       each_serializer: SimilarAdminUserSerializer,
       scope: scope,
       root: false,

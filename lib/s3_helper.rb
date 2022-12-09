@@ -106,7 +106,16 @@ class S3Helper
   end
 
   def delete_objects(keys)
+<<<<<<< HEAD
     s3_bucket.delete_objects({ delete: { objects: keys.map { |k| { key: k } }, quiet: true } })
+=======
+    s3_bucket.delete_objects({
+      delete: {
+        objects: keys.map { |k| { key: k } },
+        quiet: true,
+      },
+    })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def copy(source, destination, options: {})

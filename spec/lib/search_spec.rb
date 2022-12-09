@@ -1763,7 +1763,11 @@ RSpec.describe Search do
 
       SiteSetting.unicode_usernames = true
       unicode_user = Fabricate(:unicode_user)
+<<<<<<< HEAD
       post_3 = Fabricate(:post, user: unicode_user, raw: "post by a unicode user", topic: topic)
+=======
+      post_3 = Fabricate(:post, user: unicode_user, raw: 'post by a unicode user', topic: topic)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(Search.execute("@#{post_3.user.username}").posts).to contain_exactly(post_3)
     end

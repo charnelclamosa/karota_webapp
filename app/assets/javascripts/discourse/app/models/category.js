@@ -344,6 +344,7 @@ const Category = RestModel.extend({
   @discourseComputed("id")
   isUncategorizedCategory(id) {
     return Category.isUncategorized(id);
+<<<<<<< HEAD
   },
 
   get canCreateTopic() {
@@ -354,6 +355,8 @@ const Category = RestModel.extend({
     return this.subcategories?.find(
       (subcategory) => subcategory.canCreateTopic
     );
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 });
 

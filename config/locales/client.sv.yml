@@ -1125,9 +1125,15 @@ sv:
         enable: "Aktivera sidofältet"
         options: "Alternativ"
         navigation_section: "Navigering"
+<<<<<<< HEAD
         navigation_section_instruction: "När en ämneslista i navigeringsmenyn har nya eller olästa objekt…"
         link_to_filtered_list_checkbox_description: "Länk till den filtrerade listan"
         show_count_new_items_checkbox_description: "Visa antalet nya objekt"
+=======
+        list_destination_instruction: "När det finns nytt innehåll i sidofältet..."
+        list_destination_default: "använd standardlänken och visa en utmärkelse för nya objekt"
+        list_destination_unread_new: "länka till oläst/nytt och visa ett antal nya objekt"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "ändra"
       featured_topic: "Utvalt ämne"
       moderator: "%{user} är en moderator"
@@ -1762,7 +1768,12 @@ sv:
       pause_notifications: "Pausa aviseringar"
       remove_status: "Ta bort status"
     user_tips:
+<<<<<<< HEAD
       button: "Jag förstår!"
+=======
+      primary: "Jag förstår!"
+      secondary: "visa mig inte dessa tips"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Din första avisering!"
         content: "Aviseringar används för att hålla dig uppdaterad om vad som händer i samhället."
@@ -1778,10 +1789,14 @@ sv:
       suggested_topics:
         title: "Fortsätt läsa!"
         content: "Här är några ämnen som vi tror att du kanske vill läsa härnäst."
+<<<<<<< HEAD
       admin_guide:
         title: "Välkommen till din nya webbplats!"
         content: "<a href='%{admin_guide_url}'>Läs administratörsguiden</a> för att fortsätta bygga din webbplats och ditt forum."
         content_no_url: "Läs administratörshandboken för att fortsätta bygga upp din webbplats och ditt forum."
+=======
+    loading: "Laddar..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "medan vi försökte ladda"
       reasons:
@@ -1815,6 +1830,15 @@ sv:
       logout_disabled: "Det går inte att logga ut medan webbplatsen är i skrivskyddat läge."
     staff_writes_only_mode:
       enabled: "Webbplatsen är i läget endast för personal. Du kan fortsätta bläddra på sidan, men att skriva inlägg, gilla och andra åtgärder är begränsat till personal."
+<<<<<<< HEAD
+=======
+    too_few_topics_and_posts_notice_MF: >-
+      Låt oss <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">inleda diskussionen!</a> Det {currentTopics, plural, one {finns <strong>#</strong> ämne} other {finns <strong>#</strong> ämnen}} och {currentPosts, plural, one {<strong>#</strong> inlägg} other {<strong>#</strong> inlägg}}. Besökare behöver mer att läsa och svara på – vi rekommenderar åtminstone {requiredTopics, plural, one {<strong>#</strong> ämne} other {<strong>#</strong> ämnen}} och {requiredPosts, plural, one {<strong>#</strong> inlägg} other {<strong>#</strong> inlägg}}. Enbart personal kan se detta meddelande.
+    too_few_topics_notice_MF: >-
+      Låt oss <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">inleda diskussionen!</a> Det {currentTopics, plural, one {finns <strong>#</strong> ämne} other {finns <strong>#</strong> ämnen}}. Besökare behöver mer att läsa och svara på – vi rekommenderar minst {requiredTopics, plural, one {<strong>#</strong> ämne} other {<strong>#</strong> ämnen}}. Enbart personal kan se detta meddelande.
+    too_few_posts_notice_MF: >-
+      Låt oss <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">inleda diskussionen!</a> Det {currentPosts, plural, one {finns <strong>#</strong> inlägg} other {finns <strong>#</strong> inlägg}}. Besökare behöver mer att läsa och svara på – vi rekommenderar minst {requiredPosts, plural, one {<strong>#</strong> inlägg} other {<strong>#</strong> inlägg}}. Enbart personal kan se detta meddelande.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> - <a href='{url}' target='_blank'>{rate, plural, one {# fel/timma} other  {# fel/timma}}</a> har uppnått webbplatsinställningarnas gräns som är {limit, plural, one {# fel/timma} other {# fel/timma}}.
@@ -1954,6 +1978,10 @@ sv:
       blank_username: "Ange din e-postadress eller ditt användarnamn"
       blank_username_or_password: "Ange din e-postadress eller ditt användarnamn och lösenord."
       reset_password: "Återställ lösenord"
+<<<<<<< HEAD
+=======
+      logging_in: "Loggar in..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       previous_sign_up: "Har du redan ett konto?"
       or: "Eller"
       awaiting_activation: "Ditt konto väntar på aktivering, använd Glömt lösenord-länken för att skicka ett nytt aktiveringsmail."
@@ -4074,16 +4102,32 @@ sv:
             unread_with_count: "Oläst (%{count})"
             archive: "Arkiv"
         tags:
+          links:
+            add_tags:
+              content: "Lägg till taggar"
+              title: "Du har inte lagt till några taggar. Klicka för att komma igång."
           none: "Du har inte lagt till några taggar."
           click_to_get_started: "Klicka här för att komma igång."
           header_link_text: "Taggar"
+<<<<<<< HEAD
           header_action_title: "Redigera ditt sidofälts taggar"
+=======
+          header_action_title: "redigera sidofältets taggar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Konfigurera standardvärden"
         categories:
+          links:
+            add_categories:
+              content: "Lägg till kategorier"
+              title: "Du har inte lagt till några kategorier. Klicka för att komma igång."
           none: "Du har inte lagt till några kategorier."
           click_to_get_started: "Klicka här för att komma igång."
           header_link_text: "Kategorier"
+<<<<<<< HEAD
           header_action_title: "Redigera ditt sidofälts kategorier"
+=======
+          header_action_title: "redigera sidofältets kategorier"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Konfigurera standardvärden"
         community:
           edit_section:
@@ -4103,8 +4147,12 @@ sv:
               content: "Ämnen"
               title: "Alla ämnen"
             faq:
+<<<<<<< HEAD
               content: "Vanliga frågor och svar"
               title: "Riktlinjer för att använda denna webbplats"
+=======
+              content: "FAQ"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Grupper"
               title: "Lista över tillgängliga användargrupper"
@@ -4113,7 +4161,10 @@ sv:
               title: "Lista över alla användare"
             my_posts:
               content: "Mina inlägg"
+<<<<<<< HEAD
               content_drafts: "Mina utkast"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "Min senaste ämnesaktivitet"
               title_drafts: "Mina utkast som inte har publicerats"
               draft_count:
@@ -4320,6 +4371,7 @@ sv:
         about: "Redigera dina gruppmedlemskap och -namn här."
         group_members: "Gruppmedlemmar"
         delete: "Radera"
+<<<<<<< HEAD
         delete_confirm: "Är du säker på att du vill radera %{group}?"
         delete_details:
           one: "%{count} person kommer att förlora åtkomst till denna grupp"
@@ -4328,6 +4380,12 @@ sv:
           one: "%{count} meddelande kommer att bli otillgängligt för gruppmedlemmar"
           other: "%{count} meddelanden kommer att bli otillgängligt för gruppmedlemmar"
         delete_warning: "Det går inte att återställa raderade grupper"
+=======
+        delete_confirm: "Är du säker på att du vill ta bort den här gruppen?"
+        delete_with_messages_confirm:
+          one: "Om du raderar den här gruppen blir %{count} meddelande ägarlöst, och gruppmedlemmarna får inte längre tillgång till det."
+          other: "Om du raderar den här gruppen blir %{count} meddelanden ägarlösa, och gruppmedlemmarna får inte längre tillgång till dem."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Det går inte att ta bort grupp. Om det här är en automatisk grupp så kan den inte raderas."
         delete_automatic_group: Detta är en automatisk grupp och kan inte raderas.
         delete_owner_confirm: "Vill du ta bort användarprivilegier för '%{username}'?"
@@ -4554,10 +4612,13 @@ sv:
         howto: "Hur installerar jag tillägg?"
         official: "Officiellt tillägg"
         broken_route: "Det går inte att konfigurera länken till '%{name}'. Se till att annonsblockerare är inaktiverade och försök ladda om sidan."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Sidofält"
         header_dropdown: "Rullgardinsmeny för rubrik"
         legacy: "Äldre"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Säkerhetskopior"
         menu:
@@ -5793,12 +5854,16 @@ sv:
       embedding:
         get_started: "Börja genom att lägga till värden, om du vill bädda in Discourse på en annan hemsida. "
         confirm_delete: "Är du säker på att du vill ta bort värden?"
+<<<<<<< HEAD
         sample: |
           <p>Klistra in följande HTML-kod på din webbplats för att skapa och bädda in Discourse-ämnen. Ersätt <b>EMBED_URL</b> med den kanoniska webbadressen till sidan du bäddar in den på.</p>
 
           <p>Om du vill anpassa stilen, avkommentera och ersätt <b>CLASS_NAME</b> med en CSS-klass som definierats i <i>Embedded CSS</i> i ditt tema.</p>
 
           <p>Ersätt <b>DISCOURSE_USERNAME</b> med Discourse-användarnamnet för författaren som ska skapa ämnet. Discourse kommer automatiskt att söka efter användaren med <code>&lt;meta&gt;</code> taggarnas <code>innehåll</code> sattribut med <code>namn</code>attributet inställt på <code>discourse-användarnamn</code> eller <code>författare</code>. Parametern <code>discourseUserName</code> har fasats ut och kommer att tas bort i Discourse 3.2.</p>
+=======
+        sample: "Klistra in följande HTML-kod på din webbplats för att skapa och bädda in Discourse-ämnen. Byt ut <b>REPLACE_ME</b> mot den vägledande URL-en för sidan som du bäddar in den i."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Inbäddning"
         host: "Tillåtna värdar"
         allowed_paths: "Sökväg till vitlista"

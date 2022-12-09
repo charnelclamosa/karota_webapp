@@ -1250,9 +1250,13 @@ pl_PL:
         enable: "Włącz pasek boczny"
         options: "Opcje"
         navigation_section: "Nawigacja"
+<<<<<<< HEAD
         navigation_section_instruction: "Gdy lista tematów w menu nawigacyjnym zawiera nowe lub nieprzeczytane elementy…"
         link_to_filtered_list_checkbox_description: "Link do przefiltrowanej listy"
         show_count_new_items_checkbox_description: "Pokaż liczbę nowych elementów"
+=======
+        list_destination_instruction: "Gdy na pasku bocznym pojawi się nowa zawartość..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "zmień"
       featured_topic: "Wyróżniony temat"
       moderator: "%{user} jest moderatorem"
@@ -1947,7 +1951,12 @@ pl_PL:
       pause_notifications: "Wstrzymaj powiadomienia"
       remove_status: "Usuń status"
     user_tips:
+<<<<<<< HEAD
       button: "Zrozumiano!"
+=======
+      primary: "Zrozumiano!"
+      secondary: "nie pokazuj mi tych wskazówek"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Twoje pierwsze powiadomienie!"
         content: "Powiadomienia służą do informowania na bieżąco o tym, co dzieje się w społeczności."
@@ -1958,6 +1967,7 @@ pl_PL:
         title: "Menu postu"
         content: "Zobacz, jak jeszcze możesz wejść w interakcję z postem, klikając trzy kropki!"
       topic_notification_levels:
+<<<<<<< HEAD
         title: "Obserwujesz teraz ten temat"
         content: "Poszukaj tego dzwonka, aby dostosować preferencje powiadomień dla określonych tematów lub całych kategorii."
       suggested_topics:
@@ -1968,6 +1978,12 @@ pl_PL:
         content: "<a href='%{admin_guide_url}'>Przeczytaj przewodnik administratora</a>, aby kontynuować budowanie witryny i społeczności."
         content_no_url: "Przeczytaj przewodnik administratora, aby kontynuować tworzenie witryny i społeczności."
     loading: "Ładowanie…"
+=======
+        content: "Poszukaj tego dzwonka, aby dostosować preferencje powiadomień dla określonych tematów lub całych kategorii."
+      suggested_topics:
+        title: "Czytaj dalej!"
+    loading: "Wczytuję…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "podczas próby wczytania"
       reasons:
@@ -2001,6 +2017,11 @@ pl_PL:
       logout_disabled: "Wylogowanie jest zablokowane gdy strona jest w trybie tylko do odczytu."
     staff_writes_only_mode:
       enabled: "Ta strona jest w trybie tylko dla personelu. Kontynuuj przeglądanie, ale odpowiadanie, polubienia i inne działania są ograniczone tylko do członków personelu."
+<<<<<<< HEAD
+=======
+    too_few_posts_notice_MF: >-
+      Zacznijmy <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">dyskutować!</a> Mamy {currentPosts, plural, one {<strong>#</strong> wpis} few {<strong>#</strong> wpisy} other {<strong>#</strong> wpisów}}. Odwiedzający potrzebują więcej do dyskusji – zalecamy przynajmniej {requiredPosts, plural, one {<strong>#</strong> wpis} few {<strong>#</strong> wpisy} other {<strong>#</strong> wpisów}}. Tylko członkowie zespołu widzą tę wiadomość.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# error/hour} few {# errors/hour} many {# errors/hour} other {# errors/hour}}</a> osiągnięto limit ustawień witryny wynoszący {limit, plural, one {# error/hour} few {# errors/hour} many {# errors/hour} other {# errors/hour}}.
@@ -2032,9 +2053,12 @@ pl_PL:
       hidden_for_session: "OK, zapytamy Cię jutro. Zawsze możesz też użyć opcji „Zaloguj się”, aby utworzyć konto."
       intro: "Hej! Wygląda na to, że zainteresowała Cię ta dyskusja, ale nie posiadasz jeszcze konta."
       value_prop: "Masz dość przewijania tych samych postów? Kiedy stworzysz konto, zawsze wrócisz do miejsca, w którym przerwałeś. Z kontem możesz również otrzymywać powiadomienia o nowych odpowiedziach, zapisywać zakładki i używać polubień, aby podziękować innym. Wszyscy możemy współpracować, aby ta społeczność była świetna. :heart:"
+<<<<<<< HEAD
     offline_indicator:
       no_internet: "Brak połączenia z internetem."
       refresh_page: "Odśwież stronę"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     summary:
       in_progress: "Podsumowanie tematu za pomocą sztucznej inteligencji"
       summarized_on: "Podsumowane przez sztuczną inteligencję w %{date}"
@@ -2326,7 +2350,10 @@ pl_PL:
       drafts_offline: "szkice offline"
       edit_conflict: "edytuj konflikt"
       esc: "esc"
+<<<<<<< HEAD
       esc_label: "Kliknij lub naciśnij Esc, aby odrzucić"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ok_proceed: "Ok, kontynuuj."
       group_mentioned_limit:
         one: "<b>Ostrzeżenie!</b> Wspomniałeś/łaś o <a href='%{group_link}'>%{group}</a> , jednak ta grupa ma więcej członków niż skonfigurowany przez administratora limit wzmianek dla użytkowników %{count}. Nikt nie zostanie powiadomiony."
@@ -2452,7 +2479,10 @@ pl_PL:
       slow_mode:
         error: "Ten temat jest w trybie powolnym. Opublikowałeś już niedawno post; możesz napisać kolejny za %{timeLeft}."
       user_not_seen_in_a_while:
+<<<<<<< HEAD
         single: "Osoba, do której piszesz, <b>%{usernames}</b>, nie była tu widziana od bardzo dawna – %{time_ago}. Może nie otrzymać Twojej wiadomości. Możesz poszukać alternatywnych metod kontaktu %{usernames}."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         multiple: "Następujące osoby, do których piszesz: <b>%{usernames}</b>, nie były tu widziane od bardzo dawna - %{time_ago}. Mogą one nie otrzymać Twojej wiadomości. Możesz poszukać innych metod kontaktu z nimi."
       admin_options_title: "Opcjonalne ustawienia zespołu dla tego tematu"
       composer_actions:
@@ -3795,7 +3825,10 @@ pl_PL:
       this_year: "ten rok"
       position: "Pozycja na stronie kategorii:"
       default_position: "Domyślna pozycja"
+<<<<<<< HEAD
       position_disabled: "Kategorie będą wyświetlane w kolejności aktywności. Aby kontrolować kolejność kategorii na listach, włącz ustawienie <a href='%{url}'>'fixed category positions'</a>."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       minimum_required_tags: "Minimalna liczba tagów wymaganych w temacie:"
       default_slow_mode: 'Włącz „Tryb powolny” dla nowych tematów w tej kategorii.'
       parent: "Kategoria rodzica"
@@ -4089,6 +4122,7 @@ pl_PL:
         this_week: "Tydzień"
         today: "Dzisiaj"
     browser_update: 'Niestety, <a href="https://www.discourse.org/faq/#browser">twoja przeglądarka nie jest obsługiwana</a>. Proszę <a href="https://browsehappy.com">przełączyć się na obsługiwaną przeglądarkę</a>, aby móc oglądać bogatą zawartość, zalogować się i odpowiedzieć.'
+    safari_13_warning: Ta strona wkrótce przestanie obsługiwać systemy iOS i Safari w wersji 13 i niższej. Nadal będzie dostępna uproszczona wersja tylko do odczytu. (<a href="https://meta.discourse.org/t/224747">więcej informacji</a>)
     permission_types:
       full: "tworzyć / odpowiadać / przeglądać"
       create_post: "odpowiadać / przeglądać"
@@ -4439,7 +4473,10 @@ pl_PL:
       no_activity_body: "Witaj w naszej społeczności! Jesteś tu zupełnie nowy(-a) i nie uczestniczyłeś(-aś) jeszcze w żadnych dyskusjach. Jako pierwszy krok, odwiedź <a href='%{topUrl}'>Popularne</a> lub <a href='%{categoriesUrl}'>Kategorie</a> i po prostu zacznij czytać! Kliknij w %{heartIcon} przy postach, które lubisz lub chcesz dowiedzieć się więcej. Gdy bierzesz udział w dyskusji, Twoja aktywność zostanie wymieniona tutaj."
       no_replies_title: "Nie odpowiedziałeś jeszcze na żadne tematy"
       no_replies_title_others: "%{username} nie odpowiedział jeszcze na żaden temat"
+<<<<<<< HEAD
       no_replies_body: "Kiedy <a href='%{searchUrl}'>odkryjesz</a> interesującą rozmowę, w której chcesz wziąć udział, naciśnij przycisk <kbd>Odpowiedz</kbd> znajdujący się bezpośrednio pod każdym postem, aby rozpocząć odpowiadanie na ten konkretny post. Jeśli wolisz odpowiedzieć na ogólny temat, a nie na poszczególne posty lub osoby, poszukaj przycisku <kbd>Odpowiedz</kbd> na samym dole tematu lub pod osią czasu tematu."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_drafts_title: "Nie rozpocząłeś żadnych szkiców"
       no_drafts_body: "Nie jesteś gotowy do opublikowania? Automatycznie zapiszemy nową wersję roboczą i wyświetlimy ją tutaj za każdym razem, gdy zaczniesz pisać temat, odpowiedź lub wiadomość osobistą. Wybierz przycisk anulowania, aby odrzucić lub zapisać wersję roboczą, aby kontynuować później."
       no_likes_title: "Nie polubiłeś jeszcze żadnych tematów"
@@ -4475,6 +4512,7 @@ pl_PL:
       more: "Więcej"
       all_categories: "Wszystkie kategorie"
       all_tags: "Wszystkie tagi"
+<<<<<<< HEAD
       categories_form_modal:
         title: "Edytuj nawigację kategorii"
         subtitle:
@@ -4494,6 +4532,8 @@ pl_PL:
           all: "Wszystkie"
           selected: "Wybrany"
           unselected: "Niewybrany"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sections:
         custom:
           add: "Dodaj niestandardową sekcję"
@@ -4544,16 +4584,32 @@ pl_PL:
             unread_with_count: "Nieprzeczytane (%{count})"
             archive: "Archiwum"
         tags:
+          links:
+            add_tags:
+              content: "Dodaj tagi"
+              title: "Nie dodałeś żadnych tagów. Kliknij, aby rozpocząć."
           none: "Nie dodałeś żadnych tagów."
           click_to_get_started: "Kliknij tutaj, aby rozpocząć."
           header_link_text: "Etykiety"
+<<<<<<< HEAD
           header_action_title: "Edytuj tagi paska bocznego"
+=======
+          header_action_title: "edytuj tagi paska bocznego"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Skonfiguruj ustawienia domyślne"
         categories:
+          links:
+            add_categories:
+              content: "Dodaj kategorie"
+              title: "Nie dodano żadnych kategorii. Kliknij, aby rozpocząć."
           none: "Nie dodałeś żadnych kategorii."
           click_to_get_started: "Kliknij tutaj, aby rozpocząć."
           header_link_text: "Kategorie"
+<<<<<<< HEAD
           header_action_title: "Edytuj kategorie paska bocznego"
+=======
+          header_action_title: "edytuj kategorie paska bocznego"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Skonfiguruj ustawienia domyślne"
         community:
           edit_section:
@@ -4565,7 +4621,10 @@ pl_PL:
               title: "Więcej szczegółów na temat tej witryny"
             admin:
               content: "Administracja"
+<<<<<<< HEAD
               title: "Ustawienia witryny i raporty"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             badges:
               content: "Odznaki"
               title: "Wszystkie odznaki dostępne do zdobycia"
@@ -4574,7 +4633,10 @@ pl_PL:
               title: "Wszystkie tematy"
             faq:
               content: "FAQ"
+<<<<<<< HEAD
               title: "Wskazówki dotyczące korzystania z tej witryny"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Grupy"
               title: "Lista dostępnych grup użytkowników"
@@ -4583,7 +4645,10 @@ pl_PL:
               title: "Lista wszystkich użytkowników"
             my_posts:
               content: "Wysłane"
+<<<<<<< HEAD
               content_drafts: "Moje szkice"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "Moja ostatnia aktywność w temacie"
               title_drafts: "Moje nieopublikowane wersje robocze"
               draft_count:
@@ -4593,12 +4658,17 @@ pl_PL:
                 other: "%{count} szkice"
             review:
               content: "Sprawdź"
+<<<<<<< HEAD
               title: "Oflagowane posty i inne elementy w kolejce"
               pending_count: "%{count} oczekujących"
         global_section: "Sekcja globalna, widoczna dla wszystkich"
       panels:
         forum:
           label: Forum
+=======
+              title: "sprawdź"
+              pending_count: "%{count} oczekujących"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "Stwórz swój temat powitalny"
       description: "Twój temat powitalny to pierwsza rzecz, którą przeczytają nowi członkowie. Pomyśl o tym jako o swoim „przemówieniu” lub „deklaracji misji”. Poinformuj wszystkich, dla kogo jest ta społeczność, czego mogą się tu spodziewać, i co chcesz, aby zrobili najpierw."
@@ -4810,6 +4880,7 @@ pl_PL:
         about: "Tu możesz edytować przypisania do grup oraz ich nazwy"
         group_members: "Członkowie grupy"
         delete: "Usuń"
+<<<<<<< HEAD
         delete_confirm: "Czy na pewno chcesz usunąć %{group}?"
         delete_details:
           one: "%{count} osoba straci dostęp do tej grupy"
@@ -4822,6 +4893,13 @@ pl_PL:
           many: "%{count} wiadomości staną się niedostępna dla członków grupy"
           other: "%{count} wiadomości staną się niedostępna dla członków grupy"
         delete_warning: "Usuniętych grup nie można odzyskać"
+=======
+        delete_with_messages_confirm:
+          one: "Usunięcie tej grupy spowoduje osierocenie %{count} wiadomości, a członkowie grupy utracą do niej dostęp."
+          few: "Usunięcie tej grupy spowoduje osierocenie %{count} wiadomości, a członkowie grupy utracą do niej dostęp."
+          many: "Usunięcie tej grupy spowoduje osierocenie %{count} wiadomości, a członkowie grupy utracą do niej dostęp."
+          other: "Usunięcie tej grupy spowoduje osierocenie %{count} wiadomości, a członkowie grupy utracą do niej dostęp."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Nie można usunąć grupy. Jeżeli jest to grupa automatyczna, nie może zostać zniszczona."
         delete_automatic_group: To jest grupa automatyczna i nie można jej usunąć.
         delete_owner_confirm: "Usunąć status właściciela dla '%{username}'?"
@@ -5052,10 +5130,13 @@ pl_PL:
         howto: "Jak zainstalować wtyczkę?"
         official: "Oficjalna wtyczka"
         broken_route: "Nie można skonfigurować łącza do '%{name}'. Upewnij się, że blokery reklam są wyłączone i spróbuj ponownie załadować stronę."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Pasek boczny"
         header_dropdown: "Lista rozwijana nagłówka"
         legacy: "Przestarzały"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Kopie zapasowe"
         menu:
@@ -6329,12 +6410,16 @@ pl_PL:
       embedding:
         get_started: "Jeśli chcesz osadzić Discourse na innej stronie, rozpocznij podając jej host."
         confirm_delete: "Czy na pewno chcesz usunąć ten host?"
+<<<<<<< HEAD
         sample: |
           <p>Wklej następujący kod HTML do swojej witryny, aby utworzyć i osadzić tematy Discourse. Zastąp <b>EMBED_URL</b> kanonicznym adresem URL strony, na której chcesz go osadzić.</p>
 
           <p>Jeśli chcesz dostosować styl, odkomentuj i zastąp <b>CLASS_NAME</b> klasą CSS zdefiniowaną w <i>osadzonym CSS</i> Twojego motywu.</p>
 
           <p>Zastąp <b>DISCOURSE_USERNAME</b> nazwą użytkownika Discourse autora, który powinien utworzyć temat. Discourse automatycznie wyszuka użytkownika według atrybutu <code>content</code> tagów <code>&lt;meta&gt;</code> z atrybutem <code>name</code> ustawionym na <code>discourse-username</code> lub <code>autor</code>. Parametr <code>discourseUserName</code> został wycofany i zostanie usunięty w Discourse 3.2.</p>
+=======
+        sample: "Wklej poniższy kod HTML na swojej stronie, aby tworzyć i osadzać tematy Discourse. Zastąp <b>REPLACE_ME</b> kanonicznym adresem URL strony, na której go osadzasz."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Osadzanie"
         host: "Dozwolone hosty"
         allowed_paths: "Lista dozwolonych ścieżek"

@@ -1124,10 +1124,21 @@ es:
       experimental_sidebar:
         enable: "Activar barra lateral"
         options: "Opciones"
+<<<<<<< HEAD
         navigation_section: "Navegación"
         navigation_section_instruction: "Cuando una lista de temas del menú de navegación tiene elementos nuevos o no leídos..."
         link_to_filtered_list_checkbox_description: "Enlace a la lista filtrada"
         show_count_new_items_checkbox_description: "Mostrar un recuento de los elementos nuevos"
+=======
+        categories_section: "Sección de categorías"
+        categories_section_instruction: "Las categorías que elijas aparecerán en esta categoría de la barra lateral."
+        tags_section: "Sección de etiquetas"
+        tags_section_instruction: "Las etiquetas seleccionadas aparecerán en esta sección de la barra lateral."
+        navigation_section: "Navegación"
+        list_destination_instruction: "Cuando hay contenido nuevo en la barra lateral..."
+        list_destination_default: "usar el enlace por defecto y mostrar una insignia para nuevos elementos"
+        list_destination_unread_new: "vincular a no leído/nuevo y mostrar un recuento de elementos nuevos"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "cambio"
       featured_topic: "Tema destacado"
       moderator: "%{user} es un moderador"
@@ -1763,7 +1774,12 @@ es:
       pause_notifications: "Pausar notificaciones"
       remove_status: "Quitar estado"
     user_tips:
+<<<<<<< HEAD
       button: "¡Entendido!"
+=======
+      primary: "¡Entendido!"
+      secondary: "no mostrarme estos consejos"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "¡Tu primera notificación!"
         content: "Las notificaciones se utilizan para mantenerte al día de lo que ocurre en la comunidad."
@@ -1779,10 +1795,14 @@ es:
       suggested_topics:
         title: "¡Sigue leyendo!"
         content: "Estos son algunos de los temas que creemos que te gustaría leer a continuación."
+<<<<<<< HEAD
       admin_guide:
         title: "¡Te damos la bienvenida a tu nuevo sitio!"
         content: "<a href='%{admin_guide_url}'>Lee la guía del administrador</a> para seguir construyendo tu sitio y tu comunidad."
         content_no_url: "Lee la guía del administrador para seguir construyendo tu sitio y tu comunidad."
+=======
+    loading: "Cargando..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "mientras se intentaba cargar"
       reasons:
@@ -4075,16 +4095,32 @@ es:
             unread_with_count: "Sin leer (%{count})"
             archive: "Archivo"
         tags:
+          links:
+            add_tags:
+              content: "Añadir etiquetas"
+              title: "No has añadido ninguna etiqueta. Haz clic para empezar."
           none: "No has añadido ninguna etiqueta."
           click_to_get_started: "Haz clic aquí para empezar."
           header_link_text: "Etiquetas"
+<<<<<<< HEAD
           header_action_title: "Editar las etiquetas de tu barra lateral"
+=======
+          header_action_title: "editar las etiquetas de tu barra lateral"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configurar valores predeterminados"
         categories:
+          links:
+            add_categories:
+              content: "Añadir categorías"
+              title: "No has añadido ninguna categoría. Haz clic para empezar."
           none: "No has añadido ninguna categoría."
           click_to_get_started: "Haz clic aquí para empezar."
           header_link_text: "Categorías"
+<<<<<<< HEAD
           header_action_title: "Editar las categorías de tu barra lateral"
+=======
+          header_action_title: "editar las categorías de tu barra lateral"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configurar valores predeterminados"
         community:
           edit_section:
@@ -4105,7 +4141,10 @@ es:
               title: "Todos los temas"
             faq:
               content: "Preguntas frecuentes"
+<<<<<<< HEAD
               title: "Normas de uso de este sitio"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Grupos"
               title: "Lista de grupos de usuarios disponibles"
@@ -4114,9 +4153,12 @@ es:
               title: "Lista de todos los usuarios"
             my_posts:
               content: "Mis publicaciones"
+<<<<<<< HEAD
               content_drafts: "Mis borradores"
               title: "Mi actividad de tema reciente"
               title_drafts: "Mis borradores no publicados"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} borrador"
                 other: "%{count} borradores"
@@ -4321,6 +4363,7 @@ es:
         about: "Edita la membresía de tu grupo y sus nombres aquí"
         group_members: "Miembros del grupo"
         delete: "Eliminar"
+<<<<<<< HEAD
         delete_confirm: "¿Seguro que quieres eliminar %{group}?"
         delete_details:
           one: "%{count} persona perderá el acceso a este grupo"
@@ -4329,6 +4372,8 @@ es:
           one: "%{count} mensaje será inaccesible para los miembros del grupo"
           other: "%{count} mensajes serán inaccesibles para los miembros del grupo"
         delete_warning: "Los grupos eliminados no se pueden recuperar"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "No se pudo eliminar el grupo. Si este es un grupo automático, no se puede destruir."
         delete_automatic_group: Este grupo se ha creado automáticamente y no se puede eliminar.
         delete_owner_confirm: "¿Quitar los privilegios de propietario a «%{username}»?"
@@ -4554,10 +4599,13 @@ es:
         howto: "¿Cómo instalo plugins?"
         official: "Plugin oficial"
         broken_route: "No se puede configurar el enlace a «%{name}». Asegúrate de que los bloqueadores de publicidad están desactivados e intenta recargar la página."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Barra lateral"
         header_dropdown: "Menú desplegable de encabezado"
         legacy: "Heredado"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Copias de seguridad"
         menu:
@@ -5680,7 +5728,11 @@ es:
           search: "Buscar"
           groups: "Grupos"
           dashboard: "Panel de control"
+<<<<<<< HEAD
           navigation: "Navegación"
+=======
+          sidebar: "Barra lateral"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "Los campos no pueden estar vacíos o contener el carácter de barra vertical."
         default_categories:

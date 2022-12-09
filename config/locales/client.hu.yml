@@ -1105,7 +1105,15 @@ hu:
       experimental_sidebar:
         enable: "Oldalsáv engedélyezése"
         options: "Beállítások"
+        categories_section: "Kategóriák szakasz"
+        categories_section_instruction: "A kiválasztott kategóriák az oldalsáv kategóriák szakaszában jelennek meg."
+        tags_section: "Címkék szakasz"
+        tags_section_instruction: "A kiválasztott címkék az oldalsáv címkék szakaszában jelennek meg."
         navigation_section: "Navigáció"
+<<<<<<< HEAD
+=======
+        list_destination_instruction: "Amikor új tartalom van az oldalsávon..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "módosítás"
       featured_topic: "Kiemelt téma"
       moderator: "%{user} egy moderátor"
@@ -1231,6 +1239,7 @@ hu:
         tags: "Címkék"
         interface: "Felület"
         apps: "Alkalmazások"
+        sidebar: "Oldalsáv"
       change_password:
         success: "(az e-mail elküldve)"
         in_progress: "(az e-mail küldése folyamatban)"
@@ -1681,7 +1690,12 @@ hu:
       pause_notifications: "Értesítések szüneteltetése"
       remove_status: "Állapot eltávolítása"
     user_tips:
+<<<<<<< HEAD
       button: "Értem!"
+=======
+      primary: "Értem!"
+      secondary: "ne mutasd nekem ezeket a tippeket"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Az első értesítésed!"
         content: "Az értesítések arra szolgálnak, hogy naprakészen tájékoztassuk Önt arról, hogy mi történik a közösségben."
@@ -1692,6 +1706,10 @@ hu:
       suggested_topics:
         title: "Olvass tovább!"
         content: "Íme néhány téma, amelyet szerintünk szívesen elolvasna legközelebb."
+<<<<<<< HEAD
+=======
+    loading: "Betöltés…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "amíg megpróbál betölteni"
       reasons:
@@ -1725,6 +1743,11 @@ hu:
       logout_disabled: "A kilépés le van tiltva, amíg az oldal írásvédett módban van."
     staff_writes_only_mode:
       enabled: "Ez az oldal csak a munkatársaknak van fenntartva. Továbbra is böngészheted, de a válaszadás és egyéb műveletek csak a munkatársak számára elérhetők."
+<<<<<<< HEAD
+=======
+    too_few_posts_notice_MF: >-
+      <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">Kezdjük el a beszélgetést!</a> Jelenleg {currentPosts, plural, one {<strong>#</strong> bejegyzés} other {<strong>#</strong> bejegyzés}} található. A látogatóknak több olvasnivalóra van szükségük – azt javasoljuk, hogy legalább {requiredPosts, plural, one {<strong>#</strong> bejegyzés} other {<strong>#</strong> bejegyzés}} legyen. Csak a stáb láthatja ezt az üzenetet.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {# hiba/óra} other {# hiba/óra}}</a>, elérte az oldal beállításiban megadott {limit, plural, one {# hiba/órás} other {# hiba/órás}} korlátot.
@@ -1845,6 +1868,10 @@ hu:
       blank_username: "Adja meg az e-mail-címét vagy felhasználónevét."
       blank_username_or_password: "Adja meg az e-mail-címét vagy felhasználónevét és a jelszavát."
       reset_password: "Jelszó visszaállítása"
+<<<<<<< HEAD
+=======
+      logging_in: "Bejelentkezés…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       previous_sign_up: "Már van fiókja?"
       or: "Vagy"
       awaiting_activation: "A fiókja még nincs aktiválva, használja a jelszó-emlékeztető hivatkozást egy új aktiváló e-mail küldéséhez."
@@ -2490,7 +2517,11 @@ hu:
         top: "Nincsenek népszerű témák."
         educate:
           new: '<p>Az új témák fognak itt megjelenni. Alapértelmezésként itt jelennek meg a friss témák, és egy ilyen jelet <span class="badge new-topic badge-notification" style="vertical-align:middle;line-height:inherit;"></span> talál majd azok mellett, amelyek az elmúlt két napban lettek közzétéve.</p><p>A beállításait <a href="%{userPrefsUrl}">ezen az oldalon</a> tudja módosítani.</p>'
+<<<<<<< HEAD
           unread: "<p>Az Ön olvasatlan témái itt jelennek meg.</p><p>Alapértelmezés szerint a témák olvasatlannak minősülnek, és az olvasatlan témák száma <span class=\"badge unread-posts badge-notification\">1</span> lesz látható, ha:</p><ul><li>Létrehozta a témát</li><li>Válaszolt a témára</li><li>Olvasta a témát több mint 5 percig</li></ul><p>Vagy ha a témát kifejezetten Nyomon követte vagy Figyelt témának állította be az egyes témákban található \U0001F514 segítségével.</p><p>Ennek megváltoztatásához látogasson el a <a href=\"%{userPrefsUrl}\">beállítások</a> oldalára.</p>"
+=======
+          unread: "<p>Az Ön olvasatlan témái itt jelennek meg.</p><p>Alapértelmezés szerint a témák olvasatlannak minősülnek, és az olvasatlan témák száma <span class=\"badge unread-posts badge-notification\">1</span> lesz látható, ha:</p><ul><li>Létrehozta a témát</li><li>Válaszolt a témára</li><li>Olvasta a témát több mint 4 percig</li></ul><p>Vagy ha a témát kifejezetten Nyomon követte vagy Figyelt témának állította be az egyes témákban található \U0001F514 segítségével.</p><p>Ennek megváltoztatásához látogasson el a <a href=\"%{userPrefsUrl}\">beállítások</a> oldalára.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       bottom:
         latest: "Nincs több friss téma."
         posted: "Nincs több közzétett téma."
@@ -2734,12 +2765,19 @@ hu:
           one: "Jelenleg %{count} kítűzött témája van. A túl sok kiemelt téma megzavarhatja az új vagy névtelen felhasználókat. Biztos, hogy kitűz egy újabb témát ebben a kategóriában?"
           other: "Jelenleg %{count} kítűzött témája van. A túl sok kiemelt téma megzavarhatja az új vagy névtelen felhasználókat. Biztos, hogy kitűz egy újabb témát ebben a kategóriában?"
         unpin_globally: "Távolítsa el ezt a témát az összes téma listájának tetejéről."
+<<<<<<< HEAD
         global_pin_note: "A felhasználók saját maguk számára feloldhatják a témát."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         not_pinned_globally: "Nincsenek globálisan rögzített témák."
         already_pinned_globally:
           one: "Jelenleg globálisan kitűzött témák: <strong class='badge badge-notification unread'>%{count}</strong>"
           other: "Jelenleg globálisan kítűzött témák: <strong class='badge badge-notification unread'>%{count}</strong>"
         banner_exists: "Jelenleg <strong class='badge badge-notification unread'>van</strong> kiemelt téma."
+<<<<<<< HEAD
+=======
+      inviting: "Meghívás…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       automatically_add_to_groups: "Ez a meghívó ezekhez a csoportokhoz való hozzáférést is tartalmazza:"
       invite_private:
         title: "Meghívás személyes üzenetváltáshoz"
@@ -2896,7 +2934,12 @@ hu:
       errors:
         create: "Sajnos hiba történt a bejegyzése létrehozása során. Próbálja újra."
         edit: "Sajnos hiba történt a bejegyzése szerkesztése során. Próbálja újra."
+<<<<<<< HEAD
         file_too_large: "Sajnos ez a fájl túl nagy (a maximális méret %{max_size_kb} kB). Töltse fel a nagyméretű fájlt egy felhős megosztási szolgáltatásba, majd illessze be annak a hivatkozását."
+=======
+        upload: "Sajnos hiba történt a fájl feltöltése során. Próbálja újra."
+        file_too_large: "Sajnos ez a fájl túl nagy (a maximális méret %{max_size_kb} kb). Töltse fel a nagyméretű fájlt egy felhőmegosztó szolgáltatásba, majd illessze be annak a linkjét."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         file_size_zero: "Sajnos úgy tűnik, hogy valami hiba történt, a feltöltendő fájl 0 bájtos. Próbálja újra."
         file_too_large_humanized: "Sajnos ez a fájl túl nagy (a maximális méret %{max_size}). Töltse fel a nagyméretű fájlt egy felhőmegosztó szolgáltatásba, majd illessze be annak a linkjét."
         too_many_uploads: "Sajnos egyszerre csak egy fájlt tölthet fel."
@@ -2932,7 +2975,11 @@ hu:
         delete_replies:
           confirm: "A hozzászólásra adott válaszokat is törölni akarja?"
           just_the_post: "Nem, csak ezt a bejegyzést"
+<<<<<<< HEAD
         admin: "bejegyzés-adminisztrátori műveletek"
+=======
+        admin: "admin műveletek"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         permanently_delete: "Végleges törlés"
         permanently_delete_confirmation: "Biztos, hogy végleg törölni szeretné ezt a bejegyzést? Nem fogja tudni visszaállítani."
         wiki: "Wiki létrehozása"
@@ -2942,6 +2989,8 @@ hu:
         rebake: "HTML újjáépítése"
         publish_page: "Oldal közzététele"
         unhide: "Elrejtés visszavonása"
+        change_owner: "Tulajdonjog módosítása..."
+        grant_badge: "Jelvény adományozása..."
         lock_post: "Bejegyzés zárolása"
         lock_post_description: "megakadályozza, hogy a hozzászóló szerkessze ezt a bejegyzést"
         unlock_post: "Bejegyzés zárolásának feloldása"
@@ -3024,6 +3073,10 @@ hu:
             description: "Törölje az emlékeztető dátumát és időpontját"
       filtered_replies:
         viewing_subset: "Néhány válasz össze van csukva"
+<<<<<<< HEAD
+=======
+        viewing_summary: "A téma összefoglalójának megtekintése"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         show_all: "Mutasd mindet"
     category:
       none: "(nincs kategória)"
@@ -3136,6 +3189,7 @@ hu:
     flagging:
       title: "Köszönjük, hogy segítesz a közösségünket civilizáltan tartani!"
       action: "Bejegyzés megjelölése"
+      take_action: "Művelet megkezdése..."
       take_action_options:
         default:
           title: "Művelet megkezdése"
@@ -3231,6 +3285,10 @@ hu:
       other: "felhasználók"
     category_title: "Kategória"
     history: "Idővonal"
+<<<<<<< HEAD
+=======
+    changed_by: "szerző %{author}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     raw_email:
       title: "Bejövő email"
       not_available: "Nem elérhető!"
@@ -3323,9 +3381,12 @@ hu:
       open: "eredeti kép"
       counter: "%curr% / %total%"
       close: "Bezárás (Esc)"
+<<<<<<< HEAD
     experimental_lightbox:
       buttons:
         close: "Bezárás (Esc)"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_render_video: A videó nem jeleníthető meg, mert a böngésző nem támogatja ezt a kodeket.
     keyboard_shortcuts_help:
       shortcut_key_delimiter_comma: ", "
@@ -3444,7 +3505,14 @@ hu:
       changed: "megváltozott címkék:"
       tags: "Címkék"
       choose_for_topic: "Megadható címke"
+<<<<<<< HEAD
       info: "Információ"
+=======
+      choose_for_topic_required_group:
+        one: "válasszon %{count} címkét innen: „%{name}”…"
+        other: "válasszon %{count} címkét innen: „%{name}”…"
+      info: "Info"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       default_info: "Ez a címke nincs kategóriára korlátozva, és nincsenek szinonimái."
       staff_info: "Korlátozások hozzáadásához tegye ezt a címkét egy <a href=%{basePath}/tag_groups>címkecsoportba</a>."
       synonyms: "Szinonimák"
@@ -3505,6 +3573,10 @@ hu:
         delete: "Törlés"
         tags_placeholder: "Címkék keresése vagy létrehozása"
         parent_tag_placeholder: "Nem kötelező"
+<<<<<<< HEAD
+=======
+        select_groups_placeholder: "Csoportok kiválasztása..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         disabled: "A címkézés le van tiltva. "
       topics:
         none:
@@ -3531,8 +3603,15 @@ hu:
     safe_mode:
       enabled: "A biztonságos mód be van kapcsolva, hogy kilépj a biztonságos módból lépj ki ebből a keresési lapból"
     image_removed: "(kép eltávolítva)"
+<<<<<<< HEAD
     pause_notifications:
       label: "Értesítések szüneteltetése"
+=======
+    do_not_disturb:
+      title: "Ne zavarjanak..."
+      label: "Ne zavarjanak"
+      remaining: "%{remaining} van hátra"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       options:
         half_hour: "30 percig"
         one_hour: "1 óráig"
@@ -3581,9 +3660,12 @@ hu:
       more: "Több"
       all_categories: "Minden kategória"
       all_tags: "Összes címke"
+<<<<<<< HEAD
       edit_navigation_modal_form:
         filter_dropdown:
           all: "Összes"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sections:
         custom:
           save: "Mentés"
@@ -3616,7 +3698,11 @@ hu:
           header_link_text: "Névjegy"
         messages:
           header_link_text: "Üzenetek"
+<<<<<<< HEAD
           header_action_title: "Személyes üzenet létrehozása"
+=======
+          header_action_title: "új személyes üzenet létrehozása"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             inbox: "Beérkezett üzenetek"
             sent: "Elküldött"
@@ -3626,6 +3712,7 @@ hu:
             unread_with_count: "Olvasatlan (%{count})"
             archive: "Archívum"
         tags:
+<<<<<<< HEAD
           none: "Még nem adott hozzá címkéket."
           click_to_get_started: "Kattintson ide a kezdéshez."
           header_link_text: "Címkék"
@@ -3638,6 +3725,30 @@ hu:
         community:
           edit_section:
             header_dropdown: "Személyre szabás"
+=======
+          links:
+            add_tags:
+              content: "Címkék hozzáadása"
+              title: "Még nem adott hozzá címkéket. Kattintson a kezdéshez."
+          none: "Még nem adott hozzá címkéket."
+          click_to_get_started: "Kattintson ide a kezdéshez."
+          header_link_text: "Címkék"
+          header_action_title: "szerkessze az oldalsávja címkéit"
+          configure_defaults: "Alapértelmezések beállítása"
+        categories:
+          links:
+            add_categories:
+              content: "Kategóriák hozzáadása"
+              title: "Még nem adott hozzá kategóriákat. Kattintson a kezdéshez."
+          none: "Még nem adott hozzá kategóriákat."
+          click_to_get_started: "Kattintson ide a kezdéshez."
+          header_link_text: "Kategóriák"
+          header_action_title: "szerkessze az oldalsávja kategóriáit"
+          configure_defaults: "Alapértelmezések beállítása"
+        community:
+          header_link_text: "Közösség"
+          header_action_title: "új téma létrehozása"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             about:
               content: "Névjegy"
@@ -3647,6 +3758,7 @@ hu:
               title: "Oldalbeállítások és jelentések"
             badges:
               content: "Jelvények"
+<<<<<<< HEAD
               title: "Az összes megszerezhető jelvény"
             topics:
               content: "Témák"
@@ -3654,19 +3766,34 @@ hu:
             faq:
               content: "GYIK"
               title: "Útmutató az oldal használatához"
+=======
+            everything:
+              content: "Összes"
+              title: "Minden téma"
+            faq:
+              content: "GYIK"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Csoportok"
               title: "Az elérhető felhasználói csoportok listája"
             users:
               content: "Felhasználók"
+<<<<<<< HEAD
               title: "Az összes felhasználó listája"
+=======
+              title: "Minden felhasználó"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             my_posts:
               content: "Saját bejegyzéseim"
               title: "Legutóbbi téma tevékenységem"
               title_drafts: "Nem közzétett piszkozataim"
             review:
               content: "Áttekintés"
+<<<<<<< HEAD
               title: "Megjelölt bejegyzések és egyéb sorban álló elemek"
+=======
+              title: "áttekintés"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               pending_count: "%{count} függőben"
     welcome_topic_banner:
       title: "Hozzon létre üdvözlő témát"
@@ -3711,7 +3838,11 @@ hu:
           title: "\U0001F381 Új funkciók"
           dismiss: "Elvetés"
           learn_more: "Tudjon meg többet"
+<<<<<<< HEAD
         last_checked: "Utoljára ellenőrizve:"
+=======
+        last_checked: "Utoljára ellenőrizve: "
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         refresh_problems: "Újratöltés"
         no_problems: "Nem találtunk semmilyen problémát."
         moderators: "Moderátorok: "
@@ -3815,8 +3946,11 @@ hu:
             trust_levels_none: "Egyik sem"
             automatic_membership_associated_groups: "Azok a felhasználók, akik egy itt felsorolt szolgáltatás csoportjának tagjai, automatikusan hozzáadódnak ehhez a csoporthoz, amikor bejelentkeznek a szolgáltatásba."
             primary_group: "Automatikusan beállítva elsődleges csoportnak"
+<<<<<<< HEAD
           alert:
             primary_group: "Mivel ez egy elsődleges csoport, a(z) „%{group_name}” nevet fogja használni a CSS osztályokban, melyeket bárki láthat."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         name_placeholder: "Csoport neve szóközök nélkül, a felhasználónév szabályaival"
         primary: "Elsődleges csoport"
         no_primary: "(nincs elsődleges csoport)"
@@ -3825,8 +3959,12 @@ hu:
         refresh: "Frissítés"
         group_members: "A csoport tagjai"
         delete: "Törlés"
+<<<<<<< HEAD
         delete_confirm: "Biztos, hogy törölni szeretné a(z) %{group} csoportot?"
         delete_warning: "A törölt csoportok nem állíthatók vissza"
+=======
+        delete_confirm: "Biztos, hogy törölni szeretné ezt a csoportot?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "A csoport törlése sikertelen. Ha ez egy automatikusan létrehozott csoport, akkor nem törölhető."
         delete_automatic_group: Ez egy automatikus csoport, nem törölhető.
         delete_owner_confirm: "Eltávolítja „%{username}” tulajdonosi jogosultságát?"
@@ -3882,6 +4020,7 @@ hu:
             topics:
               read: Olvasson el egy témát vagy egy adott hozzászólást. Az RSS is támogatva van.
               write: Hozzon létre új témát, vagy írjon egy meglévő témához.
+<<<<<<< HEAD
               update: Téma frissítése. Módosíthatja a címet, kategóriát, címkéket, státuszt, archetípust, featured_linket stb.
               delete: Téma törlése.
               read_lists: Témalisták olvasása, mint a top, új, legújabb, stb. Az RSS is támogatva van.
@@ -3890,6 +4029,12 @@ hu:
               delete: Hozzászólás törlése.
             tags:
               list: Címkék listázása.
+=======
+              update: Téma frissítése. A cím, kategória, címkék stb. módosítása.
+              read_lists: Témalisták olvasása, mint a top, új, legújabb, stb. Az RSS is támogatva van.
+            posts:
+              edit: Bármelyik hozzászólás vagy egy adott hozzászólás szerkesztése.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             categories:
               list: A kategóriák listájának lekérdezése.
               show: Egyetlen kategória kinyerése az azonosító alapján.
@@ -3926,7 +4071,11 @@ hu:
         controls: "Irányítás"
         go_back: "Vissza a listára"
         payload_url_placeholder: "https://example.com/postreceive"
+<<<<<<< HEAD
         secret_invalid: "A titokban nem lehet üres karakter."
+=======
+        secret_invalid: "A Secret mezőben nem lehet üres karakter."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_too_short: "A titoknak legalább 12 karakteresnek kell lennie"
         secret_placeholder: "Egy opcionális karakterlánc, amelyet aláírás létrehozásához használnak"
         event_type_missing: "Legalább egy eseménytípust be kell állítania."
@@ -4013,6 +4162,10 @@ hu:
           size: "Méret"
         upload:
           label: "Feltöltés"
+<<<<<<< HEAD
+=======
+          uploading: "Feltültés..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           success: "'%{filename}' sikeresen feltöltésre került. A fájl feldolgozása folyamatban van, és egy percig eltarthat, amíg megjelenik a listán."
           error: "Egy hiba lépett fel feltöltés közben '%{filename}': %{message}"
         operations:
@@ -4146,6 +4299,10 @@ hu:
             no_overwrite: "Érvénytelen változónév. Nem írhat felül egy meglévő változót."
             must_be_unique: "Érvénytelen változónév. Egyedinek kell lennie."
           upload: "Feltöltés"
+<<<<<<< HEAD
+=======
+          select_component: "Válassz ki egy komponenst..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           unsaved_changes_alert: "Még nem mentette el a módosításokat, el akarja dobni őket, és továbblépni?"
           discard: "Elvetés"
           stay: "Marad"
@@ -4155,6 +4312,10 @@ hu:
           delete_upload_confirm: "Töröljük ezt a feltöltést? (A témához tartozó CSS működésképtelenné válhat!)"
           add_all: "Az összes hozzáadása"
           import_web_tip: "Témát tartalmazó tároló"
+<<<<<<< HEAD
+=======
+          import_web_advanced: "Haladó..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           import_file_tip: ".tar.gz, .zip vagy .dcstyle.json fájl, amely témát tartalmaz"
           is_private: "A téma egy privát git tárolóban van"
           last_attempt: "A telepítési folyamat nem fejeződött be, utolsó próbálkozás:"
@@ -4429,9 +4590,12 @@ hu:
             delete_group: "csoport törlése"
             watched_word_create: "figyelt szó hozzáadása"
             watched_word_destroy: "figyelt szó törlése"
+<<<<<<< HEAD
             create_public_sidebar_section: "nyilvános oldalsáv szakasz létrehozása"
             update_public_sidebar_section: "frissítse a nyilvános oldalsáv szakaszt"
             destroy_public_sidebar_section: "semmisítse meg a nyilvános oldalsáv szakaszt"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         screened_emails:
           title: "Szűrt e-mailek"
           email: "E-mail cím"
@@ -4591,7 +4755,10 @@ hu:
           text: "Megjelenítés"
       user:
         suspend_failed: "Hiba történt %{error} felhasználó felfüggesztésekor"
+<<<<<<< HEAD
         suspend_duration: "Felhasználó felfüggesztése a következő időpontig:"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_reason_label: "Miért függeszti fel? Ez a <b>szöveg mindenki számára látható lesz</b> a felhasználó profiloldalán, és megjelenik a felhasználó számára is, ha megpróbál bejelentkezni. Fogalmazzon röviden."
         suspend_reason: "Ok"
         suspend_reason_title: "Felfüggesztés oka"
@@ -4599,6 +4766,10 @@ hu:
           not_listening_to_staff: "Nem hallgat a személyzet visszajelzéseire"
           combative: "Túl harcias"
           in_wrong_place: "Rossz helyen van"
+<<<<<<< HEAD
+=======
+          custom: "Egyéb..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_message: "E-mail üzenet"
         suspend_message_placeholder: "Opcionálisan adjon meg további információkat a felfüggesztésről, amit e-mailben elküldünk a felhasználónak."
         suspended_by: "Felfüggesztette:"
@@ -4613,7 +4784,10 @@ hu:
         suspended_until: "(eddig: %{until})"
         suspend_forever: "Örökre felfüggeszteni"
         cant_suspend: "Ez a felhasználó nem lett felfüggesztve"
+<<<<<<< HEAD
         cant_silence: "Ezt a felhasználót nem lehet elhallgattatni."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_posts_failed: "Probléma volt a hozzászólások törlésével."
         penalty_post_actions: "Mit szeretnél csinálni ezzel az összekapcsolt bejegyzéssel?"
         penalty_post_delete: "Bejegyzés eltávolítása"
@@ -4742,8 +4916,11 @@ hu:
         recommended: "Azt tanácsoljuk, hogy módosítsd a következő szöveget az igényeidnek megfelelően:"
         show_overriden: "Csak a felülírtak megjelenítése"
         locale: "Nyelv:"
+<<<<<<< HEAD
         outdated:
           dismiss: "Elvetés"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       settings:
         show_overriden: "Csak a felülírtak megjelenítése"
         reset: "alaphelyzet"

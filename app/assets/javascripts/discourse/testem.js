@@ -1,8 +1,13 @@
 const TapReporter = require("testem/lib/reporters/tap_reporter");
+<<<<<<< HEAD
 const { shouldLoadPlugins } = require("discourse-plugins");
 const fs = require("fs");
 const displayUtils = require("testem/lib/utils/displayutils");
 const colors = require("@colors/colors/safe");
+=======
+const { shouldLoadPluginTestJs } = require("discourse-plugins");
+const fs = require("fs");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 class Reporter extends TapReporter {
   failReports = [];
@@ -23,7 +28,11 @@ class Reporter extends TapReporter {
       const currentCount = this.deprecationCounts.get(id) || 0;
       this.deprecationCounts.set(id, currentCount + 1);
     } else if (tag === "summary-line") {
+<<<<<<< HEAD
       this.out.write(`\n${metadata.message}\n`);
+=======
+      process.stdout.write(`\n${metadata.message}\n`);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     } else {
       super.reportMetadata(...arguments);
     }
@@ -104,8 +113,45 @@ class Reporter extends TapReporter {
     this.out.write(`\n${deprecationMessage}\n\n`);
   }
 
+  generateDeprecationTable() {
+    const maxIdLength = Math.max(
+      ...Array.from(this.deprecationCounts.keys()).map((k) => k.length)
+    );
+
+    let msg = `| ${"id".padEnd(maxIdLength)} | count |\n`;
+    msg += `| ${"".padEnd(maxIdLength, "-")} | ----- |\n`;
+
+    for (const [id, count] of this.deprecationCounts.entries()) {
+      const countString = count.toString();
+      msg += `| ${id.padEnd(maxIdLength)} | ${countString.padStart(5)} |\n`;
+    }
+
+    return msg;
+  }
+
+  reportDeprecations() {
+    let deprecationMessage = "[Deprecation Counter] ";
+    if (this.deprecationCounts.size > 0) {
+      const table = this.generateDeprecationTable();
+      deprecationMessage += `Test run completed with deprecations:\n\n${table}`;
+
+      if (process.env.GITHUB_ACTIONS && process.env.GITHUB_STEP_SUMMARY) {
+        let jobSummary = `### ⚠️ JS Deprecations\n\nTest run completed with deprecations:\n\n`;
+        jobSummary += table;
+        jobSummary += `\n\n`;
+
+        fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, jobSummary);
+      }
+    } else {
+      deprecationMessage += "No deprecations logged";
+    }
+    process.stdout.write(`\n${deprecationMessage}\n\n`);
+  }
+
   finish() {
     super.finish();
+
+    this.reportDeprecations();
 
     this.reportDeprecations();
 

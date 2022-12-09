@@ -10,31 +10,43 @@ zh_CN:
       site_settings:
         categories:
           chat: 聊天
+<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "总是"
           fullscreen: "当全屏聊天时"
           never: "永不"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "聊天频道状态已更改"
             chat_channel_delete: "聊天频道已删除"
+<<<<<<< HEAD
             chat_auto_remove_membership: "成员资格已从频道自动移除"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
             chat:
               create_message: "在指定频道创建聊天消息。"
+<<<<<<< HEAD
       web_hooks:
         chat_message_event:
           name: "聊天消息事件"
           details: "创建、编辑、删除或恢复聊天消息时。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     about:
       chat_messages_count: "聊天消息"
       chat_channels_count: "聊天频道"
       chat_users_count: "聊天用户"
     chat:
+<<<<<<< HEAD
       deleted_chat_username: 已删除
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "显示所有消息"
@@ -49,7 +61,11 @@ zh_CN:
       move_to_channel:
         title: "将消息移至频道"
         instructions:
+<<<<<<< HEAD
           other: "您正在移动 <strong>%{count}</strong> 条消息。选择目标频道。将在 <strong>%{channelTitle}</strong> 频道中创建占位符消息，以表明这些消息已被移动。请注意，新频道中不会保留回复链，旧频道中的消息将不再显示为回复任何移动的消息。"
+=======
+          other: "您正在移动 <strong>%{count}</strong> 条消息。选择一个目标频道。 将在<strong>%{channelTitle}</strong>频道中创建一条占位符消息，以表明这些消息已被移动。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "移动消息"
       channel_settings:
         title: "频道设置"
@@ -80,7 +96,11 @@ zh_CN:
         instructions: "关闭该频道会阻止非管理人员用户发送新消息或编辑现有消息。确定要关闭此频道吗？"
       channel_delete:
         title: "删除频道"
+<<<<<<< HEAD
         instructions: "<p>删除 <strong>%{name}</strong> 频道和聊天历史记录。所有消息和相关数据，例如回应和上传，将被永久删除。如果您希望保留频道历史记录，并将其停用，您可能需要归档频道。</p> <p>确定要<strong>永久删除</strong>该频道吗？要确认，请在下面的框中输入频道的名称。</p>"
+=======
+        instructions: "<p>删除<strong>%{name}</strong>频道和聊天历史。所有消息和相关数据，例如回应和上传，将被永久删除。如果您想保留频道历史记录，并将其停用，您可能想要归档频道。</p> <p>确定要<strong>永久删除</strong>该频道吗？要确认，请在下面的框中输入频道的名称。</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "我明白后果，删除频道"
         confirm_channel_name: "输入频道名称"
         process_started: "删除频道的过程已经开始。此对话框将很快关闭，您将无法再查看被删除的频道。"
@@ -89,12 +109,18 @@ zh_CN:
         create: "新建频道"
       click_to_join: "点击此处查看可用频道。"
       close: "关闭"
+<<<<<<< HEAD
       remove: "移除"
       collapse: "收起聊天抽屉"
       expand: "展开聊天栏"
       confirm_flag: "确定要举报 %{username} 的消息吗？"
       deleted:
         other: "%{count} 条消息已被删除。[查看全部]"
+=======
+      collapse: "收起聊天抽屉"
+      confirm_flag: "确定要举报 %{username} 的消息吗？"
+      deleted: "一条消息已被删除。[查看]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "一条消息已被隐藏。[查看]"
       delete: "删除"
       edited: "已编辑"
@@ -109,6 +135,7 @@ zh_CN:
         never: "永不"
         title: "电子邮件通知"
         when_away: "仅在离开时"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "在标题中显示活动指示器"
         all_new: "所有新消息"
@@ -116,6 +143,8 @@ zh_CN:
         never: "永不"
       separate_sidebar_mode:
         title: "为论坛和聊天显示单独边栏模式"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "启用聊天"
       flag: "举报"
       emoji: "插入表情符号"
@@ -125,6 +154,7 @@ zh_CN:
       in_reply_to: "回复"
       heading: "聊天"
       join: "加入"
+<<<<<<< HEAD
       last_visit: "上次访问"
       summarization:
         title: "总结消息"
@@ -203,12 +233,27 @@ zh_CN:
           other: "此消息超出了 %{count} 个提及的通知限制。"
         too_many_mentions_admin:
           other: '此消息超出了 %{count} 个提及的<a href="%{siteSettingUrl}" target="_blank">通知限制</a>。'
+=======
+      new_messages: "新消息"
+      mention_warning:
+        cannot_see:
+          other: "%{usernames} 无法访问此频道且未收到通知。"
+        dismiss: "忽略"
+        invitations_sent:
+          other: "已发送邀请"
+        invite: "邀请加入频道"
+        without_membership:
+          other: "%{usernames} 尚未加入此频道。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "聊天标题"
         composer: "聊天输入框"
         channels_list: "聊天频道列表"
       no_public_channels: "您还没有加入任何频道。"
+<<<<<<< HEAD
       kicked_from_channel: "您无法再访问此频道。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "只发送聊天推送通知"
         description: "阻止发送所有非聊天推送通知"
@@ -220,6 +265,7 @@ zh_CN:
       close_full_page: "关闭全屏聊天"
       open_message: "在聊天中打开消息"
       placeholder_self: "做些记录"
+<<<<<<< HEAD
       placeholder_channel: "在 %{channelName} 中聊天"
       placeholder_thread: "在对话中聊天"
       placeholder_users: "与 %{commaSeparatedNames} 聊天"
@@ -228,6 +274,12 @@ zh_CN:
         closed: "频道已关闭，您现在无法发送新消息。"
         read_only: "频道为只读，您现在无法发送新消息。"
       placeholder_silenced: "您目前无法发送消息。"
+=======
+      placeholder_others: "在 %{messageRecipient} 聊天"
+      placeholder_new_message_disallowed: "频道的状态为%{status}，您现在无法发送新消息。"
+      placeholder_silenced: "您目前无法发送消息。"
+      placeholder_start_conversation: 开始与 %{usernames} 的对话
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "移除文件"
       react: "使用表情符号回复"
       reply: "回复"
@@ -243,10 +295,15 @@ zh_CN:
       restore: "恢复已删除的消息"
       save: "保存"
       select: "选择"
+<<<<<<< HEAD
       return_to_list: "返回频道列表"
       return_to_threads_list: "返回正在进行的讨论"
       unread_threads_count:
         other: "您有 %{count} 条未读讨论"
+=======
+      silence: "将用户禁言"
+      return_to_list: "返回频道列表"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "滚动到底部"
       scroll_to_new_messages: "查看新消息"
       sound:
@@ -258,8 +315,11 @@ zh_CN:
       title: "聊天"
       title_capitalized: "聊天"
       upload: "附加文件"
+<<<<<<< HEAD
       upload_to_channel: "上传到 %{title}"
       upload_to_thread: "上传到对话"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         other: "%{count} 个文件"
       you_flagged: "您已举报此消息"
@@ -269,8 +329,12 @@ zh_CN:
         read_only: "只读"
         archived_header: "频道已被归档"
         archived: "已归档"
+<<<<<<< HEAD
         archive_failed: "频道归档失败。%{completed}/%{total} 条消息已归档。<a target=\"_blank\" href=\"%{topic_url}\">目标话题</a>已创建。按重试以尝试完成归档。"
         archive_failed_no_topic: "频道归档失败。%{completed}/%{total} 条消息已归档。目标话题未创建。按重试以尝试完成归档。"
+=======
+        archive_failed: "频道归档失败。%{completed} 条（共 %{total} 条）消息已被归档到<a target=\"_blank\" href=\"%{topic_url}\">目标话题</a>。按“重试”，尝试完成存档。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "请参阅<a target=\"_blank\" href=\"%{topic_url}\">归档话题</a>"
         closed_header: "频道已被关闭"
         closed: "已关闭"
@@ -293,7 +357,10 @@ zh_CN:
         associated_topic: 链接的话题
         associated_category: 链接的类别
         title: 标题
+<<<<<<< HEAD
         name: 名称
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: 描述
       channel_info:
         back_to_all_channels: "所有频道"
@@ -302,6 +369,7 @@ zh_CN:
           about: 关于
           members: 成员
           settings: 设置
+<<<<<<< HEAD
       new_message_modal:
         title: 发送消息
         add_user_long: <kbd>shift + 点击</kbd>或 <kbd>shift + enter</kbd><span>添加 @%{username}</span>
@@ -319,6 +387,12 @@ zh_CN:
         slug_description: 在 URL 中使用频道缩略名而不是频道名称
         name: 频道名称
         slug: 频道缩略名（可选）
+=======
+      channel_edit_title_modal:
+        title: 编辑标题
+        input_placeholder: 添加标题
+        description: 为您的频道提供简短的描述性标题
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: 编辑描述
         input_placeholder: 添加描述
@@ -328,12 +402,19 @@ zh_CN:
         prefix: "至："
         no_results: 没有结果
         selected_user_title: "取消选择 %{username}"
+<<<<<<< HEAD
+=======
+      channel_selector:
+        title: "跳转到频道"
+        no_channels: "没有频道符合您的搜索"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: 此频道没有成员
         no_memberships_found: 找不到成员
         memberships_count:
           other: "%{count} 个成员"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "启用整理"
         auto_join_users:
@@ -350,10 +431,18 @@ zh_CN:
                       }
                     }
             }
+=======
+        auto_join_users:
+          public_category_warning: "%{category}是公共类别。是否自动将所有最近活跃的用户添加到此频道？"
+          warning_groups:
+            other: 自动从%{group}和%{group_2}添加 %{members_count} 个用户？
+          warning_multiple_groups: 自动从%{group_1}和其他 %{count} 个群组添加 %{members_count} 个用户？
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "选择一个类别"
           none: "选择一个…"
           default_hint: 访问<a href=%{link} target="_blank">%{category}安全设置</a>管理访问权限
+<<<<<<< HEAD
           hint_1_group: '%{group} 中的用户将根据<a href="%{settingLink}" target="_blank">安全设置</a>访问此频道'
           hint_2_groups: '%{group1} 和 %{group2} 中的用户将根据<a href="%{settingLink}" target="_blank">安全设置</a>访问此频道'
           hint_multiple_groups:
@@ -362,6 +451,14 @@ zh_CN:
         description: "描述（可选）"
         name: "频道名称"
         slug: "频道缩略名（可选）"
+=======
+          hint_groups:
+            other: 根据<a href=%{link} target="_blank">安全设置</a>，%{hint}和%{hint_2}中的用户将可以访问此频道
+          hint_multiple_groups: 根据<a href=%{link} target="_blank">安全设置</a>，%{hint_1}和其他 %{count} 个群组中的用户将有权访问此频道
+        create: "创建频道"
+        description: "描述（可选）"
+        name: "频道名称"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "新建频道"
         type: "类型"
         types:
@@ -371,6 +468,7 @@ zh_CN:
         type: "聊天消息"
       reactions:
         only_you: "您回应了 :%{emoji}:"
+<<<<<<< HEAD
         you_and_single_user: "您和 %{username} 回应了 :%{emoji}:"
         you_and_multiple_users: "您、%{commaSeparatedUsernames} 和 %{username} 回应了 :%{emoji}:"
         you_multiple_users_and_more:
@@ -379,12 +477,21 @@ zh_CN:
         multiple_users: "%{commaSeparatedUsernames} 和 %{username} 回应了 :%{emoji}:"
         multiple_users_and_more:
           other: "%{commaSeparatedUsernames} 和其他 %{count} 人回应了 :%{emoji}:"
+=======
+        and_others: "您、%{usernames} 回应了 :%{emoji}:"
+        only_others: "%{usernames} 回应了 :%{emoji}:"
+        others_and_more: "%{usernames} 和其他 %{more} 人回应了 :%{emoji}:"
+        you_others_and_more: "您、%{usernames} 和其他 %{more} 人回应了 :%{emoji}:"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "切换工具栏"
         italic_text: "斜体"
         bold_text: "粗体"
         code_text: "代码文本"
+<<<<<<< HEAD
         send: "发送"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: '最初在<a href="%{channelLink}">%{channel}</a>中发送。'
         copy_success: "聊天引用已复制到剪贴板"
@@ -393,6 +500,7 @@ zh_CN:
         mention: "仅限提及"
         always: "所有活动"
       settings:
+<<<<<<< HEAD
         channel_wide_mentions_label: "允许 @all 和 @here 提及"
         channel_wide_mentions_description: "允许用户使用 @all 通知#%{channel} 的所有成员，或仅使用 @here 通知当前活跃的成员"
         channel_threading_label: "整理"
@@ -400,14 +508,21 @@ zh_CN:
         auto_join_users_label: "自动添加用户"
         auto_join_users_info: "每小时检查哪些用户在过去 3 个月中活跃。如果他们可以访问%{category}类别，请将其添加到此频道。"
         auto_join_users_info_no_category: "每小时检查哪些用户在过去 3 个月中活跃。如果他们可以访问所选类别，请将其添加到此频道。"
+=======
+        auto_join_users_label: "自动添加用户"
+        auto_join_users_info: "每小时检查哪些用户在过去 3 个月内处于活跃状态，如果他们有权访问“%{category}”类别，则将他们添加到此频道。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "所有不是此频道成员且有权访问“%{category}”类别的用户都将加入。确定吗？"
         desktop_notification_level: "桌面通知"
         follow: "加入"
         followed: "已加入"
         mobile_notification_level: "移动推送通知"
         mute: "将频道设为免打扰"
+<<<<<<< HEAD
         threading_enabled: "已启用"
         threading_disabled: "已禁用"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "开"
         muted_off: "关"
         notifications: "通知"
@@ -416,6 +531,7 @@ zh_CN:
         saved: "已保存"
         unfollow: "离开"
         admin_title: "管理员"
+<<<<<<< HEAD
       admin:
         title: "聊天"
         export_messages:
@@ -426,6 +542,14 @@ zh_CN:
       direct_messages:
         title: "个人聊天"
         new: "创建个人聊天"
+=======
+        retention_info: "聊天历史记录将保存 %{days} 天。"
+      admin:
+        title: "聊天"
+      direct_messages:
+        title: "个人聊天"
+        new: "新的个人聊天"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "开始"
         leave: "离开此个人聊天"
         cannot_create: "抱歉，您无法发送直接消息。"
@@ -482,12 +606,17 @@ zh_CN:
         many_users:
           other: "%{commaSeparatedUsernames} 和其他 %{count} 人正在输入"
       retention_reminders:
+<<<<<<< HEAD
         public_none: "频道历史记录会被永久保留。"
         public:
           other: "频道历史记录保留 %{count} 天。"
         dm_none: "个人聊天历史记录会被永久保留。"
         dm:
           other: "个人聊天历史记录保留 %{count} 天。"
+=======
+        public: "频道历史记录保留 %{days} 天。"
+        dm: "个人聊天记录保留 %{days} 天。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "此消息与频道标题定义的当前讨论无关，可能应当移至其他地方。"
         inappropriate: "此消息包含理性的人会认为具有攻击性、辱骂性或违反<a href=\"%{basePath}/guidelines\">我们的社区准则</a>的内容。"
@@ -509,6 +638,7 @@ zh_CN:
         symbols: "符号"
         search_placeholder: "按表情符号名称和别名搜索…"
         no_results: "没有结果"
+<<<<<<< HEAD
       thread:
         title: "标题"
         view_thread: 查看对话
@@ -533,6 +663,8 @@ zh_CN:
         open: "打开对话"
         list: "正在进行的讨论"
         none: "您没有参与此频道中的任何对话。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "新消息"
         cancel: "取消"
@@ -577,11 +709,17 @@ zh_CN:
       transcript:
         view: "查看以前的消息副本"
       types:
+<<<<<<< HEAD
         chat_reviewable_message:
           title: "被举报的聊天消息"
         reviewable_chat_message:
           title: "被举报的聊天消息"
           noun: "聊天消息"
+=======
+        reviewable_chat_message:
+          title: "举报的聊天消息"
+          flagged_by: "举报者"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "聊天"
@@ -594,7 +732,10 @@ zh_CN:
           composer_code: "%{shortcut} 代码（仅输入框）"
           drawer_open: "%{shortcut} 打开聊天抽屉"
           drawer_close: "%{shortcut} 关闭聊天抽屉"
+<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} 将所有频道标记为已读"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "已为此话题启用聊天"
@@ -612,6 +753,7 @@ zh_CN:
         chat_notifications: "聊天通知"
         chat_notifications_with_unread:
           other: "聊天通知 - %{count} 个未读通知"
+<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -620,3 +762,5 @@ zh_CN:
       panels:
         chat:
           label: "聊天"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

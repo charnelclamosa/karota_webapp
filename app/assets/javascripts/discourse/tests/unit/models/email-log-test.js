@@ -1,7 +1,11 @@
 import { module, test } from "qunit";
 import { setPrefix } from "discourse-common/lib/get-url";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | email-log", function (hooks) {
   setupTest(hooks);

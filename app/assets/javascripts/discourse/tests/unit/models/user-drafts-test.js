@@ -2,7 +2,11 @@ import { module, test } from "qunit";
 import I18n from "I18n";
 import { NEW_TOPIC_KEY } from "discourse/models/composer";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user-draft", function (hooks) {
   setupTest(hooks);

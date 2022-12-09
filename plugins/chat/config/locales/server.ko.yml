@@ -6,7 +6,11 @@
 
 ko:
   site_settings:
+<<<<<<< HEAD
     chat_enabled: "채팅 활성화."
+=======
+    chat_enabled: "채팅 플러그인을 활성화합니다."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chat:
     deleted_chat_username: 삭제되었습니다
     errors:
@@ -31,6 +35,7 @@ ko:
           title: "메시지 삭제"
         disagree:
           title: "동의하지 않음"
+<<<<<<< HEAD
     channel:
       dm_title:
         single_user: "%{username}"
@@ -56,6 +61,20 @@ ko:
     onebox:
       x_members:
         other: "회원 %{count}명"
+=======
+        ignore:
+          title: "무시"
+    channel:
+      statuses:
+        read_only: "읽기 전용"
+        archived: "저장됨"
+        closed: "닫힘"
+        open: "열기"
+    category_channel:
+      errors:
+        slug_contains_non_ascii_chars: "비 ASCII 문자 포함"
+    personal_chat: "개인 채팅"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   discourse_automation:
     scriptables:
       send_chat_message:

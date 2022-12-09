@@ -560,9 +560,20 @@ class TopicsController < ApplicationController
     topic = Topic.find_by(id: params[:topic_id])
     guardian.ensure_can_moderate!(topic)
 
+<<<<<<< HEAD
     guardian.ensure_can_delete!(topic) if TopicTimer.destructive_types.values.include?(status_type)
 
     options = { by_user: current_user, based_on_last_post: based_on_last_post }
+=======
+    if TopicTimer.destructive_types.values.include?(status_type)
+      guardian.ensure_can_delete!(topic)
+    end
+
+    options = {
+      by_user: current_user,
+      based_on_last_post: based_on_last_post
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     options.merge!(category_id: params[:category_id]) if !params[:category_id].blank?
     if params[:duration_minutes].present?

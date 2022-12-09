@@ -210,6 +210,7 @@ class UserUpdater
       end
 
       if attributes.key?(:sidebar_category_ids)
+<<<<<<< HEAD
         SidebarSectionLinksUpdater.update_category_section_links(
           user,
           category_ids:
@@ -233,10 +234,17 @@ class UserUpdater
 
       if SiteSetting.enable_user_status?
         update_user_status(attributes[:status]) if attributes.has_key?(:status)
+=======
+        SidebarSectionLinksUpdater.update_category_section_links(user, category_ids: attributes[:sidebar_category_ids])
+      end
+
+      if attributes.key?(:sidebar_tag_names) && SiteSetting.tagging_enabled
+        SidebarSectionLinksUpdater.update_tag_section_links(user, tag_names: attributes[:sidebar_tag_names])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       if SiteSetting.enable_user_status?
-        update_user_status(attributes[:status])
+        update_user_status(attributes[:status]) if attributes.has_key?(:status)
       end
 
       name_changed = user.name_changed?
@@ -271,6 +279,13 @@ class UserUpdater
           "/user-tips/#{user.id}",
           user.user_option.seen_popups,
           user_ids: [user.id],
+        )
+      end
+      if attributes.key?(:seen_popups) || attributes.key?(:skip_new_user_tips)
+        MessageBus.publish(
+          '/user-tips',
+          user.user_option.seen_popups,
+          user_ids: [user.id]
         )
       end
       DiscourseEvent.trigger(:user_updated, user)
@@ -341,6 +356,7 @@ class UserUpdater
 
   private
 
+<<<<<<< HEAD
   def update_user_status(status)
     if status.blank?
       @user.clear_status!
@@ -363,11 +379,24 @@ class UserUpdater
     end
   end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def update_user_status(status)
     if status.blank?
       @user.clear_status!
     else
       @user.set_status!(status[:description], status[:emoji], status[:ends_at])
+    end
+  end
+
+  def update_discourse_connect(discourse_connect)
+    external_id = discourse_connect[:external_id]
+    sso = SingleSignOnRecord.find_or_initialize_by(user_id: user.id)
+
+    if external_id.present?
+      sso.update!(external_id: discourse_connect[:external_id], last_payload: "external_id=#{discourse_connect[:external_id]}")
+    else
+      sso.destroy!
     end
   end
 

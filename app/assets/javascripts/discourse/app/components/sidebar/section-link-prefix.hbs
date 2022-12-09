@@ -1,4 +1,5 @@
 {{#if @prefixType}}
+<<<<<<< HEAD
   <span
     class={{concat-class
       "sidebar-section-link-prefix"
@@ -8,6 +9,9 @@
     style={{if @prefixColor (html-safe (concat "color: " @prefixColor))}}
   >
 
+=======
+  <span class={{concat-class "sidebar-section-link-prefix" @prefixType @prefixCSSClass}} style={{if @prefixColor (html-safe (concat "color: " @prefixColor))}}>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     {{#if (eq @prefixType "image")}}
       <img src={{this.prefixValue}} class="prefix-image" />
     {{else if (eq @prefixType "text")}}

@@ -7,8 +7,11 @@ import discourseComputed from "discourse-common/utils/decorators";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { setting } from "discourse/lib/computed";
 import { isTesting } from "discourse-common/config/environment";
+<<<<<<< HEAD
 import { dependentKeyCompat } from "@ember/object/compat";
 import { tracked } from "@glimmer/tracking";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Controller.extend(ModalFunctionality, {
   gravatarName: setting("gravatar_name"),

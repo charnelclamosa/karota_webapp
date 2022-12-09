@@ -126,9 +126,13 @@ class Guardian
     if @category_group_moderator_groups.key?(reviewable_by_group_id)
       @category_group_moderator_groups[reviewable_by_group_id]
     else
+<<<<<<< HEAD
       @category_group_moderator_groups[
         reviewable_by_group_id
       ] = category_group_moderator_scope.exists?("categories.id": category.id)
+=======
+      @category_group_moderator_groups[reviewable_by_group_id] = category_group_moderator_scope.exists?("categories.id": category.id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -469,11 +473,16 @@ class Guardian
     # User is authenticated
     authenticated? &&
       # User can send PMs, this can be covered by trust levels as well via AUTO_GROUPS
+<<<<<<< HEAD
       (
         is_staff? || from_bot || from_system ||
           (@user.in_any_groups?(SiteSetting.personal_message_enabled_groups_map)) ||
           notify_moderators
       )
+=======
+      (is_staff? || from_bot || from_system || \
+       (@user.in_any_groups?(SiteSetting.personal_message_enabled_groups_map)) || notify_moderators)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   ##
@@ -485,6 +494,7 @@ class Guardian
     from_system = @user.is_system_user?
 
     # Must be a valid target
+<<<<<<< HEAD
     return false if !(target_is_group || target_is_user)
 
     # Users can send messages to certain groups with the `everyone` messageable_level
@@ -501,6 +511,19 @@ class Guardian
       (from_system || target_is_user || group_is_messageable || notify_moderators) &&
       # Silenced users can only send PM to staff
       (!is_silenced? || target.staff?)
+=======
+    (target_is_group || target_is_user) &&
+    # User is authenticated and can send PMs, this can be covered by trust levels as well via AUTO_GROUPS
+    can_send_private_messages?(notify_moderators: notify_moderators) &&
+    # User disabled private message
+    (is_staff? || target_is_group || target.user_option.allow_private_messages) &&
+    # Can't send PMs to suspended users
+    (is_staff? || target_is_group || !target.suspended?) &&
+    # Check group messageable level
+    (from_system || target_is_user || Group.messageable(@user).where(id: target.id).exists? || notify_moderators) &&
+    # Silenced users can only send PM to staff
+    (!is_silenced? || target.staff?)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def can_send_private_messages_to_email?
@@ -655,10 +678,13 @@ class Guardian
     end
   end
 
+<<<<<<< HEAD
   def is_api?
     @user && request&.env&.dig(Auth::DefaultCurrentUserProvider::API_KEY_ENV)
   end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   protected
 
   def category_group_moderation_allowed?
@@ -666,8 +692,16 @@ class Guardian
   end
 
   def category_group_moderator_scope
+<<<<<<< HEAD
     Category.joins(
       "INNER JOIN group_users ON group_users.group_id = categories.reviewable_by_group_id",
     ).where("group_users.user_id = ?", user.id)
   end
+=======
+    Category
+      .joins("INNER JOIN group_users ON group_users.group_id = categories.reviewable_by_group_id")
+      .where("group_users.user_id = ?", user.id)
+  end
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

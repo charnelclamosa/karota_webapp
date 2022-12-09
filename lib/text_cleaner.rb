@@ -72,11 +72,15 @@ class TextCleaner
     text
   end
 
+<<<<<<< HEAD
   @@whitespaces_regexp =
     Regexp.new(
       "(\u00A0|\u1680|\u180E|[\u2000-\u200A]|\u2028|\u2029|\u202F|\u205F|\u3000)",
       Regexp::IGNORECASE,
     ).freeze
+=======
+  @@whitespaces_regexp = Regexp.new("(\u00A0|\u1680|\u180E|[\u2000-\u200A]|\u2028|\u2029|\u202F|\u205F|\u3000)", Regexp::IGNORECASE).freeze
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def self.normalize_whitespaces(text)
     text&.gsub(@@whitespaces_regexp, " ")

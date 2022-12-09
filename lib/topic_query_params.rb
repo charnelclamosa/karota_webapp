@@ -20,4 +20,14 @@ module TopicQueryParams
 
     options
   end
+<<<<<<< HEAD
+=======
+
+  private
+
+  def hide_welcome_topic?
+    return false if !SiteSetting.bootstrap_mode_enabled
+    Site.welcome_topic_exists_and_is_not_edited?
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

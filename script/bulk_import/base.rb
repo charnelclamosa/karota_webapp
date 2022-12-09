@@ -891,9 +891,13 @@ class BulkImport::Base
           imported_ids |= mapped[:imported_ids] unless mapped[:imported_ids].nil?
           @raw_connection.put_copy_data columns.map { |c| processed[c] } unless processed[:skip]
           rows_created += 1
+<<<<<<< HEAD
           if rows_created % 100 == 0
             print "\r%7d - %6d/sec" % [rows_created, rows_created.to_f / (Time.now - start)]
           end
+=======
+          print "\r%7d - %6d/sec" % [rows_created, rows_created.to_f / (Time.now - start)] if rows_created % 100 == 0
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         rescue => e
           puts "\n"
           puts "ERROR: #{e.message}"
@@ -902,9 +906,13 @@ class BulkImport::Base
       end
     end
 
+<<<<<<< HEAD
     if rows_created > 0
       print "\r%7d - %6d/sec\n" % [rows_created, rows_created.to_f / (Time.now - start)]
     end
+=======
+    print "\r%7d - %6d/sec\n" % [rows_created, rows_created.to_f / (Time.now - start)] if rows_created > 0
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     id_mapping_method_name = "#{name}_id_from_imported_id".freeze
     return unless respond_to?(id_mapping_method_name)

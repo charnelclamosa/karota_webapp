@@ -7,20 +7,35 @@ export default Component.extend({
 
   // used for animating the label inside of inputs
   userInputFocus(event) {
+<<<<<<< HEAD
     const userField = event.target.parentElement.parentElement;
     if (!userField.classList.contains("value-entered")) {
       userField.classList.toggle("value-entered");
+=======
+    const controls = event.target.parentElement;
+    if (!controls.classList.contains("value-entered")) {
+      controls.classList.toggle("value-entered");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   },
 
   // used for animating the label inside of inputs
   userInputFocusOut(event) {
+<<<<<<< HEAD
     const userField = event.target.parentElement.parentElement;
     if (
       event.target.value.length === 0 &&
       userField.classList.contains("value-entered")
     ) {
       userField.classList.toggle("value-entered");
+=======
+    const controls = event.target.parentElement;
+    if (
+      event.target.value.length === 0 &&
+      controls.classList.contains("value-entered")
+    ) {
+      controls.classList.toggle("value-entered");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   },
 

@@ -52,6 +52,14 @@ RSpec.describe Onebox::Helpers do
         )
       end
     end
+
+    it "raises an exception when private url requested" do
+      FinalDestination::TestHelper.stub_to_fail do
+        expect {
+          described_class.fetch_response('http://example.com/large-file')
+        }.to raise_error(FinalDestination::SSRFDetector::DisallowedIpError)
+      end
+    end
   end
 
   describe "fetch_html_doc" do
@@ -79,6 +87,7 @@ RSpec.describe Onebox::Helpers do
       end
 
       it "does not follow canonical link pointing at localhost" do
+<<<<<<< HEAD
         uri = "https://www.example.com"
         FinalDestination::SSRFDetector
           .stubs(:lookup_ips)
@@ -88,6 +97,11 @@ RSpec.describe Onebox::Helpers do
           status: 200,
           body: "<!DOCTYPE html><link rel='canonical' href='http://localhost/test'/><p>success</p>",
         )
+=======
+        uri = 'https://www.example.com'
+        FinalDestination::SSRFDetector.stubs(:lookup_ips).with { |h| h == "localhost" }.returns(["127.0.0.1"])
+        stub_request(:get, uri).to_return(status: 200, body: "<!DOCTYPE html><link rel='canonical' href='http://localhost/test'/><p>success</p>")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(described_class.fetch_html_doc(uri).to_s).to match("success")
       end
@@ -96,11 +110,19 @@ RSpec.describe Onebox::Helpers do
 
   describe ".fetch_content_length" do
     it "does not connect to private IP" do
+<<<<<<< HEAD
       uri = "https://www.example.com"
       FinalDestination::TestHelper.stub_to_fail do
         expect { described_class.fetch_content_length(uri) }.to raise_error(
           FinalDestination::SSRFDetector::DisallowedIpError,
         )
+=======
+      uri = 'https://www.example.com'
+      FinalDestination::TestHelper.stub_to_fail do
+        expect {
+          described_class.fetch_content_length(uri)
+        }.to raise_error(FinalDestination::SSRFDetector::DisallowedIpError)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end

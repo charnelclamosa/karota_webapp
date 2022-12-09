@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { tracked } from "@glimmer/tracking";
 import User from "discourse/models/user";
 
@@ -32,3 +33,8 @@ export default class UserChatChannelMembership {
     return User.create(user);
   }
 }
+=======
+import RestModel from "discourse/models/rest";
+
+export default class UserChatChannelMembership extends RestModel {}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

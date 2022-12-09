@@ -59,8 +59,12 @@ class GroupsController < ApplicationController
 
     if !guardian.is_staff?
       # hide automatic groups from all non stuff to de-clutter page
+<<<<<<< HEAD
       groups =
         groups.where("groups.automatic IS FALSE OR groups.id = ?", Group::AUTO_GROUPS[:moderators])
+=======
+      groups = groups.where("automatic IS FALSE OR groups.id = ?", Group::AUTO_GROUPS[:moderators])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       type_filters.delete(:automatic)
     end
 
@@ -124,11 +128,15 @@ class GroupsController < ApplicationController
       format.json do
         groups = Group.visible_groups(current_user)
         if !guardian.is_staff?
+<<<<<<< HEAD
           groups =
             groups.where(
               "groups.automatic IS FALSE OR groups.id = ?",
               Group::AUTO_GROUPS[:moderators],
             )
+=======
+          groups = groups.where("automatic IS FALSE OR groups.id = ?", Group::AUTO_GROUPS[:moderators])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         render_json_dump(

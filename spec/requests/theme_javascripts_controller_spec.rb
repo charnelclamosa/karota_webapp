@@ -170,9 +170,15 @@ RSpec.describe ThemeJavascriptsController do
       get "/theme-javascripts/tests/#{component.id}-#{digest}.js"
       expect(response.body).to include(
         "require(\"discourse/lib/theme-settings-store\").registerSettings(" +
+<<<<<<< HEAD
           "#{component.id}, {\"num_setting\":5,\"theme_uploads\":{\"vendorlib\":" +
           "\"/uploads/default/test_#{ENV["TEST_ENV_NUMBER"].presence || "0"}/original/1X/#{js_upload.sha1}.js\"},\"theme_uploads_local\":{\"vendorlib\":" +
           "\"/theme-javascripts/#{js_upload.sha1}.js?__ws=test.localhost\"}}, { force: true });",
+=======
+        "#{component.id}, {\"num_setting\":5,\"theme_uploads\":{\"vendorlib\":" +
+        "\"/uploads/default/test_#{ENV['TEST_ENV_NUMBER'].presence || '0'}/original/1X/#{js_upload.sha1}.js\"},\"theme_uploads_local\":{\"vendorlib\":" +
+        "\"/theme-javascripts/#{js_upload.sha1}.js?__ws=test.localhost\"}}, { force: true });"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
       expect(response.body).to include("assert.ok(true);")
     ensure

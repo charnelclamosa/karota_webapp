@@ -96,6 +96,11 @@ class Upload < ActiveRecord::Base
     self.validate_file_size = true
   end
 
+  def initialize(*args)
+    super
+    self.validate_file_size = true
+  end
+
   def to_s
     self.url
   end
@@ -501,11 +506,17 @@ class Upload < ActiveRecord::Base
         local_store = FileStore::LocalStore.new
         db = RailsMultisite::ConnectionManagement.current_db
 
+<<<<<<< HEAD
         scope =
           Upload
             .by_users
             .where("url NOT LIKE '%/original/_X/%' AND url LIKE ?", "%/uploads/#{db}%")
             .order(id: :desc)
+=======
+        scope = Upload.by_users
+          .where("url NOT LIKE '%/original/_X/%' AND url LIKE ?", "%/uploads/#{db}%")
+          .order(id: :desc)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         scope = scope.limit(limit) if limit
 

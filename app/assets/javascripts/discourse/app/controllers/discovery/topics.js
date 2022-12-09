@@ -23,6 +23,7 @@ export default class TopicsController extends DiscoveryController.extend(
 
   bulkSelectHelper = new BulkSelectHelper(this);
 
+<<<<<<< HEAD
   period = null;
   expandGloballyPinned = false;
   expandAllPinned = false;
@@ -40,6 +41,11 @@ export default class TopicsController extends DiscoveryController.extend(
   @equal("period", "monthly") monthly;
   @equal("period", "weekly") weekly;
   @equal("period", "daily") daily;
+=======
+  canStar: alias("currentUser.id"),
+  showTopicPostBadges: not("new"),
+  redirectedReason: alias("currentUser.user_option.redirected_to_top.reason"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   @or("currentUser.canManageTopic", "showDismissRead", "showResetNew")
   canBulkSelect;
@@ -99,6 +105,7 @@ export default class TopicsController extends DiscoveryController.extend(
     tracker.resetTracking();
   }
 
+<<<<<<< HEAD
   @action
   changeSort() {
     deprecated(
@@ -107,6 +114,28 @@ export default class TopicsController extends DiscoveryController.extend(
         since: "2.6.0",
         dropFrom: "2.7.0",
         id: "discourse.topics.change-sort",
+=======
+  actions: {
+    changeSort() {
+      deprecated(
+        "changeSort has been changed from an (action) to a (route-action)",
+        {
+          since: "2.6.0",
+          dropFrom: "2.7.0",
+          id: "discourse.topics.change-sort",
+        }
+      );
+      return routeAction("changeSort", this.router._router, ...arguments)();
+    },
+
+    refresh(options = { skipResettingParams: [] }) {
+      const filter = this.get("model.filter");
+      this.send("resetParams", options.skipResettingParams);
+
+      // Don't refresh if we're still loading
+      if (this.discovery.loading) {
+        return;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     );
     return routeAction("changeSort", this.router._router, ...arguments)();

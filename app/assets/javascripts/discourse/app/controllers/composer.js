@@ -69,6 +69,7 @@ async function loadDraft(store, opts = {}) {
 }
 
 const _popupMenuOptionsCallbacks = [];
+const _composerSaveErrorCallbacks = [];
 
 let _checkDraftPopup = !isTesting();
 
@@ -82,6 +83,14 @@ export function clearPopupMenuOptionsCallback() {
 
 export function addPopupMenuOptionsCallback(callback) {
   _popupMenuOptionsCallbacks.push(callback);
+}
+
+export function clearComposerSaveErrorCallback() {
+  _composerSaveErrorCallbacks.length = 0;
+}
+
+export function addComposerSaveErrorCallback(callback) {
+  _composerSaveErrorCallbacks.push(callback);
 }
 
 export default Controller.extend({
@@ -618,12 +627,21 @@ export default Controller.extend({
           const [linkWarn, linkInfo] = linkLookup.check(post, href);
 
           if (linkWarn && !this.get("isWhispering")) {
-            const body = I18n.t("composer.duplicate_link", {
-              domain: linkInfo.domain,
-              username: linkInfo.username,
-              post_url: topic.urlForPostNumber(linkInfo.post_number),
-              ago: shortDate(linkInfo.posted_at),
-            });
+            let body;
+            if (linkInfo.username === this.currentUser.username) {
+              body = I18n.t("composer.duplicate_link_same_user", {
+                domain: linkInfo.domain,
+                post_url: topic.urlForPostNumber(linkInfo.post_number),
+                ago: shortDate(linkInfo.posted_at),
+              });
+            } else {
+              body = I18n.t("composer.duplicate_link", {
+                domain: linkInfo.domain,
+                username: linkInfo.username,
+                post_url: topic.urlForPostNumber(linkInfo.post_number),
+                ago: shortDate(linkInfo.posted_at),
+              });
+            }
             this.appEvents.trigger("composer-messages:create", {
               extraClass: "custom-body",
               templateName: "custom-body",
@@ -747,31 +765,18 @@ export default Controller.extend({
       }
     },
 
-    groupsMentioned(groups) {
+    groupsMentioned({ name, userCount, maxMentions }) {
       if (
-        !this.get("model.creatingPrivateMessage") &&
-        !this.get("model.topic.isPrivateMessage")
+        this.get("model.creatingPrivateMessage") ||
+        this.get("model.topic.isPrivateMessage")
       ) {
-        groups.forEach((group) => {
-          let body;
-          const groupLink = getURL(`/g/${group.name}/members`);
-          const maxMentions = parseInt(group.max_mentions, 10);
-          const userCount = parseInt(group.user_count, 10);
+        return;
+      }
 
-          if (maxMentions < userCount) {
-            body = I18n.t("composer.group_mentioned_limit", {
-              group: `@${group.name}`,
-              count: maxMentions,
-              group_link: groupLink,
-            });
-          } else if (group.user_count > 0) {
-            body = I18n.t("composer.group_mentioned", {
-              group: `@${group.name}`,
-              count: userCount,
-              group_link: groupLink,
-            });
-          }
+      maxMentions = parseInt(maxMentions, 10);
+      userCount = parseInt(userCount, 10);
 
+<<<<<<< HEAD
           if (body) {
             this.appEvents.trigger("composer-messages:create", {
               extraClass: "custom-body",
@@ -779,10 +784,35 @@ export default Controller.extend({
               body,
             });
           }
+=======
+      let body;
+      const groupLink = getURL(`/g/${name}/members`);
+
+      if (userCount > maxMentions) {
+        body = I18n.t("composer.group_mentioned_limit", {
+          group: `@${name}`,
+          count: maxMentions,
+          group_link: groupLink,
+        });
+      } else if (userCount > 0) {
+        body = I18n.t("composer.group_mentioned", {
+          group: `@${name}`,
+          count: userCount,
+          group_link: groupLink,
+        });
+      }
+
+      if (body) {
+        this.appEvents.trigger("composer-messages:create", {
+          extraClass: "custom-body",
+          templateName: "education",
+          body,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         });
       }
     },
 
+<<<<<<< HEAD
     cannotSeeMention(mentions) {
       mentions.forEach((mention) => {
         this.appEvents.trigger("composer-messages:create", {
@@ -791,7 +821,27 @@ export default Controller.extend({
           body: I18n.t(`composer.cannot_see_mention.${mention.reason}`, {
             username: mention.name,
           }),
+=======
+    cannotSeeMention({ name, reason, notifiedCount, isGroup }) {
+      notifiedCount = parseInt(notifiedCount, 10);
+
+      let body;
+      if (isGroup) {
+        body = I18n.t(`composer.cannot_see_group_mention.${reason}`, {
+          group: name,
+          count: notifiedCount,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         });
+      } else {
+        body = I18n.t(`composer.cannot_see_mention.${reason}`, {
+          username: name,
+        });
+      }
+
+      this.appEvents.trigger("composer-messages:create", {
+        extraClass: "custom-body",
+        templateName: "education",
+        body,
       });
     },
 
@@ -1018,7 +1068,24 @@ export default Controller.extend({
       .catch((error) => {
         composer.set("disableDrafts", false);
         if (error) {
+<<<<<<< HEAD
           this.appEvents.one("composer:will-open", () => bootbox.alert(error));
+=======
+          this.appEvents.one("composer:will-open", () => {
+            if (
+              _composerSaveErrorCallbacks.length === 0 ||
+              !_composerSaveErrorCallbacks
+                .map((c) => {
+                  return c.call(this, error);
+                })
+                .some((i) => {
+                  return i;
+                })
+            ) {
+              this.dialog.alert(error);
+            }
+          });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }
       });
 
@@ -1210,7 +1277,9 @@ export default Controller.extend({
 
     if (!this.model.targetRecipients) {
       if (opts.usernames) {
-        deprecated("`usernames` is deprecated, use `recipients` instead.");
+        deprecated("`usernames` is deprecated, use `recipients` instead.", {
+          id: "discourse.composer.usernames",
+        });
         this.model.set("targetRecipients", opts.usernames);
       } else if (opts.recipients) {
         this.model.set("targetRecipients", opts.recipients);

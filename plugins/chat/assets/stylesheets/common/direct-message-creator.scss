@@ -40,7 +40,11 @@
     margin: 1px 0.25rem 0.25rem 1px;
     padding: 0.25rem 0.5rem 0.25rem 0.25rem;
     background: var(--primary-very-low);
+<<<<<<< HEAD
     border-radius: var(--d-border-radius-large);
+=======
+    border-radius: 8px;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     border: 1px solid var(--primary-300);
     align-items: center;
     display: flex;
@@ -114,7 +118,11 @@
     margin: 0;
     flex-wrap: wrap;
     border-bottom: 1px solid var(--primary-low);
+<<<<<<< HEAD
     box-shadow: var(--shadow-card);
+=======
+    box-shadow: shadow("card");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     position: absolute;
     width: 100%;
     z-index: z("dropdown");
@@ -129,7 +137,11 @@
       padding: 0.25em 0.5em;
       margin: 0.25rem;
       align-items: center;
+<<<<<<< HEAD
       border-radius: var(--d-border-radius);
+=======
+      border-radius: 4px;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       .user-info {
         margin: 0;
@@ -158,8 +170,12 @@
         margin-left: 0.3em;
 
         .emoji {
+<<<<<<< HEAD
           width: 15px;
           height: 15px;
+=======
+          margin-bottom: 0.2em;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }
       }
     }
@@ -180,7 +196,11 @@
     text-align: center;
     padding: 1rem;
     width: 100%;
+<<<<<<< HEAD
     box-shadow: var(--shadow-card);
+=======
+    box-shadow: shadow("card");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     background: var(--secondary);
     margin: 0;
     box-sizing: border-box;

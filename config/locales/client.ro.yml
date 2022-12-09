@@ -1524,7 +1524,10 @@ ro:
       title: "Autentificare"
       username: "Utilizator"
       password: "Parolă"
+<<<<<<< HEAD
       show_password: "Arată"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       second_factor_title: "Autentificare în doi pași (2FA)"
       second_factor_description: "Introdu codul de autentificare din aplicația 2FA"
       second_factor_backup: "Autentifică-te folosind un cod de rezervă"

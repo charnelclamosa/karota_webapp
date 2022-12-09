@@ -129,6 +129,7 @@ RSpec.describe ContentSecurityPolicy do
 
       global_setting(:s3_cdn_url, "https://s3-cdn.com")
 
+<<<<<<< HEAD
       script_srcs = parse(policy)["script-src"]
       expect(script_srcs).to include(
         *%w[
@@ -156,6 +157,31 @@ RSpec.describe ContentSecurityPolicy do
           http://test.localhost/extra-locales/
         ],
       )
+=======
+      script_srcs = parse(policy)['script-src']
+      expect(script_srcs).to include(*%w[
+        https://s3-cdn.com/assets/
+        https://s3-cdn.com/brotli_asset/
+        https://cdn.com/highlight-js/
+        https://cdn.com/javascripts/
+        https://cdn.com/plugins/
+        https://cdn.com/theme-javascripts/
+        http://test.localhost/extra-locales/
+      ])
+
+      global_setting(:s3_asset_cdn_url, 'https://s3-asset-cdn.com')
+
+      script_srcs = parse(policy)['script-src']
+      expect(script_srcs).to include(*%w[
+        https://s3-asset-cdn.com/assets/
+        https://s3-asset-cdn.com/brotli_asset/
+        https://cdn.com/highlight-js/
+        https://cdn.com/javascripts/
+        https://cdn.com/plugins/
+        https://cdn.com/theme-javascripts/
+        http://test.localhost/extra-locales/
+      ])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "adds subfolder to CDN assets" do
@@ -246,12 +272,21 @@ RSpec.describe ContentSecurityPolicy do
       Discourse.plugins << plugin
 
       plugin.enabled = true
+<<<<<<< HEAD
       expect(parse(policy)["script-src"]).to include("https://from-plugin.com")
       expect(parse(policy)["script-src"]).to include("http://test.localhost/local/path")
       expect(parse(policy)["object-src"]).to include("https://test-stripping.com")
       expect(parse(policy)["object-src"]).to_not include("'none'")
       expect(parse(policy)["manifest-src"]).to include("'self'")
       expect(parse(policy)["manifest-src"]).to include("https://manifest-src.com")
+=======
+      expect(parse(policy)['script-src']).to include('https://from-plugin.com')
+      expect(parse(policy)['script-src']).to include('http://test.localhost/local/path')
+      expect(parse(policy)['object-src']).to include('https://test-stripping.com')
+      expect(parse(policy)['object-src']).to_not include("'none'")
+      expect(parse(policy)['manifest-src']).to include("'self'")
+      expect(parse(policy)['manifest-src']).to include('https://manifest-src.com')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       plugin.enabled = false
       expect(parse(policy)["script-src"]).to_not include("https://from-plugin.com")

@@ -1417,6 +1417,11 @@ bs_BA:
       enabled: "Ovaj sajt je u read only mod-u: Dozvoljeno je čitati. Možete nastaviti sa pregledom, ali odgovaranje na objave, lajkanje i ostale akcije su isključene za sada."
       login_disabled: "Ulogovanje je isključeno jer je sajt u read only načinu rada."
       logout_disabled: "Odjava je isključena sve dok je sajt u read only tj. samo čitanje je dozvoljeno načinu rada."
+<<<<<<< HEAD
+=======
+    learn_more: "saznaj više..."
+    first_post: Prva objava
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     mute: Utišaj
     unmute: Normalno
     last_post: Zadnja objava

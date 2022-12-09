@@ -6,6 +6,7 @@
 
 id:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         categories:
@@ -53,11 +54,22 @@ id:
         leave: "Keluar"
       close: "Tutup"
       remove: "Hapus"
+=======
+    chat:
+      cancel: "Batal"
+      channel_settings:
+        edit: "Ubah"
+        add: "Menambahkan"
+        join: "Gabung"
+        leave: "Keluar"
+      close: "Tutup"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Hapus"
       muted: "diredam"
       joined: "joined"
       email_frequency:
         never: "Tidak pernah"
+<<<<<<< HEAD
       header_indicator_preference:
         all_new: "Semua Pesan Baru"
         never: "Tidak pernah"
@@ -70,16 +82,27 @@ id:
           other: "%{count} jam terakhir"
       mention_warning:
         channel_wide_mentions_disallowed: "Penyebutan @here dan @all dinonaktifkan di kanal ini."
+=======
+      join: "Gabung"
+      mention_warning:
+        dismiss: "bubar"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Balas"
       edit: "Ubah"
       bookmark_message: "Penandaan"
       bookmark_message_edit: "Edit Bookmark"
       save: "Simpan"
+<<<<<<< HEAD
       return_to_threads_list: "Kembali ke diskusi yang sedang berlangsung"
       sounds:
         none: "Tidak ada"
       channel_status:
         archive_failed: "Arsip kanal gagal. %{completed}/%{total} pesan telah diarsipkan. <a target=\"_blank\" href=\"%{topic_url}\">Topik tujuan</a> telah dibuat. Tekan coba lagi untuk mencoba menyelesaikan arsip."
+=======
+      sounds:
+        none: "Tidak ada"
+      channel_status:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         closed: "Tertutup"
         open: "Buka"
       browse:
@@ -87,12 +110,16 @@ id:
         filter_closed: Tertutup
       about_view:
         title: Judul
+<<<<<<< HEAD
         name: Nama
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_info:
         tabs:
           about: Tentang
           members: Anggota
           settings: Pengaturan
+<<<<<<< HEAD
       new_message_modal:
         title: Kirim pesan
         add_user_long: <kbd>shift + click</kbd> atau <kbd>shift + enter</kbd><span>Tambahkan @%{username}</span>
@@ -104,12 +131,17 @@ id:
         user_search_placeholder: "...menambahkan lebih banyak pengguna"
         disabled_user: "telah menonaktifkan obrolan"
         no_items: "Tidak ada item"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Pesan Baru
         prefix: "Kepada:"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "Aktifkan threading"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Tipe"
         types:
           category: "Kategori"
@@ -117,23 +149,31 @@ id:
       notification_levels:
         never: "Tidak pernah"
       settings:
+<<<<<<< HEAD
         channel_threading_label: "Threading"
         channel_threading_description: "Ketika threading diaktifkan, balasan ke pesan obrolan akan membuat percakapan terpisah, yang akan ada di samping saluran utama."
         follow: "Gabung"
         followed: "Joined"
         threading_enabled: "Diaktifkan"
         threading_disabled: "Dinonaktifkan"
+=======
+        follow: "Gabung"
+        followed: "Joined"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Pemberitahuan"
         save: "Simpan"
         saved: "Tersimpan"
         unfollow: "Keluar"
         admin_title: "Admin"
+<<<<<<< HEAD
       admin:
         export_messages:
           title: "Ekspor pesan obrolan"
           description: "Ini mengekspor semua pesan dari semua kanal."
           create_export: "Buat ekspor"
           export_has_started: "Ekspor telah dimulai. Anda akan menerima PM jika sudah siap."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       incoming_webhooks:
         delete: "Hapus"
         name: "Name"
@@ -148,6 +188,7 @@ id:
       emoji_picker:
         objects: "Objek"
         flags: "Flags"
+<<<<<<< HEAD
       thread:
         title: "Judul"
         replies:
@@ -169,6 +210,8 @@ id:
       threads:
         list: "Diskusi yang sedang berlangsung"
         none: "Anda tidak berpartisipasi dalam utas apa pun di kanal ini."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Pesan Baru"
         cancel: "Batal"
@@ -181,6 +224,7 @@ id:
     review:
       types:
         reviewable_chat_message:
+<<<<<<< HEAD
           title: "Pesan obrolan yang ditandai"
           noun: "pesan obrolan"
     styleguide:
@@ -191,3 +235,6 @@ id:
       panels:
         chat:
           label: "Obrolan"
+=======
+          flagged_by: "Dipanji Oleh"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

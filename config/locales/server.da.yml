@@ -677,6 +677,13 @@ da:
         one: "næsten %{count} år siden"
         other: "næsten %{count} år siden"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Vælg en ny adgangskode"
+    choose: "Vælg en adgangskode"
+    update: "Opdatér Adgangskode"
+    save: "Gem Adgangskode"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Nulstil Adgangskode"
     success: "Din adgangskode er ændret og du er nu logget ind."
     success_unapproved: "Din adgangskode er nu ændret."
@@ -3238,6 +3245,15 @@ da:
                 label: "Kategorier og Seneste Emner"
               categories_and_top_topics:
                 label: "Kategorier og top emner"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Primært logo"
+          logo_small:
+            label: "Firkantet Logo"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

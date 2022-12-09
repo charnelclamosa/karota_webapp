@@ -403,7 +403,11 @@ RSpec.describe Jobs::PullHotlinkedImages do
         post.rebake!
         post.reload
 
+<<<<<<< HEAD
         expect(post.cooked).to match(%r{<img src=.*/uploads.*\ class="thumbnail})
+=======
+        expect(post.cooked).to match(/<img src=.*\/uploads.*\ class="thumbnail/)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(post.upload_references.count).to eq(1)
       end
 
@@ -444,8 +448,13 @@ RSpec.describe Jobs::PullHotlinkedImages do
         ![](upload://z2QSs1KJWoj51uYhDjb6ifCzxH6.gif)
         MD
 
+<<<<<<< HEAD
         expect(post.cooked).to match(%r{<p><img src=.*/uploads})
         expect(post.cooked).to match(%r{<img src=.*/uploads.*\ class="thumbnail})
+=======
+        expect(post.cooked).to match(/<p><img src=.*\/uploads/)
+        expect(post.cooked).to match(/<img src=.*\/uploads.*\ class="thumbnail/)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(post.cooked).to match(/<span class="broken-image/)
         expect(post.cooked).to match(/<div class="large-image-placeholder">/)
       end
@@ -570,7 +579,13 @@ RSpec.describe Jobs::PullHotlinkedImages do
     fab!(:upload) { Fabricate(:large_image_upload) }
     fab!(:user) { Fabricate(:user) }
 
+<<<<<<< HEAD
     before { Jobs.run_immediately! }
+=======
+    before do
+      Jobs.run_immediately!
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "replaces missing local uploads in lightbox link" do
       post =

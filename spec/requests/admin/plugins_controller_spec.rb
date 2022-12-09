@@ -13,7 +13,11 @@ RSpec.describe Admin::PluginsController do
         get "/admin/plugins.json"
 
         expect(response.status).to eq(200)
+<<<<<<< HEAD
         expect(response.parsed_body.has_key?("plugins")).to eq(true)
+=======
+        expect(response.parsed_body.has_key?('plugins')).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -24,12 +28,20 @@ RSpec.describe Admin::PluginsController do
         get "/admin/plugins.json"
 
         expect(response.status).to eq(200)
+<<<<<<< HEAD
         expect(response.parsed_body.has_key?("plugins")).to eq(true)
+=======
+        expect(response.parsed_body.has_key?('plugins')).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         get "/admin/plugins.json"

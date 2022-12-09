@@ -22,6 +22,7 @@ describe UserNotifications do
     context "with private channel" do
       fab!(:channel) do
         refresh_auto_groups
+<<<<<<< HEAD
         create_dm_channel(sender, [sender, user])
       end
 
@@ -30,16 +31,27 @@ describe UserNotifications do
         Guardian.any_instance.expects(:can_join_chat_channel?).once
         email = described_class.chat_summary(user, {})
         email.subject
+=======
+        Chat::DirectMessageChannelCreator.create!(acting_user: sender, target_users: [sender, user])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       describe "email subject" do
         it "includes the sender username in the subject" do
+<<<<<<< HEAD
           expected_subject =
             I18n.t(
               "user_notifications.chat_summary.subject.direct_message_from_1",
               email_prefix: SiteSetting.title,
               username: sender.username,
             )
+=======
+          expected_subject = I18n.t(
+            "user_notifications.chat_summary.subject.direct_message_from_1",
+            email_prefix: SiteSetting.title,
+            username: sender.username
+          )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           Fabricate(:chat_message, user: sender, chat_channel: channel)
           email = described_class.chat_summary(user, {})
 
@@ -54,6 +66,7 @@ describe UserNotifications do
             user: another_participant,
             chat_channel: channel,
           )
+<<<<<<< HEAD
           Chat::DirectMessageUser.create!(
             direct_message: channel.chatable,
             user: another_participant,
@@ -64,6 +77,14 @@ describe UserNotifications do
               email_prefix: SiteSetting.title,
               username: sender.username,
             )
+=======
+          DirectMessageUser.create!(direct_message: channel.chatable, user: another_participant)
+          expected_subject = I18n.t(
+            "user_notifications.chat_summary.subject.direct_message_from_1",
+            email_prefix: SiteSetting.title,
+            username: sender.username
+          )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           Fabricate(:chat_message, user: sender, chat_channel: channel)
           email = described_class.chat_summary(user, {})
 
@@ -76,11 +97,20 @@ describe UserNotifications do
           another_dm_user = Fabricate(:user, group_ids: [chatters_group.id])
           refresh_auto_groups
           another_dm_user.reload
+<<<<<<< HEAD
           another_channel = create_dm_channel(user, [another_dm_user, user])
+=======
+          another_channel =
+            Chat::DirectMessageChannelCreator.create!(
+              acting_user: user,
+              target_users: [another_dm_user, user],
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           Fabricate(:chat_message, user: another_dm_user, chat_channel: another_channel)
           Fabricate(:chat_message, user: sender, chat_channel: channel)
           email = described_class.chat_summary(user, {})
 
+<<<<<<< HEAD
           expected_subject =
             I18n.t(
               "user_notifications.chat_summary.subject.direct_message_from_2",
@@ -88,6 +118,14 @@ describe UserNotifications do
               username1: another_dm_user.username,
               username2: sender.username,
             )
+=======
+          expected_subject = I18n.t(
+            "user_notifications.chat_summary.subject.direct_message_from_2",
+            email_prefix: SiteSetting.title,
+            username1: another_dm_user.username,
+            username2: sender.username
+          )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(email.subject).to eq(expected_subject)
           expect(email.subject).to include(sender.username)
@@ -103,8 +141,16 @@ describe UserNotifications do
             refresh_auto_groups
             sender.reload
             senders << sender
+<<<<<<< HEAD
             channel = create_dm_channel(sender, [sender, user])
 
+=======
+            channel =
+              Chat::DirectMessageChannelCreator.create!(
+                acting_user: sender,
+                target_users: [user, sender],
+              )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             user
               .user_chat_channel_memberships
               .where(chat_channel_id: channel.id)
@@ -115,6 +161,7 @@ describe UserNotifications do
 
           email = described_class.chat_summary(user, {})
 
+<<<<<<< HEAD
           expected_subject =
             I18n.t(
               "user_notifications.chat_summary.subject.direct_message_from_more",
@@ -122,6 +169,14 @@ describe UserNotifications do
               username: senders.first.username,
               count: 2,
             )
+=======
+          expected_subject = I18n.t(
+            "user_notifications.chat_summary.subject.direct_message_from_more",
+            email_prefix: SiteSetting.title,
+            username: senders.first.username,
+            count: 2
+          )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(email.subject).to eq(expected_subject)
         end
@@ -142,8 +197,12 @@ describe UserNotifications do
     context "with public channel" do
       fab!(:channel) { Fabricate(:category_channel) }
       fab!(:chat_message) { Fabricate(:chat_message, user: sender, chat_channel: channel) }
+<<<<<<< HEAD
       # using fab! for user_membership below makes these specs flaky
       let!(:user_membership) do
+=======
+      fab!(:user_membership) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         Fabricate(
           :user_chat_channel_membership,
           chat_channel: channel,
@@ -152,17 +211,21 @@ describe UserNotifications do
         )
       end
 
+<<<<<<< HEAD
       before do
         channel.add(sender)
         channel.update!(last_message: chat_message)
       end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "doesn't return an email if there are no unread mentions" do
         email = described_class.chat_summary(user, {})
 
         expect(email.to).to be_blank
       end
 
+<<<<<<< HEAD
       context "with channel-wide mentions" do
         before { Jobs.run_immediately! }
 
@@ -252,6 +315,18 @@ describe UserNotifications do
                 email_prefix: SiteSetting.title,
                 channel: channel.title(user),
               )
+=======
+      describe "email subject" do
+        context "with regular mentions" do
+          before { Fabricate(:chat_mention, user: user, chat_message: chat_message) }
+
+          it "includes the sender username in the subject" do
+            expected_subject = I18n.t(
+              "user_notifications.chat_summary.subject.chat_channel_1",
+              email_prefix: SiteSetting.title,
+              channel: channel.title(user)
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             email = described_class.chat_summary(user, {})
 
@@ -274,6 +349,7 @@ describe UserNotifications do
               user: user,
               last_read_message_id: another_chat_message.id - 2,
             )
+<<<<<<< HEAD
             notification = Fabricate(:notification)
             Fabricate(
               :chat_mention,
@@ -292,6 +368,18 @@ describe UserNotifications do
                 channel1: channel.title(user),
                 channel2: another_chat_channel.title(user),
               )
+=======
+            Fabricate(:chat_mention, user: user, chat_message: another_chat_message)
+
+            email = described_class.chat_summary(user, {})
+
+            expected_subject = I18n.t(
+              "user_notifications.chat_summary.subject.chat_channel_2",
+              email_prefix: SiteSetting.title,
+              channel1: channel.title(user),
+              channel2: another_chat_channel.title(user)
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(email.subject).to eq(expected_subject)
             expect(email.subject).to include(channel.title(user))
@@ -314,6 +402,7 @@ describe UserNotifications do
                 user: user,
                 last_read_message_id: another_chat_message.id - 2,
               )
+<<<<<<< HEAD
               notification = Fabricate(:notification)
               Fabricate(
                 :chat_mention,
@@ -331,6 +420,17 @@ describe UserNotifications do
                 channel: channel.title(user),
                 count: 2,
               )
+=======
+              Fabricate(:chat_mention, user: user, chat_message: another_chat_message)
+            end
+
+            expected_subject = I18n.t(
+              "user_notifications.chat_summary.subject.chat_channel_more",
+              email_prefix: SiteSetting.title,
+              channel: channel.title(user),
+              count: 2
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             email = described_class.chat_summary(user, {})
 
@@ -341,6 +441,7 @@ describe UserNotifications do
         context "with both unread DM messages and mentions" do
           before do
             refresh_auto_groups
+<<<<<<< HEAD
             channel = create_dm_channel(sender, [sender, user])
             Fabricate(:chat_message, user: sender, chat_channel: channel)
             notification = Fabricate(:notification)
@@ -360,6 +461,24 @@ describe UserNotifications do
                 channel: channel.title(user),
                 username: sender.username,
               )
+=======
+            channel =
+              Chat::DirectMessageChannelCreator.create!(
+                acting_user: sender,
+                target_users: [sender, user],
+              )
+            Fabricate(:chat_message, user: sender, chat_channel: channel)
+            Fabricate(:chat_mention, user: user, chat_message: chat_message)
+          end
+
+          it "always includes the DM second" do
+            expected_subject = I18n.t(
+              "user_notifications.chat_summary.subject.chat_channel_and_direct_message",
+              email_prefix: SiteSetting.title,
+              channel: channel.title(user),
+              username: sender.username
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             email = described_class.chat_summary(user, {})
 
@@ -369,6 +488,7 @@ describe UserNotifications do
       end
 
       describe "When there are mentions" do
+<<<<<<< HEAD
         before do
           notification = Fabricate(:notification)
           Fabricate(
@@ -378,6 +498,9 @@ describe UserNotifications do
             notification: notification,
           )
         end
+=======
+        before { Fabricate(:chat_mention, user: user, chat_message: chat_message) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         describe "selecting mentions" do
           it "doesn't return an email if the user can't see chat" do
@@ -462,7 +585,15 @@ describe UserNotifications do
           it "returns an email when the user has unread private messages" do
             user_membership.update!(last_read_message_id: chat_message.id)
             refresh_auto_groups
+<<<<<<< HEAD
             channel = create_dm_channel(sender, [sender, user])
+=======
+            channel =
+              Chat::DirectMessageChannelCreator.create!(
+                acting_user: sender,
+                target_users: [sender, user],
+              )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             Fabricate(:chat_message, user: sender, chat_channel: channel)
 
             email = described_class.chat_summary(user, {})
@@ -477,6 +608,7 @@ describe UserNotifications do
             )
 
             new_message = Fabricate(:chat_message, user: sender, chat_channel: channel)
+<<<<<<< HEAD
             notification = Fabricate(:notification)
             Fabricate(
               :chat_mention,
@@ -484,6 +616,9 @@ describe UserNotifications do
               chat_message: new_message,
               notification: notification,
             )
+=======
+            Fabricate(:chat_mention, user: user, chat_message: new_message)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             email = described_class.chat_summary(user, {})
 
@@ -584,8 +719,12 @@ describe UserNotifications do
           it "includes a view more link when there are more than two mentions" do
             2.times do
               msg = Fabricate(:chat_message, user: sender, chat_channel: channel)
+<<<<<<< HEAD
               notification = Fabricate(:notification)
               Fabricate(:chat_mention, user: user, chat_message: msg, notification: notification)
+=======
+              Fabricate(:chat_mention, user: user, chat_message: msg)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             end
 
             email = described_class.chat_summary(user, {})
@@ -606,6 +745,7 @@ describe UserNotifications do
 
             new_message =
               Fabricate(:chat_message, user: sender, chat_channel: channel, cooked: "New message")
+<<<<<<< HEAD
             notification = Fabricate(:notification)
             Fabricate(
               :chat_mention,
@@ -613,6 +753,9 @@ describe UserNotifications do
               chat_message: new_message,
               notification: notification,
             )
+=======
+            Fabricate(:chat_mention, user: user, chat_message: new_message)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             email = described_class.chat_summary(user, {})
             body = email.html_part.body.to_s
@@ -624,6 +767,7 @@ describe UserNotifications do
       end
     end
   end
+<<<<<<< HEAD
 
   def create_dm_channel(sender, target_users)
     result =
@@ -634,4 +778,6 @@ describe UserNotifications do
     service_failed!(result) if result.failure?
     result.channel
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

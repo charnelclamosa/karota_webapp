@@ -10,31 +10,43 @@ tr_TR:
       site_settings:
         categories:
           chat: Sohbet
+<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "Her zaman"
           fullscreen: "Sohbet tam ekran modundayken"
           never: "Asla"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Sohbet kanalı durumu değişti"
             chat_channel_delete: "Sohbet kanalı silindi"
+<<<<<<< HEAD
             chat_auto_remove_membership: "Üyelikler kanallardan otomatik olarak kaldırıldı"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
             chat:
               create_message: "Belirtilen kanalda bir sohbet mesajı oluşturun."
+<<<<<<< HEAD
       web_hooks:
         chat_message_event:
           name: "Sohbet mesajı etkinliği"
           details: "Bir sohbet mesajı oluşturulduğunda, düzenlendiğinde, çöpe atıldığında veya geri yüklendiğinde."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     about:
       chat_messages_count: "Sohbet Mesajları"
       chat_channels_count: "Sohbet Kanalları"
       chat_users_count: "Sohbet Kullanıcıları"
     chat:
+<<<<<<< HEAD
       deleted_chat_username: silindi
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Tüm mesajlar gösteriliyor"
@@ -49,8 +61,13 @@ tr_TR:
       move_to_channel:
         title: "Mesajları kanala taşı"
         instructions:
+<<<<<<< HEAD
           one: "<strong>%{count}</strong> mesajı taşıyorsunuz. Hedef kanal seçin. Bu mesajın taşındığını belirtmek için <strong>%{channelTitle}</strong> adlı kanalda bir yer tutucu mesaj oluşturulacak. Yanıt zincirlerinin yeni kanalda saklanmayacağını ve eski kanaldaki iletilerin artık taşınan iletilere yanıt veriyormuş gibi görünmeyeceğini unutmayın."
           other: "<strong>%{count}</strong> mesajı taşıyorsunuz. Hedef kanal seçin. Bu mesajın taşındığını belirtmek için <strong>%{channelTitle}</strong> adlı kanalda bir yer tutucu mesaj oluşturulacak. Yanıt zincirlerinin yeni kanalda saklanmayacağını ve eski kanaldaki iletilerin artık taşınan iletilere yanıt veriyormuş gibi görünmeyeceğini unutmayın."
+=======
+          one: "<strong>%{count}</strong> mesajı taşıyorsunuz. Bir hedef kanal seçin. Bu mesajın taşındığını belirtmek için <strong>%{channelTitle}</strong> adlı kanalda bir yer tutucu mesaj oluşturulacak."
+          other: "<strong>%{count}</strong> mesajı taşıyorsunuz. Bir hedef kanal seçin. Bu mesajın taşındığını belirtmek için <strong>%{channelTitle}</strong> adlı kanalda bir yer tutucu mesaj oluşturulacak."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Mesajları Taşı"
       channel_settings:
         title: "Kanal ayarları"
@@ -81,7 +98,11 @@ tr_TR:
         instructions: "Kanalın kapatılması, personel olmayan kullanıcıların yeni mesaj göndermesini veya mevcut mesajları düzenlemesini engeller. Bu kanalı kapatmak istediğinizden emin misiniz?"
       channel_delete:
         title: "Kanalı Sil"
+<<<<<<< HEAD
         instructions: "<p><strong>%{name}</strong> adlı kanalı ve sohbet geçmişini siler. Tepkiler ve yüklemeler gibi tüm mesajlar ve ilgili veriler kalıcı olarak silinir. Kanal geçmişini korumak ve devre dışı bırakmak istiyorsanız bunun yerine kanalı arşivlemek isteyebilirsiniz.</p> <p>Kanalı <strong>kalıcı olarak silmek</strong> istediğinizden emin misiniz? Onaylamak için aşağıdaki kutuya kanalın adını yazın.</p>"
+=======
+        instructions: "<p> <strong>%{name}</strong> adlı kanalı ve sohbet geçmişini siler. Tepkiler ve yüklemeler gibi tüm mesajlar ve ilgili veriler kalıcı olarak silinir. Kanal geçmişini korumak ve kullanımdan kaldırmak istiyorsanız bunun yerine kanalı arşivlemek isteyebilirsiniz.</p> <p> Kanalı <strong>kalıcı olarak silmek</strong> istediğinizden emin misiniz? Onaylamak için aşağıdaki kutuya kanalın adını yazın.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "Sonuçları anlıyorum, kanalı sil"
         confirm_channel_name: "Kanal adı girin"
         process_started: "Kanalı silme işlemi başladı. Bu mod kısa bir süre sonra kapanacak, silinen kanalı artık hiçbir yerde görmeyeceksiniz."
@@ -90,6 +111,7 @@ tr_TR:
         create: "Yeni kanal"
       click_to_join: "Mevcut kanalları görüntülemek için buraya tıklayın."
       close: "Kapat"
+<<<<<<< HEAD
       remove: "Kaldır"
       collapse: "Sohbet Çekmecesini Daralt"
       expand: "Sohbet Çekmecesini genişlet"
@@ -97,6 +119,11 @@ tr_TR:
       deleted:
         one: "Bir mesaj silindi. [görüntüleyin]"
         other: "%{count} mesaj silindi. [tümünü görüntüleyin]"
+=======
+      collapse: "Sohbet Çekmecesini Daralt"
+      confirm_flag: "%{username} adlı kullanıcının mesajına bayrak eklemek istediğinizden emin misiniz?"
+      deleted: "Bir mesaj silindi. [görüntüleyin]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Bir mesaj gizlendi. [görüntüleyin]"
       delete: "Sil"
       edited: "düzenlendi"
@@ -111,6 +138,7 @@ tr_TR:
         never: "Asla"
         title: "E-posta Bildirimleri"
         when_away: "Sadece uzaktayken"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "Etkinlik göstergesini başlıkta gösterin"
         all_new: "Tüm Yeni Mesajlar"
@@ -118,6 +146,8 @@ tr_TR:
         never: "Asla"
       separate_sidebar_mode:
         title: "Forum ve sohbet için ayrı kenar çubuğu modları göster"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Sohbeti etkinleştir"
       flag: "Bayrak ekle"
       emoji: "Emoji ekle"
@@ -127,6 +157,7 @@ tr_TR:
       in_reply_to: "Şuna yanıt olarak:"
       heading: "Sohbet"
       join: "Katıl"
+<<<<<<< HEAD
       last_visit: "son ziyaret"
       summarization:
         title: "Mesajları özetle"
@@ -136,10 +167,19 @@ tr_TR:
           one: "Son bir saat"
           other: "Son %{count} saat"
       mention_warning:
+=======
+      new_messages: "yeni mesajlar"
+      mention_warning:
+        cannot_see:
+          one: "%{usernames} bu kanala erişemiyor ve bildirim almadı."
+          other: "%{usernames} bu kanala erişemiyor ve bildirim almadı."
+        dismiss: "kapat"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Davet gönderildi"
           other: "Davet gönderildi"
         invite: "Kanala davet et"
+<<<<<<< HEAD
         channel_wide_mentions_disallowed: "Bu kanalda @here ve @all mentionları devre dışı bırakılmıştır."
         groups:
           header:
@@ -210,12 +250,20 @@ tr_TR:
         too_many_mentions_admin:
           one: 'Bu mesaj, %{count} bahsetmelik <a href="%{siteSettingUrl}" target="_blank">bildirim limitini</a> aşıyor.'
           other: 'Bu mesaj, %{count} bahsetmelik <a href="%{siteSettingUrl}" target="_blank">bildirim limitini</a> aşıyor.'
+=======
+        without_membership:
+          one: "%{usernames} bu kanala katılmadı."
+          other: "%{usernames} bu kanala katılmadı."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Sohbet başlığı"
         composer: "Sohbet oluşturucu"
         channels_list: "Sohbet kanalları listesi"
       no_public_channels: "Hiçbir kanala katılmadınız."
+<<<<<<< HEAD
       kicked_from_channel: "Artık bu kanala erişemezsiniz."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Yalnızca sohbet anlık bildirimleri gönder"
         description: "Tüm sohbet dışı anlık bildirimlerinin gönderilmesini engelle"
@@ -227,6 +275,7 @@ tr_TR:
       close_full_page: "Tam ekran sohbeti kapat"
       open_message: "Mesajı sohbette aç"
       placeholder_self: "Bir şeyler not edin"
+<<<<<<< HEAD
       placeholder_channel: "%{channelName} adlı kanalda sohbet edin"
       placeholder_thread: "Konuda sohbet edin"
       placeholder_users: "%{commaSeparatedNames} ile sohbet edin"
@@ -235,6 +284,12 @@ tr_TR:
         closed: "Kanal kapalı, şu anda yeni mesaj gönderemezsiniz."
         read_only: "Kanal salt okunurdur, şu anda yeni mesaj gönderemezsiniz."
       placeholder_silenced: "Şu anda mesaj gönderemezsiniz."
+=======
+      placeholder_others: "%{messageRecipient} ile sohbet et"
+      placeholder_new_message_disallowed: "Kanal %{status}, şu anda yeni mesaj gönderemezsiniz."
+      placeholder_silenced: "Şu anda mesaj gönderemezsiniz."
+      placeholder_start_conversation: '%{usernames} ile bir konuşma başlat'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Dosyayı kaldır"
       react: "Emoji ile tepki ver"
       reply: "Yanıtla"
@@ -250,11 +305,16 @@ tr_TR:
       restore: "Silinen mesajı geri yükle"
       save: "Kaydet"
       select: "Seç"
+<<<<<<< HEAD
       return_to_list: "Kanal listesine dön"
       return_to_threads_list: "Devam eden tartışmalara dönün"
       unread_threads_count:
         one: "%{count} okunmamış tartışmanız var"
         other: "%{count} okunmamış tartışmanız var"
+=======
+      silence: "Kullanıcıyı sustur"
+      return_to_list: "Kanal listesine dön"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "En alta kaydır"
       scroll_to_new_messages: "Yeni mesajlara bak"
       sound:
@@ -266,8 +326,11 @@ tr_TR:
       title: "sohbet"
       title_capitalized: "Sohbet"
       upload: "Dosya ekle"
+<<<<<<< HEAD
       upload_to_channel: "%{title} başlığına yükle"
       upload_to_thread: "Konuya yükle"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} dosya"
         other: "%{count} dosya"
@@ -278,8 +341,12 @@ tr_TR:
         read_only: "Salt Okunur"
         archived_header: "Kanal arşivlendi"
         archived: "Arşivlendi"
+<<<<<<< HEAD
         archive_failed: "Arşiv kanalı başarısız oldu. %{completed}/%{total} mesaj arşivlendi. <a target=\"_blank\" href=\"%{topic_url}\">Hedef konu</a> oluşturuldu. Arşivi tamamlamayı denemek için yeniden dene düğmesine basın."
         archive_failed_no_topic: "Arşiv kanalı başarısız oldu. %{completed}/%{total} mesaj arşivlendi, hedef konu oluşturulmadı. Arşivi tamamlamayı denemek için yeniden dene düğmesine basın."
+=======
+        archive_failed: "Kanal arşivlemesi başarısız oldu. %{completed}/%{total} mesaj <a target=\"_blank\" href=\"%{topic_url}\">hedef konuya</a> arşivlendi. Arşivi tamamlamayı denemek için tekrar deneye basın."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "<a target=\"_blank\" href=\"%{topic_url}\">Arşiv konusuna</a> bakın"
         closed_header: "Kanal kapalı"
         closed: "Kapalı"
@@ -290,7 +357,11 @@ tr_TR:
         title: Kanallar
         filter_all: Tümü
         filter_open: Açıldı
+<<<<<<< HEAD
         filter_closed: Kapalı
+=======
+        filter_closed: Kapatıldı
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         filter_archived: Arşivlendi
         filter_input_placeholder: Ada göre kanal ara
       chat_message_separator:
@@ -302,7 +373,10 @@ tr_TR:
         associated_topic: Bağlantılı konu
         associated_category: Bağlantılı kategori
         title: Başlık
+<<<<<<< HEAD
         name: Ad
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Açıklama
       channel_info:
         back_to_all_channels: "Tüm kanallar"
@@ -311,6 +385,7 @@ tr_TR:
           about: Hakkında
           members: Üyeler
           settings: Ayarlar
+<<<<<<< HEAD
       new_message_modal:
         title: Mesaj gönder
         add_user_long: <kbd>shift + tıklama</kbd> veya <kbd>shift + enter</kbd><span>@%{username} ekleyin</span>
@@ -328,6 +403,12 @@ tr_TR:
         slug_description: URL'de kanal adı yerine kanal slug'ı kullanılmış
         name: Kanal adı
         slug: Kanal slug'ı (isteğe bağlı)
+=======
+      channel_edit_title_modal:
+        title: Başlığı düzenle
+        input_placeholder: Başlık ekle
+        description: Kanalınıza kısa bir açıklayıcı başlık ekleyin
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Açıklamayı düzenle
         input_placeholder: Açıklama ekle
@@ -337,6 +418,12 @@ tr_TR:
         prefix: "Kime:"
         no_results: Sonuç yok
         selected_user_title: "%{username} seçimini kaldır"
+<<<<<<< HEAD
+=======
+      channel_selector:
+        title: "Kanala atla"
+        no_channels: "Aramanızla eşleşen kanal yok"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: Bu kanalda üye yok
         no_memberships_found: Üye bulunamadı
@@ -344,6 +431,7 @@ tr_TR:
           one: "%{count} üye"
           other: "%{count} üye"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "İleti dizisine izin ver"
         auto_join_users:
@@ -369,10 +457,19 @@ tr_TR:
                       }
                     }
             }
+=======
+        auto_join_users:
+          public_category_warning: "%{category} herkese açık bir kategori. Son zamanlarda aktif olan tüm kullanıcılar bu kanala otomatik olarak eklensin mi?"
+          warning_groups:
+            one: '%{group} grubundaki %{members_count} kullanıcı otomatik olarak eklensin mi?'
+            other: '%{group} ve %{group_2} gruplarındaki %{members_count} kullanıcı otomatik olarak eklensin mi?'
+          warning_multiple_groups: '%{group_1} ve %{count} diğer gruptaki %{members_count} kullanıcı otomatik olarak eklensin mi?'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Kategori seçin"
           none: "birini seçin..."
           default_hint: <a href=%{link} target="_blank">%{category} güvenlik ayarlarını</a> ziyaret ederek erişimi yönetin
+<<<<<<< HEAD
           hint_1_group: '%{group} adlı gruptaki kullanıcılar <a href="%{settingLink}" target="_blank">güvenlik ayarlarına</a> göre bu kanala erişebilecek'
           hint_2_groups: '%{group1} ve %{group2} içindeki kullanıcıların <a href="%{settingLink}" target="_blank">güvenlik ayarları</a> uyarınca bu kanala erişimi olacak'
           hint_multiple_groups:
@@ -382,6 +479,15 @@ tr_TR:
         description: "Açıklama (isteğe bağlı)"
         name: "Kanal adı"
         slug: "Kanal slug'ı (isteğe bağlı)"
+=======
+          hint_groups:
+            one: '%{hint} ögesindeki kullanıcılar <a href=%{link} target="_blank">güvenlik ayarlarına</a> göre bu kanala erişebilirler'
+            other: '%{hint} ve %{hint_2} ögesindeki kullanıcılar <a href=%{link} target="_blank">güvenlik ayarlarına</a> göre bu kanala erişebilirler'
+          hint_multiple_groups: '%{hint_1} ve %{count} diğer gruptaki kullanıcılar <a href=%{link} target="_blank">güvenlik ayarlarına</a> göre bu kanala erişebilirler'
+        create: "Kanal oluştur"
+        description: "Açıklama (isteğe bağlı)"
+        name: "Kanal adı"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Yeni kanal"
         type: "Tür"
         types:
@@ -391,6 +497,7 @@ tr_TR:
         type: "Sohbet mesajı"
       reactions:
         only_you: ":%{emoji}: ile tepki verdiniz"
+<<<<<<< HEAD
         you_and_single_user: "Siz ve %{username}, :%{emoji}: ile tepki verdiniz"
         you_and_multiple_users: "Siz, %{commaSeparatedUsernames} ve %{username}, :%{emoji}: ile tepki verdiniz"
         you_multiple_users_and_more:
@@ -407,6 +514,17 @@ tr_TR:
         bold_text: "güçlü metin"
         code_text: "kod metni"
         send: "Gönder"
+=======
+        and_others: "Siz, %{usernames} :%{emoji}: ile tepki verdiniz"
+        only_others: "%{usernames} :%{emoji}: ile tepki verdi"
+        others_and_more: "%{usernames} ve %{more} kişi daha :%{emoji}: ile tepki verdi"
+        you_others_and_more: "Siz, %{usernames} ve %{more} kişi daha :%{emoji}: ile tepki verdiniz"
+      composer:
+        toggle_toolbar: "Geçiş yapma araç çubuğu"
+        italic_text: "vurgulanan yazı"
+        bold_text: "güçlü metin"
+        code_text: "kod metni"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'İlk olarak <a href="%{channelLink}">%{channel}</a> adlı kanalda gönderildi'
         copy_success: "Sohbet alıntısı panoya kopyalandı"
@@ -415,6 +533,7 @@ tr_TR:
         mention: "Sadece bahsetmeler için"
         always: "Tüm aktiviteler için"
       settings:
+<<<<<<< HEAD
         channel_wide_mentions_label: "@all ve @here bahsetmelerine izin ver"
         channel_wide_mentions_description: "Kullanıcıların @all ile #%{channel} kanalının tüm üyelerine veya @here ile yalnızca o anda aktif olanlara bildirim göndermelerine izin verin"
         channel_threading_label: "İleti dizisi"
@@ -422,14 +541,22 @@ tr_TR:
         auto_join_users_label: "Kullanıcıları otomatik olarak ekle"
         auto_join_users_info: "Son 3 ayda hangi kullanıcıların aktif olduğunu saatlik olarak kontrol edin. %{category} kategorisine erişimleri varsa onları bu kanala ekleyin."
         auto_join_users_info_no_category: "Son 3 ayda hangi kullanıcıların aktif olduğunu saatlik olarak kontrol edin. Seçilen kategoriye erişimleri varsa onları bu kanala ekleyin."
+=======
+        auto_join_users_label: "Kullanıcıları otomatik olarak ekle"
+        auto_join_users_info: "Son 3 ayda hangi kullanıcıların aktif olduğunu saatlik olarak kontrol edin ve %{category} adlı kategoriye erişimleri varsa bu kanala ekleyin."
+        enable_auto_join_users: "Son zamanlarda aktif olan tüm kullanıcıları otomatik olarak ekle"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Bu kanala üye olmayan ve %{category} adlı kategoriye erişimi olan her kullanıcı katılacak. Emin misiniz?"
         desktop_notification_level: "Masaüstü bildirimleri"
         follow: "Katıl"
         followed: "Katıldı"
         mobile_notification_level: "Mobil anlık bildirimleri"
         mute: "Kanalı sessize al"
+<<<<<<< HEAD
         threading_enabled: "Etkin"
         threading_disabled: "Devre Dışı"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "Açık"
         muted_off: "Kapalı"
         notifications: "Bildirimler"
@@ -438,6 +565,7 @@ tr_TR:
         saved: "Kaydedildi"
         unfollow: "Ayrıl"
         admin_title: "Yönetici"
+<<<<<<< HEAD
       admin:
         title: "Sohbet"
         export_messages:
@@ -447,6 +575,14 @@ tr_TR:
       direct_messages:
         title: "Kişisel sohbet"
         new: "Kişisel sohbet oluşturun"
+=======
+        retention_info: "Sohbet geçmişi %{days} gün boyunca kaydedilecek."
+      admin:
+        title: "Sohbet"
+      direct_messages:
+        title: "Kişisel sohbet"
+        new: "Yeni kişisel sohbet"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Git"
         leave: "Bu kişisel sohbetten ayrıl"
         cannot_create: "Üzgünüz, doğrudan mesaj gönderemezsiniz."
@@ -507,6 +643,7 @@ tr_TR:
           one: "%{commaSeparatedUsernames} ve %{count} kişi daha yazıyor"
           other: "%{commaSeparatedUsernames} ve %{count} kişi daha yazıyor"
       retention_reminders:
+<<<<<<< HEAD
         public_none: "Kanal geçmişi süresiz olarak saklanır."
         public:
           one: "Kanal geçmişi %{count} gün boyunca saklanır."
@@ -515,6 +652,10 @@ tr_TR:
         dm:
           one: "Kişisel sohbet geçmişi %{count} gün boyunca saklanır."
           other: "Kişisel sohbet geçmişi %{count} gün boyunca saklanır."
+=======
+        public: "Kanal geçmişi %{days} gün boyunca saklanır."
+        dm: "Kişisel sohbet geçmişi %{days} gün boyunca saklanır."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "Bu mesaj, kanal başlığı tarafından tanımlanan mevcut tartışma ile ilgili değildir ve muhtemelen başka bir yere taşınmalıdır."
         inappropriate: "Bu mesaj, makul bir kişinin saldırgan, taciz edici veya <a href=\"%{basePath}/guidelines\">topluluk kurallarımızı</a> ihlal ettiğini düşüneceği içerik içeriyor."
@@ -536,6 +677,7 @@ tr_TR:
         symbols: "Semboller"
         search_placeholder: "Emoji adına ve takma ada göre arama yapın..."
         no_results: "Sonuç yok"
+<<<<<<< HEAD
       thread:
         title: "Başlık"
         view_thread: Konuyu görüntüle
@@ -562,6 +704,8 @@ tr_TR:
         open: "Konu aç"
         list: "Devam eden tartışmalar"
         none: "Bu kanaldaki herhangi bir konuya katılmıyorsunuz."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Yeni Mesaj"
         cancel: "İptal et"
@@ -574,7 +718,11 @@ tr_TR:
           direct: '"%{channel}" adlı kanalda sizden bahsetti'
           direct_html: '<span>%{username}</span> <span>"%{channel}" adlı kanalda sizden bahsetti</span>'
           other_plain: '"%{channel}" adlı kanalda %{identifier} bahsetti'
+<<<<<<< HEAD
           other_html: '<span>%{username}</span> <span>"%{channel}" adlı kanalda şundan bahsetti: %{identifier}</span>'
+=======
+          other_html: '<span>%{username}</span> <span>"%{channel}" adlı kanalda %{identifier} bahsetti</span>'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         direct_message_chat_mention:
           direct: "kişisel sohbette sizden bahsetti"
           direct_html: "<span>%{username}</span> <span>kişisel sohbette sizden bahsetti</span>"
@@ -606,11 +754,17 @@ tr_TR:
       transcript:
         view: "Önceki mesajların dökümünü görüntüle"
       types:
+<<<<<<< HEAD
         chat_reviewable_message:
           title: "Bayrak Eklenen Sohbet Mesajı"
         reviewable_chat_message:
           title: "Bayrak eklenen sohbet mesajı"
           noun: "sohbet mesajı"
+=======
+        reviewable_chat_message:
+          title: "Bayrak Eklenen Sohbet Mesajı"
+          flagged_by: "Bayrak Ekleyen Kişi"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Sohbet"
@@ -623,7 +777,10 @@ tr_TR:
           composer_code: "%{shortcut} Kod (yalnızca besteci)"
           drawer_open: "%{shortcut} Sohbet çekmecesini aç"
           drawer_close: "%{shortcut} Sohbet çekmecesini kapat"
+<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Tüm kanalları okundu olarak işaretle"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "Bu konu için sohbet etkinleştirildi"
@@ -642,6 +799,7 @@ tr_TR:
         chat_notifications_with_unread:
           one: "Sohbet bildirimleri - %{count} okunmamış bildirim"
           other: "Sohbet bildirimleri - %{count} okunmamış bildirim"
+<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -650,3 +808,5 @@ tr_TR:
       panels:
         chat:
           label: "Sohbet"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

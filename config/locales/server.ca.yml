@@ -561,6 +561,13 @@ ca:
         one: "fa gairebé %{count} any"
         other: "fa gairebé %{count} any"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Trieu una contrasenya nova"
+    choose: "Trieu una contrasenya"
+    update: "Actualitza la contrasenya"
+    save: "Estableix la contrasenya"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Reinicia la contrasenya"
     success: "Heu canviat la contrasenya satisfactòriament i ara heu iniciat la sessió."
     success_unapproved: "Heu canviat la contrasenya satisfactòriament."
@@ -2898,6 +2905,15 @@ ca:
                 label: "Categories i temes més recents"
               categories_and_top_topics:
                 label: "Categories i temes principals"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Logo principal"
+          logo_small:
+            label: "Logotip quadrat"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

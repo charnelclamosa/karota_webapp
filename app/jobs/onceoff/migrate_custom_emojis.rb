@@ -30,7 +30,13 @@ module Jobs
 
       Emoji.clear_cache
 
+<<<<<<< HEAD
       Post.where("cooked LIKE ?", "%#{Emoji.base_url}%").find_each { |post| post.rebake! }
+=======
+      Post.where("cooked LIKE ?", "%#{Emoji.base_url}%").find_each do |post|
+        post.rebake!
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     def warn(message)

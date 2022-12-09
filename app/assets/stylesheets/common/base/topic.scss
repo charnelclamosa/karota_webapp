@@ -292,18 +292,12 @@ a.badge-category {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    max-width: 758px;
-    .title-container {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      box-sizing: border-box;
-      #edit-title {
-        width: 50.5rem;
-      }
-      #edit-subtitle {
-        width: 50.5rem;
-      }
+    max-width: calc(
+      var(--topic-body-width) + (var(--topic-body-width-padding) * 2) +
+        var(--topic-avatar-width)
+    );
+    #edit-title, #edit-subtitle {
+      flex: 1 1 100%;
     }
     
     .category-chooser,
@@ -315,9 +309,13 @@ a.badge-category {
       }
     }
     .mini-tag-chooser {
+<<<<<<< HEAD
       flex: 1 1 54%;
       margin: 0 0 9px 0;
       margin-left: 1%; // category at 40%, tag chooser at 58%
+=======
+      margin-left: 2%; // category/tag chooser are 49% wide, so this is 1% * 2
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       @media all and (max-width: 500px) {
         margin-left: 0;
       }

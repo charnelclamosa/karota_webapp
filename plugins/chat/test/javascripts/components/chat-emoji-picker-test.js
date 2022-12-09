@@ -3,7 +3,11 @@ import { exists, query, queryAll } from "discourse/tests/helpers/qunit-helpers";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 import pretender from "discourse/tests/helpers/create-pretender";
+<<<<<<< HEAD
 import { click, fillIn, render, triggerKeyEvent } from "@ember/test-helpers";
+=======
+import { click, fillIn, render } from "@ember/test-helpers";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function emojisResponse() {
   return {
@@ -68,7 +72,11 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
     this.chatEmojiPickerManager = this.container.lookup(
       "service:chat-emoji-picker-manager"
     );
+<<<<<<< HEAD
     this.chatEmojiPickerManager.open(() => {});
+=======
+    this.chatEmojiPickerManager.startFromComposer(() => {});
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.chatEmojiPickerManager.addVisibleSections([
       "smileys_&_emotion",
       "people_&_body",
@@ -83,21 +91,36 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
   test("When displaying navigation", async function (assert) {
     await render(hbs`<ChatEmojiPicker />`);
 
+<<<<<<< HEAD
     assert.true(
+=======
+    assert.ok(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exists(
         `.chat-emoji-picker__section-btn.active[data-section="favorites"]`
       ),
       "it renders first section as active"
     );
+<<<<<<< HEAD
     assert.true(
+=======
+    assert.ok(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exists(
         `.chat-emoji-picker__section-btn[data-section="smileys_&_emotion"]`
       )
     );
+<<<<<<< HEAD
     assert.true(
       exists(`.chat-emoji-picker__section-btn[data-section="people_&_body"]`)
     );
     assert.true(
+=======
+    assert.ok(
+      exists(`.chat-emoji-picker__section-btn[data-section="people_&_body"]`)
+    );
+    assert.ok(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exists(`.chat-emoji-picker__section-btn[data-section="objects"]`)
     );
   });
@@ -107,11 +130,19 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
     await click(".chat-emoji-picker__fitzpatrick-modifier-btn.current.t1");
     await click(".chat-emoji-picker__fitzpatrick-modifier-btn.t6");
 
+<<<<<<< HEAD
     assert.true(
       exists(`img[src="/images/emoji/twitter/raised_hands/6.png"]`),
       "it applies the tone to emojis"
     );
     assert.true(
+=======
+    assert.ok(
+      exists(`img[src="/images/emoji/twitter/raised_hands/6.png"]`),
+      "it applies the tone to emojis"
+    );
+    assert.ok(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exists(".chat-emoji-picker__fitzpatrick-modifier-btn.current.t6"),
       "it changes the current scale to t6"
     );
@@ -127,9 +158,14 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
 
     await click(`.chat-emoji-picker__section-btn[data-section="objects"]`);
 
+<<<<<<< HEAD
     assert.true(
       document.querySelector(".chat-emoji-picker__scrollable-content")
         .scrollTop > 0,
+=======
+    assert.ok(
+      document.querySelector("#ember-testing-container").scrollTop > 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "it scrolls to the section"
     );
   });
@@ -139,32 +175,52 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
     await fillIn(".dc-filter-input", "grinning");
 
     assert.strictEqual(
+<<<<<<< HEAD
       queryAll(".chat-emoji-picker__section.filtered > img").length,
       1,
       "it filters the emojis list"
     );
     assert.true(
       exists('.chat-emoji-picker__section.filtered > img[alt="grinning"]'),
+=======
+      queryAll(".chat-emoji-picker__sections > img").length,
+      1,
+      "it filters the emojis list"
+    );
+    assert.ok(
+      exists('.chat-emoji-picker__sections > img[alt="grinning"]'),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "it filters the correct emoji"
     );
 
     await fillIn(".dc-filter-input", "Grinning");
 
+<<<<<<< HEAD
     assert.true(
       exists('.chat-emoji-picker__section.filtered > img[alt="grinning"]'),
+=======
+    assert.ok(
+      exists('.chat-emoji-picker__sections > img[alt="grinning"]'),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "it is case insensitive"
     );
 
     await fillIn(".dc-filter-input", "smiley_cat");
 
+<<<<<<< HEAD
     assert.true(
       exists('.chat-emoji-picker__section.filtered > img[alt="grinning"]'),
+=======
+    assert.ok(
+      exists('.chat-emoji-picker__sections > img[alt="grinning"]'),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "it filters the correct emoji using search alias"
     );
   });
 
   test("When selecting an emoji", async function (assert) {
     let selection;
+<<<<<<< HEAD
     this.didSelectEmoji = (emoji) => {
       selection = emoji;
     };
@@ -172,11 +228,18 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
     await render(
       hbs`<ChatEmojiPicker @didSelectEmoji={{this.didSelectEmoji}} />`
     );
+=======
+    this.chatEmojiPickerManager.didSelectEmoji = (emoji) => {
+      selection = emoji;
+    };
+    await render(hbs`<ChatEmojiPicker />`);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     await click('img.emoji[data-emoji="grinning"]');
 
     assert.strictEqual(selection, "grinning");
   });
 
+<<<<<<< HEAD
   test("When navigating sections", async function (assert) {
     await render(hbs`<ChatEmojiPicker />`);
 
@@ -252,6 +315,14 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
     await render(
       hbs`<ChatEmojiPicker @didSelectEmoji={{this.didSelectEmoji}} />`
     );
+=======
+  test("When selecting a toned an emoji", async function (assert) {
+    let selection;
+    this.chatEmojiPickerManager.didSelectEmoji = (emoji) => {
+      selection = emoji;
+    };
+    await render(hbs`<ChatEmojiPicker />`);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.emojiReactionStore.diversity = 1;
     await click('img.emoji[data-emoji="man_rowing_boat"]');
 
@@ -266,7 +337,11 @@ module("Discourse Chat | Component | chat-emoji-picker", function (hooks) {
   test("When opening the picker", async function (assert) {
     await render(hbs`<ChatEmojiPicker />`);
 
+<<<<<<< HEAD
     assert.true(document.activeElement.classList.contains("dc-filter-input"));
+=======
+    assert.ok(document.activeElement.classList.contains("dc-filter-input"));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   test("When hovering an emoji", async function (assert) {

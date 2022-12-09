@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::StaffActionLogsController < Admin::StaffController
+<<<<<<< HEAD
   INDEX_LIMIT = 200
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def index
     filters = params.slice(*UserHistory.staff_filters + %i[page limit])

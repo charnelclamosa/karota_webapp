@@ -63,11 +63,17 @@ gem "active_model_serializers", "~> 0.8.3"
 
 gem "http_accept_language", require: false
 
+<<<<<<< HEAD
 gem "discourse-fonts", require: "discourse_fonts"
 
 gem "message_bus"
 
 gem "rails_multisite"
+=======
+gem 'discourse-fonts', require: 'discourse_fonts'
+
+gem 'message_bus'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 gem "fast_xs", platform: :ruby
 
@@ -249,6 +255,7 @@ if ENV["IMPORT"] == "1"
   gem "redcarpet"
 
   # NOTE: in import mode the version of sqlite can matter a lot, so we stick it to a specific one
+<<<<<<< HEAD
   gem "sqlite3", "~> 1.3", ">= 1.3.13"
   gem "ruby-bbcode-to-md", git: "https://github.com/nlalonde/ruby-bbcode-to-md"
   gem "reverse_markdown"
@@ -256,6 +263,15 @@ if ENV["IMPORT"] == "1"
   gem "csv"
 
   gem "parallel", require: false
+=======
+  gem 'sqlite3', '~> 1.3', '>= 1.3.13'
+  gem 'ruby-bbcode-to-md', git: 'https://github.com/nlalonde/ruby-bbcode-to-md'
+  gem 'reverse_markdown'
+  gem 'tiny_tds'
+  gem 'csv'
+
+  gem 'parallel', require: false
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end
 
 if ENV["GENERIC_IMPORT"] == "1"

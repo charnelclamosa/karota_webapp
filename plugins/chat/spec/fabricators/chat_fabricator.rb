@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 Fabricator(:chat_channel, class_name: "Chat::Channel") do
+=======
+Fabricator(:chat_channel) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   name do
     sequence(:name) do |n|
       random_name = [
@@ -16,15 +20,20 @@ Fabricator(:chat_channel, class_name: "Chat::Channel") do
   end
   chatable { Fabricate(:category) }
   type do |attrs|
+<<<<<<< HEAD
     if attrs[:chatable_type] == "Category" || attrs[:chatable]&.is_a?(Category)
       "CategoryChannel"
     else
       "DirectMessageChannel"
     end
+=======
+    attrs[:chatable_type] == "Category" || attrs[:chatable]&.is_a?(Category) ? "CategoryChannel" : "DirectMessageChannel"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
   status { :open }
 end
 
+<<<<<<< HEAD
 Fabricator(:category_channel, from: :chat_channel) {}
 
 Fabricator(:private_category_channel, from: :category_channel) do
@@ -34,10 +43,17 @@ end
 
 Fabricator(:direct_message_channel, from: :chat_channel) do
   transient :users, following: true, with_membership: true
+=======
+Fabricator(:category_channel, from: :chat_channel, class_name: :category_channel) {}
+
+Fabricator(:direct_message_channel, from: :chat_channel, class_name: :direct_message_channel) do
+  transient :users
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chatable do |attrs|
     Fabricate(:direct_message, users: attrs[:users] || [Fabricate(:user), Fabricate(:user)])
   end
   status { :open }
+<<<<<<< HEAD
   name nil
   after_create do |channel, attrs|
     if attrs[:with_membership]
@@ -117,38 +133,90 @@ Fabricator(:chat_message_reaction, class_name: "Chat::MessageReaction") do
 end
 
 Fabricator(:chat_message_revision, class_name: "Chat::MessageRevision") do
+=======
+end
+
+Fabricator(:chat_message) do
+  chat_channel
+  user
+  message "Beep boop"
+  cooked { |attrs| ChatMessage.cook(attrs[:message]) }
+  cooked_version ChatMessage::BAKED_VERSION
+end
+
+Fabricator(:chat_mention) do
+  chat_message { Fabricate(:chat_message) }
+  user { Fabricate(:user) }
+  notification { Fabricate(:notification) }
+end
+
+Fabricator(:chat_message_reaction) do
+  chat_message { Fabricate(:chat_message) }
+  user { Fabricate(:user) }
+  emoji { %w[+1 tada heart joffrey_facepalm].sample }
+end
+
+Fabricator(:chat_upload) do
+  chat_message { Fabricate(:chat_message) }
+  upload { Fabricate(:upload) }
+end
+
+Fabricator(:chat_message_revision) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chat_message { Fabricate(:chat_message) }
   old_message { "something old" }
   new_message { "something new" }
   user { |attrs| attrs[:chat_message].user }
 end
 
+<<<<<<< HEAD
 Fabricator(:chat_reviewable_message, class_name: "Chat::ReviewableMessage") do
   reviewable_by_moderator true
   type "ReviewableChatMessage"
   created_by { Fabricate(:user) }
+=======
+Fabricator(:reviewable_chat_message) do
+  reviewable_by_moderator true
+  type "ReviewableChatMessage"
+  created_by { Fabricate(:user) }
+  target_type "ChatMessage"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   target { Fabricate(:chat_message) }
   reviewable_scores { |p| [Fabricate.build(:reviewable_score, reviewable_id: p[:id])] }
 end
 
+<<<<<<< HEAD
 Fabricator(:direct_message, class_name: "Chat::DirectMessage") do
   users { [Fabricate(:user), Fabricate(:user)] }
 end
 
 Fabricator(:chat_webhook_event, class_name: "Chat::WebhookEvent") do
+=======
+Fabricator(:direct_message) { users { [Fabricate(:user), Fabricate(:user)] } }
+
+Fabricator(:chat_webhook_event) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chat_message { Fabricate(:chat_message) }
   incoming_chat_webhook do |attrs|
     Fabricate(:incoming_chat_webhook, chat_channel: attrs[:chat_message].chat_channel)
   end
 end
 
+<<<<<<< HEAD
 Fabricator(:incoming_chat_webhook, class_name: "Chat::IncomingWebhook") do
+=======
+Fabricator(:incoming_chat_webhook) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   name { sequence(:name) { |i| "#{i + 1}" } }
   key { sequence(:key) { |i| "#{i + 1}" } }
   chat_channel { Fabricate(:chat_channel, chatable: Fabricate(:category)) }
 end
 
+<<<<<<< HEAD
 Fabricator(:user_chat_channel_membership, class_name: "Chat::UserChatChannelMembership") do
+=======
+Fabricator(:user_chat_channel_membership) do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   user
   chat_channel
   following true
@@ -161,6 +229,7 @@ Fabricator(:user_chat_channel_membership_for_dm, from: :user_chat_channel_member
   desktop_notification_level 2
   mobile_notification_level 2
 end
+<<<<<<< HEAD
 
 Fabricator(:chat_draft, class_name: "Chat::Draft") do
   user
@@ -222,3 +291,5 @@ Fabricator(:user_chat_thread_membership, class_name: "Chat::UserChatThreadMember
     ).update!(following: true)
   end
 end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

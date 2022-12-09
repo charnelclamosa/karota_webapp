@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 RSpec.describe Chat::AllowUploadsValidator do
+=======
+RSpec.describe ChatAllowUploadsValidator do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   it "always returns true if setting the value to false" do
     validator = described_class.new
     expect(validator.valid_value?("f")).to eq(true)

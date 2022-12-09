@@ -310,7 +310,10 @@ lt:
       like_count: "Patinka"
       topic_count: "Temos"
       post_count: "Įrašai"
+<<<<<<< HEAD
       user_count: "Prisiregistravimai"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Aktyvūs vartotojai"
       contact: "Kontaktai"
       contact_info: "Atsiradus bet kokiai problemai susijusiai su puslapiu, prašome kontaktuoti %{contact_info}."

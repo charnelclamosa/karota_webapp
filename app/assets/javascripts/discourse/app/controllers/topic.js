@@ -636,6 +636,10 @@ export default Controller.extend(bufferedProperty("model"), {
 
     // Post related methods
     replyToPost(post) {
+      if (this.currentUser && this.siteSettings.enable_user_tips) {
+        this.currentUser.hideUserTipForever("post_menu");
+      }
+
       const composerController = this.composer;
       const topic = post ? post.get("topic") : this.model;
       const quoteState = this.quoteState;
@@ -969,7 +973,16 @@ export default Controller.extend(bufferedProperty("model"), {
         );
         return this._modifyPostBookmark(
           bookmarkForPost ||
+<<<<<<< HEAD
             Bookmark.createFor(this.currentUser, "Post", post.id),
+=======
+            Bookmark.create({
+              bookmarkable_id: post.id,
+              bookmarkable_type: "Post",
+              auto_delete_preference:
+                this.currentUser.user_option.bookmark_auto_delete_preference,
+            }),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           post
         );
       } else {
@@ -1490,7 +1503,16 @@ export default Controller.extend(bufferedProperty("model"), {
 
     if (this.model.bookmarkCount === 0) {
       return this._modifyTopicBookmark(
+<<<<<<< HEAD
         Bookmark.createFor(this.currentUser, "Topic", this.model.id)
+=======
+        Bookmark.create({
+          bookmarkable_id: this.model.id,
+          bookmarkable_type: "Topic",
+          auto_delete_preference:
+            this.currentUser.user_option.bookmark_auto_delete_preference,
+        })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       );
     }
   },

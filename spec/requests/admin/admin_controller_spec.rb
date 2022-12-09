@@ -38,11 +38,18 @@ RSpec.describe Admin::AdminController do
         it "permits access with a 200 response" do
           api_key = Fabricate(:api_key, user: admin)
 
+<<<<<<< HEAD
           get "/admin.json",
               headers: {
                 HTTP_API_KEY: api_key.key,
                 HTTP_API_USERNAME: admin.username,
               }
+=======
+          get "/admin.json", headers: {
+            HTTP_API_KEY: api_key.key,
+            HTTP_API_USERNAME: admin.username
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(200)
         end
@@ -52,11 +59,18 @@ RSpec.describe Admin::AdminController do
         it "denies access with a 403 response" do
           api_key = Fabricate(:api_key, user: moderator)
 
+<<<<<<< HEAD
           get "/admin.json",
               headers: {
                 HTTP_API_KEY: api_key.key,
                 HTTP_API_USERNAME: moderator.username,
               }
+=======
+          get "/admin.json", headers: {
+            HTTP_API_KEY: api_key.key,
+            HTTP_API_USERNAME: moderator.username
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(403)
           expect(response.parsed_body["errors"]).to include(I18n.t("invalid_access"))

@@ -30,7 +30,12 @@ export default DiscourseRoute.extend({
 
     this.controllerFor("user-topics-list").setProperties({
       showToggleBulkSelect: false,
+<<<<<<< HEAD
     });
     this.controllerFor("user-topics-list").bulkSelectHelper.clear();
+=======
+      selected: [],
+    });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 });

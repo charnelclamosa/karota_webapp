@@ -620,8 +620,7 @@ export default RestModel.extend({
   },
 
   appendPost(post) {
-    // NOTE: meta tag is still existent here
-    this._initUserModel(post);
+    this._initUserModels(post);
     const stored = this.storePost(post);
     if (stored) {
       const posts = this.posts;

@@ -21,8 +21,12 @@ import { relativeAgeMediumSpan } from "discourse/lib/formatter";
 import { transformBasicPost } from "discourse/lib/transform-post";
 import autoGroupFlairForUser from "discourse/lib/avatar-flair";
 import { nativeShare } from "discourse/lib/pwa-utils";
+<<<<<<< HEAD
 import ShareTopicModal from "discourse/components/modal/share-topic";
 import { getOwner } from "@ember/application";
+=======
+import { hideUserTip } from "discourse/lib/user-tips";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function transformWithCallbacks(post) {
   let transformed = transformBasicPost(post);
@@ -647,6 +651,10 @@ createWidget("post-contents", {
   },
 
   share() {
+    if (this.currentUser && this.siteSettings.enable_user_tips) {
+      this.currentUser.hideUserTipForever("post_menu");
+    }
+
     const post = this.findAncestorModel();
     nativeShare(this.capabilities, { url: post.shareUrl }).catch(() => {
       const topic = post.topic;
@@ -1011,5 +1019,35 @@ export default createWidget("post", {
       this.dialog.alert(I18n.t("post.few_likes_left"));
       kvs.set({ key: "lastWarnedLikes", value: Date.now() });
     }
+  },
+
+  didRenderWidget() {
+    if (!this.currentUser || !this.siteSettings.enable_user_tips) {
+      return;
+    }
+
+    const reference = document.querySelector(
+      ".post-controls .actions .show-more-actions"
+    );
+
+    this.currentUser.showUserTip({
+      id: "post_menu",
+
+      titleText: I18n.t("user_tips.post_menu.title"),
+      contentText: I18n.t("user_tips.post_menu.content"),
+
+      reference,
+      appendTo: reference?.closest(".post-controls"),
+
+      placement: "top",
+    });
+  },
+
+  destroy() {
+    hideUserTip("post_menu");
+  },
+
+  willRerenderWidget() {
+    hideUserTip("post_menu");
   },
 });

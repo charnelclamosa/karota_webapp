@@ -65,7 +65,11 @@ ar:
         label: "النتائج"
       remove-vote:
         title: "إزالة صوتك"
+<<<<<<< HEAD
         label: "التراجع عن التصويت"
+=======
+        label: "إزالة التصويت"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hide-results:
         title: "العودة إلى تصويتاتك"
         label: "تصويت"

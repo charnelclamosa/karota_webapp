@@ -71,6 +71,18 @@ class TopicCreator
       topic.errors.add(:base, :unable_to_unlist)
     end
   end
+<<<<<<< HEAD
+=======
+
+  def validate_visibility!(topic)
+    validate_visibility(topic)
+
+    rollback_from_errors!(topic) if topic.errors.full_messages.present?
+  end
+
+  def create_shared_draft(topic)
+    return if @opts[:shared_draft].blank? || @opts[:shared_draft] == 'false'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def validate_visibility!(topic)
     validate_visibility(topic)

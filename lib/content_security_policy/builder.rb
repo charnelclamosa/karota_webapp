@@ -33,9 +33,13 @@ class ContentSecurityPolicy
     def <<(extension)
       return unless valid_extension?(extension)
 
+<<<<<<< HEAD
       extension.each do |directive, sources|
         extend_directive(normalize_directive(directive), sources)
       end
+=======
+      extension.each { |directive, sources| extend_directive(normalize_directive(directive), sources) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     def build
@@ -55,7 +59,21 @@ class ContentSecurityPolicy
     private
 
     def normalize_directive(directive)
+<<<<<<< HEAD
       directive.to_s.gsub("-", "_").to_sym
+    end
+
+    def normalize_source(source)
+      if source.starts_with?("/")
+        "#{@base_url}#{source}"
+      else
+        source
+      end
+    rescue URI::ParseError
+      source
+=======
+      directive.to_s.gsub('-', '_').to_sym
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     def normalize_source(source)

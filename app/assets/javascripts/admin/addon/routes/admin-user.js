@@ -12,7 +12,11 @@ export default class AdminUserRoute extends DiscourseRoute {
 
   model(params) {
     return AdminUser.find(get(params, "user_id"));
+<<<<<<< HEAD
   }
+=======
+  },
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   afterModel(adminUser) {
     return adminUser.loadDetails().then(function () {

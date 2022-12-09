@@ -30,7 +30,15 @@ class WebHookPostSerializer < PostSerializer
     flair_color
     notice
     mentioned_users
+<<<<<<< HEAD
   ].each { |attr| define_method("include_#{attr}?") { false } }
+=======
+  }.each do |attr|
+    define_method("include_#{attr}?") do
+      false
+    end
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def topic_posts_count
     object.topic ? object.topic.posts_count : 0

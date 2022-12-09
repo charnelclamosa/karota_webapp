@@ -204,6 +204,36 @@
   .notifications {
     position: relative;
   }
+<<<<<<< HEAD
+=======
+  .ring {
+    position: absolute;
+    top: -11px;
+    right: 23.5px;
+    z-index: z("base");
+    margin-left: 0;
+    background: radial-gradient(transparent, var(--success));
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    transform-origin: center;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-name: ping;
+
+    &.revamped {
+      right: -4px;
+      top: -6px;
+
+      &.regular-notifications {
+        background: radial-gradient(
+          transparent,
+          var(--tertiary-med-or-tertiary)
+        );
+      }
+    }
+  }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   .header-dropdown-toggle {
     position: relative;
   }

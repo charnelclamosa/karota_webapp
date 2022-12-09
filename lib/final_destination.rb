@@ -127,12 +127,16 @@ class FinalDestination
     status_code, response_headers = nil
 
     catch(:done) do
+<<<<<<< HEAD
       FinalDestination::HTTP.start(
         @uri.host,
         @uri.port,
         use_ssl: @uri.is_a?(URI::HTTPS),
         open_timeout: timeout,
       ) do |http|
+=======
+      FinalDestination::HTTP.start(@uri.host, @uri.port, use_ssl: @uri.is_a?(URI::HTTPS), open_timeout: timeout) do |http|
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         http.read_timeout = timeout
         http.request_get(@uri.request_uri, request_headers) do |resp|
           status_code = resp.code.to_i
@@ -259,6 +263,7 @@ class FinalDestination
     request_uri = @uri.dup
     request_uri.hostname = resolved_ip unless Rails.env.test? # WebMock doesn't understand the IP-based requests
 
+<<<<<<< HEAD
     response =
       Excon.public_send(
         @http_verb,
@@ -270,6 +275,17 @@ class FinalDestination
         response_block: request_validator,
         ssl_verify_peer_host: @uri.hostname,
       )
+=======
+    response = Excon.public_send(@http_verb,
+      request_uri.to_s,
+      read_timeout: timeout,
+      connect_timeout: timeout,
+      headers: { "Host" => @uri.hostname }.merge(headers),
+      middlewares: middlewares,
+      response_block: request_validator,
+      ssl_verify_peer_host: @uri.hostname
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if @stop_at_blocked_pages
       if blocked_domain?(@uri) || response.headers["Discourse-No-Onebox"] == "1"
@@ -397,6 +413,7 @@ class FinalDestination
 
   def validate_uri_format
     return false unless @uri && @uri.host
+<<<<<<< HEAD
     return false unless %w[https http].include?(@uri.scheme)
 
     # In some cases (like local/test environments) we may want to allow http URLs
@@ -408,6 +425,11 @@ class FinalDestination
     # port 80.
     return false if @uri.scheme == "http" && !http_port_ok?
     return false if @uri.scheme == "https" && @uri.port != 443
+=======
+    return false unless ['https', 'http'].include?(@uri.scheme)
+    return false if @uri.scheme == 'http' && @uri.port != 80
+    return false if @uri.scheme == 'https' && @uri.port != 443
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # Disallow IP based crawling
     (
@@ -541,12 +563,16 @@ class FinalDestination
   end
 
   def safe_session(uri)
+<<<<<<< HEAD
     FinalDestination::HTTP.start(
       uri.host,
       uri.port,
       use_ssl: (uri.scheme == "https"),
       open_timeout: timeout,
     ) do |http|
+=======
+    FinalDestination::HTTP.start(uri.host, uri.port, use_ssl: (uri.scheme == "https"), open_timeout: timeout) do |http|
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       http.read_timeout = timeout
       yield http
     end

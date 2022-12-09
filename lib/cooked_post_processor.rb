@@ -159,7 +159,11 @@ class CookedPostProcessor
 
     upload = Upload.get_from_url(src)
 
+<<<<<<< HEAD
     original_width, original_height = nil
+=======
+    original_width, original_height  = nil
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if (upload.present?)
       original_width = upload.width || 0

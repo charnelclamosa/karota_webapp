@@ -18,7 +18,10 @@
       align-items: center;
       color: var(--primary-medium);
       display: flex;
+<<<<<<< HEAD
       flex-wrap: wrap;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       .avatar {
         aspect-ratio: 30 / 30;
@@ -28,6 +31,7 @@
   }
 }
 
+<<<<<<< HEAD
 .chat-drawer-container .chat-message .onebox {
   width: 85%;
   border: 2px solid var(--primary-low);
@@ -73,5 +77,10 @@
 
   p {
     overflow: hidden;
+=======
+.chat-transcript {
+  .chat-transcript-user-avatar .avatar {
+    aspect-ratio: 20 / 20;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

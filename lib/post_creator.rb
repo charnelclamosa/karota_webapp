@@ -516,10 +516,14 @@ class PostCreator
     return unless @post && @post.errors.count == 0 && @topic && @topic.category_id
 
     if @post.is_first_post?
+<<<<<<< HEAD
       Category.where(id: @topic.category_id).update_all(
         latest_topic_id: @topic.id,
         latest_post_id: @post.id,
       )
+=======
+      Category.where(id: @topic.category_id).update_all(latest_topic_id: @topic.id, latest_post_id: @post.id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     else
       Category.where(id: @topic.category_id).update_all(latest_post_id: @post.id)
     end

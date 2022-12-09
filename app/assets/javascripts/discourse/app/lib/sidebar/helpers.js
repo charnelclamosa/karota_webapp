@@ -6,6 +6,7 @@ export function canDisplayCategory(categoryId, siteSettings) {
   }
 
   return !Category.isUncategorized(categoryId);
+<<<<<<< HEAD
 }
 
 export function hasDefaultSidebarCategories(siteSettings) {
@@ -14,4 +15,6 @@ export function hasDefaultSidebarCategories(siteSettings) {
 
 export function hasDefaultSidebarTags(siteSettings) {
   return siteSettings.default_navigation_menu_tags.length > 0;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

@@ -160,6 +160,7 @@ RSpec.describe Jobs::EmitWebHookEvent do
 
   it "doesn't emit if the payload URL resolves to a disallowed IP" do
     FinalDestination::TestHelper.stub_to_fail do
+<<<<<<< HEAD
       job.execute(
         web_hook_id: post_hook.id,
         event_type: "post",
@@ -170,11 +171,25 @@ RSpec.describe Jobs::EmitWebHookEvent do
     expect(event.response_headers).to eq(
       { error: I18n.t("webhooks.payload_url.blocked_or_internal") }.to_json,
     )
+=======
+      subject.execute(
+        web_hook_id: post_hook.id,
+        event_type: 'post',
+        payload: { test: "some payload" }.to_json
+      )
+    end
+    event = post_hook.web_hook_events.last
+    expect(event.response_headers).to eq({ error: I18n.t("webhooks.payload_url.blocked_or_internal") }.to_json)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     expect(event.response_body).to eq(nil)
     expect(event.status).to eq(-1)
   end
 
+<<<<<<< HEAD
   context "with category filters" do
+=======
+  context 'with category filters' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:category) { Fabricate(:category) }
     fab!(:topic) { Fabricate(:topic) }
     fab!(:topic_with_category) { Fabricate(:topic, category_id: category.id) }
@@ -309,6 +324,7 @@ RSpec.describe Jobs::EmitWebHookEvent do
 
       event = WebHookEvent.last
       headers = MultiJson.load(event.headers)
+<<<<<<< HEAD
       expect(headers["Content-Length"]).to eq("13")
       expect(headers["Host"]).to eq("meta.discourse.org")
       expect(headers["X-Discourse-Event-Id"]).to eq(event.id.to_s)
@@ -324,6 +340,21 @@ RSpec.describe Jobs::EmitWebHookEvent do
     end
 
     it "sets up proper request headers when an error raised" do
+=======
+      expect(headers['Content-Length']).to eq("13")
+      expect(headers['Host']).to eq("meta.discourse.org")
+      expect(headers['X-Discourse-Event-Id']).to eq(event.id.to_s)
+      expect(headers['X-Discourse-Event-Type']).to eq(described_class::PING_EVENT)
+      expect(headers['X-Discourse-Event']).to eq(described_class::PING_EVENT)
+      expect(headers['X-Discourse-Event-Signature']).to eq('sha256=162f107f6b5022353274eb1a7197885cfd35744d8d08e5bcea025d309386b7d6')
+      expect(event.payload).to eq(MultiJson.dump(ping: 'OK'))
+      expect(event.status).to eq(200)
+      expect(MultiJson.load(event.response_headers)['test']).to eq('string')
+      expect(event.response_body).to eq('OK')
+    end
+
+    it 'sets up proper request headers when an error raised' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       stub_request(:post, post_hook.payload_url).to_raise("error")
 
       job.execute(
@@ -335,6 +366,7 @@ RSpec.describe Jobs::EmitWebHookEvent do
 
       event = WebHookEvent.last
       headers = MultiJson.load(event.headers)
+<<<<<<< HEAD
       expect(headers["Content-Length"]).to eq("13")
       expect(headers["Host"]).to eq("meta.discourse.org")
       expect(headers["X-Discourse-Event-Id"]).to eq(event.id.to_s)
@@ -344,6 +376,15 @@ RSpec.describe Jobs::EmitWebHookEvent do
         "sha256=162f107f6b5022353274eb1a7197885cfd35744d8d08e5bcea025d309386b7d6",
       )
       expect(event.payload).to eq(MultiJson.dump(ping: "OK"))
+=======
+      expect(headers['Content-Length']).to eq("13")
+      expect(headers['Host']).to eq("meta.discourse.org")
+      expect(headers['X-Discourse-Event-Id']).to eq(event.id.to_s)
+      expect(headers['X-Discourse-Event-Type']).to eq(described_class::PING_EVENT)
+      expect(headers['X-Discourse-Event']).to eq(described_class::PING_EVENT)
+      expect(headers['X-Discourse-Event-Signature']).to eq('sha256=162f107f6b5022353274eb1a7197885cfd35744d8d08e5bcea025d309386b7d6')
+      expect(event.payload).to eq(MultiJson.dump(ping: 'OK'))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

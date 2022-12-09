@@ -10,9 +10,12 @@ fa_IR:
       site_settings:
         categories:
           chat: گفتگو
+<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "همیشه"
           never: "هرگز"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
@@ -23,7 +26,10 @@ fa_IR:
       chat_channels_count: "کانال‌های گفتگو"
       chat_users_count: "کاربران گفتگو"
     chat:
+<<<<<<< HEAD
       deleted_chat_username: حذف شد
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "HH:mm"
       all_loaded: "نمایش همه پیام‌ها"
@@ -67,8 +73,13 @@ fa_IR:
         create: "کانال جدید"
       click_to_join: "برای مشاهده کانال‌های موجود، اینجا را کلیک کنید."
       close: "بستن"
+<<<<<<< HEAD
       remove: "پاک کردن"
       confirm_flag: "آیا برای پرچم گذاری پیام %{username} مطمئن هستید؟"
+=======
+      confirm_flag: "آیا برای پرچم گذاری پیام %{username} مطمئن هستید؟"
+      deleted: "یک پیام حذف شد. [view]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "یک پیام پنهان شده است. [view]"
       delete: "حذف"
       edited: "ویرایش شده"
@@ -81,10 +92,13 @@ fa_IR:
       email_frequency:
         never: "هرگز"
         title: "آگاه‌سازی‌های ایمیل"
+<<<<<<< HEAD
       header_indicator_preference:
         all_new: "همه پیام‌های جدید"
         dm_and_mentions: "پیام‌های خصوصی و اشاره شده"
         never: "هرگز"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "فعال کردن گفتگو"
       flag: "پرچم"
       flagged: "این پیام برای بررسی پرچم گذاری شده است"
@@ -92,18 +106,34 @@ fa_IR:
       in_reply_to: "در پاسخ به"
       heading: "گفتگو"
       join: "عضو شدن"
+<<<<<<< HEAD
       last_visit: "آخرین بازدید"
       mention_warning:
+=======
+      new_messages: "پیام‌های جدید"
+      mention_warning:
+        dismiss: "رد کردن"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "دعوت‌نامه ارسال شد"
           other: "دعوت‌نامه‌ها ارسال شد"
         invite: "دعوت به کانال"
+<<<<<<< HEAD
+=======
+        without_membership:
+          one: "%{usernames} هنوز در این کانال عضو نشده است."
+          other: "%{usernames} هنوز در این کانال عضو نشده است."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         channels_list: "فهرست کانال‌های گفتگو"
       no_public_channels: "شما هنوز عضو هیچ کانالی نشده‌اید."
       open: "باز کردن گفتگو..."
       close_full_page: "بستن گفتگو تمام صفحه"
       open_message: "پیام را در گفتگو باز کن"
+<<<<<<< HEAD
+=======
+      placeholder_start_conversation: شروع گفتگو با %{usernames}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "حذف پرونده"
       react: "واکنش با شکلک"
       reply: "پاسخ"
@@ -120,10 +150,13 @@ fa_IR:
       save: "ذخیره"
       select: "انتخاب کنید"
       return_to_list: "بازگشت به فهرست کانال‌ها"
+<<<<<<< HEAD
       return_to_threads_list: "بازگشت به گفتگوی جاری"
       unread_threads_count:
         one: "شما %{count} گفتگوی خوانده نشده دارید"
         other: "شما %{count} گفتگوی خوانده نشده دارید"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "حرکت به پایین"
       scroll_to_new_messages: "مشاهده پیام‌های جدید"
       sound:
@@ -164,7 +197,10 @@ fa_IR:
         associated_topic: موضوع مرتبط
         associated_category: دسته‌بندی مرتبط
         title: عنوان
+<<<<<<< HEAD
         name: نام
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: توضیح
       channel_info:
         back_to_all_channels: "همه کانال‌ها"
@@ -173,10 +209,17 @@ fa_IR:
           about: درباره
           members: اعضاء
           settings: تنظیمات
+<<<<<<< HEAD
       channel_edit_name_slug_modal:
         title: ویرایش کانال
         input_placeholder: افزودن نام
         name: نام کانال
+=======
+      channel_edit_title_modal:
+        title: ویرایش عنوان
+        input_placeholder: افزودن عنوان
+        description: یک عنوان توصیفی کوتاه به کانال خود بدهید
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: ویرایش توضیحات
         input_placeholder: افزودن توضیحات
@@ -185,6 +228,11 @@ fa_IR:
         title: پیام جدید
         prefix: "به:"
         no_results: هیج نتیجه‌ای نداشت
+<<<<<<< HEAD
+=======
+      channel_selector:
+        no_channels: "هیچ کانالی با جستجوی شما مطابقت ندارد"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: این کانال هنوز هیچ عضوی ندارد
         no_memberships_found: هیچ عضوی یافت نشد
@@ -192,6 +240,14 @@ fa_IR:
           one: "%{count} عضو"
           other: "%{count} عضو"
       create_channel:
+<<<<<<< HEAD
+=======
+        auto_join_users:
+          warning_groups:
+            one: به طور خودکار %{members_count} کاربر از گروه %{group} اضافه شود؟
+            other: به طور خودکار %{members_count} کاربر از گروه %{group} و %{group_2} اضافه شود؟
+          warning_multiple_groups: به طور خودکار %{members_count} کاربر از گروه %{group_1} و %{count} نفر دیگر اضافه شود؟
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "انتخاب دسته‌بندی"
           none: "یکی را انتخاب کنید..."
@@ -210,7 +266,10 @@ fa_IR:
       composer:
         italic_text: "متن تاکید شده"
         bold_text: "نوشته‌ی ضخیم "
+<<<<<<< HEAD
         send: "ارسال"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         copy_success: "نقل قول گفتگو در کلیپ‌بورد کپی شد"
       notification_levels:
@@ -221,11 +280,19 @@ fa_IR:
         channel_wide_mentions_label: "اجازه داده به استفاده از اشاره @all و @here"
         channel_wide_mentions_description: "به کاربران اجازه دهید به همه اعضای #%{channel} با @all یا فقط افرادی که در حال حاضر فعال هستند با @here، آگاه‌سازی کنند."
         auto_join_users_label: "افزودن خودکار کاربران"
+<<<<<<< HEAD
+=======
+        auto_join_users_info: "بررسی کنید که کاربران در ۳ ماه گذشته فعال بوده‌اند و در دسته‌بندی %{category} دسترسی داشته باشند، آنها را به این کانال اضافه کنید."
+        enable_auto_join_users: "به طور خودکار همه کاربران فعال اخیر را اضافه کنید"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         desktop_notification_level: "آگاه‌سازی‌های دسکتاپ"
         follow: "عضو شدن"
         followed: "عضو شده"
         mute: "بی‌صدا کردن کانال"
+<<<<<<< HEAD
         threading_disabled: "غیرفعال"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "روشن"
         muted_off: "خاموش"
         notifications: "اعلان‌ها"
@@ -234,11 +301,19 @@ fa_IR:
         saved: "ذخیره شد"
         unfollow: "ترک کردن"
         admin_title: "مدیر کل"
+<<<<<<< HEAD
+=======
+        retention_info: "تاریخچه گفتگو به مدت %{days} روز ذخیره خواهد شد."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       admin:
         title: "گفتگو"
       direct_messages:
         title: "گفتگوی شخصی"
+<<<<<<< HEAD
         new: "ایجاد گفتگوی شخصی"
+=======
+        new: "گفتگوی شخصی جدید"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "برو"
         cannot_create: "با عرض پوزش، شما نمی‌توانید پیام مستقیم ارسال کنید."
       incoming_webhooks:
@@ -284,6 +359,7 @@ fa_IR:
         flags: "پرچم‌ها"
         symbols: "نشانه ها"
         no_results: "هیج نتیجه‌ای نداشت"
+<<<<<<< HEAD
       thread:
         title: "عنوان"
         view_thread: مشاهده موضوع
@@ -301,6 +377,8 @@ fa_IR:
             title: "پیگیری"
       threads:
         list: "گفتگوهای در حال انجام"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "پیام جدید"
         cancel: "انصراف"
@@ -331,6 +409,13 @@ fa_IR:
     review:
       transcript:
         view: "مشاهده رونوشت متن پیام‌های قبلی"
+<<<<<<< HEAD
+=======
+      types:
+        reviewable_chat_message:
+          title: "پیام گفتگوی پرچم گذاری شده"
+          flagged_by: "پرچم شده توسط"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "گفتگو"
@@ -354,6 +439,7 @@ fa_IR:
         chat_notifications_with_unread:
           one: "آگاه‌سازی‌های گفتگو - %{count} آگاه‌سازی خوانده نشده"
           other: "آگاه‌سازی‌های گفتگو - %{count} آگاه‌سازی خوانده نشده"
+<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -362,3 +448,5 @@ fa_IR:
       panels:
         chat:
           label: "گفتگو"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

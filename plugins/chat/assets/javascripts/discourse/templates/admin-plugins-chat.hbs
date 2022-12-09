@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <Chat::Admin::ExportMessages />
 
 {{#if this.selectedWebhook}}
@@ -8,17 +9,25 @@
     @action={{fn (mut this.selectedWebhookId) null}}
     class="incoming-chat-webhooks-back"
   />
+=======
+{{#if this.selectedWebhook}}
+  <DButton @class="incoming-chat-webhooks-back" @icon="chevron-left" @label="chat.incoming_webhooks.back" @title="chat.incoming_webhooks.back" @action={{action (mut this.selectedWebhookId) null}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   <form class="form-vertical">
     <div class="control-group">
       <label class="control-label">
         {{i18n "chat.incoming_webhooks.name"}}
       </label>
+<<<<<<< HEAD
       <Input
         @type="text"
         @value={{this.selectedWebhook.name}}
         placeholder={{i18n "chat.incoming_webhooks.name"}}
       />
+=======
+      <Input @type="text" @value={{this.selectedWebhook.name}} placeholder={{i18n "chat.incoming_webhooks.name"}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
 
     <div class="control-group">
@@ -32,11 +41,15 @@
       <label class="control-label">
         {{i18n "chat.incoming_webhooks.username"}}
       </label>
+<<<<<<< HEAD
       <Input
         @type="text"
         @value={{this.selectedWebhook.username}}
         placeholder={{i18n "chat.incoming_webhooks.system"}}
       />
+=======
+      <Input @type="text" @value={{this.selectedWebhook.username}} placeholder={{i18n "chat.incoming_webhooks.system"}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <div class="control-instructions">
         {{i18n "chat.incoming_webhooks.username_instructions"}}
       </div>
@@ -46,11 +59,15 @@
       <label class="control-label">
         {{i18n "chat.incoming_webhooks.post_to"}}
       </label>
+<<<<<<< HEAD
       <ChatChannelChooser
         @content={{this.model.chat_channels}}
         @value={{this.selectedWebhook.chat_channel.id}}
         @onChange={{action "changeChatChannel"}}
       />
+=======
+      <ChatChannelChooser @content={{this.model.chat_channels}} @value={{this.selectedWebhook.chat_channel.id}} @onChange={{action "changeChatChannel"}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
 
     <div class="control-group">
@@ -66,6 +83,7 @@
         {{/if}}
       </label>
 
+<<<<<<< HEAD
       <EmojiPicker
         @isActive={{this.emojiPickerIsActive}}
         @isEditorFocused={{true}}
@@ -84,6 +102,13 @@
           @action={{fn (mut this.selectedWebhook.emoji) null}}
           @disabled={{not this.selectedWebhook.emoji}}
         />
+=======
+      <EmojiPicker @isActive={{this.emojiPickerIsActive}} @isEditorFocused={{true}} @emojiSelected={{action "emojiSelected"}} @onEmojiPickerClose={{action (mut this.emojiPickerIsActive) false}} />
+
+      {{#unless this.emojiPickerIsActive}}
+        <DButton @class="btn-primary" @label="chat.incoming_webhooks.select_emoji" @action={{action (mut this.emojiPickerIsActive) true}} />
+        <DButton @label="chat.incoming_webhooks.reset_emoji" @action={{action (mut this.selectedWebhook.emoji) null}} @disabled={{not this.selectedWebhook.emoji}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       {{/unless}}
 
       <div class="control-instructions">
@@ -99,6 +124,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <DButton
       @label="chat.incoming_webhooks.save"
       @title="chat.incoming_webhooks.save"
@@ -106,6 +132,9 @@
       @disabled={{this.saveEditDisabled}}
       class="btn-primary"
     />
+=======
+    <DButton @class="btn-primary" @label="chat.incoming_webhooks.save" @title="chat.incoming_webhooks.save" @action={{action "saveEdit"}} @disabled={{this.saveEditDisabled}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   </form>
 {{else}}
   {{!  Index view   }}
@@ -113,6 +142,7 @@
 
   {{#if this.creatingNew}}
     <div class="new-incoming-webhook-container">
+<<<<<<< HEAD
       <Input
         @type="text"
         @value={{this.newWebhookName}}
@@ -143,6 +173,15 @@
       @action={{fn (mut this.creatingNew) true}}
       class="btn-primary"
     />
+=======
+      <Input @type="text" @value={{this.newWebhookName}} placeholder={{i18n "chat.incoming_webhooks.name_placeholder"}} />
+      <ChatChannelChooser @content={{this.model.chat_channels}} @value={{this.newWebhookChannelId}} @onChange={{action (mut this.newWebhookChannelId)}} />
+      <DButton @label="chat.create" @title="chat.create" @class="btn-primary create-new-incoming-webhook-btn" @disabled={{not this.nameAndChannelValid}} @action={{action "createNewWebhook"}} />
+      <DButton @label="chat.cancel" @title="chat.cancel" @action={{action "resetNewWebhook"}} />
+    </div>
+  {{else}}
+    <DButton @label="chat.incoming_webhooks.new" @title="chat.incoming_webhooks.new" @class="btn-primary" @action={{action (mut this.creatingNew) true}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   {{/if}}
 
   <p>{{html-safe (i18n "chat.incoming_webhooks.instructions")}}</p>
@@ -174,6 +213,7 @@
 
           <div class="incoming-chat-webhooks--row--controls">
             <div>
+<<<<<<< HEAD
               <DButton
                 @icon="pencil-alt"
                 @label="chat.incoming_webhooks.edit"
@@ -185,6 +225,10 @@
                 @action={{fn this.destroyWebhook webhook}}
                 class="btn-danger"
               />
+=======
+              <DButton @class="btn" @icon="pencil-alt" @label="chat.incoming_webhooks.edit" @action={{action (mut this.selectedWebhookId) webhook.id}} />
+              <DButton @class="btn btn-danger" @icon="trash-alt" @title="chat.incoming_webhooks.delete" @action={{action "destroyWebhook" webhook}} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             </div>
           </div>
         </div>
@@ -193,4 +237,8 @@
       {{i18n "chat.incoming_webhooks.none"}}
     {{/if}}
   </div>
+<<<<<<< HEAD
 {{/if}}
+=======
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

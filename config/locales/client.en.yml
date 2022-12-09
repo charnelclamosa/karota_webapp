@@ -1216,9 +1216,15 @@ en:
         enable: "Enable sidebar"
         options: "Options"
         navigation_section: "Navigation"
+<<<<<<< HEAD
         navigation_section_instruction: "When a topic list in the navigation menu has new or unread items…"
         link_to_filtered_list_checkbox_description: "Link to the filtered list"
         show_count_new_items_checkbox_description: "Show a count of the new items"
+=======
+        list_destination_instruction: "When there's new content in the sidebar..."
+        list_destination_default: "use the default link and show a badge for new items"
+        list_destination_unread_new: "link to unread/new and show a count of new items"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "change"
       featured_topic: "Featured Topic"
       moderator: "%{user} is a moderator"
@@ -1473,7 +1479,11 @@ en:
         disable_confirm: "Are you sure you want to disable two-factor authentication?"
         delete: "Delete"
         delete_confirm_header: "These Token-Based Authenticators and Physical Security Keys will be deleted:"
+<<<<<<< HEAD
         delete_confirm_instruction: "To confirm, type <strong>%{confirm}</strong> in the box below."
+=======
+        delete_confirm_instruction: 'To confirm, type <strong>%{confirm}</strong> in the box below.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_single_confirm_title: "Deleting an authenticator"
         delete_single_confirm_message: "You are deleting %{name}. You can't undo this action. If you change your mind, you have to register this authenticator again."
         delete_backup_codes_confirm_title: "Deleting backup codes"
@@ -1918,7 +1928,12 @@ en:
       remove_status: "Remove status"
 
     user_tips:
+<<<<<<< HEAD
       button: "Got it!"
+=======
+      primary: "Got it!"
+      secondary: "don't show me these tips"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       first_notification:
         title: "Your first notification!"
@@ -1940,12 +1955,16 @@ en:
         title: "Keep reading!"
         content: "Here are some topics we think you might like to read next."
 
+<<<<<<< HEAD
       admin_guide:
         title: "Welcome to your new site!"
         content: "<a href='%{admin_guide_url}'>Read the admin guide</a> to continue building your site and community."
         content_no_url: "Read the admin guide to continue building your site and community."
 
     loading: "Loading…"
+=======
+    loading: "Loading..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "while trying to load"
       reasons:
@@ -1979,7 +1998,26 @@ en:
       logout_disabled: "Logout is disabled while the site is in read only mode."
     staff_writes_only_mode:
       enabled: "This site is in staff only mode. Please continue to browse, but replying, likes, and other actions are limited to staff members only."
+<<<<<<< HEAD
 
+=======
+    too_few_topics_and_posts_notice_MF: >-
+      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a>
+      There {currentTopics, plural, one {is <strong>#</strong> topic} other {are <strong>#</strong> topics}} and
+      {currentPosts, plural, one {<strong>#</strong> post} other {<strong>#</strong> posts}}. Visitors need more to
+      read and reply to – we recommend at least {requiredTopics, plural, one {<strong>#</strong> topic} other {<strong>#</strong> topics}}
+      and {requiredPosts, plural, one {<strong>#</strong> post} other {<strong>#</strong> posts}}. Only staff can see this message.
+    too_few_topics_notice_MF: >-
+      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a>
+      There {currentTopics, plural, one {is <strong>#</strong> topic} other {are <strong>#</strong> topics}}. Visitors need more to
+      read and reply to – we recommend at least {requiredTopics, plural, one {<strong>#</strong> topic} other {<strong>#</strong> topics}}.
+      Only staff can see this message.
+    too_few_posts_notice_MF: >-
+      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a>
+      There {currentPosts, plural, one {is <strong>#</strong> post} other {are <strong>#</strong> posts}}. Visitors need more to
+      read and reply to – we recommend at least {requiredPosts, plural, one {<strong>#</strong> post} other {<strong>#</strong> posts}}.
+      Only staff can see this message.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       # This string uses the ICU Message Format. See https://meta.discourse.org/t/7035 for translation guidelines.
       reached_hour_MF: |
@@ -2177,7 +2215,11 @@ en:
       blank_username: "Please enter your email or username."
       blank_username_or_password: "Please enter your email or username, and password."
       reset_password: "Reset Password"
+<<<<<<< HEAD
       logging_in: "Signing In…"
+=======
+      logging_in: "Signing In..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       previous_sign_up: "Already have an account?"
       or: "Or"
       authenticating: "Authenticating…"
@@ -4511,12 +4553,20 @@ en:
             unread_with_count: "Unread (%{count})"
             archive: "Archive"
         tags:
+          links:
+            add_tags:
+              content: "Add tags"
+              title: "You have not added any tags. Click to get started."
           none: "You have not added any tags."
           click_to_get_started: "Click here to get started."
           header_link_text: "Tags"
           header_action_title: "Edit your sidebar tags"
           configure_defaults: "Configure defaults"
         categories:
+          links:
+            add_categories:
+              content: "Add categories"
+              title: "You have not added any categories. Click to get started."
           none: "You have not added any categories."
           click_to_get_started: "Click here to get started."
           header_link_text: "Categories"
@@ -4541,7 +4591,10 @@ en:
               title: "All topics"
             faq:
               content: "FAQ"
+<<<<<<< HEAD
               title: "Guidelines for using this site"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Groups"
               title: "List of available user groups"
@@ -4550,7 +4603,10 @@ en:
               title: "List of all users"
             my_posts:
               content: "My Posts"
+<<<<<<< HEAD
               content_drafts: "My Drafts"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "My recent topic activity"
               title_drafts: "My unposted drafts"
               draft_count:
@@ -4778,6 +4834,7 @@ en:
         about: "Edit your group membership and names here"
         group_members: "Group members"
         delete: "Delete"
+<<<<<<< HEAD
         delete_confirm: "Are you sure you want to delete %{group}?"
         delete_details:
           one: "%{count} person will lose access to this group"
@@ -4786,6 +4843,12 @@ en:
           one: "%{count} message will become inaccessible to group members"
           other: "%{count} messages will become inaccessible to group members"
         delete_warning: "Deleted groups can not be recovered"
+=======
+        delete_confirm: "Are you sure you want to delete this group?"
+        delete_with_messages_confirm:
+          one: "Deleting this group will cause %{count} message to be orphaned, group members will no longer have access to it."
+          other: "Deleting this group will cause %{count} messages to be orphaned, group members will no longer have access to them."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Unable to delete group. If this is an automatic group, it cannot be destroyed."
         delete_automatic_group: This is an automatic group and cannot be deleted.
         delete_owner_confirm: "Remove owner privilege for '%{username}'?"
@@ -6046,8 +6109,13 @@ en:
         suspended_count: "Suspended"
         last_six_months: "Last 6 months"
         other_matches:
+<<<<<<< HEAD
           one: "There is <b>%{count} other user</b> with the same IP address. Review and select the suspicious ones to penalize along with %{username}."
           other: "There are <b>%{count} other users</b> with the same IP address. Review and select the suspicious ones to penalize along with %{username}."
+=======
+          one: "There is %{count} other user with the same IP address. Review and select the suspicious ones to suspend along with %{username}."
+          other: "There are %{count} other users with the same IP address. Review and select the suspicious ones to suspend along with %{username}."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         other_matches_list:
           username: "Username"
           trust_level: "Trust Level"

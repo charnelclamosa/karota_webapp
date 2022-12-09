@@ -198,8 +198,12 @@ ja:
       page_publishing_requirements: "セキュリティで保護されているメディアが有効である場合、ページの公開を有効にできません。"
       s3_backup_requires_s3_settings: "'%{setting_name}' が入力されていない場合、S3 をバックアップとして使用することはできません。"
       s3_bucket_reused: "'s3_upload_bucket' and 's3_backup_bucket' に同じバケットを使用することはできません。別のバケットを選択するか、バケットごとに異なるパスを使用してください。"
+<<<<<<< HEAD
       secure_uploads_requirements: "安全なアップロードを有効にする前に、S3 アップロードと S3 ACL を有効にする必要があります。"
       s3_use_acls_requirements: "安全なアップロードを有効にする場合は、S3 ACL が有効になっている必要があります。"
+=======
+      secure_uploads_requirements: "安全なアップロードを有効にする前に、S3 アップロードを有効にする必要があります。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       share_quote_facebook_requirements: "Facebook に引用を共有できるようにするには、Facebook アプリの ID を設定する必要があります。"
       second_factor_cannot_enforce_with_socials: "ソーシャルログインが有効になっている状態で 2FA を適用することはできません。先に、%{auth_provider_names} でログインを無効にする必要があります。"
       second_factor_cannot_be_enforced_with_disabled_local_login: "ログインが無効になっている場合、2FA を適用することはできません。"
@@ -207,6 +211,10 @@ ja:
       local_login_cannot_be_disabled_if_second_factor_enforced: "2FA が適用されている場合、ローカルログインを無効にすることはできません。ローカルログインを無効にする前に、適用されている 2FA を無効にしてください。"
       cannot_enable_s3_uploads_when_s3_enabled_globally: "S3 アップロードはすでにグローバルに有効になっているため、S3 アップロードを有効にできません。サイトレベルでこれを有効にすると、アップロードで重大な問題が発生する可能性があります。"
       cors_origins_should_not_have_trailing_slash: "CORS オリジンに末尾のスラッシュ (/) を追加しないでください。"
+<<<<<<< HEAD
+=======
+      slow_down_crawler_user_agent_must_be_at_least_3_characters: "ユーザーエージェントは、人間のユーザーを誤ってレート制限しないように、3 文字以上である必要があります。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       slow_down_crawler_user_agent_cannot_be_popular_browsers: "設定に次の値を追加することはできません: %{values}。"
       strip_image_metadata_cannot_be_disabled_if_composer_media_optimization_image_enabled: "'composer media optimization image enabled' が有効である場合、画像メタデータの削除を無効にすることはできません。画像メタデータの削除を無効にする前に、'composer media optimization image enabled' を無効にしてください。"
       twitter_summary_large_image_no_svg: "twitter:image メタデータに使用される Twitter の要約画像に .svg 画像を使用できません。"
@@ -485,9 +493,13 @@ ja:
       前の返信を編集する際に、テキストをハイライトして<b>引用して返信</b>ボタンを選択すると、返信に引用を追加することができます。
 
       短い個別の返信を多数読むよりも、詳細な返信を数件読む方が、トピックをフォローしやすくなります。
+<<<<<<< HEAD
     dominating_topic: このトピックにたくさん投稿されましたね！ここに返信して互いに話し合うチャンスを他の人にも与えることを検討してください。
     get_a_room: '@%{reply_username} に %{count} 回返信しましたが、個人メッセージを送信できることをご存知ですか？'
     dont_feed_the_trolls: この投稿は、モデレーターの注意が必要としてすでに通報されています。返信してもよろしいですか？否定的なコンテンツへの返信は、さらに否定的な行動を助長する傾向があります。
+=======
+    get_a_room: '@%{reply_username} に %{count} 回返信しましたが、個人メッセージを送信できることをご存知ですか？'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     too_many_replies: |
       ### このトピックへの返信数の制限に達しました
 
@@ -599,8 +611,27 @@ ja:
   staff_category_name: "スタッフ"
   staff_category_description: "スタッフディスカッション用の非公開カテゴリです。トピックは管理者とモデレーターのみが閲覧できます。"
   discourse_welcome_topic:
+<<<<<<< HEAD
     title: "%{site_title} へようこそ！:wave:"
   admin_quick_start_title: "管理者ガイド: はじめに"
+=======
+    title: "コミュニティーへようこそ！"
+    body: |2
+
+      この固定トピックの最初の写真は、ようこそメッセージとしてホームページを初めて訪問するすべてのユーザーに表示されるものであるため、重要です！
+
+      コミュニティーの簡単な説明になるように、**これを編集**しましょう。
+
+      - これは誰のためのコミュニティーですか？
+      - どのような情報を得られますか？
+      - 参加するメリットは何ですか？
+      - 詳細 (リンク、リソースなど) はどこに記載されていますか？
+
+      <img src="%{base_path}/images/welcome/discourse-edit-post-animated.gif" width="508" height="106">
+
+      お知らせに返信が溜まらないように、管理からこのトピックをクローズすることができます :wrench: (右上と下)。
+  admin_quick_start_title: "最初にお読みください: 管理者クイックスタートガイド"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   category:
     topic_prefix: "%{category} カテゴリについて"
     replace_paragraph: "(この最初の段落を、新しいカテゴリの簡単な説明に置き換えてください。このガイダンスはカテゴリ選択エリアに表示されるため、200 文字未満で記述してください。)"
@@ -619,7 +650,10 @@ ja:
       disallowed_tags_generic: "このトピックはタグを許可していません。"
       slug_contains_non_ascii_chars: "に非 ASCII 文字が含まれます"
       is_already_in_use: "はすでに使用されています"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "新規トピックを作成する権限のないカテゴリにこのトピックを移動できません。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "このカテゴリは特殊です。カテゴリのないトピックを保存するために用意されているため、削除できません。"
       has_subcategories: "サブカテゴリがあるためこのカテゴリを削除できません。"
@@ -639,10 +673,18 @@ ja:
     media_placeholder:
       blocked_hotlinked_title: "別のサイトにホストされているメディアです。クリックすると新しいタブで開きます。"
       blocked_hotlinked: "外部メディア"
+<<<<<<< HEAD
     has_likes:
       other: "「いいね！」 %{count}"
     cannot_permanently_delete:
       many_posts: "このトピックには削除されていない投稿があります。トピックを永久に削除する前に、それらのトピックを永久に削除してください。"
+=======
+    hidden_bidi_character: "双方向テキストは、テキストがレンダリングされる順序を変更できます。これは、悪意のあるコードを隠すために使用される可能性があります。"
+    has_likes:
+      other: "「いいね！」 %{count}"
+    cannot_permanently_delete:
+      many_posts: "他の投稿があるため、このトピックを永久に削除することはできません。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       wait_or_different_admin: "%{time_left} 待ってからこの投稿を永久に削除するか、別の管理者が削除する必要があります。"
   rate_limiter:
     slow_down: "この操作の実行回数が多すぎます。後でもう一度お試しください。"
@@ -719,6 +761,13 @@ ja:
         other: "ほぼ %{count} 年前"
   password_reset:
     no_token: 'おっとっと！使用したリンクは機能しなくなっています。今すぐ<a href="%{base_url}/login">ログイン</a>しましょう。パスワードを忘れた場合は、リセットするための<a href="%{base_url}/password-reset">リンクをリクエスト</a>できます。'
+<<<<<<< HEAD
+=======
+    choose_new: "新しいパスワードを選択する"
+    choose: "パスワードを選択する"
+    update: "パスワードを更新"
+    save: "パスワードを設定"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "パスワードをリセット"
     success: "パスワードを変更し、ログインしました。"
     success_unapproved: "パスワードを変更しました。"
@@ -810,7 +859,11 @@ ja:
       email_body: "%{link}\n\n%{message}"
     inappropriate:
       title: "不適切"
+<<<<<<< HEAD
       description: 'この投稿には一般的な人が攻撃的、虐待的、ヘイト行為、または<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>に違反すると見なすコンテンツが含まれています。'
+=======
+      description: 'この投稿には一般的な人が攻撃的、虐待的、または<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>に違反すると見なすコンテンツが含まれています。'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       short_description: '<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>の違反'
     notify_user:
       title: "@%{username} にメッセージを送る"
@@ -839,6 +892,8 @@ ja:
   draft_backup:
     pm_title: "進行中のトピックのバックアップ下書き"
     pm_body: "バックアップの下書きを含むトピック"
+  user_activity:
+    no_log_search_queries: "検索ログクエリは現在無効になっています (管理者はサイト設定で有効にできます)。"
   email_settings:
     pop3_authentication_error: "指定された POP3 の資格情報に問題がありました。ユーザー名とパスワードを確認して、もう一度お試しください。"
     imap_authentication_error: "指定された IMAP の資格情報に問題がありました。ユーザー名とパスワードを確認して、もう一度お試しください。"
@@ -874,7 +929,11 @@ ja:
       short_description: "これは広告です"
     inappropriate:
       title: "不適切"
+<<<<<<< HEAD
       description: 'このトピックには一般的な人が攻撃的、虐待的、ヘイト行為、または<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>に違反すると見なすコンテンツが含まれています。'
+=======
+      description: 'このトピックには一般的な人が攻撃的、虐待的、または<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>に違反すると見なすコンテンツが含まれています。'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       long_form: "不適切として通報"
       short_description: '<a href="%{base_path}/guidelines">コミュニティーガイドライン</a>の違反'
     notify_moderators:
@@ -912,8 +971,11 @@ ja:
     mailing_list_mode: "メーリンリストモードをオフにする"
     all: "%{sitename} からメールを送信しない"
     different_user_description: "メールで送信したものとは異なるユーザーとしてログインしています。 ログアウトするか、匿名モードを開始して、もう一度お試しください。"
+<<<<<<< HEAD
     not_found_description: "その購読は見つかりませんでした。メールのリンクが古すぎるか期限切れになっています。"
     user_not_found_description: "この購読のユーザーが見つかりませんでした。おそらく、もう存在しないアカウントの購読を解除しようとしています。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     log_out: "ログアウト"
     submit: "設定を保存"
     digest_frequency:
@@ -1054,7 +1116,11 @@ ja:
       title: "DAU/MAU"
       xaxis: "日"
       yaxis: "DAU/MAU"
+<<<<<<< HEAD
       description: "前日にログインしたメンバーの数を先月にログインしたメンバーの数で割った数 - コミュニティーの「粘着性」を示す割合 % を返します。20% 以上を目指してください。"
+=======
+      description: "前日にログインしたメンバーの数を先月にログインしたメンバーの数で割った数 - コミュニティーの「粘着性」を示す割合 % を返します。30% 以上を目指してください。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     daily_engaged_users:
       title: "1 日のエンゲージユーザー"
       xaxis: "日"
@@ -1307,6 +1373,7 @@ ja:
         qtt_like: '「いいね！」された数'
       description: "広範な人から「いいね！」を受け取った上位 10 人のユーザーです。"
   dashboard:
+    group_email_credentials_warning: 'グループ <a href="%{base_path}/g/%{group_name}/manage/email">%{group_full_name}</a> のメールの資格情報に問題がありました。この問題が解決されるまで、このグループの受信トレイからメールを送信できません。%{error}'
     rails_env_warning: "サーバーは %{env} モードで実行中です。"
     host_names_warning: "現在 config/database.yml ファイルは、デフォルトの localhost をホスト名として使用しています。あなたのサイトのホスト名に更新してください。"
     sidekiq_warning: 'Sidekiq が実行していません。メール送信などの多くのタスクは sidekiq により非同期に実行されます。少なくとも 1 つの sidekiq プロセスが実行していることを確認してください。<a href="https://github.com/mperham/sidekiq" target="_blank">Sidekiq についてはこちらをご覧ください</a>。'
@@ -1389,9 +1456,15 @@ ja:
     tl2_post_edit_time_limit: "TL2 以上の作成者は投稿後 (n) 分間、投稿を編集できる。0 に設定すると永久に編集できます。"
     edit_history_visible_to_public: "編集した投稿の前のバージョンをすべてのユーザーが閲覧することを許可する。無効である場合、スタッフメンバーのみが閲覧できます。"
     delete_removed_posts_after: "作成者が削除した投稿は (n) 時間後に自動的に削除される。0 に設置すると、投稿は直ちに削除されます。"
+<<<<<<< HEAD
     notify_users_after_responses_deleted_on_flagged_post: "投稿が通報されてから削除されると、投稿に返信した後にそれが削除されたすべてのユーザーに通知されます。"
     max_image_width: "投稿内の画像サムネイルの最大幅。これより大きい画像はサイズ変更され、ライトボックス化されます。"
     max_image_height: "投稿内の画像サムネイルの最大高さ。これより大きい画像はサイズ変更され、ライトボックス化されます。"
+=======
+    notify_users_after_responses_deleted_on_flagged_post: "投稿にフラグが立てられてから削除されると、投稿に返信した後にそれが削除されたすべてのユーザーに通知されます。"
+    max_image_width: "投稿内のサムネイル画像の最大幅"
+    max_image_height: "投稿内のサムネイル画像の最大高"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     responsive_post_image_sizes: "ライトボックスのプレビュー画像のサイズを変更して、次のピクセル比の DPI の高いスクリーンを可能にします。レスポンシブ画像を無効にするには、すべての値を削除します。"
     fixed_category_positions: "オンにすると、カテゴリを固定された順に並べ替えられるようになります。オフにすると、アクティビティ順に並べ替えられます。"
     fixed_category_positions_on_create: "オンにすると、カテゴリの順序はトピック作成ダイアログで管理されるようになります (fixed_category_positions が必要)。"
@@ -1439,8 +1512,11 @@ ja:
     summary_percent_filter: "「このトピックを要約」をクリックしたとき表示される上位投稿の割合%"
     summary_max_results: "'このトピックを要約' が返す最大投稿数"
     summary_timeline_button: "タイムラインに '要約' ボタンを表示する"
+<<<<<<< HEAD
     summarization_strategy: "プラグインによって登録されたコンテンツを要約する他の方法"
     custom_summarization_allowed_groups: "`summarization_strategy` を使ってコンテンツを要約できるグループ。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     enable_personal_messages: "非推奨。代わりに 'personal message enabled groups' 設定を使用してください。信頼レベル 1 (メッセージを送信できる最低信頼レベルで構成可能) ユーザーに、メッセージの作成とメッセージへの返信を許可します。それにも関わらず、スタッフは常にメッセージを送信できることに注意してください。"
     personal_message_enabled_groups: "これらのグループ内のユーザーに、メッセージの作成とメッセージへの返信を許可します。信頼レベルグループには、その数値を超えるすべての信頼レベルが含まれます。たとえば、trust_level_1 を選択すると、rust_level_2、3、4 のユーザーにも、個人メッセージの送信が許可されます。それにも関わらず、スタッフは常にメッセージを送信できることに注意してください。"
     enable_system_message_replies: "個人メッセージが無効である場合でも、ユーザーによるシステムメッセージへの返信を許可する"
@@ -1461,9 +1537,15 @@ ja:
     tl2_additional_edits_per_day_multiplier: "TL2 (メンバー) の 1 日あたりの編集数の上限をこの数を倍数として増加する"
     tl3_additional_edits_per_day_multiplier: "TL3 (レギュラー) の 1 日あたりの編集数の上限をこの数を倍数として増加する"
     tl4_additional_edits_per_day_multiplier: "TL4 (リーダー) の 1 日あたりの編集数の上限をこの数を倍数として増加する"
+<<<<<<< HEAD
     tl2_additional_flags_per_day_multiplier: "TL2 (メンバー) の 1 日あたりの通報数の上限をこの数を倍数として増加する"
     tl3_additional_flags_per_day_multiplier: "TL3 (レギュラー) の 1 日あたりの通報数の上限をこの数を倍数として増加する"
     tl4_additional_flags_per_day_multiplier: "TL4 (リーダー) の 1 日あたりの通報数の上限をこの数を倍数として増加する"
+=======
+    tl2_additional_flags_per_day_multiplier: "TL2 (メンバー) の 1 日あたりのフラグ数の上限をこの数を倍数として増加する"
+    tl3_additional_flags_per_day_multiplier: "TL3 (レギュラー) の 1 日あたりのフラグ数の上限をこの数を倍数として増加する"
+    tl4_additional_flags_per_day_multiplier: "TL4 (リーダー) の 1 日あたりのフラグ数の上限をこの数を倍数として増加する"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     num_users_to_silence_new_user: "新しいユーザーの投稿がこの数のユーザーから num_spam_flags_to_silence_new_user 件の迷惑通報を受けると、そのユーザーのすべての投稿を非表示にして、以降で投稿できないようにします。0 を指定すると無効になります。"
     num_tl3_flags_to_silence_new_user: "新しいユーザーの投稿が num_tl3_users_to_silence_new_user 人の信頼レベル 3 ユーザーからこの件数の通報を受けると、そのユーザーのすべての投稿を非表示にして、以降で投稿できないようにします。0 を指定すると、無効になります。"
     num_tl3_users_to_silence_new_user: "新しいユーザーの投稿がこの数の信頼レベル 3 ユーザーから num_tl3_flags_to_silence_new_user 件の迷惑通報を受けると、そのユーザーのすべての投稿を非表示にして、以降で投稿できないようにします。0 を指定すると無効になります。"
@@ -1531,6 +1613,7 @@ ja:
     email_token_valid_hours: "「パスワードを忘れました」またはアカウントアクティベーションのトークンを有効にする時間 (n)"
     enable_badges: "バッジ機能を有効にする"
     max_favorite_badges: "ユーザーが選択できるバッジの最大数"
+<<<<<<< HEAD
     whispers_allowed_groups: "特定のグループのメンバーに、トピック内での非公開コミュニケーションを許可します。"
     hidden_post_visible_groups: "これらのグループのメンバーが非表示の投稿を表示できるようにします。スタッフユーザーは常に非表示の投稿を表示できます。"
     allow_index_in_robots_txt: "このサイトがウェブ検索エンジンによるインデックス作成を許可していることを robots.txt に指定します。例外的なケースでは、永続的に <a href='%{base_path}/admin/customize/robots'>robots.txt をオーバーライド</a>できます。"
@@ -1538,6 +1621,15 @@ ja:
     allowed_email_domains: "ユーザーがアカウントの登録に使用する必要のあるメールドメインのパイプ区切りのリスト。サブドメインは自動的に指定されたドメインに対して処理されます。ワイルドカード記号の * と ? はサポートされていません。警告: リストに含まれないメールドメインのユーザーは許可されません！"
     normalize_emails: "正規化されたメールアドレスが一意であるかをチェックします。正規化されたメールアドレスでは、ユーザー名のすべてのドットと、+ と @ 記号の間のすべてが削除されます。"
     auto_approve_email_domains: "このドメインリストにあるメールアドレスを持つユーザーは自動的に承認されます。サブドメインは自動的に指定されたドメインに対して処理されます。ワイルドカード記号の * と ? はサポートされていません。"
+=======
+    enable_whispers: "トピック内でのスタッフの非公開コミュニケーションを許可する。"
+    whispers_allowed_groups: "特定のグループのメンバーに、トピック内での非公開コミュニケーションを許可します。"
+    allow_index_in_robots_txt: "このサイトがウェブ検索エンジンによるインデックス作成を許可していることを robots.txt に指定します。例外的なケースでは、永続的に <a href='%{base_path}/admin/customize/robots'>robots.txt をオーバーライド</a>できます。"
+    blocked_email_domains: "ユーザーがアカウント登録をすることができないメールドメインの、パイプ区切りのリスト。例: mailinator.com|trashmail.net"
+    allowed_email_domains: "ユーザー登録に必要なメールドメインのパイプ区切りのリスト。警告: 指定したメールドメイン以外のユーザーの登録は許可されません！"
+    normalize_emails: "正規化されたメールアドレスが一意であるかをチェックします。正規化されたメールアドレスでは、ユーザー名のすべてのドットと、+ と @ 記号の間のすべてが削除されます。"
+    auto_approve_email_domains: "このドメインリストのメールアドレスを持つユーザーは自動的に承認されます。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     hide_email_address_taken: "サインアップ中やパスワード忘れのフローの際に、指定したメールアドレスでアカウントが存在することをユーザーに知らせません。'パスワード忘れ' のリクエストでは、完全なメールアドレスが必要です。"
     log_out_strict: "ログアウトした際に、そのユーザーの全デバイスのセッションをログアウトする"
     version_checks: "Discourse に Ping してバージョン更新を確認し、<a href='%{base_path}/admin' target='_blank'>/admin</a> ダッシュボードに新しいバージョンに関するメッセージを表示する"
@@ -1901,7 +1993,10 @@ ja:
     enable_user_directory: "閲覧用のユーザーディレクトリを提供"
     enable_group_directory: "閲覧用のグループディレクトリを提供"
     enable_category_group_moderation: "グループが特定のカテゴリのコンテンツに介入することを許可する"
+<<<<<<< HEAD
     group_in_subject: "メールの件名の %%{optional_pm} を PM の最初のグループの名前に設定する。「<a href='https://meta.discourse.org/t/customize-specific-email-templates/88323' target='_blank'>標準メールの件名のフォーマットをカスタマイズする</a>」をご覧ください。"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     allow_anonymous_posting: "ユーザーに匿名モードへの切り替えを許可"
     allow_anonymous_likes: "匿名ユーザーが投稿に「いいね！」することを許可する"
     anonymous_posting_min_trust_level: "匿名で投稿するために必要な最低信頼レベル"
@@ -1932,8 +2027,13 @@ ja:
     permalink_normalizations: "パーマリンクを照合する前に、次の正規表現を適用する。例: /(topic.*)\\?.*/\\1 はトピックルートからクエリ文字列を削除します。形式は正規表現+文字列です。キャプチャにアクセスするには \\1 などを使用します"
     global_notice: "すべての訪問者に緊急で非常の閉じられないグローバルバナー通知を表示する。空白にすると非表示になります (HTML 可)。"
     disable_system_edit_notifications: "download_remote_images_to_local' が有効である場合、システムユーザーによる編集の通知を無効にします。"
+<<<<<<< HEAD
     disable_category_edit_notifications: "トピックカテゴリの編集に関する通知を無効にします。これには、「公開中」のトピック (共有の下書きなど) が含まれます。"
     disable_tags_edit_notifications: "トピックタグの編集に関する通知を無効にします。これには、「公開中」のトピック (共有の下書きなど) が含まれます。"
+=======
+    disable_category_edit_notifications: "トピックのカテゴリ編集通知を無効にします。"
+    disable_tags_edit_notifications: "トピックのタグ編集通知を無効にします。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     notification_consolidation_threshold: "複数の通知が 1 つの通知に統合される前に受信した「いいね！」またはメンバーシップリクエストの通知の数。"
     likes_notification_consolidation_window_mins: "しきい値に達すると「いいね！」された複数の通知が 1 つの通知に統合される期間 (分)。しきい値は `SiteSetting.notification_consolidation_threshold` で構成できます。"
     automatically_unpin_topics: "ユーザーが最後に達したら、自動的にトピックの固定表示を解除する。"
@@ -1947,13 +2047,21 @@ ja:
     auto_handle_queued_age: "この日数後に、レビュー待ちのレコードを自動的に処理する。通報は無視されます。キューに入れられた投稿とユーザーは拒否されます。0 に設定するとこの機能は無効になります。"
     penalty_step_hours: "ユーザーの投稿禁止または凍結に使用されるデフォルトのペナルティ (時間)。最初の違反はデフォルトで最初の値になり、2 番目の違反はデフォルトで 2 番目の値になります。"
     svg_icon_subset: "アセットに含める追加の FontAwesome 5 アイコンを追加する。ソリッドアイコンには 'fa-'、通常のアイコンには 'far-'、ブランドアイコンには 'fab-' のプレフィックスを使用します。"
+<<<<<<< HEAD
     max_prints_per_hour_per_user: "/print ページの最大インプレッション数 (0 に設定すると出力が無効になります)"
+=======
+    max_prints_per_hour_per_user: "/print ページの最大インプレッション数 (0 に設定すると無効になります)"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     full_name_required: "ユーザープロファイルのフルネームを必須にします。"
     enable_names: "ユーザーのプロフィール、ユーザーカード、メールアドレスでのフルネームを表示します。無効にすると、フルネームはすべての場所で非表示になります。"
     display_name_on_posts: "投稿に、@username に加えてユーザーのフルネームを表示します。"
     show_time_gap_days: "2 つの投稿の作成日の間が指定された日数以上の場合、トピックに時間の差を表示します。"
     short_progress_text_threshold: "トピック内の投稿数が指定された数字を超えると、プログレスバーに現在の投稿番号のみを表示します。プログレスバーの幅を変更すると、この値を変更する必要がある場合があります。"
+<<<<<<< HEAD
     default_code_lang: "コードブロックに適用されるデフォルトのプログラミング言語シンタックスハイライト (auto、text、ruby、python など)。この値は、`highlighted languages` サイト設定にも含まれている必要があります。"
+=======
+    default_code_lang: "コードブロックに適用されるデフォルトのプログラミング言語シンタックスハイライト (auto、nohighlight、ruby、python など)。この値は、`highlighted languages` サイト設定にも含まれている必要があります。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     warn_reviving_old_topic_age: "最後の返信が指定された日数より古いトピックに返信し始めると、警告を表示します。0 に設定すると無効になります。"
     autohighlight_all_code: "明示的に言語を指定しなくても、すべての整形済みのコードブロックにコードハイライトを強制的に適用します。"
     highlighted_languages: "シンタックスハイライトルールが含まれる。(警告: 多くの言語を含めすぎると、パフォーマンスに影響を与える可能性があります) デモは、<a href='https://highlightjs.org/static/demo/' target='_blank'>https://highlightjs.org/static/demo</a> をご覧ください。"
@@ -1973,8 +2081,16 @@ ja:
     delete_merged_stub_topics_after_days: "完全にマージされたスタブトピックを自動的に削除するまで待機する日数。0 に設定すると、スタブトピックは削除されません。"
     bootstrap_mode_min_users: "ブートストラップモードを無効にするために必要な最低ユーザー数 (0 に設定すると無効になります。最長 24 時間かかる場合があります)"
     prevent_anons_from_downloading_files: "匿名ユーザーが添付ファイルをダウンロードできないようにする。"
+<<<<<<< HEAD
     secure_uploads: 'すべてのアップロード (画像、動画、音声、テキスト、pdf、zip など) へのアクセスを制限する。“login required” が有効である場合、ログイン済みのユーザーのみがアップロードにアクセスできます。そうでない場合は、個人メッセージと非公開カテゴリのメディアアップロードのアクセスのみが制限されます。警告: この設定は複雑であるため、管理を十分に理解している必要があります。詳細については、<a target="_blank" href="https://meta.discourse.org/t/-/140017">メタに関するセキュリティで保護されたアップロードのトピック</a>をご覧ください。'
     secure_uploads_allow_embed_images_in_emails: "通常はメールで編集されるセキュリティで保護された画像のサイズが 'secure uploads max email embed image size kb' 設定よりも小さい場合、その埋め込みを許可します。"
+=======
+    secure_media: "非推奨: 代わりに secure_uploads を使用してください。Discourse 3.0 で削除されます。"
+    secure_uploads: 'すべてのアップロード (画像、動画、音声、テキスト、pdf、zip など) へのアクセスを制限する。“login required” が有効である場合、ログイン済みのユーザーのみがアップロードにアクセスできます。そうでない場合は、個人メッセージと非公開カテゴリのメディアアップロードのアクセスのみが制限されます。警告: この設定は複雑であるため、管理を十分に理解している必要があります。詳細については、<a target="_blank" href="https://meta.discourse.org/t/-/140017">メタに関するセキュリティで保護されたアップロードのトピック</a>をご覧ください。'
+    secure_media_allow_embed_images_in_emails: "非推奨: secure_uploads_allow_embed_images_in_emails を使用してください。Discourse 3.0 で削除されます。"
+    secure_uploads_allow_embed_images_in_emails: "通常はメールで編集されるセキュリティで保護された画像のサイズが 'secure uploads max email embed image size kb' 設定よりも小さい場合、その埋め込みを許可します。"
+    secure_media_max_email_embed_image_size_kb: "非推奨: secure_uploads_max_email_embed_image_size_kb を使用してください。Discourse 3.0 で削除されます。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     secure_uploads_max_email_embed_image_size_kb: "'secure uploads allow embed in emails' 設定が有効である場合にメールに埋め込まれるセキュリティで保護された画像のサイズのカットオフ。その設定が有効でない場合、この設定の効果はありません。"
     slug_generation_method: "スラッグ生成方法を選択します。'encode' はパーセントエンコード文字列を生成します。'none'は、スラッグを無効にします。"
     enable_emoji: "絵文字を有効にする"
@@ -2081,7 +2197,11 @@ ja:
     enable_sitemap: "サイトのサイトマップを生成し、robots.txt ファイルに含めます。"
     sitemap_page_size: "各サイトマップページに含める URL の数。最大 50,000"
     enable_user_status: "(実験的) ユーザーがカスタムステータスメッセージ (絵文字 + 説明) を設定できるようにします。"
+<<<<<<< HEAD
     enable_user_tips: "重要な機能をユーザーに説明する新しいユーザーヒントを有効にする"
+=======
+    enable_user_tips: "(実験的) 重要な機能をユーザーに説明する新しいユーザーヒントを有効にする"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     short_title: "短いタイトルはユーザーのホーム画面、ランチャー、またはスペースが限られている場所に使用されます。12 文字に制限する必要があります。"
     dashboard_hidden_reports: "ダッシュボードから指定されたレポートを非表示にすることを許可する。"
     dashboard_visible_tabs: "表示するダッシュボードのタブを選択します。"
@@ -2097,6 +2217,7 @@ ja:
     use_name_for_username_suggestions: "ユーザー名を提案する際に、ユーザーの氏名を使用します。"
     suggest_weekends_in_date_pickers: "日付ピッカーの候補に週末 (土曜日と日曜日) を含めます (月曜日から金曜日の平日にのみ Discourse を使用する場合は、これを無効にします)。"
     splash_screen: "サイトアセットの読み込み中に一時的なローディング画面を表示します"
+<<<<<<< HEAD
     navigation_menu: "使用するナビゲーションメニューを決定します。サイドバーとヘッダーナビゲーションはユーザーがカスタマイズできます。下位互換性を得るには、レガシーオプションを使用できます。"
     default_navigation_menu_categories: "選択されたカテゴリは、デフォルトでナビゲーションメニューのカテゴリセクションに表示されます。"
     default_navigation_menu_tags: "選択されたタグは、デフォルトでナビゲーションメニューのタグセクションに表示されます。"
@@ -2107,6 +2228,11 @@ ja:
     experimental_search_menu_groups: "実験的: glimmer を使用するようにアップグレードされた新しい検索メニューを有効にします"
     enable_experimental_lightbox: "実験的: デフォルトの画像ライトボックスを改良されたデザインに置き換えます。"
     page_loading_indicator: "Discourse 内のページナビゲーション中に表示される読み込みインジケーターを構成します。「スピナー」はページ全体のインジケーターです。「スライダー」は画面上部に細いバーを表示します。"
+=======
+    default_sidebar_categories: "選択されたカテゴリは、デフォルトでサイドバーのカテゴリセクションに表示されます。"
+    default_sidebar_tags: "選択されたタグは、デフォルトでサイドバーのタグセクションに表示されます。"
+    enable_new_user_profile_nav_groups: "実験的: 選択されたグループのユーザーは、新しいユーザープロファイルナビゲーションメニューに表示されます。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       invalid_css_color: "無効な色です。色名または 16 進数値を入力してください。"
       invalid_email: "無効なメールアドレスです。"
@@ -2162,8 +2288,12 @@ ja:
       search_tokenize_japanese_enabled: "この設定を有効にする前に 'search_tokenize_japanese' を無効にする必要があります。"
       discourse_connect_cannot_be_enabled_if_second_factor_enforced: "2FA が適用されている場合、DiscourseConnect を有効にできません。"
       delete_rejected_email_after_days: "この設定は delete_email_logs_after_days 設定より小さいか %{max} より大きく設定することはできません。"
+<<<<<<< HEAD
       invalid_uncategorized_category_setting: '「未分類トピックを許可」が有効でない場合、「未分類」カテゴリを選択できません。'
       invalid_search_ranking_weights: "search_ranking_weights サイト設定の値が無効です。例: '{0.1,0.2,0.3,1.0}'。各重みの最大値は 1.0 であることに注意してください。"
+=======
+      invalid_uncategorized_category_setting: "「未分類トピックを許可」が許可されていない場合、未分類カテゴリを選択できません"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     placeholder:
       discourse_connect_provider_secrets:
         key: "www.example.com"
@@ -2515,12 +2645,20 @@ ja:
       %{notes}
   flag_reasons:
     off_topic: "あなたの投稿は「話題に関係ない」として通報されました。コミュニティーはあなたの投稿がタイトルと最初の投稿で定義されているトピックにふさわしくないと判断しました。"
+<<<<<<< HEAD
     inappropriate: "あなたの投稿は**不適切**として通報されました。コミュニティーは投稿が攻撃的、虐待的、ヘイト行為、または[コミュニティーガイドライン](%{base_path}/guidelines)に違反すると感じています。"
+=======
+    inappropriate: "あなたの投稿は**不適切**として通報されました。コミュニティーは投稿が攻撃的、虐待的、または[コミュニティガイドライン](%{base_path}/guidelines)に違反すると感じています。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     spam: "あなたの投稿は「迷惑」として通報されました。コミュニティーはあなたの投稿に営利目的、宣伝目的の性質があり、トピックに意図される有用性または関連性がないと判断しました。"
     notify_moderators: "あなたの投稿は「モデレーターの注意要」として通報されました。コミュニティーはあなたの投稿にスタッフメンバーによる手動介入が必要であると判断しました。"
     responder:
       off_topic: "投稿は**話題に関係ない**として通報されました。コミュニティーはあなたの投稿がタイトルと最初の投稿で定義されているトピックにふさわしくないと判断しました。"
+<<<<<<< HEAD
       inappropriate: "投稿は**不適切**として通報されました。コミュニティーは投稿が攻撃的、虐待的、ヘイト行為、または[コミュニティーガイドライン](%{base_path}/guidelines)に違反すると感じています。"
+=======
+      inappropriate: "投稿は**不適切**として通報されました。コミュニティーは投稿が攻撃的、虐待的、または[コミュニティーガイドライン](%{base_path}/guidelines)に違反すると感じています。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       spam: "投稿は**迷惑**として通報されました。コミュニティーはあなたの投稿に営利目的、宣伝目的の性質があり、トピックに意図される有用性または関連性がないと判断しました。"
       notify_moderators: "投稿は**モデレーターの注意要**として通報されました。コミュニティーはあなたの投稿にスタッフメンバーによる手動介入が必要であると判断しました。"
   flags_dispositions:
@@ -4370,18 +4508,29 @@ ja:
       message: "<p><b>%{email}</b> にアクティベーションメールを再送信しました"
   safe_mode:
     title: "セーフモードを開始"
+<<<<<<< HEAD
     description: "セーフモードを使用すると、テーマまたはクライアント側プラグインのカスタマイズを読み込まずにサイトをテストできます。サーバー側プラグインのカスタマイズは有効のままになります。"
     no_themes: "テーマとテーマのコンポーネントを無効にする"
     no_unofficial_plugins: "非公式のクライアント側プラグインのカスタマイズを無効にする"
     no_plugins: "すべてのクライアント側プラグインのカスタマイズを無効にする"
+=======
+    description: "セーフモードでは、プラグインやテーマを読み込まずにサイトをテストすることができます。"
+    no_themes: "テーマとテーマのコンポーネントを無効にする"
+    no_unofficial_plugins: "非公式のプラグインを無効にする"
+    no_plugins: "すべてのプラグインを無効にする"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     enter: "セーフモードを開始"
     must_select: "セーフモードを開始するには、少なくとも 1 つのオプションを選択する必要があります。"
   wizard:
     title: "Discourse のセットアップ"
     step:
       introduction:
+<<<<<<< HEAD
         title: "サイトについて"
         description: "これらは、ログインとすべての公開ページに表示されます。後でいつでも変更できます。"
+=======
+        title: "コミュニティーについて教えてください"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         fields:
           title:
             label: "コミュニティー名"
@@ -4389,6 +4538,10 @@ ja:
           site_description:
             label: "コミュニティーについて一文で説明してください"
             placeholder: "純子と純子の仲間がワイワイする場所"
+          contact_email:
+            label: "連絡先"
+            placeholder: "example@user.com"
+            description: "このコミュニティーの責任者またはグループ。重要な更新に使用され、緊急連絡先として<a href='%{base_path}/about' target='_blank'>あなたの紹介ページ</a>に表示されます。"
           default_locale:
             label: "言語"
       privacy:
@@ -4403,6 +4556,7 @@ ja:
           must_approve_users:
             placeholder: "要承認"
             extra_description: "ユーザーはスタッフの承認が必要です"
+<<<<<<< HEAD
           chat_enabled:
             placeholder: "チャットを有効にする"
             extra_description: "メンバーとリアルタイムで交流"
@@ -4411,6 +4565,10 @@ ja:
             extra_description: "お気に入りのスペースに簡単にアクセス"
       ready:
         title: "サイトの準備が整いました！"
+=======
+      ready:
+        title: "あなたの Discourse の準備が整いました！"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: "以上です！コミュニティーを設定するための基本を完了しました。後は、コミュニティーにアクセスして見て回り、ウェルカムトピックを書いて招待状を送信しましょう！<br><br>お楽しみください！"
       styling:
         title: "外観"
@@ -4445,6 +4603,7 @@ ja:
               subcategories_with_featured_topics:
                 label: "注目のトピックを含むサブカテゴリ"
       branding:
+<<<<<<< HEAD
         title: "サイトのロゴ"
         fields:
           logo:
@@ -4460,15 +4619,38 @@ ja:
           company_name:
             label: "会社名"
             placeholder: "Acme 組織"
+=======
+        title: "ロゴのカスタマイズ"
+        fields:
+          logo:
+            label: "プライマリーロゴ"
+            description: "サイトの左上にあるロゴです。高さ 120、縦横比 3:1を超える広幅の長方形の画像を使用してください。"
+          logo_small:
+            label: "正方形のロゴ"
+            description: "正方形バージョンのロゴ。下にスクロールしたときに左上に、またソーシャルプラットフォームで共有したときに表示されます。512x512 以上のサイズが最適です。"
+      corporate:
+        title: "あなたの組織"
+        fields:
+          company_name:
+            label: "会社名"
+            placeholder: "組織の例"
+            description: "利用規約ページに使用されます。会社が存在しない場合はスキップしてください。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           governing_law:
             label: "準拠法"
             placeholder: "カリフォルニア州法"
+            description: "利用規約ページに使用されます。会社が存在しない場合はスキップしてください。"
           contact_url:
             label: "ウェブページ"
             placeholder: "https://www.example.com/contact-us"
+<<<<<<< HEAD
+=======
+            description: "あなたまたは組織の代表連絡先ウェブページ。<a href='%{base_path}/about' target='_blank'>あなたの自己紹介ページ</a>に表示されます。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           city_for_disputes:
             label: "紛争都市"
             placeholder: "カリフォルニア州サンフランシスコ"
+            description: "利用規約ページに使用されます。会社が存在しない場合はスキップしてください。"
           site_contact:
             label: "自動メッセージ"
             description: "通報の警告やバックアップ完了の通知など、Discourse のすべての自動個人メッセージはこのユーザーから送信されます。"
@@ -4659,11 +4841,14 @@ ja:
     payload_url:
       blocked_or_internal: "ペイロード URL はブロックされた IP または内部 IP に解決されるため、使用できません。"
       unsafe: "ペイロード URL は安全でないため使用できません"
+<<<<<<< HEAD
   form_templates:
     errors:
       invalid_yaml: "は有効な YAML 文字列ではありません"
       invalid_type: "には無効なテンプレートタイプが含まれています: %{type} (有効なタイプ: %{valid_types})"
       missing_type: "にフィールドタイプがありません"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   activemodel:
     errors:
       <<: *errors

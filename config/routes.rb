@@ -526,6 +526,7 @@ Discourse::Application.routes.draw do
       get "#{root_path}/confirm-new-email/:token" => "users_email#show_confirm_new_email"
       put "#{root_path}/confirm-new-email" => "users_email#confirm_new_email"
 
+<<<<<<< HEAD
       get(
         {
           "#{root_path}/confirm-admin/:token" => "users#confirm_admin",
@@ -735,6 +736,60 @@ Discourse::Application.routes.draw do
           :constraints => {
             username: RouteFormat.username,
           }
+=======
+      get({
+        "#{root_path}/confirm-admin/:token" => "users#confirm_admin",
+        constraints: { token: /[0-9a-f]+/ }
+      }.merge(index == 1 ? { as: 'confirm_admin' } : {}))
+      post "#{root_path}/confirm-admin/:token" => "users#confirm_admin", constraints: { token: /[0-9a-f]+/ }
+      get "#{root_path}/:username/private-messages" => "user_actions#private_messages", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/private-messages/:filter" => "user_actions#private_messages", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/messages" => "user_actions#private_messages", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/messages/:filter" => "user_actions#private_messages", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/messages/group/:group_name" => "user_actions#private_messages", constraints: { username: RouteFormat.username, group_name: RouteFormat.username }
+      get "#{root_path}/:username/messages/group/:group_name/:filter" => "user_actions#private_messages", constraints: { username: RouteFormat.username, group_name: RouteFormat.username }
+      get "#{root_path}/:username/messages/tags/:tag_id" => "list#private_messages_tag", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username.json" => "users#show", constraints: { username: RouteFormat.username }, defaults: { format: :json }
+      get({ "#{root_path}/:username" => "users#show", constraints: { username: RouteFormat.username } }.merge(index == 1 ? { as: 'user' } : {}))
+      put "#{root_path}/:username" => "users#update", constraints: { username: RouteFormat.username }, defaults: { format: :json }
+      get "#{root_path}/:username/emails" => "users#check_emails", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/sso-email" => "users#check_sso_email", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/sso-payload" => "users#check_sso_payload", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/email" => "users_email#index", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/account" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/security" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/profile" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/emails" => "users#preferences", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/primary-email" => "users#update_primary_email", format: :json, constraints: { username: RouteFormat.username }
+      delete "#{root_path}/:username/preferences/email" => "users#destroy_email", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/notifications" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/tracking" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/categories" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/users" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/tags" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/interface" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/sidebar" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/apps" => "users#preferences", constraints: { username: RouteFormat.username }
+      post "#{root_path}/:username/preferences/email" => "users_email#create", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/email" => "users_email#update", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/badge_title" => "users#preferences", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/badge_title" => "users#badge_title", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/username" => "users#preferences", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/username" => "users#username", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/second-factor" => "users#preferences", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/preferences/second-factor-backup" => "users#preferences", constraints: { username: RouteFormat.username }
+      delete "#{root_path}/:username/preferences/user_image" => "users#destroy_user_image", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/avatar/pick" => "users#pick_avatar", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/preferences/avatar/select" => "users#select_avatar", constraints: { username: RouteFormat.username }
+      post "#{root_path}/:username/preferences/revoke-account" => "users#revoke_account", constraints: { username: RouteFormat.username }
+      post "#{root_path}/:username/preferences/revoke-auth-token" => "users#revoke_auth_token", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/staff-info" => "users#staff_info", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/summary" => "users#summary", constraints: { username: RouteFormat.username }
+      put "#{root_path}/:username/notification_level" => "users#notification_level", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/invited" => "users#invited", constraints: { username: RouteFormat.username }
+      get "#{root_path}/:username/invited/:filter" => "users#invited", constraints: { username: RouteFormat.username }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       post "#{root_path}/action/send_activation_email" => "users#send_activation_email"
       get "#{root_path}/:username/summary" => "users#show",
           :constraints => {
@@ -898,6 +953,7 @@ Discourse::Application.routes.draw do
           format: :js,
         }
 
+<<<<<<< HEAD
     get "stylesheets/:name" => "stylesheets#show_source_map",
         :constraints => {
           name: /[-a-z0-9_]+/,
@@ -926,6 +982,13 @@ Discourse::Application.routes.draw do
           format: :map,
         },
         :format => true
+=======
+    get "stylesheets/:name" => "stylesheets#show_source_map", constraints: { name: /[-a-z0-9_]+/, format: /css\.map/ }, format: true
+    get "stylesheets/:name" => "stylesheets#show", constraints: { name: /[-a-z0-9_]+/, format: "css" }, format: true
+    get "color-scheme-stylesheet/:id(/:theme_id)" => "stylesheets#color_scheme", constraints: { format: :json }
+    get "theme-javascripts/:digest" => "theme_javascripts#show", constraints: { digest: /\h{40}/, format: :js }, format: true
+    get "theme-javascripts/:digest" => "theme_javascripts#show_map", constraints: { digest: /\h{40}/, format: :map }, format: true
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     get "theme-javascripts/tests/:theme_id-:digest.js" => "theme_javascripts#show_tests"
 
     post "uploads/lookup-metadata" => "uploads#metadata"

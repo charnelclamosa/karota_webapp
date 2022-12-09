@@ -30,8 +30,12 @@ def gather_uploads
 
   puts "", "Gathering uploads for '#{current_db}'...", ""
 
+<<<<<<< HEAD
   Upload
     .where("url ~ '^\/uploads\/'")
+=======
+  Upload.where("url ~ '^\/uploads\/'")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     .where("url !~ ?", "^\/uploads\/#{current_db}")
     .find_each do |upload|
       begin
@@ -1165,7 +1169,14 @@ task "uploads:downsize" => :environment do
   min_image_pixels = 500_000 # 0.5 megapixels
   default_image_pixels = 1_000_000 # 1 megapixel
 
+<<<<<<< HEAD
   max_image_pixels = [ARGV[0]&.to_i || default_image_pixels, min_image_pixels].max
+=======
+  max_image_pixels = [
+    ARGV[0]&.to_i || default_image_pixels,
+    min_image_pixels
+  ].max
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   ENV["VERBOSE"] = "1" if ENV["INTERACTIVE"]
 
@@ -1178,10 +1189,17 @@ task "uploads:downsize" => :environment do
   dimensions_count = 0
   downsized_count = 0
 
+<<<<<<< HEAD
   scope =
     Upload.by_users.with_no_non_post_relations.where(
       "LOWER(extension) IN ('jpg', 'jpeg', 'gif', 'png')",
     )
+=======
+  scope = Upload
+    .by_users
+    .with_no_non_post_relations
+    .where("LOWER(extension) IN ('jpg', 'jpeg', 'gif', 'png')")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   scope = scope.where(<<-SQL, max_image_pixels)
     COALESCE(width, 0) = 0 OR
@@ -1195,7 +1213,13 @@ task "uploads:downsize" => :environment do
     scope = scope.where("uploads.id % ? = ?", ENV["WORKER_COUNT"], ENV["WORKER_ID"])
   end
 
+<<<<<<< HEAD
   scope = scope.where("uploads.id >= ?", ENV["START_ID"]) if ENV["START_ID"]
+=======
+  if ENV["START_ID"]
+    scope = scope.where("uploads.id >= ?", ENV["START_ID"])
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   skipped = 0
   total_count = scope.count
@@ -1208,12 +1232,20 @@ task "uploads:downsize" => :environment do
     print "\r#{progress}% Fixed dimensions: #{dimensions_count} Downsized: #{downsized_count} Skipped: #{skipped} (upload id: #{upload.id})"
     log "\n"
 
+<<<<<<< HEAD
     path =
       if upload.local?
         Discourse.store.path_for(upload)
       else
         Discourse.store.download_safe(upload, max_file_size_kb: 100.megabytes)&.path
       end
+=======
+    path = if upload.local?
+      Discourse.store.path_for(upload)
+    else
+      (Discourse.store.download(upload, max_file_size_kb: 100.megabytes) rescue nil)&.path
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     unless path
       log "No image path"
@@ -1252,7 +1284,11 @@ task "uploads:downsize" => :environment do
       height: h,
       thumbnail_width: ww,
       thumbnail_height: hh,
+<<<<<<< HEAD
       filesize: File.size(path),
+=======
+      filesize: File.size(path)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     if upload.changed?
@@ -1274,6 +1310,7 @@ task "uploads:downsize" => :environment do
       next
     end
 
+<<<<<<< HEAD
     result =
       ShrinkUploadedImage.new(
         upload: upload,
@@ -1282,6 +1319,15 @@ task "uploads:downsize" => :environment do
         verbose: ENV["VERBOSE"],
         interactive: ENV["INTERACTIVE"],
       ).perform
+=======
+    result = ShrinkUploadedImage.new(
+      upload: upload,
+      path: path,
+      max_pixels: max_image_pixels,
+      verbose: ENV["VERBOSE"],
+      interactive: ENV["INTERACTIVE"]
+    ).perform
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if result
       downsized_count += 1

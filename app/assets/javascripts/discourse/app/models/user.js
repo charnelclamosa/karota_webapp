@@ -36,8 +36,18 @@ import Evented from "@ember/object/evented";
 import { cancel } from "@ember/runloop";
 import discourseLater from "discourse-common/lib/later";
 import { isTesting } from "discourse-common/config/environment";
+<<<<<<< HEAD
 import { dependentKeyCompat } from "@ember/object/compat";
 import { inject as service } from "@ember/service";
+=======
+import {
+  hideAllUserTips,
+  hideUserTip,
+  showNextUserTip,
+  showUserTip,
+} from "discourse/lib/user-tips";
+import { dependentKeyCompat } from "@ember/object/compat";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export const SECOND_FACTOR_METHODS = {
   TOTP: 1,
@@ -170,8 +180,11 @@ function userOption(userOptionKey) {
 }
 
 const User = RestModel.extend({
+<<<<<<< HEAD
   userTips: service(),
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   mailing_list_mode: userOption("mailing_list_mode"),
   external_links_in_new_tab: userOption("external_links_in_new_tab"),
   enable_quoting: userOption("enable_quoting"),
@@ -403,6 +416,10 @@ const User = RestModel.extend({
   sidebarSections: alias("sidebar_sections"),
 
   sidebarTagNames: mapBy("sidebarTags", "name"),
+<<<<<<< HEAD
+=======
+  sidebarListDestination: readOnly("sidebar_list_destination"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   changeUsername(new_username) {
     return ajax(userPath(`${this.username_lower}/preferences/username`), {
@@ -499,6 +516,7 @@ const User = RestModel.extend({
     })
       .then((result) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         this.set("bio_excerpt", result.user.bio_excerpt);
         const userProps = getProperties(
@@ -510,6 +528,8 @@ const User = RestModel.extend({
         );
         User.current()?.setProperties(userProps);
 >>>>>>> 85d03045c7 (Sync to forked branch)
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         this.setProperties(updatedState);
         this.setProperties(getProperties(result.user, "bio_excerpt"));
         return result;
@@ -855,28 +875,71 @@ const User = RestModel.extend({
   },
 
   @dependentKeyCompat
+<<<<<<< HEAD
   get regularCategories() {
     return Category.findByIds(this.get("regular_category_ids"));
   },
   set regularCategories(categories) {
     this.set(
       "regular_category_ids",
+=======
+  get mutedCategories() {
+    return Category.findByIds(this.get("muted_category_ids"));
+  },
+  set mutedCategories(categories) {
+    this.set(
+      "muted_category_ids",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       categories.map((c) => c.id)
     );
   },
 
   @dependentKeyCompat
+<<<<<<< HEAD
   get trackedCategories() {
     return Category.findByIds(this.get("tracked_category_ids"));
   },
   set trackedCategories(categories) {
     this.set(
       "tracked_category_ids",
+=======
+  get regularCategories() {
+    return Category.findByIds(this.get("regular_category_ids"));
+  },
+  set regularCategories(categories) {
+    this.set(
+      "regular_category_ids",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       categories.map((c) => c.id)
     );
   },
 
   @dependentKeyCompat
+<<<<<<< HEAD
+  get watchedCategories() {
+    return Category.findByIds(this.get("watched_category_ids"));
+  },
+  set watchedCategories(categories) {
+    this.set(
+      "watched_category_ids",
+=======
+  get trackedCategories() {
+    return Category.findByIds(this.get("tracked_category_ids"));
+  },
+  set trackedCategories(categories) {
+    this.set(
+      "tracked_category_ids",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+      categories.map((c) => c.id)
+    );
+  },
+
+  @dependentKeyCompat
+<<<<<<< HEAD
+  get watchedFirstPostCategories() {
+    return Category.findByIds(this.get("watched_first_post_category_ids"));
+  },
+=======
   get watchedCategories() {
     return Category.findByIds(this.get("watched_category_ids"));
   },
@@ -891,6 +954,7 @@ const User = RestModel.extend({
   get watchedFirstPostCategories() {
     return Category.findByIds(this.get("watched_first_post_category_ids"));
   },
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   set watchedFirstPostCategories(categories) {
     this.set(
       "watched_first_post_category_ids",
@@ -1197,60 +1261,78 @@ const User = RestModel.extend({
     );
   },
 
-  showPopup(options) {
-    const popupTypes = Site.currentProp("onboarding_popup_types");
-    if (!popupTypes[options.id]) {
-      // eslint-disable-next-line no-console
-      console.warn("Cannot display popup with type =", options.id);
+  showUserTip(options) {
+    const userTips = Site.currentProp("user_tips");
+    if (!userTips || this.skip_new_user_tips) {
       return;
     }
 
-    const seenPopups = this.seen_popups || [];
-    if (seenPopups.includes(popupTypes[options.id])) {
+    if (!userTips[options.id]) {
+      if (!isTesting()) {
+        // eslint-disable-next-line no-console
+        console.warn("Cannot show user tip with type =", options.id);
+      }
       return;
     }
 
-    showPopup({
+    const seenUserTips = this.seen_popups || [];
+    if (
+      seenUserTips.includes(-1) ||
+      seenUserTips.includes(userTips[options.id])
+    ) {
+      return;
+    }
+
+    showUserTip({
       ...options,
-      onDismiss: () => this.hidePopupForever(options.id),
-      onDismissAll: () => this.hidePopupForever(),
+      onDismiss: () => this.hideUserTipForever(options.id),
+      onDismissAll: () => this.hideUserTipForever(),
     });
   },
 
-  hidePopupForever(popupId) {
-    // Empty popupId means all popups.
-    const popupTypes = Site.currentProp("onboarding_popup_types");
-    if (popupId && !popupTypes[popupId]) {
-      // eslint-disable-next-line no-console
-      console.warn("Cannot hide popup with type =", popupId);
+  hideUserTipForever(userTipId) {
+    const userTips = Site.currentProp("user_tips");
+    if (!userTips || this.skip_new_user_tips) {
       return;
     }
 
-    // Hide any shown popups.
-    let seenPopups = this.seen_popups || [];
-    if (popupId) {
-      hidePopup(popupId);
-      if (!seenPopups.includes(popupTypes[popupId])) {
-        seenPopups.push(popupTypes[popupId]);
-      }
-    } else {
-      Object.keys(popupTypes).forEach(hidePopup);
-      seenPopups = Object.values(popupTypes);
+    // Empty userTipId means all user tips.
+    if (userTipId && !userTips[userTipId]) {
+      // eslint-disable-next-line no-console
+      console.warn("Cannot hide user tip with type =", userTipId);
+      return;
     }
 
-    // Show next popup in queue.
-    showNextPopup();
+    // Hide user tips and maybe show the next one.
+    if (userTipId) {
+      hideUserTip(userTipId);
+      showNextUserTip();
+    } else {
+      hideAllUserTips();
+    }
 
-    // Save seen popups on the server.
+    // Update list of seen user tips.
+    let seenUserTips = this.seen_popups || [];
+    if (userTipId) {
+      if (seenUserTips.includes(userTips[userTipId])) {
+        return;
+      }
+      seenUserTips.push(userTips[userTipId]);
+    } else {
+      if (seenUserTips.includes(-1)) {
+        return;
+      }
+      seenUserTips = [-1];
+    }
+
+    // Save seen user tips on the server.
     if (!this.user_option) {
       this.set("user_option", {});
     }
-    this.set("seen_popups", seenPopups);
-    this.set("user_option.seen_popups", seenPopups);
-    if (popupId) {
+    this.set("user_option.seen_popups", seenUserTips);
+    if (userTipId) {
       return this.save(["seen_popups"]);
     } else {
-      this.set("skip_new_user_tips", true);
       this.set("user_option.skip_new_user_tips", true);
       return this.save(["seen_popups", "skip_new_user_tips"]);
     }

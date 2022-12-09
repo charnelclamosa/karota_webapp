@@ -147,12 +147,21 @@ fr:
     word_connector:
       comma: ", "
     action_codes:
+<<<<<<< HEAD
       public_topic: "A rendu ce sujet public (%{when})"
       open_topic: "A converti ceci en sujet (%{when})"
       private_topic: "A fait de ce sujet un message direct (%{when})"
       split_topic: "A scindé ce sujet (%{when})"
       invited_user: "A invité %{who} (%{when})"
       invited_group: "A invité %{who} (%{when})"
+=======
+      public_topic: "a rendu ce sujet public %{when}"
+      open_topic: "a converti ceci en sujet %{when}"
+      private_topic: "a fait de ce sujet un message direct %{when}"
+      split_topic: "a scindé ce sujet %{when}"
+      invited_user: "a invité %{who} %{when}"
+      invited_group: "a invité %{who} %{when}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_left: "%{who} a quitté cette conversation %{when}"
       removed_user: "A retiré %{who} (%{when})"
       removed_group: "A retiré %{who} (%{when})"
@@ -178,18 +187,35 @@ fr:
         enabled: "A rendu ce sujet visible (%{when})"
         disabled: "A rendu ce sujet invisible (%{when})"
       banner:
+<<<<<<< HEAD
         enabled: "A mis ce sujet à la une (%{when}). Il sera affiché en haut de chaque page jusqu'à ce qu'il soit ignoré par l'utilisateur."
         disabled: "A supprimé ce sujet de la une (%{when}). Il ne sera plus affiché en haut de chaque page."
       forwarded: "A transmis l'e-mail ci-dessus"
     topic_admin_menu: "actions du sujet"
     skip_to_main_content: "Passer au contenu principal"
     skip_user_nav: "Passer au contenu du profil"
+=======
+        enabled: "a mis à la une %{when}. Il sera affiché en haut de chaque page jusqu'à ce qu'il soit ignoré par un utilisateur."
+        disabled: "a supprimé de la une %{when}. Il ne sera plus affiché en haut de chaque page."
+      forwarded: "a transmis l'e-mail ci-dessus"
+    topic_admin_menu: "actions du sujet"
+    skip_to_main_content: "Passer au contenu principal"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     emails_are_disabled: "L'e-mail sortant a été désactivé par un administrateur. Aucune notification par e-mail ne sera envoyée."
     emails_are_disabled_non_staff: "L'envoi d'e-mail est désactivé pour les utilisateurs ne faisant pas partie des responsables."
     software_update_prompt:
       message: "Nous avons fait une mise à jour du site, nous vous invitons donc à <span>actualiser cette page</span> pour éviter d'éventuels dysfonctionnements."
       dismiss: "Ignorer"
+<<<<<<< HEAD
     bootstrap_mode: "Pour commencer"
+=======
+    bootstrap_mode_enabled:
+      one: "Pour faciliter son lancement, votre nouveau site se trouve en mode d'amorçage. Chaque nouvel utilisateur se verra accorder le niveau de confiance 1 et recevra des résumés quotidiens par e-mail. Ce mode sera automatiquement désactivé dès que votre site possédera %{count} utilisateur."
+      other: "Pour faciliter son lancement, votre nouveau site se trouve en mode d'amorçage. Chaque nouvel utilisateur se verra accorder le niveau de confiance 1 et recevra des résumés quotidiens par e-mail. Ce mode sera automatiquement désactivé dès que votre site possédera %{count} utilisateurs."
+    bootstrap_mode_disabled: "Le mode d'amorçage sera désactivé dans les prochaines 24 heures."
+    bootstrap_invite_button_title: "Envoyer des invitations"
+    bootstrap_wizard_link_title: "Terminer l'assistant de configuration"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "Par défaut"
       broken_theme_alert: "Votre site risque de ne pas fonctionner, car un thème ou un composant comprend des erreurs."
@@ -317,6 +343,10 @@ fr:
       remove_reminder_keep_bookmark: "Supprimer le rappel et conserver le signet"
       created_with_reminder: "Vous avez mis un signet à ce message avec un rappel pour le %{date}. %{name}"
       created_with_reminder_generic: "Vous avez mis ceci en signet avec un rappel pour le %{date}. %{name}"
+<<<<<<< HEAD
+=======
+      remove: "Retirer le signet"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Supprimer le signet"
       confirm_delete: "Voulez-vous vraiment supprimer ce signet ? Le rappel sera également supprimé."
       confirm_clear: "Voulez-vous vraiment retirer tous les signets de ce sujet ?"
@@ -377,6 +407,13 @@ fr:
     save: "Enregistrer les modifications"
     saved: "Enregistré avec succès !"
     upload: "Joindre un fichier"
+<<<<<<< HEAD
+=======
+    uploading: "Envoi en cours…"
+    processing: "Traitement…"
+    uploading_filename: "Envoi en cours : %{filename}…"
+    processing_filename: "Traitement de : %{filename}…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     clipboard: "presse-papier"
     uploaded: "Envoyé !"
     enable: "Activer"
@@ -1080,9 +1117,12 @@ fr:
       dismiss_notifications_tooltip: "Marquer les notifications comme lues"
       dismiss_bookmarks_tooltip: "Marquer tous les rappels de signets non lus comme lus"
       dismiss_messages_tooltip: "Marquer toutes les notifications de messages directs non lues comme lues"
+<<<<<<< HEAD
       no_likes_title: "Vous n'avez reçu aucun like pour le moment"
       no_likes_body: >
         Vous serez averti(e) ici chaque fois que quelqu'un aimera l'un de vos messages. Vous pourrez ainsi savoir ce qui intéresse les autres utilisateurs. Les autres utilisateurs verront la même chose lorsque vous aimerez leurs publications ! <br><br> Les notifications relatives aux likes ne vous sont jamais envoyées par e-mail, mais vous pouvez modifier la façon dont vous recevez les notifications concernant les likes sur le site dans vos <a href='%{preferencesUrl}'>préférences de notification</a>.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_messages_title: "Vous n'avez aucun message"
       no_messages_body: >
         Besoin d'échanger directement avec une personne en-dehors de la conversation principale ? Sélectionnez son avatar et utilisez le bouton %{icon} pour lui écrire un message.<br><br>Pour obtenir de l'aide, <a href='%{aboutUrl}'>adressez-vous à l'un des responsables du site</a>.
@@ -1124,10 +1164,21 @@ fr:
       experimental_sidebar:
         enable: "Activer la barre latérale"
         options: "Options"
+<<<<<<< HEAD
         navigation_section: "Navigation"
         navigation_section_instruction: "Lorsqu'une liste de sujets dans le menu de navigation comporte des éléments nouveaux ou non lus…"
         link_to_filtered_list_checkbox_description: "Lien vers la liste filtrée"
         show_count_new_items_checkbox_description: "Afficher le nombre de nouveaux éléments"
+=======
+        categories_section: "Section Catégories"
+        categories_section_instruction: "Les catégories sélectionnées seront affichées dans la section Catégories de la barre latérale."
+        tags_section: "Section Étiquettes"
+        tags_section_instruction: "Les étiquettes sélectionnées seront affichées dans la section Étiquettes de la barre latérale."
+        navigation_section: "Navigation"
+        list_destination_instruction: "Quand il y a du nouveau contenu dans la barre latérale…"
+        list_destination_default: "utiliser le lien par défaut et afficher un badge pour les nouveaux éléments"
+        list_destination_unread_new: "lien vers les éléments non lus ou nouveaux et afficher le nombre de nouveaux éléments"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "modifier"
       featured_topic: "Sujet vedette"
       moderator: "%{user} a le rôle de modérateur(rice)"
@@ -1241,6 +1292,7 @@ fr:
         warnings: "Avertissements officiels"
         read_more_in_group: "Vous voulez en savoir plus ? Parcourez les autres messages dans %{groupLink}."
         read_more: "Vous voulez en savoir plus ? Parcourez les autres messages dans les <a href='%{basePath}/u/%{username}/messages'>messages personnels</a>."
+<<<<<<< HEAD
         read_more_group_pm_MF: |
           { HAS_UNREAD_AND_NEW, select,
             true {
@@ -1297,6 +1349,10 @@ fr:
             }
             other {}
           }
+=======
+        read_more_group_pm_MF: "Il reste { UNREAD, plural, =0 {} one { <a href='{basePath}/u/{username}/messages/group/{groupName}/unread'># message non lu</a> } other { are <a href='{basePath}/u/{username}/messages/group/{groupName}/unread'># messages non lus</a> } } { NEW, plural, =0 {} one { {BOTH, select, true{et } false { } other{}} <a href='{basePath}/u/{username}/messages/group/{groupName}/new'># nouveau</a> message} other { {BOTH, select, true{et } false { } other{}} <a href='{basePath}/u/{username}/messages/group/{groupName}/new'># nouveaux</a> messages} }, ou vous pouvez parcourir les autres messages dans {groupLink}"
+        read_more_personal_pm_MF: "Il reste { UNREAD, plural, =0 {} one { <a href='{basePath}/u/{username}/messages/unread'># message non lu</a> } other { <a href='{basePath}/u/{username}/messages/unread'># messages non lus</a> } } { NEW, plural, =0 {} one { {BOTH, select, true{et } false { } other{}} <a href='{basePath}/u/{username}/messages/new'># nouveau</a> message} other { {BOTH, select, true{et } false { } other{}} <a href='{basePath}/u/{username}/messages/new'># nouveaux</a> messages} }, ou vous pouvez parcourir les autres <a href='{basePath}/u/{username}/messages'>messages personnels</a>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       preferences_nav:
         account: "Compte"
         security: "Sécurité"
@@ -1412,7 +1468,10 @@ fr:
         success: "Nous avons envoyé un e-mail à cette adresse. Merci de suivre les instructions."
         success_via_admin: "Nous avons envoyé un e-mail à cette adresse. L'utilisateur devra suivre les instructions de confirmation qui y sont indiquées."
         success_staff: "Nous avons envoyé un e-mail à votre adresse actuelle. Merci de suivre les instructions qui y figurent."
+<<<<<<< HEAD
         back_to_preferences: "Retour aux préférences"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change_avatar:
         title: "Modifier votre image de profil"
         gravatar: "<a href='//%{gravatarBaseUrl}%{gravatarLoginUrl}' target='_blank'>%{gravatarName}</a>, associé à"
@@ -1442,6 +1501,10 @@ fr:
         primary_label: "principale"
         unconfirmed_label: "non confirmée"
         resend_label: "renvoyer l'e-mail de confirmation"
+<<<<<<< HEAD
+=======
+        resending_label: "envoi en cours…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         resent_label: "e-mail envoyé"
         update_email: "Modifier l'adresse e-mail"
         set_primary: "Définir comme adresse e-mail principale"
@@ -1457,6 +1520,10 @@ fr:
         authenticated: "Votre adresse e-mail a été authentifiée par %{provider}"
         invite_auth_email_invalid: "Votre e-mail d'invitation ne correspond pas à l'e-mail authentifié par %{provider}"
         authenticated_by_invite: "Votre adresse e-mail a été authentifiée par l'invitation"
+<<<<<<< HEAD
+=======
+        frequency_immediately: "Nous vous enverrons un e-mail immédiatement si vous n'avez pas lu le contenu en question."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         frequency:
           one: "Nous vous enverrons des e-mails seulement si nous ne vous avons pas vu(e) sur le site au cours de la dernière minute."
           other: "Nous vous enverrons des e-mails seulement si nous ne vous avons pas vu(e) sur le site au cours des %{count} dernières minutes."
@@ -1487,6 +1554,10 @@ fr:
         not_available_no_suggestion: "Non disponible"
         too_short: "Votre nom d'utilisateur est trop court"
         too_long: "Votre nom d'utilisateur est trop long"
+<<<<<<< HEAD
+=======
+        checking: "Vérification de la disponibilité du nom d'utilisateur…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         prefilled: "L'adresse e-mail correspond à ce nom d'utilisateur enregistré"
         required: "Veuillez entrer un nom d'utilisateur"
         edit: "Modifier le nom d'utilisateur"
@@ -1666,6 +1737,10 @@ fr:
             <p>Pour mettre votre communauté sur pied rapidement, invitez une liste d'utilisateurs : composez un <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">fichier CSV</a> contenant l'adresse de chaque personne à inviter, en disposant une adresse par ligne. Pour ajouter certaines personnes à des groupes particuliers, ou pour les diriger automatiquement vers un sujet particulier lors de leur première connexion, vous pouvez faire figurer les éléments suivants.</p>
             <pre>jean@dupont.fr,nom_dun_groupe;nom_dun_autre_groupe,identifiant_numérique_du_sujet</pre>
             <p>Un e-mail d'invitation sera envoyé à chaque adresse reprise dans ce fichier CSV, et vous pourrez modifier son contenu après l'avoir envoyé sur le serveur.</p>
+<<<<<<< HEAD
+=======
+          progress: "Envoi en cours : %{progress} %…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           success: "Le fichier a été envoyé avec succès. Vous recevrez un message de notification lorsque le processus sera terminé."
           error: "Nous sommes désolés, le fichier doit être au format CSV."
       password:
@@ -1760,10 +1835,17 @@ fr:
       save: "Enregistrer"
       set_custom_status: "Définir un statut personnalisé"
       what_are_you_doing: "Que faites-vous ?"
+<<<<<<< HEAD
       pause_notifications: "Suspendre les notifications"
       remove_status: "Supprimer le statut"
     user_tips:
       button: "J'ai compris !"
+=======
+      remove_status: "Supprimer le statut"
+    user_tips:
+      primary: "J'ai compris !"
+      secondary: "ne me montrez pas ces conseils"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Votre première notification !"
         content: "Les notifications sont utilisées pour vous tenir au courant de ce qui se passe dans la communauté."
@@ -1779,10 +1861,14 @@ fr:
       suggested_topics:
         title: "Continuez de lire !"
         content: "Voici quelques sujets que vous pourriez vouloir lire ensuite."
+<<<<<<< HEAD
       admin_guide:
         title: "Bienvenue sur votre nouveau site !"
         content: "<a href='%{admin_guide_url}'>Lisez le guide d'administration</a> pour continuer à développer votre site et votre communauté."
         content_no_url: "Lisez le guide d'administration pour continuer à développer votre site et votre communauté."
+=======
+    loading: "Chargement…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "lors du chargement de"
       reasons:
@@ -1844,9 +1930,12 @@ fr:
       hidden_for_session: "Très bien, nous vous le demanderons demain. Vous pouvez aussi utiliser le bouton « Se connecter » pour vous créer un compte."
       intro: "Bonjour ! Vous semblez apprécier la discussion, mais n'avez pas encore créé de compte."
       value_prop: "Vous en avez assez de faire défiler les mêmes messages ? En créant un compte, vous pourrez toujours revenir là où vous en étiez. Avec un compte, vous pouvez aussi recevoir des notifications de nouvelles réponses, enregistrer des signets et utiliser des cœurs pour remercier les autres utilisateurs. Nous pouvons travailler ensemble pour rendre cette communauté formidable. :heart:"
+<<<<<<< HEAD
     offline_indicator:
       no_internet: "Aucune connexion à Internet."
       refresh_page: "Actualiser la page"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     summary:
       in_progress: "Résumer le sujet à l'aide de l'IA"
       summarized_on: "Résumé avec l'IA le %{date}"
@@ -1867,8 +1956,13 @@ fr:
         Il y a {replyCount, plural, one {<b>#</b> réponse} other {<b>#</b> réponses}} avec un temps de lecture estimé à <b>{readingTime, plural, one {# minute} other {# minutes}}</b>.
       enable: "Afficher les meilleures réponses"
       disable: "Afficher tous les messages"
+<<<<<<< HEAD
       short_label: "Meilleures réponses"
       short_title: "Afficher les meilleures réponses de ce sujet : les messages les plus intéressants déterminés par la communauté"
+=======
+      short_label: "Résumer"
+      short_title: "Afficher un résumé de ce sujet : les publications les plus intéressantes telles que déterminées par la communauté"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     deleted_filter:
       enabled_description: "Ce sujet contient des messages supprimés, qui ont été masqués."
       disabled_description: "Les messages supprimés du sujet sont visibles."
@@ -1957,6 +2051,10 @@ fr:
       reset_password: "Réinitialiser le mot de passe"
       previous_sign_up: "Vous avez déjà un compte ?"
       or: "ou"
+<<<<<<< HEAD
+=======
+      authenticating: "Authentification…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       awaiting_activation: "Votre compte est en attente d'activation, utilisez le lien de mot de passe oublié pour envoyer un autre e-mail d'activation."
       awaiting_approval: "Votre compte n'a pas encore été approuvé par un modérateur. Vous recevrez une confirmation par e-mail lors de l'activation."
       requires_invite: "Nous sommes désolés, l'accès à ce forum est réservé sur invitation seulement."
@@ -2119,12 +2217,15 @@ fr:
         private: "Vous avez mentionné @%{username}, mais aucune notification ne lui sera envoyée, car ce message direct ne lui est pas visible. Vous devez l'inviter à rejoindre ce message direct."
         muted_topic: "Vous avez mentionné @%{username}, mais aucune notification ne lui sera envoyée, car il ou elle a désactivé ce sujet."
         not_allowed: "Vous avez mentionné @%{username}, mais aucune notification ne lui sera envoyée, car il ou elle n'a pas été invité(e) à rejoindre ce sujet."
+<<<<<<< HEAD
       cannot_see_group_mention:
         not_mentionable: "Vous ne pouvez pas mentionner le groupe @%{group}."
         some_not_allowed:
           one: "Vous avez mentionné @%{group}, mais seul %{count} membre sera notifié, car les autres membres ne peuvent pas voir ce message direct. Vous devrez les inviter pour qu'ils accèdent à ce message direct."
           other: "Vous avez mentionné @%{group}, mais seuls %{count} membres seront notifiés, car les autres membres ne peuvent pas voir ce message direct. Vous devrez les inviter pour qu'ils accèdent à ce message direct."
         not_allowed: "Vous avez mentionné @%{group}, mais aucun de ses membres ne sera notifié, car ils ne peuvent pas voir ce message direct. Vous devrez les inviter pour qu'ils accèdent à ce message direct."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       here_mention:
         one: "En mentionnant <b>@%{here}</b>, vous êtes sur le point de notifier %{count} utilisateur. Voulez-vous continuer ?"
         other: "En mentionnant <b>@%{here}</b>, vous êtes sur le point de notifier %{count} utilisateurs. Voulez-vous continuer ?"
@@ -2288,8 +2389,13 @@ fr:
       liked_2: "<span class='double-user'>%{username}, %{username2}</span> %{description}"
       liked_by_2_users: "%{username}, %{username2}"
       liked_by_multiple_users:
+<<<<<<< HEAD
         one: "%{username} et %{count} autre utilisateur"
         other: "%{username} et %{count} autres utilisateurs"
+=======
+        one: "%{username}, %{username2} et %{count} autre utilisateur"
+        other: "%{username}, %{username2} et %{count} autres utilisateurs"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       liked_consolidated_description:
         one: "a aimé %{count} de vos messages"
         other: "a aimé %{count} de vos messages"
@@ -2586,9 +2692,17 @@ fr:
           other: "Marquer les nouveaux sujets comme lus (%{count})"
         toggle: "activer/désactiver la sélection multiple de sujets"
         actions: "Actions sur la sélection"
+<<<<<<< HEAD
         close_topics: "Fermer les sujets"
         archive_topics: "Archiver les sujets"
         move_messages_to_inbox: "Déplacer dans la boîte de réception"
+=======
+        change_category: "Définir la catégorie…"
+        close_topics: "Fermer les sujets"
+        archive_topics: "Archiver les sujets"
+        move_messages_to_inbox: "Déplacer dans la boîte de réception"
+        notification_level: "Notifications…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         change_notification_level: "Modifier le niveau de notification"
         choose_new_category: "Choisissez la nouvelle catégorie pour ces sujets :"
         selected:
@@ -2876,6 +2990,10 @@ fr:
         invisible: "Rendre le sujet invisible"
         visible: "Lister le sujet"
         reset_read: "Réinitialiser les données de lecture"
+<<<<<<< HEAD
+=======
+        make_public: "Rendre le sujet public…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         make_private: "Transformer en message direct"
         reset_bump_date: "Réinitialiser la date d'actualisation"
       feature:
@@ -3189,6 +3307,11 @@ fr:
         rebake: "Reconstruire le HTML"
         publish_page: "Publication de pages"
         unhide: "Afficher"
+<<<<<<< HEAD
+=======
+        change_owner: "Changer de propriétaire…"
+        grant_badge: "Attribuer un badge…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         lock_post: "Verrouiller le message"
         lock_post_description: "empêcher l'utilisateur de modifier ce message"
         unlock_post: "Déverrouiller le message"
@@ -3202,6 +3325,11 @@ fr:
         delete_topic_confirm_modal_no: "Non, conserver ce sujet"
         delete_topic_error: "Une erreur s'est produite lors de la suppression de ce sujet"
         delete_topic: "supprimer le sujet"
+<<<<<<< HEAD
+=======
+        add_post_notice: "Afficher une note pour les responsables…"
+        change_post_notice: "Modifier la note pour les responsables…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_post_notice: "Supprimer la note pour les responsables"
         remove_timer: "supprimer la planification"
         edit_timer: "modifier le minuteur"
@@ -3330,6 +3458,10 @@ fr:
         description: "Exiger que les nouveaux sujets aient des étiquettes d'un groupe d'étiquettes :"
         delete: "Supprimer"
         add: "Ajouter le groupe d'étiquettes requis"
+<<<<<<< HEAD
+=======
+        placeholder: "sélectionner un groupe d'étiquettes…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "Autoriser les liens à la une dans cette catégorie"
       delete: "Supprimer la catégorie"
       create: "Nouvelle catégorie"
@@ -3373,9 +3505,15 @@ fr:
       pending_permission_change_alert: "Vous n'avez pas ajouté %{group} à cette catégorie ; cliquez sur ce bouton pour l'ajouter."
       images: "Images"
       email_in: "Adresse e-mail entrant personnalisée :"
+<<<<<<< HEAD
       email_in_tooltip: "Vous pouvez séparer plusieurs adresses e-mail avec le caractère | ."
       email_in_allow_strangers: "Accepter les e-mails d'utilisateurs anonymes sans compte"
       email_in_disabled: "La publication de nouveaux sujets par e-mail est désactivée. Pour activer la publication de nouveaux sujets par e-mail, activez le paramètre <a href='%{setting_url}'>« e-mail entrant »</a>."
+=======
+      email_in_allow_strangers: "Accepter les e-mails d'utilisateurs anonymes sans compte"
+      email_in_disabled: "La création de nouveaux sujets par e-mail est désactivée dans les paramètres. Pour activer la création de nouveaux sujets par e-mail, "
+      email_in_disabled_click: 'activez le paramètre « e-mail entrant ».'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       mailinglist_mirror: "La catégorie reflète une liste de diffusion"
       show_subcategory_list: "Afficher la liste des sous-catégories au-dessus des sujets dans cette catégorie."
       read_only_banner: "Texte du bandeau à afficher lorsqu'un utilisateur ne peut pas créer un sujet dans cette catégorie :"
@@ -3473,8 +3611,12 @@ fr:
       official_warning: "Avertissement officiel"
       delete_spammer: "Supprimer le spammeur"
       flag_for_review: "Mettre en file d'attente pour examen"
+<<<<<<< HEAD
       delete_confirm_MF: |
         Vous êtes sur le point de supprimer {POSTS, plural, one {<b>#</b> message} other {<b>#</b> messages}} et {TOPICS, plural, one {<b>#</b> sujet} other {<b>#</b> sujets}} de cet utilisateur, supprimer son compte, bloquer les inscriptions depuis son adresse IP <b>{ip_address}</b> et ajouter son adresse e-mail <b>{email}</b> à une liste de blocage permanent. Êtes-vous sûr(e) que cet utilisateur est un spammeur ?
+=======
+      delete_confirm_MF: "Vous êtes sur le point de supprimer {POSTS, plural, one {<b>#</b> message} other {<b>#</b> messages}} et {TOPICS, plural, one {<b>#</b> sujet} other {<b>#</b> sujets}} de cet utilisateur, supprimer son compte, bloquer les inscriptions depuis son adresse IP <b>{ip_address}</b> et ajouter son adresse e-mail <b>{email}</b> à une liste de blocage permanent. Êtes-vous sûr(e) que cet utilisateur est un spammeur ?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       yes_delete_spammer: "Oui, supprimer le spammeur"
       ip_address_missing: "(S.O.)"
       hidden_email_address: "(masqué)"
@@ -3831,6 +3973,15 @@ fr:
       changed: "étiquettes modifiées :"
       tags: "Étiquettes"
       choose_for_topic: "étiquettes optionnelles"
+<<<<<<< HEAD
+=======
+      choose_for_topic_required:
+        one: "sélectionnez au moins %{count} étiquette…"
+        other: "sélectionnez au moins %{count} étiquettes…"
+      choose_for_topic_required_group:
+        one: "sélectionnez %{count} étiquette de « %{name} »…"
+        other: "sélectionnez %{count} étiquettes de « %{name} »…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       info: "Détails"
       default_info: "Cette étiquette n'est pas limitée à une catégorie et n'a aucun synonyme."
       staff_info: "Pour y définir des restrictions d'utilisation, placez cette étiquette dans un <a href=%{basePath}/tag_groups>groupe d'étiquettes</a>."
@@ -3927,6 +4078,10 @@ fr:
         cannot_save: "Impossible d'enregistrer le groupe d'étiquettes. Assurez-vous qu'au moins une étiquette est présente, que le nom du groupe d'étiquettes n'est pas vide et qu'un groupe est sélectionné pour l'autorisation des étiquettes."
         tags_placeholder: "Créez ou recherchez des étiquettes"
         parent_tag_placeholder: "Facultatif"
+<<<<<<< HEAD
+=======
+        select_groups_placeholder: "Sélectionnez des groupes…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         disabled: "L'étiquetage des sujets est désactivé "
       topics:
         none:
@@ -4005,7 +4160,11 @@ fr:
       new_count:
         one: "%{count} nouveau"
         other: "%{count} nouveaux"
+<<<<<<< HEAD
       toggle_section: "Basculer la section"
+=======
+      toggle_section: "basculer la section"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       more: "Plus"
       all_categories: "Toutes les catégories"
       all_tags: "Toutes les étiquettes"
@@ -4078,16 +4237,32 @@ fr:
             unread_with_count: "Non lus (%{count})"
             archive: "Archivés"
         tags:
+          links:
+            add_tags:
+              content: "Ajouter des étiquettes"
+              title: "Vous n'avez ajouté aucune étiquette. Cliquez pour commencer."
           none: "Vous n'avez ajouté aucune étiquette."
           click_to_get_started: "Cliquez ici pour commencer."
           header_link_text: "Étiquettes"
+<<<<<<< HEAD
           header_action_title: "Modifier les étiquettes de votre barre latérale"
+=======
+          header_action_title: "modifier les étiquettes de votre barre latérale"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configurer les valeurs par défaut"
         categories:
+          links:
+            add_categories:
+              content: "Ajouter des catégories"
+              title: "Vous n'avez ajouté aucune catégorie. Cliquez pour commencer."
           none: "Vous n'avez ajouté aucune catégorie."
           click_to_get_started: "Cliquez ici pour commencer."
           header_link_text: "Catégories"
+<<<<<<< HEAD
           header_action_title: "Modifier les catégories de votre barre latérale"
+=======
+          header_action_title: "modifier les catégories de votre barre latérale"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configurer les valeurs par défaut"
         community:
           edit_section:
@@ -4108,7 +4283,10 @@ fr:
               title: "Tous les sujets"
             faq:
               content: "FAQ"
+<<<<<<< HEAD
               title: "Lignes directrices pour l'utilisation de ce site"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Groupes"
               title: "Liste des groupes d'utilisateurs disponibles"
@@ -4117,20 +4295,28 @@ fr:
               title: "Liste de tous les utilisateurs"
             my_posts:
               content: "Mes messages"
+<<<<<<< HEAD
               content_drafts: "Mes brouillons"
               title: "Mon activité récente sur le sujet"
               title_drafts: "Mes brouillons non publiés"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} brouillon"
                 other: "%{count} brouillons"
             review:
               content: "À examiner"
+<<<<<<< HEAD
               title: "Messages signalés et autres éléments en file d'attente"
               pending_count: "%{count} en attente"
         global_section: "Section globale, visible par tous"
       panels:
         forum:
           label: Forum
+=======
+              title: "à examiner"
+              pending_count: "%{count} en attente"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "Créez votre sujet de bienvenue"
       description: "Votre sujet de bienvenue est la première chose que les nouveaux membres liront. Considérez-le comme votre « argumentaire » ou votre « énoncé de mission ». Faites savoir à tout le monde à qui est destinée cette communauté, ce qu'ils peuvent s'attendre à y trouver et ce que vous aimeriez qu'ils fassent en premier."
@@ -4293,7 +4479,10 @@ fr:
             email: E-mail
             incoming_email: "Adresse e-mail entrante personnalisée"
             incoming_email_placeholder: "saisissez une adresse e-mail"
+<<<<<<< HEAD
             incoming_email_tooltip: "Vous pouvez séparer plusieurs adresses e-mail avec le caractère « | »."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             visibility: Visibilité
             visibility_levels:
               title: "Qui peut voir ce groupe ?"
@@ -4330,6 +4519,7 @@ fr:
         about: "Modifier votre adhésion et les noms ici"
         group_members: "Membres du groupe"
         delete: "Supprimer"
+<<<<<<< HEAD
         delete_confirm: "Voulez-vous vraiment supprimer %{group} ?"
         delete_details:
           one: "%{count} personne perdra l'accès à ce groupe"
@@ -4338,6 +4528,8 @@ fr:
           one: "%{count} message deviendra inaccessible aux membres du groupe"
           other: "%{count} messages deviendront inaccessibles aux membres du groupe"
         delete_warning: "Les groupes supprimés ne peuvent pas être récupérés"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Impossible de supprimer le groupe. S'il s'agit d'un groupe automatique, il ne peut pas être détruit."
         delete_automatic_group: Ce groupe ne peut pas être supprimé car il est constitué de façon automatique.
         delete_owner_confirm: "Retirer les privilèges de propriétaire pour %{username} ?"
@@ -4434,8 +4626,11 @@ fr:
               update: Mettre à jour le statut de l'utilisateur.
             email:
               receive_emails: Combiner ces permissions au service de réception d'e-mail pour traiter les e-mails entrants.
+<<<<<<< HEAD
             invites:
               create: Envoyez des invitations par e-mail ou générez des liens d'invitation.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             badges:
               create: Créer un nouveau badge.
               show: Obtenir des informations sur un badge.
@@ -4444,12 +4639,15 @@ fr:
               list_user_badges: Lister les badges de l'utilisateur.
               assign_badge_to_user: Attribuer un badge à un utilisateur.
               revoke_badge_from_user: Révoquer le badge d'un utilisateur.
+<<<<<<< HEAD
             groups:
               manage_groups: Répertoriez, ajoutez et supprimez des membres du groupe.
               administer_groups: Répertoriez, affichez, créez, mettez à jour et supprimez des groupes.
             search:
               show: Effectuez une recherche à l'aide du point de terminaison « /search.json?q=term ».
               query: Effectuez une recherche à l'aide du point de terminaison « /search/query?term=term ».
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             wordpress:
               publishing: Nécessaire pour les fonctionnalités de publication de l'extension WP Discourse (obligatoire).
               commenting: Nécessaire pour les fonctionnalités de commentaire de l'extension WP Discourse.
@@ -4564,10 +4762,13 @@ fr:
         howto: "Comment installer des extensions ?"
         official: "Extension officielle"
         broken_route: "Impossible de configurer le lien vers « %{name} ». Assurez-vous que les bloqueurs de publicités sont désactivés et essayez de recharger la page."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "Barre latérale"
         header_dropdown: "Liste déroulante de l'en-tête"
         legacy: "Héritage"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Sauvegardes"
         menu:
@@ -4922,6 +5123,10 @@ fr:
           run: "Lancer le test"
           text: "Corps de texte sélectionné"
           elided: "Texte élidé"
+<<<<<<< HEAD
+=======
+        sending_test: "Envoi de l'e-mail de test…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         error: "<b>ERREUR</b> - %{server_error}"
         test_error: "Un problème est survenu lors de l'envoi de l'e-mail de test. Veuillez vérifier vos paramètres et que votre hébergeur ne bloque pas les connexions aux e-mails, puis réessayez."
         sent: "Envoyés"
@@ -4943,6 +5148,10 @@ fr:
         refresh: "Actualiser"
         send_digest_label: "Envoyer ce résultat à :"
         send_digest: "Envoyer"
+<<<<<<< HEAD
+=======
+        sending_email: "E-mail en cours d'envoi…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         format: "Format"
         html: "html"
         text: "texte"
@@ -5304,7 +5513,10 @@ fr:
         not_found: "Nous sommes désolés, ce nom d'utilisateur n'existe pas dans notre système."
         id_not_found: "Désolé cet identifiant d'utilisateur n'existe pas dans notre système."
         active: "Activé"
+<<<<<<< HEAD
         status: "Statut"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         show_emails: "Afficher les adresses e-mail"
         hide_emails: "Masquer les adresses e-mail"
         nav:
@@ -5351,6 +5563,10 @@ fr:
           combative: "Trop belliqueux(se)"
           in_wrong_place: "Au mauvais endroit"
           no_constructive_purpose: "Aucun but constructif à ses actions autre que de créer une dissidence au sein de la communauté"
+<<<<<<< HEAD
+=======
+          custom: "Personnalisé…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         suspend_message: "E-mail"
         suspend_message_placeholder: "Si besoin, donnez plus d'informations au sujet de cette suspension qui seront envoyées à l'utilisateur par e-mail."
         suspended_by: "Suspendu par"
@@ -5690,7 +5906,11 @@ fr:
           search: "Recherche"
           groups: "Groupes"
           dashboard: "Tableau de bord"
+<<<<<<< HEAD
           navigation: "Navigation"
+=======
+          sidebar: "Barre latérale"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "Les champs de saisie ne peuvent pas être vide ou contenir le caractère de la barre verticale"
         default_categories:
@@ -5803,12 +6023,16 @@ fr:
       embedding:
         get_started: "Si vous souhaitez intégrer Discourse dans un autre site, commencez par ajouter son hôte."
         confirm_delete: "Voulez-vous vraiment supprimer cet hôte ?"
+<<<<<<< HEAD
         sample: |
           <p>Collez le code HTML suivant dans votre site pour créer et intégrer des sujets Discourse. Remplacez <b>EMBED_URL</b> par l'URL canonique de la page sur laquelle vous l'intégrez.</p>
 
           <p>Si vous souhaitez personnaliser le style, anlevez le commentaire et remplacez <b>CLASS_NAME</b> par une classe CSS définie dans le <i>Embedded CSS</i> de votre thème.</p>
 
           <p>Remplacez <b>DISCOURSE_USERNAME</b> par le nom d'utilisateur Discourse de l'auteur qui doit créer le sujet. Discourse recherchera automatiquement l'utilisateur par l'attribut <code>content</code> des balises <code>&lt;meta&gt;</code> avec l'attribut <code>name</code> défini sur <code>discourse-username</code> ou <code>author</code>. Le paramètre <code>discourseUserName</code> est obsolète et sera supprimé dans Discourse 3.2.</p>
+=======
+        sample: "Collez le code HTML suivant sur votre site pour créer et intégrer des sujets Discourse. Remplacez <b>REPLACE_ME</b> par l'URL canonique de la page sur laquelle vous souhaitez l'intégrer."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Intégration externe"
         host: "Hôtes autorisés"
         allowed_paths: "Liste des chemins autorisés"
@@ -5863,6 +6087,10 @@ fr:
       finish: "Quitter la configuration"
       back: "Retour"
       next: "Suivant"
+<<<<<<< HEAD
+=======
+      configure_more: "Configurer plus…"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       step-text: "Étape"
       step: "%{current} sur %{total}"
       upload: "Téléverser un fichier"

@@ -1,12 +1,16 @@
 <div
   style={{this.style}}
   class="timeline-scroller"
+<<<<<<< HEAD
   {{draggable
     didStartDrag=@didStartDrag
     didEndDrag=@didEndDrag
     dragMove=@dragMove
   }}
   ...attributes
+=======
+  {{draggable didStartDrag=@didStartDrag didEndDrag=@didEndDrag dragMove=@dragMove }}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 >
   {{#if @fullscreen}}
     <div class="timeline-scroller-content">
@@ -18,6 +22,7 @@
           {{this.timelineAgo}}
         </div>
       {{/if}}
+<<<<<<< HEAD
       {{#if (and @showDockedButton (not @dragging))}}
         <TopicTimeline::BackButton @onGoBack={{@onGoBack}} />
       {{/if}}
@@ -25,6 +30,15 @@
     <div class="timeline-handle"></div>
   {{else}}
     <div class="timeline-handle"></div>
+=======
+      {{#if (and @showDockedButton (not @dragging)) }}
+        <TopicTimeline::BackButton @onClick={{@goBack}}/>
+      {{/if}}
+    </div>
+    <div class="timeline-handle" />
+  {{else}}
+    <div class="timeline-handle" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <div class="timeline-scroller-content">
       <div class="timeline-replies">
         {{this.repliesShort}}
@@ -34,9 +48,18 @@
           {{this.timelineAgo}}
         </div>
       {{/if}}
+<<<<<<< HEAD
       {{#if (and @showDockedButton (not @dragging))}}
         <TopicTimeline::BackButton @onGoBack={{@onGoBack}} />
       {{/if}}
     </div>
   {{/if}}
 </div>
+=======
+      {{#if (and @showDockedButton (not @dragging)) }}
+        <TopicTimeline::BackButton @onClick={{@goBack}}/>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

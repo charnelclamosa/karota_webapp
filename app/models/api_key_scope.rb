@@ -137,6 +137,10 @@ class ApiKeyScope < ActiveRecord::Base
             actions: %w[user_status#set user_status#clear],
           },
         },
+        user_status: {
+          read: { actions: %w[user_status#get] },
+          update: { actions: %w[user_status#set user_status#clear] },
+        },
         email: {
           receive_emails: {
             actions: %w[admin/email#handle_mail admin/email#smtp_should_reject],

@@ -6,6 +6,7 @@
 
 el:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ el:
           never: "Ποτέ"
     chat:
       deleted_chat_username: διεγράφη
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Δημιουργία"
       cancel: "Ακύρωση"
       channel_settings:
@@ -21,18 +25,28 @@ el:
         join: "Γίνετε μέλος"
         leave: "Αποχώρηση"
       close: "Κλείσιμο"
+<<<<<<< HEAD
       remove: "Αφαίρεση"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Σβήσιμο"
       edited: "επεξεργάστηκε"
       muted: "σε σίγαση"
       joined: "έγινε μέλος"
       email_frequency:
         never: "Ποτέ"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Ποτέ"
       flag: "Επισήμανση"
       join: "Γίνετε μέλος"
       last_visit: "τελευταία επίσκεψη"
+=======
+      flag: "Επισήμανση"
+      join: "Γίνετε μέλος"
+      mention_warning:
+        dismiss: "απόρριψη"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Απάντηση"
       edit: "Επεξεργασία"
       rebake_message: "Ανανέωση HTML"
@@ -53,7 +67,10 @@ el:
         yesterday: Χτες
       about_view:
         title: Τίτλος
+<<<<<<< HEAD
         name: Όνομα
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Περιγραφή
       channel_info:
         back_to_channel: "Πίσω"
@@ -61,8 +78,11 @@ el:
           about: Σχετικά
           members: Μέλη
           settings: Ρυθμίσεις
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Δεν υπάρχουν στοιχεία"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Νέο Μήνυμα
         prefix: "Προς:"
@@ -70,17 +90,27 @@ el:
         type: "Τύπος"
         types:
           category: "Κατηγορία"
+<<<<<<< HEAD
           topic: "Θέμα"
       composer:
         italic_text: "κείμενο σε έμφαση"
         bold_text: "έντονη γραφή"
         send: "Αποστολή"
+=======
+          topic: "Νήμα"
+      composer:
+        italic_text: "κείμενο σε έμφαση"
+        bold_text: "έντονη γραφή"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Ποτέ"
       settings:
         follow: "Γίνετε μέλος"
         followed: "Έγινε μέλος"
+<<<<<<< HEAD
         threading_disabled: "Απενεργοποιημένο"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Ειδοποιήσεις"
         preview: "Προεπισκόπηση"
         save: "Αποθήκευση"
@@ -102,9 +132,15 @@ el:
         cancel: "Ακύρωση"
         copy: "Αντιγραφή"
         new_topic:
+<<<<<<< HEAD
           title: "Μετακίνηση σε Νέο Θέμα"
         existing_topic:
           title: "Μετακίνηση σε Υπάρχον Θέμα"
+=======
+          title: "Μεταφορά σε Νέο Νήμα "
+        existing_topic:
+          title: "Μεταφορά σε Υφιστάμενο Νήμα"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         new_message:
           title: "Μετακίνηση σε νέο μήνυμα"
       emoji_picker:
@@ -112,6 +148,7 @@ el:
         activities: "Δραστηριότητες"
         flags: "Σημάνσεις"
         symbols: "Σύμβολα"
+<<<<<<< HEAD
       thread:
         title: "Τίτλος"
         replies:
@@ -124,6 +161,8 @@ el:
             title: "Φυσιολογικό"
           tracking:
             title: "Παρακολουθείται"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Νέο Μήνυμα"
         cancel: "Ακύρωση"
@@ -135,3 +174,10 @@ el:
           fields:
             message:
               label: Μήνυμα
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Επισήμανση από"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

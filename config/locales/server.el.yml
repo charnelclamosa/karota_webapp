@@ -519,6 +519,13 @@ el:
         one: "σχεδόν %{count} χρόνο πριν"
         other: "σχεδόν %{count} χρόνια πριν"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Επιλέξτε νέο κωδικό πρόσβασης"
+    choose: "Επιλέξτε έναν κωδικό πρόσβασης"
+    update: "Ενημέρωση κωδικού πρόσβασης"
+    save: "Θέσε Κωδικό Πρόσβασης"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Επαναφορά κωδικού πρόσβασης"
     success: "Αλλάξατε επιτυχώς τον κωδικό πρόσβασής σας και έχετε συνδεθεί."
     success_unapproved: "Αλλάξατε επιτυχώς τον κωδικό πρόσβασής σας"
@@ -2400,6 +2407,13 @@ el:
                 label: "Κατηγορίες και Τελευταία Νήματα"
               categories_and_top_topics:
                 label: "Κατηγορίες και κορυφαία θέματα"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Κυρίως Λογότυπο"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:

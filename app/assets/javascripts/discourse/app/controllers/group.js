@@ -142,11 +142,26 @@ export default Controller.extend({
     this.set("destroying", true);
 
     const model = this.model;
+<<<<<<< HEAD
 
     this.dialog.deleteConfirm({
       title: I18n.t("admin.groups.delete_confirm", { group: model.name }),
       bodyComponent: GroupDeleteDialog,
       bodyComponentModel: model,
+=======
+    const title = I18n.t("admin.groups.delete_confirm");
+    let message = null;
+
+    if (model.has_messages && model.message_count > 0) {
+      message = I18n.t("admin.groups.delete_with_messages_confirm", {
+        count: model.message_count,
+      });
+    }
+
+    this.dialog.deleteConfirm({
+      title,
+      message,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       didConfirm: () => {
         model
           .destroy()

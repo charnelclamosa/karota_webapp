@@ -6,6 +6,7 @@
 
 th:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ th:
           never: "ไม่เคย"
     chat:
       deleted_chat_username: ลบ
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "สร้าง"
       cancel: "ยกเลิก"
       channel_settings:
@@ -21,18 +25,28 @@ th:
         join: "เข้าร่วม"
         leave: "ออก"
       close: "ปิด"
+<<<<<<< HEAD
       remove: "ลบ"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "ลบ"
       edited: "ถูกแก้ไข"
       muted: "ปิดการแจ้งเตือน"
       joined: "สมัครสมาชิกเมื่อ"
       email_frequency:
         never: "ไม่เคย"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "ไม่เคย"
       flag: "ธง"
       join: "เข้าร่วม"
       last_visit: "เยี่ยมชมครั้งล่าสุด"
+=======
+      flag: "ธง"
+      join: "เข้าร่วม"
+      mention_warning:
+        dismiss: "ซ่อน"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "ตอบ"
       edit: "แก้ไข"
       bookmark_message: "บุ๊คมาร์ค"
@@ -53,7 +67,10 @@ th:
         yesterday: เมื่อวาน
       about_view:
         title: ชื่อเรื่อง
+<<<<<<< HEAD
         name: ชื่อ
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: รายละเอียด
       channel_info:
         back_to_channel: "กลับ"
@@ -72,13 +89,19 @@ th:
       composer:
         italic_text: "ตัวอักษรเอียง"
         bold_text: "ตัวอักษรหนา"
+<<<<<<< HEAD
         send: "ส่ง"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "ไม่เคย"
       settings:
         follow: "เข้าร่วม"
         followed: "สมัครสมาชิกเมื่อ"
+<<<<<<< HEAD
         threading_disabled: "ปิดใช้งานแล้ว"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "การแจ้งเตือน"
         preview: "แสดงตัวอย่าง"
         save: "บันทึก"
@@ -110,6 +133,7 @@ th:
         activities: "กิจกรรม"
         flags: "ธง"
         symbols: "สัญลักษณ์"
+<<<<<<< HEAD
       thread:
         title: "ชื่อเรื่อง"
         replies:
@@ -121,6 +145,8 @@ th:
             title: "ปกติ"
           tracking:
             title: "ติดตาม"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "สร้างข้อความใหม่"
         cancel: "ยกเลิก"
@@ -132,3 +158,10 @@ th:
           fields:
             message:
               label: ข้อความ
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "ถูกปักธงโดย"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -6,7 +6,10 @@
 
 da:
   site_settings:
+<<<<<<< HEAD
     chat_enabled: "Aktiver chat."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     default_emoji_reactions: "Standard emoji-reaktioner for chatbeskeder. Tilføj op til 5 emojis for hurtig reaktion."
   chat:
     deleted_chat_username: slettet
@@ -28,6 +31,7 @@ da:
         agree_and_delete:
           title: "Slet Besked"
           description: "Slet meddelelsen, så brugerne ikke kan se den."
+<<<<<<< HEAD
         disagree:
           title: "Uenig"
         ignore:
@@ -43,6 +47,22 @@ da:
         one: "Invitation sendt"
         other: "Invitationer sendt"
       invite: "Inviter til kanal"
+=======
+        delete_and_agree:
+          title: "Slet Besked"
+        disagree:
+          title: "Uenig"
+        ignore:
+          title: "Ignorér"
+    channel:
+      statuses:
+        read_only: "Kun læsning"
+        archived: "Arkiveret"
+        closed: "Lukket"
+        open: "Åbn"
+      archive:
+        first_post_raw: "Dette emne er et arkiv af chatkanalen [%{channel_name}] (%{channel_url})."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     category_channel:
       errors:
         slug_contains_non_ascii_chars: "indeholder ikke-ascii- tegn"
@@ -72,7 +92,10 @@ da:
       chat_pm_body: "%{link}\n\n%{message}"
   user_notifications:
     chat_summary:
+<<<<<<< HEAD
       deleted_user: "Slettet bruger"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       from: "%{site_name}"
   unsubscribe:
     chat_summary:

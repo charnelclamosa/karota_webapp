@@ -1,4 +1,5 @@
 <div class="chat-channel-metadata">
+<<<<<<< HEAD
   {{#if @channel.lastMessage}}
     <div class="chat-channel-metadata__date">
       {{this.lastMessageFormattedDate}}
@@ -9,3 +10,13 @@
     <ChatChannelUnreadIndicator @channel={{@channel}} />
   {{/if}}
 </div>
+=======
+  <div class="chat-channel-metadata__date">
+    {{this.lastMessageFormatedDate}}
+  </div>
+
+  {{#if @unreadIndicator}}
+    <ChatChannelUnreadIndicator @channel={{@channel}} />
+  {{/if}}
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -20,6 +20,7 @@
   margin: 0;
   font-weight: normal;
   color: $text-color;
+<<<<<<< HEAD
   background-color: $bg-color;
   background-image: linear-gradient(
     to bottom,
@@ -28,6 +29,10 @@
   );
   border-radius: var(--d-button-border-radius);
   transition: background 0.25s, color 0.25s;
+=======
+  background: $bg-color;
+  border-radius: var(--d-button-border-radius);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   cursor: pointer;
   .d-icon {
     color: $icon-color;

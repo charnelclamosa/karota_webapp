@@ -42,6 +42,7 @@ nl:
         label: "Stem nu!"
       show-results:
         title: "De pollresultaten weergeven"
+<<<<<<< HEAD
         label: "Resultaten"
       remove-vote:
         title: "Verwijder je stem"
@@ -49,6 +50,15 @@ nl:
       hide-results:
         title: "Terug naar je stemmen"
         label: "Stemmen"
+=======
+        label: "Resultaten weergeven"
+      remove-vote:
+        title: "Verwijder je stem"
+        label: "Stem verwijderen"
+      hide-results:
+        title: "Terug naar je stemmen"
+        label: "Stem weergeven"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       group-results:
         title: "Stemmen groeperen op gebruikersveld"
         label: "Verdeling weergeven"

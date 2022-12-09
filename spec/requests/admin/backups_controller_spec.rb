@@ -28,7 +28,13 @@ RSpec.describe Admin::BackupsController do
       .to_h
   end
 
+<<<<<<< HEAD
   before { SiteSetting.backup_location = BackupLocationSiteSetting::LOCAL }
+=======
+  before do
+    SiteSetting.backup_location = BackupLocationSiteSetting::LOCAL
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   after do
     Discourse.redis.flushdb
@@ -53,9 +59,13 @@ RSpec.describe Admin::BackupsController do
           expect(response.status).to eq(200)
 
           preloaded = map_preloaded
+<<<<<<< HEAD
           expect(preloaded["operations_status"].symbolize_keys).to eq(
             BackupRestore.operations_status,
           )
+=======
+          expect(preloaded["operations_status"].symbolize_keys).to eq(BackupRestore.operations_status)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(preloaded["logs"].size).to eq(BackupRestore.logs.size)
         end
       end
@@ -96,13 +106,21 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backups inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#status" do
+=======
+  describe '#status' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -129,12 +147,17 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "status inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#create" do
     context "when logged in as an admin" do
       before do
@@ -167,11 +190,33 @@ RSpec.describe Admin::BackupsController do
           expect(response).to have_http_status :too_many_requests
         end
       end
+=======
+  describe '#create' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it "starts a backup" do
+        BackupRestore.expects(:backup!).with(admin.id, { publish_to_message_bus: true, with_uploads: false, client_id: "foo" })
+
+        post "/admin/backups.json", params: {
+          with_uploads: false, client_id: "foo"
+        }
+
+        expect(response.status).to eq(200)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     shared_examples "backups creation not allowed" do
       it "prevents backups creation with a 404 response" do
+<<<<<<< HEAD
         post "/admin/backups.json", params: { with_uploads: false, client_id: "foo" }
+=======
+        post "/admin/backups.json", params: {
+          with_uploads: false,
+          client_id: "foo"
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -185,13 +230,21 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backups creation not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#show" do
+=======
+  describe '#show' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -202,12 +255,19 @@ RSpec.describe Admin::BackupsController do
 
           expect do
             get "/admin/backups/#{backup_filename}.json", params: { token: token }
+<<<<<<< HEAD
           end.to change {
             UserHistory.where(action: UserHistory.actions[:backup_download]).count
           }.by(1)
 
           expect(response.headers["Content-Length"]).to eq("11")
           expect(response.headers["Content-Disposition"]).to match(/attachment; filename/)
+=======
+          end.to change { UserHistory.where(action: UserHistory.actions[:backup_download]).count }.by(1)
+
+          expect(response.headers['Content-Length']).to eq("11")
+          expect(response.headers['Content-Disposition']).to match(/attachment; filename/)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -216,7 +276,11 @@ RSpec.describe Admin::BackupsController do
           get "/admin/backups/#{backup_filename}.json", params: { token: "bad_value" }
 
           expect(response.status).to eq(422)
+<<<<<<< HEAD
           expect(response.headers["Content-Disposition"]).not_to match(/attachment; filename/)
+=======
+          expect(response.headers['Content-Disposition']).not_to match(/attachment; filename/)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(response.body).to include(I18n.t("download_backup_mailer.no_token"))
         end
       end
@@ -237,6 +301,7 @@ RSpec.describe Admin::BackupsController do
 
           expect do
             get "/admin/backups/#{backup_filename}.json", params: { token: token }
+<<<<<<< HEAD
           end.not_to change {
             UserHistory.where(action: UserHistory.actions[:backup_download]).count
           }
@@ -244,6 +309,13 @@ RSpec.describe Admin::BackupsController do
           expect(response.status).to eq(404)
           expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
           expect(response.headers["Content-Disposition"]).not_to match(/attachment; filename/)
+=======
+          end.not_to change { UserHistory.where(action: UserHistory.actions[:backup_download]).count }
+
+          expect(response.status).to eq(404)
+          expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
+          expect(response.headers['Content-Disposition']).not_to match(/attachment; filename/)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -255,13 +327,21 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backup inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#destroy" do
+=======
+  describe '#destroy' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -271,9 +351,15 @@ RSpec.describe Admin::BackupsController do
           create_backup_files(backup_filename)
           expect(File.exist?(path)).to eq(true)
 
+<<<<<<< HEAD
           expect do delete "/admin/backups/#{backup_filename}.json" end.to change {
             UserHistory.where(action: UserHistory.actions[:backup_destroy]).count
           }.by(1)
+=======
+          expect do
+            delete "/admin/backups/#{backup_filename}.json"
+          end.to change { UserHistory.where(action: UserHistory.actions[:backup_destroy]).count }.by(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(200)
           expect(File.exist?(path)).to eq(false)
@@ -293,9 +379,15 @@ RSpec.describe Admin::BackupsController do
           create_backup_files(backup_filename)
           expect(File.exist?(path)).to eq(true)
 
+<<<<<<< HEAD
           expect do delete "/admin/backups/#{backup_filename}.json" end.not_to change {
             UserHistory.where(action: UserHistory.actions[:backup_destroy]).count
           }
+=======
+          expect do
+            delete "/admin/backups/#{backup_filename}.json"
+          end.not_to change { UserHistory.where(action: UserHistory.actions[:backup_destroy]).count }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(404)
           expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -311,13 +403,21 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backup deletion not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#logs" do
+=======
+  describe '#logs' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -347,11 +447,16 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backup logs inaccessible"
     end
   end
+<<<<<<< HEAD
 
   describe "#restore" do
     context "when logged in as an admin" do
@@ -420,6 +525,65 @@ RSpec.describe Admin::BackupsController do
           ).count
         }.by(1)
 
+=======
+
+  describe '#restore' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it "starts a restore" do
+        BackupRestore.expects(:restore!).with(admin.id, { filename: backup_filename, publish_to_message_bus: true, client_id: "foo" })
+
+        post "/admin/backups/#{backup_filename}/restore.json", params: { client_id: "foo" }
+
+        expect(response.status).to eq(200)
+      end
+    end
+
+    shared_examples "backup restoration not allowed" do
+      it "prevents restoration with a 404 response" do
+        post "/admin/backups/#{backup_filename}/restore.json", params: { client_id: "foo" }
+
+        expect(response.status).to eq(404)
+        expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
+      end
+    end
+
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "backup restoration not allowed"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "backup restoration not allowed"
+    end
+  end
+
+  describe '#readonly' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it "enables readonly mode" do
+        expect(Discourse.readonly_mode?).to eq(false)
+
+        expect { put "/admin/backups/readonly.json", params: { enable: true } }
+          .to change { UserHistory.where(action: UserHistory.actions[:change_readonly_mode], new_value: "t").count }.by(1)
+
+        expect(Discourse.readonly_mode?).to eq(true)
+        expect(response.status).to eq(200)
+      end
+
+      it "disables readonly mode" do
+        Discourse.enable_readonly_mode(Discourse::USER_READONLY_MODE_KEY)
+        expect(Discourse.readonly_mode?).to eq(true)
+
+        expect { put "/admin/backups/readonly.json", params: { enable: false } }
+          .to change { UserHistory.where(action: UserHistory.actions[:change_readonly_mode], new_value: "f").count }.by(1)
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(response.status).to eq(200)
         expect(Discourse.readonly_mode?).to eq(false)
       end
@@ -429,12 +593,18 @@ RSpec.describe Admin::BackupsController do
       it "prevents enabling readonly mode with a 404 response" do
         expect(Discourse.readonly_mode?).to eq(false)
 
+<<<<<<< HEAD
         expect do put "/admin/backups/readonly.json", params: { enable: true } end.not_to change {
           UserHistory.where(
             action: UserHistory.actions[:change_readonly_mode],
             new_value: "t",
           ).count
         }
+=======
+        expect do
+          put "/admin/backups/readonly.json", params: { enable: true }
+        end.not_to change { UserHistory.where(action: UserHistory.actions[:change_readonly_mode], new_value: "t").count }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -449,7 +619,11 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "enabling readonly mode not allowed"
     end
@@ -458,6 +632,7 @@ RSpec.describe Admin::BackupsController do
   describe "#upload_backup_chunk" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
+<<<<<<< HEAD
 
       describe "when filename contains invalid characters" do
         it "should raise an error" do
@@ -523,6 +698,64 @@ RSpec.describe Admin::BackupsController do
             },
             at: 5.seconds.from_now,
           )
+=======
+
+      describe "when filename contains invalid characters" do
+        it "should raise an error" do
+          ['灰色.tar.gz', '; echo \'haha\'.tar.gz'].each do |invalid_filename|
+            described_class.any_instance.expects(:has_enough_space_on_disk?).returns(true)
+
+            post "/admin/backups/upload", params: {
+              resumableFilename: invalid_filename,
+              resumableTotalSize: 1,
+              resumableIdentifier: 'test'
+            }
+
+            expect(response.status).to eq(415)
+            expect(response.body).to eq(I18n.t('backup.invalid_filename'))
+          end
+        end
+      end
+
+      describe "when resumableIdentifier is invalid" do
+        it "should raise an error" do
+          filename = 'test_site-0123456789.tar.gz'
+          @paths = [backup_path(File.join('tmp', 'test', "#{filename}.part1"))]
+
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: 1,
+            resumableIdentifier: '../test',
+            resumableChunkNumber: '1',
+            resumableChunkSize: '1',
+            resumableCurrentChunkSize: '1',
+            file: fixture_file_upload(Tempfile.new)
+          }
+
+          expect(response.status).to eq(400)
+        end
+      end
+
+      describe "when filename is valid" do
+        it "should upload the file successfully" do
+          freeze_time
+          described_class.any_instance.expects(:has_enough_space_on_disk?).returns(true)
+
+          filename = 'test_Site-0123456789.tar.gz'
+
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: 1,
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '1',
+            resumableChunkSize: '1',
+            resumableCurrentChunkSize: '1',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          expect_job_enqueued(job: :backup_chunks_merger, args: {
+            filename: filename, identifier: 'test', chunks: 1
+          }, at: 5.seconds.from_now)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(200)
           expect(response.body).to eq("")
@@ -530,13 +763,18 @@ RSpec.describe Admin::BackupsController do
       end
 
       describe "completing an upload by enqueuing backup_chunks_merger" do
+<<<<<<< HEAD
         let(:filename) { "test_Site-0123456789.tar.gz" }
+=======
+        let(:filename) { 'test_Site-0123456789.tar.gz' }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "works with a single chunk" do
           freeze_time
           described_class.any_instance.expects(:has_enough_space_on_disk?).returns(true)
 
           # 2MB file, 2MB chunks = 1x 2MB chunk
+<<<<<<< HEAD
           post "/admin/backups/upload.json",
                params: {
                  resumableFilename: filename,
@@ -556,6 +794,20 @@ RSpec.describe Admin::BackupsController do
             },
             at: 5.seconds.from_now,
           )
+=======
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '2097152',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '1',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '2097152',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          expect_job_enqueued(job: :backup_chunks_merger, args: {
+            filename: filename, identifier: 'test', chunks: 1
+          }, at: 5.seconds.from_now)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "works with multiple chunks when the final chunk is chunk_size + remainder" do
@@ -563,6 +815,7 @@ RSpec.describe Admin::BackupsController do
           described_class.any_instance.expects(:has_enough_space_on_disk?).twice.returns(true)
 
           # 5MB file, 2MB chunks = 1x 2MB chunk + 1x 3MB chunk with resumable.js
+<<<<<<< HEAD
           post "/admin/backups/upload.json",
                params: {
                  resumableFilename: filename,
@@ -595,10 +848,37 @@ RSpec.describe Admin::BackupsController do
         end
 
         it "works with multiple chunks when the final chunk is just the remainder" do
+=======
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '5242880',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '1',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '2097152',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '5242880',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '2',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '3145728',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          expect_job_enqueued(job: :backup_chunks_merger, args: {
+            filename: filename, identifier: 'test', chunks: 2
+          }, at: 5.seconds.from_now)
+        end
+
+        it "works with multiple chunks when the final chunk is just the remaninder" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           freeze_time
           described_class.any_instance.expects(:has_enough_space_on_disk?).times(3).returns(true)
 
           # 5MB file, 2MB chunks = 2x 2MB chunk + 1x 1MB chunk with uppy.js
+<<<<<<< HEAD
           post "/admin/backups/upload.json",
                params: {
                  resumableFilename: filename,
@@ -638,6 +918,38 @@ RSpec.describe Admin::BackupsController do
             },
             at: 5.seconds.from_now,
           )
+=======
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '5242880',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '1',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '2097152',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '5242880',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '2',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '2097152',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          post "/admin/backups/upload.json", params: {
+            resumableFilename: filename,
+            resumableTotalSize: '5242880',
+            resumableIdentifier: 'test',
+            resumableChunkNumber: '3',
+            resumableChunkSize: '2097152',
+            resumableCurrentChunkSize: '1048576',
+            file: fixture_file_upload(Tempfile.new)
+          }
+          expect_job_enqueued(job: :backup_chunks_merger, args: {
+            filename: filename, identifier: 'test', chunks: 3
+          }, at: 5.seconds.from_now)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -645,6 +957,7 @@ RSpec.describe Admin::BackupsController do
     shared_examples "uploading backup chunk not allowed" do
       it "prevents uploading of backup chunk with a 404 response" do
         freeze_time
+<<<<<<< HEAD
         filename = "test_Site-0123456789.tar.gz"
 
         post "/admin/backups/upload.json",
@@ -667,10 +980,28 @@ RSpec.describe Admin::BackupsController do
           },
           at: 5.seconds.from_now,
         )
+=======
+        filename = 'test_Site-0123456789.tar.gz'
+
+        post "/admin/backups/upload.json", params: {
+          resumableFilename: filename,
+          resumableTotalSize: 1,
+          resumableIdentifier: 'test',
+          resumableChunkNumber: '1',
+          resumableChunkSize: '1',
+          resumableCurrentChunkSize: '1',
+          file: fixture_file_upload(Tempfile.new)
+        }
+
+        expect_not_enqueued_with(job: :backup_chunks_merger, args: {
+          filename: filename, identifier: 'test', chunks: 1
+        }, at: 5.seconds.from_now)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
       end
+<<<<<<< HEAD
     end
 
     context "when logged in as a moderator" do
@@ -683,6 +1014,20 @@ RSpec.describe Admin::BackupsController do
       before { sign_in(user) }
 
       include_examples "uploading backup chunk not allowed"
+=======
+    end
+
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "uploading backup chunk not allowed"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "uploading backup chunk not allowed"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -692,6 +1037,7 @@ RSpec.describe Admin::BackupsController do
 
       describe "when resumableIdentifier is invalid" do
         it "should raise an error" do
+<<<<<<< HEAD
           get "/admin/backups/upload",
               params: {
                 resumableidentifier: "../some_file",
@@ -699,11 +1045,20 @@ RSpec.describe Admin::BackupsController do
                 resumablechunknumber: "1",
                 resumablecurrentchunksize: "1",
               }
+=======
+          get "/admin/backups/upload", params: {
+            resumableidentifier: "../some_file",
+            resumablefilename: "test_site-0123456789.tar.gz",
+            resumablechunknumber: '1',
+            resumablecurrentchunksize: '1'
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(400)
         end
       end
     end
+<<<<<<< HEAD
 
     shared_examples "checking backup chunk not allowed" do
       it "denies access with a 404 response" do
@@ -715,10 +1070,54 @@ RSpec.describe Admin::BackupsController do
               resumablecurrentchunksize: "1",
             }
 
+=======
+
+    shared_examples "checking backup chunk not allowed" do
+      it "denies access with a 404 response" do
+        get "/admin/backups/upload", params: {
+            resumableidentifier: "../some_file",
+            resumablefilename: "test_site-0123456789.tar.gz",
+            resumablechunknumber: '1',
+            resumablecurrentchunksize: '1'
+          }
+
         expect(response.status).to eq(404)
       end
     end
 
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "checking backup chunk not allowed"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "checking backup chunk not allowed"
+    end
+  end
+
+  describe '#rollback' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it 'should rollback the restore' do
+        BackupRestore.expects(:rollback!)
+
+        post "/admin/backups/rollback.json"
+
+        expect(response.status).to eq(200)
+      end
+
+      it 'should not allow rollback via a GET request' do
+        get "/admin/backups/rollback.json"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+        expect(response.status).to eq(404)
+      end
+    end
+
+<<<<<<< HEAD
     context "when logged in as a moderator" do
       before { sign_in(moderator) }
 
@@ -740,16 +1139,54 @@ RSpec.describe Admin::BackupsController do
         BackupRestore.expects(:rollback!)
 
         post "/admin/backups/rollback.json"
+=======
+    shared_examples "backup rollback not allowed" do
+      it "prevents rollbacks with a 404 response" do
+        post "/admin/backups/rollback.json"
+
+        expect(response.status).to eq(404)
+        expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
+      end
+    end
+
+    context "when logged in as a moderator" do
+      before { sign_in(moderator) }
+
+      include_examples "backup rollback not allowed"
+    end
+
+    context "when logged in as a non-staff user" do
+      before  { sign_in(user) }
+
+      include_examples "backup rollback not allowed"
+    end
+  end
+
+  describe '#cancel' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it "should cancel an backup" do
+        BackupRestore.expects(:cancel!)
+
+        delete "/admin/backups/cancel.json"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
       end
 
+<<<<<<< HEAD
       it "should not allow rollback via a GET request" do
         get "/admin/backups/rollback.json"
+=======
+      it 'should not allow cancel via a GET request' do
+        get "/admin/backups/cancel.json"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(response.status).to eq(404)
       end
     end
 
+<<<<<<< HEAD
     shared_examples "backup rollback not allowed" do
       it "prevents rollbacks with a 404 response" do
         post "/admin/backups/rollback.json"
@@ -790,6 +1227,8 @@ RSpec.describe Admin::BackupsController do
       end
     end
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     shared_examples "backup cancellation not allowed" do
       it "prevents cancellation with a 404 response" do
         delete "/admin/backups/cancel.json"
@@ -806,7 +1245,11 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backup cancellation not allowed"
     end
@@ -817,6 +1260,7 @@ RSpec.describe Admin::BackupsController do
       before { sign_in(admin) }
 
       it "enqueues email job" do
+<<<<<<< HEAD
         # might as well test this here if we really want www.example.com
         SiteSetting.force_hostname = "www.example.com"
 
@@ -831,6 +1275,21 @@ RSpec.describe Admin::BackupsController do
         expect(job_args["backup_file_path"]).to eq(
           "http://www.example.com/admin/backups/#{backup_filename}",
         )
+=======
+
+        # might as well test this here if we really want www.example.com
+        SiteSetting.force_hostname = "www.example.com"
+
+        create_backup_files(backup_filename)
+
+        expect {
+          put "/admin/backups/#{backup_filename}.json"
+        }.to change { Jobs::DownloadBackupEmail.jobs.size }.by(1)
+
+        job_args = Jobs::DownloadBackupEmail.jobs.last["args"].first
+        expect(job_args["user_id"]).to eq(admin.id)
+        expect(job_args["backup_file_path"]).to eq("http://www.example.com/admin/backups/#{backup_filename}")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
       end
@@ -847,9 +1306,15 @@ RSpec.describe Admin::BackupsController do
         SiteSetting.force_hostname = "www.example.com"
         create_backup_files(backup_filename)
 
+<<<<<<< HEAD
         expect do put "/admin/backups/#{backup_filename}.json" end.not_to change {
           Jobs::DownloadBackupEmail.jobs.size
         }
+=======
+        expect do
+          put "/admin/backups/#{backup_filename}.json"
+        end.not_to change { Jobs::DownloadBackupEmail.jobs.size }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -863,7 +1328,11 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "backup emails not allowed"
     end
@@ -896,12 +1365,20 @@ RSpec.describe Admin::BackupsController do
 
     shared_examples "multipart uploads not allowed" do
       it "prevents multipart uploads with a 404 response" do
+<<<<<<< HEAD
         post "/admin/backups/create-multipart.json",
              params: {
                file_name: "test.tar.gz",
                upload_type: upload_type,
                file_size: 4098,
              }
+=======
+        post "/admin/backups/create-multipart.json", params: {
+          file_name: "test.tar.gz",
+          upload_type: upload_type,
+          file_size: 4098
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(response.status).to eq(404)
       end
     end
@@ -913,7 +1390,11 @@ RSpec.describe Admin::BackupsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "multipart uploads not allowed"
     end

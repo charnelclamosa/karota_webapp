@@ -7,12 +7,17 @@ import {
 import { currentUser } from "discourse/tests/helpers/qunit-helpers";
 import AppEvents from "discourse/services/app-events";
 import { module, test } from "qunit";
+<<<<<<< HEAD
 import { getOwner } from "@ember/application";
 import { setupTest } from "ember-qunit";
 import pretender, {
   parsePostData,
   response,
 } from "discourse/tests/helpers/create-pretender";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+import { setupTest } from "ember-qunit";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function createComposer(opts = {}) {
   opts.user ??= currentUser();
@@ -35,7 +40,11 @@ module("Unit | Model | composer", function (hooks) {
   });
 
   test("replyLength", function (assert) {
+<<<<<<< HEAD
     const replyLength = (val, expectedLength) => {
+=======
+    const replyLength = function (val, expectedLength) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       const composer = createComposer.call(this, { reply: val });
       assert.strictEqual(composer.replyLength, expectedLength);
     };
@@ -71,6 +80,7 @@ module("Unit | Model | composer", function (hooks) {
   test("missingReplyCharacters", function (assert) {
     this.siteSettings.min_first_post_length = 40;
 
+<<<<<<< HEAD
     const missingReplyCharacters = (
       val,
       isPM,
@@ -78,6 +88,9 @@ module("Unit | Model | composer", function (hooks) {
       expected,
       message
     ) => {
+=======
+    function missingReplyCharacters(val, isPM, isFirstPost, expected, message) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       let action;
 
       if (isFirstPost) {
@@ -90,7 +103,11 @@ module("Unit | Model | composer", function (hooks) {
 
       const composer = createComposer.call(this, { reply: val, action });
       assert.strictEqual(composer.missingReplyCharacters, expected, message);
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     missingReplyCharacters(
       "hi",
@@ -133,7 +150,11 @@ module("Unit | Model | composer", function (hooks) {
   });
 
   test("missingTitleCharacters", function (assert) {
+<<<<<<< HEAD
     const missingTitleCharacters = (val, isPM, expected, message) => {
+=======
+    const missingTitleCharacters = function (val, isPM, expected, message) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       const composer = createComposer.call(this, {
         title: val,
         action: isPM ? PRIVATE_MESSAGE : REPLY,
@@ -156,7 +177,11 @@ module("Unit | Model | composer", function (hooks) {
   });
 
   test("replyDirty", function (assert) {
+<<<<<<< HEAD
     const composer = createComposer.call(this);
+=======
+    const composer = createComposer();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(!composer.replyDirty, "by default it's false");
 
     composer.setProperties({
@@ -269,7 +294,11 @@ module("Unit | Model | composer", function (hooks) {
   });
 
   test("editingFirstPost", function (assert) {
+<<<<<<< HEAD
     const composer = createComposer.call(this);
+=======
+    const composer = createComposer();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(!composer.editingFirstPost, "it's false by default");
 
     const store = getOwner(this).lookup("service:store");
@@ -344,7 +373,11 @@ module("Unit | Model | composer", function (hooks) {
   test("open with a quote", function (assert) {
     const quote =
       '[quote="neil, post:5, topic:413"]\nSimmer down you two.\n[/quote]';
+<<<<<<< HEAD
     const newComposer = () => {
+=======
+    const newComposer = function () {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return openComposer.call(this, {
         action: REPLY,
         draftKey: "abcd",

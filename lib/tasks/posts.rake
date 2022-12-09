@@ -523,6 +523,7 @@ def recover_uploads_from_index(path)
 
   db = RailsMultisite::ConnectionManagement.current_db
   cdn_path = SiteSetting.cdn_path("/uploads/#{db}").sub(/https?:/, "")
+<<<<<<< HEAD
   Post
     .where("cooked LIKE ?", "%#{cdn_path}%")
     .each do |post|
@@ -536,6 +537,13 @@ def recover_uploads_from_index(path)
         print "."
         post.rebake!
       end
+=======
+  Post.where("cooked LIKE ?", "%#{cdn_path}%").each do |post|
+    regex = Regexp.new("((https?:)?#{Regexp.escape(cdn_path)}[^,;\\]\\>\\t\\n\\s)\"\']+)")
+    uploads = []
+    post.raw.scan(regex).each do |match|
+      uploads << match[0]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
   PostCustomField
@@ -681,6 +689,7 @@ def correct_inline_uploads
   dry_run = (ENV["DRY_RUN"].nil? ? true : ENV["DRY_RUN"] != "false")
   verbose = ENV["VERBOSE"]
 
+<<<<<<< HEAD
   scope =
     Post
       .joins(:upload_references)
@@ -689,6 +698,13 @@ def correct_inline_uploads
         "raw LIKE ?",
         "%/uploads/#{RailsMultisite::ConnectionManagement.current_db}/original/%",
       )
+=======
+  scope = Post.joins(:upload_references).distinct("posts.id")
+    .where(
+      "raw LIKE ?",
+      "%/uploads/#{RailsMultisite::ConnectionManagement.current_db}/original/%",
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   affected_posts_count = scope.count
   fixed_count = 0

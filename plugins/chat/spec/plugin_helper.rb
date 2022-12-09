@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 require "faker"
 
 module ChatSystemHelpers
   def chat_system_bootstrap(user = Fabricate(:admin), channels_for_membership = [])
+=======
+module ChatSystemHelpers
+  def chat_system_bootstrap(user, channels_for_membership = [])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     # ensures we have one valid registered admin/user
     user.activate
 
@@ -19,6 +24,7 @@ module ChatSystemHelpers
 
     Group.refresh_automatic_groups!
   end
+<<<<<<< HEAD
 
   def chat_system_user_bootstrap(user:, channel:)
     user.activate
@@ -67,10 +73,13 @@ module ChatSpecHelpers
             "Service failed, see below for step details:\n\n" + result.inspect_steps.inspect,
           )
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end
 
 RSpec.configure do |config|
   config.include ChatSystemHelpers, type: :system
+<<<<<<< HEAD
   config.include ChatSpecHelpers
   config.include Chat::WithServiceHelper
   config.include Chat::ServiceMatchers
@@ -79,4 +88,6 @@ RSpec.configure do |config|
     # Or a very large value, if you do want to truncate at some point
     c.max_formatted_output_length = nil
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

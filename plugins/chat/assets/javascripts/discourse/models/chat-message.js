@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import User from "discourse/models/user";
 import { cached, tracked } from "@glimmer/tracking";
 import { TrackedArray, TrackedObject } from "@ember-compat/tracked-built-ins";
@@ -377,3 +378,23 @@ export default class ChatMessage {
     return moment(date).startOf("day").format();
   }
 }
+=======
+import RestModel from "discourse/models/rest";
+import User from "discourse/models/user";
+
+export default class ChatMessage extends RestModel {}
+
+ChatMessage.reopenClass({
+  create(args) {
+    args = args || {};
+    this._initUserModel(args);
+    return this._super(args);
+  },
+
+  _initUserModel(args) {
+    if (args.user) {
+      args.user = User.create(args.user);
+    }
+  },
+});
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

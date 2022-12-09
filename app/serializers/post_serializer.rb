@@ -92,7 +92,8 @@ class PostSerializer < BasicPostSerializer
              :meta_tag_id,
              :user_generated_tags,
              :action_cost,
-             :subtitle
+             :subtitle,
+             :mentioned_users
 
   def initialize(object, opts)
     super(object, opts)
@@ -597,6 +598,7 @@ class PostSerializer < BasicPostSerializer
   end
 
   def mentioned_users
+<<<<<<< HEAD
     users =
       if @topic_view && (mentioned_users = @topic_view.mentioned_users[object.id])
         mentioned_users
@@ -618,6 +620,19 @@ class PostSerializer < BasicPostSerializer
   end
 
   private
+=======
+    if @topic_view && (mentions = @topic_view.mentions[object.id])
+      return mentions
+          .map { |username| @topic_view.mentioned_users[username] }
+          .compact
+          .map { |user| BasicUserWithStatusSerializer.new(user, root: false) }
+    end
+
+    []
+  end
+
+private
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def can_review_topic?
     return @can_review_topic unless @can_review_topic.nil?

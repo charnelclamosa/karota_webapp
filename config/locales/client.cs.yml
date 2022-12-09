@@ -322,7 +322,10 @@ cs:
       like_count: "Líbí se"
       topic_count: "Témata"
       post_count: "Příspěvky"
+<<<<<<< HEAD
       user_count: "Registrace"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Aktivní uživatelé"
       contact: "Kontaktujte nás"
       contact_info: "V případě kritické chyby nebo urgentní záležitosti ovlivňující tuto stránku nás prosím kontaktujte na %{contact_info}."
@@ -1092,6 +1095,7 @@ cs:
       dismiss: "Označit jako přečtené"
       dismiss_notifications: "Označit vše jako přečtené"
       dismiss_notifications_tooltip: "Označit všechny nepřečtené notifikace jako přečtené"
+<<<<<<< HEAD
       dismiss_bookmarks_tooltip: "Označit všechna nepřečtená připomenutí záložek jako přečtená"
       dismiss_messages_tooltip: "Označit všechna upozornění na nepřečtené osobní zprávy jako přečtené"
       no_likes_title: "Zatím jste neobdrželi žádné lajky"
@@ -1120,6 +1124,8 @@ cs:
       theme_default_on_all_devices: "Nastavit výchozí motiv na všech mých zařízeních"
       color_scheme_default_on_all_devices: "Nastavit výchozí barevná schémata na všech mých zařízeních"
       color_scheme: "Barevné schéma"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       color_schemes:
         default_description: "Výchozí z motivu"
         dark_instructions: "Náhled barevného schématu tmavého režimu můžete zobrazit přepínáním tmavého režimu vašeho zařízení."
@@ -1138,8 +1144,11 @@ cs:
         enable: "Povolit postranní panel"
         options: "Možnosti"
         navigation_section: "Navigace"
+<<<<<<< HEAD
         link_to_filtered_list_checkbox_description: "Odkaz na filtrovaný seznam"
         show_count_new_items_checkbox_description: "Zobrazit počet nových položek"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "změnit"
       featured_topic: "Doporučené téma"
       moderator: "%{user} je moderátor"
@@ -3870,8 +3879,11 @@ cs:
         about: "Zde můžete upravit názvy skupin a členství"
         group_members: "Členové skupiny"
         delete: "Smazat"
+<<<<<<< HEAD
         delete_confirm: "Jste si jisti, že chcete odstranit %{group}?"
         delete_warning: "Odstraněné skupiny nelze obnovit"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Unable to delete group. If this is an automatic group, it cannot be destroyed."
         delete_automatic_group: Toto je automatická skupina a nelze ji odstranit.
         delete_owner_confirm: "Odstranit vlastnickou výsadu od '%{username}'?"

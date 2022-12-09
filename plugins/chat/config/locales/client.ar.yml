@@ -10,16 +10,22 @@ ar:
       site_settings:
         categories:
           chat: الدردشة
+<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "دائمًا"
           fullscreen: "عندما تكون الدردشة في وضع ملء الشاشة"
           never: "أبدًا"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "تم تغيير حالة قناة الدردشة"
             chat_channel_delete: "تم حذف قناة الدردشة"
+<<<<<<< HEAD
             chat_auto_remove_membership: "إزالة عضويات تلقائيًا من القنوات"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
@@ -30,7 +36,10 @@ ar:
       chat_channels_count: "قنوات الدردشة"
       chat_users_count: "مستخدمو الدردشة"
     chat:
+<<<<<<< HEAD
       deleted_chat_username: تم الحذف
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "يتم الآن عرض جميع الرسائل"
@@ -45,12 +54,21 @@ ar:
       move_to_channel:
         title: "نقل الرسائل إلى القناة"
         instructions:
+<<<<<<< HEAD
           zero: "أنت بصدد نقل <strong>%{count}</strong> رسالة. حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
           one: "أنت بصدد نقل رسالة واحدة (<strong>%{count}</strong>). حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
           two: "أنت بصدد نقل رسالتين (<strong>%{count}</strong>). حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
           few: "أنت بصدد نقل <strong>%{count}</strong> رسائل. حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
           many: "أنت بصدد نقل <strong>%{count}</strong> رسالة. حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
           other: "أنت بصدد نقل <strong>%{count}</strong> رسالة. حدِّد القناة الوجهة. سيتم إنشاء رسالة عنصر نائب في القناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسائل قد تم نقلها. لاحظ أنه لن يتم الاحتفاظ بسلاسل الردود في القناة الجديدة، ولن يتم عرض الرسائل في القناة القديمة كردٍ على أي رسائل تم نقلها."
+=======
+          zero: "أنت تنقل <strong>%{count}</strong> رسائل. حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+          one: "أنت تنقل رسالة واحدة (<strong>%{count}</strong>). حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+          two: "أنت تنقل رسالتين (<strong>%{count}</strong>). حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+          few: "أنت تنقل <strong>%{count}</strong> رسائل. حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+          many: "أنت تنقل <strong>%{count}</strong> رسائل. حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+          other: "أنت تنقل <strong>%{count}</strong> رسائل. حدِّد القناة المستهدفة. سيتم إنشاء رسالة كعنصر نائب في قناة <strong>%{channelTitle}</strong> للإشارة إلى أن هذه الرسالة قد تم نقلها."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "نقل الرسائل"
       channel_settings:
         title: "إعدادات القناة"
@@ -81,7 +99,11 @@ ar:
         instructions: "يمنع إغلاق القناة المستخدمين من غير فريق العمل من إرسال رسائل جديدة أو تعديل الرسائل الحالية. هل تريد بالتأكيد إغلاق هذه القناة؟"
       channel_delete:
         title: "حذف القناة"
+<<<<<<< HEAD
         instructions: "<p>يحذف القناة <strong>%{name}</strong> وسجل الدردشة. سيتم حذف كل الرسائل والبيانات المتعلقة بها، مثل التفاعلات والتحميلات، نهائيًا. إذا كنت تريد الاحتفاظ بسجل القناة وإيقاف تشغيلها، فقد ترغب في أرشفة القناة بدلًا من ذلك.</p> <p>هل تريد بالتأكيد <strong>الحذف النهائي</strong> للقناة؟ للتأكيد، اكتب اسم القناة في المربع أدناه.</p>"
+=======
+        instructions: "<p>يحذف قناة <strong>%{name}</strong> وسجل الدردشة. سيتم حذف جميع الرسائل والبيانات ذات الصلة، مثل التفاعلات والتحميلات نهائيًا. إذا كنت ترغب في الحفاظ على سجل القناة وإيقاف تشغيلها، فقد ترغب في أرشفة القناة بدلًا من ذلك.</p> <p>هل تريد بالتأكيد المتابعة إلى <strong>الحذف النهائي</strong> للقناة؟ للتأكيد، اكتب اسم القناة في المربع أدناه.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "أتفهم العواقب، احذف القناة"
         confirm_channel_name: "أدخل اسم القناة"
         process_started: "لقد بدأت عملية حذف القناة. سيتم إغلاق هذا النموذج بعد قليل، ولن يصبح بإمكانك رؤية القناة المحذوفة في أي مكان."
@@ -90,6 +112,7 @@ ar:
         create: "قناة جديدة"
       click_to_join: "انقر هنا لعرض القنوات المتاحة"
       close: "إغلاق"
+<<<<<<< HEAD
       remove: "إزالة"
       collapse: "طي ساحب الدردشة"
       expand: "توسيع درج الدردشة"
@@ -101,6 +124,11 @@ ar:
         few: "تم حذف %{count} رسائل. [view all]"
         many: "تم حذف %{count} رسالة. [view all]"
         other: "تم حذف %{count} رسالة. [view all]"
+=======
+      collapse: "طي ساحب الدردشة"
+      confirm_flag: "هل تريد بالتأكيد الإبلاغ عن رسالة %{username}؟"
+      deleted: "تم حذف رسالة. [view]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "تم حذف إحدى الرسائل. [view]"
       delete: "حذف"
       edited: "تم التعديل"
@@ -115,6 +143,7 @@ ar:
         never: "أبدًا"
         title: "إشعارات البريد الإلكتروني"
         when_away: "عندما أكون غائبًا فقط"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "إظهار مؤشر النشاط في الرأس"
         all_new: "كل الرسائل الجديدة"
@@ -126,11 +155,18 @@ ar:
       flag: "الإبلاغ"
       emoji: "إدراج رمز تعبيري"
       flagged: "لقد تم الإبلاغ عن هذه الرسالة للمراجعة"
+=======
+      enable: "تفعيل الدردشة"
+      flag: "الإبلاغ"
+      emoji: "إدراج رمز تعبيري"
+      flagged: "لقد تم الإبلاغ عن الرسالة للمراجعة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       invalid_access: "ليس لديك إذن الوصول لعرض قناة الدردشة هذه"
       invitation_notification: "دعاك <span>%{username}</span> <span>للانضمام إلى قناة دردشة</span>"
       in_reply_to: "ردًا على"
       heading: "الدردشة"
       join: "الانضمام"
+<<<<<<< HEAD
       last_visit: "آخر زيارة"
       summarization:
         title: "تلخيص الرسائل"
@@ -144,6 +180,18 @@ ar:
           many: "آخر %{count} ساعة"
           other: "آخر %{count} ساعة"
       mention_warning:
+=======
+      new_messages: "رسائل جديدة"
+      mention_warning:
+        cannot_see:
+          zero: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليهم."
+          one: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليه."
+          two: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليهما."
+          few: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليهم."
+          many: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليهم."
+          other: "لا يستطيع %{usernames} الوصول إلى هذه القناة ولم يتم إرسال إشعار إليهم."
+        dismiss: "تجاهل"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           zero: "تم إرسال دعوات"
           one: "تم إرسال دعوة"
@@ -152,6 +200,7 @@ ar:
           many: "تم إرسال دعوات"
           other: "تم إرسال دعوات"
         invite: "دعوة إلى القناة"
+<<<<<<< HEAD
         channel_wide_mentions_disallowed: "إشارات @here و @all مٌعطلة في هذه القناة."
         groups:
           header:
@@ -234,12 +283,24 @@ ar:
           few: 'هذه الرسالة تتجاوز <a href="%{siteSettingUrl}" target="_blank">حد الإشعارات</a> البالغ %{count} إشارات.'
           many: 'هذه الرسالة تتجاوز <a href="%{siteSettingUrl}" target="_blank">حد الإشعارات</a> البالغ %{count} إشارة.'
           other: 'هذه الرسالة تتجاوز <a href="%{siteSettingUrl}" target="_blank">حد الإشعارات</a> البالغ %{count} إشارة.'
+=======
+        without_membership:
+          zero: "لم ينضم %{usernames} إلى هذه القناة."
+          one: "لم ينضم %{usernames} إلى هذه القناة."
+          two: "لم ينضم %{usernames} إلى هذه القناة."
+          few: "لم ينضم %{usernames} إلى هذه القناة."
+          many: "لم ينضم %{usernames} إلى هذه القناة."
+          other: "لم ينضم %{usernames} إلى هذه القناة."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "رأس الدردشة"
         composer: "أداة إنشاء الدردشة"
         channels_list: "قائمة قنوات الدردشة"
       no_public_channels: "لم تنضم إلى أي قنوات."
+<<<<<<< HEAD
       kicked_from_channel: "لم يعُد بإمكانك الوصول إلى هذه القناة."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "إرسال الإشعارات الفورية للدردشة فقط"
         description: "حظر إرسال جميع الإشعارات الفورية غير المتعلقة بالدردشة"
@@ -251,6 +312,7 @@ ar:
       close_full_page: "إغلاق الدردشة في وضع الشاشة الكاملة"
       open_message: "فتح رسالة في الدردشة"
       placeholder_self: "تدوين شيء ما"
+<<<<<<< HEAD
       placeholder_channel: "الدردشة في %{channelName}"
       placeholder_thread: "الدردشة في سلسلة"
       placeholder_users: "الدردشة مع %{commaSeparatedNames}"
@@ -259,6 +321,12 @@ ar:
         closed: "القناة مغلقة، ولا يمكنك إرسال رسائل جديدة الآن."
         read_only: "القناة للقراءة فقط، لا يمكنك إرسال رسائل جديدة الآن."
       placeholder_silenced: "لا يمكنك إرسال رسائل في الوقت الحالي."
+=======
+      placeholder_others: "الدردشة مع %{messageRecipient}"
+      placeholder_new_message_disallowed: "القناة %{status}، لا يمكنك إرسال رسائل جديدة الآن."
+      placeholder_silenced: "لا يمكنك إرسال رسائل في الوقت الحالي."
+      placeholder_start_conversation: ابدأ محادثة مع %{usernames}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "إزالة ملف"
       react: "التفاعل برمز تعبيري"
       reply: "رد"
@@ -274,6 +342,7 @@ ar:
       restore: "استعادة الرسالة المحذوفة"
       save: "حفظ"
       select: "تحديد"
+<<<<<<< HEAD
       return_to_list: "العودة إلى قائمة القنوات"
       return_to_threads_list: "العودة إلى المناقشات الجارية"
       unread_threads_count:
@@ -283,6 +352,10 @@ ar:
         few: "لديك %{count} مناقشات غير مقروءة"
         many: "لديك %{count} مناقشة غير مقروءة"
         other: "لديك %{count} مناقشة غير مقروءة"
+=======
+      silence: "كتم المستخدم"
+      return_to_list: "العودة إلى قائمة القنوات"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "التمرير إلى الأسفل"
       scroll_to_new_messages: "عرض الرسائل الجديدة"
       sound:
@@ -294,8 +367,11 @@ ar:
       title: "دردشة"
       title_capitalized: "الدردشة"
       upload: "إرفاق ملف"
+<<<<<<< HEAD
       upload_to_channel: "التحميل إلى %{title}"
       upload_to_thread: "التحميل إلى سلسلة دردشة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         zero: "%{count} ملفًا"
         one: "ملف واحد (%{count})"
@@ -310,8 +386,12 @@ ar:
         read_only: "للقراءة فقط"
         archived_header: "القناة مؤرشفة"
         archived: "مؤرشفة"
+<<<<<<< HEAD
         archive_failed: "Archive channel failed. %{completed}/%{total} messages have been archived. <a target=\"_blank\" href=\"%{topic_url}\">The destination topic</a> was created. Press retry to attempt to complete the archive."
         archive_failed_no_topic: "فشلت أرشفة القناة. تمت أرشفة %{completed}/%{total} من الرسائل، ولم يتم إنشاء موضوع الوجهة. اضغط على \"إعادة المحاولة\" لمحاولة إكمال الأرشيف."
+=======
+        archive_failed: "فشلت أرشفة القناة. تمت أرشفة %{completed}/%{total} من الرسائل في <a target=\"_blank\" href=\"%{topic_url}\">الموضوع المستهدف</a>. اضغط على إعادة المحاولة لمحاولة إكمال الأرشيف."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "راجع <a target=\"_blank\" href=\"%{topic_url}\">موضوع الأرشيف</a>"
         closed_header: "القناة مغلقة"
         closed: "مغلقة"
@@ -334,7 +414,10 @@ ar:
         associated_topic: الموضوع المرتبط
         associated_category: الفئة المرتبطة
         title: العنوان
+<<<<<<< HEAD
         name: الاسم
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: الوصف
       channel_info:
         back_to_all_channels: "كل القنوات"
@@ -343,6 +426,7 @@ ar:
           about: نبذة
           members: الأعضاء
           settings: الإعدادات
+<<<<<<< HEAD
       new_message_modal:
         title: إرسال رسالة
         add_user_long: <kbd>مفتاح Shift + نقرة</kbd> أو <kbd>مفتاح Shift + مفتاح Enter</kbd><span>أضِف @%{username}</span>
@@ -360,6 +444,12 @@ ar:
         slug_description: يتم استخدام مسار للقناة في عنوان URL بدلًا من اسم القناة
         name: اسم القناة
         slug: مسار القناة (اختياري)
+=======
+      channel_edit_title_modal:
+        title: تعديل العنوان
+        input_placeholder: إضافة عنوان
+        description: أعط عنوانًا وصفيًا قصيرًا لقناتك
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: تعديل الوصف
         input_placeholder: أضِف وصفًا
@@ -369,6 +459,12 @@ ar:
         prefix: "إلى:"
         no_results: لا توجد نتائج
         selected_user_title: "إلغاء تحديد %{username}"
+<<<<<<< HEAD
+=======
+      channel_selector:
+        title: "الانتقال إلى القناة"
+        no_channels: "لا توجد قنوات تطابق بحثك"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: لا يوجد أعضاء في هذه القناة
         no_memberships_found: لم يتم العثور على أعضاء
@@ -380,6 +476,7 @@ ar:
           many: "%{count} عضوًا"
           other: "%{count} عضوًا"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "تفعيل سلاسل الدردشة"
         auto_join_users:
@@ -413,10 +510,23 @@ ar:
                       }
                     }
             }
+=======
+        auto_join_users:
+          public_category_warning: "%{category} هي فئة عامة. هل تريد إضافة كل المستخدمين النشطين مؤخرًا إلى هذه القناة؟"
+          warning_groups:
+            zero: هل تريد إضافة %{members_count} مستخدمًا نشطًا مؤخرًا من %{group} و%{group_2}؟
+            one: هل تريد إضافة مستخدم واحد (%{members_count}) نشط مؤخرًا من %{group}؟
+            two: هل تريد إضافة مستخدمين (%{members_count}) نشطين مؤخرًا من %{group} و%{group_2}؟
+            few: هل تريد إضافة %{members_count} مستخدمين نشطين مؤخرًا من %{group} و%{group_2}؟
+            many: هل تريد إضافة %{members_count} مستخدمًا نشطًا مؤخرًا من %{group} و%{group_2}؟
+            other: هل تريد إضافة %{members_count} مستخدمًا نشطًا مؤخرًا من %{group} و%{group_2}؟
+          warning_multiple_groups: هل تريد إضافة %{members_count} من المستخدمين من %{group_1} و%{count} أخرى؟
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "اختيار فئة"
           none: "اختر واحدة..."
           default_hint: إدارة الوصول بالانتقال إلى <a href=%{link} target="_blank">%{category} إعدادات الأمان</a>
+<<<<<<< HEAD
           hint_1_group: 'سيتمكن المستخدمون في %{group} من الوصول إلى هذه القناة وفقًا <a href="%{settingLink}" target="_blank">لإعدادات الأمان</a>'
           hint_2_groups: 'سيتمكن المستخدمون في %{group1} و%{group2} من الوصول إلى هذه القناة وفقًا <a href="%{settingLink}" target="_blank">لإعدادات الأمان</a>'
           hint_multiple_groups:
@@ -430,6 +540,19 @@ ar:
         description: "الوصف (اختياري)"
         name: "اسم القناة"
         slug: "مسار القناة (اختياري)"
+=======
+          hint_groups:
+            zero: سيحظى المستخدمون في %{hint} و%{hint_2} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+            one: سيحظى المستخدمون في %{hint} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+            two: سيحظى المستخدمون في %{hint} و%{hint_2} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+            few: سيحظى المستخدمون في %{hint} و%{hint_2} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+            many: سيحظى المستخدمون في %{hint} و%{hint_2} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+            other: سيحظى المستخدمون في %{hint} و%{hint_2} بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+          hint_multiple_groups: سيحظى المستخدمون في %{hint_1} و%{count} من المجموعات الأخرى بإمكانية الوصول إلى هذه القناة حسب <a href=%{link} target="_blank">إعدادات الأمان</a>
+        create: "إنشاء قناة"
+        description: "الوصف (اختياري)"
+        name: "اسم القناة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "قناة جديدة"
         type: "النوع"
         types:
@@ -439,6 +562,7 @@ ar:
         type: "رسالة دردشة"
       reactions:
         only_you: "لقد تفاعلت باستخدام :%{emoji}:"
+<<<<<<< HEAD
         you_and_single_user: "لقد تفاعلت أنت و%{username} بالرمز التعبيري :%{emoji}:"
         you_and_multiple_users: "لقد تفاعلت أنت و%{commaSeparatedUsernames} و%{username} بالرمز التعبيري :%{emoji}:"
         you_multiple_users_and_more:
@@ -457,12 +581,21 @@ ar:
           few: "لقد تفاعل %{commaSeparatedUsernames} و%{count} مستخدمين آخرين بالرمز التعبيري :%{emoji}:"
           many: "لقد تفاعل %{commaSeparatedUsernames} و%{count} مستخدمًا آخر بالرمز التعبيري :%{emoji}:"
           other: "لقد تفاعل %{commaSeparatedUsernames} و%{count} مستخدم آخر بالرمز التعبيري :%{emoji}:"
+=======
+        and_others: "لقد تفاعلت أنت و%{usernames} باستخدام :%{emoji}:"
+        only_others: "لقد تفاعل %{usernames} باستخدام :%{emoji}:"
+        others_and_more: "تفاعل %{usernames} و%{more} من المستخدمين باستخدام :%{emoji}:"
+        you_others_and_more: "لقد تفاعلت أنت و%{usernames} و%{more} من المستخدمين الآخرين باستخدام :%{emoji}:"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "تشغيل شريط الأدوات"
         italic_text: "نص بارز"
         bold_text: "نص بارز"
         code_text: "نص رمز برمجي"
+<<<<<<< HEAD
         send: "إرسال"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'تم إرساله في الأساس في <a href="%{channelLink}">%{channel}</a>'
         copy_success: "تم نسخ اقتباس الدردشة إلى الحافظة"
@@ -471,6 +604,7 @@ ar:
         mention: "للإشارات فقط"
         always: "للنشاط بأكمله"
       settings:
+<<<<<<< HEAD
         channel_wide_mentions_label: "السماح بإشارات @الكل و@هنا"
         channel_wide_mentions_description: "السماح للمستخدمين بإرسال إشعارات إلى جميع أعضاء #%{channel} باستخدام @الكل، أو المستخدمين النشطين في الوقت الحالي فقط باستخدام @هنا"
         channel_threading_label: "سلاسل الدردشة"
@@ -478,14 +612,19 @@ ar:
         auto_join_users_label: "إضافة المستخدمين تلقائيًا"
         auto_join_users_info: "تحقَّق كل ساعة من المستخدمين الذين كانوا نشطين في الأشهر الثلاثة الماضية. قم بإضافتهم إلى هذه القناة إذا كان لديهم وصول إلى الفئة %{category}."
         auto_join_users_info_no_category: "تحقَّق كل ساعة من المستخدمين الذين كانوا نشطين في الأشهر الثلاثة الماضية. قم بإضافتهم إلى هذه القناة إذا كان لديهم وصول إلى الفئة المحدَّدة."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "سينضم كل المستخدمين الذين ليسوا أعضاءً في هذه القناة ولديهم وصول إلى فئة %{category}. هل أنت متأكد؟"
         desktop_notification_level: "إشعارات سطح المكتب"
         follow: "الانضمام"
         followed: "انضم"
         mobile_notification_level: "الإشعارات الفورية للجوَّال"
         mute: "كتم القناة"
+<<<<<<< HEAD
         threading_enabled: "مفعَّلة"
         threading_disabled: "متوقفة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "تشغيل"
         muted_off: "إيقاف"
         notifications: "الإشعارات"
@@ -493,6 +632,7 @@ ar:
         save: "حفظ"
         saved: "تم الحفظ"
         unfollow: "مغادرة"
+<<<<<<< HEAD
         admin_title: "مسؤول"
       admin:
         title: "الدردشة"
@@ -504,6 +644,13 @@ ar:
       direct_messages:
         title: "الدردشة الشخصية"
         new: "إنشاء دردشة شخصية"
+=======
+      admin:
+        title: "الدردشة"
+      direct_messages:
+        title: "الدردشة الشخصية"
+        new: "دردشة شخصية جديدة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "إنشاء"
         leave: "مغادرة هذه الدردشة الشخصية"
         cannot_create: "عذرًا، لا يمكنك إرسال الرسائل المباشرة."
@@ -522,7 +669,11 @@ ar:
         none: "لم يتم إنشاء خطافات ويب واردة حالية."
         no_emoji: "لم يتم تحديد رمز تعبيري"
         post_to: "نشر إلى"
+<<<<<<< HEAD
         reset_emoji: "إعادة تعيين الرمز التعبيري"
+=======
+        reset_emoji: "إعادة ضبط الرمز التعبيري"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         save: "حفظ"
         edit: "تعديل"
         select_emoji: "اختيار الرمز التعبيري"
@@ -531,7 +682,11 @@ ar:
         url: "عنوان URL"
         url_instructions: "يحتوي عنوان URL هذا على قيمة سرية - احتفظ بها في مكانٍ آمن."
         username: "اسم المستخدم"
+<<<<<<< HEAD
         username_instructions: "اسم المستخدم لبرنامج الروبوت الذي ينشر على القناة. يتم تعيينه افتراضيًا إلى \"النظام\" عند تركه فارغة."
+=======
+        username_instructions: "اسم المستخدم لبرنامج الروبوت الذي ينشر على القناة. يتم ضبطه افتراضيًا على \"النظام\" عند تركه فارغة."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         instructions: "يمكن استخدام خطافات الويب الواردة بواسطة أنظمة خارجية لنشر الرسائل في قناة دردشة مخصَّصة كمستخدم برنامج روبوت عبر نقطة النهاية <code>/hooks/:key</code>. يتألف الحمل من معلمة <code>نصية</code> فردية، وهي مقيَّدة إلى 2000 حرف.<br><br>نحن ندعم أيضًا المعلمات <code>النصية</code> بتنسيق Slack، مع استخراج الروابط والإشارات بناءً على التنسيق في <a href=\"https://api.slack.com/reference/surfaces/formatting\">https://api.slack.com/reference/surfaces/formatting</a>، لكن يجب استخدام نقطة النهاية <code>/hooks/:key/slack</code> من أجل ذلك."
       selection:
         cancel: "إلغاء"
@@ -580,6 +735,7 @@ ar:
           many: "%{commaSeparatedUsernames} و%{count} آخرون يكتبون"
           other: "%{commaSeparatedUsernames} و%{count} آخرون يكتبون"
       retention_reminders:
+<<<<<<< HEAD
         public_none: "يتم الاحتفاظ بسجل القناة إلى أجلٍ غير مسمى."
         public:
           zero: "يتم الاحتفاظ بسجل القناة لمدة %{count} يوم."
@@ -596,6 +752,10 @@ ar:
           few: "يتم الاحتفاظ بسجل الدردشة الشخصية لمدة %{count} أيام."
           many: "يتم الاحتفاظ بسجل الدردشة الشخصية لمدة %{count} يومًا."
           other: "يتم الاحتفاظ بسجل الدردشة الشخصية لمدة %{count} يوم."
+=======
+        public: "يتم الاحتفاظ بسجل القناة لمدة %{days} من الأيام."
+        dm: "يتم الاحتفاظ بسجل الدردشة الشخصية لمدة %{days} من الأيام."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "هذه الرسالة ليست ذات صلة بالمناقشة الحالية كما هو محدَّد في عنوان القناة، وربما ينبغي نقلها إلى مكانٍ آخر."
         inappropriate: "تحتوي هذه الرسالة على محتوى قد يعتبره الشخص العاقل مسيئًا أو مهينًا أو ينتهك <a href=\"%{basePath}/guidelines\">إرشادات المجتمع</a> لدينا."
@@ -617,6 +777,7 @@ ar:
         symbols: "الرموز"
         search_placeholder: "البحث باسم الرمز التعبيري والاسم المستعار..."
         no_results: "لا توجد نتائج"
+<<<<<<< HEAD
       thread:
         title: "العنوان"
         view_thread: عرض سلسلة الدردشة
@@ -651,6 +812,8 @@ ar:
         open: "فتح سلسلة دردشة"
         list: "المناقشات الجارية"
         none: "أنت لا تشارك في أي سلاسل دردشة في هذه القناة."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "رسالة جديدة"
         cancel: "إلغاء"
@@ -690,16 +853,26 @@ ar:
               label: رسالة
             sender:
               label: المرسل
+<<<<<<< HEAD
               description: يتم تعيينه افتراضيًا إلى النظام
+=======
+              description: يتم ضبطه افتراضيًا على النظام
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     review:
       transcript:
         view: "عرض نص الرسائل السابقة"
       types:
+<<<<<<< HEAD
         chat_reviewable_message:
           title: "رسالة دردشة تم الإبلاغ عنها"
         reviewable_chat_message:
           title: "رسالة دردشة تم الإبلاغ عنها"
           noun: "رسالة الدردشة"
+=======
+        reviewable_chat_message:
+          title: "رسالة دردشة تم الإبلاغ عنها"
+          flagged_by: "تم الإبلاغ بواسطة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "الدردشة"
@@ -712,7 +885,10 @@ ar:
           composer_code: "%{shortcut} رمز برمجي (أداة الإنشاء فقط)"
           drawer_open: "%{shortcut} فتح درج الدردشة"
           drawer_close: "%{shortcut} إغلاق درج الدردشة"
+<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} وضع علامة \"مقروءة\" على كل القنوات"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "الدردشة مفعَّلة لهذا الموضوع"
@@ -725,7 +901,11 @@ ar:
     user_menu:
       no_chat_notifications_title: "ليس لديك أي إشعارات دردشة حتى الآن"
       no_chat_notifications_body: >
+<<<<<<< HEAD
         سيتم إرسال إشعار إليك في هذه اللوحة عندما يراسلك أحدهم مباشرةً أو يشير إليك <b>@mention</b> في الدردشة. سيتم أيضًا إرسال الإشعارات إلى بريدك الإلكتروني في حال عدم تسجيلك الدخول لفترة من الوقت. <br><br> انقر على العنوان الموجود أعلى أي قناة دردشة لتعيين التنبيهات التي تتلقاها في تلك القناة. للمزيد من المعلومات، راجع <a href='%{preferencesUrl}'>تفضيلات الإشعارات</a>.
+=======
+        سيتم إرسال إشعار إليك في هذه اللوحة عندما يراسلك أحدهم مباشرةً أو يشير إليك <b>@mention</b> في الدردشة. سيتم أيضًا إرسال الإشعارات إلى بريدك الإلكتروني في حال عدم تسجيلك الدخول لفترة من الوقت. <br><br> انقر على العنوان الموجود أعلى أي قناة دردشة لضبط التنبيهات التي تتلقاها في تلك القناة. للمزيد من المعلومات، راجع <a href='%{preferencesUrl}'>تفضيلات الإشعارات</a>.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       tabs:
         chat_notifications: "إشعارات الدردشة"
         chat_notifications_with_unread:
@@ -735,6 +915,7 @@ ar:
           few: "إشعارات الدردشة - %{count} إشعارات غير مقروءة"
           many: "إشعارات الدردشة - %{count} إشعارًا غير مقروء"
           other: "إشعارات الدردشة - %{count} إشعارًا غير مقروء"
+<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -743,3 +924,5 @@ ar:
       panels:
         chat:
           label: "الدردشة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

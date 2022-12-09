@@ -5,9 +5,17 @@ require "final_destination"
 RSpec.describe FinalDestination do
   let(:opts) do
     {
+<<<<<<< HEAD
       ignore_redirects: ["https://ignore-me.com"],
       force_get_hosts: %w[https://force.get.com https://*.ihaveawildcard.com/],
       preserve_fragment_url_hosts: ["https://eviltrout.com"],
+=======
+      ignore_redirects: ['https://ignore-me.com'],
+
+      force_get_hosts: ['https://force.get.com', 'https://*.ihaveawildcard.com/'],
+
+      preserve_fragment_url_hosts: ['https://eviltrout.com'],
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   end
 
@@ -35,6 +43,23 @@ RSpec.describe FinalDestination do
     stub_request(method, /\A#{matcher}\z/).with(headers: { "Host" => host })
   end
 
+  def fd_stub_request(method, url)
+    uri = URI.parse(url)
+
+    host = uri.hostname
+    ip = "1.2.3.4"
+
+    # In Excon we pass the IP in the URL, so we need to stub
+    # that version as well
+    uri.hostname = "HOSTNAME_PLACEHOLDER"
+    matcher = Regexp.escape(uri.to_s).sub(
+      "HOSTNAME_PLACEHOLDER",
+      "(#{Regexp.escape(host)}|#{Regexp.escape(ip)})"
+    )
+
+    stub_request(method, /\A#{matcher}\z/).with(headers: { "Host" => host })
+  end
+
   def canonical_follow(from, dest)
     fd_stub_request(:get, from).to_return(
       status: 200,
@@ -43,7 +68,14 @@ RSpec.describe FinalDestination do
   end
 
   def redirect_response(from, dest)
+<<<<<<< HEAD
     fd_stub_request(:head, from).to_return(status: 302, headers: { "Location" => dest })
+=======
+    fd_stub_request(:head, from).to_return(
+      status: 302,
+      headers: { "Location" => dest }
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def fd(url)
@@ -80,6 +112,16 @@ RSpec.describe FinalDestination do
       expect(fd("https://example.com").resolve).to eq(nil)
     end
 
+    it "returns nil for unresolvable url" do
+      FinalDestination::SSRFDetector.stubs(:lookup_ips).raises(SocketError)
+      expect(fd("https://example.com").resolve).to eq(nil)
+    end
+
+    it "returns nil for url timeout" do
+      FinalDestination::SSRFDetector.stubs(:lookup_ips).raises(Timeout::Error)
+      expect(fd("https://example.com").resolve).to eq(nil)
+    end
+
     it "returns nil when read timeouts" do
       Excon.expects(:public_send).raises(Excon::Errors::Timeout)
 
@@ -87,7 +129,13 @@ RSpec.describe FinalDestination do
     end
 
     context "without redirects" do
+<<<<<<< HEAD
       before { fd_stub_request(:head, "https://eviltrout.com/").to_return(doc_response) }
+=======
+      before do
+        fd_stub_request(:head, "https://eviltrout.com/").to_return(doc_response)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns the final url" do
         final = FinalDestination.new("https://eviltrout.com", opts)
@@ -105,7 +153,13 @@ RSpec.describe FinalDestination do
     end
 
     context "with underscores in URLs" do
+<<<<<<< HEAD
       before { fd_stub_request(:head, "https://some_thing.example.com").to_return(doc_response) }
+=======
+      before do
+        fd_stub_request(:head, 'https://some_thing.example.com').to_return(doc_response)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "doesn't raise errors with underscores in urls" do
         final = FinalDestination.new("https://some_thing.example.com", opts)
@@ -148,6 +202,7 @@ RSpec.describe FinalDestination do
     context "with a redirect to an internal IP" do
       before do
         redirect_response("https://eviltrout.com", "https://private-host.com")
+<<<<<<< HEAD
         FinalDestination::SSRFDetector
           .stubs(:lookup_and_filter_ips)
           .with("eviltrout.com")
@@ -156,6 +211,10 @@ RSpec.describe FinalDestination do
           .stubs(:lookup_and_filter_ips)
           .with("private-host.com")
           .raises(FinalDestination::SSRFDetector::DisallowedIpError)
+=======
+        FinalDestination::SSRFDetector.stubs(:lookup_and_filter_ips).with("eviltrout.com").returns(["1.2.3.4"])
+        FinalDestination::SSRFDetector.stubs(:lookup_and_filter_ips).with("private-host.com").raises(FinalDestination::SSRFDetector::DisallowedIpError)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "returns the final url" do
@@ -180,6 +239,7 @@ RSpec.describe FinalDestination do
     it "raises error when response is too big" do
       stub_const(described_class, "MAX_REQUEST_SIZE_BYTES", 1) do
         fd_stub_request(:get, "https://codinghorror.com/blog").to_return(body_response)
+<<<<<<< HEAD
         final =
           FinalDestination.new("https://codinghorror.com/blog", opts.merge(follow_canonical: true))
         expect { final.resolve }.to raise_error(
@@ -202,6 +262,17 @@ RSpec.describe FinalDestination do
         Excon::Errors::ExpectationFailed,
         "connect timeout reached: https://codinghorror.com/blog",
       )
+=======
+        final = FinalDestination.new('https://codinghorror.com/blog', opts.merge(follow_canonical: true))
+        expect { final.resolve }.to raise_error(Excon::Errors::ExpectationFailed, "response size too big: https://codinghorror.com/blog")
+      end
+    end
+
+    it 'raises error when response is too slow' do
+      fd_stub_request(:get, "https://codinghorror.com/blog").to_return(lambda { |request| freeze_time(11.seconds.from_now) ; body_response })
+      final = FinalDestination.new('https://codinghorror.com/blog', opts.merge(follow_canonical: true))
+      expect { final.resolve }.to raise_error(Excon::Errors::ExpectationFailed, "connect timeout reached: https://codinghorror.com/blog")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     context "when following canonical links" do
@@ -264,7 +335,11 @@ RSpec.describe FinalDestination do
 
     context "when forcing GET" do
       it "will do a GET when forced" do
+<<<<<<< HEAD
         url = "https://force.get.com/posts?page=4"
+=======
+        url = 'https://force.get.com/posts?page=4'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get_stub = fd_stub_request(:get, url)
         head_stub = fd_stub_request(:head, url)
 
@@ -276,7 +351,11 @@ RSpec.describe FinalDestination do
       end
 
       it "will do a HEAD if not forced" do
+<<<<<<< HEAD
         url = "https://eviltrout.com/posts?page=2"
+=======
+        url = 'https://eviltrout.com/posts?page=2'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get_stub = fd_stub_request(:get, url)
         head_stub = fd_stub_request(:head, url)
 
@@ -288,7 +367,11 @@ RSpec.describe FinalDestination do
       end
 
       it "will do a GET when forced on a wildcard subdomain" do
+<<<<<<< HEAD
         url = "https://any-subdomain.ihaveawildcard.com/some/other/content"
+=======
+        url = 'https://any-subdomain.ihaveawildcard.com/some/other/content'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get_stub = fd_stub_request(:get, url)
         head_stub = fd_stub_request(:head, url)
 
@@ -300,9 +383,22 @@ RSpec.describe FinalDestination do
       end
 
       it "will do a HEAD if on a subdomain of a forced get domain without a wildcard" do
+<<<<<<< HEAD
         url = "https://particularly.eviltrout.com/has/a/secret/plan"
         get_stub = fd_stub_request(:get, url)
         head_stub = fd_stub_request(:head, url)
+=======
+        url = 'https://particularly.eviltrout.com/has/a/secret/plan'
+        get_stub = fd_stub_request(:get, url)
+        head_stub = fd_stub_request(:head, url)
+
+        final = FinalDestination.new(url, opts)
+        expect(final.resolve.to_s).to eq(url)
+        expect(final.status).to eq(:resolved)
+        expect(get_stub).to_not have_been_requested
+        expect(head_stub).to have_been_requested
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         final = FinalDestination.new(url, opts)
         expect(final.resolve.to_s).to eq(url)
@@ -314,18 +410,32 @@ RSpec.describe FinalDestination do
 
     context "when HEAD not supported" do
       before do
+<<<<<<< HEAD
         fd_stub_request(:get, "https://eviltrout.com").to_return(
+=======
+        fd_stub_request(:get, 'https://eviltrout.com').to_return(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           status: 301,
           headers: {
             "Location" => "https://discourse.org",
             "Set-Cookie" => "evil=trout",
           },
         )
+<<<<<<< HEAD
         fd_stub_request(:head, "https://discourse.org")
       end
 
       context "when the status code is 405" do
         before { fd_stub_request(:head, "https://eviltrout.com").to_return(status: 405) }
+=======
+        fd_stub_request(:head, 'https://discourse.org')
+      end
+
+      context "when the status code is 405" do
+        before do
+          fd_stub_request(:head, 'https://eviltrout.com').to_return(status: 405)
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "will try a GET" do
           final = FinalDestination.new("https://eviltrout.com", opts)
@@ -336,7 +446,13 @@ RSpec.describe FinalDestination do
       end
 
       context "when the status code is 501" do
+<<<<<<< HEAD
         before { fd_stub_request(:head, "https://eviltrout.com").to_return(status: 501) }
+=======
+        before do
+          fd_stub_request(:head, 'https://eviltrout.com').to_return(status: 501)
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "will try a GET" do
           final = FinalDestination.new("https://eviltrout.com", opts)
@@ -349,10 +465,15 @@ RSpec.describe FinalDestination do
       it "correctly extracts cookies during GET" do
         fd_stub_request(:head, "https://eviltrout.com").to_return(status: 405)
 
+<<<<<<< HEAD
         fd_stub_request(:get, "https://eviltrout.com").to_return(
           status: 302,
           body: "",
           headers: {
+=======
+        fd_stub_request(:get, "https://eviltrout.com")
+          .to_return(status: 302, body: "" , headers: {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             "Location" => "https://eviltrout.com",
             "Set-Cookie" => [
               "foo=219ffwef9w0f; expires=Mon, 19-Feb-2018 10:44:24 GMT; path=/; domain=eviltrout.com",
@@ -362,11 +483,16 @@ RSpec.describe FinalDestination do
           },
         )
 
+<<<<<<< HEAD
         fd_stub_request(:head, "https://eviltrout.com").with(
           headers: {
             "Cookie" => "bar=1; baz=2; foo=219ffwef9w0f",
           },
         )
+=======
+        fd_stub_request(:head, "https://eviltrout.com")
+          .with(headers: { "Cookie" => "bar=1; baz=2; foo=219ffwef9w0f" })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         final = FinalDestination.new("https://eviltrout.com", opts)
         expect(final.resolve.to_s).to eq("https://eviltrout.com")
@@ -376,20 +502,30 @@ RSpec.describe FinalDestination do
     end
 
     it "should use the correct format for cookies when there is only one cookie" do
+<<<<<<< HEAD
       fd_stub_request(:head, "https://eviltrout.com").to_return(
         status: 302,
         headers: {
+=======
+      fd_stub_request(:head, "https://eviltrout.com")
+        .to_return(status: 302, headers: {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           "Location" => "https://eviltrout.com",
           "Set-Cookie" =>
             "foo=219ffwef9w0f; expires=Mon, 19-Feb-2018 10:44:24 GMT; path=/; domain=eviltrout.com",
         },
       )
 
+<<<<<<< HEAD
       fd_stub_request(:head, "https://eviltrout.com").with(
         headers: {
           "Cookie" => "foo=219ffwef9w0f",
         },
       )
+=======
+      fd_stub_request(:head, "https://eviltrout.com")
+        .with(headers: { "Cookie" => "foo=219ffwef9w0f" })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       final = FinalDestination.new("https://eviltrout.com", opts)
       expect(final.resolve.to_s).to eq("https://eviltrout.com")
@@ -398,9 +534,14 @@ RSpec.describe FinalDestination do
     end
 
     it "should use the correct format for cookies when there are multiple cookies" do
+<<<<<<< HEAD
       fd_stub_request(:head, "https://eviltrout.com").to_return(
         status: 302,
         headers: {
+=======
+      fd_stub_request(:head, "https://eviltrout.com")
+        .to_return(status: 302, headers: {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           "Location" => "https://eviltrout.com",
           "Set-Cookie" => [
             "foo=219ffwef9w0f; expires=Mon, 19-Feb-2018 10:44:24 GMT; path=/; domain=eviltrout.com",
@@ -410,11 +551,16 @@ RSpec.describe FinalDestination do
         },
       )
 
+<<<<<<< HEAD
       fd_stub_request(:head, "https://eviltrout.com").with(
         headers: {
           "Cookie" => "bar=1; baz=2; foo=219ffwef9w0f",
         },
       )
+=======
+      fd_stub_request(:head, "https://eviltrout.com")
+        .with(headers: { "Cookie" => "bar=1; baz=2; foo=219ffwef9w0f" })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       final = FinalDestination.new("https://eviltrout.com", opts)
       expect(final.resolve.to_s).to eq("https://eviltrout.com")
@@ -550,6 +696,7 @@ RSpec.describe FinalDestination do
       expect(fd("https://eviltrout.com:8000").validate_uri_format).to eq(false)
     end
 
+<<<<<<< HEAD
     it "returns true for valid http and https ports" do
       expect(fd("http://eviltrout.com:80").validate_uri_format).to eq(true)
       expect(fd("https://eviltrout.com:443").validate_uri_format).to eq(true)
@@ -570,6 +717,11 @@ RSpec.describe FinalDestination do
         SiteSetting.allowed_internal_hosts = %w[minio.local discoursetest.minio.local].join("|")
         expect(fd("http://discoursetest.minio.local:9000").validate_uri_format).to eq(true)
       end
+=======
+    it "returns true for valid ports" do
+      expect(fd('http://eviltrout.com:80').validate_uri_format).to eq(true)
+      expect(fd('https://eviltrout.com:443').validate_uri_format).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -577,6 +729,7 @@ RSpec.describe FinalDestination do
     it "will cache https lookups" do
       FinalDestination.clear_https_cache!("wikipedia.com")
 
+<<<<<<< HEAD
       fd_stub_request(:head, "http://wikipedia.com/image.png").to_return(
         status: 302,
         body: "",
@@ -584,6 +737,10 @@ RSpec.describe FinalDestination do
           location: "https://wikipedia.com/image.png",
         },
       )
+=======
+      fd_stub_request(:head, "http://wikipedia.com/image.png")
+        .to_return(status: 302, body: "", headers: { location: 'https://wikipedia.com/image.png' })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       fd_stub_request(:head, "https://wikipedia.com/image.png")
 

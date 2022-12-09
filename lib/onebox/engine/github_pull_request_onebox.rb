@@ -40,6 +40,7 @@ module Onebox
 
         result["body"], result["excerpt"] = compute_body(result["body"])
 
+<<<<<<< HEAD
         if result["commit"] = load_commit(link)
           result["body"], result["excerpt"] =
             compute_body(result["commit"]["commit"]["message"].lines[1..].join)
@@ -47,6 +48,14 @@ module Onebox
           result["body"], result["excerpt"] = compute_body(result["comment"]["body"])
         elsif result["discussion"] = load_review(link)
           result["body"], result["excerpt"] = compute_body(result["discussion"]["body"])
+=======
+        if result['commit'] = load_commit(link)
+          result['body'], result['excerpt'] = compute_body(result['commit']['commit']['message'].lines[1..].join)
+        elsif result['comment'] = load_comment(link)
+          result['body'], result['excerpt'] = compute_body(result['comment']['body'])
+        elsif result['discussion'] = load_review(link)
+          result['body'], result['excerpt'] = compute_body(result['discussion']['body'])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         else
           result["pr"] = true
         end

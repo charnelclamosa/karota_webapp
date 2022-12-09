@@ -6,6 +6,7 @@
 
 be:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,22 +14,32 @@ be:
           never: "ніколі"
     chat:
       deleted_chat_username: аддалены
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "стварыць"
       cancel: "адмяніць"
       channel_settings:
         edit: "рэдагаваць"
         add: "дадаць"
       close: "зачыніць"
+<<<<<<< HEAD
       remove: "выдаліць"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "выдаляць"
       muted: "ігнаруемай"
       joined: "рэгістрацыя"
       email_frequency:
         never: "ніколі"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "ніколі"
       flag: "Пазначыць"
       last_visit: "апошні візыт"
+=======
+      flag: "Пазначыць"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Адказаць"
       edit: "рэдагаваць"
       bookmark_message: "закладка"
@@ -45,7 +56,10 @@ be:
         yesterday: учора
       about_view:
         title: Загаловак
+<<<<<<< HEAD
         name: імя
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Апісанне
       channel_info:
         back_to_channel: "Назад"
@@ -64,12 +78,18 @@ be:
       composer:
         italic_text: "выдзялення тэксту"
         bold_text: "Моцнае вылучэнне тэксту"
+<<<<<<< HEAD
         send: "адправіць"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "ніколі"
       settings:
         followed: "рэгістрацыя"
+<<<<<<< HEAD
         threading_disabled: "Адключана"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Натыфікацыі"
         preview: "папярэдні прагляд"
         save: "захаваць"
@@ -95,6 +115,7 @@ be:
           title: "Перанос наяўнай тэмы"
       emoji_picker:
         flags: "сцягі"
+<<<<<<< HEAD
       thread:
         title: "Загаловак"
         settings: "Налады"
@@ -102,6 +123,8 @@ be:
         notifications:
           tracking:
             title: "Сачыць"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "новае паведамленне"
         cancel: "адмяніць"

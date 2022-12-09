@@ -15,7 +15,11 @@ acceptance("Plugin Outlet - Single Template", function (needs) {
   needs.hooks.beforeEach(() => {
     registerTemporaryModule(
       CONNECTOR_MODULE,
+<<<<<<< HEAD
       hbs`<span class='hello-username'>{{this.model.username}}</span>`
+=======
+      hbs`<span class='hello-username'>{{model.username}}</span>`
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
   });
 

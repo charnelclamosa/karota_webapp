@@ -397,6 +397,7 @@
                   >{{this.model.trustLevel.name}}</dd></div>
               {{/if}}
               {{#if this.canCheckEmails}}
+<<<<<<< HEAD
                 <div><dt class="email">{{i18n "user.email.title"}}</dt>
                   <dd class="email" title={{this.model.email}}>
                     {{#if this.model.email}}
@@ -410,6 +411,16 @@
                       />
                     {{/if}}
                   </dd>
+=======
+                <div><dt>{{i18n 'user.email.title'}}</dt>
+                <dd title={{this.model.email}}>
+                  {{#if this.model.email}}
+                    {{this.model.email}}
+                  {{else}}
+                    <DButton @action={{route-action "checkEmail"}} @actionParam={{this.model}} @icon="envelope" @label="admin.users.check_email.text" @class="btn-primary" />
+                  {{/if}}
+                </dd>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                 </div>
               {{/if}}
               {{#if this.model.displayGroups}}
@@ -455,6 +466,7 @@
       </div>
     </section>
 
+<<<<<<< HEAD
     <div class="new-user-wrapper">
       <UserNav
         @user={{this.model}}
@@ -469,6 +481,61 @@
         @showDrafts={{this.showDrafts}}
         @showBookmarks={{this.showBookmarks}}
       />
+=======
+    {{#if this.currentUser.redesigned_user_page_nav_enabled}}
+      <div class="new-user-wrapper">
+        <UserNav
+          @user={{this.model}}
+          @showNotificationsTab={{this.showNotificationsTab}}
+          @showPrivateMessages={{this.showPrivateMessages}}
+          @canInviteToForum={{this.canInviteToForum}}
+          @showBadges={{this.showBadges}}
+          @currentParentRoute={{this.currentParentRoute}}
+          @showRead={{this.showRead}}
+          @showDrafts={{this.showDrafts}}
+          @showBookmarks={{this.showBookmarks}} />
+
+        <div class="new-user-content-wrapper">
+          {{outlet}}
+        </div>
+      </div>
+    {{else}}
+      <div class='user-content-wrapper'>
+        <section class="user-primary-navigation">
+          <MobileNav @class="main-nav" @desktopClass="nav nav-pills user-nav">
+            {{#unless this.model.profile_hidden}}
+              <li class="summary"><LinkTo @route="user.summary">{{i18n 'user.summary.title'}}</LinkTo></li>
+              <li class="activity"><LinkTo @route="userActivity">{{i18n 'user.activity_stream'}}</LinkTo></li>
+            {{/unless}}
+
+            {{#if this.showNotificationsTab}}
+              <li class="user-notifications">
+                <LinkTo @route="userNotifications">
+                  {{d-icon "bell" class="glyph"}}{{i18n 'user.notifications'}}
+                </LinkTo>
+              </li>
+            {{/if}}
+
+            {{#if this.showPrivateMessages}}
+              <li class="private-messages"><LinkTo @route="userPrivateMessages">{{d-icon "envelope"}}{{i18n 'user.private_messages'}}</LinkTo></li>
+            {{/if}}
+
+            {{#if this.canInviteToForum}}
+              <li class="invited"><LinkTo @route="userInvited">{{d-icon "user-plus"}}{{i18n 'user.invited.title'}}</LinkTo></li>
+            {{/if}}
+
+            {{#if this.showBadges}}
+              <li class="badges"><LinkTo @route="user.badges">{{d-icon "certificate"}}{{i18n 'badges.title'}}</LinkTo></li>
+            {{/if}}
+
+            <PluginOutlet @name="user-main-nav" @connectorTagName="li" @args={{hash model=this.model}} />
+
+            {{#if this.model.can_edit}}
+              <li class="preferences"><LinkTo @route="preferences">{{d-icon "cog"}}{{i18n 'user.preferences'}}</LinkTo></li>
+            {{/if}}
+          </MobileNav>
+        </section>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       <div class="new-user-content-wrapper">
         {{outlet}}

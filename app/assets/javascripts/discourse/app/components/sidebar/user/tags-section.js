@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { cached } from "@glimmer/tracking";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { cached } from "@glimmer/tracking";
@@ -67,6 +71,7 @@ export default class SidebarUserTagsSection extends Component {
     return links;
   }
 
+<<<<<<< HEAD
   get shouldDisplayDefaultConfig() {
     return this.currentUser.admin && !this.hasDefaultSidebarTags;
   }
@@ -75,6 +80,8 @@ export default class SidebarUserTagsSection extends Component {
     return hasDefaultSidebarTags(this.siteSettings);
   }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   /**
    * If a site has no default sidebar tags configured, show tags section if the user has personal sidebar tags configured.
    * Otherwise, hide the tags section from the sidebar for the user.

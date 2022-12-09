@@ -125,10 +125,16 @@ RSpec.configure do |config|
         },
       ],
       components: {
+<<<<<<< HEAD
         schemas: {
         },
       },
     },
+=======
+        schemas: {}
+      }
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   # Specify the format of the output Swagger file when running 'rswag:specs:swaggerize'.

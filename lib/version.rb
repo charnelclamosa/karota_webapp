@@ -7,7 +7,14 @@ module Discourse
   # work around reloader
   unless defined?(::Discourse::VERSION)
     module VERSION #:nodoc:
+<<<<<<< HEAD
       STRING = "3.2.0.beta2-dev"
+=======
+      MAJOR = 2
+      MINOR = 9
+      TINY  = 0
+      PRE   = 'beta14'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       PARTS = STRING.split(".")
       private_constant :PARTS

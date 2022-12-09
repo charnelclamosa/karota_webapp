@@ -175,8 +175,13 @@ class ComposerMessagesFinder
       id: "dominating_topic",
       templateName: "dominating-topic",
       wait_for_typing: true,
+<<<<<<< HEAD
       extraClass: "education-message dominating-topic-message",
       body: PrettyText.cook(I18n.t("education.dominating_topic")),
+=======
+      extraClass: 'education-message dominating-topic-message',
+      body: PrettyText.cook(I18n.t('education.dominating_topic'))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   end
 

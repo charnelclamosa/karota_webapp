@@ -11,7 +11,11 @@ class Stylesheet::Manager
 
   CACHE_PATH ||= "tmp/stylesheet-cache"
   MANIFEST_DIR ||= "#{Rails.root}/tmp/cache/assets/#{Rails.env}"
+<<<<<<< HEAD
   THEME_REGEX ||= /_theme\z/
+=======
+  THEME_REGEX ||= /_theme$/
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   COLOR_SCHEME_STYLESHEET ||= "color_definitions"
 
   @@lock = Mutex.new
@@ -126,6 +130,7 @@ class Stylesheet::Manager
 
   def self.fs_asset_cachebuster
     if use_file_hash_for_cachebuster?
+<<<<<<< HEAD
       @cachebuster ||=
         if File.exist?(manifest_full_path)
           File.readlines(manifest_full_path, "r")[0]
@@ -135,6 +140,16 @@ class Stylesheet::Manager
           File.open(manifest_full_path, "w") { |f| f.print(cachebuster) }
           cachebuster
         end
+=======
+      @cachebuster ||= if File.exist?(manifest_full_path)
+        File.readlines(manifest_full_path, 'r')[0]
+      else
+        cachebuster = "#{BASE_COMPILER_VERSION}:#{fs_assets_hash}"
+        FileUtils.mkdir_p(MANIFEST_DIR)
+        File.open(manifest_full_path, "w") { |f| f.print(cachebuster) }
+        cachebuster
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     else
       "#{BASE_COMPILER_VERSION}:#{max_file_mtime}"
     end
@@ -149,7 +164,11 @@ class Stylesheet::Manager
   def self.manifest_full_path
     path = "#{MANIFEST_DIR}/stylesheet-manifest"
     return path if !Rails.env.test?
+<<<<<<< HEAD
     "#{path}-test_#{ENV["TEST_ENV_NUMBER"].presence || "0"}"
+=======
+    "#{path}-test_#{ENV['TEST_ENV_NUMBER'].presence || '0'}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
   private_class_method :manifest_full_path
 
@@ -161,7 +180,11 @@ class Stylesheet::Manager
   def self.list_files
     globs = [
       "#{Rails.root}/app/assets/stylesheets/**/*.*css",
+<<<<<<< HEAD
       "#{Rails.root}/app/assets/images/**/*.*",
+=======
+      "#{Rails.root}/app/assets/images/**/*.*"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ]
 
     Discourse.plugins.each do |plugin|

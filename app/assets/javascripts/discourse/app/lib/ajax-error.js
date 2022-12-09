@@ -36,10 +36,13 @@ function extractErrorInfo(error, defaultMessage) {
   }
 
   if (parsedJSON) {
+<<<<<<< HEAD
     if (parsedJSON.html_message) {
       html = true;
     }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (parsedJSON.errors?.length > 1) {
       parsedError = I18n.t("multiple_errors", {
         errors: parsedJSON.errors.map((e, i) => `${i + 1}) ${e}`).join(" "),

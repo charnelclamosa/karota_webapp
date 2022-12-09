@@ -267,7 +267,10 @@ da:
       like_count: "Synes godt om"
       topic_count: "Emner"
       post_count: "Indlæg"
+<<<<<<< HEAD
       user_count: "Tilmeldinger"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Aktive brugere"
       contact: "Kontakt os"
       contact_info: "I tilfælde af en kritisk begivenhed eller vigtige spørgsmål angående denne side, kontakt os venligst på %{contact_info}."
@@ -349,9 +352,15 @@ da:
     saved: "Gemt!"
     upload: "Overfør"
     uploading: "Overfører…"
+<<<<<<< HEAD
     processing: "Behandler…"
     uploading_filename: "Overfører: %{filename}…"
     processing_filename: "Behandler: %{filename}…"
+=======
+    processing: "Behandler..."
+    uploading_filename: "Overfører: %{filename} ..."
+    processing_filename: "Behandler: %{filename}..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     clipboard: "udklipsholder"
     uploaded: "Overført!"
     pasting: "Indsætter…"
@@ -1594,7 +1603,12 @@ da:
       save: "Gem"
       remove_status: "Fjern status"
     user_tips:
+<<<<<<< HEAD
       button: "Forstået!"
+=======
+      primary: "Forstået!"
+      secondary: "vis mig ikke disse tips"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       post_menu:
         content: "Se, hvordan du ellers kan interagere med indlægget ved at klikke på de tre prikker!"
       topic_notification_levels:
@@ -1633,6 +1647,11 @@ da:
       enabled: "Dette websted er i skrivebeskyttet tilstand lige nu. Fortsæt endelig med at kigge, men der kan ikke svares, sendes 'Synes godt om' eller andet indtil videre."
       login_disabled: "Login er deaktiveret, mens webstedet er i skrivebeskyttet tilstand."
       logout_disabled: "Log ud er deaktiveret mens webstedet er i skrivebeskyttet tilstand."
+<<<<<<< HEAD
+=======
+    too_few_posts_notice_MF: >-
+      Lad os <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">starte diskussionen!</a> Der {currentPosts, plural, one {er <strong>#</strong> indlæg} other {er <strong>#</strong> indlæg}}. Besøgende har brug for mere at læse og svare på — vi anbefaler i det mindste {requiredPosts, plural, one {<strong>#</strong> indlæg} other {<strong>#</strong> indlæg}}. Kun administratorer kan se denne besked.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> - <a href='{url}' target='_blank'>{rate, plural, one {# fejl/minut} other {# fejl/minut}}</a> har overskredet webstedsindstillingsgrænsen på {limit, plural, one {# fejl / minut} other {# fejl/minut}}.
@@ -3416,7 +3435,10 @@ da:
       favorite_max_reached: "Du kan ikke favorisere flere emblemer."
       favorite_max_not_reached: "Markér dette emblem som favorit"
     download_calendar:
+<<<<<<< HEAD
       title: "Hent kalender"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       save_ics: "Hent .ics fil"
       save_google: "Tilføj til Google kalender"
       remember: "Spørg mig ikke igen"
@@ -3607,9 +3629,12 @@ da:
       more: "Flere"
       all_categories: "Alle kategorier"
       all_tags: "Alle mærker"
+<<<<<<< HEAD
       edit_navigation_modal_form:
         filter_dropdown:
           all: "Alle"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sections:
         custom:
           save: "Gem"
@@ -3642,6 +3667,12 @@ da:
             unread_with_count: "Ulæst (%{count})"
             archive: "Arkiv"
         tags:
+<<<<<<< HEAD
+=======
+          links:
+            add_tags:
+              content: "Tilføj mærker"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           click_to_get_started: "Klik her for at komme i gang."
           header_link_text: "Tags"
           configure_defaults: "Konfigurer standardindstillinger"
@@ -3670,6 +3701,7 @@ da:
               content: "Brugere"
             my_posts:
               content: "Mine indlæg"
+<<<<<<< HEAD
               content_drafts: "Mine Kladder"
               title_drafts: "Mine uopslåede kladder"
             review:
@@ -3683,6 +3715,13 @@ da:
         typeMismatch:
           default: "Indtast venligst en gyldig værdi."
           email: "Indtast venligst en gyldig email adresse."
+=======
+              title_drafts: "Mine uopslåede kladder"
+            review:
+              content: "Anmeldelse"
+              title: "anmeldelse"
+    until: "Indtil:"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   admin_js:
     type_to_filter: "skriv for at filtrere…"
     admin:
@@ -4623,8 +4662,18 @@ da:
           silence: "Mådehold (silence)"
           link: "Link"
         action_descriptions:
+<<<<<<< HEAD
           replace: "Erstat ord i indlæg med andre ord."
           link: "Erstat ord i indlæg med links."
+=======
+          block: "Undgå, at indlæg, der indeholder disse ord, bliver sendt. Brugeren vil se en fejlmeddelelse, når de prøver at indsende deres post."
+          censor: "Tillad indlæg, der indeholder disse ord, men erstat dem med tegn, der skjuler de censurerede ord."
+          require_approval: "Indlæg, der indeholder disse ord, kræver godkendelse af hjælperteam, før de kan ses."
+          flag: "Tillad indlæg, der indeholder disse ord, men markér dem som upassende, så moderatorer kan gennemgå dem."
+          replace: "Erstat ord i indlæg med andre ord"
+          tag: "Mærk automatisk emner baseret på første indlæg"
+          link: "Erstat ord i indlæg med links"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         form:
           label: "Har ord eller sætning"
           placeholder: "Indtast ord eller sætning (* er et jokertegn)"

@@ -13,7 +13,10 @@ module("Integration | Component | user-status-message", function (hooks) {
 
   hooks.beforeEach(function () {
     this.currentUser.user_option.timezone = "UTC";
+<<<<<<< HEAD
     this.status = { emoji: "tooth", description: "off to dentist" };
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   hooks.afterEach(function () {
@@ -127,5 +130,18 @@ module("Integration | Component | user-status-message", function (hooks) {
     assert
       .dom('[data-trigger][data-identifier="user-status-message-tooltip"].foo')
       .exists();
+  });
+
+  test("doesn't blow up with an anonymous user", async function (assert) {
+    this.owner.unregister("service:current-user");
+    this.set("status", {
+      emoji: "tooth",
+      description: "off to dentist",
+      ends_at: "2100-02-02T12:30:00.000Z",
+    });
+
+    await render(hbs`<UserStatusMessage @status={{this.status}} />`);
+
+    assert.dom(".user-status-message").exists();
   });
 });

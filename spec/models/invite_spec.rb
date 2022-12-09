@@ -2,12 +2,17 @@
 
 RSpec.describe Invite do
   fab!(:user) { Fabricate(:user, email: "existinguser@invitetest.com") }
+<<<<<<< HEAD
   let(:xss_email) do
     "<b onmouseover=alert('wufff!')>email</b><script>alert('test');</script>@test.com"
   end
   let(:escaped_email) do
     "&lt;b onmouseover=alert(&#39;wufff!&#39;)&gt;email&lt;/b&gt;&lt;script&gt;alert(&#39;test&#39;);&lt;/script&gt;@test.com"
   end
+=======
+  let(:xss_email) { "<b onmouseover=alert('wufff!')>email</b><script>alert('test');</script>@test.com" }
+  let(:escaped_email) { "&lt;b onmouseover=alert(&#39;wufff!&#39;)&gt;email&lt;/b&gt;&lt;script&gt;alert(&#39;test&#39;);&lt;/script&gt;@test.com" }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   describe "Validators" do
     it { is_expected.to validate_presence_of :invited_by_id }
@@ -351,17 +356,30 @@ RSpec.describe Invite do
     end
   end
 
+<<<<<<< HEAD
   describe "#redeem_for_existing_user" do
     fab!(:invite) { Fabricate(:invite, email: "test@example.com") }
     fab!(:user) { Fabricate(:user, email: invite.email) }
 
     it "redeems the invite from email" do
+=======
+  describe '#redeem_for_existing_user' do
+    fab!(:invite) { Fabricate(:invite, email: 'test@example.com') }
+    fab!(:user) { Fabricate(:user, email: invite.email) }
+
+    it 'redeems the invite from email' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       Invite.redeem_for_existing_user(user)
       expect(invite.reload).to be_redeemed
     end
 
+<<<<<<< HEAD
     it "does not redeem the invite if email does not match" do
       user.update!(email: "test2@example.com")
+=======
+    it 'does not redeem the invite if email does not match' do
+      user.update!(email: 'test2@example.com')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       Invite.redeem_for_existing_user(user)
       expect(invite.reload).not_to be_redeemed
     end
@@ -600,6 +618,7 @@ RSpec.describe Invite do
       end
     end
   end
+<<<<<<< HEAD
 
   describe "#invalidate!" do
     subject(:invalidate) { invite.invalidate! }
@@ -625,4 +644,6 @@ RSpec.describe Invite do
       end
     end
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

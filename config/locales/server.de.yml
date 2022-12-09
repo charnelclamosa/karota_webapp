@@ -516,7 +516,10 @@ de:
       Du kannst deine letzte Antwort bearbeiten, um ein Zitat hinzuzufügen, indem du den Text auswählst und auf die erscheinende Schaltfläche <b>Zitat</b> klickst.
 
       Es ist für alle einfacher, Themen zu lesen, die wenige umfassende Antworten statt viele kleine und einzelne Antworten haben.
+<<<<<<< HEAD
     dominating_topic: Du hast in diesem Thema schon eine Menge gepostet! Gib doch auch anderen die Möglichkeit, hier zu antworten und miteinander zu diskutieren.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     get_a_room: Du hast @%{reply_username} %{count} Mal geantwortet. Wusstest du, dass du der Person stattdessen eine persönliche Nachricht schicken kannst?
     dont_feed_the_trolls: Dieser Beitrag wurde bereits für die Moderation markiert. Bist du sicher, dass du darauf antworten möchtest? Antworten auf negative Inhalte ermutigen eher zu noch mehr negativem Verhalten.
     too_many_replies: |
@@ -665,7 +668,10 @@ de:
       disallowed_tags_generic: "Dieses Thema hat unerlaubte Schlagwörter."
       slug_contains_non_ascii_chars: "enthält Nicht-ASCII-Zeichen"
       is_already_in_use: "wird bereits verwendet"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "Du kannst dieses Thema nicht in eine Kategorie verschieben, in der du keine Berechtigung hast, neue Themen zu erstellen."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "Diese Kategorie ist etwas Spezielles. Sie dient als Bereich für Themen, die keine Kategorie haben, und kann nicht gelöscht werden."
       has_subcategories: "Diese Kategorie kann nicht gelöscht werden, weil sie Unterkategorien enthält."
@@ -792,11 +798,21 @@ de:
         other: "vor fast %{count} Jahren"
   password_reset:
     no_token: 'Ups! Der Link, den du benutzt hast, funktioniert nicht mehr. Du kannst dich jetzt <a href="%{base_url}/login">anmelden</a>. Falls du dein Passwort vergessen hast, kannst du <a href="%{base_url}/password-reset">einen Link anfordern</a>, um es zurückzusetzen.'
+<<<<<<< HEAD
+=======
+    choose_new: "Wähle ein neues Passwort"
+    choose: "Wähle ein Passwort"
+    update: "Passwort aktualisieren"
+    save: "Passwort festlegen"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Passwort zurücksetzen"
     success: "Dein Passwort wurde erfolgreich geändert und du bist nun angemeldet."
     success_unapproved: "Dein Passwort wurde erfolgreich geändert."
   email_login:
+<<<<<<< HEAD
     invalid_token: 'Ups! Der Link, den du benutzt hast, funktioniert nicht mehr. Du kannst dich jetzt <a href="%{base_url}/login">anmelden</a>. Falls du dein Passwort vergessen hast, kannst du <a href="%{base_url}/password-reset">einen Link anfordern</a>, um es zurückzusetzen.'
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "E-Mail-Anmeldung"
   user_auth_tokens:
     browser:
@@ -990,8 +1006,11 @@ de:
     mailing_list_mode: "Mailinglisten-Modus ausschalten"
     all: "Sende mir keine E-Mail mehr von %{sitename}"
     different_user_description: "Du bist derzeit als ein anderer Benutzer angemeldet als der, dem wir die E-Mail geschickt haben. Bitte melde dich ab oder gehe in den anonymen Modus und versuche es erneut."
+<<<<<<< HEAD
     not_found_description: "Wir konnten dieses Abonnement leider nicht finden. Möglicherweise ist der Link in deiner E-Mail zu alt und abgelaufen?"
     user_not_found_description: "Leider konnten wir keinen Benutzer für dieses Abonnement finden. Du versuchst wahrscheinlich, ein Konto abzumelden, das nicht mehr existiert."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     log_out: "Abmelden"
     submit: "Einstellungen speichern"
     digest_frequency:
@@ -1988,7 +2007,10 @@ de:
     enable_user_directory: "Aktiviert ein durchsuchbares Benutzerverzeichnis"
     enable_group_directory: "Aktiviert ein durchsuchbares Gruppenverzeichnis"
     enable_category_group_moderation: "Gruppen erlauben, Inhalte in bestimmten Kategorien zu moderieren"
+<<<<<<< HEAD
     group_in_subject: "Setze %%{optional_pm} im E-Mail-Betreff auf den Namen der ersten Gruppe in der privaten Nachricht, siehe: <a href='https://meta.discourse.org/t/customize-specific-email-templates/88323' target='_blank'>Betreffformat für Standard-E-Mails anpassen</a>"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     allow_anonymous_posting: "Benutzern erlauben, in den anonymen Modus zu wechseln"
     allow_anonymous_likes: "Anonymen Benutzern erlauben, Beiträgen ein „Gefällt mir“ zu geben"
     anonymous_posting_min_trust_level: "Vertrauensstufe, ab der das Schreiben anonymer Beiträge erlaubt ist"
@@ -2060,6 +2082,10 @@ de:
     delete_merged_stub_topics_after_days: "Anzahl der abzuwartenden Tage, bevor vollständig zusammengeführte Stub-Themen automatisch gelöscht werden. Auf 0 setzen, um Stub-Themen nie zu löschen."
     bootstrap_mode_min_users: "Mindestanzahl der Benutzer, die erforderlich ist, um den Starthilfe-Modus zu deaktivieren (zum Deaktivieren auf 0 setzen, kann bis zu 24 Stunden dauern)"
     prevent_anons_from_downloading_files: "Verhindern, dass anonyme Benutzer Anhänge herunterladen können."
+<<<<<<< HEAD
+=======
+    secure_media: "VERALTET: Verwende stattdessen die Einstellung secure_uploads, wird in Discourse 3.0 entfernt."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     secure_uploads: 'Beschränkt den Zugriff auf ALLE Uploads (Bilder, Videos, Audio, Text, PDFs, ZIPs und andere). Wenn „Anmeldung erforderlich“ aktiviert ist, können nur angemeldete Benutzer auf Uploads zugreifen. Andernfalls ist der Zugriff nur für Medienuploads in privaten Nachrichten und privaten Kategorien beschränkt. WARNUNG: Diese Einstellung ist komplex und erfordert ein umfassendes administratives Verständnis. Siehe <a target="_blank" href="https://meta.discourse.org/t/-/140017">das Thema „Sichere Uploads“ auf Meta</a> für Details.'
     secure_uploads_allow_embed_images_in_emails: "Ermöglicht das Einbetten sicherer Bilder, die normalerweise in E-Mails geschwärzt werden würden, wenn ihre Größe kleiner ist als die Einstellung „secure uploads max email embed image size kb“."
     secure_uploads_max_email_embed_image_size_kb: "Der Größengrenzwert für sichere Bilder, die in E-Mails eingebettet werden, wenn die Einstellung „secure uploads allow embed in emails“ aktiviert ist. Anderweitig hat diese Einstellung keine Auswirkung."
@@ -2172,7 +2198,11 @@ de:
     enable_sitemap: "Generiere eine Sitemap für deine Website und füge sie in die robots.txt-Datei ein."
     sitemap_page_size: "Anzahl der URLs, die auf jeder Sitemap-Seite enthalten sein sollen. Max 50.000"
     enable_user_status: "(Experimentell) Erlaubt es Benutzern, eine eigene Statusnachricht (Emoji + Beschreibung) einzustellen."
+<<<<<<< HEAD
     enable_user_tips: "Tipps für neue Benutzer aktivieren, die diesen die wichtigsten Funktionen näherbringen"
+=======
+    enable_user_tips: "(Experimentell) Tipps für neue Benutzer aktivieren, die den Benutzern wichtige Funktionen beschreiben"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     short_title: "Der Kurztitel wird beim Benutzer auf dem Startbildschirm, im Startmenü oder an anderen Stellen mit begrenztem Platz verwendet. Er sollte auf 12 Zeichen begrenzt sein."
     dashboard_hidden_reports: "Erlaube das Ausblenden der angegebenen Berichte im Dashboard."
     dashboard_visible_tabs: "Wähle aus, welche Dashboard-Registerkarten sichtbar sind."
@@ -2253,8 +2283,12 @@ de:
       search_tokenize_japanese_enabled: "Du musst „search_tokenize_japanese“ deaktivieren, bevor du diese Einstellung aktivierst."
       discourse_connect_cannot_be_enabled_if_second_factor_enforced: "Du kannst DiscourseConnect nicht aktivieren, wenn 2FA erzwungen wird."
       delete_rejected_email_after_days: "Diese Einstellung kann nicht niedriger als die Einstellung delete_email_logs_after_days oder höher als %{max} gesetzt werden"
+<<<<<<< HEAD
       invalid_uncategorized_category_setting: 'Die Kategorie „Nicht kategorisiert“ kann nicht ausgewählt werden, wenn „Nicht kategorisierte Themen zulassen“ nicht aktiviert ist.'
       invalid_search_ranking_weights: "Der Wert für die Websiteeinstellung search_ranking_weights ist ungültig. Beispiel: „{0.1,0.2,0.3,1.0}“. Beachte, dass der Maximalwert für jede Gewichtung 1.0 beträgt."
+=======
+      invalid_uncategorized_category_setting: "Die Kategorie „Nicht kategorisiert“ kann nicht ausgewählt werden, wenn „Nicht kategorisierte Themen zulassen“ nicht zulässig ist"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     placeholder:
       discourse_connect_provider_secrets:
         key: "www.example.com"
@@ -4606,7 +4640,11 @@ de:
             description: "Empfohlene Größe: 600 x 200"
           logo_small:
             label: "Quadratisches Logo"
+<<<<<<< HEAD
             description: "Empfohlene Größe: 512 x 512. Wird auch als Favicon und App-Symbol für den Home-Bildschirm von Mobilgeräten verwendet."
+=======
+            description: "Eine quadratische Version deines Logos. Es wird beim Scrollen nach unten und beim Teilen auf sozialen Netzwerken oben links angezeigt. Idealerweise mindestens 512 x 512 Pixel."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         title: "Deine Organisation"
         description: "Die folgenden Informationen werden in deinen Nutzungsbedingungen und auf deinen „Über uns“-Seiten verwendet. Falls es keine Firma gibt, kannst du dies überspringen."
@@ -4824,6 +4862,7 @@ de:
     payload_url:
       blocked_or_internal: "Payload-URL kann nicht verwendet werden, da sie in eine blockierte oder interne IP aufgelöst wird"
       unsafe: "Payload-URL kann nicht verwendet werden, da sie unsicher ist"
+<<<<<<< HEAD
   form_templates:
     errors:
       invalid_yaml: "ist keine gültige YAML-Zeichenfolge"
@@ -4832,6 +4871,8 @@ de:
       missing_id: "fehlt eine Feld-ID"
       duplicate_ids: "hat doppelte IDs"
       reserved_id: "hat ein reserviertes Schlüsselwort als id: %{id}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   activemodel:
     errors:
       <<: *errors

@@ -435,8 +435,13 @@ zh_TW:
   staff_category_name: "管理員"
   staff_category_description: "讓工作人員進行討論的私人分類。此分類下的討論話題只有管理員與板主才看得到。"
   discourse_welcome_topic:
+<<<<<<< HEAD
     body: |
       我們很高興您能加入我們。
+=======
+    title: "歡迎來到我們的社群！"
+    body: |2
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       %{site_info_quote}
 
@@ -542,6 +547,13 @@ zh_TW:
       almost_x_years:
         other: "約 %{count} 年前"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "選擇一個新密碼"
+    choose: "選擇一個密碼"
+    update: "更新密碼"
+    save: "設定密碼"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "重設密碼"
     success: "密碼修改成功，現在已為你登入。"
     success_unapproved: "你的密碼已成功修改。"
@@ -1188,6 +1200,12 @@ zh_TW:
     enable_rich_text_paste: "自動啟用 HTML 轉換 Markdown 格式（實驗性功能）"
     email_token_valid_hours: "\"忘記密碼\" / \"重啟帳號\" token 有效的小時數 (n)"
     enable_badges: "啟用勳章系統"
+<<<<<<< HEAD
+=======
+    enable_whispers: "允許工作人員在主題中私密交流。"
+    blocked_email_domains: "不允許以豎線“|”分隔的電子郵件網域清單內的使用者註冊帳號。範例：mailinator.com|trashmail.net"
+    allowed_email_domains: "用管道符“|”分隔的電子郵箱域名的列表，使用者必須使用這些郵箱域名註冊。警告：使用者使用不包含在這個列表裡的郵箱域名，將無法成功註冊。"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     log_out_strict: "登出時，登出使用者所有設備上的所有連線階段"
     version_checks: "當 Discourse 有推新的版本需要更新時，顯示在 <a href='%{base_path}/admin' target='_blank'>/admin/</a>Dashboard 上以提示管理員"
     new_version_emails: "當新版本發佈時，將會發送一封新的 EMail 至 contact_email 設定的位址"
@@ -2931,9 +2949,16 @@ zh_TW:
           invite_only:
             placeholder: "僅限邀請"
           must_approve_users:
+<<<<<<< HEAD
             extra_description: "使用者必須經過工作人員的批准"
           enable_sidebar:
             placeholder: "啟用側選單"
+=======
+            placeholder: "需要審核"
+            extra_description: "使用者必須經過工作人員的批准"
+      ready:
+        title: "你的 Discourse 已經準備就緒！"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       styling:
         fields:
           styling_preview:
@@ -2950,6 +2975,15 @@ zh_TW:
                 label: "分類和最新話題"
               categories_and_top_topics:
                 label: "分類與熱門話題"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "主要標誌"
+          logo_small:
+            label: "正方形 Logo"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

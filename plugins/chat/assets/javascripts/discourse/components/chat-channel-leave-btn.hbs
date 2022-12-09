@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{#if this.shouldRender}}
   <DButton
     @icon="times"
@@ -6,3 +7,8 @@
     class="btn-flat chat-channel-leave-btn"
   />
 {{/if}}
+=======
+{{#unless this.site.mobileView}}
+  <DButton @icon="times" @action={{this.onLeaveChannel}} @class="btn-flat chat-channel-leave-btn" @title={{this.leaveChatTitleKey}} />
+{{/unless}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

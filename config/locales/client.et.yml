@@ -271,9 +271,12 @@ et:
       remove: "Eemalda"
       remove_confirmation: "Oled kindel, et soovid selle mustandi kustutada?"
       new_topic: "Uus teema mustand"
+<<<<<<< HEAD
     topic_count_all:
       one: "Vaata %{count} uut teemat"
       other: "Vaata %{count} uut teemat"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_count_categories:
       one: "Vaata %{count} uut või uuendatud teemat"
       other: "Vaata %{count} uut või uuendatud teemat"

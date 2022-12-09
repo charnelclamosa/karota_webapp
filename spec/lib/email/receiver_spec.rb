@@ -90,19 +90,32 @@ RSpec.describe Email::Receiver do
     SiteSetting.disallow_reply_by_email_after_days = 2
 
     topic = Fabricate(:topic)
+<<<<<<< HEAD
     post = Fabricate(:post, topic: topic)
     user = Fabricate(:user, email: "discourse@bar.com")
 
     mail = email(:old_destination).gsub("424242", topic.id.to_s)
     expect { Email::Receiver.new(mail).process! }.to raise_error(
       Email::Receiver::BadDestinationAddress,
+=======
+    post  = Fabricate(:post, topic: topic)
+    user  = Fabricate(:user, email: "discourse@bar.com")
+
+    mail = email(:old_destination).gsub("424242", topic.id.to_s)
+    expect { Email::Receiver.new(mail).process! }.to raise_error(
+      Email::Receiver::BadDestinationAddress
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
 
     IncomingEmail.destroy_all
     post.update!(created_at: 3.days.ago)
 
     expect { Email::Receiver.new(mail).process! }.to raise_error(
+<<<<<<< HEAD
       Email::Receiver::OldDestinationError,
+=======
+      Email::Receiver::OldDestinationError
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
     expect(IncomingEmail.last.error).to eq("Email::Receiver::OldDestinationError")
 
@@ -110,7 +123,11 @@ RSpec.describe Email::Receiver do
     IncomingEmail.destroy_all
 
     expect { Email::Receiver.new(mail).process! }.to raise_error(
+<<<<<<< HEAD
       Email::Receiver::BadDestinationAddress,
+=======
+      Email::Receiver::BadDestinationAddress
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 

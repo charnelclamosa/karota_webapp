@@ -81,6 +81,7 @@ export default Mixin.create({
   classNameBindings: [":row", ":setting", "overridden", "typeClass"],
   validationMessage: null,
   setting: null,
+  attributeBindings: ["setting.setting:data-setting"],
 
   content: alias("setting"),
   isSecret: oneWay("setting.secret"),
@@ -175,7 +176,46 @@ export default Mixin.create({
   },
 
   @action
+<<<<<<< HEAD
   async update() {
+=======
+  update() {
+    const defaultUserPreferences = [
+      "default_email_digest_frequency",
+      "default_include_tl0_in_digests",
+      "default_email_level",
+      "default_email_messages_level",
+      "default_email_mailing_list_mode",
+      "default_email_mailing_list_mode_frequency",
+      "default_email_previous_replies",
+      "default_email_in_reply_to",
+      "default_hide_profile_and_presence",
+      "default_other_new_topic_duration_minutes",
+      "default_other_auto_track_topics_after_msecs",
+      "default_other_notification_level_when_replying",
+      "default_other_external_links_in_new_tab",
+      "default_other_enable_quoting",
+      "default_other_enable_defer",
+      "default_other_dynamic_favicon",
+      "default_other_like_notification_frequency",
+      "default_other_skip_new_user_tips",
+      "default_topics_automatic_unpin",
+      "default_categories_watching",
+      "default_categories_tracking",
+      "default_categories_muted",
+      "default_categories_watching_first_post",
+      "default_categories_normal",
+      "default_tags_watching",
+      "default_tags_tracking",
+      "default_tags_muted",
+      "default_tags_watching_first_post",
+      "default_text_size",
+      "default_title_count_mode",
+      "default_sidebar_categories",
+      "default_sidebar_tags",
+    ];
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const key = this.buffered.get("setting");
 
     if (!DEFAULT_USER_PREFERENCES.includes(key)) {

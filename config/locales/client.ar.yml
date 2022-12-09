@@ -297,11 +297,28 @@ ar:
     skip_to_main_content: "تخطي إلى المحتوى الرئيسي"
     skip_user_nav: "التخطي إلى محتوى الملف الشخصي"
     emails_are_disabled: "أوقف أحد المسؤولين البريد الصادر بشكلٍ عام. ولن يتم إرسال إشعارات عبر البريد الإلكتروني أيًا كان نوعها."
+<<<<<<< HEAD
     emails_are_disabled_non_staff: "تم إيقاف البريد الإلكتروني الصادر للمستخدمين من خارج فريق العمل."
     software_update_prompt:
       message: "لقد حدَّثنا هذا الموقع، <span>يُرجى التحديث </span>، أو قد تواجه سلوكًا غير متوقَّع."
       dismiss: "تجاهل"
     bootstrap_mode: "خطوات البدء"
+=======
+    emails_are_disabled_non_staff: "تم تعطيل البريد الإلكتروني الصادر للمستخدمين من خارج طاقم العمل."
+    software_update_prompt:
+      message: "لقد حدَّثنا هذا الموقع، <span>يُرجى التحديث </span>، أو قد تواجه سلوكًا غير متوقَّع."
+      dismiss: "تجاهل"
+    bootstrap_mode_enabled:
+      zero: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام %{count} مستخدم."
+      one: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام مستخدم واحد (%{count})."
+      two: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام مستخدمَين (%{count})."
+      few: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام %{count} مستخدمين."
+      many: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام %{count} مستخدمًا."
+      other: "أنت في وضع تمهيد التشغيل لتسهيل إطلاق موقعك الجديد. سيتم منح جميع المستخدمين الجُدد مستوى الثقة 1 وتفعيل الرسائل الإلكترونية التلخيصية لهم. وسيتم إيقاف هذا الوضع تلقائيًا عند انضمام %{count} مستخدم."
+    bootstrap_mode_disabled: "سيتم إيقاف وضع تمهيد التشغيل خلال 24 ساعة."
+    bootstrap_invite_button_title: "إرسال الدعوات"
+    bootstrap_wizard_link_title: "إنهاء معالج الإعداد"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "افتراضي"
       broken_theme_alert: "قد لا يعمل موقعك كما ينبغي بسبب وجود أخطاء في السمة/المكوِّن."
@@ -428,8 +445,13 @@ ar:
       edit_bookmark: "تعديل الإشارة المرجعية"
       clear_bookmarks: "مسح الإشارات المرجعية"
       help:
+<<<<<<< HEAD
         bookmark: "انقر لإنشاء إشارة مرجعية لهذا الموضوع"
         edit_bookmark: "انقر لتعديل الإشارة المرجعية لمنشور في هذا الموضوع"
+=======
+        bookmark: "انقر لإضافة إشارة مرجعية على المنشور الأول في هذا الموضوع"
+        edit_bookmark: "انقر لتعديل الإشارة المرجعية في هذا الموضوع"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         edit_bookmark_for_topic: "انقر لتعديل الإشارة المرجعية لهذا الموضوع"
         unbookmark: "انقر لإزالة كل الإشارات المرجعية في هذا الموضوع"
         unbookmark_with_reminder: "انقر لإزالة جميع الإشارات المرجعية والتذكيرات في هذا الموضوع"
@@ -440,8 +462,14 @@ ar:
       edit: "تعديل الإشارة المرجعية"
       not_bookmarked: "وضع إشارة مرجعية على هذا المنشور"
       remove_reminder_keep_bookmark: "إزالة التذكير والاحتفاظ بالإشارة المرجعية"
+<<<<<<< HEAD
       created_with_reminder: "لقد وضعت إشارة مرجعية على هذا المنشور وعيَّنت تذكيرًا في %{date}. ‏%{name}"
       created_with_reminder_generic: "لقد وضعت إشارة مرجعية على هذا المنشور وعيَّنت تذكيرًا في %{date}. ‏%{name}"
+=======
+      created_with_reminder: "لقد وضعت إشارة مرجعية على هذا المنشور وضبطت تذكيرًا في %{date}. ‏%{name}"
+      created_with_reminder_generic: "لقد وضعت إشارة مرجعية على هذا المنشور وضبطت تذكيرًا في %{date}. ‏%{name}"
+      remove: "إزالة الإشارة المرجعية"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "حذف الإشارة المرجعية"
       confirm_delete: "هل تريد بالتأكيد حذف هذه الإشارة المرجعية؟ سيتم حذف التذكير أيضًا."
       confirm_clear: "هل تريد بالتأكيد مسح كل إشاراتك المرجعية من هذا الموضوع؟"
@@ -528,10 +556,17 @@ ar:
     saving: "جارٍ الحفظ…"
     saved: "تم الحفظ!"
     upload: "تحميل"
+<<<<<<< HEAD
     uploading: "جارٍ الرفع…"
     processing: "جارٍ المعالجة…"
     uploading_filename: "جارٍ رفع: %{filename}…"
     processing_filename: "قيد المعالجة: %{filename}…"
+=======
+    uploading: "جارٍ التحميل..."
+    processing: "جارٍ المعالجة..."
+    uploading_filename: "جارٍ تحميل: %{filename}..."
+    processing_filename: "قيد المعالجة: %{filename}..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     clipboard: "الحافظة"
     uploaded: "تم التحميل!"
     pasting: "جارٍ اللصق…"
@@ -978,7 +1013,11 @@ ar:
         categories:
           title: الفئات
           long_title: "الإشعارات الافتراضية للفئة"
+<<<<<<< HEAD
           description: "عند إضافة مستخدمين إلى هذه المجموعة، سيتم تعيين إعدادات إشعارات الفئة لديهم على تلك القيم. ويمكنهم تغييرها بعد ذلك."
+=======
+          description: "عند إضافة مستخدمين إلى هذه المجموعة، سيتم ضبط إعدادات إشعارات الفئة لديهم على تلك القيم. ويمكنهم تغييرها بعد ذلك."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           watched_categories_instructions: "يمكنك مراقبة كل الموضوعات في هذه الفئات تلقائيًا. سيتلقى أعضاء المجموعة إشعارات بالمنشورات والموضوعات الجديدة، وسيظهر أيضًا عدد المنشورات الجديدة بجانب الموضوع."
           tracked_categories_instructions: "يمكنك تتبُّع كل الموضوعات في هذه الفئات تلقائيًا. وسيظهر عدد المنشورات الجديدة بجانب الموضوع."
           watching_first_post_categories_instructions: "سيتلقى المستخدمون إشعارًا بأول منشور في كل موضوع جديد في هذه الفئات."
@@ -1320,9 +1359,12 @@ ar:
       dismiss_notifications_tooltip: "وضع علامة مقروءة على كل الإشعارات غير المقروءة"
       dismiss_bookmarks_tooltip: "وضع علامة \"مقروءة\" على كل تذكيرات الإشارات المرجعية غير المقروءة"
       dismiss_messages_tooltip: "وضع علامة \"مقروءة\" على كل إشعارات الرسائل الشخصية غير المقروءة"
+<<<<<<< HEAD
       no_likes_title: "لم تتلقَّ أي تسجيلات إعجاب بعد"
       no_likes_body: >
         ستتلقى إشعارًا هنا في أي وقت يسجِّل فيه شخص ما إعجابه بأحد منشوراتك؛ حتى تتمكن من رؤية ما ينال إعجاب الآخرين. سيرى الآخرون الشيء نفسه عندما تسجِّل إعجابك بمنشوراتهم أيضًا! <br><br> لا يتم إرسال إشعارات بتسجيلات الإعجاب إلى بريدك الإلكتروني أبدًا، لكن يمكنك ضبط طريقة تلقي الإشعارات بشأن تسجيلات الإعجاب على الموقع في <a href='%{preferencesUrl}'>تفضيلات الإشعارات</a>.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_messages_title: "ليس لديك أي رسائل"
       no_messages_body: >
         هل تحتاج إلى إجراء محادثة شخصية مباشرة مع شخص ما خارج مسار إجراء المحادثات التقليدي؟ راسله عن طريق تحديد صورته الرمزية واستخدام زر الرسالة %{icon}.<br><br> إذا كنت بحاجة إلى مساعدة، يمكنك <a href='%{aboutUrl}'>مراسلة عضو في فريق العمل</a>.
@@ -1364,10 +1406,21 @@ ar:
       experimental_sidebar:
         enable: "تفعيل الشريط الجانبي"
         options: "الخيارات"
+<<<<<<< HEAD
         navigation_section: "التنقل"
         navigation_section_instruction: "عندما تحتوي قائمة موضوعات في قائمة التنقل على عناصر جديدة أو غير مقروءة…"
         link_to_filtered_list_checkbox_description: "رابط إلى القائمة التي تمت تصفيتها"
         show_count_new_items_checkbox_description: "عرض عدد العناصر الجديدة"
+=======
+        categories_section: "قسم الفئات"
+        categories_section_instruction: "سيتم عرض الفئات المحدَّدة ضمن قسم فئات الشريط الجانبي."
+        tags_section: "قسم الوسوم"
+        tags_section_instruction: "سيتم عرض الوسوم المحدَّدة ضمن قسم وسوم الشريط الجانبي."
+        navigation_section: "التنقل"
+        list_destination_instruction: "عند وجود محتوى جديد في الشريط الجانبي..."
+        list_destination_default: "استخدام الرابط الافتراضي وعرض شارة للعناصر الجديدة"
+        list_destination_unread_new: "رابط إلى غير المقروءة/الجديدة وعرض عدد العناصر الجديدة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "تغيير"
       featured_topic: "الموضوع المميز"
       moderator: "‏%{user} مشرف في الموقع"
@@ -1605,7 +1658,11 @@ ar:
         tags: "الوسوم"
         interface: "الواجهة"
         apps: "التطبيقات"
+<<<<<<< HEAD
         navigation_menu: "قائمة التنقل"
+=======
+        sidebar: "الشريط الجانبي"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change_password:
         success: "(تم إرسال رسالة البريد الإلكتروني)"
         in_progress: "(جارٍ إرسال رسالة البريد الإلكتروني)"
@@ -1867,7 +1924,11 @@ ar:
         every_month: "كل شهر"
         every_six_months: "كل ستة أشهر"
       email_level:
+<<<<<<< HEAD
         title: "مراسلتي عبر البريد الإلكتروني عند اقتباس كلامي أو الرد عليَّ أو عند الإشارة إلى @اسم المستخدم الخاص بي، أو عندما يكون هناك نشاط جديد على فئاتي أو وسومي أو موضوعاتي المراقبة"
+=======
+        title: "مراسلتي عبر البريد الإلكتروني عند اقتباس كلامي أو الرد عليَّ أو عند الإشارة إلى @username الخاص بي، أو عندما يكون هناك نشاط جديد على فئاتي أو وسومي أو موضوعاتي المراقبة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         always: "دائمًا"
         only_when_away: "عندما أكون بعيدًا فقط"
         never: "أبدًا"
@@ -2093,7 +2154,11 @@ ar:
         instructions: "يتم عرض الرمز بجوار صورة ملفك الشخصي"
       status:
         title: "حالة مخصَّصة"
+<<<<<<< HEAD
         not_set: "غير معيَّن"
+=======
+        not_set: "غير محدَّد"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       primary_group:
         title: "المجموعة الأساسية"
         none: "(لا يوجد)"
@@ -2108,10 +2173,17 @@ ar:
       save: "حفظ"
       set_custom_status: "تعيين حالة مخصَّصة"
       what_are_you_doing: "ماذا تفعل؟"
+<<<<<<< HEAD
       pause_notifications: "إيقاف الإشعارات مؤقتًا"
       remove_status: "إزالة الحالة"
     user_tips:
       button: "فهمت!"
+=======
+      remove_status: "إزالة الحالة"
+    user_tips:
+      primary: "فهمت!"
+      secondary: "عدم عرض هذه النصائح لي"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "أول إشعار لك!"
         content: "تُستخدَم الإشعارات لإبقائك على اطِّلاع بما يحدث في المجتمع."
@@ -2127,11 +2199,15 @@ ar:
       suggested_topics:
         title: "واصل القراءة!"
         content: "إليك بعض الموضوعات التي نظن أنك قد ترغب في قراءتها بعد ذلك."
+<<<<<<< HEAD
       admin_guide:
         title: "مرحبًا بك في موقعك الجديد!"
         content: "<a href='%{admin_guide_url}'>اقرأ دليل المشرف</a> لمواصلة بناء موقعك و مجتمعك."
         content_no_url: "اقرأ دليل المسؤول لمتابعة بناء موقعك ومجتمعك."
     loading: "جارٍ التحميل…"
+=======
+    loading: "جارٍ التحميل..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "في أثناء محاولة التحميل"
       reasons:
@@ -2164,7 +2240,11 @@ ar:
       login_disabled: "يكون تسجيل الدخول متوقفًا في حال كان الموقع في وضع القراءة فقط."
       logout_disabled: "يتم إيقاف تسجيل الخروج عندما يكون الموقع في وضع القراءة فقط."
     staff_writes_only_mode:
+<<<<<<< HEAD
       enabled: "هذا الموقع في وضع القراءة فقط. يُرجى المتابعة للتصفح، لكن سيقتصر التصفح والرد وتسجيل الإعجاب والإجراءات الأخرى على الأعضاء في فريق العمل فقط."
+=======
+      enabled: "هذا الموقع في وضع القراءة فقط. يُرجى المتابعة للتصفح، لكن سيقتصر التصفح والرد وتسجيل الإعجاب والإجراءات الأخرى على الأعضاء في طاقم العمل فقط."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – لقد بلغ معدل الخطأ <a href='{url}' target='_blank'>{rate, plural, zero {<strong>#</strong> خطأ/الساعة} one {خطأ واحد (#)/الساعة} two {خطآن (#)/الساعة} few {# أخطاء/الساعة} many {# خطأ/الساعة} other {# خطأ/الساعة}}</a> حد إعدادات الموقع البالغ {limit, plural, zero {<strong>#</strong> خطأ/الساعة} one {خطأ واحد (#)/الساعة} two {خطآن (#)/الساعة} few {# أخطاء/الساعة} many {# خطأ/الساعة} other {# خطأ/الساعة}}.
@@ -2198,9 +2278,12 @@ ar:
       hidden_for_session: "حسنًا، سنسألك غدًا. يمكنك دائمًا استخدام \"تسجيل الدخول\" لإنشاء حساب أيضًا."
       intro: "مرحبًا! يبدو أنك تستمتع بالمناقشة، لكنك لم تشترك للحصول على حساب حتى الآن."
       value_prop: "هل سئمت من التمرير عبر المنشورات نفسها؟ عندما تُنشئ حسابًا، فستستأنف دائمًا من حيث توقفت. عند إنشاء حساب، ستتمكن أيضًا من تلقي إشعارات بالردود الجديدة وحفظ الإشارات المرجعية وتسجيل الإعجاب لشكر الآخرين. يمكننا جميعًا العمل معًا للارتقاء بهذا المجتمع. :heart:"
+<<<<<<< HEAD
     offline_indicator:
       no_internet: "لا يتوفَّر اتصال بالإنترنت."
       refresh_page: "تحديث الصفحة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     summary:
       in_progress: "جارٍ تلخيص الموضوع باستخدام الذكاء الاصطناعي"
       summarized_on: "تم التلخيص باستخدام الذكاء الاصطناعي في %{date}"
@@ -2265,6 +2348,7 @@ ar:
     forgot_password:
       title: "إعادة تعيين كلمة المرور"
       action: "نسيت كلمة مروري"
+<<<<<<< HEAD
       invite: "أدخِل اسم المستخدم أو عنوان البريد الإلكتروني، وسنُرسل إليك رسالة إلكترونية لإعادة تعيين كلمة المرور."
       invite_no_username: "أدخل عنوان بريدك الإلكتروني، وسنُرسل إليك رسالة لإعادة تعيين كلمة المرور."
       reset: "إعادة تعيين كلمة المرور"
@@ -2272,6 +2356,15 @@ ar:
       complete_email: "إذا تطابق أحد الحسابات مع <b>%{email}</b>، فستتلقى سريعًا رسالة إلكترونية تتضمَّن تعليمات عن كيفية إعادة تعيين كلمة المرور."
       complete_username_found: "لقد عثرنا على حساب مطابق لاسم المستخدم <b>%{username}</b>. ومن المفترض أن تتلقى رسالة إلكترونية بإرشادات إعادة تعيين كلمة المرور قريبًا."
       complete_email_found: "لقد عثرنا على حساب مطابق لعنوان البريد الإلكتروني <b>%{email}</b>. ومن المفترض أن تتلقى رسالة إلكترونية بإرشادات إعادة تعيين كلمة المرور قريبًا."
+=======
+      invite: "أدخِل اسم المستخدم أو عنوان البريد الإلكتروني، وسنُرسل إليك رسالة إلكترونية لإعادة ضبط كلمة المرور."
+      invite_no_username: "أدخل عنوان بريدك الإلكتروني، وسنُرسل إليك رسالة لإعادة تعيين كلمة المرور."
+      reset: "إعادة ضبط كلمة المرور"
+      complete_username: "إذا تطابق أحد الحسابات مع اسم المستخدم <b>%{username}</b>، فستتلقى سريعًا رسالة إلكترونية تتضمَّن تعليمات عن كيفية إعادة ضبط كلمة المرور."
+      complete_email: "إذا تطابق أحد الحسابات مع <b>%{email}</b>، فستتلقى سريعًا رسالة إلكترونية تتضمَّن تعليمات عن كيفية إعادة ضبط كلمة المرور."
+      complete_username_found: "لقد عثرنا على حساب مطابق لاسم المستخدم <b>%{username}</b>. ومن المفترض أن تتلقى رسالة إلكترونية بإرشادات إعادة ضبط كلمة المرور قريبًا."
+      complete_email_found: "لقد عثرنا على حساب مطابق لعنوان البريد الإلكتروني <b>%{email}</b>. ومن المفترض أن تتلقى رسالة إلكترونية بإرشادات إعادة ضبط كلمة المرور قريبًا."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       complete_username_not_found: "لا يوجد حساب مطابق لاسم المستخدم <b>%{username}</b>"
       complete_email_not_found: "لا يوجد حساب مطابق لعنوان البريد الإلكتروني <b>%{email}</b>"
       help: "لم تصلك الرسالة الإلكترونية بعد؟ احرص على التحقُّق من مجلد البريد غير المرغوب فيه أولًا.<p>لست متأكدًا من عنوان البريد الإلكتروني الذي استخدمته؟ أدخِل عنوان البريد الإلكتروني وسنخبرك إذا كان موجودًا هنا.</p><p>إذا فقدت الوصول إلى عنوان البريد الإلكتروني المرتبط بحسابك، يُرجى التواصل مع <a href='%{basePath}/about'>فريق عملنا لمساعدتك.</a></p>"
@@ -2442,8 +2535,13 @@ ar:
         few: "%{count} نتائج"
         many: "%{count} نتيجة"
         other: "%{count} نتيجة"
+<<<<<<< HEAD
       filter_placeholder: البحث…
       filter_placeholder_with_any: ابحث أو إنشاء…
+=======
+      filter_placeholder: بحث...
+      filter_placeholder_with_any: بحث أو إنشاء...
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "إنشاء: \"%{content}\""
       max_content_reached:
         zero: "يمكنك تحديد %{count} عنصر فقط."
@@ -2529,6 +2627,7 @@ ar:
         private: "لقد أشرت إلى @%{username}، لكنه لن يتلقى إشعارًا لأنه لا يمكنه رؤية هذه الرسالة الخاصة. عليك دعوته إلى هذه الرسالة الخاصة."
         muted_topic: "لقد أشرت إلى @%{username}، لكنه لن يتلقى إشعارًا لأنه كتم هذا الموضوع."
         not_allowed: "لقد أشرت إلى @%{username}، لكنه لن يتلقى إشعارًا لأنه لم تتم دعوته إلى هذا الموضوع."
+<<<<<<< HEAD
       cannot_see_group_mention:
         not_mentionable: "لا يمكنك الإشارة إلى المجموعة @%{group}."
         some_not_allowed:
@@ -2539,6 +2638,8 @@ ar:
           many: "لقد أشرت إلى المجموعة @%{group}، لكن سيتلقى %{count} عضوًا فقط الإشعار لأن الأعضاء الآخرين لا يمكنهم رؤية هذه الرسالة الشخصية. سيتعيَّن عليك دعوتهم إلى هذه الرسالة الشخصية."
           other: "لقد أشرت إلى المجموعة @%{group}، لكن سيتلقى %{count} عضو فقط الإشعار لأن الأعضاء الآخرين لا يمكنهم رؤية هذه الرسالة الشخصية. سيتعيَّن عليك دعوتهم إلى هذه الرسالة الشخصية."
         not_allowed: "لقد أشرت إلى @%{group}، لكن لن يتلقى أي عضوٍ من أعضائها إشعارًا لأنه لا يمكنهم رؤية هذه الرسالة الشخصية. سيتعيَّن عليك دعوتهم إلى هذه الرسالة الشخصية."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       here_mention:
         zero: "بالإشارة إلى <b>@%{here}</b>، أنت على وشك إرسال إشعار إلى %{count} مستخدم - هل أنت متأكد من ذلك؟"
         one: "بالإشارة إلى <b>@%{here}</b>، أنت على وشك إرسال إشعار إلى مستخدم واحد (%{count}) - هل أنت متأكد من ذلك؟"
@@ -2686,7 +2787,10 @@ ar:
       image_alt_text:
         aria_label: النص البديل للصورة
       delete_image_button: حذف الصورة
+<<<<<<< HEAD
       toggle_image_grid: تشغيل التخطيط الشبكي للصور
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     notifications:
       tooltip:
         regular:
@@ -2741,6 +2845,7 @@ ar:
       edited: "‏<span>⁨%{username}⁩</span> ‏%{description}"
       liked: "‏<span>⁨%{username}⁩</span> ‏%{description}"
       liked_2: "<span class='double-user'>%{username}، و%{username2}</span> %{description}"
+<<<<<<< HEAD
       liked_by_2_users: "%{username}، %{username2}"
       liked_by_multiple_users:
         zero: "%{username} واثنان (%{count}) آخران"
@@ -2749,6 +2854,23 @@ ar:
         few: "%{username} واثنان (%{count}) آخران"
         many: "%{username} واثنان (%{count}) آخران"
         other: "%{username} واثنان (%{count}) آخران"
+=======
+      liked_many:
+        zero: "<span class='multi-user'>%{username} و%{username2} و%{count} مستخدم آخر</span> %{description}"
+        one: "<span class='multi-user'>%{username} و%{username2} ومستخدم واحد (%{count}) آخر</span> %{description}"
+        two: "<span class='multi-user'>%{username} و%{username2} ومستخدمان (%{count}) آخران</span> %{description}"
+        few: "<span class='multi-user'>%{username} و%{username2} و%{count} مستخدمين آخرين</span> %{description}"
+        many: "<span class='multi-user'>‏%{username} و%{username2} و%{count} مستخدمًا آخر</span> ‏%{description}"
+        other: "<span class='multi-user'>‏%{username} و%{username2} و%{count} مستخدم آخر</span> ‏%{description}"
+      liked_by_2_users: "%{username}، %{username2}"
+      liked_by_multiple_users:
+        zero: "%{username} و%{username2} و%{count} مستخدم آخر"
+        one: "%{username} و%{username2} ومستخدم واحد (%{count}) آخر"
+        two: "%{username} و%{username2} ومستخدمان (%{count}) آخران"
+        few: "%{username} و%{username2} و%{count} مستخدمين آخرين"
+        many: "%{username} و%{username2} و%{count} مستخدمًا آخر"
+        other: "%{username} و%{username2} و%{count} مستخدم آخر"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       liked_consolidated_description:
         zero: "سجَّل إعجابه على %{count} من منشوراتك"
         one: "سجَّل إعجابه على واحد (%{count}) من منشوراتك"
@@ -3134,7 +3256,11 @@ ar:
           other: "تجاهل الجديدة (%{count})"
         toggle: "تفعيل التحديد الجماعي للموضوعات"
         actions: "الإجراءات الجماعية"
+<<<<<<< HEAD
         change_category: "ضبط الفئة…"
+=======
+        change_category: "ضبط الفئة..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         close_topics: "إغلاق الموضوعات"
         archive_topics: "أرشفة الموضوعات"
         move_messages_to_inbox: "النقل إلى صندوق الوارد"
@@ -3484,8 +3610,13 @@ ar:
         archive: "أرشفة الموضوع"
         invisible: "إلغاء إدراج الموضوع"
         visible: "إدارج الموضوع"
+<<<<<<< HEAD
         reset_read: "إعادة تعيين بيانات القراءة"
         make_public: "التحويل إلى موضوع عام…"
+=======
+        reset_read: "إعادة ضبط بيانات القراءة"
+        make_public: "التحويل إلى موضوع عام..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         make_private: "التحويل إلى رسالة خاصة"
         reset_bump_date: "إعادة تعيين تاريخ الرفع"
       feature:
@@ -3748,12 +3879,21 @@ ar:
       sr_collapse_replies: "طي الردود المضمَّنة"
       sr_date: "تاريخ المنشور"
       sr_expand_replies:
+<<<<<<< HEAD
         zero: "هناك %{count} رد على هذا المنشور"
         one: "هناك رد واحد (%{count}) على هذا المنشور"
         two: "هناك ردَّان (%{count}) على هذا المنشور"
         few: "هناك %{count} ردود على هذا المنشور"
         many: "هناك %{count} ردًا على هذا المنشور"
         other: "هناك %{count} رد على هذا المنشور"
+=======
+        zero: "هناك %{count} رد على هذا المنشور. انقر للتوسيع"
+        one: "هناك رد واحد (%{count}) على هذا المنشور. انقر للتوسيع"
+        two: "هناك ردَّان (%{count}) على هذا المنشور. انقر للتوسيع"
+        few: "هناك %{count} ردود على هذا المنشور. انقر للتوسيع"
+        many: "هناك %{count} ردًا على هذا المنشور. انقر للتوسيع"
+        other: "هناك %{count} رد على هذا المنشور. انقر للتوسيع"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expand_collapse: "توسيع/طي"
       sr_below_embedded_posts_description: "ردود المنشور #%{post_number}"
       sr_embedded_reply_description: "رد بواسطة @%{username} على المنشور #%{post_number}"
@@ -4016,6 +4156,10 @@ ar:
         create_for_topic: "إنشاء إشارة مرجعية للموضوع"
         edit: "تعديل الإشارة المرجعية"
         edit_for_topic: "تعديل الإشارة المرجعية للموضوع"
+<<<<<<< HEAD
+=======
+        created: "تاريخ الإنشاء"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         updated: "تاريخ التحديث"
         name: "الاسم"
         name_placeholder: "ما استخدام هذه الإشارة المرجعية؟"
@@ -4071,7 +4215,11 @@ ar:
         description: "يلزم أن تحتوي الموضوعات الجديدة على وسوم من مجموعات الوسوم:"
         delete: "حذف"
         add: "إضافة مجموعة الوسوم المطلوبة"
+<<<<<<< HEAD
         placeholder: "تحديد مجموعة الوسوم…"
+=======
+        placeholder: "تحديد مجموعة الوسوم..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "السماح بالروابط المميزة في هذه الفئة."
       delete: "حذف الفئة"
       create: "فئة جديدة"
@@ -4139,7 +4287,11 @@ ar:
       this_year: "هذا العام"
       position: "الترتيب في صفحة الفئات:"
       default_position: "الترتيب الافتراضي"
+<<<<<<< HEAD
       position_disabled: "سيتم عرض الفئات بترتيب النشاط. للتحكم في ترتيب الفئات في القوائم، قم بتفعيل الإعداد <a href='%{url}'>\"المواضع الثابتة للفئات\"</a>."
+=======
+      position_disabled: "سيتم عرض الفئات بترتيب النشاط. للتحكم في ترتيب الفئات في القوائم، فعِّل الإعداد <a href='%{url}'>\"المواضع الثابتة للفئات\"</a>."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       minimum_required_tags: "الحد الأدنى من عدد الوسوم المطلوبة في الموضوع:"
       default_slow_mode: 'تفعيل "الوضع البطيء" للموضوعات الجديدة في هذه الفئة.'
       parent: "الفئة الرئيسية"
@@ -4156,7 +4308,11 @@ ar:
           description: "سنُرسل إليك إشعارًا بالموضوعات الجديدة في هذه الفئة، ولكن ليس الردود على الموضوعات."
         tracking:
           title: "التتبُّع"
+<<<<<<< HEAD
           description: "ستتتبَّع تلقائيًا كل الموضوعات في هذه الفئة. وسيتم إرسال إشعار إليك إذا أشار شخص ما إلى @اسمك أو ردَّ عليك، وسيتم عرض عدد الردود الجديدة."
+=======
+          description: "ستتتبَّع تلقائيًا كل الموضوعات في هذه الفئة. وسيتم إرسال إشعار إليك إذا أشار إليك شخص ما @name أو ردَّ عليك، وسيتم عرض عدد الردود الجديدة."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         regular:
           title: "عادية"
           description: "سنُرسل إليك إشعارًا إذا أشار أحد إلى @اسمك أو ردَّ عليك."
@@ -4357,6 +4513,10 @@ ar:
     category_title: "الفئة"
     history_capped_revisions: "السجل، آخر 100 مراجعة"
     history: "السجل"
+<<<<<<< HEAD
+=======
+    changed_by: "بواسطة %{author}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     raw_email:
       title: "البريد الوارد"
       not_available: "غير متوفرة!"
@@ -4467,7 +4627,13 @@ ar:
         this_month: "الشهر"
         this_week: "الأسبوع"
         today: "اليوم"
+<<<<<<< HEAD
     browser_update: 'عذرًا، <a href="https://www.discourse.org/faq/#browser">متصفحك غير مدعوم</a>. يُرجى <a href="https://browsehappy.com">التبديل إلى متصفح مدعوم</a> لعرض المحتوى الغني، وتسجيل الدخول والرد.'
+=======
+        other_periods: "رؤية الأكثر نشاطًا:"
+    browser_update: 'عذرًا، <a href="https://www.discourse.org/faq/#browser">متصفحك غير مدعوم</a>. يُرجى <a href="https://browsehappy.com">التبديل إلى متصفح مدعوم</a> لعرض المحتوى الغني، وتسجيل الدخول والرد.'
+    safari_13_warning: سيزيل هذا الموقع الدعم لإصدارات 13 من iOS وSafari، والإصدارات الأقدم. ستظل هناك نسخة مبسَّطة متاحة للقراءة فقط. (<a href="https://meta.discourse.org/t/224747">المزيد من المعلومات</a>)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     permission_types:
       full: "الإنشاء/الرد/العرض"
       create_post: "الرد/العرض"
@@ -4663,6 +4829,7 @@ ar:
       tags: "الوسوم"
       choose_for_topic: "الوسوم الاختيارية"
       choose_for_topic_required:
+<<<<<<< HEAD
         zero: "حدِّد %{count} وسمًا على الأقل…"
         one: "حدِّد وسم على الأقل…"
         two: "حدِّد وسمَين (%{count}) على الأقل…"
@@ -4676,6 +4843,21 @@ ar:
         few: "حدِّد %{count} وسوم من '%{name}'…"
         many: "حدِّد %{count} وسمًا من '%{name}'…"
         other: "حدِّد %{count} وسمًا من '%{name}'…"
+=======
+        zero: "حدِّد %{count} وسم على الأقل..."
+        one: "حدِّد وسمًا واحدًا (%{count}) على الأقل..."
+        two: "حدِّد وسمَين (%{count}) على الأقل..."
+        few: "حدِّد %{count} وسوم على الأقل..."
+        many: "حدِّد %{count} وسمًا على الأقل..."
+        other: "حدِّد %{count} وسم على الأقل..."
+      choose_for_topic_required_group:
+        zero: "حدِّد %{count} وسم من '%{name}'..."
+        one: "حدِّد وسمًا واحدًا (%{count}) من '%{name}'..."
+        two: "حدِّد وسمين (%{count}) من '%{name}'..."
+        few: "حدِّد %{count} وسوم من '%{name}'..."
+        many: "حدِّد %{count} وسمًا من '%{name}'..."
+        other: "حدِّد %{count} وسم من '%{name}'..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       info: "المعلومات"
       default_info: "هذ الوسم ليس مقصورًا على أي فئة، وليس له مرادفات."
       staff_info: "لإضافة قيود، ضَع هذا الوسم في <a href=%{basePath}/tag_groups>مجموعة الوسوم</a>."
@@ -4892,6 +5074,7 @@ ar:
       more: "المزيد"
       all_categories: "كل الفئات"
       all_tags: "كل الوسوم"
+<<<<<<< HEAD
       categories_form_modal:
         title: "يمكنك تعديل التنقل بين الفئات"
         subtitle:
@@ -4911,6 +5094,8 @@ ar:
           all: "الكل"
           selected: "محدَّد"
           unselected: "غير محدَّد"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sections:
         custom:
           add: "إضافة قسم مخصَّص"
@@ -4961,17 +5146,37 @@ ar:
             unread_with_count: "غير المقروءة (%{count})"
             archive: "الأرشيف"
         tags:
+<<<<<<< HEAD
+=======
+          links:
+            add_tags:
+              content: "إضافة وسوم"
+              title: "لم تُضف أي وسوم. انقر للبدء."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           none: "لم تضف أي وسوم."
           click_to_get_started: "انقر هنا للبدء."
           header_link_text: "الوسوم"
           header_action_title: "تعديل وسوم الشريط الجانبي"
+<<<<<<< HEAD
           configure_defaults: "تكوين الإعدادات الافتراضية"
         categories:
+=======
+          configure_defaults: "ضبط الإعدادات الافتراضية"
+        categories:
+          links:
+            add_categories:
+              content: "إضافة فئات"
+              title: "لم تُضف أي فئات. انقر للبدء."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           none: "لم تضف أي فئات."
           click_to_get_started: "انقر هنا للبدء."
           header_link_text: "الفئات"
           header_action_title: "تعديل فئات الشريط الجانبي"
+<<<<<<< HEAD
           configure_defaults: "تكوين الإعدادات الافتراضية"
+=======
+          configure_defaults: "ضبط الإعدادات الافتراضية"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         community:
           edit_section:
             sidebar: "تخصيص هذا القسم"
@@ -4985,6 +5190,7 @@ ar:
               title: "إعدادات وتقارير الموقع"
             badges:
               content: "الشارات"
+<<<<<<< HEAD
               title: "كل الشارات الممكن منحها لك"
             topics:
               content: "الموضوعات"
@@ -4992,17 +5198,30 @@ ar:
             faq:
               content: "الأسئلة الشائعة"
               title: "إرشادات لاستخدام هذا الموقع"
+=======
+            everything:
+              content: "كل شيء"
+              title: "كل الموضوعات"
+            faq:
+              content: "الأسئلة الشائعة"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "المجموعات"
               title: "قائمة بمجموعات المستخدمين المتاحة"
             users:
               content: "المستخدمون"
+<<<<<<< HEAD
               title: "قائمة بكل المستخدمين"
             my_posts:
               content: "منشوراتي"
               content_drafts: "مسوداتي"
               title: "نشاطي الأخير في الموضوع"
               title_drafts: "مسوداتي غير المنشورة"
+=======
+              title: "جميع المستخدمين"
+            my_posts:
+              content: "منشوراتي"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 zero: "%{count} مسودة"
                 one: "مسودة واحدة (%{count})"
@@ -5012,17 +5231,23 @@ ar:
                 other: "%{count} مسودة"
             review:
               content: "المراجعة"
+<<<<<<< HEAD
               title: "المنشورات المُبلَغ عنها والعناصر الأخرى في قائمة الانتظار"
               pending_count: "بقي %{count}"
         global_section: "القسم العام، مرئي للجميع"
       panels:
         forum:
           label: المنتدى
+=======
+              title: "مراجعة"
+              pending_count: "بقي %{count}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "إنشاء موضوعك الترحيبي"
       description: "إن موضوعك الترحيبي هو أول ما يقرأه الأعضاء الجُدد. انظر إليه على أنه \"عرض ترويجي\" أو \"بيان مهمة\". دَع الجميع يعرفون الجمهور المستهدف بهذا المجتمع، وما يتوقعون العثور عليه هنا، وما تريد منهم أن يفعلوه أولًا."
       button_title: "بدء التعديل"
     until: "حتى:"
+<<<<<<< HEAD
     char_counter:
       exceeded: "تم تجاوز الحد الأقصى المسموح به لعدد الأحرف."
     form_template_chooser:
@@ -5075,6 +5300,8 @@ ar:
           other: "يجب ان يكون الإدخال أطول من %{count}."
         patternMismatch: "يُرجى مطابقة التنسيق المطلوب."
         badInput: "يُرجى إدخال قيمة صالحة."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   admin_js:
     type_to_filter: "اكتب للتصفية…"
     admin:
@@ -5229,10 +5456,14 @@ ar:
               many: "يوجد %{count} مستخدمًا لديهم نطاقات البريد الإلكتروني الجديدة وستتم إضافته إلى المجموعة."
               other: "يوجد %{count} مستخدم لديه نطاقات البريد الإلكتروني الجديدة وستتم إضافته إلى المجموعة."
             automatic_membership_associated_groups: "ستتم إضافة المستخدمين الأعضاء في مجموعة لإحدى الخدمات المُدرَجة هنا تلقائيًا إلى هذه المجموعة عند تسجيل الدخول باستخدام الخدمة."
+<<<<<<< HEAD
             primary_group: "التعيين تلقائيًا كمجموعة أساسية"
           alert:
             primary_group: "نظرًا لأن هذه مجموعة أساسية، فإن الاسم '%{group_name}' سيتم استخدامه في فئات CSS، والتي يمكن للجميع عرضها."
             flair_group: "نظرًا لأن هذه المجموعة لديها طابع خاص لأعضائها، فسيكون الاسم '%{group_name}' مرئيًا لأي شخص."
+=======
+            primary_group: "الضبط تلقائيًا كمجموعة أساسية"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         name_placeholder: "اسم المجموعة بلا مسافات، على غرار قاعدة اسم المستخدم"
         primary: "المجموعة الأساسية"
         no_primary: "(لا توجد مجموعة أساسية)"
@@ -5242,6 +5473,7 @@ ar:
         about: "يمكنك تعديل عضوية المجموعة والأسماء من هنا"
         group_members: "أعضاء المجموعة"
         delete: "حذف"
+<<<<<<< HEAD
         delete_confirm: "هل تريد بالتأكيد حذف المجموعة %{group}؟"
         delete_details:
           zero: "سيفقد %{count} شخص الوصول إلى هذه المجموعة"
@@ -5258,6 +5490,8 @@ ar:
           many: "سيتعذَّر على أعضاء المجموعة الوصول إلى %{count} رسالة"
           other: "سيتعذَّر على أعضاء المجموعة الوصول إلى %{count} رسالة"
         delete_warning: "لا يمكن استعادة المجموعات المحذوفة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "يتعذَّر حذف المجموعة. إذا كانت هذه مجموعة تلقائية، فلا يمكن تدميرها."
         delete_automatic_group: هذه مجموعة تلقائية ولا يمكن حذفها.
         delete_owner_confirm: "هل تريد إزالة صلاحيات المالك من \"%{username}\"؟"
@@ -5323,8 +5557,12 @@ ar:
             topics:
               read: قراءة موضوع أو منشور محدَّد فيه. يتم دعم RSS أيضًا.
               write: إنشاء موضوع جديد أو النشر في موضوع موجود
+<<<<<<< HEAD
               update: تحديث موضوع. يمكنك تغيير العنوان، والفئة، والوسوم، والحالة، والنموذج الأولي، والرابط المميز، وما إلى ذلك.
               delete: حذف موضوع.
+=======
+              update: تحديث الموضوع. غيِّر العنوان والفئة والوسوم، إلى آخره.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               read_lists: قراءة قوائم الموضوعات مثل الأكثر نشاطًا، والجديدة، والحديثة، وما إلى ذلك. يتم دعم RSS أيضًا.
               status: "تحديث حالة موضوع. الحالة: مغلق، مؤرشف، مرئي، مثبَّت. مفعَّل: true, false. حدِّد category_id هنا وفي حمولة الطلب للسماح بتغييرات الحالة في الموضوعات في تلك الفئة فقط."
             posts:
@@ -5334,10 +5572,17 @@ ar:
             tags:
               list: إدراج الوسوم.
             categories:
+<<<<<<< HEAD
               list: الحصول على قائمة بالفئات.
               show: الحصول على فئة واحدة بالمعرِّف.
             uploads:
               create: تحميل ملف جديد أو بدء التحميل المباشر الفردي أو متعدد الأجزاء إلى وحدة تخزين خارجية.
+=======
+              list: احصل على قائمة بالفئات.
+              show: احصل على فئة واحدة بالمعرِّف.
+            uploads:
+              create: حمِّل ملفًا جديدًا أو ابدأ التحميل المباشر الفردي أو متعدد الأجزاء إلى وحدة تخزين خارجية.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             users:
               bookmarks: إدراج الإشارات المرجعية للمستخدم. تعرض تذكيرات بالإشارات المرجعية عند استخدام تنسيق ICS.
               sync_sso: مزامنة مستخدم باستخدام DiscourseConnect
@@ -5357,19 +5602,26 @@ ar:
             invites:
               create: إرسال الدعوات عبر البريد الإلكتروني أو إنشاء روابط دعوة.
             badges:
+<<<<<<< HEAD
               create: إنشاء شارة جديدة.
+=======
+              create: أنشئ شارة جديدة.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               show: الحصول على معلومات بشأن إحدى الشارات.
               update: تحديث شارة.
               delete: حذف شارة.
               list_user_badges: إعداد قائمة بشارات المستخدم.
               assign_badge_to_user: تعيين شارة للمستخدم.
               revoke_badge_from_user: إلغاء شارة من المستخدم.
+<<<<<<< HEAD
             groups:
               manage_groups: إدراج وإضافة وإزالة أعضاء المجموعة.
               administer_groups: إدراج المجموعات وعرضها وإنشاؤها وتحديثها وحذفها
             search:
               show: البحث باستخدام نقطة النهاية `/search.json?q=term`.
               query: البحث باستخدام نقطة النهاية `/search/query?term=term`.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             wordpress:
               publishing: ضروري لميزات النشر في المكوِّن الإضافي WP Discourse (مطلوب).
               commenting: ضروري لميزات التعليق في المكوِّن الإضافي WP Discourse.
@@ -5492,10 +5744,13 @@ ar:
         howto: "كيف يمكنني تثبيت الإضافات؟"
         official: "المكوِّن الإضافي الرسمي"
         broken_route: "تتعذَّر تهيئة الرابط إلى \"%{name}\". تأكَّد من إيقاف كل أدوات حجب الإعلانات وحاول إعادة تحميل الصفحة."
+<<<<<<< HEAD
       navigation_menu:
         sidebar: "الشريط الجانبي"
         header_dropdown: "القائمة المنسدلة للرأس"
         legacy: "القائمة القديمة"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "النسخ الاحتياطية"
         menu:
@@ -6674,7 +6929,11 @@ ar:
           search: "البحث"
           groups: "المجموعات"
           dashboard: "لوحة المعلومات"
+<<<<<<< HEAD
           navigation: "التنقل"
+=======
+          sidebar: "الشريط الجانبي"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "لا يمكن ترك حقول الإدخال فارغة أو أن تتضمَّن شريطًا عموديًا."
         default_categories:
@@ -6785,7 +7044,11 @@ ar:
         help: "ستكون إضافة رمز تعبيري جديد متاحة للجميع. اسحب وأفلت عدة ملفات في وقتٍ واحد دون إدخال اسم لإنشاء رموز تعبيرية باستخدام أسماء الملفات الخاصة بها. ستُستخدَم المجموعة المحدَّدة لجميع الملفات التي تتم إضافتها في الوقت نفسه. يمكنك أيضًا النقر على \"إضافة رمز تعبيري جديد\" لفتح منتقي الملفات."
         add: "إضافة رمز تعبيري جديد"
         choose_files: "اختيار الملفات"
+<<<<<<< HEAD
         uploading: "جارٍ الرفع…"
+=======
+        uploading: "جارٍ التحميل..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         name: "الاسم"
         group: "المجموعة"
         image: "الصورة"
@@ -6794,12 +7057,16 @@ ar:
       embedding:
         get_started: "إذا كنت تريد تضمين Discourse في موقع آخر، فابدأ بإضافة مضيفه."
         confirm_delete: "هل تريد بالتأكيد حذف هذا المضيف؟"
+<<<<<<< HEAD
         sample: |
           <p>الصق رمز HTML البرمجي التالي في موقعك لإنشاء الموضوعات على Discourse وتضمينها. استبدل <b> EMBED_URL </b> بعنوان URL الأساسي للصفحة التي تقوم بتضمين الرمز البرمجي عليها.</p>
 
           <p> إذا كنت ترغب في تخصيص النمط، فقم بإلغاء التعليق واستبدال <b>CLASS_NAME</b> بفئة CSS المحدَّدة في <i>Embedded CSS</i> لسمتك.</p>
 
           <p>استبدل <b>DISCOURSE_USERNAME</b> باسم مستخدم Discourse للمؤلف المفترض أن ينشئ الموضوع. سيبحث Discourse تلقائيًا عن المستخدم من خلال سمة <code>content</code> للعلامات <code>&lt;meta&gt;</code> مع تعيين سمة <code>name</code> إلى <code>discourse-username</code> أو <code>author</code>. تم إيقاف المعلمة <code>discourseUserName</code> وستتم إزالتها في Discourse 3.2.</p>
+=======
+        sample: "الصق رمز HTML التالي في موقعك لإنشاء موضوعات Discourse وتضمينها. استبدل <b>REPLACE_ME</b> بعنوان URL الأساسي للصفحة التي تضمِّنه فيها."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "التضمين"
         host: "المضيفون المسموح بهم"
         allowed_paths: "قائمة السماح بالمسارات"
@@ -6854,7 +7121,11 @@ ar:
       finish: "الخروج من الإعداد"
       back: "الرجوع"
       next: "التالي"
+<<<<<<< HEAD
       configure_more: "تضبيط المزيد…"
+=======
+      configure_more: "إعداد المزيد..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       step-text: "الخطوة"
       step: "%{current} من %{total}"
       upload: "تحميل ملف"

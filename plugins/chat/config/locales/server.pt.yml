@@ -5,6 +5,7 @@
 # https://translate.discourse.org/
 
 pt:
+<<<<<<< HEAD
   site_settings:
     chat_allowed_groups: "Os usuários desses grupos podem bater papo. Observe que a equipe sempre pode acessar o chat."
     chat_channel_retention_days: "As mensagens de bate-papo em canais regulares serão retidas por essa quantidade de dias. Defina como '0' para reter as mensagens para sempre."
@@ -46,6 +47,8 @@ pt:
           %{topic_validation_errors}
 
         Visite o canal em %{channel_url} para tentar de novo.
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chat:
     deleted_chat_username: eliminado
     errors:
@@ -58,11 +61,20 @@ pt:
           title: "Silenciar Usuário"
         disagree:
           title: "Discordar"
+<<<<<<< HEAD
     channel:
       dm_title:
         single_user: "%{username}"
     mention_warning:
       dismiss: "marcar Visto"
+=======
+        ignore:
+          title: "Ignorar"
+    channel:
+      statuses:
+        closed: "Fechado"
+        open: "Abrir"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   discourse_push_notifications:
     popup:
       chat_mention:

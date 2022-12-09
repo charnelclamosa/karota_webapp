@@ -31,6 +31,7 @@ class UserBadgesController < ApplicationController
     user_badges = user_badges.offset(offset) if offset > 0
 
     user_badges_topic_ids = user_badges.map { |user_badge| user_badge.post&.topic_id }.compact
+<<<<<<< HEAD
 
     user_badges =
       UserBadges.new(
@@ -39,12 +40,23 @@ class UserBadgesController < ApplicationController
         grant_count: grant_count,
       )
 
+=======
+
+    user_badges = UserBadges.new(user_badges: user_badges,
+                                 username: params[:username],
+                                 grant_count: grant_count)
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     render_serialized(
       user_badges,
       UserBadgesSerializer,
       root: :user_badge_info,
       include_long_description: true,
+<<<<<<< HEAD
       allowed_user_badge_topic_ids: guardian.can_see_topic_ids(topic_ids: user_badges_topic_ids),
+=======
+      allowed_user_badge_topic_ids: guardian.can_see_topic_ids(topic_ids: user_badges_topic_ids)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 
@@ -66,6 +78,8 @@ class UserBadgesController < ApplicationController
         .includes(badge: %i[badge_grouping badge_type image_upload])
         .includes(post: :topic)
         .includes(:granted_by)
+
+    user_badges_topic_ids = user_badges.map { |user_badge| user_badge.post&.topic_id }.compact
 
     user_badges_topic_ids = user_badges.map { |user_badge| user_badge.post&.topic_id }.compact
 

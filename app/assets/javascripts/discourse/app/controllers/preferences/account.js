@@ -168,7 +168,10 @@ export default Controller.extend(CanCheckEmails, {
     this.modal.show(UserStatusModal, {
       model: {
         status,
+<<<<<<< HEAD
         hidePauseNotifications: true,
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         saveAction: (s) => this.set("newStatus", s),
         deleteAction: () => this.set("newStatus", null),
       },

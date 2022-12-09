@@ -429,8 +429,11 @@ html.composer-open {
   width: 300px;
   background-color: var(--secondary);
   border: 1px solid var(--primary-low);
+<<<<<<< HEAD
   box-shadow: var(--shadow-dropdown);
   border-radius: 8px;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   ul {
     list-style: none;
@@ -438,6 +441,7 @@ html.composer-open {
     margin: 0;
 
     li {
+<<<<<<< HEAD
       &:first-of-type a {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
@@ -453,6 +457,18 @@ html.composer-open {
         display: flex;
         gap: 0.25em;
         padding: 0.3em 1em;
+=======
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--primary-low);
+      }
+
+      a {
+        @include ellipsis;
+        align-items: center;
+        color: var(--primary-high);
+        display: flex;
+        padding: 5px;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         @include hover {
           background-color: var(--d-hover);
@@ -460,6 +476,7 @@ html.composer-open {
         }
 
         &.selected {
+<<<<<<< HEAD
           background-color: var(--d-selected);
 
           .username,
@@ -489,6 +506,21 @@ html.composer-open {
             font-size: var(--font-down-2);
             color: var(--primary-high);
             margin: 0;
+=======
+          background-color: var(--tertiary-low);
+        }
+
+        span {
+          margin-left: 5px;
+
+          &.username {
+            color: var(--primary);
+            margin-right: 5px;
+          }
+
+          &.name {
+            font-size: var(--font-down-1);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }
         }
 
@@ -501,6 +533,7 @@ html.composer-open {
         color: var(--primary-medium);
         padding: 0 2px;
       }
+<<<<<<< HEAD
     }
   }
 
@@ -520,6 +553,8 @@ html.composer-open {
     }
     .emoji {
       margin-right: 0.25em;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 }

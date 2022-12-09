@@ -11,7 +11,13 @@ class EmailController < ApplicationController
     @key_owner_found = key&.user.present?
 
     if @found && @key_owner_found
+<<<<<<< HEAD
       UnsubscribeKey.get_unsubscribe_strategy_for(key)&.prepare_unsubscribe_options(self)
+=======
+      UnsubscribeKey
+        .get_unsubscribe_strategy_for(key)
+        &.prepare_unsubscribe_options(self)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       if current_user.present? && (@user != current_user)
         @different_user = @user.name

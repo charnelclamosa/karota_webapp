@@ -3,7 +3,11 @@
 RSpec.describe FileStore::BaseStore do
   fab!(:upload) do
     Upload.delete(9999) # In case of any collisions
+<<<<<<< HEAD
     Fabricate(:upload, id: 9999, sha1: Digest::SHA1.hexdigest("9999"))
+=======
+    Fabricate(:upload, id: 9999, sha1: Digest::SHA1.hexdigest('9999'))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   describe "#get_path_for_upload" do

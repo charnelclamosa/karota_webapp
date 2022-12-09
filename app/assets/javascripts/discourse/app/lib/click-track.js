@@ -5,6 +5,10 @@ import User from "discourse/models/user";
 import { ajax } from "discourse/lib/ajax";
 import getURL, { samePrefix } from "discourse-common/lib/get-url";
 import { isTesting } from "discourse-common/config/environment";
+<<<<<<< HEAD
+=======
+import { selectedText } from "discourse/lib/utilities";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { wantsNewWindow } from "discourse/lib/intercept-click";
 import deprecated from "discourse-common/lib/deprecated";
 import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
@@ -46,7 +50,11 @@ export function isValidLink(link) {
   return (
     link.classList.contains("track-link") ||
     !link.closest(
+<<<<<<< HEAD
       ".hashtag, .hashtag-cooked, .hashtag-icon-placeholder, .badge-category, .onebox-result, .onebox-body"
+=======
+      ".hashtag, .hashtag-cooked, .badge-category, .onebox-result, .onebox-body"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   );
 }

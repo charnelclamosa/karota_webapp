@@ -4,6 +4,7 @@ RSpec.describe Admin::StaffActionLogsController do
   fab!(:admin) { Fabricate(:admin) }
   fab!(:moderator) { Fabricate(:moderator) }
   fab!(:user) { Fabricate(:user) }
+<<<<<<< HEAD
 
   describe "#index" do
     shared_examples "staff action logs accessible" do
@@ -15,6 +16,16 @@ RSpec.describe Admin::StaffActionLogsController do
             params: {
               action_id: UserHistory.actions[:delete_topic],
             }
+=======
+
+  describe '#index' do
+    shared_examples "staff action logs accessible" do
+      it 'returns logs' do
+        topic = Fabricate(:topic)
+        StaffActionLogger.new(Discourse.system_user).log_topic_delete_recover(topic, "delete_topic")
+
+        get "/admin/logs/staff_action_logs.json", params: { action_id: UserHistory.actions[:delete_topic] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         json = response.parsed_body
         expect(response.status).to eq(200)
@@ -23,6 +34,7 @@ RSpec.describe Admin::StaffActionLogsController do
         expect(json["staff_action_logs"][0]["action_name"]).to eq("delete_topic")
 
         expect(json["extras"]["user_history_actions"]).to include(
+<<<<<<< HEAD
           "id" => "delete_topic",
           "action_id" => UserHistory.actions[:delete_topic],
         )
@@ -33,6 +45,11 @@ RSpec.describe Admin::StaffActionLogsController do
                          "/admin/logs/staff_action_logs.json",
                          described_class::INDEX_LIMIT
       end
+=======
+          "id" => 'delete_topic', "action_id" => UserHistory.actions[:delete_topic]
+        )
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     context "when logged in as an admin" do
@@ -40,6 +57,7 @@ RSpec.describe Admin::StaffActionLogsController do
 
       include_examples "staff action logs accessible"
 
+<<<<<<< HEAD
       it "generates logs with pages" do
         1
           .upto(4)
@@ -50,6 +68,12 @@ RSpec.describe Admin::StaffActionLogsController do
               "value #{idx}",
             )
           end
+=======
+      it 'generates logs with pages' do
+        1.upto(4).each do |idx|
+          StaffActionLogger.new(Discourse.system_user).log_site_setting_change("title", "value #{idx - 1}", "value #{idx}")
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/admin/logs/staff_action_logs.json", params: { limit: 3 }
 
@@ -66,11 +90,16 @@ RSpec.describe Admin::StaffActionLogsController do
         expect(json["staff_action_logs"][0]["new_value"]).to eq("value 1")
       end
 
+<<<<<<< HEAD
       context "when staff actions are extended" do
+=======
+      context 'when staff actions are extended' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         let(:plugin_extended_action) { :confirmed_ham }
         before { UserHistory.stubs(:staff_actions).returns([plugin_extended_action]) }
         after { UserHistory.unstub(:staff_actions) }
 
+<<<<<<< HEAD
         it "Uses the custom_staff id" do
           get "/admin/logs/staff_action_logs.json", params: {}
 
@@ -79,6 +108,16 @@ RSpec.describe Admin::StaffActionLogsController do
 
           expect(action["id"]).to eq plugin_extended_action.to_s
           expect(action["action_id"]).to eq UserHistory.actions[:custom_staff]
+=======
+        it 'Uses the custom_staff id' do
+          get "/admin/logs/staff_action_logs.json", params: {}
+
+          json = response.parsed_body
+          action = json['extras']['user_history_actions'].first
+
+          expect(action['id']).to eq plugin_extended_action.to_s
+          expect(action['action_id']).to eq UserHistory.actions[:custom_staff]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -90,6 +129,7 @@ RSpec.describe Admin::StaffActionLogsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
 
       it "denies access with a 404 response" do
@@ -97,6 +137,12 @@ RSpec.describe Admin::StaffActionLogsController do
             params: {
               action_id: UserHistory.actions[:delete_topic],
             }
+=======
+      before  { sign_in(user) }
+
+      it "denies access with a 404 response" do
+        get "/admin/logs/staff_action_logs.json", params: { action_id: UserHistory.actions[:delete_topic] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -104,6 +150,7 @@ RSpec.describe Admin::StaffActionLogsController do
     end
   end
 
+<<<<<<< HEAD
   describe "#diff" do
     shared_examples "theme diffs accessible" do
       it "generates diffs for theme changes" do
@@ -117,6 +164,21 @@ RSpec.describe Admin::StaffActionLogsController do
         theme.set_field(target: :mobile, name: :scss, value: "body {.down}")
 
         record = StaffActionLogger.new(Discourse.system_user).log_theme_change(original_json, theme)
+=======
+  describe '#diff' do
+    shared_examples "theme diffs accessible" do
+      it 'generates diffs for theme changes' do
+        theme = Fabricate(:theme)
+        theme.set_field(target: :mobile, name: :scss, value: 'body {.up}')
+        theme.set_field(target: :common, name: :scss, value: 'omit-dupe')
+
+        original_json = ThemeSerializer.new(theme, root: false).to_json
+
+        theme.set_field(target: :mobile, name: :scss, value: 'body {.down}')
+
+        record = StaffActionLogger.new(Discourse.system_user)
+          .log_theme_change(original_json, theme)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/admin/logs/staff_action_logs/#{record.id}/diff.json"
         expect(response.status).to eq(200)
@@ -134,7 +196,11 @@ RSpec.describe Admin::StaffActionLogsController do
 
       include_examples "theme diffs accessible"
 
+<<<<<<< HEAD
       it "is not erroring when current value is empty" do
+=======
+      it 'is not erroring when current value is empty' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         theme = Fabricate(:theme)
         StaffActionLogger.new(admin).log_theme_destroy(theme)
         get "/admin/logs/staff_action_logs/#{UserHistory.last.id}/diff.json"
@@ -149,7 +215,11 @@ RSpec.describe Admin::StaffActionLogsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         theme = Fabricate(:theme)

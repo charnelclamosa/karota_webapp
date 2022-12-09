@@ -1,7 +1,11 @@
 import { module, test } from "qunit";
+<<<<<<< HEAD
 import { setupTest } from "ember-qunit";
 import LinkLookup from "discourse/lib/link-lookup";
 import { getOwner } from "@ember/application";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Utility | link-lookup", function (hooks) {
   setupTest(hooks);

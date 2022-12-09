@@ -9,12 +9,21 @@ RSpec.describe "groups" do
     sign_in(admin)
   end
 
+<<<<<<< HEAD
   path "/admin/groups.json" do
     post "Create a group" do
       tags "Groups"
       operationId "createGroup"
       consumes "application/json"
       expected_request_schema = load_spec_schema("group_create_request")
+=======
+  path '/admin/groups.json' do
+    post 'Create a group' do
+      tags 'Groups'
+      operationId 'createGroup'
+      consumes 'application/json'
+      expected_request_schema = load_spec_schema('group_create_request')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       parameter name: :params, in: :body, schema: expected_request_schema
 
       produces "application/json"

@@ -177,6 +177,13 @@ def spec(plugin, parallel: false, argv: nil)
   files =
     Dir.glob("./plugins/#{plugin}/spec/**/*_spec.rb").reject { |f| f.include?("spec/system/") }.sort
 
+<<<<<<< HEAD
+=======
+  ruby = `which ruby`.strip
+  # reject system specs as they are slow and need dedicated setup
+  files =
+    Dir.glob("./plugins/#{plugin}/spec/**/*_spec.rb").reject { |f| f.include?("spec/system/") }.sort
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   if files.length > 0
     cmd = parallel ? "bin/turbo_rspec" : "bin/rspec"
 

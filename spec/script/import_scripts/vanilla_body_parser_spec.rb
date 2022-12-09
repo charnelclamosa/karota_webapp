@@ -7,6 +7,7 @@ require_relative "../../../script/import_scripts/base/uploader"
 RSpec.describe VanillaBodyParser do
   let(:lookup) { ImportScripts::LookupContainer.new }
   let(:uploader) { ImportScripts::Uploader.new }
+<<<<<<< HEAD
   let(:uploads_path) { "spec/fixtures/images/vanilla_import" }
   let(:user) do
     Fabricate(
@@ -16,6 +17,10 @@ RSpec.describe VanillaBodyParser do
       username: "saruman_multicolor",
     )
   end
+=======
+  let(:uploads_path) { 'spec/fixtures/images/vanilla_import' }
+  let(:user) { Fabricate(:user, email: 'saruman@maiar.org', name: 'Saruman, Multicolor', username: 'saruman_multicolor') }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let(:user_id) { lookup.add_user(user.id.to_s, user) }
 
   before do
@@ -100,6 +105,7 @@ this starts with spaces but IS NOT a quote" \
       expect(parsed).to eq "@Gandalf The Grey, what do you think?"
     end
 
+<<<<<<< HEAD
     it "supports mentions imported users" do
       mentioned =
         Fabricate(
@@ -113,6 +119,14 @@ this starts with spaces but IS NOT a quote" \
 
       body = rich_bodies[:mention].to_json.gsub("999999999", mentioned.id.to_s)
       parsed = VanillaBodyParser.new({ "Format" => "Rich", "Body" => body }, user_id).parse
+=======
+    it 'supports mentions imported users' do
+      mentioned = Fabricate(:user, email: 'gandalf@maiar.com', name: 'Gandalf The Grey', username: 'gandalf_the_grey')
+      lookup.add_user(mentioned.id.to_s, mentioned)
+
+      body = rich_bodies[:mention].to_json.gsub("666", mentioned.id.to_s)
+      parsed = VanillaBodyParser.new({ 'Format' => 'Rich', 'Body' => body }, user_id).parse
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(parsed).to eq "@gandalf_the_grey, what do you think?"
     end
 
@@ -152,10 +166,15 @@ this starts with spaces but IS NOT a quote" \
       lookup.add_post("discussion#12345", post)
 
       body = rich_bodies[:quote].to_json.gsub("34567", user.id.to_s)
+<<<<<<< HEAD
       parsed = VanillaBodyParser.new({ "Format" => "Rich", "Body" => body }, user_id).parse
       expect(
         parsed,
       ).to eq "[quote=\"#{user.username}, post: #{post.post_number}, topic: #{post.topic.id}\"]\n\nThis is the full<br \/>body<br \/>of the quoted discussion.<br \/>\n\n[/quote]\n\nWhen did this happen?"
+=======
+      parsed = VanillaBodyParser.new({ 'Format' => 'Rich', 'Body' => body }, user_id).parse
+      expect(parsed).to eq "[quote=\"#{user.username}, post: #{post.post_number}, topic: #{post.topic.id}\"]\n\nThis is the full<br \/>body<br \/>of the quoted discussion.<br \/>\n\n[/quote]\n\nWhen did this happen?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "supports uploaded images" do

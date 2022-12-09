@@ -457,6 +457,7 @@ RSpec.describe TopicView do
 
     describe "#bookmarks" do
       let!(:user) { Fabricate(:user) }
+<<<<<<< HEAD
       let!(:bookmark1) do
         Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.first_post, user: user)
       end
@@ -467,6 +468,10 @@ RSpec.describe TopicView do
           user: user,
         )
       end
+=======
+      let!(:bookmark1) { Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.first_post, user: user) }
+      let!(:bookmark2) { Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.posts.order(:post_number)[1], user: user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "gets the first post bookmark reminder at for the user" do
         topic_view = TopicView.new(topic.id, user)

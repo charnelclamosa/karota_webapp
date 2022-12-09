@@ -717,7 +717,10 @@ he:
       disallowed_tags_generic: "לנושא זה יש תגיות אסורות."
       slug_contains_non_ascii_chars: "מכיל תווים שאינם בתחום ASCII"
       is_already_in_use: "כבר בשימוש"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "אין לך אפשרות להעביר את הנושא הזה לקטגוריה שאין לך הרשאה ליצור בה נושאים חדשים."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "קטגוריה זו נחשבת למיוחדת. היא מיועדת לשימוש כמתחם לנושאים מחוסרי קטגוריה, אין אפשרות למחוק אותה."
       has_subcategories: "לא ניתן להסיר קטגוריה זו משום שיש בה תת־קטגוריות."
@@ -896,6 +899,13 @@ he:
         other: "לפני %{count} שנים כמעט"
   password_reset:
     no_token: 'אוי ויי! הקישור בו השתמשת לא פעיל עוד. אפשר <a href="%{base_url}/login">להיכנס</a> כעת. אם שכחת את הסיסמה שלך, אפשר <a href="%{base_url}/password-reset">לבקש קישור</a> כדי לאפס אותה.'
+<<<<<<< HEAD
+=======
+    choose_new: "נא לבחור בסיסמה חדשה"
+    choose: "בחירת סיסמה"
+    update: "עדכון סיסמה"
+    save: "הגדרת סיסמה"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "איפוס סיסמה"
     success: "החלפת את הסיסמה בהצלחה וכעת נכנסת לאתר."
     success_unapproved: "החלפת את הסיסמה בהצלחה."
@@ -1094,7 +1104,11 @@ he:
     mailing_list_mode: "כבו את מצב ״רשימת תפוצה״"
     all: "לא לשלוח לי הודעות דוא״ל מאת %{sitename}"
     different_user_description: "נכנסת כמשתמש אחר מזה שאליו נשלחה הודעת דוא״ל. נא להתנתק או לעבור למצב אלמוני ולנסות שוב."
+<<<<<<< HEAD
     not_found_description: "לא הצלחנו למצוא את המינוי הזה, עמך הסליחה. יכול להיות שהקישור בהודעה שקיבלת ישן מדי או שתוקפו פג?"
+=======
+    not_found_description: לא הצלחנו למצוא את המינוי הזה, עמך הסליחה. יכול להיות שהקישור בהודעה שקיבלת ישן מדי או שתוקפו פג?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     user_not_found_description: "לא הצלחנו למצוא משתמש למינוי הזה, עמך הסליחה. כנראה שניסית לבטל את המינוי לחשבון שלא קיים עוד."
     log_out: "התנתקות"
     submit: "שמירת העדפות"
@@ -2166,6 +2180,10 @@ he:
     delete_merged_stub_topics_after_days: "מספר הימים להמתנה לפני מחיקה אוטומטית של נושאים מקוצרים שמוזגו במלואם. יש להגדיר ל־0 כדי לא למחוק נושאים מקוצרים לעולם."
     bootstrap_mode_min_users: "מספר משתמשים מזערי שנדרש כדי להשבית מצב ראשוניות (0 להשבתה, יכול לארוך עד 24 שעות)"
     prevent_anons_from_downloading_files: "למנוע ממשתמשים אלמוניים להוריד קבצים מצורפים."
+<<<<<<< HEAD
+=======
+    secure_media: "יצא מכלל שימוש: נא להשתמש בהגדרה secure_uploads במקום, יוסר ב־Discourse 3.0."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     secure_uploads: 'מגביל גישה לכל ההעלאות (תמונות, סרטונים, שמע, טקסט, קובצי PDF, ארכיוני zip ועוד). אם מופעלת האפשרות „דרישת כניסה”, רק משתמשים שנכנסו למערכת יכולים לגשת להעלאות. אחרת, הגישה תוגבל רק להעלאות מסוגי מדיה בהודעות פרטיות ובקטגוריות פרטיות. אזהרה: מדובר בהגדרה מסובכת שדורשת הבנה עמוקה בניהול המערכת. יש לעיין ב<a target="_blank" href="https://meta.discourse.org/t/-/140017">נושא ההעלאות המאובטחות ב־Meta</a> לקבלת פרטים נוספים.'
     secure_uploads_allow_embed_images_in_emails: "מאפשר להטמיע תמונות מאובטחות שבדרך כלל יידחסו אם הגודל שלהן קטן מההגדרה ‚secure uploads max email embed image size kb’ (גודל העלאות מרבי להטמעה כתמונה בקילובתים)."
     secure_uploads_max_email_embed_image_size_kb: "גודל החיתוך לתמונות מאובטחות שיוטמעו בהודעות דוא״ל אם ההגדרה ‚secure uploads allow embed in emails’ (לאפשר הטמעת העלאות מאובטחת בהודעות דוא״ל) פעילה. אם ההגדרה הזאת אינה פעילה להגדרה זו אין שום משמעות."
@@ -2278,7 +2296,11 @@ he:
     enable_sitemap: "ליצור מפת אתר עבור האתר שלך ולכלול אותה בקובץ robots.txt."
     sitemap_page_size: "מספר הכתובות שיתווספו בכל עמוד של מפת אתר. 50,000 לכל היותר"
     enable_user_status: "(ניסיוני) לאפשר למשתמשים להגדיר הודעת מצב מותאמת אישית (אמוג׳י + תיאור)."
+<<<<<<< HEAD
     enable_user_tips: "לאפשר עצות למשתמשים חדשים שמתארים יכולות מפתח למשתמשים"
+=======
+    enable_user_tips: "(ניסיוני) לאפשר למשתמשים חדשים שמתארים יכולות מפתח למשתמשים"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     short_title: "בכותרת הקצרה ייעשה שימוש במסך הבית של המשתמש, במשגר או במקומות אחרים שבהם המקום מוגבל. אורכה לא יעלה על 12 תווים."
     dashboard_hidden_reports: "לאפשר להסתיר את הדוחות המסוימים בלוח הבקרה."
     dashboard_visible_tabs: "נא לבחור אילו לשוניות תופענה בלוח הבקרה."
@@ -2294,6 +2316,7 @@ he:
     use_name_for_username_suggestions: "להשתמש בשם המלא של המשתמש בעת הצעת שמות משתמשים."
     suggest_weekends_in_date_pickers: "לכלול סופי שבוע (שישי ושבת) בהצעות לבוחר התאריכים (כדאי להשבית זאת אם יוצא לך להשתמש ב־Discourse רק בימי חול, ראשון עד חמישי)."
     splash_screen: "מציג מסך טעינה בזמן שהמשאבים נטענים"
+<<<<<<< HEAD
     navigation_menu: "קביעת תפריט הניווט לשימוש. המשתמשים יכולים להתאים את הניווט מסרגל הצד והכותרת. האפשרות הישנה זמינה לטובת תאימות לאחור."
     default_navigation_menu_categories: "הקטגוריות הנבחרות תוצגנה תחת סעיף הקטגוריות של תפריט הניווט כברירת מחדל."
     default_navigation_menu_tags: "התגיות הנבחרות תוצגנה תחת סעיף התגיות של תפריט הניווט כברירת מחדל."
@@ -2305,6 +2328,12 @@ he:
     enable_experimental_lightbox: "ניסיוני: להחליף את התיבה הקלילה לתמונות כברירת מחדל לעיצוב המשופר."
     experimental_form_templates: "ניסיוני: יש להפעיל את יכולת תבניות הטפסים. <b>לאחר ההפעלה,</b> אפשר לנהל את התבניות דרך <a href='%{base_path}/admin/customize/form-templates'>התאמה / תבניות</a>."
     page_loading_indicator: "הגדרת מחוון הטעינה שמופיע במהלך ניווט בין עמודים ב־Discourse. ‚שבשבת’ הוא מחוון עמוד מלא. ‚מד התקדמות’ מציג סרגל צר בראש המסך."
+=======
+    default_sidebar_categories: "הקטגוריות הנבחרות תוצגנה תחת סעיף הקטגוריות של סרגל הצד כברירת מחדל."
+    default_sidebar_tags: "התגיות הנבחרות תוצגנה תחת סעיף התגיות של סרגל הצד כברירת מחדל."
+    enable_new_user_profile_nav_groups: "ניסיוני: משתמשים בקבוצות שנבחרו יופיעו בתפריט הניווט החדש של פרופיל המשתמש"
+    enable_experimental_topic_timeline_groups: "ניסיוני: בפני המשתמשים בקבוצות שנבחרו יופיע ציר הזמן המחודש של הנושא"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       invalid_css_color: "צבע שגוי. נא למלא את שם הצבע או ערך הקסדצימלי."
       invalid_email: "כתובת דוא״ל שגויה."
@@ -2330,7 +2359,11 @@ he:
       pop3_polling_password_is_empty: "עליכם לקבוע 'סיסמת תשאול pop3' לפני שתאפשרו תשאול POP3."
       pop3_polling_authentication_failed: "אימות POP3 נכשל. נא לאמת את פרטי הגישה שלך ל־pop3."
       reply_by_email_address_is_empty: "חובה להגדיר ‚מענה לפי כתובת דוא״ל’ בטרם הפעלת תגובה בדוא״ל."
+<<<<<<< HEAD
       email_polling_disabled: "צריך להפעיל תשאול ידני או POP3 או שיש לך דוגם דוא״ל פעיל משלך בטרם הפעלת תשובה בדוא״ל."
+=======
+      email_polling_disabled: "יש לאפשר תשאול ידני או דרך POP3 בטרם הפעלת תגובה דרך דוא״ל."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_locale_not_enabled: "לפני שתוכלו להפעיל אפשרות זאת, יש לאפשר \"הגדרות מקומיות מותאמות משתמש/ת\""
       personal_message_enabled_groups_invalid: "עליך לציין לפחות קבוצה אחת להגדרה זו. כדי למנוע מכולם לשלוח הודעות פרטיות למעט הסגל יש לבחור בקבוצת הסגל."
       invalid_regex: "ביטוי רגולרי לא תקין או לא מותר."
@@ -2360,8 +2393,12 @@ he:
       search_tokenize_japanese_enabled: "עליך להשבית את ‚search_tokenize_japanese’ (חיפוש מפרק יפנית) בטרם הפעלת הגדרה זו."
       discourse_connect_cannot_be_enabled_if_second_factor_enforced: "אי אפשר להפעיל את DiscourseConnect אם נאכף אימות דו־שלבי."
       delete_rejected_email_after_days: "הגדרה זו לא יכולה להיות קטנה מ־delete_email_logs_after_days (ימים שלאחריהם למחוק יומני דוא״ל) או גדולה מ־%{max}"
+<<<<<<< HEAD
       invalid_uncategorized_category_setting: 'אי אפשר לבחור בקטגוריה „ללא קטגוריה” אם ‚הרשאת נושאים ללא קטגוריה’ אסורה.'
       invalid_search_ranking_weights: "הערך שגוי להגדרת האתר search_ranking_weights (משקלי דירוג חיפוש). למשל: ‚{0.1,0.2,0.3,1.0}’. נא לשים לב שהערך המרבי לכל משקל הוא 1.0."
+=======
+      invalid_uncategorized_category_setting: "אי אפשר לבחור בקטגוריה שאינה בין הקטגוריות אם הרשאת נושאים שאינם בקטגוריה אסורה"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     placeholder:
       discourse_connect_provider_secrets:
         key: "www.example.com"
@@ -4754,7 +4791,11 @@ he:
             description: "גודל מומלץ: ‎600 × 200"
           logo_small:
             label: "לוגו ריבועי"
+<<<<<<< HEAD
             description: "גודל מומלץ: 512 × 512. משמש גם כסמל המועדפים (favicon) וסמל יישומון מסך בית בנייד."
+=======
+            description: "גרסה ריבועית של הלוגו שלך. מופיע בפינה הימנית העליונה בעת גלילה כלפי מטה ובעת שיתוף ברשתות חברתיות. מומלץ שיהיה גדול מ־512×512."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         title: "הארגון שלך"
         description: "המידע הבא ישמש בדפי התנאים וההגבלות והמידע עליך. אפשר לדלג אם לא מדובר בחברה."
@@ -4978,6 +5019,7 @@ he:
     payload_url:
       blocked_or_internal: "לא ניתן להשתמש בכתובת המטען כי היא תואמת ל־IP חסום או פנימי"
       unsafe: "לא ניתן להשתמש בכתובת המטען כיוון שהיא לא מאובטחת"
+<<<<<<< HEAD
   form_templates:
     errors:
       invalid_yaml: "איזה מחרוזת YAML תקנית"
@@ -4986,6 +5028,8 @@ he:
       missing_id: "חסר מזהה שדה"
       duplicate_ids: "יש מזהים כפולים"
       reserved_id: "יש מילת מפתח שמורה בתור מזהה: %{id}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   activemodel:
     errors:
       <<: *errors

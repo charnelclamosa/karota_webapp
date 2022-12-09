@@ -1,4 +1,5 @@
 import DiscourseRoute from "discourse/routes/discourse";
+<<<<<<< HEAD
 import { inject as service } from "@ember/service";
 
 export default class ChatChannelInfoMembersRoute extends DiscourseRoute {
@@ -11,6 +12,13 @@ export default class ChatChannelInfoMembersRoute extends DiscourseRoute {
 
     if (model.membershipsCount < 1) {
       return this.router.replaceWith("chat.channel.info");
+=======
+
+export default class ChatChannelInfoMembersRoute extends DiscourseRoute {
+  afterModel(model) {
+    if (!model.chatChannel.isOpen) {
+      this.replaceWith("chat.channel.info.settings");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 }

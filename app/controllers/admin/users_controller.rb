@@ -45,7 +45,13 @@ class Admin::UsersController < Admin::StaffController
     @user = User.find_by(id: params[:id])
     raise Discourse::NotFound unless @user
 
+<<<<<<< HEAD
     similar_users = User.real.where.not(id: @user.id).where(ip_address: @user.ip_address)
+=======
+    similar_users = User.real
+      .where.not(id: @user.id)
+      .where(ip_address: @user.ip_address)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     render_serialized(
       @user,
@@ -143,6 +149,7 @@ class Admin::UsersController < Admin::StaffController
       User.transaction do
         user.save!
 
+<<<<<<< HEAD
         user_history =
           StaffActionLogger.new(current_user).log_user_suspend(
             user,
@@ -150,6 +157,14 @@ class Admin::UsersController < Admin::StaffController
             message: message,
             post_id: params[:post_id],
           )
+=======
+        user_history = StaffActionLogger.new(current_user).log_user_suspend(
+          user,
+          params[:reason],
+          message: message,
+          post_id: params[:post_id]
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
       user.logged_out
 
@@ -158,7 +173,11 @@ class Admin::UsersController < Admin::StaffController
           :critical_user_email,
           type: "account_suspended",
           user_id: user.id,
+<<<<<<< HEAD
           user_history_id: user_history.id,
+=======
+          user_history_id: user_history.id
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
 
@@ -170,7 +189,11 @@ class Admin::UsersController < Admin::StaffController
         user_history: user_history,
         post_id: params[:post_id],
         suspended_till: params[:suspend_until],
+<<<<<<< HEAD
         suspended_at: DateTime.now,
+=======
+        suspended_at: DateTime.now
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
@@ -272,7 +295,13 @@ class Admin::UsersController < Admin::StaffController
       if group = Group.find(primary_group_id)
         guardian.ensure_can_change_primary_group!(@user, group)
 
+<<<<<<< HEAD
         @user.primary_group_id = primary_group_id if group.user_ids.include?(@user.id)
+=======
+        if group.user_ids.include?(@user.id)
+          @user.primary_group_id = primary_group_id
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     else
       @user.primary_group_id = nil
@@ -386,6 +415,7 @@ class Admin::UsersController < Admin::StaffController
     user_history = nil
 
     all_users.each do |user|
+<<<<<<< HEAD
       silencer =
         UserSilencer.new(
           user,
@@ -396,6 +426,17 @@ class Admin::UsersController < Admin::StaffController
           keep_posts: true,
           post_id: params[:post_id],
         )
+=======
+      silencer = UserSilencer.new(
+        user,
+        current_user,
+        silenced_till: params[:silenced_till],
+        reason: params[:reason],
+        message_body: params[:message],
+        keep_posts: true,
+        post_id: params[:post_id]
+      )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       if silencer.silence
         user_history = silencer.user_history
@@ -403,7 +444,11 @@ class Admin::UsersController < Admin::StaffController
           :critical_user_email,
           type: "account_silenced",
           user_id: user.id,
+<<<<<<< HEAD
           user_history_id: user_history.id,
+=======
+          user_history_id: user_history.id
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
     end

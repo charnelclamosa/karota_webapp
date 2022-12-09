@@ -383,6 +383,13 @@ et:
         one: "peaaegu %{count} aasta tagasi"
         other: "peaaegu %{count} aastat tagasi"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Vali uus parool"
+    choose: "Vali parool"
+    update: "Uuenda parooli"
+    save: "Määra Parool"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Uuenda Parool"
     success: "Sinu parooli muutmine õnnestus ja oled nüüd sisse logitud."
     success_unapproved: "Sinu parooli muutmine õnnestus."
@@ -1018,6 +1025,13 @@ et:
                 label: "Foorumid esiletõstetud teemadega"
               categories_and_latest_topics:
                 label: "Foorumid ja viimased teemad"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Peamine logo"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:

@@ -31,7 +31,11 @@ export default class DiscoveryRoute extends DiscourseRoute {
       User.currentProp("user_option.should_be_redirected_to_top", false);
       const period =
         User.currentProp("user_option.redirected_to_top.period") || "all";
+<<<<<<< HEAD
       this.router.replaceWith("discovery.top", {
+=======
+      this.replaceWith("discovery.top", {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         queryParams: {
           period,
         },

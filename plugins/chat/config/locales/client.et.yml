@@ -6,6 +6,7 @@
 
 et:
   js:
+<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -13,6 +14,9 @@ et:
           never: "Mitte kunagi"
     chat:
       deleted_chat_username: kustutatud
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Loo"
       cancel: "Tühista"
       channel_settings:
@@ -21,17 +25,27 @@ et:
         join: "Liitu"
         leave: "Lahku"
       close: "Sulge"
+<<<<<<< HEAD
       remove: "Eemalda"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Kustuta"
       muted: "vaigistatud"
       joined: "liitus"
       email_frequency:
         never: "Mitte kunagi"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Mitte kunagi"
       flag: "Tähis"
       join: "Liitu"
       last_visit: "viimane visiit"
+=======
+      flag: "Tähis"
+      join: "Liitu"
+      mention_warning:
+        dismiss: "ignoreeri"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Vasta"
       edit: "Muuda"
       rebake_message: "Rekonstrueeri HTML"
@@ -52,7 +66,10 @@ et:
         yesterday: Eile
       about_view:
         title: Pealkiri
+<<<<<<< HEAD
         name: Nimi
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Kirjeldus
       channel_info:
         back_to_channel: "Tagasi"
@@ -71,14 +88,20 @@ et:
       composer:
         italic_text: "esiletõstetud tekst"
         bold_text: "rasvane tekst"
+<<<<<<< HEAD
         send: "Saada"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Mitte kunagi"
       settings:
         follow: "Liitu"
         followed: "Liitus"
+<<<<<<< HEAD
         threading_enabled: "Sisse lülitatud"
         threading_disabled: "Välja lülitatud"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Teavitus"
         preview: "Eelvaade"
         save: "Salvesta"
@@ -108,6 +131,7 @@ et:
       emoji_picker:
         objects: "Objektid"
         flags: "Tähised"
+<<<<<<< HEAD
       thread:
         title: "Pealkiri"
         replies:
@@ -123,6 +147,8 @@ et:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Uus sõnum"
         cancel: "Tühista"
