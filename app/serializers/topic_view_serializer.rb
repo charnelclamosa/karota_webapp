@@ -317,7 +317,7 @@ class TopicViewSerializer < ApplicationSerializer
   def summarizable
     object.summarizable?
   end
-  
+
   def subtitle
     object.topic.custom_fields[:subtitle]
   end
