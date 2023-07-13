@@ -813,7 +813,6 @@ createWidget("post-article", {
       rows.push(h("div.row", [this.attach("post-notice", attrs)]));
     }
 
-<<<<<<< HEAD
     if (attrs.replyToUsername) {
       rows.push(
         h("div.row", [
@@ -830,17 +829,6 @@ createWidget("post-article", {
         ])
       );
     }
-=======
-    rows.push(
-      h("div.row", [
-        this.attach("post-avatar", attrs),
-        this.attach("post-body", {
-          ...attrs,
-          repliesAbove: state.repliesAbove,
-        }),
-      ])
-    );
->>>>>>> f933c9fcd9db968e1999382a7a81a0125d3229a2
     return rows;
   },
 

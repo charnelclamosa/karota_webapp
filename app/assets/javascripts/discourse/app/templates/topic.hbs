@@ -160,19 +160,12 @@
               >{{d-icon "pencil-alt"}}</a>
             {{/if}}
 
-<<<<<<< HEAD
             <PluginOutlet @name="topic-title-suffix" @tagName="" @args={{hash model=this.model}} />
             {{#if this.model.subtitle}}
               <h6 style="color:#696969;">
                 {{this.model.subtitle}}
               </h6>
             {{/if}}
-=======
-            <PluginOutlet
-              @name="topic-title-suffix"
-              @outletArgs={{hash model=this.model}}
-            />
->>>>>>> f933c9fcd9db968e1999382a7a81a0125d3229a2
           </h1>
 
           <TopicCategory @topic={{this.model}} @class="topic-category" />
@@ -320,7 +313,6 @@
               @condition={{this.model.postStream.loadingAbove}}
             />
 
-<<<<<<< HEAD
             <PluginOutlet @name="topic-above-posts" @tagName="span" @connectorTagName="div" @args={{hash model=this.model}} />
             {{#unless this.model.postStream.loadingFilter}}       
               {{#unless (eq this.model.category.name "General")}}
@@ -536,65 +528,6 @@
                   />
                 {{/unless}}
               {{/unless}}
-=======
-            <span>
-              <PluginOutlet
-                @name="topic-above-posts"
-                @connectorTagName="div"
-                @outletArgs={{hash model=this.model}}
-              />
-            </span>
-
-            {{#unless this.model.postStream.loadingFilter}}
-              <ScrollingPostStream
-                @posts={{this.postsToRender}}
-                @canCreatePost={{this.model.details.can_create_post}}
-                @multiSelect={{this.multiSelect}}
-                @selectedPostsCount={{this.selectedPostsCount}}
-                @filteredPostsCount={{this.model.postStream.filteredPostsCount}}
-                @selectedQuery={{this.selectedQuery}}
-                @gaps={{this.model.postStream.gaps}}
-                @showReadIndicator={{this.model.show_read_indicator}}
-                @streamFilters={{this.model.postStream.streamFilters}}
-                @lastReadPostNumber={{this.userLastReadPostNumber}}
-                @highestPostNumber={{this.highestPostNumber}}
-                @showFlags={{action "showPostFlags"}}
-                @editPost={{action "editPost"}}
-                @showHistory={{route-action "showHistory"}}
-                @showLogin={{route-action "showLogin"}}
-                @showRawEmail={{route-action "showRawEmail"}}
-                @deletePost={{action "deletePost"}}
-                @permanentlyDeletePost={{action "permanentlyDeletePost"}}
-                @recoverPost={{action "recoverPost"}}
-                @expandHidden={{action "expandHidden"}}
-                @toggleBookmark={{action "toggleBookmark"}}
-                @togglePostType={{action "togglePostType"}}
-                @rebakePost={{action "rebakePost"}}
-                @changePostOwner={{action "changePostOwner"}}
-                @grantBadge={{action "grantBadge"}}
-                @changeNotice={{action "changeNotice"}}
-                @lockPost={{action "lockPost"}}
-                @unlockPost={{action "unlockPost"}}
-                @unhidePost={{action "unhidePost"}}
-                @replyToPost={{action "replyToPost"}}
-                @toggleWiki={{action "toggleWiki"}}
-                @showTopReplies={{action "showTopReplies"}}
-                @cancelFilter={{action "cancelFilter"}}
-                @removeAllowedUser={{action "removeAllowedUser"}}
-                @removeAllowedGroup={{action "removeAllowedGroup"}}
-                @topVisibleChanged={{action "topVisibleChanged"}}
-                @currentPostChanged={{action "currentPostChanged"}}
-                @currentPostScrolled={{action "currentPostScrolled"}}
-                @bottomVisibleChanged={{action "bottomVisibleChanged"}}
-                @togglePostSelection={{action "togglePostSelection"}}
-                @selectReplies={{action "selectReplies"}}
-                @selectBelow={{action "selectBelow"}}
-                @fillGapBefore={{action "fillGapBefore"}}
-                @fillGapAfter={{action "fillGapAfter"}}
-                @showInvite={{route-action "showInvite"}}
-                @showPagePublish={{route-action "showPagePublish"}}
-              />
->>>>>>> f933c9fcd9db968e1999382a7a81a0125d3229a2
             {{/unless}}
 
             <ConditionalLoadingSpinner
