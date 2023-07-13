@@ -169,7 +169,7 @@
               >{{d-icon "pencil-alt"}}</a>
             {{/if}}
 
-            <PluginOutlet @name="topic-title-suffix" @tagName="" @outletArgs={{hash model=this.model}} />
+            <PluginOutlet @name="topic-title-suffix" @tagName="" @args={{hash model=this.model}} />
             {{#if this.model.subtitle}}
               <h6 style="color:#696969;">
                 {{this.model.subtitle}}
@@ -244,36 +244,6 @@
         />
 
         {{#if info.renderTimeline}}
-<<<<<<< HEAD
-          <TopicTimeline
-            @info={{info}}
-            @model={{this.model}}
-            @replyToPost={{action "replyToPost"}}
-            @showTopReplies={{action "showTopReplies"}}
-            @jumpToPostPrompt={{action "jumpToPostPrompt"}}
-            @enteredIndex={{this.enteredIndex}}
-            @prevEvent={{info.prevEvent}}
-            @jumpTop={{action "jumpTop"}}
-            @jumpBottom={{action "jumpBottom"}}
-            @jumpEnd={{action "jumpEnd"}}
-            @jumpToIndex={{action "jumpToIndex"}}
-            @toggleMultiSelect={{action "toggleMultiSelect"}}
-            @showTopicSlowModeUpdate={{route-action "showTopicSlowModeUpdate"}}
-            @deleteTopic={{action "deleteTopic"}}
-            @recoverTopic={{action "recoverTopic"}}
-            @toggleClosed={{action "toggleClosed"}}
-            @toggleArchived={{action "toggleArchived"}}
-            @toggleVisibility={{action "toggleVisibility"}}
-            @showTopicTimerModal={{route-action "showTopicTimerModal"}}
-            @showFeatureTopic={{route-action "showFeatureTopic"}}
-            @showChangeTimestamp={{route-action "showChangeTimestamp"}}
-            @resetBumpDate={{action "resetBumpDate"}}
-            @convertToPublicTopic={{action "convertToPublicTopic"}}
-            @convertToPrivateMessage={{action "convertToPrivateMessage"}}
-            @fullscreen={{info.topicProgressExpanded}}
-            @mobileView={{this.site.mobileView}}
-          />
-=======
           {{#if this.currentUser.redesigned_topic_timeline_enabled}}
             <GlimmerTopicTimeline
               @info={{info}}
@@ -306,7 +276,6 @@
           {{else}}
             <TopicTimeline @topic={{this.model}} @notificationLevel={{this.model.details.notification_level}} @prevEvent={{info.prevEvent}} @fullscreen={{info.topicProgressExpanded}} @enteredIndex={{this.enteredIndex}} @loading={{this.model.postStream.loading}} @jumpToPost={{action "jumpToPost"}} @jumpTop={{action "jumpTop"}} @jumpBottom={{action "jumpBottom"}} @jumpEnd={{action "jumpEnd"}} @jumpToPostPrompt={{action "jumpToPostPrompt"}} @jumpToIndex={{action "jumpToIndex"}} @replyToPost={{action "replyToPost"}} @showSummary={{action "showSummary"}} @toggleMultiSelect={{action "toggleMultiSelect"}} @showTopicSlowModeUpdate={{route-action "showTopicSlowModeUpdate"}} @deleteTopic={{action "deleteTopic"}} @recoverTopic={{action "recoverTopic"}} @toggleClosed={{action "toggleClosed"}} @toggleArchived={{action "toggleArchived"}} @toggleVisibility={{action "toggleVisibility"}} @showTopicTimerModal={{route-action "showTopicTimerModal"}} @showFeatureTopic={{route-action "showFeatureTopic"}} @showChangeTimestamp={{route-action "showChangeTimestamp"}} @resetBumpDate={{action "resetBumpDate"}} @convertToPublicTopic={{action "convertToPublicTopic"}} @convertToPrivateMessage={{action "convertToPrivateMessage"}} />
           {{/if}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         {{else}}
           <TopicProgress
             @prevEvent={{info.prevEvent}}
