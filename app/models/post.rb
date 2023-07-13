@@ -92,9 +92,10 @@ class Post < ActiveRecord::Base
   register_custom_field_type(META_TAG, :string)
   register_custom_field_type(USER_GENERATED_TAGS, :string)
 
-  scope :private_posts_for_user, ->(user) do
-    where(
-      "topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_USER})
+  scope :private_posts_for_user,
+        ->(user) {
+          where(
+            "topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_USER})
       OR topics.id IN (#{Topic::PRIVATE_MESSAGES_SQL_GROUP})",
             user_id: user.id,
           )
