@@ -368,6 +368,7 @@ export default RestModel.extend({
         });
       })
       .catch((result) => {
+        console.log(result)
         this.errorLoading(result);
         throw new Error(result);
       })
