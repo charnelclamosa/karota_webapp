@@ -87,7 +87,6 @@ tr_TR:
           title: "Değer Değiştiriciler"
         empty_state:
           title: "Boş Durum"
-<<<<<<< HEAD
         tooltips:
           description: "Açıklama"
           header: "Üstbilgi"
@@ -95,10 +94,3 @@ tr_TR:
         char_counter:
           title: "Karakter Sayacı"
           placeholder: "Metninizi buraya girin..."
-=======
-        rich_tooltip:
-          title: "Zengin Araç İpucu"
-          description: "Açıklama"
-          header: "Başlık"
-          hover_to_see: "Araç ipucunu görmek için üzerine gidin"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -3,7 +3,6 @@
 module PageObjects
   module Pages
     class ChatChannel < PageObjects::Pages::Base
-<<<<<<< HEAD
       def composer
         @composer ||= PageObjects::Components::Chat::Composer.new(".chat-channel")
       end
@@ -49,29 +48,12 @@ module PageObjects
 
       def message_by_id(id)
         find(message_by_id_selector(id))
-=======
-      def type_in_composer(input)
-        find(".chat-composer-input").send_keys(input)
-      end
-
-      def fill_composer(input)
-        find(".chat-composer-input").fill_in(with: input)
-      end
-
-      def click_send_message
-        find(".chat-composer .send-btn").click
-      end
-
-      def message_by_id(id)
-        find(".chat-message-container[data-id=\"#{id}\"]")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def has_no_loading_skeleton?
         has_no_css?(".chat-skeleton")
       end
 
-<<<<<<< HEAD
       def has_selection_management?
         has_css?(".chat-selection-management")
       end
@@ -248,15 +230,6 @@ module PageObjects
       def message_thread_indicator_selector(message)
         "#{message_by_id_selector(message.id)} .chat-message-thread-indicator"
       end
-=======
-      def has_message?(text: nil, id: nil)
-        if text
-          has_css?(".chat-message-text", text: text)
-        elsif id
-          has_css?(".chat-message-container[data-id=\"#{id}\"]", wait: 10)
-        end
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

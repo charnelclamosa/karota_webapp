@@ -4,7 +4,6 @@ import getURL from "discourse-common/lib/get-url";
 import I18n from "I18n";
 import User from "discourse/models/user";
 
-<<<<<<< HEAD
 registerUnbound("format-chat-date", function (message, mode) {
   const currentUser = User.current();
   const tz = currentUser ? currentUser.user_option.timezone : moment.tz.guess();
@@ -12,31 +11,10 @@ registerUnbound("format-chat-date", function (message, mode) {
 
   const title = date.format(I18n.t("dates.long_with_year"));
   const display =
-=======
-registerUnbound("format-chat-date", function (message, details, mode) {
-  let currentUser = User.current();
-
-  let tz = currentUser ? currentUser.user_option.timezone : moment.tz.guess();
-
-  let date = moment(new Date(message.created_at), tz);
-
-  let url = "";
-
-  if (details) {
-    url = getURL(
-      `/chat/channel/${details.chat_channel_id}/-?messageId=${message.id}`
-    );
-  }
-
-  let title = date.format(I18n.t("dates.long_with_year"));
-
-  let display =
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     mode === "tiny"
       ? date.format(I18n.t("chat.dates.time_tiny"))
       : date.format(I18n.t("dates.time"));
 
-<<<<<<< HEAD
   if (message.staged) {
     return htmlSafe(
       `<span title='${title}' tabindex="-1" class='chat-time'>${display}</span>`
@@ -47,9 +25,4 @@ registerUnbound("format-chat-date", function (message, details, mode) {
       `<a title='${title}' tabindex="-1" class='chat-time' href='${url}'>${display}</a>`
     );
   }
-=======
-  return htmlSafe(
-    `<a title='${title}' class='chat-time' href='${url}'>${display}</a>`
-  );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

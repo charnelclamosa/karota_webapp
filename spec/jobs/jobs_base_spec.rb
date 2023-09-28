@@ -106,15 +106,9 @@ RSpec.describe ::Jobs::Base do
     end
   end
 
-<<<<<<< HEAD
   it "delegates the process call to execute" do
     ::Jobs::Base.any_instance.expects(:execute).with({ "hello" => "world" })
     ::Jobs::Base.new.perform("hello" => "world")
-=======
-  it 'delegates the process call to execute' do
-    ::Jobs::Base.any_instance.expects(:execute).with({ 'hello' => 'world' })
-    ::Jobs::Base.new.perform('hello' => 'world', 'sync_exec' => true)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   it "converts to an indifferent access hash" do

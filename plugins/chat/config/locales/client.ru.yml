@@ -7,24 +7,18 @@
 ru:
   js:
     admin:
-<<<<<<< HEAD
       site_settings:
         categories:
           chat: Чат
         chat_separate_sidebar_mode:
           always: "Всегда"
           never: "Никогда"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Изменение статуса канала чата"
             chat_channel_delete: "Удаление канала чата"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Участники автоматически удаляются из каналов"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
@@ -35,14 +29,9 @@ ru:
       chat_channels_count: "Каналы чата"
       chat_users_count: "Пользователи чата"
     chat:
-<<<<<<< HEAD
       deleted_chat_username: удалён
       dates:
         time_tiny: "h:mm"
-=======
-      dates:
-        time_tiny: "ч:мм"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       all_loaded: "Показать все сообщения"
       already_enabled: "Чат в этой теме уже включён . Обновите страницу."
       disabled_for_topic: "Чат в этой теме отключён."
@@ -55,17 +44,10 @@ ru:
       move_to_channel:
         title: "Переместить сообщения в канал"
         instructions:
-<<<<<<< HEAD
           one: "Вы перемещаете <strong>%{count}</strong> сообщение. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что это сообщение было перемещено. Цепочки ответов в новом канале не сохранятся. Сообщения в старом канале больше не будут отображаться как ответы на перемещенные сообщения."
           few: "Вы перемещаете <strong>%{count}</strong> сообщения. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что это сообщение было перемещено. Цепочки ответов в новом канале не сохранятся. Сообщения в старом канале больше не будут отображаться как ответы на перемещенные сообщения."
           many: "Вы перемещаете <strong>%{count}</strong> сообщений. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что это сообщение было перемещено. Цепочки ответов в новом канале не сохранятся. Сообщения в старом канале больше не будут отображаться как ответы на перемещенные сообщения."
           other: "Вы перемещаете <strong>%{count}</strong> сообщения. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что это сообщение было перемещено. Цепочки ответов в новом канале не сохранятся. Сообщения в старом канале больше не будут отображаться как ответы на перемещенные сообщения."
-=======
-          one: "Вы перемещаете <strong>%{count}</strong> сообщение. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что это сообщение было перемещено."
-          few: "Вы перемещаете <strong>%{count}</strong> сообщения. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что эти сообщения были перемещены."
-          many: "Вы перемещаете <strong>%{count}</strong> сообщений. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что эти сообщения были перемещены."
-          other: "Вы перемещаете <strong>%{count}</strong> сообщений. Выберите целевой канал. В канале <strong>%{channelTitle}</strong> будет создано сообщение, указывающее, что эти сообщения были перемещены."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Переместить сообщения"
       channel_settings:
         title: "Настройки канала"
@@ -79,13 +61,10 @@ ru:
         leave_channel: "Покинуть канал"
         join: "Подписаться"
         leave: "Отписаться"
-<<<<<<< HEAD
         save_label:
           mute_channel: "Настройка отключения уведомлений для канала сохранена"
           desktop_notification: "Настройка уведомлений для настольных устройств сохранена"
           mobile_notification: "Настройка уведомлений для мобильных устройств сохранена"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_archive:
         title: "Архивировать канал"
         instructions: "<p>Архивация канала переводит его в режим только для чтения и перемещает все сообщения из канала в новую или существующую тему. В этом режиме нельзя отправлять новые сообщения, а существующие сообщения нельзя редактировать или удалять.</p><p>Действительно заархивировать канал <strong>%{channelTitle}</strong>?</p>"
@@ -108,7 +87,6 @@ ru:
         create: "Новый канал"
       click_to_join: "Нажмите здесь для просмотра доступных каналов."
       close: "Закрыть"
-<<<<<<< HEAD
       remove: "Отозвать"
       collapse: "Свернуть чат"
       expand: "Развернуть панель чата"
@@ -118,11 +96,6 @@ ru:
         few: "%{count} сообщения удалены. [показать все]"
         many: "%{count} сообщений удалено. [показать все]"
         other: "%{count} сообщения удалены. [показать все]"
-=======
-      collapse: "Свернуть чат"
-      confirm_flag: "Действительно пожаловаться на сообщение пользователя %{username}?"
-      deleted: "Сообщение было удалено. [view]"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Сообщение было скрыто. [view]"
       delete: "Удалить"
       edited: "Отредактировано"
@@ -137,7 +110,6 @@ ru:
         never: "Никогда"
         title: "Настройка почтовых уведомлений"
         when_away: "Если вы находитесь офлайн"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Показать индикатор активности в заголовке"
         all_new: "Все новые сообщения"
@@ -147,18 +119,11 @@ ru:
       flag: "Пожаловаться"
       emoji: "Вставить эмодзи"
       flagged: "Это сообщение было отправлено на проверку"
-=======
-      enable: "Включить чат"
-      flag: "Флаг"
-      emoji: "Вставить эмодзи"
-      flagged: "Эта запись была отправлена на проверку"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       invalid_access: "У вас нет доступа для просмотра этого канала"
       invitation_notification: "<span>Пользователь %{username}</span> <span> пригласил вас присоединиться к каналу</span>"
       in_reply_to: "В ответ на"
       heading: "Чат"
       join: "Подписаться"
-<<<<<<< HEAD
       last_visit: "последнее посещение"
       summarization:
         title: "Делать сводку сообщений"
@@ -170,23 +135,12 @@ ru:
           many: "Последние %{count} часов"
           other: "Последние %{count} часа"
       mention_warning:
-=======
-      new_messages: "Новые сообщения"
-      mention_warning:
-        cannot_see:
-          one: "Пользователь %{usernames} не может получить доступ к этому каналу и не был уведомлён."
-          few: "Пользователи %{usernames} не могут получить доступ к этому каналу и не были уведомлены."
-          many: "Пользователи %{usernames} не могут получить доступ к этому каналу и не были уведомлёны."
-          other: "Пользователи %{usernames} не могут получить доступ к этому каналу и не были уведомлены."
-        dismiss: "Отклонить"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Приглашение отправлено"
           few: "Приглашения отправлены"
           many: "Приглашений отправлены"
           other: "Приглашений отправлены"
         invite: "Пригласить в канал"
-<<<<<<< HEAD
         groups:
           header:
             some: "Некоторые пользователи не будут уведомлены"
@@ -274,22 +228,12 @@ ru:
           few: 'Сообщение превышает <a href="%{siteSettingUrl}" target="_blank">лимит на уведомления</a> (%{count} упоминания).'
           many: 'Сообщение превышает <a href="%{siteSettingUrl}" target="_blank">лимит на уведомления</a> (%{count} упоминаний).'
           other: 'Сообщение превышает <a href="%{siteSettingUrl}" target="_blank">лимит на уведомления</a> (%{count} упоминания).'
-=======
-        without_membership:
-          one: "Пользователь %{usernames} не присоединился к этому каналу."
-          few: "Пользователи %{usernames} не присоединились к этому каналу."
-          many: "Пользователи %{usernames} не присоединились к этому каналу."
-          other: "Пользователи %{usernames} не присоединились к этому каналу."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Заголовок чата"
         composer: "Редактор чата"
         channels_list: "Список каналов чата"
       no_public_channels: "Вы не присоединились ни к одному каналу."
-<<<<<<< HEAD
       kicked_from_channel: "У вас больше нет доступа к этому каналу."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Отправлять только push-уведомления в чате"
         description: "Запретить отправку всех push-уведомлений, не связанных с чатом."
@@ -301,7 +245,6 @@ ru:
       close_full_page: "Закрыть полноэкранный чат"
       open_message: "Открыть сообщение в чате"
       placeholder_self: "Напишите что-нибудь"
-<<<<<<< HEAD
       placeholder_channel: "Чат в канале «%{channelName}»"
       placeholder_thread: "Чат в цепочке сообщений"
       placeholder_users: "Чат с %{commaSeparatedNames}"
@@ -310,12 +253,6 @@ ru:
         closed: "Канал закрыт, вы не можете отправлять новые сообщения."
         read_only: "Канал в режиме «только для чтения», вы не можете отправлять новые сообщения."
       placeholder_silenced: "В настоящее время вы не можете отправлять сообщения."
-=======
-      placeholder_others: "Чат с %{messageRecipient}"
-      placeholder_new_message_disallowed: "Канал %{status}, в данный момент вы не можете отправлять новые сообщения."
-      placeholder_silenced: "В настоящее время вы не можете отправлять сообщения."
-      placeholder_start_conversation: Начать беседу с пользователем %{usernames}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Удалить файл"
       react: "Реакция с помощью эмодзи"
       reply: "Ответить"
@@ -331,7 +268,6 @@ ru:
       restore: "Восстановить удаленное сообщение"
       save: "Сохранить"
       select: "Выбрать"
-<<<<<<< HEAD
       return_to_list: "Вернуться к списку каналов"
       return_to_threads_list: "Вернуться к текущим обсуждениям"
       unread_threads_count:
@@ -339,10 +275,6 @@ ru:
         few: "У вас %{count} непрочитанных обсуждения"
         many: "У вас %{count} непрочитанных обсуждений"
         other: "У вас %{count} непрочитанного обсуждения"
-=======
-      silence: "Заблокировать пользователя"
-      return_to_list: "Вернуться к списку каналов"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Прокрутка вниз"
       scroll_to_new_messages: "Новые сообщения"
       sound:
@@ -354,11 +286,8 @@ ru:
       title: "чат"
       title_capitalized: "Чат"
       upload: "Прикрепить файл"
-<<<<<<< HEAD
       upload_to_channel: "Загрузить в канал «%{title}»"
       upload_to_thread: "Загрузить в цепочку сообщений"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} файл"
         few: "%{count} файла"
@@ -371,22 +300,15 @@ ru:
         read_only: "Только для чтения"
         archived_header: "Канал заархивирован"
         archived: "Архивные"
-<<<<<<< HEAD
         archive_failed: "Во время архивации произошла ошибка. Заархивировано сообщений: %{completed} из %{total}. <a target=\"_blank\" href=\"%{topic_url}\">Целевая тема</a> создана. Нажмите «Повторить», чтобы попытаться завершить архивирование."
         archive_failed_no_topic: "Во время архивации произошла ошибка. Заархивировано сообщений: %{completed} из %{total}. Целевая тема не создана. Нажмите «Повторить», чтобы попытаться завершить архивирование."
-=======
-        archive_failed: "Во время архивации поизошла ошибка. %{completed}/%{total} сообщений были заархивированы в <a target=\"_blank\" href=\"%{topic_url}\">целевой теме</a>. Нажмите «Повторить», чтобы попытаться завершить архивирование."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "См. <a target=\"_blank\" href=\"%{topic_url}\">архивную тему</a>."
         closed_header: "Канал закрыт"
         closed: "Закрытые"
         open_header: "Канал открыт"
         open: "Открыт"
       browse:
-<<<<<<< HEAD
         back: "Назад"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: Каналы
         filter_all: Все
         filter_open: Открытые
@@ -402,10 +324,7 @@ ru:
         associated_topic: Связанная тема
         associated_category: Связанная категория
         title: Название
-<<<<<<< HEAD
         name: Название
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Описание
       channel_info:
         back_to_all_channels: "Все каналы"
@@ -414,7 +333,6 @@ ru:
           about: Информация
           members: Участники
           settings: Настройки
-<<<<<<< HEAD
       new_message_modal:
         title: Отправка сообщения
         add_user_long: <kbd>Shift + щелчок</kbd> или <kbd>Shift + Ввод</kbd><span>Добавить пользователя @%{username}</span>
@@ -432,12 +350,6 @@ ru:
         slug_description: Слаг канала используется в URL-адресе вместо названия канала.
         name: Название канала
         slug: Слаг канала (необязательно)
-=======
-      channel_edit_title_modal:
-        title: Изменить название
-        input_placeholder: Добавьте название
-        description: Дайте короткое описательное название вашему каналу
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Изменить описание
         input_placeholder: Добавить описание
@@ -447,12 +359,6 @@ ru:
         prefix: "Кому:"
         no_results: Нет результатов
         selected_user_title: "Отменить выбор пользователя %{username}"
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "Перейти на канал"
-        no_channels: "Нет каналов, соответствующих вашему запросу"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: На этом канале нет участников
         no_memberships_found: Участники не найдены
@@ -462,7 +368,6 @@ ru:
           many: "%{count} участников"
           other: "%{count} участников"
       create_channel:
-<<<<<<< HEAD
         threading:
           label: "Включить цепочки сообщений"
         auto_join_users:
@@ -512,21 +417,10 @@ ru:
                       }
                     }
             }
-=======
-        auto_join_users:
-          public_category_warning: "Раздел %{category} является общедоступным. Автоматически добавлять в этот канал всех активных пользователей?"
-          warning_groups:
-            one: Автоматически добавить %{members_count} пользователя из группы %{group}?
-            few: Автоматически добавить %{members_count} пользователей из группы %{group} и группы %{group_2}?
-            many: Автоматически добавить %{members_count} пользователей из группы %{group} и группы %{group_2}?
-            other: Автоматически добавить %{members_count} пользователей из группы %{group} и группы %{group_2}?
-          warning_multiple_groups: Автоматически добавить %{members_count} пользователей из группы %{group_1} и ещё из %{count} групп?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Выберите раздел"
           none: "выберите раздел…"
           default_hint: Управляйте доступом к разделу через <a href=%{link} target="_blank">%{category}настройки безопасности</a>
-<<<<<<< HEAD
           hint_1_group: 'Пользователи группы «%{group}» будут иметь доступ к этому каналу в соответствии с <a href="%{settingLink}" target="_blank">настройками безопасности</a>'
           hint_2_groups: 'Пользователи групп «%{group1}» и «%{group2}» будут иметь доступ к этому каналу в соответствии с <a href="%{settingLink}" target="_blank">настройками безопасности</a>'
           hint_multiple_groups:
@@ -538,17 +432,6 @@ ru:
         description: "Описание (необязательно)"
         name: "Название канала"
         slug: "Слаг канала (необязательно)"
-=======
-          hint_groups:
-            one: Пользователи группы %{hint} будут иметь доступ к этому каналу в соответствии с <a href=%{link} target="_blank">настройками безопасности</a>
-            few: Пользователи групп %{hint} и %{hint_2} будут иметь доступ к этому каналу в соответствии с <a href=%{link} target="_blank">настройками безопасности</a>
-            many: Пользователи групп %{hint} и %{hint_2} будут иметь доступ к этому каналу в соответствии с <a href=%{link} target="_blank">настройками безопасности</a>
-            other: Пользователи групп %{hint} и %{hint_2} будут иметь доступ к этому каналу в соответствии с <a href=%{link} target="_blank">настройками безопасности</a>
-          hint_multiple_groups: Пользователи группы %{hint_1} и ещё %{count} групп будут иметь доступ к этому каналу в соответствии с <a href=%{link} target="_blank">настройками безопасности</a>
-        create: "Создать канал"
-        description: "Описание (необязательно)"
-        name: "Название канала"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Новый канал"
         type: "Тип"
         types:
@@ -558,7 +441,6 @@ ru:
         type: "Сообщение чата"
       reactions:
         only_you: "Вы отреагировали при помощи эмодзи :%{emoji}:"
-<<<<<<< HEAD
         you_and_single_user: "Вы и %{username} отреагировали при помощи эмодзи :%{emoji}:"
         you_and_multiple_users: "Вы, %{commaSeparatedUsernames} и %{username} отреагировали при помощи эмодзи :%{emoji}:"
         you_multiple_users_and_more:
@@ -573,21 +455,12 @@ ru:
           few: "%{commaSeparatedUsernames} и еще %{count} пользователя отреагировали при помощи эмодзи :%{emoji}:"
           many: "%{commaSeparatedUsernames} и еще %{count} пользователей отреагировали при помощи эмодзи :%{emoji}:"
           other: "%{commaSeparatedUsernames} и еще %{count} пользователя отреагировали при помощи эмодзи :%{emoji}:"
-=======
-        and_others: "Вы, %{usernames}, отреагировали при помощи эмодзи :%{emoji}:"
-        only_others: "Пользователи %{usernames} отреагировали при помощи эмодзи %{emoji}:"
-        others_and_more: "Пользователи %{usernames} и %{more} отреагировали при помощи эмодзи %{emoji}:"
-        you_others_and_more: "Вы, %{usernames} и %{more}, отреагировали при помощи эмодзи %{emoji}:"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "Переключить панель инструментов"
         italic_text: "текст, выделенный курсивом"
         bold_text: "Жирный"
         code_text: "Код"
-<<<<<<< HEAD
         send: "Отправить"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'Первоначально отправлено в <a href="%{channelLink}">%{channel}</a>'
         copy_success: "Цитата из чата скопирована в буфер обмена"
@@ -596,7 +469,6 @@ ru:
         mention: "Только для упоминаний"
         always: "Для всех действий"
       settings:
-<<<<<<< HEAD
         channel_wide_mentions_label: "Разрешить упоминания @all и @here"
         channel_wide_mentions_description: "Разрешить пользователям уведомлять всех в канале #%{channel} (@all) и только активных участников (@here)"
         channel_threading_label: "Цепочки сообщений"
@@ -604,19 +476,14 @@ ru:
         auto_join_users_label: "Автоматически добавлять пользователей"
         auto_join_users_info: "Каждый час проверять, какие пользователи были активны за последние три месяца. Добавлять их в этот канал, если у них есть доступ к категории «%{category}»."
         auto_join_users_info_no_category: "Каждый час проверять, какие пользователи были активны за последние три месяца. Добавлять их в этот канал, если у них есть доступ к выбранной категории."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Любой пользователь, не являющийся участником этого канала, но имеющий доступ к разделу %{category}, будет автоматически подключён. Продолжить?"
         desktop_notification_level: "Уведомления на рабочем столе"
         follow: "Подписаться"
         followed: "Подписан"
         mobile_notification_level: "Мобильные push-уведомления"
         mute: "Отключить канал"
-<<<<<<< HEAD
         threading_enabled: "Включено"
         threading_disabled: "Отключено"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "Включено"
         muted_off: "Выключено"
         notifications: "Уведомления"
@@ -624,7 +491,6 @@ ru:
         save: "Сохранить"
         saved: "Сохранено"
         unfollow: "Отписаться"
-<<<<<<< HEAD
         admin_title: "Администрирование"
       admin:
         title: "Чат"
@@ -635,13 +501,6 @@ ru:
       direct_messages:
         title: "Личный чат"
         new: "Создать личный чат"
-=======
-      admin:
-        title: "Чат"
-      direct_messages:
-        title: "Личный чат"
-        new: "Новый личный чат"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Создать"
         leave: "Выйти из личного чата"
         cannot_create: "Вы не можете отправлять прямые сообщения."
@@ -710,7 +569,6 @@ ru:
           many: "Отвечают %{commaSeparatedUsernames} и ещё %{count} пользователей"
           other: "Отвечают %{commaSeparatedUsernames} и ещё %{count} пользователей"
       retention_reminders:
-<<<<<<< HEAD
         public_none: "История канала хранится неограниченное время."
         public:
           one: "История канала хранится %{count} день."
@@ -729,16 +587,6 @@ ru:
         spam: "Это сообщение является рекламой или просто мусором. Оно не несёт полезной нагрузки или не имеет отношения к текущему каналу."
         notify_user: "Я хочу поговорить с этим человеком напрямую и обсудить его сообщение."
         notify_moderators: "Это сообщение требует внимания персонала по причине, не указанной выше."
-=======
-        public: "История канала хранится %{days} дней."
-        dm: "История личного чата хранится %{days} дней."
-      flags:
-        off_topic: "Эта запись не имеет отношения к текущему обсуждению, как указано в названии канала, и, вероятно, ее следует переместить в другое место."
-        inappropriate: "Эта запись содержит контент, который обоснованно можно считать оскорбительным или нарушающим <a href=\"%{basePath}/guidelines\">рекомендации для сообщества</a>."
-        spam: "Это сообщение является рекламой или просто мусором. Оно не несёт полезной нагрузки или не имеет отношения к текущему каналу."
-        notify_user: "Я хочу поговорить с этим человеком напрямую и обсудить его сообщение."
-        notify_moderators: "Это сообщение требует внимания модератора по причине, не указанной выше."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flagging:
         action: "Пожаловаться на сообщение"
       emoji_picker:
@@ -748,16 +596,12 @@ ru:
         people_&_body: "Люди и части тел"
         travel_&_places: "Путешествия и места"
         animals_&_nature: "Животные и природа"
-<<<<<<< HEAD
         food_&_drink: "Еда и напитки"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         activities: "Деятельность"
         flags: "Флаги"
         symbols: "Символы"
         search_placeholder: "Поиск по названию эмодзи и псевдониму…"
         no_results: "Нет результатов"
-<<<<<<< HEAD
       thread:
         title: "Название"
         view_thread: Просмотреть цепочку
@@ -788,8 +632,6 @@ ru:
         open: "Открыть цепочку"
         list: "Текущие обсуждения"
         none: "Вы не участвуете ни в одной цепочке сообщений на этом канале."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Новое сообщение"
         cancel: "Отмена"
@@ -801,7 +643,6 @@ ru:
         chat_mention:
           direct: 'упомянул вас в «%{channel}»'
           direct_html: '<span>Пользователь %{username}</span> <span>упомянул вас на канале «%{channel}»</span>'
-<<<<<<< HEAD
           other_plain: 'упомянул(а) %{identifier} в канале «%{channel}»'
           other_html: '<span>%{username}</span> <span>упомянул(а) %{identifier} в канале «%{channel}»</span>'
         direct_message_chat_mention:
@@ -809,15 +650,6 @@ ru:
           direct_html: "<span>Пользователь %{username}</span> <span>упомянул вас в личном чате</span>"
           other_plain: "упомянул(а) %{identifier} в личном чате"
           other_html: "<span>%{username}</span> <span>упомянул(а) %{identifier} в личном чате</span>"
-=======
-          other_plain: 'упомянул %{identifier} в канале «%{channel}»'
-          other_html: '<span>Пользователь %{username}</span> <span>упомянул %{identifier} на канале «%{channel}»</span>'
-        direct_message_chat_mention:
-          direct: "упомянул вас в личном чате"
-          direct_html: "<span>Пользователь %{username}</span> <span>упомянул вас в личном чате</span>"
-          other_plain: "упомянул %{identifier} в личном чате"
-          other_html: "<span>Пользователь %{username}</span> <span>упомянул @%{identifier} в личном чате</span>"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         chat_message: "Новое сообщение в чате"
         chat_quoted: "Пользователь %{username} процитировал ваше сообщение в чате"
       titles:
@@ -844,17 +676,11 @@ ru:
       transcript:
         view: "Просмотр предыдущих сообщений"
       types:
-<<<<<<< HEAD
         chat_reviewable_message:
           title: "На сообщение пожаловались"
         reviewable_chat_message:
           title: "На сообщение пожаловались"
           noun: "сообщение чата"
-=======
-        reviewable_chat_message:
-          title: "Сообщение на премодерации"
-          flagged_by: "Жалоба от"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Чат"
@@ -867,10 +693,7 @@ ru:
           composer_code: "%{shortcut} Код (только в редакторе)"
           drawer_open: "%{shortcut} Открыть панель чата"
           drawer_close: "%{shortcut} Закрыть панель чата"
-<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Пометить все каналы прочитанными"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "Чат включён для этой темы"
@@ -891,7 +714,6 @@ ru:
           few: "Уведомления чата —%{count} непрочитанных уведомления"
           many: "Уведомления чата —%{count} непрочитанных уведомлений"
           other: "Уведомления чата —%{count} непрочитанных уведомлений"
-<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -900,5 +722,3 @@ ru:
       panels:
         chat:
           label: "Чат"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

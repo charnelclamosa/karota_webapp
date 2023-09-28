@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 describe "GitHub Oauth2" do
-=======
-describe 'GitHub Oauth2' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let(:access_token) { "github_access_token_448" }
   let(:client_id) { "abcdef11223344" }
   let(:client_secret) { "adddcccdddd99922" }
@@ -14,7 +10,6 @@ describe 'GitHub Oauth2' do
   fab!(:user2) { Fabricate(:user) }
 
   def setup_github_emails_stub(emails)
-<<<<<<< HEAD
     stub_request(:get, "https://api.github.com/user/emails").with(
       headers: {
         "Authorization" => "Bearer #{access_token}",
@@ -26,21 +21,6 @@ describe 'GitHub Oauth2' do
         "Content-Type" => "application/json",
       },
     )
-=======
-    stub_request(:get, "https://api.github.com/user/emails")
-      .with(
-        headers: {
-          "Authorization" => "Bearer #{access_token}"
-        }
-      )
-      .to_return(
-        status: 200,
-        body: JSON.dump(emails),
-        headers: {
-          "Content-Type" => "application/json"
-        }
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   before do
@@ -48,7 +28,6 @@ describe 'GitHub Oauth2' do
     SiteSetting.github_client_id = client_id
     SiteSetting.github_client_secret = client_secret
 
-<<<<<<< HEAD
     stub_request(:post, "https://github.com/login/oauth/access_token").with(
       body:
         hash_including(
@@ -77,37 +56,6 @@ describe 'GitHub Oauth2' do
       status: 200,
       body:
         JSON.dump(
-=======
-    stub_request(:post, "https://github.com/login/oauth/access_token")
-      .with(
-        body: hash_including(
-          "client_id" => client_id,
-          "client_secret" => client_secret,
-          "code" => temp_code,
-        )
-      )
-      .to_return(
-        status: 200,
-        body: Rack::Utils.build_query(
-          access_token: access_token,
-          scope: "user:email",
-          token_type: "bearer"
-        ),
-        headers: {
-          "Content-Type" => "application/x-www-form-urlencoded"
-        }
-      )
-
-    stub_request(:get, "https://api.github.com/user")
-      .with(
-        headers: {
-          "Authorization" => "Bearer #{access_token}"
-        }
-      )
-      .to_return(
-        status: 200,
-        body: JSON.dump(
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           login: "octocat",
           id: 1,
           node_id: "MDQ6VXNlcjE=",
@@ -143,18 +91,13 @@ describe 'GitHub Oauth2' do
           private_gists: 81,
           total_private_repos: 100,
           owned_private_repos: 100,
-<<<<<<< HEAD
           disk_usage: 10_000,
-=======
-          disk_usage: 10000,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           collaborators: 8,
           two_factor_authentication: true,
           plan: {
             name: "Medium",
             space: 400,
             private_repos: 20,
-<<<<<<< HEAD
             collaborators: 0,
           },
         ),
@@ -162,15 +105,6 @@ describe 'GitHub Oauth2' do
         "Content-Type" => "application/json",
       },
     )
-=======
-            collaborators: 0
-          }
-        ),
-        headers: {
-          "Content-Type" => "application/json"
-        }
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   it "doesn't sign in anyone if none of the emails from github are verified" do
@@ -180,34 +114,12 @@ describe 'GitHub Oauth2' do
 
     setup_github_emails_stub(
       [
-<<<<<<< HEAD
         { email: user1.email, primary: true, verified: false, visibility: "private" },
         { email: user2.email, primary: false, verified: false, visibility: "private" },
       ],
     )
 
     post "/auth/github/callback", params: { state: session["omniauth.state"], code: temp_code }
-=======
-        {
-          email: user1.email,
-          primary: true,
-          verified: false,
-          visibility: "private"
-        },
-        {
-          email: user2.email,
-          primary: false,
-          verified: false,
-          visibility: "private"
-        }
-      ]
-    )
-
-    post "/auth/github/callback", params: {
-      state: session["omniauth.state"],
-      code: temp_code
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     expect(response.status).to eq(302)
     expect(response.location).to eq("http://test.localhost/")
     expect(session[:current_user_id]).to be_blank
@@ -220,34 +132,12 @@ describe 'GitHub Oauth2' do
 
     setup_github_emails_stub(
       [
-<<<<<<< HEAD
         { email: user1.email, primary: true, verified: false, visibility: "private" },
         { email: user2.email, primary: false, verified: true, visibility: "private" },
       ],
     )
 
     post "/auth/github/callback", params: { state: session["omniauth.state"], code: temp_code }
-=======
-        {
-          email: user1.email,
-          primary: true,
-          verified: false,
-          visibility: "private"
-        },
-        {
-          email: user2.email,
-          primary: false,
-          verified: true,
-          visibility: "private"
-        }
-      ]
-    )
-
-    post "/auth/github/callback", params: {
-      state: session["omniauth.state"],
-      code: temp_code
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     expect(response.status).to eq(302)
     expect(response.location).to eq("http://test.localhost/")
     expect(session[:current_user_id]).to eq(user2.id)
@@ -264,7 +154,6 @@ describe 'GitHub Oauth2' do
           email: "somerandomemail@discourse.org",
           primary: true,
           verified: true,
-<<<<<<< HEAD
           visibility: "private",
         },
         { email: user2.email, primary: false, verified: false, visibility: "private" },
@@ -272,23 +161,6 @@ describe 'GitHub Oauth2' do
     )
 
     post "/auth/github/callback", params: { state: session["omniauth.state"], code: temp_code }
-=======
-          visibility: "private"
-        },
-        {
-          email: user2.email,
-          primary: false,
-          verified: false,
-          visibility: "private"
-        }
-      ]
-    )
-
-    post "/auth/github/callback", params: {
-      state: session["omniauth.state"],
-      code: temp_code
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     expect(response.status).to eq(302)
     expect(response.location).to eq("http://test.localhost/")
     expect(session[:current_user_id]).to be_blank
@@ -301,34 +173,12 @@ describe 'GitHub Oauth2' do
 
     setup_github_emails_stub(
       [
-<<<<<<< HEAD
         { email: user1.email, primary: true, verified: true, visibility: "private" },
         { email: user2.email, primary: false, verified: true, visibility: "private" },
       ],
     )
 
     post "/auth/github/callback", params: { state: session["omniauth.state"], code: temp_code }
-=======
-        {
-          email: user1.email,
-          primary: true,
-          verified: true,
-          visibility: "private"
-        },
-        {
-          email: user2.email,
-          primary: false,
-          verified: true,
-          visibility: "private"
-        }
-      ]
-    )
-
-    post "/auth/github/callback", params: {
-      state: session["omniauth.state"],
-      code: temp_code
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     expect(response.status).to eq(302)
     expect(response.location).to eq("http://test.localhost/")
     expect(session[:current_user_id]).to eq(user1.id)

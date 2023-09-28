@@ -3031,7 +3031,6 @@ RSpec.describe TopicsController do
       expect(response.status).to eq(200)
     end
 
-<<<<<<< HEAD
     context "when `enable_user_status` site setting is enabled" do
       fab!(:post) { Fabricate(:post, user: post_author1) }
       fab!(:topic) { post.topic }
@@ -3061,19 +3060,6 @@ RSpec.describe TopicsController do
       it "returns mentions with status" do
         post_author1.set_status!("off to dentist", "tooth")
 
-=======
-    context "with mentions" do
-      fab!(:post) { Fabricate(:post, user: post_author1) }
-      fab!(:topic) { post.topic }
-      fab!(:post2) { Fabricate(
-        :post,
-        user: post_author2,
-        topic: topic,
-        raw: "I am mentioning @#{post_author1.username}."
-      ) }
-
-      it "returns mentions" do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/t/#{topic.slug}/#{topic.id}.json"
 
         expect(response.status).to eq(200)
@@ -3085,54 +3071,15 @@ RSpec.describe TopicsController do
         expect(mentioned_user["id"]).to be(post_author1.id)
         expect(mentioned_user["name"]).to eq(post_author1.name)
         expect(mentioned_user["username"]).to eq(post_author1.username)
-<<<<<<< HEAD
 
         status = mentioned_user["status"]
-=======
-      end
-
-      it "doesn't return status on mentions by default" do
-        post_author1.set_status!("off to dentist", "tooth")
-
-        get "/t/#{topic.slug}/#{topic.id}.json"
-
-        expect(response.status).to eq(200)
-
-        json = response.parsed_body
-        expect(json["post_stream"]["posts"][1]["mentioned_users"].length).to be(1)
-        status = json["post_stream"]["posts"][1]["mentioned_users"][0]["status"]
-        expect(status).to be_nil
-      end
-
-      it "returns mentions with status if user status is enabled" do
-        SiteSetting.enable_user_status = true
-        post_author1.set_status!("off to dentist", "tooth")
-
-        get "/t/#{topic.slug}/#{topic.id}.json"
-
-        expect(response.status).to eq(200)
-
-        json = response.parsed_body
-        expect(json["post_stream"]["posts"][1]["mentioned_users"].length).to be(1)
-
-        status = json["post_stream"]["posts"][1]["mentioned_users"][0]["status"]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(status).to be_present
         expect(status["emoji"]).to eq(post_author1.user_status.emoji)
         expect(status["description"]).to eq(post_author1.user_status.description)
       end
 
-<<<<<<< HEAD
       it "returns an empty list of mentioned users if there are no mentions in a post" do
         Fabricate(:post, user: post_author2, topic: topic, raw: "Post without mentions.")
-=======
-      it "returns an empty list of mentioned users if there is no mentions in a post" do
-        Fabricate(
-          :post,
-          user: post_author2,
-          topic: topic,
-          raw: "Post without mentions.")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/t/#{topic.slug}/#{topic.id}.json"
 
@@ -3143,15 +3090,7 @@ RSpec.describe TopicsController do
       end
 
       it "returns an empty list of mentioned users if an unexisting user was mentioned" do
-<<<<<<< HEAD
         Fabricate(:post, user: post_author2, topic: topic, raw: "Mentioning an @unexisting_user.")
-=======
-        Fabricate(
-          :post,
-          user: post_author2,
-          topic: topic,
-          raw: "Mentioning an @unexisting_user.")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/t/#{topic.slug}/#{topic.id}.json"
 
@@ -4829,15 +4768,8 @@ RSpec.describe TopicsController do
       end
     end
 
-<<<<<<< HEAD
     context "when logged in as a TL4 user" do
       before { SiteSetting.enable_category_group_moderation = true }
-=======
-    context 'when logged in as a TL4 user' do
-      before do
-        SiteSetting.enable_category_group_moderation = true
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "raises an error if the user can't see the topic" do
         user.update!(trust_level: TrustLevel[4])
         sign_in(user)

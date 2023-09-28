@@ -171,13 +171,9 @@ RSpec.describe UsersController do
         SiteSetting.login_required = true
         get "/u/password-reset/#{token}"
         expect(response.status).to eq(200)
-<<<<<<< HEAD
         expect(CGI.unescapeHTML(response.body)).to include(
           I18n.t("password_reset.no_token", base_url: Discourse.base_url),
         )
-=======
-        expect(CGI.unescapeHTML(response.body)).to include(I18n.t('password_reset.no_token', base_url: Discourse.base_url))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -187,14 +183,9 @@ RSpec.describe UsersController do
 
         expect(response.status).to eq(200)
 
-<<<<<<< HEAD
         expect(CGI.unescapeHTML(response.body)).to include(
           I18n.t("password_reset.no_token", base_url: Discourse.base_url),
         )
-=======
-        expect(CGI.unescapeHTML(response.body))
-          .to include(I18n.t('password_reset.no_token', base_url: Discourse.base_url))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.body).to_not have_tag(:script, with: { src: "/assets/application.js" })
 
@@ -205,13 +196,9 @@ RSpec.describe UsersController do
         get "/u/password-reset/#{token}.json"
 
         expect(response.status).to eq(200)
-<<<<<<< HEAD
         expect(response.parsed_body["message"]).to eq(
           I18n.t("password_reset.no_token", base_url: Discourse.base_url),
         )
-=======
-        expect(response.parsed_body["message"]).to eq(I18n.t('password_reset.no_token', base_url: Discourse.base_url))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(session[:current_user_id]).to be_blank
       end
     end
@@ -222,14 +209,9 @@ RSpec.describe UsersController do
 
         expect(response.status).to eq(200)
 
-<<<<<<< HEAD
         expect(CGI.unescapeHTML(response.body)).to include(
           I18n.t("password_reset.no_token", base_url: Discourse.base_url),
         )
-=======
-        expect(CGI.unescapeHTML(response.body))
-          .to include(I18n.t('password_reset.no_token', base_url: Discourse.base_url))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.body).to_not have_tag(:script, with: { src: "/assets/application.js" })
 
@@ -240,13 +222,9 @@ RSpec.describe UsersController do
         put "/u/password-reset/evil_trout!.json", params: { password: "awesomeSecretPassword" }
 
         expect(response.status).to eq(200)
-<<<<<<< HEAD
         expect(response.parsed_body["message"]).to eq(
           I18n.t("password_reset.no_token", base_url: Discourse.base_url),
         )
-=======
-        expect(response.parsed_body["message"]).to eq(I18n.t('password_reset.no_token', base_url: Discourse.base_url))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(session[:current_user_id]).to be_blank
       end
     end
@@ -2643,15 +2621,8 @@ RSpec.describe UsersController do
           expect(json["user"]["id"]).to eq user.id
         end
 
-<<<<<<< HEAD
         context "with sidebar" do
           before { SiteSetting.navigation_menu = "sidebar" }
-=======
-        context 'with sidebar' do
-          before do
-            SiteSetting.navigation_menu = "sidebar"
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           it "does not remove category or tag sidebar section links when params are not present" do
             Fabricate(:category_sidebar_section_link, user: user)
@@ -2805,11 +2776,7 @@ RSpec.describe UsersController do
 
       before do
         DiscoursePluginRegistry.register_auth_provider(plugin_auth_provider)
-<<<<<<< HEAD
         SiteSetting.discourse_connect_url = "http://localhost"
-=======
-        SiteSetting.discourse_connect_url = 'http://localhost'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SiteSetting.enable_discourse_connect = true
       end
 
@@ -2849,28 +2816,17 @@ RSpec.describe UsersController do
         expect(user.reload.user_associated_account_ids).to be_blank
       end
 
-<<<<<<< HEAD
       it "can create SingleSignOnRecord records" do
         params = { external_ids: { discourse_connect: "discourse_connect_uid" } }
 
         expect {
           put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key }
         }.to change { SingleSignOnRecord.count }.by(1)
-=======
-      it 'can create SingleSignOnRecord records' do
-        params = {
-          external_ids: { discourse_connect: 'discourse_connect_uid' },
-        }
-
-        expect { put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key } }
-          .to change { SingleSignOnRecord.count }.by(1)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
         single_sign_on_record = SingleSignOnRecord.last
         expect(user.reload.single_sign_on_record).to eq(single_sign_on_record)
-<<<<<<< HEAD
         expect(single_sign_on_record.external_id).to eq("discourse_connect_uid")
       end
 
@@ -2905,42 +2861,11 @@ RSpec.describe UsersController do
         expect {
           put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key }
         }.to change { SingleSignOnRecord.count }.by(-1)
-=======
-        expect(single_sign_on_record.external_id).to eq('discourse_connect_uid')
-      end
-
-      it 'can update SingleSignOnRecord records' do
-        user = Fabricate(:user)
-        SingleSignOnRecord.create!(user_id: user.id, external_id: 'discourse_connect_uid', last_payload: 'discourse_connect_uid')
-
-        params = {
-          external_ids: { discourse_connect: 'discourse_connect_uid_2' },
-        }
-
-        expect { put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key } }
-          .not_to change { SingleSignOnRecord.count }
-
-        expect(response.status).to eq(200)
-        expect(user.reload.single_sign_on_record.external_id).to eq('discourse_connect_uid_2')
-      end
-
-      it 'can delete SingleSignOnRecord records' do
-        user = Fabricate(:user)
-        SingleSignOnRecord.create!(user_id: user.id, external_id: 'discourse_connect_uid', last_payload: 'discourse_connect_uid')
-
-        params = {
-          external_ids: { discourse_connect: nil },
-        }
-
-        expect { put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key } }
-          .to change { SingleSignOnRecord.count }.by(-1)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         expect(user.reload.single_sign_on_record).to be_blank
       end
 
-<<<<<<< HEAD
       it "can update SingleSignOnRecord and UserAssociatedAccount records in a single call" do
         user = Fabricate(:user)
         user.user_associated_accounts.create!(
@@ -2953,33 +2878,6 @@ RSpec.describe UsersController do
           last_payload: "discourse_connect_uid",
         )
 
-=======
-      it 'can update SingleSignOnRecord and UserAssociatedAccount records in a single call' do
-        user = Fabricate(:user)
-        user.user_associated_accounts.create!(provider_name: 'pluginauth', provider_uid: 'pluginauth_uid')
-        SingleSignOnRecord.create!(user_id: user.id, external_id: 'discourse_connect_uid', last_payload: 'discourse_connect_uid')
-
-        params = {
-          external_ids: {
-            discourse_connect: 'discourse_connect_uid_2',
-            pluginauth: 'pluginauth_uid_2'
-          },
-        }
-
-        expect { put "/u/#{user.username}.json", params: params, headers: { HTTP_API_KEY: api_key.key } }
-          .to change { SingleSignOnRecord.count + UserAssociatedAccount.count }.by(0)
-
-        expect(response.status).to eq(200)
-        expect(user.reload.single_sign_on_record.external_id).to eq('discourse_connect_uid_2')
-        user_associated_account = UserAssociatedAccount.last
-        expect(user.reload.user_associated_account_ids).to contain_exactly(user_associated_account.id)
-        expect(user_associated_account.provider_name).to eq('pluginauth')
-        expect(user_associated_account.provider_uid).to eq('pluginauth_uid_2')
-        expect(user_associated_account.user_id).to eq(user.id)
-      end
-
-      it 'returns error if external ID provider does not exist' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         params = {
           external_ids: {
             discourse_connect: "discourse_connect_uid_2",
@@ -3095,24 +2993,11 @@ RSpec.describe UsersController do
         end
 
         it "doesn't clear user status if it wasn't sent in the payload" do
-<<<<<<< HEAD
           new_status = { emoji: "tooth", description: "off to dentist" }
           user.set_status!(new_status[:description], new_status[:emoji])
           user.reload
 
           put "/u/#{user.username}.json", params: { bio_raw: "new bio" }
-=======
-          new_status = {
-            emoji: "off to dentist",
-            description: "tooth",
-          }
-          user.set_status!(new_status[:description], new_status[:emoji])
-          user.reload
-
-          put "/u/#{user.username}.json", params: {
-            bio_raw: "new bio"
-          }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(response.status).to eq(200)
 
           user.reload
@@ -3121,15 +3006,8 @@ RSpec.describe UsersController do
           expect(user.user_status.description).to eq(new_status[:description])
         end
 
-<<<<<<< HEAD
         context "when user status is disabled" do
           before { SiteSetting.enable_user_status = false }
-=======
-        context 'when user status is disabled' do
-          before do
-            SiteSetting.enable_user_status = false
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           it "doesn't set user status" do
             put "/u/#{user.username}.json",
@@ -4238,13 +4116,8 @@ RSpec.describe UsersController do
     end
   end
 
-<<<<<<< HEAD
   describe "#topic_tracking_state" do
     context "when anon" do
-=======
-  describe '#topic_tracking_state' do
-    context 'when anon' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "raises an error on anon for topic_tracking_state" do
         get "/u/#{user1.username}/topic-tracking-state.json"
         expect(response.status).to eq(403)

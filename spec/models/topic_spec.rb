@@ -700,11 +700,7 @@ RSpec.describe Topic do
         expect(topics).to eq([])
       end
 
-<<<<<<< HEAD
       it "does not return topics from categories with search priority set to ignore" do
-=======
-      it 'does not return topics from categories with search priority set to ignore' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(Topic.similar_to("has evil trout made any topics?", "")).to eq([topic])
 
         topic.category.update!(search_priority: Searchable::PRIORITIES[:ignore])
@@ -712,7 +708,6 @@ RSpec.describe Topic do
         expect(Topic.similar_to("has evil trout made any topics?", "")).to eq([])
       end
 
-<<<<<<< HEAD
       it "does not return topics from categories which the user has muted" do
         expect(Topic.similar_to("has evil trout made any topics?", "", user)).to eq([topic])
 
@@ -736,12 +731,6 @@ RSpec.describe Topic do
           user: user,
           notification_level: CategoryUser.notification_levels[:muted],
         )
-=======
-      it 'does not return topics from categories which the user has muted' do
-        expect(Topic.similar_to("has evil trout made any topics?", "", user)).to eq([topic])
-
-        CategoryUser.create!(category: topic.category, user: user, notification_level: CategoryUser.notification_levels[:muted])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(Topic.similar_to("has evil trout made any topics?", "", user)).to eq([])
       end
@@ -750,13 +739,7 @@ RSpec.describe Topic do
         fab!(:group) { Fabricate(:group) }
         fab!(:private_category) { Fabricate(:private_category, group: group) }
 
-<<<<<<< HEAD
         before { topic.update!(category: private_category) }
-=======
-        before do
-          topic.update!(category: private_category)
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "doesn't return topics from private categories" do
           expect(
@@ -771,7 +754,6 @@ RSpec.describe Topic do
         it "should return the cat since the user can see it" do
           group.add(user)
 
-<<<<<<< HEAD
           expect(
             Topic.similar_to(
               "has evil trout made any topics?",
@@ -779,9 +761,6 @@ RSpec.describe Topic do
               user,
             ),
           ).to include(topic)
-=======
-          expect(Topic.similar_to("has evil trout made any topics?", "i am wondering has evil trout made any topics?", user)).to include(topic)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -2625,11 +2604,7 @@ RSpec.describe Topic do
     end
   end
 
-<<<<<<< HEAD
   describe "trash!" do
-=======
-  describe 'trash!' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:topic) { Fabricate(:topic) }
 
     context "with category's topic count" do
@@ -2664,42 +2639,22 @@ RSpec.describe Topic do
       expect(topic_embed.deleted_at).not_to eq(nil)
     end
 
-<<<<<<< HEAD
     it "triggers the topic trashed event" do
       events = DiscourseEvent.track_events(:topic_trashed) { topic.trash! }
-=======
-    it 'triggers the topic trashed event' do
-      events = DiscourseEvent.track_events(:topic_trashed) do
-        topic.trash!
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(events.size).to eq(1)
     end
 
-<<<<<<< HEAD
     it "does not trigger the topic trashed event when topic is already trashed" do
       topic.trash!
 
       events = DiscourseEvent.track_events(:topic_trashed) { topic.trash! }
-=======
-    it 'does not trigger the topic trashed event when topic is already trashed' do
-      topic.trash!
-
-      events = DiscourseEvent.track_events(:topic_trashed) do
-        topic.trash!
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(events.size).to eq(0)
     end
   end
 
-<<<<<<< HEAD
   describe "recover!" do
-=======
-  describe 'recover!' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:topic) { Fabricate(:topic) }
 
     context "with category's topic count" do
@@ -2736,38 +2691,19 @@ RSpec.describe Topic do
       expect(topic_embed.deleted_at).to be_nil
     end
 
-<<<<<<< HEAD
     it "triggers the topic recovered event" do
       topic.trash!
 
       events = DiscourseEvent.track_events(:topic_recovered) { topic.recover! }
-=======
-    it 'triggers the topic recovered event' do
-      topic.trash!
-
-      events = DiscourseEvent.track_events(:topic_recovered) do
-        topic.recover!
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(events.size).to eq(1)
     end
 
-<<<<<<< HEAD
     it "does not trigger the topic recovered event when topic is already recovered" do
       topic.trash!
       topic.recover!
 
       events = DiscourseEvent.track_events(:topic_recovered) { topic.recover! }
-=======
-    it 'does not trigger the topic recovered event when topic is already recovered' do
-      topic.trash!
-      topic.recover!
-
-      events = DiscourseEvent.track_events(:topic_recovered) do
-        topic.recover!
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(events.size).to eq(0)
     end
@@ -3178,11 +3114,7 @@ RSpec.describe Topic do
     end
   end
 
-<<<<<<< HEAD
   describe "#pm_with_non_human_user?" do
-=======
-  describe '#pm_with_non_human_user?' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:robot) { Fabricate(:bot) }
 
     fab!(:topic) do

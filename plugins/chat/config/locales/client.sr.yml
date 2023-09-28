@@ -6,14 +6,11 @@
 
 sr:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
           always: "Uvek"
           never: "Nikad"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     chat:
       dates:
         time_tiny: "h:mm"
@@ -22,25 +19,16 @@ sr:
         edit: "Izmeni"
         add: "Dodaj"
       close: "Zatvori"
-<<<<<<< HEAD
       remove: "Ukloni"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Obriši"
       muted: "utišano"
       joined: "pridružen"
       email_frequency:
         never: "Nikad"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Nikad"
       flag: "Označi Zastavom"
       last_visit: "poslednja poseta"
-=======
-      flag: "Označi Zastavom"
-      mention_warning:
-        dismiss: "одбаци"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odgovori"
       edit: "Izmeni"
       rebake_message: "Popravi HTML"
@@ -60,10 +48,7 @@ sr:
         yesterday: Juče
       about_view:
         title: Naslov
-<<<<<<< HEAD
         name: Ime foruma
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Opis
       channel_info:
         back_to_channel: "Nazad"
@@ -109,7 +94,6 @@ sr:
           title: "Prebaci u Postojeću Temu"
       emoji_picker:
         flags: "Zastave"
-<<<<<<< HEAD
       thread:
         title: "Naslov"
         settings: "Podešavanja"
@@ -119,8 +103,6 @@ sr:
             title: "Normalno"
           tracking:
             title: "Praćeno"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nova privatna poruka"
         cancel: "Odustani"

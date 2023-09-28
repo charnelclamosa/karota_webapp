@@ -1,23 +1,14 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 RSpec.describe "Navigation", type: :system do
   fab!(:category) { Fabricate(:category) }
   fab!(:topic) { Fabricate(:topic) }
   fab!(:post) { Fabricate(:post, topic: topic) }
   fab!(:current_user) { Fabricate(:admin) }
-=======
-RSpec.describe "Navigation", type: :system, js: true do
-  fab!(:category) { Fabricate(:category) }
-  fab!(:topic) { Fabricate(:topic) }
-  fab!(:post) { Fabricate(:post, topic: topic) }
-  fab!(:user) { Fabricate(:admin) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   fab!(:category_channel) { Fabricate(:category_channel) }
   fab!(:category_channel_2) { Fabricate(:category_channel) }
   fab!(:message) { Fabricate(:chat_message, chat_channel: category_channel) }
   let(:chat_page) { PageObjects::Pages::Chat.new }
-<<<<<<< HEAD
   let(:thread_page) { PageObjects::Pages::ChatThread.new }
   let(:thread_list_page) { PageObjects::Components::Chat::ThreadList.new }
   let(:channel_page) { PageObjects::Pages::ChatChannel.new }
@@ -32,23 +23,12 @@ RSpec.describe "Navigation", type: :system, js: true do
       chat_separate_sidebar_mode: UserOption.chat_separate_sidebar_modes[:never],
     )
     sign_in(current_user)
-=======
-  let(:sidebar_page) { PageObjects::Pages::Sidebar.new }
-  let(:chat_drawer_page) { PageObjects::Pages::ChatDrawer.new }
-
-  before do
-    chat_system_bootstrap(user, [category_channel, category_channel_2])
-    sign_in(user)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   context "when clicking chat icon and drawer is viewing channel" do
     it "navigates to index" do
-<<<<<<< HEAD
       visit("/")
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       chat_page.open_from_header
       chat_drawer_page.open_channel(category_channel_2)
       chat_page.open_from_header
@@ -58,12 +38,7 @@ RSpec.describe "Navigation", type: :system, js: true do
   end
 
   context "when clicking chat icon on mobile and is viewing channel" do
-<<<<<<< HEAD
     it "navigates to index", mobile: true do
-=======
-    it "navigates to index" do
-      visit("/chat?mobile_view=1")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       chat_page.visit_channel(category_channel_2)
       chat_page.open_from_header
 
@@ -71,31 +46,12 @@ RSpec.describe "Navigation", type: :system, js: true do
     end
   end
 
-<<<<<<< HEAD
-=======
-  context "when clicking chat icon on desktop and is viewing channel" do
-    it "stays on channel page" do
-      visit("/chat")
-      chat_page.visit_channel(category_channel_2)
-      chat_page.open_from_header
-
-      expect(page).to have_current_path(
-        chat.channel_path(category_channel_2.id, category_channel_2.slug),
-      )
-    end
-  end
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   context "when visiting /chat" do
     it "opens full page" do
       chat_page.open
 
       expect(page).to have_current_path(
-<<<<<<< HEAD
         chat.channel_path(category_channel.slug, category_channel.id),
-=======
-        chat.channel_path(category_channel.id, category_channel.slug),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
       expect(page).to have_css("html.has-full-page-chat")
       expect(page).to have_css(".chat-message-container[data-id='#{message.id}']")
@@ -118,22 +74,14 @@ RSpec.describe "Navigation", type: :system, js: true do
       chat_drawer_page.maximize
 
       expect(page).to have_current_path(
-<<<<<<< HEAD
         chat.channel_path(category_channel.slug, category_channel.id),
-=======
-        chat.channel_path(category_channel.id, category_channel.slug),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       visit("/")
       chat_page.open_from_header
 
       expect(page).to have_current_path(
-<<<<<<< HEAD
         chat.channel_path(category_channel.slug, category_channel.id),
-=======
-        chat.channel_path(category_channel.id, category_channel.slug),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
   end
@@ -173,7 +121,6 @@ RSpec.describe "Navigation", type: :system, js: true do
     end
   end
 
-<<<<<<< HEAD
   context "when opening a thread" do
     fab!(:thread) { Fabricate(:chat_thread, channel: category_channel, use_service: true) }
 
@@ -246,54 +193,18 @@ RSpec.describe "Navigation", type: :system, js: true do
           expect(side_panel_page).to be_closed
         end
       end
-=======
-  context "when opening full page with a link containing a message id" do
-    it "highlights correct message" do
-      visit("/chat/channel/#{category_channel.id}/#{category_channel.slug}?messageId=#{message.id}")
-
-      expect(page).to have_css(
-        ".full-page-chat .chat-message-container.highlighted[data-id='#{message.id}']",
-      )
-    end
-  end
-
-  context "when opening drawer with a link containing a message id" do
-    it "highlights correct message" do
-      Fabricate(
-        :post,
-        topic: topic,
-        raw:
-          "<a href=\"/chat/channel/#{category_channel.id}/#{category_channel.slug}?messageId=#{message.id}\">foo</a>",
-      )
-      visit("/t/-/#{topic.id}")
-      find("a", text: "foo").click
-
-      expect(page).to have_css(
-        ".chat-drawer.is-expanded .chat-message-container.highlighted[data-id='#{message.id}']",
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
   context "when sidebar is configured as the navigation menu" do
-<<<<<<< HEAD
     before { SiteSetting.navigation_menu = "sidebar" }
-=======
-    before do
-      SiteSetting.navigation_menu = "sidebar"
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     context "when opening channel from sidebar with drawer preferred" do
       it "opens channel in drawer" do
         visit("/t/-/#{topic.id}")
         chat_page.open_from_header
         chat_drawer_page.close
-<<<<<<< HEAD
         sidebar_component.click_link(category_channel.name)
-=======
-        find("a[class*='sidebar-section-link-#{category_channel.slug}']").click
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(page).to have_css(".chat-message-container[data-id='#{message.id}']")
       end
@@ -305,61 +216,23 @@ RSpec.describe "Navigation", type: :system, js: true do
         chat_page.open_from_header
         chat_drawer_page.maximize
         visit("/")
-<<<<<<< HEAD
         sidebar_component.click_link(category_channel.name)
 
         expect(page).to have_current_path(
           chat.channel_path(category_channel.slug, category_channel.id),
-=======
-        find("a[class*='sidebar-section-link-#{category_channel.slug}']").click
-
-        expect(page).to have_current_path(
-          chat.channel_path(category_channel.id, category_channel.slug),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
     end
 
-<<<<<<< HEAD
-=======
-    context "when starting draft from sidebar with drawer preferred" do
-      it "opens draft in drawer" do
-        visit("/")
-        sidebar_page.open_draft_channel
-
-        expect(page).to have_current_path("/")
-        expect(page).to have_css(".chat-drawer.is-expanded .direct-message-creator")
-      end
-    end
-
-    context "when starting draft from drawer with drawer preferred" do
-      it "opens draft in drawer" do
-        visit("/")
-        chat_page.open_from_header
-        chat_drawer_page.open_draft_channel
-
-        expect(page).to have_current_path("/")
-        expect(page).to have_css(".chat-drawer.is-expanded .direct-message-creator")
-      end
-    end
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when starting draft from sidebar with full page preferred" do
       it "opens draft in full page" do
         visit("/")
         chat_page.open_from_header
         chat_drawer_page.maximize
         visit("/")
-<<<<<<< HEAD
         chat_page.open_new_message
 
         expect(chat_page.message_creator).to be_opened
-=======
-        sidebar_page.open_draft_channel
-
-        expect(page).to have_current_path("/chat/draft-channel")
-        expect(page).not_to have_css(".chat-drawer.is-expanded")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -390,11 +263,7 @@ RSpec.describe "Navigation", type: :system, js: true do
         visit("/")
         chat_page.open_from_header
         chat_drawer_page.open_channel(category_channel_2)
-<<<<<<< HEAD
         chat_drawer_page.back
-=======
-        chat_drawer_page.open_index
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         chat_drawer_page.close
         chat_page.open_from_header
 
@@ -406,36 +275,24 @@ RSpec.describe "Navigation", type: :system, js: true do
 
     context "when re-opening full page chat after navigating to a channel" do
       it "opens full page chat on correct channel" do
-<<<<<<< HEAD
         chat_channel_path = chat.channel_path(category_channel_2.slug, category_channel_2.id)
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         visit("/")
         chat_page.open_from_header
         chat_drawer_page.maximize
         sidebar_page.open_channel(category_channel_2)
         find("#site-logo").click
-<<<<<<< HEAD
 
         expect(chat_page).to have_header_href(chat_channel_path)
 
         chat_page.open_from_header
 
         expect(page).to have_current_path(chat_channel_path)
-=======
-        chat_page.open_from_header
-
-        expect(page).to have_current_path(
-          chat.channel_path(category_channel_2.id, category_channel_2.slug),
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(page).to have_content(category_channel_2.title)
       end
     end
 
     context "when opening a channel in full page" do
-<<<<<<< HEAD
       fab!(:other_user) { Fabricate(:user) }
       fab!(:dm_channel) { Fabricate(:direct_message_channel, users: [current_user, other_user]) }
 
@@ -454,23 +311,12 @@ RSpec.describe "Navigation", type: :system, js: true do
 
         expect(sidebar_component).to have_section_link(category_channel.name, active: true)
         expect(sidebar_component).to have_one_active_section_link
-=======
-      it "activates the channel in the sidebar" do
-        visit("/chat/channel/#{category_channel.id}/#{category_channel.slug}")
-        expect(page).to have_css(
-          ".sidebar-section-link-#{category_channel.slug}.sidebar-section-link--active",
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
     context "when going back to channel from channel settings in full page" do
       it "activates the channel in the sidebar" do
-<<<<<<< HEAD
         visit("/chat/c/#{category_channel.slug}/#{category_channel.id}/info/settings")
-=======
-        visit("/chat/channel/#{category_channel.id}/#{category_channel.slug}/info/settings")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         find(".chat-full-page-header__back-btn").click
         expect(page).to have_content(message.message)
       end
@@ -478,19 +324,10 @@ RSpec.describe "Navigation", type: :system, js: true do
 
     context "when clicking logo from a channel in full page" do
       it "deactivates the channel in the sidebar" do
-<<<<<<< HEAD
         visit("/chat/c/#{category_channel.slug}/#{category_channel.id}")
         find("#site-logo").click
 
         expect(sidebar_component).to have_no_section_link(category_channel.name, active: true)
-=======
-        visit("/chat/channel/#{category_channel.id}/#{category_channel.slug}")
-        find("#site-logo").click
-
-        expect(page).not_to have_css(
-          ".sidebar-section-link-#{category_channel.slug}.sidebar-section-link--active",
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -498,17 +335,9 @@ RSpec.describe "Navigation", type: :system, js: true do
       it "activates the channel in the sidebar" do
         visit("/")
         chat_page.open_from_header
-<<<<<<< HEAD
         sidebar_component.click_section_link(category_channel.name)
 
         expect(sidebar_component).to have_section_link(category_channel.name, active: true)
-=======
-        find("a[class*='#{category_channel.slug}']").click
-
-        expect(page).to have_css(
-          ".sidebar-section-link-#{category_channel.slug}.sidebar-section-link--active",
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -516,7 +345,6 @@ RSpec.describe "Navigation", type: :system, js: true do
       it "deactivates the channel in the sidebar" do
         visit("/")
         chat_page.open_from_header
-<<<<<<< HEAD
 
         sidebar_component.click_section_link(category_channel.name)
         chat_drawer_page.close
@@ -546,14 +374,6 @@ RSpec.describe "Navigation", type: :system, js: true do
         sidebar_component.switch_to_chat
 
         expect(page).to have_no_css(".chat-side-panel")
-=======
-        find("a[class*='sidebar-section-link-#{category_channel.slug}']").click
-        chat_drawer_page.close
-
-        expect(page).not_to have_css(
-          ".sidebar-section-link-#{category_channel.slug}.sidebar-section-link--active",
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end

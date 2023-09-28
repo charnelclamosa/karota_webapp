@@ -5,24 +5,14 @@ RSpec.describe Admin::SearchLogsController do
   fab!(:moderator) { Fabricate(:moderator) }
   fab!(:user) { Fabricate(:user) }
 
-<<<<<<< HEAD
   before { SearchLog.log(term: "ruby", search_type: :header, ip_address: "127.0.0.1") }
-=======
-  before do
-    SearchLog.log(term: "ruby", search_type: :header, ip_address: "127.0.0.1")
-  end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   after { SearchLog.clear_debounce_cache! }
 
   describe "#index" do
     shared_examples "search logs accessible" do
       it "returns search logs" do
-<<<<<<< HEAD
         get "/admin/logs/search_logs.json"
-=======
-        get '/admin/logs/search_logs.json'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
@@ -46,11 +36,7 @@ RSpec.describe Admin::SearchLogsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         get "/admin/logs/search_logs.json"
@@ -64,24 +50,13 @@ RSpec.describe Admin::SearchLogsController do
   describe "#term" do
     shared_examples "search log term accessible" do
       it "returns search log term" do
-<<<<<<< HEAD
         get "/admin/logs/search_logs/term.json", params: { term: "ruby" }
-=======
-        get '/admin/logs/search_logs/term.json', params: {
-          term: "ruby"
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
         json = response.parsed_body
-<<<<<<< HEAD
         expect(json["term"]["type"]).to eq("search_log_term")
         expect(json["term"]["search_result"]).to be_present
-=======
-        expect(json['term']['type']).to eq('search_log_term')
-        expect(json['term']['search_result']).to be_present
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -98,19 +73,10 @@ RSpec.describe Admin::SearchLogsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
 
       it "denies access with a 404 response" do
         get "/admin/logs/search_logs/term.json", params: { term: "ruby" }
-=======
-      before  { sign_in(user) }
-
-      it "denies access with a 404 response" do
-        get "/admin/logs/search_logs/term.json", params: {
-          term: "ruby"
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))

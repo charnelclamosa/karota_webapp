@@ -6,19 +6,11 @@ RSpec.describe Admin::ImpersonateController do
   fab!(:user) { Fabricate(:user) }
   fab!(:another_admin) { Fabricate(:admin) }
 
-<<<<<<< HEAD
   describe "#index" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "returns success" do
-=======
-  describe '#index' do
-    context "when logged in as an admin" do
-      before { sign_in(admin) }
-
-      it 'returns success' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/admin/impersonate.json"
 
         expect(response.status).to eq(200)
@@ -47,19 +39,11 @@ RSpec.describe Admin::ImpersonateController do
     end
   end
 
-<<<<<<< HEAD
   describe "#create" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "requires a username_or_email parameter" do
-=======
-  describe '#create' do
-    context "when logged in as an admin" do
-      before { sign_in(admin) }
-
-      it 'requires a username_or_email parameter' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post "/admin/impersonate.json"
         expect(response.status).to eq(400)
         expect(session[:current_user_id]).to eq(admin.id)

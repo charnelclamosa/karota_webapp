@@ -7,7 +7,6 @@
 uk:
   js:
     admin:
-<<<<<<< HEAD
       site_settings:
         categories:
           chat: Чат
@@ -15,14 +14,11 @@ uk:
           always: "Завжди"
           fullscreen: "Коли чат у повноекранному режимі"
           never: "Ніколи"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Статус каналу чату змінено"
             chat_channel_delete: "Канал чату видалено"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Підписки автоматично видаляються з каналів"
       api:
         scopes:
@@ -106,24 +102,10 @@ uk:
         many: "%{count} повідомлень видалено. [view all]"
         other: "%{count} повідомлень видалено. [view all]"
       hidden: "Повідомлення було приховано. [view]"
-=======
-    chat:
-      create: "Створити"
-      cancel: "Скасувати"
-      channel_settings:
-        edit: "Редагувати"
-        add: "Додати"
-        join: "Приєднатися"
-        leave: "Покинути"
-      channel_close:
-        instructions: "Закриття каналу забороняє стороннім користувачам надсилати нові повідомлення або редагувати наявні повідомлення. Ви впевнені, що хочете закрити цей канал?"
-      close: "Закрити"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Видалити"
       edited: "відредагований"
       muted: "ігноровані"
       joined: "приєднався(лась)"
-<<<<<<< HEAD
       empty_state:
         direct_message_cta: "Розпочати особистий чат"
         direct_message: "Ви також можете розпочати особистий чат з одним або кількома користувачами."
@@ -354,43 +336,11 @@ uk:
         description: Опис
       channel_info:
         back_to_all_channels: "Всі канали"
-=======
-      email_frequency:
-        never: "Ніколи"
-      flag: "Поскаржитися"
-      join: "Приєднатися"
-      mention_warning:
-        dismiss: "відкласти"
-      reply: "Відповідь"
-      edit: "Редагувати"
-      rebake_message: "Перебудувати HTML"
-      bookmark_message: "Додати закладку"
-      bookmark_message_edit: "Редагувати закладку"
-      save: "Зберегти"
-      sounds:
-        none: "Немає"
-      exit: "назад"
-      channel_status:
-        closed: "Закриті"
-        open: "Відкрити"
-      browse:
-        back: "Назад"
-        filter_all: Все
-        filter_closed: Закриті
-      chat_message_separator:
-        today: Сьогодні
-        yesterday: Вчора
-      about_view:
-        title: Назва
-        description: Опис
-      channel_info:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         back_to_channel: "Назад"
         tabs:
           about: Про
           members: Учасники
           settings: Налаштування
-<<<<<<< HEAD
       new_message_modal:
         title: Надіслати повідомлення
         add_user_long: <kbd>shift + click</kbd> or <kbd>shift + enter</kbd><span>Додати @%{username}</span>
@@ -491,17 +441,10 @@ uk:
         name: "Назва каналу"
         slug: "Slug каналу (опціонально)"
         title: "Новий канал"
-=======
-      direct_message_creator:
-        title: Нове повідомлення
-        prefix: "До:"
-      create_channel:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Тип"
         types:
           category: "Розділ"
           topic: "Тема"
-<<<<<<< HEAD
       reviewable:
         type: "Повідомлення чату"
       reactions:
@@ -551,23 +494,12 @@ uk:
         threading_disabled: "Вимкнено"
         muted_on: "Увімк"
         muted_off: "Вимк."
-=======
-      composer:
-        italic_text: "виділення тексту курсивом"
-        bold_text: "Сильне виділення тексту"
-      notification_levels:
-        never: "Ніколи"
-      settings:
-        follow: "Приєднатися"
-        followed: "Приєднався(лась)"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Сповіщення"
         preview: "Попередній перегляд"
         save: "Зберегти"
         saved: "Збережено"
         unfollow: "Покинути"
         admin_title: "Адміністратор"
-<<<<<<< HEAD
       admin:
         title: "Чат"
         export_messages:
@@ -709,40 +641,10 @@ uk:
         open: "Відкрийте тему"
         list: "Поточні обговорення"
         none: "Ви не берете участі в жодній темі на цьому каналі."
-=======
-      incoming_webhooks:
-        back: "Назад"
-        description: "Опис"
-        delete: "Видалити"
-        emoji: "Смайли"
-        name: "Назва"
-        save: "Зберегти"
-        edit: "Редагувати"
-        system: "системні"
-        url: "Посилання"
-        username: "Ім’я користувача"
-      selection:
-        cancel: "Скасувати"
-        copy: "Копіювати"
-        new_topic:
-          title: "Перенесення до нової теми"
-        existing_topic:
-          title: "Перенесення до наявної теми"
-        new_message:
-          title: "Перейти до нового повідомленням"
-      flags:
-        notify_moderators: "Це повідомлення вимагає уваги модераторів з іншої причини, не зазначеної вище."
-      emoji_picker:
-        objects: "Objects"
-        activities: "Діяльність"
-        flags: "Скарги"
-        symbols: "Атрибутика"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Нове повідомлення"
         cancel: "Скасувати"
     notifications:
-<<<<<<< HEAD
       chat_invitation: "запросив вас приєднатися до каналу чату"
       chat_invitation_html: "<span>%{username}</span> <span>запросив вас приєднатися до каналу чату</span>"
       chat_quoted: "<span>%{username}</span> %{description}"
@@ -829,16 +731,3 @@ uk:
       panels:
         chat:
           label: "Чат"
-=======
-      chat_quoted: "<span>%{username}</span> %{description}"
-    discourse_automation:
-      scriptables:
-        send_chat_message:
-          fields:
-            message:
-              label: Повідомлення
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Позначено"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

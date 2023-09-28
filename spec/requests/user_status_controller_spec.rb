@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe UserStatusController do
-<<<<<<< HEAD
   describe "#get" do
     it "requires user to be logged in" do
-=======
-  describe '#get' do
-    it 'requires user to be logged in' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       get "/user-status.json"
       expect(response.status).to eq(403)
     end
@@ -22,11 +17,7 @@ RSpec.describe UserStatusController do
       expect(response.status).to eq(404)
     end
 
-<<<<<<< HEAD
     describe "when feature is enabled and a user is logged in" do
-=======
-    describe 'when feature is enabled and a user is logged in' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       fab!(:user) { Fabricate(:user) }
 
       before do
@@ -50,13 +41,8 @@ RSpec.describe UserStatusController do
     end
   end
 
-<<<<<<< HEAD
   describe "#set" do
     it "requires user to be logged in" do
-=======
-  describe '#set' do
-    it 'requires user to be logged in' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       put "/user-status.json", params: { description: "off to dentist" }
       expect(response.status).to eq(403)
     end

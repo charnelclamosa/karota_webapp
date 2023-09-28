@@ -252,15 +252,11 @@ RSpec.describe DiscourseJsProcessor do
         "add.js" => "let add = (firstValue, secondValue) => firstValue + secondValue;",
       }
 
-<<<<<<< HEAD
       result =
         DiscourseJsProcessor::Transpiler.new.terser(
           sources,
           { sourceMap: { includeSources: true } },
         )
-=======
-      result = DiscourseJsProcessor::Transpiler.new.terser(sources, { sourceMap: { includeSources: true } })
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(result.keys).to contain_exactly("code", "decoded_map", "map")
 
       begin

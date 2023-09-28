@@ -5,11 +5,7 @@ RSpec.describe Admin::ReportsController do
   fab!(:moderator) { Fabricate(:moderator) }
   fab!(:user) { Fabricate(:user) }
 
-<<<<<<< HEAD
   describe "#bulk" do
-=======
-  describe '#bulk' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -95,7 +91,6 @@ RSpec.describe Admin::ReportsController do
       it "returns report" do
         Fabricate(:topic)
 
-<<<<<<< HEAD
         get "/admin/reports/bulk.json",
             params: {
               reports: {
@@ -107,14 +102,6 @@ RSpec.describe Admin::ReportsController do
                 },
               },
             }
-=======
-        get "/admin/reports/bulk.json", params: {
-          reports: {
-            topics: { limit: 10 },
-            likes: { limit: 10 }
-          }
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["reports"].count).to eq(2)
@@ -122,7 +109,6 @@ RSpec.describe Admin::ReportsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
 
       it "denies access with a 404 response" do
@@ -137,17 +123,6 @@ RSpec.describe Admin::ReportsController do
                 },
               },
             }
-=======
-      before  { sign_in(user) }
-
-      it "denies access with a 404 response" do
-        get "/admin/reports/bulk.json", params: {
-          reports: {
-            topics: { limit: 10 },
-            not_found: { limit: 10 }
-          }
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -155,11 +130,7 @@ RSpec.describe Admin::ReportsController do
     end
   end
 
-<<<<<<< HEAD
   describe "#show" do
-=======
-  describe '#show' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -235,11 +206,7 @@ RSpec.describe Admin::ReportsController do
     end
 
     context "when logged in as a moderator" do
-<<<<<<< HEAD
       before { sign_in(moderator) }
-=======
-      before  { sign_in(moderator) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns report" do
         Fabricate(:topic)
@@ -252,11 +219,7 @@ RSpec.describe Admin::ReportsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         get "/admin/reports/topics.json"

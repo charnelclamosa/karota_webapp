@@ -1,6 +1,5 @@
 .chat-composer-upload {
   display: inline-flex;
-<<<<<<< HEAD
   height: 64px;
   padding: 0.5rem;
   border: 1px solid var(--primary-low-mid);
@@ -18,18 +17,11 @@
       box-sizing: border-box;
     }
   }
-=======
-  height: 50px;
-  padding: 0.5rem;
-  border: 1px solid var(--primary-low-mid);
-  margin-right: 0.5em;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   &:last-child {
     margin-right: 0;
   }
 
-<<<<<<< HEAD
   &:hover {
     .chat-composer-upload__remove-btn {
       visibility: visible;
@@ -50,15 +42,10 @@
 
   .preview {
     width: 100%;
-=======
-  .preview {
-    width: 50px;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-<<<<<<< HEAD
     margin: 0;
 
     .d-icon {
@@ -70,18 +57,6 @@
       object-position: center;
       object-fit: cover;
       border-radius: var(--d-border-radius);
-=======
-    margin: 0 1em 0 0;
-    border-radius: 8px;
-
-    .d-icon {
-      font-size: var(--font-up-6);
-    }
-
-    .preview-img {
-      max-width: 100%;
-      max-height: 100%;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
@@ -120,11 +95,7 @@
 
     .extension-pill {
       background: var(--primary-low);
-<<<<<<< HEAD
       border-radius: var(--d-border-radius);
-=======
-      border-radius: 5px;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       font-size: var(--font-down-2-rem);
       padding: 0.1em 0.4em;
     }

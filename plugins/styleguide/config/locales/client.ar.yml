@@ -89,7 +89,6 @@ ar:
           title: "المُنزلقات"
         empty_state:
           title: "حالة فارغة"
-<<<<<<< HEAD
         tooltips:
           title: "تلميحات الأدوات"
           description: "الوصف"
@@ -98,10 +97,3 @@ ar:
         char_counter:
           title: "عداد الأحرف"
           placeholder: "أدخل نصك هنا..."
-=======
-        rich_tooltip:
-          title: "تلميح مفصَّل"
-          description: "الوصف"
-          header: "الرأس"
-          hover_to_see: "مرِّر فوق الأقسام لرؤية تلميح"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

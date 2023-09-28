@@ -6,7 +6,6 @@
 
 cs:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         categories:
@@ -33,9 +32,6 @@ cs:
       deleted_chat_username: smazáno
       dates:
         time_tiny: "h:mm"
-=======
-    chat:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Vytvoř"
       cancel: "Zrušit"
       channel_settings:
@@ -43,7 +39,6 @@ cs:
         add: "přidat"
         join: "Přidat se ke skupině"
         leave: "Opustit skupinu"
-<<<<<<< HEAD
       channel_close:
         title: "Zavřít kanál"
       channels_list_popup:
@@ -51,26 +46,16 @@ cs:
       close: "Zavřít"
       remove: "Smazat"
       expand: "Rozbalit menu chatu"
-=======
-      close: "Zavřít"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Smazat"
       muted: "ztišení"
       joined: "účet vytvořen"
       email_frequency:
         never: "Nikdy"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Nikdy"
       flag: "Nahlášení"
       join: "Přidat se ke skupině"
       last_visit: "poslední návštěva"
-=======
-      flag: "Nahlášení"
-      join: "Přidat se ke skupině"
-      mention_warning:
-        dismiss: "označit jako přečtené"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odpověď"
       edit: "Upravit"
       rebake_message: "Obnovit HTML"
@@ -92,10 +77,7 @@ cs:
         yesterday: Včera
       about_view:
         title: Nadpis
-<<<<<<< HEAD
         name: Jméno
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Popis
       channel_info:
         back_to_channel: "Zpět"
@@ -114,20 +96,14 @@ cs:
       composer:
         italic_text: "text kurzívou"
         bold_text: "tučný text"
-<<<<<<< HEAD
         send: "Poslat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Nikdy"
       settings:
         follow: "Přidat se ke skupině"
         followed: "Účet vytvořen"
-<<<<<<< HEAD
         threading_enabled: "Zapnutý"
         threading_disabled: "Vypnuto"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Upozornění"
         preview: "Náhled"
         save: "Uložit"
@@ -155,7 +131,6 @@ cs:
       emoji_picker:
         objects: "Objekty"
         flags: "Nahlášení"
-<<<<<<< HEAD
       thread:
         title: "Nadpis"
         replies:
@@ -170,8 +145,6 @@ cs:
             title: "Normální"
           tracking:
             title: "Sledované"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nová zpráva"
         cancel: "Zrušit"
@@ -183,10 +156,3 @@ cs:
           fields:
             message:
               label: Zpráva
-<<<<<<< HEAD
-=======
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Nahlásil"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

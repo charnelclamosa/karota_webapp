@@ -6,13 +6,9 @@
 
 it:
   site_settings:
-<<<<<<< HEAD
     chat_separate_sidebar_mode: "Mostra modalità separate della barra laterale per forum e chat."
     chat_enabled: "Abilita chat."
     enable_public_channels: "Abilita i canali pubblici in base alle categorie."
-=======
-    chat_enabled: "Abilita il plug-in della chat."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     chat_allowed_groups: "Gli utenti di questi gruppi possono chattare. Tieni presente che lo staff può sempre accedere alla chat."
     chat_channel_retention_days: "I messaggi di chat nei canali normali saranno conservati per i giorni indicati. Impostare il parametro a '0' per conservare i messaggi per sempre."
     chat_dm_retention_days: "I messaggi di chat nei canali di chat personali saranno conservati per i giorni indicati. Impostare il parametro a '0' per conservare i messaggi per sempre."
@@ -29,13 +25,9 @@ it:
     default_emoji_reactions: "Reazioni emoji predefinite per i messaggi di chat. Aggiungi fino a 5 emoji per una reazione rapida."
     direct_message_enabled_groups: "Consenti agli utenti all'interno di questi gruppi di creare chat personali da utente a utente. Nota: lo staff può sempre creare chat personali e gli utenti potranno rispondere alle chat personali avviate da utenti che dispongono dell'autorizzazione per crearle."
     chat_message_flag_allowed_groups: "Gli utenti di questi gruppi possono contrassegnare i messaggi di chat."
-<<<<<<< HEAD
     max_mentions_per_chat_message: "Numero massimo di notifiche @name che un utente può utilizzare in un messaggio di chat."
     chat_max_direct_message_users: "Gli utenti non possono aggiungere più utenti di quelli indicati da questa opzione durante la creazione di un nuovo messaggio diretto. Impostare l'opzione a 0 per consentire solo i messaggi a se stessi. Questa impostazione non si applica allo staff."
     chat_allow_archiving_channels: "Consenti allo staff di archiviare i messaggi in un argomento alla chiusura di un canale."
-=======
-    chat_max_direct_message_users: "Gli utenti non possono aggiungere più utenti di quelli indicati da questa opzione durante la creazione di un nuovo messaggio diretto. Impostare l'opzione a 0 per consentire solo i messaggi a se stessi. Questa impostazione non si applica allo staff."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       chat_default_channel: "Il canale di chat predefinito deve essere un canale pubblico."
       direct_message_enabled_groups_invalid: "Devi specificare almeno un gruppo per questa impostazione. Se non vuoi che nessuno al di fuori dello staff possa inviare messaggi diretti, scegli il gruppo dello staff."
@@ -45,16 +37,11 @@ it:
       title: "Archiviazione canale chat completata"
       subject_template: "Archiviazione del canale di chat completata correttamente"
       text_body_template: |
-<<<<<<< HEAD
         L'archiviazione del canale di chat %{channel_hashtag_or_name}** è stata completata con successo. I messaggi sono stati copiati nell'argomento [%{topic_title}](%{topic_url}).
-=======
-        L'archiviazione del canale di chat **\#%{channel_name}** è stata completata con successo. I messaggi sono stati copiati nell'argomento [%{topic_title}](%{topic_url}).
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     chat_channel_archive_failed:
       title: "Archiviazione canale chat non riuscita"
       subject_template: "Archiviazione canale chat non riuscita"
       text_body_template: |
-<<<<<<< HEAD
         L'archiviazione del canale di chat %{channel_hashtag_or_name} non è riuscita. %{messages_archived} messaggi sono stati archiviati. I messaggi parzialmente archiviati sono stati copiati nell'argomento [%{topic_title}](%{topic_url}). Visita il canale in %{channel_url} per riprovare.
     chat_channel_archive_failed_no_topic:
       title: "Archiviazione canale chat non riuscita"
@@ -65,14 +52,10 @@ it:
           %{topic_validation_errors}
 
         Visita il canale su %{channel_url} per riprovare.
-=======
-        L'archiviazione del canale di chat **\#%{channel_name}** non è riuscita. %{messages_archived} messaggi sono stati archiviati. I messaggi parzialmente archiviati sono stati copiati nell'argomento [%{topic_title}](%{topic_url}). Visita il canale in %{channel_url} per riprovare.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   chat:
     deleted_chat_username: eliminato
     errors:
       channel_exists_for_category: "Esiste già un canale per questa categoria e questo nome"
-<<<<<<< HEAD
       channel_new_message_disallowed:
         archived: "Il canale è archiviato, non è possibile inviare nuovi messaggi"
         closed: "Il canale è chiuso, non è possibile inviare nuovi messaggi"
@@ -81,17 +64,12 @@ it:
         archived: "Il canale è archiviato, nessun messaggio può essere modificato o cancellato"
         closed: "Il canale è chiuso, nessun messaggio può essere modificato o cancellato"
         read_only: "Il canale è a sola lettura, nessun messaggio può essere modificato o cancellato"
-=======
-      channel_new_message_disallowed: "Il canale è %{status}, non è possibile inviare nuovi messaggi"
-      channel_modify_message_disallowed: "Il canale è %{status}, nessun messaggio può essere modificato o cancellato"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_cannot_send_message: "In questo momento non puoi inviare messaggi."
       rate_limit_exceeded: "Superato il limite dei messaggi di chat che possono essere inviati in 30 secondi"
       auto_silence_from_flags: "Messaggio di chat contrassegnato con un punteggio sufficientemente alto per silenziare l'utente."
       channel_cannot_be_archived: "Il canale non può essere archiviato in questo momento, deve essere chiuso o aperto per l'archiviazione."
       duplicate_message: "Hai pubblicato un messaggio identico troppo di recente."
       delete_channel_failed: "Eliminazione del canale non riuscita, riprova."
-<<<<<<< HEAD
       minimum_length_not_met:
         one: "Il messaggio è troppo breve, deve contenere almeno %{count} carattere."
         other: "Il messaggio è troppo breve, deve contenere almeno %{count} caratteri."
@@ -99,9 +77,6 @@ it:
         one: "Il messaggio è troppo lungo. I messaggi devono contenere al massimo %{count} carattere."
         other: "Il messaggio è troppo lungo. I messaggi devono contenere al massimo %{count} caratteri."
       draft_too_long: "La bozza è troppo lunga."
-=======
-      minimum_length_not_met: "Il messaggio è troppo breve, deve contenere almeno %{minimum} caratteri."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       max_reactions_limit_reached: "Non sono consentite nuove reazioni su questo messaggio."
       message_move_invalid_channel: "I canali di origine e di destinazione devono essere canali pubblici."
       message_move_no_messages_found: "Nessun messaggio è stato trovato con gli ID messaggio forniti."
@@ -112,7 +87,6 @@ it:
       actor_disallowed_dms: "Hai scelto di impedire agli utenti di inviarti messaggi privati e diretti, quindi non puoi creare nuovi messaggi diretti."
       actor_preventing_target_user_from_dm: "Hai scelto di impedire a %{username} di inviarti messaggi privati e diretti, quindi non puoi creare nuovi messaggi diretti per questo destinatario."
       user_cannot_send_direct_messages: "Spiacenti, non puoi inviare messaggi diretti."
-<<<<<<< HEAD
       over_chat_max_direct_message_users_allow_self: "Puoi creare solo un messaggio diretto a te stesso."
       over_chat_max_direct_message_users:
         one: "Non puoi creare un messaggio diretto con più di %{count} altro utente."
@@ -120,11 +94,6 @@ it:
       original_message_not_found: "L'antenato del messaggio a cui stai rispondendo non è stato trovato o è stato eliminato."
       thread_invalid_for_channel: "Il thread non fa parte del canale fornito."
       thread_does_not_match_parent: "Il thread non corrisponde al messaggio principale."
-=======
-      over_chat_max_direct_message_users:
-        one: "Puoi creare solo un messaggio diretto a te stesso."
-        other: "Non puoi creare un messaggio diretto con più di altri %{count} utenti."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     reviewables:
       message_already_handled: "Grazie, ma abbiamo già esaminato questo messaggio e stabilito che non è necessario contrassegnarlo di nuovo."
       actions:
@@ -149,43 +118,26 @@ it:
           title: "Elimina messaggio"
           description: "Elimina il messaggio in modo che gli utenti non possano vederlo."
         delete_and_agree:
-<<<<<<< HEAD
           title: "Ignora segnalazione ed elimina messaggio"
           description: "Ignora la segnalazione rimuovendolo dalla coda ed eliminando il messaggio."
-=======
-          title: "Elimina messaggio"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         disagree_and_restore:
           title: "Rifiuta e ripristina il messaggio"
           description: "Ripristina il messaggio in modo che tutti gli utenti possano vederlo."
         disagree:
           title: "Rifiuta"
         ignore:
-<<<<<<< HEAD
           title: "Non fare nulla"
           description: "Ignora la segnalazione rimuovendola dalla coda senza intraprendere alcuna azione."
-=======
-          title: "Ignora"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_messages:
         transcript_title: "Trascrizione dei messaggi precedenti in %{channel_name}"
         transcript_body: "Per darti più contesto, abbiamo incluso una trascrizione dei messaggi precedenti in questa conversazione (fino a dieci):\n\n%{transcript}"
     channel:
-<<<<<<< HEAD
-=======
-      statuses:
-        read_only: "Sola lettura"
-        archived: "Archiviato"
-        closed: "Chiuso"
-        open: "Aperto"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       archive:
         first_post_raw: "Questo argomento è un archivio del canale di chat [%{channel_name}](%{channel_url})."
       messages_moved:
         one: "@%{acting_username} ha spostato un messaggio nel canale [%{channel_name}](%{first_moved_message_url})."
         other: "@%{acting_username} ha spostato %{count} messaggi sul canale [%{channel_name}](%{first_moved_message_url})."
       dm_title:
-<<<<<<< HEAD
         single_user: "%{username}"
         multi_user: "%{comma_separated_usernames}"
         multi_user_truncated:
@@ -214,11 +166,6 @@ it:
       too_many_members_multiple:
         one: "%{first_identifier} e %{count} altro gruppo hanno troppi membri. Nessuno è stato notificato."
         other: "%{first_identifier} e %{count} altri gruppi hanno troppi membri. Nessuno è stato notificato."
-=======
-        single_user: "%{user}"
-        multi_user: "%{users}"
-        multi_user_truncated: "%{users} e altri %{leftover}"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     category_channel:
       errors:
         slug_contains_non_ascii_chars: "contiene caratteri non-ascii"
@@ -236,11 +183,8 @@ it:
       and_x_others:
         one: "e %{count} altro"
         other: "e %{count} altri"
-<<<<<<< HEAD
     summaries:
       no_targets: "Non ci sono stati messaggi durante il periodo selezionato."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   discourse_push_notifications:
     popup:
       chat_mention:
@@ -275,7 +219,6 @@ it:
         other: "Hai nuovi messaggi di chat"
       from: "%{site_name}"
       subject:
-<<<<<<< HEAD
         direct_message_from_1: "[%{email_prefix}] Nuovo messaggio da %{username}"
         direct_message_from_2: "[%{email_prefix}] Nuovi messaggi da %{username1} e %{username2}"
         direct_message_from_more:
@@ -287,15 +230,6 @@ it:
           one: "[%{email_prefix}] Nuovo messaggio in %{channel} e %{count} altro"
           other: "[%{email_prefix}] Nuovo messaggio in %{channel} e altri %{count}"
         chat_channel_and_direct_message: "[%{email_prefix}] Nuovo messaggio in %{channel} e da %{username}"
-=======
-        direct_message:
-          one: "[%{email_prefix}] Nuovo messaggio da %{message_title}"
-          other: "[%{email_prefix}] Nuovi messaggi da %{message_title} e %{others}"
-        chat_channel:
-          one: "[%{email_prefix}] Nuovo messaggio in %{message_title}"
-          other: "[%{email_prefix}] Nuovi messaggi in %{message_title} e %{others}"
-        others: "e %{count} altri"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       unsubscribe: "Questo riepilogo della chat viene inviato da %{site_link} quando non ci sei. Modifica %{email_preferences_link} o %{unsubscribe_link} per annullare l'iscrizione."
       unsubscribe_no_link: "Questo riepilogo della chat viene inviato da %{site_link} quando non ci sei. Modifica %{email_preferences_link}."
       view_messages:

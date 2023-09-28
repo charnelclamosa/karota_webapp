@@ -118,11 +118,7 @@ RSpec.describe PostSerializer do
 
   context "with a hidden post with add_raw enabled" do
     let(:user) { Fabricate(:user) }
-<<<<<<< HEAD
     let(:raw) { "Raw contents of the post." }
-=======
-    let(:raw)  { "Raw contents of the post." }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     context "with a public post" do
       let(:post) { Fabricate(:post, raw: raw, user: user) }

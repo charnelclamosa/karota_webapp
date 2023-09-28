@@ -4,19 +4,8 @@ import {
   publishToMessageBus,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
-<<<<<<< HEAD
 import { click, fillIn, settled, visit } from "@ember/test-helpers";
 import { skip } from "qunit";
-=======
-import {
-  click,
-  fillIn,
-  settled,
-  triggerKeyEvent,
-  visit,
-} from "@ember/test-helpers";
-import { skip, test } from "qunit";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import {
   baseChatPretenders,
   chatChannelPretender,
@@ -55,13 +44,8 @@ acceptance("Discourse Chat - Composer", function (needs) {
     });
   });
 
-<<<<<<< HEAD
   skip("when pasting html in composer", async function (assert) {
     await visit("/chat/c/another-category/11");
-=======
-  test("when pasting html in composer", async function (assert) {
-    await visit("/chat/channel/11/another-category");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     const clipboardEvent = new Event("paste", { bubbles: true });
     clipboardEvent.clipboardData = {
@@ -74,76 +58,12 @@ acceptance("Discourse Chat - Composer", function (needs) {
     };
 
     document
-<<<<<<< HEAD
       .querySelector(".chat-composer__input")
-=======
-      .querySelector(".chat-composer-input")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       .dispatchEvent(clipboardEvent);
 
     await settled();
 
-<<<<<<< HEAD
     assert.equal(document.querySelector(".chat-composer__input").value, "Foo");
-=======
-    assert.equal(document.querySelector(".chat-composer-input").value, "Foo");
-  });
-
-  test("when selecting an emoji from the picker", async function (assert) {
-    const emojiReactionStore = this.container.lookup(
-      "service:chat-emoji-reaction-store"
-    );
-
-    assert.deepEqual(
-      emojiReactionStore.favorites,
-      this.siteSettings.default_emoji_reactions.split("|")
-    );
-
-    await visit("/chat/channel/11/-");
-    await click(".chat-composer-dropdown__trigger-btn");
-    await click(".chat-composer-dropdown__action-btn.emoji");
-    await click(`[data-emoji="grinning"]`);
-
-    assert.deepEqual(
-      emojiReactionStore.favorites,
-      ["grinning"].concat(this.siteSettings.default_emoji_reactions.split("|")),
-      "it tracks the emoji"
-    );
-  });
-
-  skip("when selecting an emoji from the autocomplete", async function (assert) {
-    const emojiReactionStore = this.container.lookup(
-      "service:chat-emoji-reaction-store"
-    );
-
-    assert.deepEqual(
-      emojiReactionStore.favorites,
-      this.siteSettings.default_emoji_reactions.split("|")
-    );
-
-    await visit("/chat/channel/11/-");
-    await fillIn(".chat-composer-input", "test :grinni");
-    await triggerKeyEvent(".chat-composer-input", "keyup", "ArrowDown"); // necessary to show the menu
-    await click(".autocomplete.ac-emoji ul li:first-child a");
-
-    assert.deepEqual(
-      emojiReactionStore.favorites,
-      ["grinning"].concat(this.siteSettings.default_emoji_reactions.split("|")),
-      "it tracks the emoji"
-    );
-  });
-
-  test("JIT warnings for group mentions", async function (assert) {
-    await visit("/chat/channel/11/-");
-    await fillIn(".chat-composer-input", `@${GROUP_NAME}`);
-
-    assert.equal(
-      query(".chat-mention-warnings .chat-mention-warnings-list__simple li")
-        .innerText,
-      `@${GROUP_NAME} doesn't allow mentions`,
-      "displays a warning when the group is unreachable"
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 });
 
@@ -175,36 +95,21 @@ acceptance("Discourse Chat - Composer - unreliable network", function (needs) {
     sendAttempt = 0;
   });
 
-<<<<<<< HEAD
   skip("Sending a message with unreliable network", async function (assert) {
     await visit("/chat/c/-/11");
     await fillIn(".chat-composer__input", "network-error-message");
     await click(".chat-composer-button.-send");
-=======
-  test("Sending a message with unreliable network", async function (assert) {
-    await visit("/chat/channel/11/-");
-    await fillIn(".chat-composer-input", "network-error-message");
-    await click(".send-btn");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     assert.ok(
       exists(".chat-message-container[data-id='1'] .retry-staged-message-btn"),
       "it adds a retry button"
     );
 
-<<<<<<< HEAD
     await fillIn(".chat-composer__input", "network-error-message");
     await click(".chat-composer-button.-send");
     await publishToMessageBus(`/chat/11`, {
       type: "sent",
       staged_id: 1,
-=======
-    await fillIn(".chat-composer-input", "network-error-message");
-    await click(".send-btn");
-    await publishToMessageBus(`/chat/11`, {
-      type: "sent",
-      stagedId: 1,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       chat_message: {
         cooked: "network-error-message",
         id: 175,
@@ -221,23 +126,14 @@ acceptance("Discourse Chat - Composer - unreliable network", function (needs) {
       "it sends the message"
     );
     assert.strictEqual(
-<<<<<<< HEAD
       query(".chat-composer__input").value,
-=======
-      query(".chat-composer-input").value,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "",
       "it clears the input"
     );
   });
 
-<<<<<<< HEAD
   skip("Draft with unreliable network", async function (assert) {
     await visit("/chat/c/-/11");
-=======
-  test("Draft with unreliable network", async function (assert) {
-    await visit("/chat/channel/11/-");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.chatService.set("isNetworkUnreliable", true);
     await settled();
 

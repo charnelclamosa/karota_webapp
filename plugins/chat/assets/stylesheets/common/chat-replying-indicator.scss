@@ -1,23 +1,12 @@
-<<<<<<< HEAD
-=======
-.chat-replying-indicator-container {
-  padding: 0 0.5rem;
-}
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 .chat-replying-indicator {
   color: var(--primary-medium);
   display: inline-flex;
   font-size: var(--font-down-2);
-<<<<<<< HEAD
 
   &-container {
     display: flex;
     height: 16px;
   }
-=======
-  padding-bottom: unquote("max(0px, 0.5rem - env(safe-area-inset-bottom, 0))");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   &:before {
     // unicode zero width space character
@@ -35,13 +24,9 @@
 
     .chat-replying-indicator__dot {
       display: inline-block;
-<<<<<<< HEAD
       @media (prefers-reduced-motion: no-preference) {
         animation: chat-replying-indicator__wave 1.8s linear infinite;
       }
-=======
-      animation: chat-replying-indicator__wave 1.8s linear infinite;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       &:nth-child(2) {
         animation-delay: -1.6s;
       }

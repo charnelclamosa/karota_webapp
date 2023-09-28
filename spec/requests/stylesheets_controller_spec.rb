@@ -60,7 +60,6 @@ RSpec.describe StylesheetsController do
     expect(response.status).to eq(200)
   end
 
-<<<<<<< HEAD
   context "when there are enabled plugins" do
     fab!(:user) { Fabricate(:user) }
 
@@ -121,12 +120,6 @@ RSpec.describe StylesheetsController do
     StylesheetCache.destroy_all
     manager = Stylesheet::Manager.new(theme_id: nil)
     builder = Stylesheet::Manager::Builder.new(target: "desktop", manager: manager, theme: nil)
-=======
-  it 'ignores Accept header and does not include Vary header' do
-    StylesheetCache.destroy_all
-    manager = Stylesheet::Manager.new(theme_id: nil)
-    builder = Stylesheet::Manager::Builder.new(target: 'desktop', manager: manager, theme: nil)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     builder.compile
 
     digest = StylesheetCache.first.digest

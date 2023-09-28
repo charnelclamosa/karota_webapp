@@ -21,11 +21,7 @@ tr_TR:
         Bu rozet, interaktif yeni kullanıcı öğreticisi başarıyla tamamlandıktan sonra verilir. Temel tartışma araçlarını öğrenmek için inisiyatif aldınız ve artık sertifikalısınız!
     licensed:
       name: Lisanslı
-<<<<<<< HEAD
       description: "Gelişmiş kullanıcı öğreticimizi tamamladı"
-=======
-      description: "Gelişmiş kullanıcı öğretimizi tamamladı"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       long_description: |
         Bu rozet, interaktif gelişmiş kullanıcı öğreticisi başarıyla tamamlandıktan sonra verilir. Gelişmiş tartışma araçlarında ustalaştınız ve artık tamamen lisanslısınız!
   discourse_narrative_bot:
@@ -50,13 +46,8 @@ tr_TR:
       invalid: |-
         Üzgünüm, bu zar kombinasyonunu tutturmak matematiksel olarak imkansız. :confounded:
       not_enough_dice:
-<<<<<<< HEAD
         one: "Sadece %{count} zarım var. Utanç verici, biliyorum!"
         other: "Sadece %{count} zarım var. Utanç verici, biliyorum!"
-=======
-        one: "Sadece %{count} zarım var. [Shameful](https://www.toplessrobot.com/2009/04/the_10_most_shameful_rpg_dice.php), biliyorum!"
-        other: "Sadece %{count} zarım var. [Shameful](https://www.toplessrobot.com/2009/04/the_10_most_shameful_rpg_dice.php), biliyorum!"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       out_of_range: |-
         Matematiksel olarak adil bir zar için [maksimum kenar sayısının](https://www.wired.com/2016/05/mathematical-challenge-of-designing-the-worlds-most-complex-120-sided-dice) 120 olduğunu biliyor muydunuz?
       results: |-
@@ -260,11 +251,7 @@ tr_TR:
         instructions: |-
           Daha fazla bilgi edinmek isterseniz aşağıdan <img src="%{base_uri}/plugins/discourse-narrative-bot/images/font-awesome-ellipsis.png" width="16" height="16"> metnini seçin ve <img src="%{base_uri}/plugins/discourse-narrative-bot/images/font-awesome-bookmark.png" width="16" height="16"> **bu kişisel mesaja yer imi ekleyin**. Bunu yaparsanız geleceğinizde bir :gift: olabilir!
         reply: |-
-<<<<<<< HEAD
           Mükemmel! Artık özel konuşmamıza istediğiniz zaman, doğrudan [profilinizdeki yer imleri sekmesinden](%{bookmark_url}) kolayca geri dönebilirsiniz. Sağ üstteki profil resminizi seçmeniz yeterli &#8599;
-=======
-          Mükemmel! Artık özel sohbetimize istediğiniz zaman, doğrudan [profilinizdeki yer imleri sekmesinden](%{bookmark_url}) kolayca geri dönebilirsiniz. Sağ üstteki profil resminizi seçmeniz yeterli &#8599;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         not_found: |-
           Hay aksi, bu konuda herhangi bir yer imi göremiyorum. Her gönderinin altında yer imi buldunuz mu? Gerekirse ek eylemleri göstermek için daha fazla göster <img src="%{base_uri}/plugins/discourse-narrative-bot/images/font-awesome-ellipsis.png" width="16" height="16"> özelliğini kullanın.
       emoji:
@@ -387,19 +374,11 @@ tr_TR:
           Bir gönderiyi silme işlemini geri almak için yalnızca %{deletion_after} saatiniz olduğunu unutmayın.
       category_hashtag:
         instructions: |-
-<<<<<<< HEAD
           Gönderinizde kategorilere ve etiketlere atıfta bulunabileceğinizi biliyor muydunuz? Mesela %{category} kategorisini gördünüz mü?
 
           Cümle içinde herhangi bir yere `#` yazın ve herhangi bir kategori veya etiketi seçin.
         not_found: |-
           Hmm, orada hiçbir yerde bir kategori göremiyorum. Bunu bir sonraki yanıtınıza kopyalayabilir misiniz?
-=======
-          Gönderinizde kategorilere ve etiketlere atıfta bulunabileceğinizi biliyor muydunuz? Örneğin, %{category} kategorisini gördünüz mü?
-
-          Bir cümlenin ortasına "#" yazın ve herhangi bir kategori veya etiketi seçin.
-        not_found: |-
-          Hmm, orada hiçbir yerde bir kategori göremiyorum. İlk karakterin "#" olamayacağını unutmayın. Bunu bir sonraki yanıtınıza kopyalayabilir misiniz?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           ```text
           # aracılığıyla kategori bağlantısı oluşturabilirim

@@ -56,7 +56,6 @@ RSpec.describe RemoteTheme do
 
     let :initial_repo_url do
       MockGitImporter.register("https://example.com/initial_repo.git", initial_repo)
-<<<<<<< HEAD
     end
 
     after { `rm -fr #{initial_repo}` }
@@ -65,32 +64,12 @@ RSpec.describe RemoteTheme do
 
     it "can correctly import a remote theme" do
       time = Time.new("2000")
-=======
-    end
-
-    after do
-      `rm -fr #{initial_repo}`
-    end
-
-    around(:each) do |group|
-      MockGitImporter.with_mock do
-        group.run
-      end
-    end
-
-    it 'can correctly import a remote theme' do
-      time = Time.new('2000')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       freeze_time time
 
       @theme = RemoteTheme.import_theme(initial_repo_url)
       remote = @theme.remote_theme
 
-<<<<<<< HEAD
       expect(@theme.name).to eq("awesome theme")
-=======
-      expect(@theme.name).to eq('awesome theme')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(remote.remote_url).to eq(initial_repo_url)
       expect(remote.remote_version).to eq(`cd #{initial_repo} && git rev-parse HEAD`.strip)
       expect(remote.local_version).to eq(`cd #{initial_repo} && git rev-parse HEAD`.strip)
@@ -199,11 +178,7 @@ RSpec.describe RemoteTheme do
       remote = theme.remote_theme
 
       old_version = `cd #{initial_repo} && git rev-parse HEAD`.strip
-<<<<<<< HEAD
       expect(theme.name).to eq("awesome theme")
-=======
-      expect(theme.name).to eq('awesome theme')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(remote.remote_url).to eq(initial_repo_url)
       expect(remote.local_version).to eq(old_version)
       expect(remote.remote_version).to eq(old_version)

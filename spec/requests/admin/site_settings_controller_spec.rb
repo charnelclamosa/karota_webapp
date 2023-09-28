@@ -28,7 +28,6 @@ RSpec.describe Admin::SiteSettingsController do
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
-<<<<<<< HEAD
       end
     end
 
@@ -70,8 +69,6 @@ RSpec.describe Admin::SiteSettingsController do
             }
 
         expect(response.parsed_body["user_count"]).to eq(User.real.where(staged: false).count - 1)
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -514,7 +511,6 @@ RSpec.describe Admin::SiteSettingsController do
         end
       end
 
-<<<<<<< HEAD
       context "when updating default navigation menu categories and tags" do
         it "does not enqueue the backfilling job if update_existing_user param is not present" do
           expect_not_enqueued_with(job: :backfill_sidebar_site_settings) do
@@ -522,20 +518,11 @@ RSpec.describe Admin::SiteSettingsController do
                 params: {
                   default_navigation_menu_categories: "1|2",
                 }
-=======
-      context 'when updating default sidebar categories and tags' do
-        it 'does not enqueue the backfilling job if update_existing_user param is not present' do
-          expect_not_enqueued_with(job: :backfill_sidebar_site_settings) do
-            put "/admin/site_settings/default_sidebar_categories.json", params: {
-              default_sidebar_categories: "1|2",
-            }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
         end
 
-<<<<<<< HEAD
         it "enqueues the backfilling job if update_existing_user param is present when updating default navigation menu tags" do
           SiteSetting.default_navigation_menu_tags = "tag3"
 
@@ -552,22 +539,11 @@ RSpec.describe Admin::SiteSettingsController do
                   default_navigation_menu_tags: "tag1|tag2",
                   update_existing_user: true,
                 }
-=======
-        it 'enqueus the backfilling job if update_existing_user param is present when updating default sidebar tags' do
-          SiteSetting.default_sidebar_tags = "tag3"
-
-          expect_enqueued_with(job: :backfill_sidebar_site_settings, args: { setting_name: 'default_sidebar_tags', new_value: 'tag1|tag2', previous_value: 'tag3' }) do
-            put "/admin/site_settings/default_sidebar_tags.json", params: {
-              default_sidebar_tags: "tag1|tag2",
-              update_existing_user: true
-            }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
         end
 
-<<<<<<< HEAD
         it "enqueues the backfilling job if update_existing_user param is present when updating default navigation_menu categories" do
           SiteSetting.default_navigation_menu_categories = "3|4"
 
@@ -584,16 +560,6 @@ RSpec.describe Admin::SiteSettingsController do
                   default_navigation_menu_categories: "1|2",
                   update_existing_user: true,
                 }
-=======
-        it 'enqueus the backfilling job if update_existing_user param is present when updating default sidebar categories' do
-          SiteSetting.default_sidebar_categories = "3|4"
-
-          expect_enqueued_with(job: :backfill_sidebar_site_settings, args: { setting_name: 'default_sidebar_categories', new_value: '1|2', previous_value: '3|4' }) do
-            put "/admin/site_settings/default_sidebar_categories.json", params: {
-              default_sidebar_categories: "1|2",
-              update_existing_user: true
-            }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
             expect(response.status).to eq(200)
           end
@@ -756,7 +722,6 @@ RSpec.describe Admin::SiteSettingsController do
       end
 
       context "with upload site settings" do
-<<<<<<< HEAD
         it "can remove the site setting" do
           SiteSetting.push_notifications_icon = Fabricate(:upload)
 
@@ -764,14 +729,6 @@ RSpec.describe Admin::SiteSettingsController do
               params: {
                 push_notifications_icon: nil,
               }
-=======
-        it 'can remove the site setting' do
-          SiteSetting.test_upload = Fabricate(:upload)
-
-          put "/admin/site_settings/test_upload.json", params: {
-            test_upload: nil
-          }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(200)
           expect(SiteSetting.push_notifications_icon).to eq(nil)
@@ -860,13 +817,7 @@ RSpec.describe Admin::SiteSettingsController do
 
     shared_examples "site setting update not allowed" do
       it "prevents updates with a 404 response" do
-<<<<<<< HEAD
         put "/admin/site_settings/test_setting.json", params: { test_setting: "hello" }
-=======
-        put "/admin/site_settings/test_setting.json", params: {
-          test_setting: 'hello'
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -880,11 +831,7 @@ RSpec.describe Admin::SiteSettingsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "site setting update not allowed"
     end

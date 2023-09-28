@@ -191,13 +191,8 @@ RSpec.describe DiscoursePluginRegistry do
 
   describe ".register_archetype" do
     it "delegates archetypes to the Archetype component" do
-<<<<<<< HEAD
       Archetype.expects(:register).with("threaded", { hello: 123 })
       registry_instance.register_archetype("threaded", hello: 123)
-=======
-      Archetype.expects(:register).with('threaded', { hello: 123 })
-      registry_instance.register_archetype('threaded', hello: 123)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

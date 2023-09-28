@@ -24,26 +24,11 @@ zh_TW:
     magic_8_ball:
       answers:
         "9": "是"
-<<<<<<< HEAD
     track_selector:
       reset_trigger: "開始"
       skip_trigger: "跳過"
     new_user_narrative:
       reset_trigger: "教學"
-=======
-        "10": "Signs point to yes"
-        "11": "Reply hazy, try again"
-        "12": "Ask again later"
-        "13": "Better not tell you now"
-        "14": "Cannot predict now"
-        "15": "Concentrate and ask again"
-        "16": "Don't count on it"
-        "17": "My reply is no"
-        "18": "My sources say no"
-        "19": "Outlook not so good"
-        "20": "Very doubtful"
-    new_user_narrative:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hello:
         message: |-
           感謝您加入 %{title}，歡迎！

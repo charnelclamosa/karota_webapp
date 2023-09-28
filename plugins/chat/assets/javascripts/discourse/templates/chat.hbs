@@ -10,21 +10,13 @@
   <div
     class={{concat-class
       "full-page-chat"
-<<<<<<< HEAD
       (if this.shouldUseCoreSidebar "full-page-chat-sidebar-enabled")
-=======
-      (if
-        this.shouldUseCoreSidebar
-        "full-page-chat-sidebar-enabled"
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }}
   >
     {{#if this.shouldUseChatSidebar}}
       <ChannelsList />
     {{/if}}
 
-<<<<<<< HEAD
     <div
       id="main-chat-outlet"
       class={{concat-class "main-chat-outlet" this.mainOutletModifierClasses}}
@@ -33,10 +25,3 @@
     </div>
   </div>
 {{/if}}
-=======
-    <div id="main-chat-outlet">
-      {{outlet}}
-    </div>
-  </div>
-{{/if}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

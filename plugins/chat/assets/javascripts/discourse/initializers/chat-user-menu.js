@@ -24,17 +24,9 @@ export default {
                   title: this.notification.data.chat_channel_title,
                   slug: this.notification.data.chat_channel_slug,
                 });
-<<<<<<< HEAD
                 return `/chat/c/${slug || "-"}/${
                   this.notification.data.chat_channel_id
                 }/${this.notification.data.chat_message_id}`;
-=======
-                return `/chat/channel/${
-                  this.notification.data.chat_channel_id
-                }/${slug || "-"}?messageId=${
-                  this.notification.data.chat_message_id
-                }`;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               }
 
               get linkTitle() {
@@ -67,7 +59,6 @@ export default {
                   title: this.notification.data.chat_channel_title,
                   slug: this.notification.data.chat_channel_slug,
                 });
-<<<<<<< HEAD
 
                 let notificationRoute = `/chat/c/${slug || "-"}/${
                   this.notification.data.chat_channel_id
@@ -78,13 +69,6 @@ export default {
                   notificationRoute += `/${this.notification.data.chat_message_id}`;
                 }
                 return notificationRoute;
-=======
-                return `/chat/channel/${
-                  this.notification.data.chat_channel_id
-                }/${slug || "-"}?messageId=${
-                  this.notification.data.chat_message_id
-                }`;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               }
 
               get linkTitle() {
@@ -92,11 +76,7 @@ export default {
               }
 
               get icon() {
-<<<<<<< HEAD
                 return "d-chat";
-=======
-                return "comment";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               }
 
               get label() {
@@ -139,11 +119,7 @@ export default {
             }
 
             get icon() {
-<<<<<<< HEAD
               return "d-chat";
-=======
-              return "comment";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             }
 
             get count() {

@@ -10,29 +10,20 @@ RSpec.describe Admin::DashboardController do
     Jobs::VersionCheck.any_instance.stubs(:execute).returns(true)
   end
 
-<<<<<<< HEAD
   def populate_new_features(date1 = nil, date2 = nil)
-=======
-  def populate_new_features
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     sample_features = [
       {
         "id" => "1",
         "emoji" => "🤾",
         "title" => "Cool Beans",
         "description" => "Now beans are included",
-<<<<<<< HEAD
         "created_at" => date1 || (Time.zone.now - 40.minutes),
-=======
-        "created_at" => Time.zone.now - 40.minutes
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       },
       {
         "id" => "2",
         "emoji" => "🙈",
         "title" => "Fancy Legumes",
         "description" => "Legumes too!",
-<<<<<<< HEAD
         "created_at" => date2 || (Time.zone.now - 20.minutes),
       },
     ]
@@ -41,107 +32,17 @@ RSpec.describe Admin::DashboardController do
   end
 
   describe "#index" do
-=======
-        "created_at" => Time.zone.now - 20.minutes
-      }
-    ]
-
-    Discourse.redis.set('new_features', MultiJson.dump(sample_features))
-  end
-
-  describe '#index' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     shared_examples "version info present" do
       it "returns discourse version info" do
         get "/admin/dashboard.json"
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["version_check"]).to be_present
-<<<<<<< HEAD
       end
     end
 
     shared_examples "version info absent" do
       before { SiteSetting.version_checks = false }
-=======
-      end
-    end
-
-    shared_examples "version info absent" do
-      before do
-        SiteSetting.version_checks = false
-      end
-
-      it "does not return discourse version info" do
-        get "/admin/dashboard.json"
-
-        expect(response.status).to eq(200)
-        json = response.parsed_body
-        expect(json["version_check"]).not_to be_present
-      end
-    end
-
-    context "when logged in as an admin" do
-      before { sign_in(admin) }
-
-      context "when version checking is enabled" do
-        before do
-          SiteSetting.version_checks = true
-        end
-
-        include_examples "version info present"
-      end
-
-      context "when version checking is disabled" do
-        before do
-          SiteSetting.version_checks = false
-        end
-
-        include_examples "version info absent"
-      end
-    end
-
-    context "when logged in as a moderator" do
-      before { sign_in(moderator) }
-
-      context "when version checking is enabled" do
-        before do
-          SiteSetting.version_checks = true
-        end
-
-        include_examples "version info present"
-      end
-
-      context "when version checking is disabled" do
-        before do
-          SiteSetting.version_checks = false
-        end
-
-        include_examples "version info absent"
-      end
-    end
-
-    context "when logged in as a non-staff user" do
-      before  { sign_in(user) }
-
-      it "denies access with a 404 response" do
-        get "/admin/dashboard.json"
-
-        expect(response.status).to eq(404)
-        expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
-      end
-    end
-  end
-
-  describe '#problems' do
-    context "when logged in as an admin" do
-      before { sign_in(admin) }
-
-      context 'when there are no problems' do
-        before do
-          AdminDashboardData.stubs(:fetch_problems).returns([])
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "does not return discourse version info" do
         get "/admin/dashboard.json"
@@ -231,43 +132,7 @@ RSpec.describe Admin::DashboardController do
     context "when logged in as a moderator" do
       before do
         sign_in(moderator)
-<<<<<<< HEAD
         AdminDashboardData.stubs(:fetch_problems).returns(["Not enough awesome", "Too much sass"])
-=======
-        AdminDashboardData
-          .stubs(:fetch_problems)
-          .returns(['Not enough awesome', 'Too much sass'])
-      end
-
-      it 'returns a list of problems' do
-        get "/admin/dashboard/problems.json"
-
-        expect(response.status).to eq(200)
-        json = response.parsed_body
-        expect(json['problems'].size).to eq(2)
-        expect(json['problems']).to contain_exactly('Not enough awesome', 'Too much sass')
-      end
-    end
-
-    context "when logged in as a non-staff user" do
-      before  { sign_in(user) }
-
-      it "denies access with a 404 response" do
-        get "/admin/dashboard/problems.json"
-
-        expect(response.status).to eq(404)
-        expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
-      end
-    end
-  end
-
-  describe '#new_features' do
-    context "when logged in as an admin" do
-      before do
-        sign_in(admin)
-        Discourse.redis.del "new_features_last_seen_user_#{admin.id}"
-        Discourse.redis.del "new_features"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "returns a list of problems" do
@@ -369,18 +234,13 @@ RSpec.describe Admin::DashboardController do
     context "when logged in as a moderator" do
       before { sign_in(moderator) }
 
-<<<<<<< HEAD
       it "includes new features when available" do
-=======
-      it 'includes new features when available' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         populate_new_features
 
         get "/admin/dashboard/new-features.json"
 
         json = response.parsed_body
 
-<<<<<<< HEAD
         expect(json["new_features"].length).to eq(2)
         expect(json["new_features"][0]["emoji"]).to eq("🙈")
         expect(json["new_features"][0]["title"]).to eq("Fancy Legumes")
@@ -395,12 +255,6 @@ RSpec.describe Admin::DashboardController do
         get "/admin/dashboard/new-features.json"
         expect(response.status).to eq(200)
         expect(DiscourseUpdates.get_last_viewed_feature_date(moderator.id)).to eq(nil)
-=======
-        expect(json['new_features'].length).to eq(2)
-        expect(json['new_features'][0]["emoji"]).to eq("🙈")
-        expect(json['new_features'][0]["title"]).to eq("Fancy Legumes")
-        expect(json['has_unseen_features']).to eq(true)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -416,7 +270,6 @@ RSpec.describe Admin::DashboardController do
     end
   end
 
-<<<<<<< HEAD
   describe "#mark_new_features_as_seen" do
     after { DiscourseUpdates.clean_state }
 
@@ -424,13 +277,6 @@ RSpec.describe Admin::DashboardController do
       before { sign_in(admin) }
 
       it "resets last seen for a given user" do
-=======
-  describe '#mark_new_features_as_seen' do
-    context "when logged in as an admin" do
-      before { sign_in(admin) }
-
-      it 'resets last seen for a given user' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         populate_new_features
         put "/admin/dashboard/mark-new-features-as-seen.json"
 

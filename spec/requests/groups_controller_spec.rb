@@ -1250,17 +1250,7 @@ RSpec.describe GroupsController do
       )
     end
 
-<<<<<<< HEAD
     fab!(:user3) { Fabricate(:user, last_seen_at: nil, last_posted_at: nil, email: "c@test.org") }
-=======
-    fab!(:user3) do
-      Fabricate(:user,
-        last_seen_at: nil,
-        last_posted_at: nil,
-        email: 'c@test.org'
-      )
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     fab!(:bot) { Fabricate(:bot) }
     let(:group) { Fabricate(:group, users: [user1, user2, user3, bot]) }

@@ -10,43 +10,31 @@ it:
       site_settings:
         categories:
           chat: Chat
-<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "Sempre"
           fullscreen: "Quando la chat è a schermo intero"
           never: "Mai"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Lo stato del canale di chat è cambiato"
             chat_channel_delete: "Canale di chat eliminato"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Membri automaticamente rimossi dai canali"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
             chat:
               create_message: "Crea un messaggio di chat in un canale specifico."
-<<<<<<< HEAD
       web_hooks:
         chat_message_event:
           name: "Evento messaggio chat"
           details: "Quando un messaggio di chat viene creato, modificato, eliminato o ripristinato."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     about:
       chat_messages_count: "Messaggi di chat"
       chat_channels_count: "Canali di chat"
       chat_users_count: "Utenti della chat"
     chat:
-<<<<<<< HEAD
       deleted_chat_username: cancellati
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Mostra tutti i messaggi"
@@ -61,13 +49,8 @@ it:
       move_to_channel:
         title: "Sposta i messaggi sul canale"
         instructions:
-<<<<<<< HEAD
           one: "Stai spostando il messaggio <strong>%{count}</strong> . Seleziona un canale di destinazione. Verrà creato un messaggio segnaposto nel canale <strong>%{channelTitle}</strong> per indicare che questo messaggio è stato spostato. Tieni presente che le catene di risposta non verranno mantenute nel nuovo canale e i messaggi nel vecchio canale non verranno più visualizzati come risposta ai messaggi spostati."
           other: "Stai spostando <strong>%{count}</strong> messaggi. Seleziona un canale di destinazione. Verrà creato un messaggio segnaposto nel canale <strong>%{channelTitle}</strong> per indicare che questi messaggi sono stati spostati. Tieni presente che le catene di risposta non verranno mantenute nel nuovo canale e i messaggi nel vecchio canale non verranno più visualizzati come risposta ai messaggi spostati."
-=======
-          one: "Stai spostando <strong>%{count}</strong> messaggio. Seleziona un canale di destinazione. Verrà creato un messaggio segnaposto nel canale <strong>%{channelTitle}</strong> per indicare che questo messaggio è stato spostato."
-          other: "Stai spostando <strong>%{count}</strong> messaggi. Seleziona un canale di destinazione. Verrà creato un messaggio segnaposto nel canale <strong>%{channelTitle}</strong> per indicare che questi messaggi sono stati spostati."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Sposta messaggi"
       channel_settings:
         title: "Impostazioni del canale"
@@ -107,7 +90,6 @@ it:
         create: "Nuovo canale"
       click_to_join: "Fai clic qui per visualizzare i canali disponibili."
       close: "Chiudi"
-<<<<<<< HEAD
       remove: "Rimuovi"
       collapse: "Comprimi il cassetto della chat"
       expand: "Espandi il pannello della chat"
@@ -115,11 +97,6 @@ it:
       deleted:
         one: "Un messaggio è stato cancellato. [view]"
         other: "%{count} messaggi sono stati eliminati. [visualizza tutti]"
-=======
-      collapse: "Comprimi il cassetto della chat"
-      confirm_flag: "Vuoi segnalare il messaggio di %{username}?"
-      deleted: "Un messaggio è stato eliminato. [visualizza]"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Un messaggio è stato nascosto. [visualizza]"
       delete: "Elimina"
       edited: "modificato"
@@ -134,7 +111,6 @@ it:
         never: "Mai"
         title: "Notifiche via e-mail"
         when_away: "Solo quando non sono collegato"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Mostra l'indicatore di attività nell'intestazione"
         all_new: "Tutti i nuovi messaggi"
@@ -142,8 +118,6 @@ it:
         never: "Mai"
       separate_sidebar_mode:
         title: "Mostra modalità separate della barra laterale per forum e chat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Abilita chat"
       flag: "Segnala"
       emoji: "Inserisci emoji"
@@ -153,7 +127,6 @@ it:
       in_reply_to: "In risposta a"
       heading: "Chat"
       join: "Partecipa"
-<<<<<<< HEAD
       last_visit: "ultima visita"
       summarization:
         title: "Riassumi i messaggi"
@@ -163,19 +136,10 @@ it:
           one: "Ultima ora"
           other: "Ultime %{count} ore"
       mention_warning:
-=======
-      new_messages: "nuovi messaggi"
-      mention_warning:
-        cannot_see:
-          one: "%{usernames} non può accedere a questo canale e non è stato avvisato."
-          other: "%{usernames} non possono accedere a questo canale e non sono stati avvisati."
-        dismiss: "ignora"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Invito inviato"
           other: "Inviti inviati"
         invite: "Invita al canale"
-<<<<<<< HEAD
         channel_wide_mentions_disallowed: "Le menzioni di @here e @all sono disabilitate in questo canale."
         groups:
           header:
@@ -246,20 +210,12 @@ it:
         too_many_mentions_admin:
           one: 'Questo messaggio supera il limite di <a href="%{siteSettingUrl}" target="_blank">notifiche</a> di %{count} menzione.'
           other: 'Questo messaggio supera il limite di <a href="%{siteSettingUrl}" target="_blank">notifiche</a> di %{count} menzioni.'
-=======
-        without_membership:
-          one: "%{usernames} non ha partecipato a questo canale."
-          other: "%{usernames} non hanno partecipato a questo canale."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Intestazione della chat"
         composer: "Compositore di chat"
         channels_list: "Elenco dei canali di chat"
       no_public_channels: "Non hai partecipato a nessun canale."
-<<<<<<< HEAD
       kicked_from_channel: "Non puoi più accedere a questo canale."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Invia solo le notifiche push della chat"
         description: "Blocca l'invio di tutte le notifiche push non relative alla chat"
@@ -271,7 +227,6 @@ it:
       close_full_page: "Chiudi la chat a schermo intero"
       open_message: "Apri messaggio in chat"
       placeholder_self: "Scrivi qualche annotazione"
-<<<<<<< HEAD
       placeholder_channel: "Chatta in %{channelName}"
       placeholder_thread: "Chat nel thread"
       placeholder_users: "Chatta con %{commaSeparatedNames}"
@@ -280,12 +235,6 @@ it:
         closed: "Il canale è chiuso, non puoi inviare nuovi messaggi in questo momento."
         read_only: "Il canale è in sola lettura, non è possibile inviare nuovi messaggi in questo momento."
       placeholder_silenced: "In questo momento non puoi inviare messaggi."
-=======
-      placeholder_others: "Chatta con %{messageRecipient}"
-      placeholder_new_message_disallowed: "Il canale è %{status}, non puoi inviare nuovi messaggi in questo momento."
-      placeholder_silenced: "In questo momento non puoi inviare messaggi."
-      placeholder_start_conversation: Inizia una conversazione con %{usernames}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Rimuovi file"
       react: "Reagisci con delle emoji"
       reply: "Rispondi"
@@ -301,16 +250,11 @@ it:
       restore: "Ripristina messaggio eliminato"
       save: "Salva"
       select: "Seleziona"
-<<<<<<< HEAD
       return_to_list: "Torna all'elenco dei canali"
       return_to_threads_list: "Torna alle discussioni in corso"
       unread_threads_count:
         one: "Hai %{count} discussione non lette"
         other: "Hai %{count} discussioni non lette"
-=======
-      silence: "Silenzia utente"
-      return_to_list: "Torna all'elenco dei canali"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Scorri fino in fondo"
       scroll_to_new_messages: "Vedi nuovi messaggi"
       sound:
@@ -322,11 +266,8 @@ it:
       title: "chat"
       title_capitalized: "Chat"
       upload: "Allega un file"
-<<<<<<< HEAD
       upload_to_channel: "Carica su %{title}"
       upload_to_thread: "Carica nel thread"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} file"
         other: "%{count} file"
@@ -337,12 +278,8 @@ it:
         read_only: "Sola lettura"
         archived_header: "Il canale è archiviato"
         archived: "Archiviati"
-<<<<<<< HEAD
         archive_failed: "Archiviazione del canale non riuscita. %{completed}/%{total} messaggi sono stati archiviati. <a target=\"_blank\" href=\"%{topic_url}\">L'argomento di destinazione</a> è stato creato. Premi Riprova per tentare di completare l'archiviazione."
         archive_failed_no_topic: "Archiviazione del canale non riuscita. %{completed}/%{total} messaggi sono stati archiviati e l'argomento di destinazione non è stato creato. Premi Riprova per tentare di completare l'archiviazione."
-=======
-        archive_failed: "Archiviazione del canale non riuscita. %{completed}/%{total} messaggi sono stati archiviati <a target=\"_blank\" href=\"%{topic_url}\">nell'argomento di destinazione</a>. Premi Riprova per tentare di completare l'archiviazione."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "Vedi <a target=\"_blank\" href=\"%{topic_url}\">l'argomento di archiviazione</a>"
         closed_header: "Il canale è chiuso"
         closed: "Chiusi"
@@ -365,10 +302,7 @@ it:
         associated_topic: Argomento collegato
         associated_category: Categoria collegata
         title: Titolo
-<<<<<<< HEAD
         name: Nome
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Descrizione
       channel_info:
         back_to_all_channels: "Tutti i canali"
@@ -377,7 +311,6 @@ it:
           about: Informazioni
           members: Membri
           settings: Impostazioni
-<<<<<<< HEAD
       new_message_modal:
         title: Invia messaggio
         add_user_long: <kbd>MAIUSC + clic</kbd> o <kbd>MAIUSC + INVIO</kbd><span>Aggiunge @%{username}</span>
@@ -395,12 +328,6 @@ it:
         slug_description: Lo slug del canale viene utilizzato nell'URL al posto del nome del canale
         name: Nome del canale
         slug: Slug canale (opzionale)
-=======
-      channel_edit_title_modal:
-        title: Modifica titolo
-        input_placeholder: Aggiungi un titolo
-        description: Assegna un breve titolo descrittivo al tuo canale
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Modifica descrizione
         input_placeholder: Aggiungi una descrizione
@@ -410,12 +337,6 @@ it:
         prefix: "A:"
         no_results: Nessun risultato
         selected_user_title: "Deseleziona %{username}"
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "Vai al canale"
-        no_channels: "Nessun canale corrisponde alla tua ricerca"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: Questo canale non ha membri
         no_memberships_found: Nessun membro trovato
@@ -423,7 +344,6 @@ it:
           one: "%{count} membro"
           other: "%{count} membri"
       create_channel:
-<<<<<<< HEAD
         threading:
           label: "Abilita il threading"
         auto_join_users:
@@ -449,19 +369,10 @@ it:
                       }
                     }
             }
-=======
-        auto_join_users:
-          public_category_warning: "%{category} è una categoria pubblica. Aggiungere automaticamente tutti gli utenti attivi di recente a questo canale?"
-          warning_groups:
-            one: Aggiungere automaticamente %{members_count} utenti da %{group}?
-            other: Aggiungere automaticamente %{members_count} utenti da %{group} e %{group_2}?
-          warning_multiple_groups: Aggiungere automaticamente %{members_count} utenti da %{group_1} e altri %{count}?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Scegli una categoria"
           none: "selezionane una..."
           default_hint: Gestisci l'accesso visitando le <a href=%{link} target="_blank">impostazioni di sicurezza di %{category}</a>
-<<<<<<< HEAD
           hint_1_group: 'Gli utenti in %{group} avranno accesso a questo canale in base alle <a href=%{settingLink} target="_blank">impostazioni di sicurezza</a>'
           hint_2_groups: 'Gli utenti in %{group1} e %{group2} avranno accesso a questo canale in base alle <a href=%{settingLink} target="_blank">impostazioni di sicurezza</a>'
           hint_multiple_groups:
@@ -471,15 +382,6 @@ it:
         description: "Descrizione (facoltativa)"
         name: "Nome del canale"
         slug: "Slug canale (opzionale)"
-=======
-          hint_groups:
-            one: Gli utenti in %{hint} avranno accesso a questo canale in base alle <a href=%{link} target="_blank">impostazioni di sicurezza</a>
-            other: Gli utenti in %{hint} e %{hint_2} avranno accesso a questo canale in base alle <a href=%{link} target="_blank">impostazioni di sicurezza</a>
-          hint_multiple_groups: Gli utenti in %{hint_1} e altri %{count} gruppi avranno accesso a questo canale in base alle <a href=%{link} target="_blank">impostazioni di sicurezza</a>
-        create: "Crea canale"
-        description: "Descrizione (facoltativa)"
-        name: "Nome del canale"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Nuovo canale"
         type: "Tipo"
         types:
@@ -489,7 +391,6 @@ it:
         type: "Messaggio di chat"
       reactions:
         only_you: "Hai reagito con :%{emoji}:"
-<<<<<<< HEAD
         you_and_single_user: "Tu e %{username} avete reagito con :%{emoji}:"
         you_and_multiple_users: "Tu, %{commaSeparatedUsernames} e %{username} avete reagito con :%{emoji}:"
         you_multiple_users_and_more:
@@ -500,21 +401,12 @@ it:
         multiple_users_and_more:
           one: "%{commaSeparatedUsernames} e %{count} altro avete reagito con :%{emoji}:"
           other: "%{commaSeparatedUsernames} e altri %{count} avete reagito con :%{emoji}:"
-=======
-        and_others: "Tu, %{usernames} avete reagito con :%{emoji}:"
-        only_others: "%{usernames} ha reagito con :%{emoji}:"
-        others_and_more: "%{usernames} e altri %{more} hanno reagito con :%{emoji}:"
-        you_others_and_more: "Tu, %{usernames} e altri %{more} avete reagito con :%{emoji}:"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "Attiva barra degli strumenti"
         italic_text: "testo in evidenza"
         bold_text: "testo in grassetto"
         code_text: "testo di codice"
-<<<<<<< HEAD
         send: "Invia"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'Inviato in origine in <a href="%{channelLink}">#%{channel}</a>'
         copy_success: "Citazione della chat copiata negli appunti"
@@ -523,7 +415,6 @@ it:
         mention: "Solo per le menzioni"
         always: "Per tutte le attività"
       settings:
-<<<<<<< HEAD
         channel_wide_mentions_label: "Consenti le menzioni @all e @here"
         channel_wide_mentions_description: "Consenti agli utenti di avvisare tutti i membri di #%{channel} con @all o solo quelli che sono attivi al momento con @here"
         channel_threading_label: "Threading"
@@ -531,19 +422,14 @@ it:
         auto_join_users_label: "Aggiunta automatica utenti"
         auto_join_users_info: "Controlla ogni ora quali utenti sono stati attivi negli ultimi 3 mesi. Aggiungili a questo canale se hanno accesso alla categoria %{category}."
         auto_join_users_info_no_category: "Controlla ogni ora quali utenti sono stati attivi negli ultimi tre mesi. Aggiungili a questo canale se hanno accesso alla categoria selezionata."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Tutti gli utenti che non sono membri di questo canale e hanno accesso alla categoria %{category} parteciperanno. Vuoi procedere?"
         desktop_notification_level: "Notifiche sul desktop"
         follow: "Partecipa"
         followed: "Partecipante"
         mobile_notification_level: "Notifiche push su dispositivi mobili"
         mute: "Silenzia canale"
-<<<<<<< HEAD
         threading_enabled: "Abilitato"
         threading_disabled: "Disabilitato"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "On"
         muted_off: "Off"
         notifications: "Notifiche"
@@ -551,7 +437,6 @@ it:
         save: "Salva"
         saved: "Salvato"
         unfollow: "Esci"
-<<<<<<< HEAD
         admin_title: "Amministratore"
       admin:
         title: "Chat"
@@ -563,13 +448,6 @@ it:
       direct_messages:
         title: "Chat personale"
         new: "Crea una chat personale"
-=======
-      admin:
-        title: "Chat"
-      direct_messages:
-        title: "Chat personale"
-        new: "Nuova chat personale"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Vai"
         leave: "Lascia questa chat personale"
         cannot_create: "Spiacenti, non puoi inviare messaggi diretti."
@@ -630,7 +508,6 @@ it:
           one: "%{commaSeparatedUsernames} e %{count} altro stanno scrivendo"
           other: "%{commaSeparatedUsernames} e altri %{count} stanno scrivendo"
       retention_reminders:
-<<<<<<< HEAD
         public_none: "La cronologia del canale viene conservata a tempo indeterminato."
         public:
           one: "La cronologia del canale è conservata per %{count} giorno."
@@ -639,10 +516,6 @@ it:
         dm:
           one: "La cronologia della chat personale è conservata per %{count} giorno."
           other: "La cronologia della chat personale è conservata per %{count} giorni."
-=======
-        public: "La cronologia del canale è conservata per %{days} giorni."
-        dm: "La cronologia della chat personale è conservata per %{days} giorni."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "Questo messaggio non è rilevante per la discussione in corso in base alla definizione del titolo del canale e probabilmente dovrebbe essere spostato altrove."
         inappropriate: "Questo messaggio ha contenuti che chiunque considererebbe offensivi o ingiuriosi, oppure contiene violazioni delle <a href=\"%{basePath}/guidelines\">nostre linee guida della community</a>."
@@ -664,7 +537,6 @@ it:
         symbols: "Simboli"
         search_placeholder: "Cerca per nome emoji e alias..."
         no_results: "Nessun risultato"
-<<<<<<< HEAD
       thread:
         title: "Titolo"
         view_thread: Visualizza thread
@@ -691,8 +563,6 @@ it:
         open: "Apri Discussione"
         list: "Discussioni in corso"
         none: "Non stai partecipando a nessun thread in questo canale."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nuovo messaggio"
         cancel: "Annulla"
@@ -737,17 +607,11 @@ it:
       transcript:
         view: "Visualizza la trascrizione dei messaggi precedenti"
       types:
-<<<<<<< HEAD
         chat_reviewable_message:
           title: "Messaggio di chat segnalato"
         reviewable_chat_message:
           title: "Messaggio di chat segnalato"
           noun: "messaggio di chat"
-=======
-        reviewable_chat_message:
-          title: "Messaggio di chat segnalato"
-          flagged_by: "Segnalato da"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Chat"
@@ -760,10 +624,7 @@ it:
           composer_code: "%{shortcut} Codice (solo compositore)"
           drawer_open: "%{shortcut} Apri il cassetto della chat"
           drawer_close: "%{shortcut} Chiudi il cassetto della chat"
-<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Contrassegna tutti i canali come letti"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "La chat è abilitata per questo argomento"
@@ -782,7 +643,6 @@ it:
         chat_notifications_with_unread:
           one: "Notifiche chat - %{count} notifica non letta"
           other: "Notifiche chat - %{count} notifiche non lette"
-<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -791,5 +651,3 @@ it:
       panels:
         chat:
           label: "Chat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

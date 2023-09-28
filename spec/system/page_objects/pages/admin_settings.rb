@@ -8,7 +8,6 @@ module PageObjects
         self
       end
 
-<<<<<<< HEAD
       def visit_category(category)
         page.visit("/admin/site_settings/category/#{category}")
         self
@@ -34,12 +33,6 @@ module PageObjects
           .all(:css, ".setting-value .values .value .value-input span")
           .map { |e| vals << e.text }
         vals
-=======
-      def toggle_setting(setting_name, text = '')
-        setting = find(".admin-detail .row.setting[data-setting='#{setting_name}']")
-        setting.find('.setting-value span', text: text).click
-        setting.find('.setting-controls button.ok').click
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end

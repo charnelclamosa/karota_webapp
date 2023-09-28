@@ -87,7 +87,6 @@ ja:
           title: "スピナー"
         empty_state:
           title: "エンプティステート"
-<<<<<<< HEAD
         tooltips:
           description: "説明"
           header: "ヘッダー"
@@ -95,10 +94,3 @@ ja:
         char_counter:
           title: "文字カウンター"
           placeholder: "ここにテキストを入力してください..."
-=======
-        rich_tooltip:
-          title: "リッチツールヒント"
-          description: "説明"
-          header: "ヘッダー"
-          hover_to_see: "マウスを合わせるとツールヒントを表示"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

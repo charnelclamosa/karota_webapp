@@ -106,7 +106,6 @@ RSpec.describe ListController do
       get "/latest"
 
       expect(response.status).to eq(200)
-<<<<<<< HEAD
       topic_list = Nokogiri.HTML5(response.body).css(".topic-list")
       first_item = topic_list.css('[itemprop="itemListElement"]')
       expect(first_item.css('[itemprop="position"]')[0]["content"]).to eq("1")
@@ -223,12 +222,6 @@ RSpec.describe ListController do
         expect(response.body).to include(public_tag.name)
         expect(response.body).not_to include(restricted_tag.name)
       end
-=======
-      topic_list = Nokogiri::HTML5(response.body).css('.topic-list')
-      first_item = topic_list.css('[itemprop="itemListElement"]')
-      expect(first_item.css('[itemprop="position"]')[0]['content']).to eq('1')
-      expect(first_item.css('[itemprop="url"]')[0]['href']).to eq(topic.url)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -1151,7 +1144,6 @@ RSpec.describe ListController do
       expect(response.status).to eq(404)
     end
 
-<<<<<<< HEAD
     it "returns category definition topics if `show_category_definitions_in_topic_lists` site setting is enabled" do
       category_topic = Fabricate(:topic, category: category)
       category.update!(topic: category_topic)
@@ -1161,22 +1153,12 @@ RSpec.describe ListController do
       sign_in(user)
 
       get "/filter.json"
-=======
-    it "is hidden to admins" do
-      sign_in(admin)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(response.status).to eq(200)
-<<<<<<< HEAD
 
       expect(
         response.parsed_body["topic_list"]["topics"].map { |topic| topic["id"] },
       ).to contain_exactly(topic.id, category_topic.id)
-=======
-      parsed = response.parsed_body
-      expect(parsed["topic_list"]["topics"].length).to eq(1)
-      expect(parsed["topic_list"]["topics"].first["id"]).not_to eq(welcome_topic.id)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "does not return category definition topics if `show_category_definitions_in_topic_lists` site setting is disabled" do

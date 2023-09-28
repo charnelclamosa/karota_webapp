@@ -272,15 +272,9 @@ RSpec.describe DiscourseConnect do
     expect(add_group4.usernames).to eq(user.username)
   end
 
-<<<<<<< HEAD
   it "creates group logs when users are added to groups" do
     user = Fabricate(:user)
     group = Fabricate(:group, name: "group1")
-=======
-  it 'creates group logs when users are added to groups' do
-    user = Fabricate(:user)
-    group = Fabricate(:group, name: 'group1')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     sso = new_discourse_sso
     sso.username = "bobsky"
@@ -294,7 +288,6 @@ RSpec.describe DiscourseConnect do
     sso.lookup_or_create_user(ip_address)
 
     expect(group.reload.usernames).to eq(user.username)
-<<<<<<< HEAD
     expect(
       GroupHistory.exists?(
         target_user_id: user.id,
@@ -307,18 +300,6 @@ RSpec.describe DiscourseConnect do
   it "creates group logs when users are removed from groups" do
     user = Fabricate(:user)
     group = Fabricate(:group, name: "group1")
-=======
-    expect(GroupHistory.exists?(
-      target_user_id: user.id,
-      acting_user: Discourse.system_user.id,
-      action: GroupHistory.actions[:add_user_to_group]
-    )).to eq(true)
-  end
-
-  it 'creates group logs when users are removed from groups' do
-    user = Fabricate(:user)
-    group = Fabricate(:group, name: 'group1')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     group.add(user)
 
     sso = new_discourse_sso
@@ -333,7 +314,6 @@ RSpec.describe DiscourseConnect do
     sso.lookup_or_create_user(ip_address)
 
     expect(group.reload.usernames).to be_blank
-<<<<<<< HEAD
     expect(
       GroupHistory.exists?(
         target_user_id: user.id,
@@ -348,20 +328,6 @@ RSpec.describe DiscourseConnect do
 
     user = Fabricate(:user)
     group = Fabricate(:group, name: "group1")
-=======
-    expect(GroupHistory.exists?(
-      target_user_id: user.id,
-      acting_user: Discourse.system_user.id,
-      action: GroupHistory.actions[:remove_user_from_group]
-    )).to eq(true)
-  end
-
-  it 'creates group logs when users are added to groups when discourse_connect_overrides_groups setting is true' do
-    SiteSetting.discourse_connect_overrides_groups = true
-
-    user = Fabricate(:user)
-    group = Fabricate(:group, name: 'group1')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     sso = new_discourse_sso
     sso.username = "bobsky"
@@ -375,7 +341,6 @@ RSpec.describe DiscourseConnect do
     sso.lookup_or_create_user(ip_address)
 
     expect(group.reload.usernames).to eq(user.username)
-<<<<<<< HEAD
     expect(
       GroupHistory.exists?(
         target_user_id: user.id,
@@ -390,20 +355,6 @@ RSpec.describe DiscourseConnect do
 
     user = Fabricate(:user)
     group = Fabricate(:group, name: "group1")
-=======
-    expect(GroupHistory.exists?(
-      target_user_id: user.id,
-      acting_user: Discourse.system_user.id,
-      action: GroupHistory.actions[:add_user_to_group]
-    )).to eq(true)
-  end
-
-  it 'creates group logs when users are removed from groups when discourse_connect_overrides_groups setting is true' do
-    SiteSetting.discourse_connect_overrides_groups = true
-
-    user = Fabricate(:user)
-    group = Fabricate(:group, name: 'group1')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     group.add(user)
 
     sso = new_discourse_sso
@@ -418,7 +369,6 @@ RSpec.describe DiscourseConnect do
     sso.lookup_or_create_user(ip_address)
 
     expect(group.reload.usernames).to be_blank
-<<<<<<< HEAD
     expect(
       GroupHistory.exists?(
         target_user_id: user.id,
@@ -429,16 +379,6 @@ RSpec.describe DiscourseConnect do
   end
 
   it "behaves properly when auth_overrides_username is set but username is missing or blank" do
-=======
-    expect(GroupHistory.exists?(
-      target_user_id: user.id,
-      acting_user: Discourse.system_user.id,
-      action: GroupHistory.actions[:remove_user_from_group]
-    )).to eq(true)
-  end
-
-  it 'behaves properly when auth_overrides_username is set but username is missing or blank' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     SiteSetting.auth_overrides_username = true
 
     sso = new_discourse_sso

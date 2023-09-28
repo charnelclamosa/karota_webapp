@@ -5,7 +5,6 @@
 # https://translate.discourse.org/
 
 sk:
-<<<<<<< HEAD
   system_messages:
     chat_channel_archive_failed_no_topic:
       title: "Archív kanálov chatu zlyhal"
@@ -35,10 +34,6 @@ sk:
         other: "Nemôžete vytvoriť súkromnú správu s viac ako %{count} používateľmi."
       thread_invalid_for_channel: "Vlákno nie je súčasťou zvoleného kanála."
       thread_does_not_match_parent: "Vlákno nezodpovedá nadradenej správe."
-=======
-  chat:
-    deleted_chat_username: vymazané
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     reviewables:
       actions:
         agree_and_suspend:
@@ -48,7 +43,6 @@ sk:
         disagree:
           title: "Nesúhlasiť"
     channel:
-<<<<<<< HEAD
       dm_title:
         single_user: "%{username}"
         multi_user: "%{comma_separated_usernames}"
@@ -63,11 +57,6 @@ sk:
       group_mentions_disabled: "%{first_identifier} nepovoľuje označovanie."
     summaries:
       no_targets: "Počas vybraného obdobia neboli zaznamenané žiadne správy."
-=======
-      statuses:
-        closed: "Zatvorené"
-        open: "Zahájiť"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   discourse_push_notifications:
     popup:
       chat_mention:

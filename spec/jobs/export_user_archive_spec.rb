@@ -168,13 +168,6 @@ RSpec.describe Jobs::ExportUserArchive do
       expect(post1["post_raw"]).to eq(normal_post.raw)
       expect(post2["post_raw"]).to eq(subsubpost.raw)
       expect(post3["post_raw"]).to eq(message_post.raw)
-<<<<<<< HEAD
-=======
-
-      expect(post1["post_cooked"]).to eq(normal_post.cooked)
-      expect(post2["post_cooked"]).to eq(subsubpost.cooked)
-      expect(post3["post_cooked"]).to eq(message_post.cooked)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(post1["post_cooked"]).to eq(normal_post.cooked)
       expect(post2["post_cooked"]).to eq(subsubpost.cooked)

@@ -25,11 +25,7 @@ ru:
         colors:
           title: "Цвета"
         icons:
-<<<<<<< HEAD
           title: "Значки"
-=======
-          title: "Иконки"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           full_list: "См. полный список значков Font Awesome"
         input_fields:
           title: "Поля ввода"

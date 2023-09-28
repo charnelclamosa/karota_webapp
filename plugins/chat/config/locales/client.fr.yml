@@ -10,21 +10,15 @@ fr:
       site_settings:
         categories:
           chat: Discussion
-<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "Toujours"
           never: "Jamais"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Le statut du canal de discussion a changé"
             chat_channel_delete: "Canal de discussion supprimé"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Les adhésions sont automatiquement supprimées des canaux"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
@@ -35,10 +29,7 @@ fr:
       chat_channels_count: "Canaux de discussion"
       chat_users_count: "Utilisateurs de la discussion"
     chat:
-<<<<<<< HEAD
       deleted_chat_username: supprimé
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Affichage de tous les messages"
@@ -53,13 +44,8 @@ fr:
       move_to_channel:
         title: "Déplacer les messages vers le canal"
         instructions:
-<<<<<<< HEAD
           one: "Vous déplacez <strong>%{count}</strong> message. Sélectionnez un canal de destination. Un message d'espace réservé sera créé dans le canal <strong>%{channelTitle}</strong> pour indiquer que ce message a été déplacé. Notez que les chaînes de réponses ne seront pas conservées dans le nouveau canal et que les messages de l'ancien canal ne seront plus affichés comme réponses aux messages déplacés."
           other: "Vous déplacez <strong>%{count}</strong> messages. Sélectionnez un canal de destination. Un message d'espace réservé sera créé dans le canal <strong>%{channelTitle}</strong> pour indiquer que ce message a été déplacé. Notez que les chaînes de réponses ne seront pas conservées dans le nouveau canal et que les messages de l'ancien canal ne seront plus affichés comme réponses aux messages déplacés."
-=======
-          one: "Vous déplacez <strong>%{count}</strong> message. Sélectionnez un canal de destination. Un message de substitution sera créé dans le canal <strong>%{channelTitle}</strong> pour indiquer que ce message a été déplacé."
-          other: "Vous déplacez <strong>%{count}</strong> messages. Sélectionnez un canal de destination. Un message de substitution sera créé dans le canal <strong>%{channelTitle}</strong> pour indiquer que ces messages ont été déplacés."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Déplacer les messages"
       channel_settings:
         title: "Paramètres du canal"
@@ -99,7 +85,6 @@ fr:
         create: "Nouveau canal"
       click_to_join: "Cliquez ici pour voir les canaux disponibles."
       close: "Fermer"
-<<<<<<< HEAD
       remove: "Supprimer"
       collapse: "Réduire le tiroir de discussion"
       expand: "Développer le tiroir de discussion"
@@ -107,11 +92,6 @@ fr:
       deleted:
         one: "Un message a été supprimé. [voir]"
         other: "%{count} messages ont été supprimés. [Voir tout]"
-=======
-      collapse: "Réduire le tiroir de discussion"
-      confirm_flag: "Voulez-vous vraiment signaler le message de %{username} ?"
-      deleted: "Un message a été supprimé. [view]"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Un message a été masqué. [view]"
       delete: "Supprimer"
       edited: "modifié"
@@ -126,14 +106,11 @@ fr:
         never: "Jamais"
         title: "Notifications par e-mail"
         when_away: "Seulement en cas d'absence"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Afficher l'indicateur d'activité dans l'en-tête"
         all_new: "Tous les nouveaux messages"
         dm_and_mentions: "Messages directs et mentions"
         never: "Jamais"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Activer la discussion"
       flag: "Drapeau"
       emoji: "Insérer un émoji"
@@ -143,7 +120,6 @@ fr:
       in_reply_to: "En réponse à"
       heading: "Discussion"
       join: "Rejoindre"
-<<<<<<< HEAD
       last_visit: "dernière visite"
       summarization:
         title: "Résumer les messages"
@@ -153,19 +129,10 @@ fr:
           one: "Dernière heure"
           other: "%{count} dernières heures"
       mention_warning:
-=======
-      new_messages: "nouveaux messages"
-      mention_warning:
-        cannot_see:
-          one: "%{usernames} ne peut pas accéder à ce canal et n'a pas été averti(e)."
-          other: "%{usernames} ne peuvent pas accéder à ce canal et n'ont pas été avertis."
-        dismiss: "rejeter"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Invitation envoyée"
           other: "Invitations envoyées"
         invite: "Inviter à rejoindre le canal"
-<<<<<<< HEAD
         groups:
           header:
             some: "Certains utilisateurs ne recevront pas de notification"
@@ -235,20 +202,12 @@ fr:
         too_many_mentions_admin:
           one: 'Ce message dépasse la <a href="%{siteSettingUrl}" target="_blank">limite de notification</a> de %{count} mention.'
           other: 'Ce message dépasse la <a href="%{siteSettingUrl}" target="_blank">limite de notification</a> de %{count} mentions.'
-=======
-        without_membership:
-          one: "%{usernames} n'a pas rejoint ce canal."
-          other: "%{usernames} n'ont pas rejoint ce canal."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "En-tête de discussion"
         composer: "Compositeur de discussion"
         channels_list: "Liste des canaux de discussion"
       no_public_channels: "Vous n'avez rejoint aucun canal."
-<<<<<<< HEAD
       kicked_from_channel: "Vous ne pouvez plus accéder à ce canal."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Envoyer uniquement des notifications push de discussion"
         description: "Bloquer l'envoi de toutes les notifications push non liées à la discussion"
@@ -260,7 +219,6 @@ fr:
       close_full_page: "Fermer la discussion en plein écran"
       open_message: "Ouvrir le message dans la discussion"
       placeholder_self: "Noter quelque chose"
-<<<<<<< HEAD
       placeholder_channel: "Discuter dans %{channelName}"
       placeholder_thread: "Discuter dans le fil de discussion"
       placeholder_users: "Discuter avec %{commaSeparatedNames}"
@@ -269,12 +227,6 @@ fr:
         closed: "Le canal est fermé, vous ne pouvez pas envoyer de nouveaux messages pour le moment."
         read_only: "Le canal est en lecture seule, vous ne pouvez pas envoyer de nouveaux messages pour le moment."
       placeholder_silenced: "Vous ne pouvez pas envoyer de messages pour le moment."
-=======
-      placeholder_others: "Discuter avec %{messageRecipient}"
-      placeholder_new_message_disallowed: "Le canal a le statut %{status}, vous ne pouvez pas envoyer de nouveaux messages pour le moment."
-      placeholder_silenced: "Vous ne pouvez pas envoyer de messages pour le moment."
-      placeholder_start_conversation: Démarrer une conversation avec %{usernames}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Supprimer le fichier"
       react: "Réagir avec un émoji"
       reply: "Répondre"
@@ -290,16 +242,11 @@ fr:
       restore: "Restaurer le message supprimé"
       save: "Enregistrer"
       select: "Sélectionner"
-<<<<<<< HEAD
       return_to_list: "Retour à la liste des canaux"
       return_to_threads_list: "Revenir aux discussions en cours"
       unread_threads_count:
         one: "Vous avez %{count} discussion non lue"
         other: "Vous avez %{count} discussions non lues"
-=======
-      silence: "Désactiver l'utilisateur"
-      return_to_list: "Retour à la liste des canaux"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Défiler vers le bas"
       scroll_to_new_messages: "Voir les nouveaux messages"
       sound:
@@ -311,11 +258,8 @@ fr:
       title: "discussion"
       title_capitalized: "Discussion"
       upload: "Joindre un fichier"
-<<<<<<< HEAD
       upload_to_channel: "Téléverser vers %{title}"
       upload_to_thread: "Téléverser dans le fil"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} fichier"
         other: "%{count} fichiers"
@@ -326,12 +270,8 @@ fr:
         read_only: "Lecture seule"
         archived_header: "Le canal est archivé"
         archived: "Archivé"
-<<<<<<< HEAD
         archive_failed: "Échec de l'archivage du canal. %{completed}/%{total} messages ont été archivés. <a target=\"_blank\" href=\"%{topic_url}\">Le sujet de destination</a> a été créé. Appuyez sur Réessayer pour tenter de terminer l'archivage."
         archive_failed_no_topic: "Échec de l'archivage du canal. %{completed}/%{total} messages ont été archivés, le sujet de destination n'a pas été créé. Appuyez sur Réessayer pour tenter de terminer l'archivage."
-=======
-        archive_failed: "Échec de l'archivage du canal. %{completed}/%{total} messages ont été archivés dans <a target=\"_blank\" href=\"%{topic_url}\">le sujet de destination</a>. Appuyez sur Réessayer pour tenter de terminer l'archivage."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "Voir <a target=\"_blank\" href=\"%{topic_url}\">le sujet de l'archive</a>"
         closed_header: "Le canal est fermé"
         closed: "Fermé"
@@ -354,10 +294,7 @@ fr:
         associated_topic: Sujet lié
         associated_category: Catégorie liée
         title: Titre
-<<<<<<< HEAD
         name: Nom
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Description
       channel_info:
         back_to_all_channels: "Tous les canaux"
@@ -366,7 +303,6 @@ fr:
           about: À propos
           members: Membres
           settings: Paramètres
-<<<<<<< HEAD
       new_message_modal:
         title: Envoyer un message
         add_user_long: <kbd>majuscule + clic</kbd> ou <kbd>majuscule + entrée</kbd><span>Ajouter @%{username}</span>
@@ -384,12 +320,6 @@ fr:
         slug_description: Un identifiant de canal est utilisé dans l'URL au lieu du nom du canal
         name: Nom du canal
         slug: Identifiant de canal (facultatif)
-=======
-      channel_edit_title_modal:
-        title: Modifier le titre
-        input_placeholder: Ajouter un titre
-        description: Ajoutez un court titre descriptif à votre canal
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Modifier la description
         input_placeholder: Ajouter une description
@@ -399,12 +329,6 @@ fr:
         prefix: "À :"
         no_results: Aucun résultat
         selected_user_title: "Désélectionner %{username}"
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "Accéder au canal"
-        no_channels: "Aucun canal ne correspond à votre recherche"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: Ce canal ne comprend aucun membre
         no_memberships_found: Aucun membre trouvé
@@ -412,7 +336,6 @@ fr:
           one: "%{count} membre"
           other: "%{count} membres"
       create_channel:
-<<<<<<< HEAD
         threading:
           label: "Activer le fil"
         auto_join_users:
@@ -438,19 +361,10 @@ fr:
                       }
                     }
             }
-=======
-        auto_join_users:
-          public_category_warning: "%{category} est une catégorie publique. Ajouter automatiquement tous les utilisateurs récemment actifs à ce canal ?"
-          warning_groups:
-            one: Ajouter automatiquement %{members_count} utilisateurs de %{group} ?
-            other: Ajouter automatiquement %{members_count} utilisateurs de %{group} et de %{group_2} ?
-          warning_multiple_groups: Ajouter automatiquement %{members_count} utilisateurs de %{group_1} et de %{count} autres groupes ?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Choisir une catégorie"
           none: "sélectionnez-en une…"
           default_hint: Gérer l'accès en visitant <a href=%{link} target="_blank">les paramètres de sécurité de %{category}</a>
-<<<<<<< HEAD
           hint_1_group: 'Les utilisateurs de %{group} auront accès à ce canal selon les <a href="%{settingLink}" target="_blank">paramètres de sécurité</a>'
           hint_2_groups: 'Les utilisateurs en %{group1} et de %{group2} auront accès à ce canal selon les <a href="%{settingLink}" target="_blank">paramètres de sécurité</a>'
           hint_multiple_groups:
@@ -460,15 +374,6 @@ fr:
         description: "Description (facultative)"
         name: "Nom du canal"
         slug: "Identifiant de canal (facultatif)"
-=======
-          hint_groups:
-            one: Les utilisateurs de %{hint} auront accès à ce canal selon les <a href=%{link} target="_blank">paramètres de sécurité</a>
-            other: Les utilisateurs de %{hint} et de %{hint_2} auront accès à ce canal selon les <a href=%{link} target="_blank">paramètres de sécurité</a>
-          hint_multiple_groups: Les utilisateurs de %{hint_1} et de %{count} autres groupes auront accès à ce canal selon les <a href=%{link} target="_blank">paramètres de sécurité</a>
-        create: "Créer un canal"
-        description: "Description (facultative)"
-        name: "Nom du canal"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Nouveau canal"
         type: "Type"
         types:
@@ -478,7 +383,6 @@ fr:
         type: "Message de discussion"
       reactions:
         only_you: "Vous avez réagi avec :%{emoji}:"
-<<<<<<< HEAD
         you_and_single_user: "Vous et %{username} avez réagi avec :%{emoji}:"
         you_and_multiple_users: "Vous, %{commaSeparatedUsernames} et %{username} avez réagi avec :%{emoji}:"
         you_multiple_users_and_more:
@@ -489,21 +393,12 @@ fr:
         multiple_users_and_more:
           one: "%{commaSeparatedUsernames} et %{count} autre utilisateur ont réagi avec :%{emoji}:"
           other: "%{commaSeparatedUsernames} et %{count} autres utilisateurs ont réagi avec :%{emoji}:"
-=======
-        and_others: "Vous, %{usernames} avez réagi avec :%{emoji}:"
-        only_others: "%{usernames} a réagi avec :%{emoji} :"
-        others_and_more: "%{usernames} et %{more} autres utilisateurs ont réagi avec :%{emoji}:"
-        you_others_and_more: "Vous, %{usernames} et %{more} autres utilisateurs avez réagi avec :%{emoji}:"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "Basculer la barre d'outils"
         italic_text: "texte souligné"
         bold_text: "texte gras"
         code_text: "texte codé"
-<<<<<<< HEAD
         send: "Envoyer"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'Envoyé à l''origine dans le canal <a href="%{channelLink}">%{channel}</a>'
         copy_success: "Citation de discussion copiée dans le presse-papiers"
@@ -512,7 +407,6 @@ fr:
         mention: "Seulement pour les mentions"
         always: "Pour toutes les activités"
       settings:
-<<<<<<< HEAD
         channel_wide_mentions_label: "Autoriser les mentions @all et @here"
         channel_wide_mentions_description: "Autoriser les utilisateurs à notifier tous les membres de #%{channel} avec @all ou uniquement ceux qui sont actifs en ce moment avec @here"
         channel_threading_label: "Fil de discussion"
@@ -520,21 +414,14 @@ fr:
         auto_join_users_label: "Ajouter automatiquement des utilisateurs"
         auto_join_users_info: "Vérifiez toutes les heures quels utilisateurs ont été actifs au cours des 3 derniers mois. Ajoutez-les à ce canal s'ils ont accès à la catégorie %{category}."
         auto_join_users_info_no_category: "Vérifiez toutes les heures quels utilisateurs ont été actifs au cours des 3 derniers mois. Ajoutez-les à ce canal s'ils ont accès à la catégorie sélectionnée."
-=======
-        auto_join_users_label: "Ajouter automatiquement des utilisateurs"
-        auto_join_users_info: "Vérifier toutes les heures quels utilisateurs ont été actifs au cours des 3 derniers mois et, s'ils ont accès à la catégorie %{category}, les ajouter à ce canal."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Chaque utilisateur qui n'est pas membre de ce canal et qui a accès à la catégorie %{category} le rejoindra. Voulez-vous continuer ?"
         desktop_notification_level: "Notifications sur le bureau"
         follow: "Rejoindre"
         followed: "Rejoint"
         mobile_notification_level: "Notifications push mobiles"
         mute: "Mettre le canal en sourdine"
-<<<<<<< HEAD
         threading_enabled: "Activée"
         threading_disabled: "Désactivé"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "Activé"
         muted_off: "Désactivé"
         notifications: "Notifications"
@@ -543,7 +430,6 @@ fr:
         saved: "Enregistré"
         unfollow: "Quitter"
         admin_title: "Administrateur"
-<<<<<<< HEAD
       admin:
         title: "Discussion"
         export_messages:
@@ -553,14 +439,6 @@ fr:
       direct_messages:
         title: "Discussion privée"
         new: "Créer une conversation personnelle"
-=======
-        retention_info: "L'historique des discussions sera enregistré pendant %{days} jours."
-      admin:
-        title: "Discussion"
-      direct_messages:
-        title: "Discussion privée"
-        new: "Nouvelle discussion privée"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Valider"
         leave: "Quitter cette discussion privée"
         cannot_create: "Nous sommes désolés, vous ne pouvez pas envoyer de messages privés."
@@ -621,7 +499,6 @@ fr:
           one: "%{commaSeparatedUsernames} et %{count} autre utilisateur sont en train d'écrire"
           other: "%{commaSeparatedUsernames} et %{count} autres utilisateurs sont en train d'écrire"
       retention_reminders:
-<<<<<<< HEAD
         public_none: "L'historique du canal est conservé indéfiniment."
         public:
           one: "L'historique du canal est conservé pendant %{count} jour."
@@ -630,10 +507,6 @@ fr:
         dm:
           one: "L'historique des discussions privées est conservé pendant %{count} jour."
           other: "L'historique des discussions privées est conservé pendant %{count} jours."
-=======
-        public: "L'historique du canal est conservé pendant %{days} jours."
-        dm: "L'historique des discussions privées est conservé pendant %{days} jours."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "Ce message n'est pas pertinent pour la discussion en cours telle que définie par le titre du canal et devrait probablement être déplacé ailleurs."
         inappropriate: "Ce message contient du contenu qu'une personne raisonnable considérerait comme offensant, abusif ou contraire à nos <a href=\"%{basePath}/guidelines\">consignes communautaires</a>."
@@ -655,7 +528,6 @@ fr:
         symbols: "Symboles"
         search_placeholder: "Recherche par nom d'émoji et alias…"
         no_results: "Aucun résultat"
-<<<<<<< HEAD
       thread:
         title: "Titre"
         view_thread: Afficher le fil
@@ -682,8 +554,6 @@ fr:
         open: "Ouvrir le fil"
         list: "Discussions en cours"
         none: "Vous ne participez à aucun fil dans ce canal."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nouveau message"
         cancel: "Annuler"
@@ -728,17 +598,11 @@ fr:
       transcript:
         view: "Afficher la transcription des messages précédents"
       types:
-<<<<<<< HEAD
         chat_reviewable_message:
           title: "Message de discussion signalé"
         reviewable_chat_message:
           title: "Message de discussion marqué"
           noun: "message de discussion"
-=======
-        reviewable_chat_message:
-          title: "Message de discussion signalé"
-          flagged_by: "Signalé par"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Discussion"
@@ -751,10 +615,7 @@ fr:
           composer_code: "%{shortcut} Code (compositeur uniquement)"
           drawer_open: "%{shortcut} Ouvrir le tiroir de discussion"
           drawer_close: "%{shortcut} Fermer le tiroir de discussion"
-<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Marquer tous les canaux comme lus"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "La discussion est activée pour ce sujet"
@@ -773,7 +634,6 @@ fr:
         chat_notifications_with_unread:
           one: "Notifications de discussion - %{count} notification non lue"
           other: "Notifications de discussion - %{count} notifications non lues"
-<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -782,5 +642,3 @@ fr:
       panels:
         chat:
           label: "Discussion"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

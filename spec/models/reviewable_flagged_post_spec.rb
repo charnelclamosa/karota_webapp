@@ -87,11 +87,7 @@ RSpec.describe ReviewableFlaggedPost, type: :model do
         it "excludes delete action if the reviewer cannot delete the user" do
           post.user.user_stat.update!(
             first_post_created_at: 1.year.ago,
-<<<<<<< HEAD
             post_count: User::MAX_STAFF_DELETE_POST_COUNT + 1,
-=======
-            post_count: User::MAX_STAFF_DELETE_POST_COUNT + 1
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           )
 
           expect(reviewable.actions_for(guardian).has?(:delete_user)).to be false

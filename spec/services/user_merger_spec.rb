@@ -1185,7 +1185,6 @@ RSpec.describe UserMerger do
     Jobs::UpdateUsername
       .any_instance
       .expects(:execute)
-<<<<<<< HEAD
       .with(
         {
           user_id: source_user.id,
@@ -1194,14 +1193,6 @@ RSpec.describe UserMerger do
           avatar_template: target_user.avatar_template,
         },
       )
-=======
-      .with({
-        user_id: source_user.id,
-        old_username: 'alice1',
-        new_username: 'alice',
-        avatar_template: target_user.avatar_template
-      })
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       .once
 
     merge_users!

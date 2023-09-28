@@ -14,11 +14,7 @@ RSpec.describe Admin::VersionsController do
 
   describe "#show" do
     shared_examples "version info accessible" do
-<<<<<<< HEAD
       it "should return the currently available version" do
-=======
-      it 'should return the currently available version' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/admin/version_check.json"
         expect(response.status).to eq(200)
         json = response.parsed_body

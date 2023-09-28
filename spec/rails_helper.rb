@@ -147,15 +147,6 @@ module TestSetup
     # Don't queue badge grant in test mode
     BadgeGranter.disable_queue
 
-<<<<<<< HEAD
-=======
-    # Make sure the default Post and Topic bookmarkables are registered
-    Bookmark.reset_bookmarkables
-
-    # Make sure only the default category and tag hashtag data sources are registered.
-    HashtagAutocompleteService.clear_registered
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     OmniAuth.config.test_mode = false
 
     Middleware::AnonymousCache.disable_anon_cache

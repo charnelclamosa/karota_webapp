@@ -4,44 +4,32 @@ en:
       site_settings:
         categories:
           chat: Chat
-<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "Always"
           fullscreen: "When chat is in fullscreen"
           never: "Never"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Chat channel status changed"
             chat_channel_delete: "Chat channel deleted"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Memberships automatically removed from channels"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
             chat:
               create_message: "Create a chat message in a specified channel."
-<<<<<<< HEAD
       web_hooks:
         chat_message_event:
           name: "Chat message event"
           details: "When a chat message is created, edited, trashed or restored."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     about:
       chat_messages_count: "Chat Messages"
       chat_channels_count: "Chat Channels"
       chat_users_count: "Chat Users"
 
     chat:
-<<<<<<< HEAD
       deleted_chat_username: deleted
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Showing all messages"
@@ -56,13 +44,8 @@ en:
       move_to_channel:
         title: "Move messages to channel"
         instructions:
-<<<<<<< HEAD
           one: "You are moving <strong>%{count}</strong> message. Select a destination channel. A placeholder message will be created in the <strong>%{channelTitle}</strong> channel to indicate that this message has been moved. Note that reply chains will not be preserved in the new channel, and messages in the old channel will no longer show as replying to any moved messages."
           other: "You are moving <strong>%{count}</strong> messages. Select a destination channel. A placeholder message will be created in the <strong>%{channelTitle}</strong> channel to indicate that these messages have been moved. Note that reply chains will not be preserved in the new channel, and messages in the old channel will no longer show as replying to any moved messages."
-=======
-          one: "You are moving <strong>%{count}</strong> message. Select a destination channel. A placeholder message will be created in the <strong>%{channelTitle}</strong> channel to indicate that this message has been moved."
-          other: "You are moving <strong>%{count}</strong> messages. Select a destination channel. A placeholder message will be created in the <strong>%{channelTitle}</strong> channel to indicate that these messages have been moved."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Move Messages"
       channel_settings:
         title: "Channel settings"
@@ -93,11 +76,7 @@ en:
         instructions: "Closing the channel prevents non-staff users from sending new messages or editing existing messages. Are you sure you want to close this channel?"
       channel_delete:
         title: "Delete Channel"
-<<<<<<< HEAD
         instructions: "<p>Deletes the <strong>%{name}</strong> channel and chat history. All messages and related data, such as reactions and uploads, will be permanently deleted. If you want to preserve the channel history and decommission it, you may want to archive the channel instead.</p>
-=======
-        instructions: "<p>Deletes the <strong>%{name}</strong> channel and chat history. All messages and related data, such as reactions and uploads, will be permanently deleted. If you want to preserve the channel history and decomission it, you may want to archive the channel instead.</p>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         <p>Are you sure you want to <strong>permanently delete</strong> the channel? To confirm, type the name of the channel in the box below.</p>"
         confirm: "I understand the consequences, delete the channel"
         confirm_channel_name: "Enter channel name"
@@ -108,7 +87,6 @@ en:
 
       click_to_join: "Click here to view available channels."
       close: "Close"
-<<<<<<< HEAD
       remove: "Remove"
       collapse: "Collapse Chat Drawer"
       expand: "Expand Chat Drawer"
@@ -117,11 +95,6 @@ en:
         one: "A message was deleted. [view]"
         other: "%{count} messages were deleted. [view all]"
 
-=======
-      collapse: "Collapse Chat Drawer"
-      confirm_flag: "Are you sure you want to flag %{username}'s message?"
-      deleted: "A message was deleted. [view]"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "A message was hidden. [view]"
       delete: "Delete"
       edited: "edited"
@@ -136,7 +109,6 @@ en:
         never: "Never"
         title: "Email Notifications"
         when_away: "Only when away"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Show activity indicator in header"
         all_new: "All New Messages"
@@ -144,8 +116,6 @@ en:
         never: "Never"
       separate_sidebar_mode:
         title: "Show separate sidebar modes for forum and chat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Enable chat"
       flag: "Flag"
       emoji: "Insert emoji"
@@ -155,7 +125,6 @@ en:
       in_reply_to: "In reply to"
       heading: "Chat"
       join: "Join"
-<<<<<<< HEAD
       last_visit: "last visit"
 
       summarization:
@@ -166,40 +135,15 @@ en:
           one: "Last hour"
           other: "Last %{count} hours"
       mention_warning:
-=======
-      new_messages: "new messages"
-      mention_warning:
-        dismiss: "dismiss"
-        cannot_see:
-          one: "%{username} cannot access this channel and was not notified."
-          other: "%{username} and %{others} cannot access this channel and were not notified."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Invitation sent"
           other: "Invitations sent"
         invite: "Invite to channel"
-<<<<<<< HEAD
         channel_wide_mentions_disallowed: "@here and @all mentions are disabled in this channel."
-=======
-        without_membership:
-          one: "%{username} has not joined this channel."
-          other: "%{username} and %{others} have not joined this channel."
-        group_mentions_disabled: 
-          one: "%{group_name} doesn't allow mentions"
-          other: "%{group_name} and %{others} doesn't allow mentions"
-        too_many_members: 
-          one: "%{group_name} has too many members. No one was notified"
-          other: "%{group_name} and %{others} have too many members. No one was notified"
-        warning_multiple:
-          one: "%{count} other"
-          other: "%{count} others"
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         groups:
           header:
             some: "Some users won't be notified"
             all: "Nobody will be notified"
-<<<<<<< HEAD
           unreachable_1: "@%{group} doesn't allow mentions."
           unreachable_2: "@%{group1} and @%{group2} don't allow mentions."
           unreachable_multiple:
@@ -266,34 +210,13 @@ en:
           one: 'This message exceeds the <a href="%{siteSettingUrl}" target="_blank">notification limit</a> of %{count} mention.'
           other: 'This message exceeds the <a href="%{siteSettingUrl}" target="_blank">notification limit</a> of %{count} mentions.'
 
-=======
-          unreachable:
-            one: "@%{group} doesn't allow mentions"
-            other: "@%{group} and @%{group_2} doesn't allow mentions"
-          unreachable_multiple: "@%{group} and %{count} others doesn't allow mentions"
-          too_many_members:
-            one: "Mentioning @%{group} exceeds the %{notification_limit} of %{limit}"
-            other: "Mentioning both @%{group} or @%{group_2} exceeds the %{notification_limit} of %{limit}"
-          too_many_members_multiple: "These %{count} groups exceed the %{notification_limit} of %{limit}"
-          users_limit:
-            one: "%{count} user"
-            other: "%{count} users"
-          notification_limit: "notification limit"
-        too_many_mentions: "This message exceeds the %{notification_limit} of %{limit}"
-        mentions_limit:
-          one: "%{count} mention"
-          other: "%{count} mentions"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Chat header"
         composer: "Chat composer"
         channels_list: "Chat channels list"
 
       no_public_channels: "You have not joined any channels."
-<<<<<<< HEAD
       kicked_from_channel: "You can no longer access this channel."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Only send chat push notifications"
         description: "Block all non-chat push notifications from being sent"
@@ -305,7 +228,6 @@ en:
       close_full_page: "Close full-screen chat"
       open_message: "Open message in chat"
       placeholder_self: "Jot something down"
-<<<<<<< HEAD
       placeholder_channel: "Chat in %{channelName}"
       placeholder_thread: "Chat in thread"
       placeholder_users: "Chat with %{commaSeparatedNames}"
@@ -314,12 +236,6 @@ en:
         closed: "Channel is closed, you cannot send new messages right now."
         read_only: "Channel is read only, you cannot send new messages right now."
       placeholder_silenced: "You cannot send messages at this time."
-=======
-      placeholder_others: "Chat with %{messageRecipient}"
-      placeholder_new_message_disallowed: "Channel is %{status}, you cannot send new messages right now."
-      placeholder_silenced: "You cannot send messages at this time."
-      placeholder_start_conversation: Start a conversation with %{usernames}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Remove file"
       react: "React with emoji"
       reply: "Reply"
@@ -335,16 +251,11 @@ en:
       restore: "Restore deleted message"
       save: "Save"
       select: "Select"
-<<<<<<< HEAD
       return_to_list: "Return to channels list"
       return_to_threads_list: "Return to ongoing discussions"
       unread_threads_count:
         one: "You have %{count} unread discussion"
         other: "You have %{count} unread discussions"
-=======
-      silence: "Silence user"
-      return_to_list: "Return to channels list"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Scroll to bottom"
       scroll_to_new_messages: "See new messages"
       sound:
@@ -356,11 +267,8 @@ en:
       title: "chat"
       title_capitalized: "Chat"
       upload: "Attach a file"
-<<<<<<< HEAD
       upload_to_channel: "Upload to %{title}"
       upload_to_thread: "Upload to thread"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} file"
         other: "%{count} files"
@@ -371,12 +279,8 @@ en:
         read_only: "Read Only"
         archived_header: "Channel is archived"
         archived: "Archived"
-<<<<<<< HEAD
         archive_failed: "Archive channel failed. %{completed}/%{total} messages have been archived. <a target=\"_blank\" href=\"%{topic_url}\">The destination topic</a> was created. Press retry to attempt to complete the archive."
         archive_failed_no_topic: "Archive channel failed. %{completed}/%{total} messages have been archived, the destination topic was not created. Press retry to attempt to complete the archive."
-=======
-        archive_failed: "Archive channel failed. %{completed}/%{total} messages have been archived in <a target=\"_blank\" href=\"%{topic_url}\">the destination topic</a>. Press retry to attempt to complete the archive."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "See <a target=\"_blank\" href=\"%{topic_url}\">the archive topic</a>"
         closed_header: "Channel is closed"
         closed: "Closed"
@@ -403,10 +307,7 @@ en:
         associated_topic: Linked topic
         associated_category: Linked category
         title: Title
-<<<<<<< HEAD
         name: Name
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Description
 
       channel_info:
@@ -417,7 +318,6 @@ en:
           members: Members
           settings: Settings
 
-<<<<<<< HEAD
       new_message_modal:
         title: Send message
         add_user_long: <kbd>shift + click</kbd> or <kbd>shift + enter</kbd><span>Add @%{username}</span>
@@ -436,12 +336,6 @@ en:
         slug_description: A channel slug is used in the URL instead of the channel name
         name: Channel name
         slug: Channel slug (optional)
-=======
-      channel_edit_title_modal:
-        title: Edit title
-        input_placeholder: Add a title
-        description: Give a short descriptive title to your channel
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       channel_edit_description_modal:
         title: Edit description
@@ -454,13 +348,6 @@ en:
         no_results: No results
         selected_user_title: "Deselect %{username}"
 
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "Jump to channel"
-        no_channels: "No channels match your search"
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: This channel has no members
         no_memberships_found: No members found
@@ -469,7 +356,6 @@ en:
           other: "%{count} members"
 
       create_channel:
-<<<<<<< HEAD
         threading:
           label: "Enable threading"
         auto_join_users:
@@ -495,19 +381,10 @@ en:
                       }
                     }
             }
-=======
-        auto_join_users:
-          public_category_warning: "%{category} is a public category. Automatically add all recently active users to this channel?"
-          warning_groups:
-            one: Automatically add %{members_count} users from %{group}?
-            other: Automatically add %{members_count} users from %{group} and %{group_2}?
-          warning_multiple_groups: Automatically add %{members_count} users from %{group_1} and %{count} others?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Choose a category"
           none: "select one..."
           default_hint: Manage access by visiting <a href=%{link} target="_blank">%{category} security settings</a>
-<<<<<<< HEAD
           hint_1_group: 'Users in %{group} will have access to this channel per the <a href="%{settingLink}" target="_blank">security settings</a>'
           hint_2_groups: 'Users in %{group1} and %{group2} will have access to this channel per the <a href="%{settingLink}" target="_blank">security settings</a>'
           hint_multiple_groups:
@@ -517,15 +394,6 @@ en:
         description: "Description (optional)"
         name: "Channel name"
         slug: "Channel slug (optional)"
-=======
-          hint_groups:
-            one: Users in %{hint} will have access to this channel per the <a href=%{link} target="_blank">security settings</a>
-            other: Users in %{hint} and %{hint_2} will have access to this channel per the <a href=%{link} target="_blank">security settings</a>
-          hint_multiple_groups: Users in %{hint_1} and %{count} other groups will have access to this channel per the <a href=%{link} target="_blank">security settings</a>
-        create: "Create channel"
-        description: "Description (optional)"
-        name: "Channel name"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "New channel"
         type: "Type"
         types:
@@ -537,7 +405,6 @@ en:
 
       reactions:
         only_you: "You reacted with :%{emoji}:"
-<<<<<<< HEAD
         you_and_single_user: "You and %{username} reacted with :%{emoji}:"
         you_and_multiple_users: "You, %{commaSeparatedUsernames} and %{username} reacted with :%{emoji}:"
         you_multiple_users_and_more:
@@ -548,22 +415,13 @@ en:
         multiple_users_and_more:
           one: "%{commaSeparatedUsernames} and %{count} other reacted with :%{emoji}:"
           other: "%{commaSeparatedUsernames} and %{count} others reacted with :%{emoji}:"
-=======
-        and_others: "You, %{usernames} reacted with :%{emoji}:"
-        only_others: "%{usernames} reacted with :%{emoji}:"
-        others_and_more: "%{usernames} and %{more} others reacted with :%{emoji}:"
-        you_others_and_more: "You, %{usernames} and %{more} others reacted with :%{emoji}:"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       composer:
         toggle_toolbar: "Toggle toolbar"
         italic_text: "emphasized text"
         bold_text: "strong text"
         code_text: "code text"
-<<<<<<< HEAD
         send: "Send"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       quote:
         original_channel: 'Originally sent in <a href="%{channelLink}">%{channel}</a>'
@@ -577,28 +435,19 @@ en:
       settings:
         channel_wide_mentions_label: "Allow @all and @here mentions"
         channel_wide_mentions_description: "Allow users to notify all members of #%{channel} with @all or only those who are active in the moment with @here"
-<<<<<<< HEAD
         channel_threading_label: "Threading"
         channel_threading_description: "When threading is enabled, replies to a chat message will create a separate conversation, which will exist alongside the main channel."
         auto_join_users_label: "Automatically add users"
         auto_join_users_info: "Check hourly which users have been active in the last 3 months. Add them to this channel if they have access to the %{category} category."
         auto_join_users_info_no_category: "Check hourly which users have been active in the last 3 months. Add them to this channel if they have access to the selected category."
-=======
-        auto_join_users_label: "Automatically add users"
-        auto_join_users_info: "Check hourly which users have been active in the last 3 months and, if they have access to the %{category} category, add them to this channel."
-        enable_auto_join_users: "Automatically add all recently active users"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Every user who isn't a member of this channel and has access to the %{category} category will join. Are you sure?"
         desktop_notification_level: "Desktop notifications"
         follow: "Join"
         followed: "Joined"
         mobile_notification_level: "Mobile push notifications"
         mute: "Mute channel"
-<<<<<<< HEAD
         threading_enabled: "Enabled"
         threading_disabled: "Disabled"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "On"
         muted_off: "Off"
         notifications: "Notifications"
@@ -607,7 +456,6 @@ en:
         saved: "Saved"
         unfollow: "Leave"
         admin_title: "Admin"
-<<<<<<< HEAD
 
       admin:
         title: "Chat"
@@ -620,16 +468,6 @@ en:
       direct_messages:
         title: "Personal chat"
         new: "Create a personal chat"
-=======
-        retention_info: "Chat history will be saved for %{days} days."
-
-      admin:
-        title: "Chat"
-
-      direct_messages:
-        title: "Personal chat"
-        new: "New personal chat"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Go"
         leave: "Leave this personal chat"
         cannot_create: "Sorry, you cannot send direct messages."
@@ -694,7 +532,6 @@ en:
           other: "%{commaSeparatedUsernames} and %{count} others are typing"
 
       retention_reminders:
-<<<<<<< HEAD
         public_none: "Channel history is retained indefinitely."
         public:
           one: "Channel history is retained for %{count} day."
@@ -703,10 +540,6 @@ en:
         dm:
           one: "Personal chat history is retained for %{count} day."
           other: "Personal chat history is retained for %{count} days."
-=======
-        public: "Channel history is retained for %{days} days."
-        dm: "Personal chat history is retained for %{days} days."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       flags:
         off_topic: "This message is not relevant to the current discussion as defined by the channel title, and should probably be moved elsewhere."
@@ -732,7 +565,6 @@ en:
         search_placeholder: "Search by emoji name and alias..."
         no_results: "No results"
 
-<<<<<<< HEAD
       thread:
         title: "Title"
         view_thread: View thread
@@ -760,8 +592,6 @@ en:
         list: "Ongoing discussions"
         none: "You are not participating in any threads in this channel."
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "New Message"
         cancel: "Cancel"
@@ -775,19 +605,13 @@ en:
           direct: 'mentioned you in "%{channel}"'
           direct_html: '<span>%{username}</span> <span>mentioned you in "%{channel}"</span>'
           other_plain: 'mentioned %{identifier} in "%{channel}"'
-<<<<<<< HEAD
           # %{identifier} is either @here or @all
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           other_html: '<span>%{username}</span> <span>mentioned %{identifier} in "%{channel}"</span>'
         direct_message_chat_mention:
           direct: "mentioned you in personal chat"
           direct_html: "<span>%{username}</span> <span>mentioned you in personal chat</span>"
           other_plain: "mentioned %{identifier} in personal chat"
-<<<<<<< HEAD
           # %{identifier} is either @here or @all
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           other_html: "<span>%{username}</span> <span>mentioned %{identifier} in personal chat</span>"
         chat_message: "New chat message"
         chat_quoted: "%{username} quoted your chat message"
@@ -816,17 +640,11 @@ en:
       transcript:
         view: "View previous messages transcript"
       types:
-<<<<<<< HEAD
         chat_reviewable_message:
           title: "Flagged Chat Message"
         reviewable_chat_message:
           title: "Flagged chat message"
           noun: "chat message"
-=======
-        reviewable_chat_message:
-          title: "Flagged Chat Message"
-          flagged_by: "Flagged By"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Chat"
@@ -839,10 +657,7 @@ en:
           composer_code: "%{shortcut} Code (composer only)"
           drawer_open: "%{shortcut} Open chat drawer"
           drawer_close: "%{shortcut} Close chat drawer"
-<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Mark all channels read"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "Chat is enabled for this topic"
@@ -863,7 +678,6 @@ en:
         chat_notifications_with_unread:
           one: "Chat notifications - %{count} unread notification"
           other: "Chat notifications - %{count} unread notifications"
-<<<<<<< HEAD
 
     styleguide:
       sections:
@@ -874,5 +688,3 @@ en:
       panels:
         chat:
           label: "Chat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

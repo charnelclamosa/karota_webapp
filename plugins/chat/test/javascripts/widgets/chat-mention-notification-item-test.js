@@ -52,15 +52,9 @@ module(
 
       assert.strictEqual(
         query(".chat-invitation a").getAttribute("href"),
-<<<<<<< HEAD
         `/chat/c/${slugifyChannel({
           title: data.chat_channel_title,
         })}/${data.chat_channel_id}/${data.chat_message_id}`
-=======
-        `/chat/channel/${data.chat_channel_id}/${slugifyChannel({
-          title: data.chat_channel_title,
-        })}?messageId=${data.chat_message_id}`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       );
     });
   }
@@ -97,15 +91,9 @@ module(
 
       assert.strictEqual(
         query(".chat-invitation a").getAttribute("href"),
-<<<<<<< HEAD
         `/chat/c/${slugifyChannel({
           title: data.chat_channel_title,
         })}/${data.chat_channel_id}/${data.chat_message_id}`
-=======
-        `/chat/channel/${data.chat_channel_id}/${slugifyChannel({
-          title: data.chat_channel_title,
-        })}?messageId=${data.chat_message_id}`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       );
     });
   }
@@ -142,15 +130,9 @@ module(
 
       assert.strictEqual(
         query(".chat-invitation a").getAttribute("href"),
-<<<<<<< HEAD
         `/chat/c/${slugifyChannel({
           title: data.chat_channel_title,
         })}/${data.chat_channel_id}/${data.chat_message_id}`
-=======
-        `/chat/channel/${data.chat_channel_id}/${slugifyChannel({
-          title: data.chat_channel_title,
-        })}?messageId=${data.chat_message_id}`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       );
     });
   }

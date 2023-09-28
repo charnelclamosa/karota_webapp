@@ -3,7 +3,6 @@
 module PageObjects
   module Pages
     class User < PageObjects::Pages::Base
-<<<<<<< HEAD
       def visit(user)
         page.visit("/u/#{user.username}")
         self
@@ -83,18 +82,6 @@ module PageObjects
 
       def secondary_navigation_selector(name)
         ".new-user-wrapper .user-navigation-secondary li.user-nav__#{name}"
-=======
-      def find(selector)
-        page.find(".user-content-wrapper #{selector}")
-      end
-
-      def active_user_primary_navigation
-        find(".user-primary-navigation li a.active")
-      end
-
-      def active_user_secondary_navigation
-        find(".user-secondary-navigation li a.active")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end

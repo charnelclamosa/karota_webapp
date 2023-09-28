@@ -122,7 +122,6 @@ RSpec.describe Middleware::RequestTracker do
     end
 
     it "logs API requests correctly" do
-<<<<<<< HEAD
       data =
         Middleware::RequestTracker.get_data(
           env("_DISCOURSE_API" => "1"),
@@ -143,23 +142,6 @@ RSpec.describe Middleware::RequestTracker do
 
       data =
         Middleware::RequestTracker.get_data(env("_DISCOURSE_USER_API" => "1"), ["200", {}], 0.1)
-=======
-      data = Middleware::RequestTracker.get_data(
-        env("_DISCOURSE_API" => "1"), ["200", { "Content-Type" => 'text/json' }], 0.1
-      )
-
-      Middleware::RequestTracker.log_request(data)
-
-      data = Middleware::RequestTracker.get_data(
-        env("_DISCOURSE_API" => "1"), ["404", { "Content-Type" => 'text/json' }], 0.1
-      )
-
-      Middleware::RequestTracker.log_request(data)
-
-      data = Middleware::RequestTracker.get_data(
-        env("_DISCOURSE_USER_API" => "1"), ["200", {}], 0.1
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       Middleware::RequestTracker.log_request(data)
       CachedCounting.flush

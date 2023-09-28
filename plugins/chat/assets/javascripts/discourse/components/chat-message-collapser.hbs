@@ -1,18 +1,10 @@
 <div class="chat-message-collapser">
   {{#if this.hasUploads}}
-<<<<<<< HEAD
     {{html-safe @cooked}}
 
     <Collapser @header={{this.uploadsHeader}} @onToggle={{@onToggleCollapse}}>
       <div class="chat-uploads">
         {{#each @uploads as |upload|}}
-=======
-    {{html-safe this.cooked}}
-
-    <Collapser @header={{this.uploadsHeader}}>
-      <div class="chat-uploads">
-        {{#each this.uploads as |upload|}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           <ChatUpload @upload={{upload}} />
         {{/each}}
       </div>
@@ -20,7 +12,6 @@
   {{else}}
     {{#each this.cookedBodies as |cooked|}}
       {{#if cooked.needsCollapser}}
-<<<<<<< HEAD
         <Collapser @header={{cooked.header}} @onToggle={{@onToggleCollapse}}>
           {{#if cooked.videoAttributes}}
             <div class="chat-message-collapser-lazy-video">
@@ -29,18 +20,10 @@
           {{else}}
             {{cooked.body}}
           {{/if}}
-=======
-        <Collapser @header={{cooked.header}}>
-          {{cooked.body}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </Collapser>
       {{else}}
         {{cooked.body}}
       {{/if}}
     {{/each}}
   {{/if}}
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

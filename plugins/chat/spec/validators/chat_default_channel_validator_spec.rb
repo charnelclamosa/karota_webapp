@@ -2,11 +2,7 @@
 
 require "rails_helper"
 
-<<<<<<< HEAD
 describe Chat::DefaultChannelValidator do
-=======
-describe ChatDefaultChannelValidator do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   fab!(:channel) { Fabricate(:category_channel) }
 
   it "provides an error message" do

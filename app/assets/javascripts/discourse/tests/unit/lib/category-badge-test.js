@@ -1,16 +1,8 @@
 import { module, test } from "qunit";
-<<<<<<< HEAD
 import { categoryBadgeHTML } from "discourse/helpers/category-link";
 import { getOwner } from "@ember/application";
 import { setupTest } from "ember-qunit";
 import { helperContext } from "discourse-common/lib/helpers";
-=======
-import Site from "discourse/models/site";
-import { categoryBadgeHTML } from "discourse/helpers/category-link";
-import sinon from "sinon";
-import { getOwner } from "discourse-common/lib/get-owner";
-import { setupTest } from "ember-qunit";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Utility | category-badge", function (hooks) {
   setupTest(hooks);

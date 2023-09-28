@@ -21,20 +21,11 @@ ur:
           description: "فلَیگ کے ساتھ اتفاق کریں اور صارف خاموش کریں۔"
         disagree:
           title: "اختلاف کریں"
-<<<<<<< HEAD
     channel:
       dm_title:
         single_user: "%{username}"
     mention_warning:
       dismiss: "بر خاست کریں"
-=======
-        ignore:
-          title: "نظر انداز کریں"
-    channel:
-      statuses:
-        closed: "بند"
-        open: "کھولیں"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     category_channel:
       errors:
         slug_contains_non_ascii_chars: "غیر ascii حروف پر مشتمل ہے"

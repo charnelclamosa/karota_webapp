@@ -1,34 +1,16 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 require "mysql2"
 require File.expand_path(File.dirname(__FILE__) + "/base.rb")
 
 class ImportScripts::Elgg < ImportScripts::Base
-=======
-require 'mysql2'
-require File.expand_path(File.dirname(__FILE__) + "/base.rb")
-
-class ImportScripts::Elgg < ImportScripts::Base
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   BATCH_SIZE ||= 1000
 
   def initialize
     super
 
-<<<<<<< HEAD
     @client =
       Mysql2::Client.new(host: "127.0.0.1", port: "3306", username: "", database: "", password: "")
-=======
-    @client = Mysql2::Client.new(
-      host: "127.0.0.1",
-      port: "3306",
-      username: "",
-      database: "",
-      password: ""
-    )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     SiteSetting.max_username_length = 50
   end
@@ -43,11 +25,7 @@ class ImportScripts::Elgg < ImportScripts::Base
   def create_avatar(user, guid)
     puts "#{@path}"
     # Put your avatar at the root of discourse in this folder:
-<<<<<<< HEAD
     path_prefix = "import/data/www/"
-=======
-    path_prefix = 'import/data/www/'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     # https://github.com/Elgg/Elgg/blob/2fc9c1910a9169bbe4010026c61d8e41a5b56239/engine/classes/ElggDiskFilestore.php#L24
     # 	const BUCKET_SIZE = 5000;
     bucket_size = 5000
@@ -56,21 +34,11 @@ class ImportScripts::Elgg < ImportScripts::Base
     bucket_id = [guid / bucket_size * bucket_size, 1].max
 
     avatar_path = File.join(path_prefix, bucket_id.to_s, "/#{guid}/profile/#{guid}master.jpg")
-<<<<<<< HEAD
     @uploader.create_avatar(user, avatar_path) if File.exist?(avatar_path)
   end
 
   def grant_admin(user, is_admin)
     if is_admin == "yes"
-=======
-    if File.exist?(avatar_path)
-      @uploader.create_avatar(user, avatar_path)
-    end
-  end
-
-  def grant_admin(user, is_admin)
-    if is_admin == 'yes'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       puts "", "#{user.username} is granted admin!"
       user.grant_admin!
     end
@@ -80,18 +48,11 @@ class ImportScripts::Elgg < ImportScripts::Base
     puts "", "importing users..."
 
     last_user_id = -1
-<<<<<<< HEAD
     total_users =
       mysql_query("select count(*) from elgg_users_entity where banned='no'").first["count"]
 
     batches(BATCH_SIZE) do |offset|
       users = mysql_query(<<-SQL).to_a
-=======
-    total_users = mysql_query("select count(*) from elgg_users_entity where banned='no'").first["count"]
-
-    batches(BATCH_SIZE) do |offset|
-      users = mysql_query(<<-SQL
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         select eue.guid, eue.username, eue.name, eue.email, eue.admin,
         max(case when ems1.string='cae_structure' then ems2.string  end)cae_structure,
         max(case when ems1.string='location' then ems2.string  end)location,
@@ -108,10 +69,6 @@ class ImportScripts::Elgg < ImportScripts::Base
         group by eue.guid
         LIMIT #{BATCH_SIZE}
       SQL
-<<<<<<< HEAD
-=======
-      ).to_a
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       break if users.empty?
 
@@ -132,20 +89,12 @@ class ImportScripts::Elgg < ImportScripts::Base
             name: u["name"],
             website: u["website"],
             bio_raw: u["briefdescription"].to_s + " " + u["cae_structure"].to_s,
-<<<<<<< HEAD
             post_create_action:
               proc do |user|
                 create_avatar(user, u["guid"])
                 #add_user_to_group(user, u["cae_structure"])
                 grant_admin(user, u["admin"])
               end,
-=======
-            post_create_action: proc do |user|
-              create_avatar(user, u["guid"])
-              #add_user_to_group(user, u["cae_structure"])
-              grant_admin(user, u["admin"])
-            end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }
         end
       end
@@ -159,15 +108,9 @@ class ImportScripts::Elgg < ImportScripts::Base
 
     create_categories(categories) do |c|
       {
-<<<<<<< HEAD
         id: c["guid"],
         name: CGI.unescapeHTML(c["name"]),
         description: CGI.unescapeHTML(c["description"]),
-=======
-        id: c['guid'],
-        name: CGI.unescapeHTML(c['name']),
-        description: CGI.unescapeHTML(c['description'])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     end
   end
@@ -175,7 +118,6 @@ class ImportScripts::Elgg < ImportScripts::Base
   def import_topics
     puts "", "creating topics"
 
-<<<<<<< HEAD
     total_count =
       mysql_query("select count(*) count from elgg_entities where subtype = 32;").first["count"]
 
@@ -183,12 +125,6 @@ class ImportScripts::Elgg < ImportScripts::Base
       results =
         mysql_query(
           "
-=======
-    total_count = mysql_query("select count(*) count from elgg_entities where subtype = 32;").first["count"]
-
-    batches(BATCH_SIZE) do |offset|
-      results = mysql_query("
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SELECT
         ee.guid id,
         owner_guid user_id,
@@ -203,7 +139,6 @@ class ImportScripts::Elgg < ImportScripts::Base
         ORDER BY ee.guid
         LIMIT #{BATCH_SIZE}
         OFFSET #{offset};
-<<<<<<< HEAD
       ",
         )
 
@@ -224,40 +159,15 @@ class ImportScripts::Elgg < ImportScripts::Base
               tag_names =
                 mysql_query(
                   "
-=======
-      ")
-
-      break if results.size < 1
-
-      next if all_records_exist? :posts, results.map { |m| m['id'].to_i }
-
-      create_posts(results, total: total_count, offset: offset) do |m|
-        {
-          id: m['id'],
-          user_id: user_id_from_imported_user_id(m['user_id']) || -1,
-          raw: CGI.unescapeHTML(m['raw']),
-          created_at: Time.zone.at(m['created_at']),
-          category: category_id_from_imported_category_id(m['category_id']),
-          title: CGI.unescapeHTML(m['title']),
-          post_create_action: proc do |post|
-            tag_names = mysql_query("
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               select ms.string
               from elgg_metadata md
               join elgg_metastrings ms on md.value_id = ms.id
               where name_id = 43
-<<<<<<< HEAD
               and entity_guid = #{m["id"]};
             ",
                 ).map { |tag| tag["string"] }
               DiscourseTagging.tag_topic_by_names(post.topic, staff_guardian, tag_names)
             end,
-=======
-              and entity_guid = #{m['id']};
-            ").map { |tag| tag['string'] }
-            DiscourseTagging.tag_topic_by_names(post.topic, staff_guardian, tag_names)
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }
       end
     end
@@ -270,7 +180,6 @@ class ImportScripts::Elgg < ImportScripts::Base
   def import_posts
     puts "", "creating posts"
 
-<<<<<<< HEAD
     total_count =
       mysql_query("SELECT count(*) count FROM elgg_entities WHERE subtype = 42").first["count"]
 
@@ -278,12 +187,6 @@ class ImportScripts::Elgg < ImportScripts::Base
       results =
         mysql_query(
           "
-=======
-    total_count = mysql_query("SELECT count(*) count FROM elgg_entities WHERE subtype = 42").first["count"]
-
-    batches(BATCH_SIZE) do |offset|
-      results = mysql_query("
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SELECT
         ee.guid id,
         container_guid topic_id,
@@ -296,7 +199,6 @@ class ImportScripts::Elgg < ImportScripts::Base
         ORDER BY ee.guid
         LIMIT #{BATCH_SIZE}
         OFFSET #{offset};
-<<<<<<< HEAD
       ",
         )
 
@@ -311,21 +213,6 @@ class ImportScripts::Elgg < ImportScripts::Base
           topic_id: topic_lookup_from_imported_post_id(m["topic_id"])[:topic_id],
           raw: CGI.unescapeHTML(m["raw"]),
           created_at: Time.zone.at(m["created_at"]),
-=======
-      ")
-
-      break if results.size < 1
-
-      next if all_records_exist? :posts, results.map { |m| m['id'].to_i }
-
-      create_posts(results, total: total_count, offset: offset) do |m|
-        {
-          id: m['id'],
-          user_id: user_id_from_imported_user_id(m['user_id']) || -1,
-          topic_id: topic_lookup_from_imported_post_id(m['topic_id'])[:topic_id],
-          raw: CGI.unescapeHTML(m['raw']),
-          created_at: Time.zone.at(m['created_at']),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }
       end
     end
@@ -334,10 +221,6 @@ class ImportScripts::Elgg < ImportScripts::Base
   def mysql_query(sql)
     @client.query(sql, cache_rows: false)
   end
-<<<<<<< HEAD
-=======
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end
 
 ImportScripts::Elgg.new.perform

@@ -211,7 +211,6 @@ RSpec.describe ScreenedIpAddress do
       expect(described_class.should_block?(ip_address)).to eq(false)
     end
 
-<<<<<<< HEAD
     it "returns false when no record matches" do
       screened_ip_address =
         Fabricate(
@@ -221,11 +220,6 @@ RSpec.describe ScreenedIpAddress do
           match_count: 0,
         )
       expect(described_class.should_block?("222.12.12.12")).to eq(false)
-=======
-    it 'returns false when no record matches' do
-      screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:block])
-      expect(described_class.should_block?('222.12.12.12')).to eq(false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(screened_ip_address.reload.match_count).to eq(0)
     end
 
@@ -257,7 +251,6 @@ RSpec.describe ScreenedIpAddress do
       expect(described_class.should_block?("222.234.23.12")).to eq(false)
     end
 
-<<<<<<< HEAD
     context "with IPv4" do
       it "returns false when when record matches and action is :do_nothing" do
         screened_ip_address =
@@ -280,23 +273,10 @@ RSpec.describe ScreenedIpAddress do
             match_count: 0,
           )
         expect(described_class.should_block?("111.234.23.11")).to eq(true)
-=======
-    context 'with IPv4' do
-      it 'returns false when when record matches and action is :do_nothing' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:do_nothing])
-        expect(described_class.should_block?('111.234.23.11')).to eq(false)
-        expect(screened_ip_address.reload.match_count).to eq(0)
-      end
-
-      it 'returns true when when record matches and action is :block' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:block])
-        expect(described_class.should_block?('111.234.23.11')).to eq(true)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(screened_ip_address.reload.match_count).to eq(1)
       end
     end
 
-<<<<<<< HEAD
     context "with IPv6" do
       it "returns false when when record matches and action is :do_nothing" do
         screened_ip_address =
@@ -319,18 +299,6 @@ RSpec.describe ScreenedIpAddress do
             match_count: 0,
           )
         expect(described_class.should_block?("2001:db8::ff00:42:8329")).to eq(true)
-=======
-    context 'with IPv6' do
-      it 'returns false when when record matches and action is :do_nothing' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '2001:db8::ff00:42:8329', action_type: described_class.actions[:do_nothing])
-        expect(described_class.should_block?('2001:db8::ff00:42:8329')).to eq(false)
-        expect(screened_ip_address.reload.match_count).to eq(0)
-      end
-
-      it 'returns true when when record matches and action is :block' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '2001:db8::ff00:42:8329', action_type: described_class.actions[:block])
-        expect(described_class.should_block?('2001:db8::ff00:42:8329')).to eq(true)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(screened_ip_address.reload.match_count).to eq(1)
       end
     end
@@ -341,7 +309,6 @@ RSpec.describe ScreenedIpAddress do
       expect(described_class.is_allowed?(ip_address)).to eq(false)
     end
 
-<<<<<<< HEAD
     it "returns false when no record matches" do
       screened_ip_address =
         Fabricate(
@@ -376,29 +343,10 @@ RSpec.describe ScreenedIpAddress do
             match_count: 0,
           )
         expect(described_class.is_allowed?("111.234.23.11")).to eq(false)
-=======
-    it 'returns false when no record matches' do
-      screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:do_nothing])
-      expect(described_class.is_allowed?('222.12.12.12')).to eq(false)
-      expect(screened_ip_address.reload.match_count).to eq(0)
-    end
-
-    context 'with IPv4' do
-      it 'returns true when when record matches and action is :do_nothing' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:do_nothing])
-        expect(described_class.is_allowed?('111.234.23.11')).to eq(true)
-        expect(screened_ip_address.reload.match_count).to eq(1)
-      end
-
-      it 'returns false when when record matches and action is :block' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '111.234.23.11', action_type: described_class.actions[:block])
-        expect(described_class.is_allowed?('111.234.23.11')).to eq(false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(screened_ip_address.reload.match_count).to eq(0)
       end
     end
 
-<<<<<<< HEAD
     context "with IPv6" do
       it "returns true when when record matches and action is :do_nothing" do
         screened_ip_address =
@@ -421,18 +369,6 @@ RSpec.describe ScreenedIpAddress do
             match_count: 0,
           )
         expect(described_class.is_allowed?("2001:db8::ff00:42:8329")).to eq(false)
-=======
-    context 'with IPv6' do
-      it 'returns true when when record matches and action is :do_nothing' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '2001:db8::ff00:42:8329', action_type: described_class.actions[:do_nothing])
-        expect(described_class.is_allowed?('2001:db8::ff00:42:8329')).to eq(true)
-        expect(screened_ip_address.reload.match_count).to eq(1)
-      end
-
-      it 'returns false when when record matches and action is :block' do
-        screened_ip_address = Fabricate(:screened_ip_address, ip_address: '2001:db8::ff00:42:8329', action_type: described_class.actions[:block])
-        expect(described_class.is_allowed?('2001:db8::ff00:42:8329')).to eq(false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(screened_ip_address.reload.match_count).to eq(0)
       end
     end

@@ -13,7 +13,6 @@ const CHAT_ATTRS = [
   "ignore_channel_wide_mention",
   "chat_sound",
   "chat_email_frequency",
-<<<<<<< HEAD
   "chat_header_indicator_preference",
   "chat_separate_sidebar_mode",
 ];
@@ -54,18 +53,10 @@ const CHAT_SEPARATE_SIDEBAR_MODE_OPTIONS = [
     name: I18n.t("admin.site_settings.chat_separate_sidebar_mode.never"),
     value: "never",
   },
-=======
-];
-
-const EMAIL_FREQUENCY_OPTIONS = [
-  { name: I18n.t(`chat.email_frequency.never`), value: "never" },
-  { name: I18n.t(`chat.email_frequency.when_away`), value: "when_away" },
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 ];
 
 export default class PreferencesChatController extends Controller {
   @service chatAudioManager;
-<<<<<<< HEAD
   @service siteSettings;
 
   subpageTitle = I18n.t("chat.admin.title");
@@ -82,10 +73,6 @@ export default class PreferencesChatController extends Controller {
       return mode;
     }
   }
-=======
-
-  emailFrequencyOptions = EMAIL_FREQUENCY_OPTIONS;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   @discourseComputed
   chatSounds() {

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import typography from "../components/sections/atoms/00-typography";
 import fontScale from "../components/sections/atoms/01-font-scale";
 import buttons from "../components/sections/atoms/02-buttons";
@@ -38,9 +37,6 @@ import siteHeader from "../components/sections/organisms/site-header";
 import suggestedTopics from "../components/sections/organisms/suggested-topics";
 import userAbout from "../components/sections/organisms/user-about";
 
-=======
-import DiscourseTemplateMap from "discourse-common/lib/discourse-template-map";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 let _allCategories = null;
 let _sectionsById = {};
 
@@ -144,37 +140,8 @@ export function allCategories() {
     categories[section.category] ||= [];
     categories[section.category].push(section);
 
-<<<<<<< HEAD
     _sectionsById[section.id] = section;
   }
-=======
-  // Find a list of sections based on what templates are available
-  // eslint-disable-next-line no-undef
-  DiscourseTemplateMap.keys().forEach((e) => {
-    let regexp = new RegExp(`styleguide\/(${paths})\/(\\d+)?\\-?([^\\/]+)$`);
-    let matches = e.match(regexp);
-    if (matches) {
-      let section = {
-        id: matches[3],
-        priority: parseInt(matches[2] || "100", 10),
-        category: matches[1],
-        templateName: e.replace(/^.*styleguide\//, ""),
-      };
-      if (!categories[section.category]) {
-        categories[section.category] = [];
-      }
-      categories[section.category].push(section);
-      _sectionsById[section.id] = section;
-    }
-
-    // Look for notes
-    regexp = new RegExp(`components\/notes\/(\\d+)?\\-?([^\\/]+)$`);
-    matches = e.match(regexp);
-    if (matches) {
-      _notes[matches[2]] = e.replace(/^.*notes\//, "");
-    }
-  });
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   _allCategories = [];
   for (const category of CATEGORIES) {

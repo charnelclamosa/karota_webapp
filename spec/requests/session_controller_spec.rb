@@ -180,11 +180,7 @@ RSpec.describe SessionController do
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["error"]).to eq(
-<<<<<<< HEAD
           I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
-=======
-          I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
 
@@ -197,11 +193,7 @@ RSpec.describe SessionController do
           expect(response.status).to eq(200)
 
           expect(response.parsed_body["error"]).to eq(
-<<<<<<< HEAD
             I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
-=======
-            I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           )
         end
       end

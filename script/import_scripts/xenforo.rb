@@ -3,19 +3,11 @@
 require "mysql2"
 
 begin
-<<<<<<< HEAD
   require "php_serialize" # https://github.com/jqr/php-serialize
 rescue LoadError
   puts
   puts "php_serialize not found."
   puts "Add to Gemfile, like this: "
-=======
-  require 'php_serialize' # https://github.com/jqr/php-serialize
-rescue LoadError
-  puts
-  puts 'php_serialize not found.'
-  puts 'Add to Gemfile, like this: '
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   puts
   puts "echo gem \\'php-serialize\\' >> Gemfile"
   puts "bundle install"
@@ -55,15 +47,8 @@ class ImportScripts::XenForo < ImportScripts::Base
   end
 
   def import_avatar(id, imported_user)
-<<<<<<< HEAD
     filename = File.join(AVATAR_DIR, "l", (id / 1000).to_s, "#{id}.jpg")
     return nil unless File.exist?(filename)
-=======
-    filename = File.join(AVATAR_DIR, 'l', (id / 1000).to_s, "#{id}.jpg")
-    unless File.exist?(filename)
-      return nil
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     upload = create_upload(imported_user.id, filename, "avatar_#{id}")
     return if !upload.persisted?
     imported_user.create_user_avatar
@@ -97,7 +82,6 @@ class ImportScripts::XenForo < ImportScripts::Base
       next if all_records_exist? :users, results.map { |u| u["id"].to_i }
 
       create_users(results, total: total_count, offset: offset) do |user|
-<<<<<<< HEAD
         next if user["username"].blank?
         {
           id: user["id"],
@@ -110,20 +94,6 @@ class ImportScripts::XenForo < ImportScripts::Base
           admin: user["is_admin"] == 1,
           post_create_action: proc { |u| import_avatar(user["id"], u) },
         }
-=======
-        next if user['username'].blank?
-        { id: user['id'],
-          email: user['email'],
-          username: user['username'],
-          title: user['title'],
-          created_at: Time.zone.at(user['created_at']),
-          last_seen_at: Time.zone.at(user['last_visit_time']),
-          moderator: user['is_moderator'] == 1 || user['is_staff'] == 1,
-          admin: user['is_admin'] == 1,
-          post_create_action: proc do |u|
-            import_avatar(user['id'], u)
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end
@@ -149,7 +119,6 @@ class ImportScripts::XenForo < ImportScripts::Base
 
     create_categories(top_level_categories) do |c|
       {
-<<<<<<< HEAD
         id: c["id"],
         name: c["title"],
         description: c["description"],
@@ -159,16 +128,6 @@ class ImportScripts::XenForo < ImportScripts::Base
             url = "board/#{c["node_name"]}"
             Permalink.find_or_create_by(url: url, category_id: category.id)
           end,
-=======
-        id: c['id'],
-        name: c['title'],
-        description: c['description'],
-        position: c['display_order'],
-        post_create_action: proc do |category|
-          url = "board/#{c['node_name']}"
-          Permalink.find_or_create_by(url: url, category_id: category.id) 
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     end
 
@@ -178,7 +137,6 @@ class ImportScripts::XenForo < ImportScripts::Base
 
     create_categories(subcategories) do |c|
       {
-<<<<<<< HEAD
         id: c["id"],
         name: c["title"],
         description: c["description"],
@@ -189,17 +147,6 @@ class ImportScripts::XenForo < ImportScripts::Base
             url = "board/#{c["node_name"]}"
             Permalink.find_or_create_by(url: url, category_id: category.id)
           end,
-=======
-        id: c['id'],
-        name: c['title'],
-        description: c['description'],
-        position: c['display_order'],
-        parent_category_id: category_id_from_imported_category_id(c['parent_node_id']),
-        post_create_action: proc do |category|
-          url = "board/#{c['node_name']}"
-          Permalink.find_or_create_by(url: url, category_id: category.id) 
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     end
 
@@ -251,7 +198,6 @@ class ImportScripts::XenForo < ImportScripts::Base
   end
 
   def import_likes
-<<<<<<< HEAD
     puts "", "importing likes"
     total_count =
       mysql_query(
@@ -263,18 +209,10 @@ class ImportScripts::XenForo < ImportScripts::Base
       results =
         mysql_query(
           "SELECT like_id, content_id, like_user_id, like_date
-=======
-    puts '', 'importing likes'
-    total_count = mysql_query("SELECT COUNT(*) AS count FROM #{TABLE_PREFIX}liked_content WHERE content_type = 'post'").first["count"]
-    batches(BATCH_SIZE) do |offset|
-      results = mysql_query(
-        "SELECT like_id, content_id, like_user_id, like_date 
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
          FROM #{TABLE_PREFIX}liked_content
          WHERE content_type = 'post'
          ORDER BY like_id
          LIMIT #{BATCH_SIZE}
-<<<<<<< HEAD
          OFFSET #{offset};",
         )
       break if results.size < 1
@@ -283,16 +221,6 @@ class ImportScripts::XenForo < ImportScripts::Base
           post_id: row["content_id"],
           user_id: row["like_user_id"],
           created_at: Time.zone.at(row["like_date"]),
-=======
-         OFFSET #{offset};"
-      )
-      break if results.size < 1
-      create_likes(results, total: total_count, offset: offset) do |row|
-        {
-           post_id: row['content_id'],
-           user_id: row['like_user_id'],
-           created_at: Time.zone.at(row['like_date'])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         }
       end
     end
@@ -349,14 +277,6 @@ class ImportScripts::XenForo < ImportScripts::Base
           mapped[:post_create_action] = proc do |pp|
             Permalink.find_or_create_by(url: "threads/#{m["topic_id"]}", topic_id: pp.topic_id)
           end
-<<<<<<< HEAD
-=======
-          mapped[:title] = CGI.unescapeHTML(m['title'])
-          mapped[:views] = m['view_count']
-          mapped[:post_create_action] = proc do |pp|
-            Permalink.find_or_create_by(url: "threads/#{m['topic_id']}", topic_id: pp.topic_id)
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         else
           parent = topic_lookup_from_imported_post_id(m["first_post_id"])
           if parent
@@ -544,24 +464,16 @@ class ImportScripts::XenForo < ImportScripts::Base
     end
 
     # [URL=...]...[/URL]
-<<<<<<< HEAD
     s.gsub!(%r{\[url="?(.+?)"?\](.+?)\[/url\]}i) { "[#{$2}](#{$1})" }
 
     # [URL]...[/URL]
     s.gsub!(%r{\[url\](.+?)\[/url\]}i) { " #{$1} " }
-=======
-    s.gsub!(/\[url="?(.+?)"?\](.+?)\[\/url\]/i) { "[#{$2}](#{$1})" }
-
-    # [URL]...[/URL]
-    s.gsub!(/\[url\](.+?)\[\/url\]/i) { " #{$1} " }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # [IMG]...[/IMG]
     s.gsub!(%r{\[/?img\]}i, "")
 
     # convert list tags to ul and list=1 tags to ol
     # (basically, we're only missing list=a here...)
-<<<<<<< HEAD
     s.gsub!(%r{\[list\](.*?)\[/list\]}im, '[ul]\1[/ul]')
     s.gsub!(%r{\[list=1\](.*?)\[/list\]}im, '[ol]\1[/ol]')
     s.gsub!(%r{\[list\](.*?)\[/list:u\]}im, '[ul]\1[/ul]')
@@ -572,40 +484,20 @@ class ImportScripts::XenForo < ImportScripts::Base
     s.gsub!(%r{\[\*\](.*?)\[/\*:m\]}, '[li]\1[/li]')
     s.gsub!(/\[\*\](.*?)\n/, '[li]\1[/li]')
     s.gsub!(/\[\*=1\]/, "")
-=======
-    s.gsub!(/\[list\](.*?)\[\/list\]/im, '[ul]\1[/ul]')
-    s.gsub!(/\[list=1\](.*?)\[\/list\]/im, '[ol]\1[/ol]')
-    s.gsub!(/\[list\](.*?)\[\/list:u\]/im, '[ul]\1[/ul]')
-    s.gsub!(/\[list=1\](.*?)\[\/list:o\]/im, '[ol]\1[/ol]')
-
-    # convert *-tags to li-tags so bbcode-to-md can do its magic on phpBB's lists:
-    s.gsub!(/\[\*\]\n/, '')
-    s.gsub!(/\[\*\](.*?)\[\/\*:m\]/, '[li]\1[/li]')
-    s.gsub!(/\[\*\](.*?)\n/, '[li]\1[/li]')
-    s.gsub!(/\[\*=1\]/, '')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # [YOUTUBE]<id>[/YOUTUBE]
     s.gsub!(%r{\[youtube\](.+?)\[/youtube\]}i) { "\nhttps://www.youtube.com/watch?v=#{$1}\n" }
 
     # [youtube=425,350]id[/youtube]
-<<<<<<< HEAD
     s.gsub!(%r{\[youtube="?(.+?)"?\](.+?)\[/youtube\]}i) do
       "\nhttps://www.youtube.com/watch?v=#{$2}\n"
     end
-=======
-    s.gsub!(/\[youtube="?(.+?)"?\](.+?)\[\/youtube\]/i) { "\nhttps://www.youtube.com/watch?v=#{$2}\n" }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # [MEDIA=youtube]id[/MEDIA]
     s.gsub!(%r{\[MEDIA=youtube\](.+?)\[/MEDIA\]}i) { "\nhttps://www.youtube.com/watch?v=#{$1}\n" }
 
     # [ame="youtube_link"]title[/ame]
-<<<<<<< HEAD
     s.gsub!(%r{\[ame="?(.+?)"?\](.+?)\[/ame\]}i) { "\n#{$1}\n" }
-=======
-    s.gsub!(/\[ame="?(.+?)"?\](.+?)\[\/ame\]/i) { "\n#{$1}\n" }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # [VIDEO=youtube;<id>]...[/VIDEO]
     s.gsub!(%r{\[video=youtube;([^\]]+)\].*?\[/video\]}i) do
@@ -613,11 +505,7 @@ class ImportScripts::XenForo < ImportScripts::Base
     end
 
     # [USER=706]@username[/USER]
-<<<<<<< HEAD
     s.gsub!(%r{\[user="?(.+?)"?\](.+?)\[/user\]}i) { $2 }
-=======
-    s.gsub!(/\[user="?(.+?)"?\](.+?)\[\/user\]/i) { $2 }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     # Remove the color tag
     s.gsub!(/\[color=[#a-z0-9]+\]/i, "")
@@ -634,7 +522,6 @@ class ImportScripts::XenForo < ImportScripts::Base
   def process_xf_attachments(xf_type, s, import_id)
     ids = Set.new
     ids.merge(s.scan(get_xf_regexp(xf_type)).map { |x| x[0].to_i })
-<<<<<<< HEAD
 
     # not all attachments have an [ATTACH=] tag so we need to get the other ID's from the xf_attachment table
     if xf_type == :attachment && import_id > 0
@@ -643,15 +530,6 @@ class ImportScripts::XenForo < ImportScripts::Base
       ids.merge(mysql_query(sql).to_a.map { |v| v["attachment_id"].to_i })
     end
 
-=======
-    
-    # not all attachments have an [ATTACH=] tag so we need to get the other ID's from the xf_attachment table
-    if xf_type == :attachment && import_id > 0
-      sql = "SELECT attachment_id FROM #{TABLE_PREFIX}attachment WHERE content_id=#{import_id} and content_type='post';"
-      ids.merge(mysql_query(sql).to_a.map { |v| v["attachment_id"].to_i})
-    end
-    
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ids.each do |id|
       next unless id
       sql = get_xf_sql(xf_type, id).dup.squish!
@@ -664,7 +542,6 @@ class ImportScripts::XenForo < ImportScripts::Base
       end
       original_filename = results.first["filename"]
       result = results.first
-<<<<<<< HEAD
       upload =
         import_xf_attachment(
           result["data_id"],
@@ -675,14 +552,6 @@ class ImportScripts::XenForo < ImportScripts::Base
       if upload && upload.present? && upload.persisted?
         html = @uploader.html_for_upload(upload, original_filename)
         s = s + "\n\n#{html}\n\n" unless s.gsub!(get_xf_regexp(xf_type, id), html)
-=======
-      upload = import_xf_attachment(result['data_id'], result['file_hash'], result['user_id'], original_filename)
-      if upload && upload.present? && upload.persisted?
-        html = @uploader.html_for_upload(upload, original_filename)
-        unless s.gsub!(get_xf_regexp(xf_type, id), html)
-          s = s + "\n\n#{html}\n\n"
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       else
         STDERR.puts "Could not process upload: #{original_filename}. Skipping attachment id #{id}"
       end
@@ -727,11 +596,7 @@ class ImportScripts::XenForo < ImportScripts::Base
     when :attachment
       <<-SQL
         SELECT a.attachment_id, a.data_id, d.filename, d.file_hash, d.user_id
-<<<<<<< HEAD
         FROM #{TABLE_PREFIX}attachment AS a
-=======
-        FROM #{TABLE_PREFIX}attachment AS a 
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         INNER JOIN #{TABLE_PREFIX}attachment_data d ON a.data_id = d.data_id
         WHERE attachment_id = #{id}
         AND content_type = 'post'

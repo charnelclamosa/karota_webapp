@@ -39,13 +39,10 @@
     },
     "search_priority": {
       "type": "integer"
-<<<<<<< HEAD
     },
     "form_template_ids": {
       "type": "array",
       "items": {}
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   },
   "required": [

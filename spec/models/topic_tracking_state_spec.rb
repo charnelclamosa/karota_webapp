@@ -351,7 +351,6 @@ RSpec.describe TopicTrackingState do
     fab!(:group) { Fabricate(:group) }
     let(:read_topic_key) { "/private-messages/unread-indicator/#{group_message.id}" }
     let(:read_post_key) { "/topic/#{group_message.id}" }
-<<<<<<< HEAD
     let(:group_message) do
       Fabricate(
         :private_message_topic,
@@ -362,27 +361,12 @@ RSpec.describe TopicTrackingState do
     let!(:post) { Fabricate(:post, topic: group_message) }
 
     let!(:post_2) { Fabricate(:post, topic: group_message) }
-=======
-    let(:group_message) { Fabricate(:private_message_topic,
-        allowed_groups: [group],
-        topic_allowed_users: [Fabricate.build(:topic_allowed_user, user: user)],
-      )
-    }
-    let!(:post) {
-      Fabricate(:post, topic: group_message)
-    }
-
-    let!(:post_2) {
-      Fabricate(:post, topic: group_message)
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     before do
       group.add(user)
       group_message.update!(highest_post_number: post_2.post_number)
     end
 
-<<<<<<< HEAD
     it "does not trigger a read count update if no allowed groups have the option enabled" do
       messages =
         MessageBus.track_publish(read_post_key) do
@@ -392,12 +376,6 @@ RSpec.describe TopicTrackingState do
             user.id,
           )
         end
-=======
-    it 'does not trigger a read count update if no allowed groups have the option enabled' do
-      messages = MessageBus.track_publish(read_post_key) do
-        TopicTrackingState.publish_read_indicator_on_read(group_message.id, post_2.post_number, user.id)
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(messages).to be_empty
     end
@@ -405,7 +383,6 @@ RSpec.describe TopicTrackingState do
     context "when the read indicator is enabled" do
       before { group.update!(publish_read_state: true) }
 
-<<<<<<< HEAD
       it "publishes a message to hide the unread indicator" do
         message =
           MessageBus
@@ -417,12 +394,6 @@ RSpec.describe TopicTrackingState do
               )
             end
             .first
-=======
-      it 'publishes a message to hide the unread indicator' do
-        message = MessageBus.track_publish(read_topic_key) do
-          TopicTrackingState.publish_read_indicator_on_read(group_message.id, post_2.post_number, user.id)
-        end.first
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(message.data["topic_id"]).to eq group_message.id
         expect(message.data["show_indicator"]).to eq false
@@ -430,7 +401,6 @@ RSpec.describe TopicTrackingState do
 
       it "publishes a message to show the unread indicator when a non-member creates a new post" do
         allowed_user = Fabricate(:topic_allowed_user, topic: group_message)
-<<<<<<< HEAD
         message =
           MessageBus
             .track_publish(read_topic_key) do
@@ -441,17 +411,11 @@ RSpec.describe TopicTrackingState do
               )
             end
             .first
-=======
-        message = MessageBus.track_publish(read_topic_key) do
-          TopicTrackingState.publish_read_indicator_on_write(group_message.id, post_2.post_number, allowed_user.id)
-        end.first
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(message.data["topic_id"]).to eq group_message.id
         expect(message.data["show_indicator"]).to eq true
       end
 
-<<<<<<< HEAD
       it "does not publish the unread indicator if the message is not the last one" do
         messages =
           MessageBus.track_publish(read_topic_key) do
@@ -461,19 +425,12 @@ RSpec.describe TopicTrackingState do
               user.id,
             )
           end
-=======
-      it 'does not publish the unread indicator if the message is not the last one' do
-        messages = MessageBus.track_publish(read_topic_key) do
-          TopicTrackingState.publish_read_indicator_on_read(group_message.id, post.post_number, user.id)
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(messages).to be_empty
       end
 
       it "does not publish the read indicator if the user is not a group member" do
         allowed_user = Fabricate(:topic_allowed_user, topic: group_message)
-<<<<<<< HEAD
         messages =
           MessageBus.track_publish(read_topic_key) do
             TopicTrackingState.publish_read_indicator_on_read(
@@ -482,16 +439,10 @@ RSpec.describe TopicTrackingState do
               allowed_user.user_id,
             )
           end
-=======
-        messages = MessageBus.track_publish(read_topic_key) do
-          TopicTrackingState.publish_read_indicator_on_read(group_message.id, post_2.post_number, allowed_user.user_id)
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(messages).to be_empty
       end
 
-<<<<<<< HEAD
       it "publish a read count update to every client" do
         message =
           MessageBus
@@ -503,12 +454,6 @@ RSpec.describe TopicTrackingState do
               )
             end
             .first
-=======
-      it 'publish a read count update to every client' do
-        message = MessageBus.track_publish(read_post_key) do
-          TopicTrackingState.publish_read_indicator_on_read(group_message.id, post_2.post_number, user.id)
-        end.first
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(message.data[:type]).to eq :read
       end
@@ -729,10 +674,7 @@ RSpec.describe TopicTrackingState do
     end
 
     it "includes tags when SiteSetting.navigation_menu is not legacy" do
-<<<<<<< HEAD
       SiteSetting.navigation_menu = "legacy"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       report = TopicTrackingState.report(user)
       expect(report.length).to eq(1)
       row = report[0]

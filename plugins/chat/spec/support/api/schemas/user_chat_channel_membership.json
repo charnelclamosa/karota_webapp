@@ -6,12 +6,8 @@
     "muted",
     "desktop_notification_level",
     "mobile_notification_level",
-<<<<<<< HEAD
     "following",
     "last_viewed_at"
-=======
-    "following"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   ],
   "properties": {
     "chat_channel_id": { "type": "number" },
@@ -19,14 +15,8 @@
     "muted": { "type": "boolean" },
     "desktop_notification_level": { "type": "string" },
     "mobile_notification_level": { "type": "string" },
-<<<<<<< HEAD
     "last_viewed_at": { "type": "string" },
     "following": { "type": "boolean" },
-=======
-    "following": { "type": "boolean" },
-    "unread_count": { "type": "number" },
-    "unread_mentions": { "type": "number" },
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     "user": {
       "type": ["object", "null"],
       "required": ["id", "name", "avatar_template", "username"],
@@ -36,11 +26,7 @@
         "avatar_template": { "type": "string" },
         "username": { "type": "string" }
       }
-<<<<<<< HEAD
     },
     "last_viewed_at": { "type": "datetime" }
-=======
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

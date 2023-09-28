@@ -641,13 +641,9 @@ RSpec.describe Reviewable, type: :model do
     fab!(:user) { Fabricate(:user) }
     fab!(:admin_reviewable) { Fabricate(:reviewable, reviewable_by_moderator: false) }
     fab!(:mod_reviewable) { Fabricate(:reviewable, reviewable_by_moderator: true) }
-<<<<<<< HEAD
     fab!(:group_reviewable) do
       Fabricate(:reviewable, reviewable_by_moderator: false, reviewable_by_group: group)
     end
-=======
-    fab!(:group_reviewable) { Fabricate(:reviewable, reviewable_by_moderator: false, reviewable_by_group: group) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "doesn't include reviewables that can't be seen by the user" do
       SiteSetting.enable_category_group_moderation = true

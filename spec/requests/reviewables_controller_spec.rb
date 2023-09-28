@@ -544,7 +544,6 @@ RSpec.describe ReviewablesController do
       fab!(:reviewable_phony) { Fabricate(:reviewable, type: "ReviewablePhony") }
 
       it "passes the added param into the reviewable class' perform method" do
-<<<<<<< HEAD
         MessageBus
           .expects(:publish)
           .with(
@@ -553,18 +552,6 @@ RSpec.describe ReviewablesController do
             user_ids: [1],
           )
           .once
-=======
-        MessageBus.expects(:publish).with(
-          "/phony-reviewable-test",
-          {
-            args: {
-              version: reviewable_phony.version,
-              "fake_id" => "2",
-            }
-          },
-          user_ids: [1]
-        ).once
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         put "/review/#{reviewable_phony.id}/perform/approve_phony.json?version=#{reviewable_phony.version}",
             params: {

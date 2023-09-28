@@ -6,11 +6,7 @@ RSpec.describe Admin::ScreenedEmailsController do
   fab!(:user) { Fabricate(:user) }
   fab!(:screened_email) { Fabricate(:screened_email) }
 
-<<<<<<< HEAD
   describe "#index" do
-=======
-  describe '#index' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     shared_examples "screened emails accessible" do
       it "returns screened emails" do
         get "/admin/logs/screened_emails.json"
@@ -34,11 +30,7 @@ RSpec.describe Admin::ScreenedEmailsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         get "/admin/logs/screened_emails.json"
@@ -52,15 +44,9 @@ RSpec.describe Admin::ScreenedEmailsController do
   describe "#destroy" do
     shared_examples "screened email deletion possible" do
       it "deletes screened email" do
-<<<<<<< HEAD
         expect do delete "/admin/logs/screened_emails/#{screened_email.id}.json" end.to change {
           ScreenedEmail.count
         }.by(-1)
-=======
-        expect do
-          delete "/admin/logs/screened_emails/#{screened_email.id}.json"
-        end.to change { ScreenedEmail.count }.by(-1)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
       end
@@ -79,11 +65,7 @@ RSpec.describe Admin::ScreenedEmailsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "prevents deletion with a 404 response" do
         delete "/admin/logs/screened_emails/#{screened_email.id}.json"

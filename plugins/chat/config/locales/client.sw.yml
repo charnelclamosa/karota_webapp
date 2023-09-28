@@ -6,7 +6,6 @@
 
 sw:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -14,9 +13,6 @@ sw:
           never: "Kamwe"
     chat:
       deleted_chat_username: imefutwa
-=======
-    chat:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Tengeneza"
       cancel: "Ghairi"
       channel_settings:
@@ -25,27 +21,17 @@ sw:
         join: "Jiunge"
         leave: "Ondoka"
       close: "Funga"
-<<<<<<< HEAD
       remove: "Ondoa"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Futa"
       muted: "kunyamazisha"
       joined: "alijiunga"
       email_frequency:
         never: "Kamwe"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Kamwe"
       flag: "Bendera"
       join: "Jiunge"
       last_visit: "Mara ya mwisho imetembelewa"
-=======
-      flag: "Bendera"
-      join: "Jiunge"
-      mention_warning:
-        dismiss: "ondosha..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Jibu"
       edit: "Hariri"
       rebake_message: "Tengeneza upya HTML"
@@ -66,10 +52,7 @@ sw:
         yesterday: Jana
       about_view:
         title: Kichwa cha Habari
-<<<<<<< HEAD
         name: Jina
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Elezo
       channel_info:
         back_to_channel: "Iliyopita"
@@ -88,20 +71,14 @@ sw:
       composer:
         italic_text: "Maneno yaliyo tiliwa mkazo"
         bold_text: "Maneno yaliyokolezwa"
-<<<<<<< HEAD
         send: "Tuma"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Kamwe"
       settings:
         follow: "Jiunge"
         followed: "Alijiunga"
-<<<<<<< HEAD
         threading_enabled: "Imeruhusiwa"
         threading_disabled: "Imezuiwa"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Taarifa"
         preview: "Kihakiki"
         save: "Hifadhi"
@@ -129,7 +106,6 @@ sw:
       emoji_picker:
         objects: "Vitu"
         flags: "Bendera"
-<<<<<<< HEAD
       thread:
         title: "Kichwa cha Habari"
         replies:
@@ -142,8 +118,6 @@ sw:
             title: "Kawaida"
           tracking:
             title: "Fuatilia"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Ujumbe Mpya"
         cancel: "Ghairi"

@@ -4,18 +4,12 @@ RSpec.describe HashtagAutocompleteService do
   subject(:service) { described_class.new(guardian) }
 
   fab!(:user) { Fabricate(:user) }
-<<<<<<< HEAD
   fab!(:category1) { Fabricate(:category, name: "The Book Club", slug: "the-book-club") }
   fab!(:tag1) do
     Fabricate(:tag, name: "great-books", staff_topic_count: 22, public_topic_count: 22)
   end
   fab!(:topic1) { Fabricate(:topic) }
 
-=======
-  fab!(:category1) { Fabricate(:category, name: "Book Club", slug: "book-club") }
-  fab!(:tag1) { Fabricate(:tag, name: "great-books", topic_count: 22) }
-  fab!(:topic1) { Fabricate(:topic) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let(:guardian) { Guardian.new(user) }
 
   after { DiscoursePluginRegistry.reset! }
@@ -28,7 +22,6 @@ RSpec.describe HashtagAutocompleteService do
     end
   end
 
-<<<<<<< HEAD
   describe ".contexts_with_ordered_types" do
     it "returns a hash of all the registered search contexts and their types in the defined priority order" do
       expect(HashtagAutocompleteService.contexts_with_ordered_types).to eq(
@@ -60,40 +53,6 @@ RSpec.describe HashtagAutocompleteService do
       expect(HashtagAutocompleteService.data_source_icon_map).to eq(
         { "category" => "folder", "tag" => "tag" },
       )
-=======
-  class BookmarkDataSource
-    def self.icon
-      "bookmark"
-    end
-
-    def self.lookup(guardian_scoped, slugs)
-      guardian_scoped
-        .user
-        .bookmarks
-        .where("LOWER(name) IN (:slugs)", slugs: slugs)
-        .map do |bm|
-          HashtagAutocompleteService::HashtagItem.new.tap do |item|
-            item.text = bm.name
-            item.slug = bm.name.gsub(" ", "-")
-            item.icon = icon
-          end
-        end
-    end
-
-    def self.search(guardian_scoped, term, limit)
-      guardian_scoped
-        .user
-        .bookmarks
-        .where("name ILIKE ?", "%#{term}%")
-        .limit(limit)
-        .map do |bm|
-          HashtagAutocompleteService::HashtagItem.new.tap do |item|
-            item.text = bm.name
-            item.slug = bm.name.gsub(" ", "-")
-            item.icon = icon
-          end
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     def self.search_sort(search_results, _)
@@ -122,46 +81,25 @@ RSpec.describe HashtagAutocompleteService do
 
   describe "#search" do
     it "returns search results for tags and categories by default" do
-<<<<<<< HEAD
       expect(service.search("book", %w[category tag]).map(&:text)).to eq(
         ["The Book Club", "great-books"],
-=======
-      expect(subject.search("book", %w[category tag]).map(&:text)).to eq(
-        ["Book Club", "great-books x 22"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
     it "respects the types_in_priority_order param" do
-<<<<<<< HEAD
       expect(service.search("book", %w[tag category]).map(&:text)).to eq(
         ["great-books", "The Book Club"],
-=======
-      expect(subject.search("book", %w[tag category]).map(&:text)).to eq(
-        ["great-books x 22", "Book Club"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
     it "respects the limit param" do
-<<<<<<< HEAD
       expect(service.search("book", %w[tag category], limit: 1).map(&:text)).to eq(["great-books"])
-=======
-      expect(subject.search("book", %w[tag category], limit: 1).map(&:text)).to eq(
-        ["great-books x 22"],
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "does not allow more than SEARCH_MAX_LIMIT results to be specified by the limit param" do
       stub_const(HashtagAutocompleteService, "SEARCH_MAX_LIMIT", 1) do
-<<<<<<< HEAD
         expect(service.search("book", %w[category tag], limit: 1000).map(&:text)).to eq(
           ["The Book Club"],
-=======
-        expect(subject.search("book", %w[category tag], limit: 1000).map(&:text)).to eq(
-          ["Book Club"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
     end
@@ -169,7 +107,6 @@ RSpec.describe HashtagAutocompleteService do
     it "does not search other data sources if the limit is reached by earlier type data sources" do
       # only expected once to try get the exact matches first
       DiscourseTagging.expects(:filter_allowed_tags).never
-<<<<<<< HEAD
       service.search("the-book", %w[category tag], limit: 1)
     end
 
@@ -177,58 +114,28 @@ RSpec.describe HashtagAutocompleteService do
       tag1.update!(staff_topic_count: 78, public_topic_count: 78)
       expect(service.search("book", %w[tag category]).map(&:text)).to eq(
         ["great-books", "The Book Club"],
-=======
-      subject.search("book", %w[category tag], limit: 1)
-    end
-
-    it "includes the tag count" do
-      tag1.update!(topic_count: 78)
-      expect(subject.search("book", %w[tag category]).map(&:text)).to eq(
-        ["great-books x 78", "Book Club"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
     it "does case-insensitive search" do
-<<<<<<< HEAD
       expect(service.search("bOOk", %w[category tag]).map(&:text)).to eq(
         ["The Book Club", "great-books"],
-=======
-      expect(subject.search("book", %w[category tag]).map(&:text)).to eq(
-        ["Book Club", "great-books x 22"],
-      )
-      expect(subject.search("bOOk", %w[category tag]).map(&:text)).to eq(
-        ["Book Club", "great-books x 22"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
     it "can search categories by name or slug" do
-<<<<<<< HEAD
       expect(service.search("the-book-club", %w[category]).map(&:text)).to eq(["The Book Club"])
       expect(service.search("Book C", %w[category]).map(&:text)).to eq(["The Book Club"])
-=======
-      expect(subject.search("book-club", %w[category]).map(&:text)).to eq(["Book Club"])
-      expect(subject.search("Book C", %w[category]).map(&:text)).to eq(["Book Club"])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "does not include categories the user cannot access" do
       category1.update!(read_restricted: true)
-<<<<<<< HEAD
       expect(service.search("book", %w[tag category]).map(&:text)).to eq(["great-books"])
-=======
-      expect(subject.search("book", %w[tag category]).map(&:text)).to eq(["great-books x 22"])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "does not include tags the user cannot access" do
       Fabricate(:tag_group, permissions: { "staff" => 1 }, tag_names: ["great-books"])
-<<<<<<< HEAD
       expect(service.search("book", %w[tag]).map(&:text)).to be_empty
-=======
-      expect(subject.search("book", %w[tag]).map(&:text)).to be_empty
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "includes other data sources" do
@@ -236,7 +143,6 @@ RSpec.describe HashtagAutocompleteService do
       Fabricate(:bookmark, user: user, name: "cool rock song")
       guardian.user.reload
 
-<<<<<<< HEAD
       DiscoursePluginRegistry.register_hashtag_autocomplete_data_source(
         FakeBookmarkHashtagDataSource,
         stub(enabled?: true),
@@ -244,12 +150,6 @@ RSpec.describe HashtagAutocompleteService do
 
       expect(service.search("book", %w[category tag bookmark]).map(&:text)).to eq(
         ["The Book Club", "great-books", "read review of this fantasy book"],
-=======
-      HashtagAutocompleteService.register_data_source("bookmark", BookmarkDataSource)
-
-      expect(subject.search("book", %w[category tag bookmark]).map(&:text)).to eq(
-        ["Book Club", "great-books x 22", "read review of this fantasy book"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
@@ -263,30 +163,17 @@ RSpec.describe HashtagAutocompleteService do
     end
 
     it "appends type suffixes for the ref on conflicting slugs on items that are not the top priority type" do
-<<<<<<< HEAD
       Fabricate(:tag, name: "the-book-club")
       expect(service.search("book", %w[category tag]).map(&:ref)).to eq(
         %w[the-book-club great-books the-book-club::tag],
-=======
-      Fabricate(:tag, name: "book-club")
-      expect(subject.search("book", %w[category tag]).map(&:ref)).to eq(
-        %w[book-club book-club::tag great-books],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       Fabricate(:bookmark, user: user, name: "book club")
       guardian.user.reload
 
-<<<<<<< HEAD
       DiscoursePluginRegistry.register_hashtag_autocomplete_data_source(
         FakeBookmarkHashtagDataSource,
         stub(enabled?: true),
-=======
-      HashtagAutocompleteService.register_data_source("bookmark", BookmarkDataSource)
-
-      expect(subject.search("book", %w[category tag bookmark]).map(&:ref)).to eq(
-        %w[book-club book-club::tag great-books book-club::bookmark],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       expect(service.search("book", %w[category tag bookmark]).map(&:ref)).to eq(

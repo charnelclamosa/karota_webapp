@@ -3,7 +3,6 @@
 
   &:hover {
     background: var(--primary-very-low);
-<<<<<<< HEAD
     border-radius: var(--d-border-radius);
   }
 
@@ -11,8 +10,5 @@
     &__user-info {
       overflow: hidden;
     }
-=======
-    border-radius: 5px;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

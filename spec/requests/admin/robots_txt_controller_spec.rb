@@ -43,11 +43,7 @@ RSpec.describe Admin::RobotsTxtController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "robot.txt inaccessible"
     end
@@ -93,11 +89,7 @@ RSpec.describe Admin::RobotsTxtController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "robot.txt update not allowed"
     end
@@ -137,11 +129,7 @@ RSpec.describe Admin::RobotsTxtController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "robot.txt reset not allowed"
     end

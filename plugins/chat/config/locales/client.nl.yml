@@ -10,21 +10,15 @@ nl:
       site_settings:
         categories:
           chat: Chat
-<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "Altijd"
           never: "Nooit"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Status van chatkanaal gewijzigd"
             chat_channel_delete: "Chatkanaal verwijderd"
-<<<<<<< HEAD
             chat_auto_remove_membership: "Lidmaatschappen worden automatisch verwijderd van kanalen"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
@@ -35,10 +29,7 @@ nl:
       chat_channels_count: "Chatkanalen"
       chat_users_count: "Chatgebruikers"
     chat:
-<<<<<<< HEAD
       deleted_chat_username: verwijderd
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Alle berichten worden weergeven"
@@ -53,13 +44,8 @@ nl:
       move_to_channel:
         title: "Berichten verplaatsen naar kanaal"
         instructions:
-<<<<<<< HEAD
           one: "Je verplaatst <strong>%{count}</strong> bericht. Selecteer een bestemmingskanaal. Er wordt een plaatsvervangend bericht gemaakt in het kanaal <strong>%{channelTitle}</strong> om aan te geven dat dit bericht is verplaatst. Antwoordketens blijven niet behouden in het nieuwe kanaal en berichten in het oude kanaal worden niet langer weergegeven als antwoord op verplaatste berichten."
           other: "Je verplaatst <strong>%{count}</strong> berichten. Selecteer een bestemmingskanaal. Er wordt een plaatsvervangend bericht gemaakt in het kanaal <strong>%{channelTitle}</strong> om aan te geven dat deze berichten zijn verplaatst. Antwoordketens blijven niet behouden in het nieuwe kanaal en berichten in het oude kanaal worden niet langer weergegeven als antwoord op verplaatste berichten."
-=======
-          one: "Je gaat <strong>%{count}</strong> bericht verplaatsen. Selecteer een bestemmingskanaal. Er wordt een vervangend bericht gemaakt in het kanaal <strong>%{channelTitle}</strong> om aan te geven dat dit bericht is verplaatst."
-          other: "Je gaat <strong>%{count}</strong> berichten verplaatsen. Selecteer een bestemmingskanaal. Er wordt een vervangend bericht gemaakt in het kanaal <strong>%{channelTitle}</strong> om aan te geven dat deze berichten zijn verplaatst."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Berichten verplaatsen"
       channel_settings:
         title: "Kanaalinstellingen"
@@ -90,11 +76,7 @@ nl:
         instructions: "Door het kanaal te sluiten, kunnen niet-medewerkers geen nieuwe berichten sturen of bestaande berichten bewerken. Weet je zeker dat je dit kanaal wilt sluiten?"
       channel_delete:
         title: "Kanaal verwijderen"
-<<<<<<< HEAD
         instructions: "<p>Verwijdert het kanaal <strong>%{name}</strong> en de chatgeschiedenis. Alle berichten en gerelateerde gegevens, zoals antwoorden en uploads, worden permanent verwijderd. Als je de kanaalgeschiedenis wilt behouden en het kanaal buiten gebruik wilt stellen, kun je het kanaal in plaats daarvan archiveren.</p> <p>Wil je het kanaal echt <strong>permanent verwijderen</strong>? Typ ter bevestiging de naam van het kanaal in het onderstaande vak.</p>"
-=======
-        instructions: "<p>Verwijdert de het kanaal <strong>%{name}</strong> en de chatgeschiedenis. Alle berichten en gerelateerde gegevens, zoals antwoorden en uploads, worden definitief verwijderd. Als je de kanaalgeschiedenis wilt behouden en buiten gebruik wilt stellen, kun je het kanaal in plaats daarvan archiveren.</p> <p>Weet je zeker dat je het kanaal <strong>permanent wilt verwijderen</strong>? Typ ter bevestiging de naam van het kanaal in het onderstaande vak.</p>"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "Ik begrijp de gevolgen, verwijder het kanaal"
         confirm_channel_name: "Voer kanaalnaam in"
         process_started: "Het proces om het kanaal te verwijderen is gestart. Dit venster wordt over enkele ogenblikken gesloten, je ziet het verwijderde kanaal nergens meer."
@@ -103,7 +85,6 @@ nl:
         create: "Nieuw kanaal"
       click_to_join: "Klik hier om de beschikbare kanalen te bekijken."
       close: "Sluiten"
-<<<<<<< HEAD
       remove: "Verwijderen"
       collapse: "Chatlade samenvouwen"
       expand: "Chatlade uitvouwen"
@@ -111,11 +92,6 @@ nl:
       deleted:
         one: "Er is een bericht verwijderd. [Weergeven]"
         other: "Er zijn %{count} berichten verwijderd. [Alles weergeven]"
-=======
-      collapse: "Chatlade samenvouwen"
-      confirm_flag: "Weet je zeker dat je het bericht van %{username} wilt markeren?"
-      deleted: "Er is een bericht verwijderd. [weergeven]"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Er is een bericht verborgen. [weergeven]"
       delete: "Verwijderen"
       edited: "bewerkt"
@@ -130,14 +106,11 @@ nl:
         never: "Nooit"
         title: "E-mailmeldingen"
         when_away: "Alleen wanneer afwezig"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Activiteitsindicator weergeven in kop"
         all_new: "Alle nieuwe berichten"
         dm_and_mentions: "Directe berichten en vermeldingen"
         never: "Nooit"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Chat inschakelen"
       flag: "Markeren"
       emoji: "Emoji invoegen"
@@ -147,7 +120,6 @@ nl:
       in_reply_to: "In antwoord op"
       heading: "Chat"
       join: "Deelnemen"
-<<<<<<< HEAD
       last_visit: "laatste bezoek"
       summarization:
         title: "Berichten samenvatten"
@@ -157,19 +129,10 @@ nl:
           one: "Afgelopen uur"
           other: "Afgelopen %{count} uur"
       mention_warning:
-=======
-      new_messages: "nieuwe berichten"
-      mention_warning:
-        cannot_see:
-          one: "%{usernames} heeft geen toegang tot dit kanaal en is niet op de hoogte gebracht."
-          other: "%{usernames} hebben geen toegang tot dit kanaal en zijn niet op de hoogte gebracht."
-        dismiss: "negeren"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Uitnodiging gestuurd"
           other: "Uitnodigingen gestuurd"
         invite: "Uitnodigen voor kanaal"
-<<<<<<< HEAD
         groups:
           header:
             some: "Sommige gebruikers worden niet geïnformeerd"
@@ -239,20 +202,12 @@ nl:
         too_many_mentions_admin:
           one: 'Dit bericht overschrijdt de <a href="%{siteSettingUrl}" target="_blank">meldingslimiet</a> van %{count} vermelding.'
           other: 'Dit bericht overschrijdt de <a href="%{siteSettingUrl}" target="_blank">meldingslimiet</a> van %{count} vermeldingen.'
-=======
-        without_membership:
-          one: "%{usernames} is geen lid geworden van dit kanaal."
-          other: "%{usernames} zijn geen lid geworden van dit kanaal."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Chatkop"
         composer: "Chateditor"
         channels_list: "Chatkanalenlijst"
       no_public_channels: "Je bent geen lid geworden van kanalen."
-<<<<<<< HEAD
       kicked_from_channel: "Je hebt geen toegang meer tot dit kanaal."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Alleen chatpushmeldingen sturen"
         description: "Blokkeer de verzending van alle niet-chatpushmeldingen"
@@ -264,7 +219,6 @@ nl:
       close_full_page: "Chat op volledig scherm sluiten"
       open_message: "Bericht openen in chat"
       placeholder_self: "Schrijf iets"
-<<<<<<< HEAD
       placeholder_channel: "Chat in %{channelName}"
       placeholder_thread: "Chat in thread"
       placeholder_users: "Chatten met %{commaSeparatedNames}"
@@ -273,12 +227,6 @@ nl:
         closed: "Kanaal is gesloten, je kunt momenteel geen nieuwe berichten sturen."
         read_only: "Kanaal is alleen-lezen, je kunt momenteel geen nieuwe berichten sturen."
       placeholder_silenced: "Je kunt op dit moment geen berichten sturen."
-=======
-      placeholder_others: "Chatten met %{messageRecipient}"
-      placeholder_new_message_disallowed: "Kanaal is %{status}, je kunt momenteel geen nieuwe berichten sturen."
-      placeholder_silenced: "Je kunt op dit moment geen berichten sturen."
-      placeholder_start_conversation: Begin een gesprek met %{usernames}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Bestand verwijderen"
       react: "Reageren met emoji"
       reply: "Antwoorden"
@@ -294,16 +242,11 @@ nl:
       restore: "Verwijderd bericht herstellen"
       save: "Opslaan"
       select: "Selecteren"
-<<<<<<< HEAD
       return_to_list: "Terug naar kanalenlijst"
       return_to_threads_list: "Terug naar lopende discussies"
       unread_threads_count:
         one: "Je hebt %{count} ongelezen discussie"
         other: "Je hebt %{count} ongelezen discussies"
-=======
-      silence: "Gebruiker dempen"
-      return_to_list: "Terug naar kanalenlijst"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Naar beneden scrollen"
       scroll_to_new_messages: "Nieuwe berichten weergeven"
       sound:
@@ -315,11 +258,8 @@ nl:
       title: "chat"
       title_capitalized: "Chat"
       upload: "Voeg een bestand toe"
-<<<<<<< HEAD
       upload_to_channel: "Uploaden naar %{title}"
       upload_to_thread: "Uploaden naar thread"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} bestand"
         other: "%{count} bestanden"
@@ -330,12 +270,8 @@ nl:
         read_only: "Alleen-lezen"
         archived_header: "Kanaal is gearchiveerd"
         archived: "Gearchiveerd"
-<<<<<<< HEAD
         archive_failed: "Archiveren van kanaal mislukt. %{completed}/%{total} berichten zijn gearchiveerd. Het <a target=\"_blank\" href=\"%{topic_url}\">bestemmingstopic</a> is gemaakt. Druk op Opnieuw proberen om te proberen de archivering te voltooien."
         archive_failed_no_topic: "Archiveren van kanaal mislukt. %{completed}/%{total} berichten zijn gearchiveerd. Het bestemmingstopic is niet gemaakt. Druk op Opnieuw proberen om te proberen de archivering te voltooien."
-=======
-        archive_failed: "Archiveren van kanaal mislukt. %{completed}/%{total} berichten zijn gearchiveerd in <a target=\"_blank\" href=\"%{topic_url}\">het bestemmingstopic</a>. Druk op Opnieuw proberen om te proberen de archivering te voltooien."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "Zie <a target=\"_blank\" href=\"%{topic_url}\">het archieftopic</a>"
         closed_header: "Kanaal is gesloten"
         closed: "Gesloten"
@@ -358,10 +294,7 @@ nl:
         associated_topic: Gelinkt topic
         associated_category: Gelinkte categorie
         title: Titel
-<<<<<<< HEAD
         name: Naam
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Beschrijving
       channel_info:
         back_to_all_channels: "Alle kanalen"
@@ -370,7 +303,6 @@ nl:
           about: Over
           members: Leden
           settings: Instellingen
-<<<<<<< HEAD
       new_message_modal:
         title: Bericht sturen
         add_user_long: <kbd>shift + klik</kbd> of <kbd>shift + enter</kbd><span>@%{username} toevoegen</span>
@@ -388,12 +320,6 @@ nl:
         slug_description: Er wordt een kanaalslug gebruikt in de URL in plaats van de kanaalnaam
         name: Kanaalnaam
         slug: Kanaalslug (optioneel)
-=======
-      channel_edit_title_modal:
-        title: Titel bewerken
-        input_placeholder: Voeg een titel toe
-        description: Geef een korte beschrijvende titel aan je kanaal
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Beschrijving bewerken
         input_placeholder: Voeg een beschrijving toe
@@ -403,12 +329,6 @@ nl:
         prefix: "Aan:"
         no_results: Geen resultaten
         selected_user_title: "%{username} deselecteren"
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "Naar kanaal springen"
-        no_channels: "Er komen geen kanalen overeen met je zoekopdracht"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: Dit kanaal heeft geen leden
         no_memberships_found: Geen leden gevonden
@@ -416,7 +336,6 @@ nl:
           one: "%{count} lid"
           other: "%{count} leden"
       create_channel:
-<<<<<<< HEAD
         threading:
           label: "Threads inschakelen"
         auto_join_users:
@@ -442,19 +361,10 @@ nl:
                       }
                     }
             }
-=======
-        auto_join_users:
-          public_category_warning: "%{category} is een openbare categorie. Alle recent actieve gebruikers automatisch toevoegen aan dit kanaal?"
-          warning_groups:
-            one: '%{members_count} gebruikers uit %{group} automatisch toevoegen?'
-            other: '%{members_count} gebruikers uit %{group} en %{group_2} automatisch toevoegen?'
-          warning_multiple_groups: '%{members_count} gebruikers uit %{group_1} en %{count} anderen automatisch toevoegen?'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Kies een categorie"
           none: "selecteer een..."
           default_hint: Beheer de toegang door naar <a href=%{link} target="_blank">%{category}beveiligingsinstellingen</a> te gaan
-<<<<<<< HEAD
           hint_1_group: 'Gebruikers in %{group} hebben toegang tot dit kanaal volgens de <a href="%{settingLink}" target="_blank">beveiligingsinstellingen</a>'
           hint_2_groups: 'Gebruikers in %{group1} en %{group2} hebben toegang tot dit kanaal volgens de <a href="%{settingLink}" target="_blank">beveiligingsinstellingen</a>'
           hint_multiple_groups:
@@ -464,15 +374,6 @@ nl:
         description: "Beschrijving (optioneel)"
         name: "Kanaalnaam"
         slug: "Kanaalslug (optioneel)"
-=======
-          hint_groups:
-            one: Gebruikers in %{hint} hebben toegang tot dit kanaal volgens de <a href=%{link} target="_blank">beveiligingsinstellingen</a>
-            other: Gebruikers in %{hint} en %{hint_2} hebben toegang tot dit kanaal volgens de <a href=%{link} target="_blank">beveiligingsinstellingen</a>
-          hint_multiple_groups: Gebruikers in %{hint_1} en %{count} andere groepen hebben toegang tot dit kanaal volgens de <a href=%{link} target="_blank">beveiligingsinstellingen</a>
-        create: "Kanaal maken"
-        description: "Beschrijving (optioneel)"
-        name: "Kanaalnaam"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Nieuw kanaal"
         type: "Type"
         types:
@@ -482,7 +383,6 @@ nl:
         type: "Chatbericht"
       reactions:
         only_you: "Je hebt gereageerd met :%{emoji}:"
-<<<<<<< HEAD
         you_and_single_user: "Jij en %{username} hebben gereageerd met :%{emoji}:"
         you_and_multiple_users: "Jij, %{commaSeparatedUsernames} en %{username} hebben gereageerd met :%{emoji}:"
         you_multiple_users_and_more:
@@ -493,21 +393,12 @@ nl:
         multiple_users_and_more:
           one: "%{commaSeparatedUsernames} en %{count} ander hebben gereageerd met :%{emoji}:"
           other: "%{commaSeparatedUsernames} en %{count} anderen hebben gereageerd met :%{emoji}:"
-=======
-        and_others: "Jij, %{usernames} hebben gereageerd met :%{emoji}:"
-        only_others: "%{usernames} hebben gereageerd met :%{emoji}:"
-        others_and_more: "%{usernames} en %{more} anderen hebben gereageerd met :%{emoji}:"
-        you_others_and_more: "Jij, %{usernames} en %{more} anderen hebben gereageerd met :%{emoji}:"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "Werkbalk schakelen"
         italic_text: "Cursieve tekst"
         bold_text: "Vetgedrukte tekst"
         code_text: "codetekst"
-<<<<<<< HEAD
         send: "Verzenden"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'Oorspronkelijk gestuurd in <a href="%{channelLink}">%{channel}</a>'
         copy_success: "Chatcitaat gekopieerd naar klembord"
@@ -516,7 +407,6 @@ nl:
         mention: "Alleen voor vermeldingen"
         always: "Voor alle activiteit"
       settings:
-<<<<<<< HEAD
         channel_wide_mentions_label: "Sta vermeldingen van @all en @here toe"
         channel_wide_mentions_description: "Sta gebruikers toe om alle leden van #%{channel} te informeren met @all of alleen degenen die op dat moment actief zijn met @here"
         channel_threading_label: "Threads"
@@ -524,22 +414,14 @@ nl:
         auto_join_users_label: "Gebruikers automatisch toevoegen"
         auto_join_users_info: "Bekijk elk uur welke gebruikers de afgelopen 3 maanden actief zijn geweest. Voeg ze toe aan dit kanaal als ze toegang hebben tot de categorie %{category}."
         auto_join_users_info_no_category: "Bekijk elk uur welke gebruikers de afgelopen 3 maanden actief zijn geweest. Voeg ze toe aan dit kanaal als ze toegang hebben tot de geselecteerde categorie ."
-=======
-        auto_join_users_label: "Gebruikers automatisch toevoegen"
-        auto_join_users_info: "Controleer elk uur welke gebruikers de afgelopen 3 maanden actief zijn geweest en voeg ze toe aan dit kanaal als ze toegang hebben tot de categorie %{category}."
-        enable_auto_join_users: "Automatisch alle recent actieve gebruikers toevoegen"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Elke gebruiker die geen lid is van dit kanaal en toegang heeft tot de categorie %{category} wordt lid. Weet je het zeker?"
         desktop_notification_level: "Bureaubladmeldingen"
         follow: "Deelnemen"
         followed: "Lid sinds"
         mobile_notification_level: "Mobiele pushmeldingen"
         mute: "Kanaal dempen"
-<<<<<<< HEAD
         threading_enabled: "Ingeschakeld"
         threading_disabled: "Uitgeschakeld"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "Aan"
         muted_off: "Uit"
         notifications: "Meldingen"
@@ -548,7 +430,6 @@ nl:
         saved: "Opgeslagen"
         unfollow: "Verlaten"
         admin_title: "Beheerder"
-<<<<<<< HEAD
       admin:
         title: "Chat"
         export_messages:
@@ -558,14 +439,6 @@ nl:
       direct_messages:
         title: "Privéchat"
         new: "Maak een persoonlijke chat"
-=======
-        retention_info: "Chatgeschiedenis wordt %{days} dagen bewaard."
-      admin:
-        title: "Chat"
-      direct_messages:
-        title: "Privéchat"
-        new: "Nieuwe privéchat"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Gaan"
         leave: "Deze privéchat verlaten"
         cannot_create: "Sorry, je kunt geen directe berichten sturen."
@@ -626,7 +499,6 @@ nl:
           one: "%{commaSeparatedUsernames} en %{count} ander zijn aan het typen"
           other: "%{commaSeparatedUsernames} en %{count} anderen zijn aan het typen"
       retention_reminders:
-<<<<<<< HEAD
         public_none: "De kanaalgeschiedenis wordt voor onbepaalde tijd bewaard."
         public:
           one: "Kanaalgeschiedenis wordt %{count} dag bewaard."
@@ -635,10 +507,6 @@ nl:
         dm:
           one: "Persoonlijke chatgeschiedenis wordt %{count} dag bewaard."
           other: "Persoonlijke chatgeschiedenis wordt %{count} dagen bewaard."
-=======
-        public: "Kanaalgeschiedenis wordt %{days} dagen bewaard."
-        dm: "Persoonlijke chatgeschiedenis wordt %{days} dagen bewaard."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "Dit bericht is niet relevant voor de huidige discussie zoals gedefinieerd door de kanaaltitel en moet waarschijnlijk worden verplaats naar elders."
         inappropriate: "Dit bericht bevat inhoud die een redelijk persoon als aanstootgevend, kwetsend of een overtreding van <a href=\"%{basePath}/guidelines\">onze communityrichtlijnen</a> zou beschouwen."
@@ -660,7 +528,6 @@ nl:
         symbols: "Symbolen"
         search_placeholder: "Zoek op emojinaam en -alias..."
         no_results: "Geen resultaten"
-<<<<<<< HEAD
       thread:
         title: "Titel"
         view_thread: Thread weergeven
@@ -687,8 +554,6 @@ nl:
         open: "Thread openen"
         list: "Lopende discussies"
         none: "Je neemt niet deel aan discussies in dit kanaal."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nieuw bericht"
         cancel: "Annuleren"
@@ -733,17 +598,11 @@ nl:
       transcript:
         view: "Transcript van eerdere berichten weergeven"
       types:
-<<<<<<< HEAD
         chat_reviewable_message:
           title: "Gemarkeerd chatbericht"
         reviewable_chat_message:
           title: "Gemarkeerd chatbericht"
           noun: "chatbericht"
-=======
-        reviewable_chat_message:
-          title: "Gemarkeerd chatbericht"
-          flagged_by: "Gemarkeerd door"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Chat"
@@ -756,10 +615,7 @@ nl:
           composer_code: "%{shortcut} Code (alleen opstellen)"
           drawer_open: "%{shortcut} Chatlade openen"
           drawer_close: "%{shortcut} Chatlade sluiten"
-<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Alle kanalen als gelezen markeren"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "Chat is ingeschakeld voor dit topic"
@@ -778,7 +634,6 @@ nl:
         chat_notifications_with_unread:
           one: "Chatmeldingen - %{count} ongelezen melding"
           other: "Chatmeldingen - %{count} ongelezen meldingen"
-<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -787,5 +642,3 @@ nl:
       panels:
         chat:
           label: "Chat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

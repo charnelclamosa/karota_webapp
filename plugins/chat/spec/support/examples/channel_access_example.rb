@@ -1,23 +1,14 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 RSpec.shared_examples "channel access example" do |verb, endpoint, params|
   endpoint ||= ".json"
   params ||= {}
-=======
-RSpec.shared_examples "channel access example" do |verb, endpoint|
-  endpoint ||= ".json"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   context "when channel is not found" do
     before { sign_in(Fabricate(:admin)) }
 
     it "returns a 404" do
-<<<<<<< HEAD
       public_send(verb, "/chat/api/channels/-999#{endpoint}", params: params)
-=======
-      public_send(verb, "/chat/api/chat_channels/-999#{endpoint}")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(response.status).to eq(404)
     end
   end
@@ -26,11 +17,7 @@ RSpec.shared_examples "channel access example" do |verb, endpoint|
     fab!(:chat_channel) { Fabricate(:category_channel) }
 
     it "returns a 403" do
-<<<<<<< HEAD
       public_send(verb, "/chat/api/channels/#{chat_channel.id}#{endpoint}", params: params)
-=======
-      public_send(verb, "/chat/api/chat_channels/#{chat_channel.id}#{endpoint}")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(response.status).to eq(403)
     end
   end
@@ -46,11 +33,7 @@ RSpec.shared_examples "channel access example" do |verb, endpoint|
     before { sign_in(user) }
 
     it "returns a 403" do
-<<<<<<< HEAD
       public_send(verb, "/chat/api/channels/#{chat_channel.id}#{endpoint}", params: params)
-=======
-      public_send(verb, "/chat/api/chat_channels/#{chat_channel.id}#{endpoint}")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(response.status).to eq(403)
     end
   end

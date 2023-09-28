@@ -6,7 +6,6 @@ RSpec.describe Unread do
   let(:whisperers_group) { Fabricate(:group) }
   let(:user) { Fabricate(:user, groups: [whisperers_group]) }
   let(:topic) do
-<<<<<<< HEAD
     Fabricate(:topic, posts_count: 13, highest_staff_post_number: 15, highest_post_number: 13)
   end
 
@@ -16,20 +15,6 @@ RSpec.describe Unread do
       notification_level: TopicUser.notification_levels[:tracking],
       topic_id: topic.id,
       user_id: user.id,
-=======
-    Fabricate(:topic,
-      posts_count: 13,
-      highest_staff_post_number: 15,
-      highest_post_number: 13,
-    )
-  end
-
-  let(:topic_user) do
-    Fabricate(:topic_user,
-      notification_level: TopicUser.notification_levels[:tracking],
-      topic_id: topic.id,
-      user_id: user.id
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 
@@ -83,11 +68,7 @@ RSpec.describe Unread do
       expect(unread.unread_posts).to eq(0)
     end
 
-<<<<<<< HEAD
     it "has 0 unread posts if the user has not seen the topic" do
-=======
-    it 'has 0 unread posts if the user has not seen the topic' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_user.last_read_post_number = nil
       expect(unread.unread_posts).to eq(0)
     end

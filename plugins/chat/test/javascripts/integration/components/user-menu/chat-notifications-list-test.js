@@ -21,11 +21,7 @@ module(
 
     test("empty state when there are no notifications", async function (assert) {
       await render(template);
-<<<<<<< HEAD
       assert.true(exists(".empty-state .empty-state-body"));
-=======
-      assert.ok(exists(".empty-state .empty-state-body"));
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       assert.strictEqual(
         query(".empty-state .empty-state-title").textContent.trim(),
         I18n.t("user_menu.no_chat_notifications_title")

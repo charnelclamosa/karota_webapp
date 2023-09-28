@@ -218,18 +218,13 @@ RSpec.describe "tasks/uploads" do
     it "updates the affected ACLs via the SyncAclsForUploads job" do
       invoke_task
       expect(Jobs::SyncAclsForUploads.jobs.last["args"][0]["upload_ids"]).to match_array(
-<<<<<<< HEAD
         [upload1.id, upload2.id, upload3.id, upload4.id],
-=======
-        [upload1.id, upload2.id, upload3.id, upload4.id]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
   end
 
   describe "uploads:downsize" do
     def invoke_task
-<<<<<<< HEAD
       capture_stdout { Rake::Task["uploads:downsize"].invoke }
     end
 
@@ -248,11 +243,6 @@ RSpec.describe "tasks/uploads" do
       SiteSetting.max_image_size_kb = 0.001 # 1 byte
 
       expect { invoke_task }.to change { upload.reload.thumbnail_height }.to(200)
-=======
-      capture_stdout do
-        Rake::Task["uploads:downsize"].invoke
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     before do

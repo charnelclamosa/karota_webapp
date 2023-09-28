@@ -1143,7 +1143,6 @@ RSpec.describe Post do
     it "passes the last_editor_id as the markdown user_id option" do
       post.save
       post.reload
-<<<<<<< HEAD
       PostAnalyzer
         .any_instance
         .expects(:cook)
@@ -1159,21 +1158,6 @@ RSpec.describe Post do
     end
 
     describe "mentions" do
-=======
-      PostAnalyzer.any_instance.expects(:cook).with(
-        post.raw, { cook_method: Post.cook_methods[:regular], user_id: post.last_editor_id }
-      )
-      post.cook(post.raw)
-      user_editor = Fabricate(:user)
-      post.update!(last_editor_id: user_editor.id)
-      PostAnalyzer.any_instance.expects(:cook).with(
-        post.raw, { cook_method: Post.cook_methods[:regular], user_id: user_editor.id }
-      )
-      post.cook(post.raw)
-    end
-
-    describe 'mentions' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       fab!(:group) do
         Fabricate(
           :group,

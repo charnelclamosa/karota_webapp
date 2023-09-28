@@ -99,15 +99,11 @@ RSpec.describe Jobs do
       end
 
       it "executes the job right away" do
-<<<<<<< HEAD
         Jobs::ProcessPost
           .any_instance
           .expects(:perform_immediately)
           .with({ "post_id" => 1, "current_site_id" => "default" })
 
-=======
-        Jobs::ProcessPost.any_instance.expects(:perform).with({ "post_id" => 1, "sync_exec" => true, "current_site_id" => "default" })
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         Jobs.enqueue(:process_post, post_id: 1)
       end
 

@@ -6,7 +6,6 @@
 
 vi:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -14,9 +13,6 @@ vi:
           never: "Không bao giờ"
     chat:
       deleted_chat_username: đã bị xóa
-=======
-    chat:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Tạo"
       cancel: "Huỷ"
       channel_settings:
@@ -25,17 +21,13 @@ vi:
         join: "Tham gia"
         leave: "Rời nhóm"
       close: "Đóng"
-<<<<<<< HEAD
       remove: "Xoá"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Xóa"
       edited: "đã chỉnh sửa"
       muted: "im lặng"
       joined: "đã tham gia"
       email_frequency:
         never: "Không bao giờ"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Không bao giờ"
       flag: "Gắn cờ"
@@ -48,12 +40,6 @@ vi:
           header:
             some: "Một số người dùng sẽ không được thông báo"
             all: "Sẽ không ai được thông báo"
-=======
-      flag: "Gắn cờ"
-      join: "Tham gia"
-      mention_warning:
-        dismiss: "bỏ qua"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Trả lời"
       edit: "Sửa"
       rebake_message: "Tạo lại HTML"
@@ -75,10 +61,7 @@ vi:
         yesterday: Hôm qua
       about_view:
         title: Tiêu đề
-<<<<<<< HEAD
         name: Tên
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Mô tả
       channel_info:
         back_to_channel: "Quay lại"
@@ -86,11 +69,8 @@ vi:
           about: Giới thiệu
           members: Các thành viên
           settings: Cài đặt
-<<<<<<< HEAD
       new_message_modal:
         no_items: "Không có mẫu nào"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Tin nhắn mới
         prefix: "Tới:"
@@ -102,19 +82,13 @@ vi:
       composer:
         italic_text: "văn bản nhấn mạnh"
         bold_text: "chữ in đậm"
-<<<<<<< HEAD
         send: "Gửi"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Không bao giờ"
       settings:
         follow: "Tham gia"
         followed: "Đã tham gia"
-<<<<<<< HEAD
         threading_disabled: "Vô hiệu hóa"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Thông báo"
         preview: "Xem trước"
         save: "Lưu lại"
@@ -148,7 +122,6 @@ vi:
         activities: "Hoạt động"
         flags: "Dấu cờ - Flags"
         symbols: "Ký hiệu"
-<<<<<<< HEAD
       thread:
         title: "Tiêu đề"
         replies:
@@ -162,8 +135,6 @@ vi:
             title: "Đang theo dõi"
         participants_other_count:
           other: "+%{count}"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Tin nhắn mới"
         cancel: "Huỷ"
@@ -175,10 +146,3 @@ vi:
           fields:
             message:
               label: Tin nhắn
-<<<<<<< HEAD
-=======
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Gắn cờ bởi"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -2,21 +2,14 @@
 require "highline/import"
 
 module SystemHelpers
-<<<<<<< HEAD
   PLATFORM_KEY_MODIFIER = RUBY_PLATFORM =~ /darwin/i ? :meta : :control
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def pause_test
     result =
       ask(
         "\n\e[33mTest paused, press enter to resume, type `d` and press enter to start debugger.\e[0m",
       )
-<<<<<<< HEAD
     binding.pry if result == "d" # rubocop:disable Lint/Debugger
-=======
-    byebug if result == "d" # rubocop:disable Lint/Debugger
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     self
   end
 
@@ -91,20 +84,15 @@ module SystemHelpers
     start ||= Time.zone.now
     backoff ||= frequency
     yield
-<<<<<<< HEAD
   rescue RSpec::Expectations::ExpectationNotMetError,
          Capybara::ExpectationNotMet,
          Capybara::ElementNotFound
-=======
-  rescue RSpec::Expectations::ExpectationNotMetError
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     raise if Time.zone.now >= start + timeout.seconds
     sleep backoff
     backoff += frequency
     retry
   end
 
-<<<<<<< HEAD
   def wait_for_attribute(
     element,
     attribute,
@@ -154,16 +142,10 @@ module SystemHelpers
       width || original_size.width,
       height || original_size.height,
     )
-=======
-  def resize_window(width: nil, height: nil)
-    original_size = page.driver.browser.manage.window.size
-    page.driver.browser.manage.window.resize_to(width || original_size.width, height || original_size.height)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     yield
   ensure
     page.driver.browser.manage.window.resize_to(original_size.width, original_size.height)
   end
-<<<<<<< HEAD
 
   def using_browser_timezone(timezone, &example)
     previous_browser_timezone = ENV["TZ"]
@@ -235,6 +217,4 @@ module SystemHelpers
       end
     end
   end
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

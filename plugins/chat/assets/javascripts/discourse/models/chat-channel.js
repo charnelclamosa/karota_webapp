@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import UserChatChannelMembership from "discourse/plugins/chat/discourse/models/user-chat-channel-membership";
 import ChatMessage from "discourse/plugins/chat/discourse/models/chat-message";
 import { escapeExpression } from "discourse/lib/utilities";
@@ -12,24 +11,11 @@ import ChatDirectMessage from "discourse/plugins/chat/discourse/models/chat-dire
 import ChatChannelArchive from "discourse/plugins/chat/discourse/models/chat-channel-archive";
 import Category from "discourse/models/category";
 import ChatTrackingState from "discourse/plugins/chat/discourse/models/chat-tracking-state";
-=======
-import RestModel from "discourse/models/rest";
-import I18n from "I18n";
-import { computed } from "@ember/object";
-import User from "discourse/models/user";
-import UserChatChannelMembership from "discourse/plugins/chat/discourse/models/user-chat-channel-membership";
-import { ajax } from "discourse/lib/ajax";
-import { escapeExpression } from "discourse/lib/utilities";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export const CHATABLE_TYPES = {
   directMessageChannel: "DirectMessage",
   categoryChannel: "Category",
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 export const CHANNEL_STATUSES = {
   open: "open",
   readOnly: "read_only",
@@ -37,22 +23,6 @@ export const CHANNEL_STATUSES = {
   archived: "archived",
 };
 
-<<<<<<< HEAD
-=======
-export function channelStatusName(channelStatus) {
-  switch (channelStatus) {
-    case CHANNEL_STATUSES.open:
-      return I18n.t("chat.channel_status.open");
-    case CHANNEL_STATUSES.readOnly:
-      return I18n.t("chat.channel_status.read_only");
-    case CHANNEL_STATUSES.closed:
-      return I18n.t("chat.channel_status.closed");
-    case CHANNEL_STATUSES.archived:
-      return I18n.t("chat.channel_status.archived");
-  }
-}
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 export function channelStatusIcon(channelStatus) {
   if (channelStatus === CHANNEL_STATUSES.open) {
     return null;
@@ -61,20 +31,10 @@ export function channelStatusIcon(channelStatus) {
   switch (channelStatus) {
     case CHANNEL_STATUSES.closed:
       return "lock";
-<<<<<<< HEAD
     case CHANNEL_STATUSES.readOnly:
       return "comment-slash";
     case CHANNEL_STATUSES.archived:
       return "archive";
-=======
-      break;
-    case CHANNEL_STATUSES.readOnly:
-      return "comment-slash";
-      break;
-    case CHANNEL_STATUSES.archived:
-      return "archive";
-      break;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }
 
@@ -89,7 +49,6 @@ const READONLY_STATUSES = [
   CHANNEL_STATUSES.archived,
 ];
 
-<<<<<<< HEAD
 export default class ChatChannel {
   static create(args = {}) {
     return new ChatChannel(args);
@@ -177,26 +136,14 @@ export default class ChatChannel {
     return this.meta.can_moderate;
   }
 
-=======
-export default class ChatChannel extends RestModel {
-  isDraft = false;
-  lastSendReadMessageId = null;
-
-  @computed("title")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get escapedTitle() {
     return escapeExpression(this.title);
   }
 
-<<<<<<< HEAD
-=======
-  @computed("description")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get escapedDescription() {
     return escapeExpression(this.description);
   }
 
-<<<<<<< HEAD
   get slugifiedTitle() {
     return this.slug || slugifyChannel(this);
   }
@@ -213,56 +160,26 @@ export default class ChatChannel extends RestModel {
     return this.chatableType === CHATABLE_TYPES.categoryChannel;
   }
 
-=======
-  @computed("chatable_type")
-  get isDirectMessageChannel() {
-    return this.chatable_type === CHATABLE_TYPES.directMessageChannel;
-  }
-
-  @computed("chatable_type")
-  get isCategoryChannel() {
-    return this.chatable_type === CHATABLE_TYPES.categoryChannel;
-  }
-
-  @computed("status")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get isOpen() {
     return !this.status || this.status === CHANNEL_STATUSES.open;
   }
 
-<<<<<<< HEAD
-=======
-  @computed("status")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get isReadOnly() {
     return this.status === CHANNEL_STATUSES.readOnly;
   }
 
-<<<<<<< HEAD
-=======
-  @computed("status")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get isClosed() {
     return this.status === CHANNEL_STATUSES.closed;
   }
 
-<<<<<<< HEAD
-=======
-  @computed("status")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get isArchived() {
     return this.status === CHANNEL_STATUSES.archived;
   }
 
-<<<<<<< HEAD
-=======
-  @computed("isArchived", "isOpen")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get isJoinable() {
     return this.isOpen && !this.isArchived;
   }
 
-<<<<<<< HEAD
   get isFollowing() {
     return this.currentUserMembership.following;
   }
@@ -287,16 +204,6 @@ export default class ChatChannel extends RestModel {
     }
 
     message.manager = this.messagesManager;
-=======
-  @computed("memberships_count")
-  get membershipsCount() {
-    return this.memberships_count;
-  }
-
-  @computed("current_user_membership.following")
-  get isFollowing() {
-    return this.current_user_membership.following;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   canModifyMessages(user) {
@@ -307,7 +214,6 @@ export default class ChatChannel extends RestModel {
     return !READONLY_STATUSES.includes(this.status);
   }
 
-<<<<<<< HEAD
   get currentUserMembership() {
     return this._currentUserMembership;
   }
@@ -338,73 +244,3 @@ export default class ChatChannel extends RestModel {
     }
   }
 }
-=======
-  updateMembership(membership) {
-    this.current_user_membership.setProperties({
-      following: membership.following,
-      muted: membership.muted,
-      desktop_notification_level: membership.desktop_notification_level,
-      mobile_notification_level: membership.mobile_notification_level,
-    });
-  }
-
-  updateLastReadMessage(messageId) {
-    if (!this.isFollowing || !messageId) {
-      return;
-    }
-
-    return ajax(`/chat/${this.id}/read/${messageId}.json`, {
-      method: "PUT",
-    }).then(() => {
-      this.set("lastSendReadMessageId", messageId);
-    });
-  }
-}
-
-ChatChannel.reopenClass({
-  create(args) {
-    args = args || {};
-    this._initUserModels(args);
-    this._initUserMembership(args);
-
-    args.lastSendReadMessageId =
-      args.current_user_membership?.last_read_message_id;
-
-    return this._super(args);
-  },
-
-  _initUserModels(args) {
-    if (args.chatable?.users?.length) {
-      for (let i = 0; i < args.chatable?.users?.length; i++) {
-        const userData = args.chatable.users[i];
-        args.chatable.users[i] = User.create(userData);
-      }
-    }
-  },
-
-  _initUserMembership(args) {
-    if (args.current_user_membership instanceof UserChatChannelMembership) {
-      return;
-    }
-
-    args.current_user_membership = UserChatChannelMembership.create(
-      args.current_user_membership || {
-        following: false,
-        muted: false,
-        unread_count: 0,
-        unread_mentions: 0,
-      }
-    );
-  },
-});
-
-export function createDirectMessageChannelDraft() {
-  return ChatChannel.create({
-    isDraft: true,
-    chatable_type: CHATABLE_TYPES.directMessageChannel,
-    chatable: {
-      users: [],
-    },
-  });
-}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

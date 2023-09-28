@@ -111,11 +111,7 @@ RSpec.describe DiscourseRedis do
       end
     end
 
-<<<<<<< HEAD
     describe "#sadd?" do
-=======
-    describe '#sadd?' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "should send the right command with the right key prefix to redis" do
         redis = DiscourseRedis.new
 
@@ -125,11 +121,7 @@ RSpec.describe DiscourseRedis do
       end
     end
 
-<<<<<<< HEAD
     describe "#srem?" do
-=======
-    describe '#srem?' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "should send the right command with the right key prefix to redis" do
         redis = DiscourseRedis.new
 
@@ -139,11 +131,7 @@ RSpec.describe DiscourseRedis do
       end
     end
 
-<<<<<<< HEAD
     describe "when namespace is disabled" do
-=======
-    describe 'when namespace is disabled' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       let(:redis) { DiscourseRedis.new(nil, namespace: false) }
 
       it "should not append any namespace to the keys" do

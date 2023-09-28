@@ -10,12 +10,9 @@ zh_TW:
       site_settings:
         categories:
           chat: 聊天
-<<<<<<< HEAD
         chat_separate_sidebar_mode:
           always: "總是"
           never: "永不"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
@@ -31,10 +28,7 @@ zh_TW:
       chat_channels_count: "聊天頻道"
       chat_users_count: "聊天使用者"
     chat:
-<<<<<<< HEAD
       deleted_chat_username: 已刪除
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "顯示所有訊息"
@@ -73,10 +67,7 @@ zh_TW:
       channel_delete:
         title: "刪除頻道"
       close: "關閉"
-<<<<<<< HEAD
       remove: "移除"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "刪除"
       edited: "已編輯"
       muted: "靜音"
@@ -86,7 +77,6 @@ zh_TW:
         direct_message: "您還可以與一個或多個使用者開始個人聊天。"
       email_frequency:
         never: "永不"
-<<<<<<< HEAD
       header_indicator_preference:
         all_new: "所有新訊息"
         never: "永不"
@@ -99,13 +89,6 @@ zh_TW:
         summarize: "總結"
         since:
           other: "前 %{count} 小時"
-=======
-      flag: "檢舉"
-      join: "加入"
-      mention_warning:
-        dismiss: "忽略"
-      placeholder_start_conversation: 從 %{usernames}開始對話
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "移除檔案"
       react: "用表情符號反應"
       reply: "回覆"
@@ -120,23 +103,16 @@ zh_TW:
       restore: "還原已刪除的訊息"
       save: "保存"
       select: "選擇"
-<<<<<<< HEAD
-=======
-      silence: "使用者靜音"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "捲動到底部"
       scroll_to_new_messages: "查看新訊息"
       sound:
         title: "桌面聊天通知聲音"
       sounds:
         none: "無"
-<<<<<<< HEAD
         bell: "鐘聲"
       title: "聊天"
       title_capitalized: "聊天"
       upload_to_channel: "上傳至 %{title}"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       exit: "上一步"
       channel_status:
         read_only_header: "頻道為唯讀"
@@ -159,10 +135,7 @@ zh_TW:
         associated_topic: 連結的主題
         associated_category: 連結的類別
         title: 標題
-<<<<<<< HEAD
         name: 名字
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: 簡述
       channel_info:
         back_to_all_channels: "所有頻道"
@@ -171,7 +144,6 @@ zh_TW:
           about: 關於
           members: 成員
           settings: 設定
-<<<<<<< HEAD
       new_message_modal:
         title: 傳送訊息
         add_user_short: <span>新增使用者</span>
@@ -180,11 +152,6 @@ zh_TW:
       channel_edit_name_slug_modal:
         title: 編輯頻道
         name: 變更名稱
-=======
-      channel_edit_title_modal:
-        title: 編輯標題
-        input_placeholder: 新增標題
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: 編輯描述
         input_placeholder: 新增描述
@@ -193,17 +160,11 @@ zh_TW:
         prefix: "發至:"
         no_results: 沒有結果
         selected_user_title: "取消選取 %{username}"
-<<<<<<< HEAD
-=======
-      channel_selector:
-        title: "跳轉到頻道"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create_channel:
         type: "類型"
         types:
           category: "分類"
           topic: "話題"
-<<<<<<< HEAD
       reviewable:
         type: "聊天訊息"
       reactions:
@@ -212,30 +173,21 @@ zh_TW:
         italic_text: "斜體字"
         bold_text: "粗體字"
         send: "傳送"
-=======
-      composer:
-        italic_text: "斜體字"
-        bold_text: "粗體字"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "永不"
       settings:
         follow: "加入"
         followed: "建立日期"
-<<<<<<< HEAD
         threading_enabled: "啟用"
         threading_disabled: "停用"
         muted_on: "開啟"
         muted_off: "關閉"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "通知"
         preview: "預覽"
         save: "保存"
         saved: "已儲存"
         unfollow: "離開"
         admin_title: "管理員"
-<<<<<<< HEAD
       admin:
         title: "聊天"
         export_messages:
@@ -243,23 +195,16 @@ zh_TW:
           create_export: "建立匯出"
       direct_messages:
         create: "開始"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       incoming_webhooks:
         back: "上一步"
         description: "簡述"
         delete: "刪除"
         emoji: "Emoji"
         name: "姓名"
-<<<<<<< HEAD
         name_placeholder: "名字..."
         save: "保存"
         edit: "編輯"
         select_emoji: "選擇表情符號"
-=======
-        save: "保存"
-        edit: "編輯"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         system: "系統"
         url: "網址"
         username: "使用者名稱"
@@ -272,17 +217,13 @@ zh_TW:
           title: "移至已存在的話題"
         new_message:
           title: "移動到新訊息"
-<<<<<<< HEAD
       flagging:
         action: "檢舉訊息"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       emoji_picker:
         objects: "物品"
         activities: "活動"
         flags: "投訴"
         symbols: "象徵<br>"
-<<<<<<< HEAD
         no_results: "沒有結果"
       thread:
         title: "標題"
@@ -303,8 +244,6 @@ zh_TW:
       threads:
         open: "開啟討論串"
         list: "進行中的討論"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "新訊息"
         cancel: "取消"
@@ -319,7 +258,6 @@ zh_TW:
     review:
       types:
         reviewable_chat_message:
-<<<<<<< HEAD
           noun: "聊天訊息"
     keyboard_shortcuts_help:
       chat:
@@ -332,6 +270,3 @@ zh_TW:
       panels:
         chat:
           label: "聊天"
-=======
-          flagged_by: "標記由"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

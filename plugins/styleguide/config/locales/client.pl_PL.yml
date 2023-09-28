@@ -87,7 +87,6 @@ pl_PL:
           title: "Ładowanie"
         empty_state:
           title: "Pusty stan"
-<<<<<<< HEAD
         tooltips:
           description: "Opis"
           header: "Nagłówek"
@@ -95,10 +94,3 @@ pl_PL:
         char_counter:
           title: "Licznik znaków"
           placeholder: "Tutaj wpisz swój tekst..."
-=======
-        rich_tooltip:
-          title: "Bogata podpowiedź"
-          description: "Opis"
-          header: "Nagłówek"
-          hover_to_see: "Najedź kursorem, aby zobaczyć podpowiedź"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

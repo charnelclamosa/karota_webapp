@@ -10,24 +10,13 @@ RSpec.describe Admin::WatchedWordsController do
     context "when logged in as non-staff user" do
       before { sign_in(user) }
 
-<<<<<<< HEAD
       it "does not return watched words" do
         get "/admin/customize/watched_words.json"
-=======
-    context "when logged in as a non-staff user" do
-      before do
-        sign_in(user)
-      end
-
-      it "can't delete a watched word" do
-        delete "/admin/customize/watched_words/#{watched_word.id}.json"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
       end
     end
 
-<<<<<<< HEAD
     context "when logged in as a staff user" do
       fab!(:word1) { Fabricate(:watched_word, action: WatchedWord.actions[:block]) }
       fab!(:word2) { Fabricate(:watched_word, action: WatchedWord.actions[:block]) }
@@ -67,30 +56,10 @@ RSpec.describe Admin::WatchedWordsController do
             .first
             .deep_stringify_keys,
         )
-=======
-    context "when logged in as staff user" do
-      before do
-        sign_in(admin)
-      end
-
-      it 'should return the right response when given an invalid id param' do
-        delete "/admin/customize/watched_words/9999.json"
-
-        expect(response.status).to eq(400)
-      end
-
-      it "should be able to delete a watched word" do
-        delete "/admin/customize/watched_words/#{watched_word.id}.json"
-
-        expect(response.status).to eq(200)
-        expect(WatchedWord.find_by(id: watched_word.id)).to eq(nil)
-        expect(UserHistory.where(action: UserHistory.actions[:watched_word_destroy]).count).to eq(1)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end
 
-<<<<<<< HEAD
   describe "#destroy" do
     fab!(:watched_word) { Fabricate(:watched_word) }
 
@@ -99,25 +68,11 @@ RSpec.describe Admin::WatchedWordsController do
 
       it "can't delete a watched word" do
         delete "/admin/customize/watched_words/#{watched_word.id}.json"
-=======
-  describe '#create' do
-    context "when logged in as a non-staff user" do
-      before do
-        sign_in(user)
-      end
-
-      it "can't create a watched word" do
-        post "/admin/customize/watched_words.json", params: {
-          action_key: 'flag',
-          word: 'Fr33'
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
       end
     end
 
-<<<<<<< HEAD
     context "when logged in as staff user" do
       before { sign_in(admin) }
 
@@ -125,11 +80,6 @@ RSpec.describe Admin::WatchedWordsController do
         delete "/admin/customize/watched_words/9999.json"
 
         expect(response.status).to eq(400)
-=======
-    context "when logged in as a staff user" do
-      before do
-        sign_in(admin)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "should be able to delete a watched word" do
@@ -178,7 +128,6 @@ RSpec.describe Admin::WatchedWordsController do
     end
   end
 
-<<<<<<< HEAD
   describe "#upload" do
     context "when logged in as a non-staff user" do
       before { sign_in(user) }
@@ -189,29 +138,12 @@ RSpec.describe Admin::WatchedWordsController do
                action_key: "flag",
                file: Rack::Test::UploadedFile.new(file_from_fixtures("words.csv", "csv")),
              }
-=======
-  describe '#upload' do
-    context "when logged in as a non-staff user" do
-      before do
-        sign_in(user)
-      end
-
-      it "can't create watched words via file upload" do
-        post "/admin/customize/watched_words/upload.json", params: {
-          action_key: 'flag',
-          file: Rack::Test::UploadedFile.new(file_from_fixtures("words.csv", "csv"))
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
       end
     end
 
-<<<<<<< HEAD
     context "when logged in as admin" do
-=======
-    context 'when logged in as admin' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       before do
         sign_in(admin)
         Fabricate(:tag, name: "tag1")

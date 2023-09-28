@@ -8,32 +8,24 @@ zh_TW:
   chat:
     deleted_chat_username: 已刪除
     errors:
-<<<<<<< HEAD
       minimum_length_not_met:
         other: "訊息過短，必須至少有 %{count} 個字元。"
       message_too_long:
         other: "訊息過長，不得超過 %{count} 個字元。"
       not_accepting_dms: "對不起，%{username} 目前不接收訊息。"
       user_cannot_send_direct_messages: "抱歉，您無法傳送私訊。"
-=======
-      not_accepting_dms: "對不起，%{username} 目前不接收訊息。"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     reviewables:
       actions:
         agree:
           title: "同意..."
-<<<<<<< HEAD
         agree_and_keep_message:
           title: "保留訊息"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         agree_and_suspend:
           title: "將使用者停權"
           description: "同意檢舉並停權使用者"
         agree_and_silence:
           title: "將使用者禁言"
           description: "同意檢舉並禁止使用者發文"
-<<<<<<< HEAD
         agree_and_delete:
           title: "刪除訊息"
         disagree:
@@ -57,22 +49,11 @@ zh_TW:
         direct: '%{username} 在 "%{channel}" 提及了您'
         other_type: '%{username} 在 "%{channel}" 提及了 %{identifier}'
       new_chat_message: '%{username} 在 "%{channel}" 傳送了訊息'
-=======
-        disagree:
-          title: "不同意"
-        ignore:
-          title: "忽略"
-    channel:
-      statuses:
-        closed: "不公開"
-        open: "開啟"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   reviewable_score_types:
     notify_user:
       chat_pm_body: "%{link}\n\n%{message}"
     notify_moderators:
       chat_pm_body: "%{link}\n\n%{message}"
-<<<<<<< HEAD
   user_notifications:
     chat_summary:
       deleted_user: "已被刪除的使用者"
@@ -86,8 +67,6 @@ zh_TW:
         chat_channel_2: "[%{email_prefix}] %{channel1} 和 %{channel2} 中的新訊息"
       view_messages:
         other: "查看 %{count} 則訊息"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   unsubscribe:
     chat_summary:
       never: 永不

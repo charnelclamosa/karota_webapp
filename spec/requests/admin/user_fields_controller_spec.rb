@@ -5,11 +5,7 @@ RSpec.describe Admin::UserFieldsController do
   fab!(:moderator) { Fabricate(:moderator) }
   fab!(:user) { Fabricate(:user) }
 
-<<<<<<< HEAD
   describe "#create" do
-=======
-  describe '#create' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -50,7 +46,6 @@ RSpec.describe Admin::UserFieldsController do
     shared_examples "user field creation not allowed" do
       it "prevents creation with a 404 response" do
         expect do
-<<<<<<< HEAD
           post "/admin/customize/user_fields.json",
                params: {
                  user_field: {
@@ -59,11 +54,6 @@ RSpec.describe Admin::UserFieldsController do
                    field_type: "text",
                  },
                }
-=======
-          post "/admin/customize/user_fields.json", params: {
-            user_field: { name: 'hello', description: 'hello desc', field_type: 'text' }
-          }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end.not_to change { UserField.count }
 
         expect(response.status).to eq(404)
@@ -78,21 +68,13 @@ RSpec.describe Admin::UserFieldsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "user field creation not allowed"
     end
   end
 
-<<<<<<< HEAD
   describe "#index" do
-=======
-  describe '#index' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:user_field) { Fabricate(:user_field) }
 
     context "when logged in as an admin" do
@@ -112,11 +94,7 @@ RSpec.describe Admin::UserFieldsController do
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
-<<<<<<< HEAD
         expect(response.parsed_body["user_fields"]).to be_nil
-=======
-        expect(response.parsed_body['user_fields']).to be_nil
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -127,21 +105,13 @@ RSpec.describe Admin::UserFieldsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "user fields inaccessible"
     end
   end
 
-<<<<<<< HEAD
   describe "#destroy" do
-=======
-  describe '#destroy' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:user_field) { Fabricate(:user_field) }
 
     context "when logged in as an admin" do
@@ -157,15 +127,9 @@ RSpec.describe Admin::UserFieldsController do
 
     shared_examples "user field deletion not allowed" do
       it "prevents deletion with a 404 response" do
-<<<<<<< HEAD
         expect do delete "/admin/customize/user_fields/#{user_field.id}.json" end.not_to change {
           UserField.count
         }
-=======
-        expect do
-          delete "/admin/customize/user_fields/#{user_field.id}.json"
-        end.not_to change { UserField.count }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -179,21 +143,13 @@ RSpec.describe Admin::UserFieldsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "user field deletion not allowed"
     end
   end
 
-<<<<<<< HEAD
   describe "#update" do
-=======
-  describe '#update' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:user_field) { Fabricate(:user_field) }
 
     context "when logged in as an admin" do
@@ -290,7 +246,6 @@ RSpec.describe Admin::UserFieldsController do
         user_field.reload
         original_name = user_field.name
 
-<<<<<<< HEAD
         put "/admin/customize/user_fields/#{user_field.id}.json",
             params: {
               user_field: {
@@ -299,11 +254,6 @@ RSpec.describe Admin::UserFieldsController do
                 description: "muppet",
               },
             }
-=======
-        put "/admin/customize/user_fields/#{user_field.id}.json", params: {
-          user_field: { name: 'fraggle', field_type: 'confirm', description: 'muppet' }
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -320,11 +270,7 @@ RSpec.describe Admin::UserFieldsController do
     end
 
     context "when logged in as a non-staff user" do
-<<<<<<< HEAD
       before { sign_in(user) }
-=======
-      before  { sign_in(user) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "user field update not allowed"
     end

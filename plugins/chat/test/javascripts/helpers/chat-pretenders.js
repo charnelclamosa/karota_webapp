@@ -138,12 +138,7 @@ export function directMessageChannelPretender(
   opts = { unread_count: 0, muted: false }
 ) {
   let copy = cloneJSON(directMessageChannels[0]);
-<<<<<<< HEAD
   copy.chat_channel.currentUserMembership.muted = opts.muted;
-=======
-  copy.chat_channel.current_user_membership.unread_count = opts.unread_count;
-  copy.chat_channel.current_user_membership.muted = opts.muted;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   server.get("/chat/chat_channels/75.json", () => helper.response(copy));
 }
 
@@ -154,22 +149,12 @@ export function chatChannelPretender(server, helper, changes = []) {
     let found;
     found = copy.public_channels.find((c) => c.id === change.id);
     if (found) {
-<<<<<<< HEAD
       found.currentUserMembership.muted = change.muted;
-=======
-      found.current_user_membership.unread_count = change.unread_count;
-      found.current_user_membership.muted = change.muted;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
     if (!found) {
       found = copy.direct_message_channels.find((c) => c.id === change.id);
       if (found) {
-<<<<<<< HEAD
         found.currentUserMembership.muted = change.muted;
-=======
-        found.current_user_membership.unread_count = change.unread_count;
-        found.current_user_membership.muted = change.muted;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     }
   });

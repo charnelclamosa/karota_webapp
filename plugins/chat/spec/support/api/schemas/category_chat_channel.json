@@ -1,28 +1,9 @@
 {
   "type": "object",
   "additionalProperties": {
-<<<<<<< HEAD
     "auto_join_users": { "type": "boolean" },
     "current_user_membership": {
       "type": ["object"],
-=======
-    "auto_join_users": { "type": "boolean" }
-  },
-  "properties": {
-    "id": { "type": "number" },
-    "chatable_type": { "type": "string" },
-    "chatable_url": { "type": "string" },
-    "title": { "type": "string" },
-    "chatable_id": { "type": "number" },
-    "last_message_sent_at": { "type": "string" },
-    "status": { "type": "string" },
-    "chatable": {
-      "type": "object",
-      "required": ["id", "name", "slug", "color"]
-    },
-    "current_user_membership": {
-      "type": ["object", "null"],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "properties": {
         "last_read_message_id": { "type": ["number", "null"] },
         "muted": { "type": "boolean" },
@@ -33,7 +14,6 @@
         "following": { "type": "boolean" }
       }
     }
-<<<<<<< HEAD
   },
   "properties": {
     "id": { "type": "number" },
@@ -47,7 +27,5 @@
       "type": "object",
       "required": ["id", "name", "slug", "color"]
     }
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

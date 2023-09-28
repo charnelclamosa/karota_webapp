@@ -935,22 +935,11 @@ RSpec.describe PostRevisor do
         end
       end
 
-<<<<<<< HEAD
       context "when editing the before_edit_post event signature" do
         it "contains post and params" do
           params = { raw: "body (edited)" }
           events = DiscourseEvent.track_events { post_revisor.revise!(user, params) }
           expect(events).to include(event_name: :before_edit_post, params: [post, params])
-=======
-      context 'when editing the before_edit_post event signature' do
-        it 'contains post and params' do
-          params = { raw: 'body (edited)' }
-          events = DiscourseEvent.track_events { subject.revise!(user, params) }
-          expect(events).to include(
-            event_name: :before_edit_post,
-            params: [post, params]
-          )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end

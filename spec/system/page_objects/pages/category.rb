@@ -15,7 +15,6 @@ module PageObjects
         self
       end
 
-<<<<<<< HEAD
       def visit_edit_template(category)
         page.visit("/c/#{category.slug}/edit/topic-template")
         self
@@ -23,15 +22,10 @@ module PageObjects
 
       def back_to_category
         find(".edit-category-title-bar span", text: "Back to category").click
-=======
-      def back_to_category
-        find('.edit-category-title-bar span', text: 'Back to category').click
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         self
       end
 
       def save_settings
-<<<<<<< HEAD
         find("#save-category").click
         self
       end
@@ -88,16 +82,6 @@ module PageObjects
       def click_new
         page.find(CATEGORY_NAVIGATION_NEW_NAV_ITEM_SELECTOR).click
       end
-=======
-        find('#save-category').click
-        self
-      end
-
-      def toggle_setting(setting, text = '')
-        find(".edit-category-tab .#{setting} label.checkbox-label", text: text).click
-        self
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

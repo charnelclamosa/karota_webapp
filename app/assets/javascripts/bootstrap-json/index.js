@@ -7,11 +7,7 @@ const path = require("path");
 const fs = require("fs");
 const fsPromises = fs.promises;
 const { JSDOM } = require("jsdom");
-<<<<<<< HEAD
 const { shouldLoadPlugins } = require("discourse-plugins");
-=======
-const { shouldLoadPluginTestJs } = require("discourse-plugins");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 const { Buffer } = require("node:buffer");
 const { cwd, env } = require("node:process");
 
@@ -494,11 +490,7 @@ to serve API requests. For example:
 
     app.use(pathRestrictedRawMiddleware, async (req, res, next) => {
       try {
-<<<<<<< HEAD
         if (this.shouldHandleRequest(req, baseURL)) {
-=======
-        if (this.shouldForwardRequest(req, baseURL)) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           await handleRequest(proxy, baseURL, req, res);
         } else {
           // Fixes issues when using e.g. "localhost" instead of loopback IP address
@@ -519,11 +511,7 @@ to serve API requests. For example:
     });
   },
 
-<<<<<<< HEAD
   shouldHandleRequest(request, baseURL) {
-=======
-  shouldForwardRequest(request, baseURL) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (
       [
         `${baseURL}tests/index.html`,

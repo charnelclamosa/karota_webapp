@@ -5,11 +5,7 @@ require "file_store/s3_store"
 
 RSpec.describe CookedPostProcessor do
   fab!(:upload) { Fabricate(:upload) }
-<<<<<<< HEAD
   fab!(:large_image_upload) { Fabricate(:large_image_upload) }
-=======
-  fab!(:large_image_upload) { Fabricate(:large_image_upload)  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let(:upload_path) { Discourse.store.upload_path }
 
   describe "#post_process" do
@@ -951,17 +947,10 @@ RSpec.describe CookedPostProcessor do
       cpp = CookedPostProcessor.new(post, disable_dominant_color: true)
       cpp.post_process
 
-<<<<<<< HEAD
       doc = Nokogiri::HTML5.fragment(cpp.html)
 
       expect(doc.css(".lightbox-wrapper").size).to eq(1)
       expect(doc.css("img").first["srcset"]).to_not eq(nil)
-=======
-      doc = Nokogiri::HTML5::fragment(cpp.html)
-
-      expect(doc.css('.lightbox-wrapper').size).to eq(1)
-      expect(doc.css('img').first['srcset']).to_not eq(nil)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "processes animated images correctly" do
@@ -1042,13 +1031,9 @@ RSpec.describe CookedPostProcessor do
       Oneboxer
         .expects(:onebox)
         .with("https://discourse.org", anything)
-<<<<<<< HEAD
         .returns(
           "<aside class='onebox'><img src='#{large_image_upload.url}' width='512' height='384'></aside>",
         )
-=======
-        .returns("<aside class='onebox'><img src='#{large_image_upload.url}' width='512' height='384'></aside>")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       post = Fabricate(:post, raw: "https://discourse.org")
 
@@ -1418,11 +1403,7 @@ RSpec.describe CookedPostProcessor do
       HTML
 
       stub_request(:head, url)
-<<<<<<< HEAD
       stub_request(:get, url).to_return(body: body)
-=======
-      stub_request(:get , url).to_return(body: body)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       # not an ideal stub but shipping the whole image to fast image can add
       # a lot of cost to this test

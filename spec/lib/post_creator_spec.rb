@@ -161,11 +161,7 @@ RSpec.describe PostCreator do
 
         expect(events).to include(
           event_name: :before_create_post,
-<<<<<<< HEAD
           params: [creator.post, creator.opts],
-=======
-          params: [creator.post, creator.opts]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
 

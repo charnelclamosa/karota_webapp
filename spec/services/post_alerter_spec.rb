@@ -959,7 +959,6 @@ RSpec.describe PostAlerter do
             }
 
             it "notifies about @username mention" do
-<<<<<<< HEAD
               args = { user: bob, topic: pm_topic, raw: "Hello @alice" }
               expect { create_post_with_alerts(args) }.to add_notification(
                 alice,
@@ -973,15 +972,6 @@ RSpec.describe PostAlerter do
                 alice,
                 expected_notification,
               )
-=======
-              args = { user: bob, topic: pm_topic, raw: 'Hello @alice' }
-              expect { create_post_with_alerts(args) }.to add_notification(alice, expected_notification)
-            end
-
-            it "notifies about @username mentions by non-human users" do
-              args = { user: Discourse.system_user, topic: pm_topic, raw: 'Hello @alice' }
-              expect { create_post_with_alerts(args) }.to add_notification(alice, expected_notification)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             end
 
             it "notifies about @group mention when allowed user is part of group" do
@@ -1744,7 +1734,6 @@ RSpec.describe PostAlerter do
 
       u1.notifications.destroy_all
 
-<<<<<<< HEAD
       expect do create_post(topic: topic, user: u2) end.to change {
         u1.reload.notifications.count
       }.by(1)
@@ -1756,17 +1745,6 @@ RSpec.describe PostAlerter do
           read: false,
         ),
       ).to eq(true)
-=======
-      expect do
-        create_post(topic: topic, user: u2)
-      end.to change { u1.reload.notifications.count }.by(1)
-      expect(u1.notifications.exists?(
-        topic_id: topic.id,
-        notification_type: Notification.types[:replied],
-        post_number: 1,
-        read: false
-      )).to eq(true)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "it doesn't notify about small action posts when the topic author is watching the topic " do
@@ -1779,15 +1757,9 @@ RSpec.describe PostAlerter do
 
       u1.notifications.destroy_all
 
-<<<<<<< HEAD
       expect do topic.update_status("closed", true, u2, message: "hello world") end.not_to change {
         u1.reload.notifications.count
       }
-=======
-      expect do
-        topic.update_status("closed", true, u2, message: "hello world")
-      end.not_to change { u1.reload.notifications.count }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

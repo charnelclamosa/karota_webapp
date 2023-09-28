@@ -28,13 +28,8 @@ RSpec.describe User do
     end
   end
 
-<<<<<<< HEAD
   describe "Callbacks" do
     describe "default sidebar section links" do
-=======
-  describe 'Callbacks' do
-    describe 'default sidebar section links' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       fab!(:category) { Fabricate(:category) }
 
       fab!(:secured_category) do |category|
@@ -46,18 +41,13 @@ RSpec.describe User do
 
       fab!(:tag) { Fabricate(:tag) }
       fab!(:hidden_tag) { Fabricate(:tag) }
-<<<<<<< HEAD
       fab!(:staff_tag_group) do
         Fabricate(:tag_group, permissions: { "staff" => 1 }, tag_names: [hidden_tag.name])
       end
-=======
-      fab!(:staff_tag_group) { Fabricate(:tag_group, permissions: { "staff" => 1 }, tag_names: [hidden_tag.name]) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       before do
         SiteSetting.navigation_menu = "sidebar"
         SiteSetting.tagging_enabled = true
-<<<<<<< HEAD
         SiteSetting.default_navigation_menu_categories = "#{category.id}|#{secured_category.id}"
         SiteSetting.default_navigation_menu_tags = "#{tag.name}|#{hidden_tag.name}"
       end
@@ -75,78 +65,6 @@ RSpec.describe User do
       end
 
       it "should not create any sidebar section link records when navigation_menu site setting is still legacy" do
-=======
-        SiteSetting.default_sidebar_categories = "#{category.id}|#{secured_category.id}"
-        SiteSetting.default_sidebar_tags = "#{tag.name}|#{hidden_tag.name}"
-      end
-
-      it 'creates the right sidebar section link records for categories and tags that a user can see' do
-        user = Fabricate(:user)
-
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          category.id
-        )
-
-        expect(SidebarSectionLink.where(linkable_type: 'Tag', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          tag.id
-        )
-
-        admin = Fabricate(:admin)
-
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: admin.id).pluck(:linkable_id)).to contain_exactly(
-          category.id,
-          secured_category.id
-        )
-
-        expect(SidebarSectionLink.where(linkable_type: 'Tag', user_id: admin.id).pluck(:linkable_id)).to contain_exactly(
-          tag.id,
-          hidden_tag.id
-        )
-      end
-
-      it 'should create and remove the right sidebar section link records when user is promoted/demoted as an admin' do
-        user = Fabricate(:user)
-        another_category = Fabricate(:category)
-        another_tag = Fabricate(:tag)
-
-        # User has customized their sidebar categories and tags
-        SidebarSectionLink.where(user: user).delete_all
-        SidebarSectionLinksUpdater.update_category_section_links(user, category_ids: [another_category.id])
-        SidebarSectionLinksUpdater.update_tag_section_links(user, tag_names: [another_tag.name])
-
-        # A user promoted to admin now has any default categories/tags they didn't previously have access to
-        user.update(admin: true)
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          another_category.id,
-          secured_category.id
-        )
-        expect(SidebarSectionLink.where(linkable_type: 'Tag', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          another_tag.id,
-          hidden_tag.id
-        )
-
-        # User still has their customized sidebar categories and tags after demotion
-        user.update(admin: false)
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          another_category.id
-        )
-        expect(SidebarSectionLink.where(linkable_type: 'Tag', user_id: user.id).pluck(:linkable_id)).to contain_exactly(
-          another_tag.id
-        )
-      end
-
-      it 'should not receive any new categories w/ suppress secured categories from admin enabled' do
-        SiteSetting.suppress_secured_categories_from_admin = true
-        user = Fabricate(:user)
-        SidebarSectionLink.where(user: user).delete_all # User has customized their sidebar categories
-        user.update(admin: true)
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: user.id).pluck(:linkable_id)).to be_empty
-        user.update(admin: false)
-        expect(SidebarSectionLink.where(linkable_type: 'Category', user_id: user.id).pluck(:linkable_id)).to be_empty
-      end
-
-      it 'should not create any sidebar section link records when navigation_menu site setting is still legacy' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SiteSetting.navigation_menu = "legacy"
 
         user = Fabricate(:user)
@@ -154,7 +72,6 @@ RSpec.describe User do
         expect(SidebarSectionLink.exists?(user_id: user.id)).to eq(false)
       end
 
-<<<<<<< HEAD
       it "should not create any sidebar section link records for staged users" do
         user = Fabricate(:user, staged: true)
 
@@ -162,22 +79,12 @@ RSpec.describe User do
       end
 
       it "should create sidebar section link records when user has been unstaged" do
-=======
-      it 'should not create any sidebar section link records for staged users' do
-        user = Fabricate(:user, staged: true)
-
-        expect(SidebarSectionLink.exists?).to eq(false)
-      end
-
-      it 'should create sidebar section link records when user has been unstaged' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         user = Fabricate(:user, staged: true)
         user.unstage!
 
         expect(SidebarSectionLink.exists?(user: user)).to eq(true)
       end
 
-<<<<<<< HEAD
       it "should not create any sidebar section link records for non human users" do
         id = -Time.now.to_i
         user = Fabricate(:user, id: id)
@@ -186,20 +93,10 @@ RSpec.describe User do
       end
 
       it "should not create any tag sidebar section link records when tagging is disabled" do
-=======
-      it 'should not create any sidebar section link records for non human users' do
-        user = Fabricate(:user, id: -Time.now.to_i)
-
-        expect(SidebarSectionLink.exists?).to eq(false)
-      end
-
-      it 'should not create any tag sidebar section link records when tagging is disabled' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SiteSetting.tagging_enabled = false
 
         user = Fabricate(:user)
 
-<<<<<<< HEAD
         expect(SidebarSectionLink.exists?(linkable_type: "Category", user_id: user.id)).to eq(true)
         expect(SidebarSectionLink.exists?(linkable_type: "Tag", user_id: user.id)).to eq(false)
       end
@@ -215,21 +112,12 @@ RSpec.describe User do
             new_name: "Batman",
           },
         ) { user.update(name: "Batman") }
-=======
-        expect(SidebarSectionLink.exists?(linkable_type: 'Category', user_id: user.id)).to eq(true)
-        expect(SidebarSectionLink.exists?(linkable_type: 'Tag', user_id: user.id)).to eq(false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end
 
-<<<<<<< HEAD
   describe "Validations" do
     describe "#username" do
-=======
-  describe 'Validations' do
-    describe '#username' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it { is_expected.to validate_presence_of :username }
 
       describe "when username already exists" do
@@ -2368,13 +2256,8 @@ RSpec.describe User do
     end
   end
 
-<<<<<<< HEAD
   describe ".human_users" do
     it "should only return users with a positive primary key" do
-=======
-  describe '.human_users' do
-    it 'should only return users with a positive primary key' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       Fabricate(:bot)
       user = Fabricate(:user)
 
@@ -2475,18 +2358,11 @@ RSpec.describe User do
     end
 
     context "with sidebar based navigation menu" do
-<<<<<<< HEAD
       before { SiteSetting.navigation_menu = "sidebar" }
-=======
-      before do
-        SiteSetting.navigation_menu = "sidebar"
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "adds all_unread_notifications and grouped_unread_notifications to the payload" do
         user.update!(admin: true)
         Fabricate(:notification, user: user, notification_type: 1)
-<<<<<<< HEAD
         Fabricate(
           :notification,
           notification_type: 15,
@@ -2500,10 +2376,6 @@ RSpec.describe User do
           notification_type: Notification.types[:private_message],
           read: false,
         )
-=======
-        Fabricate(:notification, notification_type: 15, high_priority: true, read: false, user: user)
-        Fabricate(:notification, user: user, notification_type: Notification.types[:private_message], read: false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         messages =
           MessageBus.track_publish("/notification/#{user.id}") { user.publish_notifications_state }
@@ -2513,13 +2385,9 @@ RSpec.describe User do
         message = messages.first
 
         expect(message.data[:all_unread_notifications_count]).to eq(3)
-<<<<<<< HEAD
         expect(message.data[:grouped_unread_notifications]).to eq(
           { 1 => 1, 15 => 1, Notification.types[:private_message] => 1 },
         )
-=======
-        expect(message.data[:grouped_unread_notifications]).to eq({ 1 => 1, 15 => 1, Notification.types[:private_message] => 1 })
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(message.data[:new_personal_messages_notifications_count]).to eq(1)
       end
     end
@@ -3452,14 +3320,10 @@ RSpec.describe User do
       expect(messages.first).to have_attributes(
         channel: "/reviewable_counts/#{user.id}",
         user_ids: [user.id],
-<<<<<<< HEAD
         data: {
           unseen_reviewable_count: 0,
           reviewable_count: 1,
         },
-=======
-        data: { unseen_reviewable_count: 0, reviewable_count: 1 }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
   end
@@ -3482,7 +3346,6 @@ RSpec.describe User do
     end
   end
 
-<<<<<<< HEAD
   describe "#secured_sidebar_category_ids" do
     fab!(:user) { Fabricate(:user) }
     fab!(:category) { Fabricate(:category) }
@@ -3521,17 +3384,6 @@ RSpec.describe User do
     end
 
     it "should only return tag sidebar section link records of tags that the user is allowed to see" do
-=======
-  describe '#visible_sidebar_tags' do
-    fab!(:user) { Fabricate(:user) }
-    fab!(:tag) { Fabricate(:tag) }
-    fab!(:hidden_tag) { Fabricate(:tag, name: "secret") }
-    fab!(:staff_tag_group) { Fabricate(:tag_group, permissions: { "staff" => 1 }, tag_names: ["secret"]) }
-    fab!(:tag_sidebar_section_link) { Fabricate(:tag_sidebar_section_link, user: user, linkable: tag) }
-    fab!(:tag_sidebar_section_link_2) { Fabricate(:tag_sidebar_section_link, user: user, linkable: hidden_tag) }
-
-    it 'should only return tag sidebar section link records of tags that the user is allowed to see' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(user.visible_sidebar_tags).to contain_exactly(tag)
 
       user.update!(admin: true)
@@ -3540,47 +3392,29 @@ RSpec.describe User do
     end
   end
 
-<<<<<<< HEAD
   describe "#secure_category_ids" do
-=======
-  describe '#secure_category_ids' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:admin) { Fabricate(:admin) }
     fab!(:group) { Fabricate(:group) }
     fab!(:private_category) { Fabricate(:private_category, group: group) }
 
-<<<<<<< HEAD
     it "allows admin to see all secure categories" do
       expect(admin.secure_category_ids).to include(private_category.id)
     end
 
     context "when SiteSetting.suppress_secured_categories_from_admin is true" do
       it "hides secure categories from admins" do
-=======
-    it 'allows admin to see all secure categories' do
-      expect(admin.secure_category_ids).to include(private_category.id)
-    end
-
-    context 'when SiteSetting.suppress_secured_categories_from_admin is true' do
-      it 'hides secure categories from admins' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         SiteSetting.suppress_secured_categories_from_admin = true
         expect(admin.secure_category_ids).not_to include(private_category.id)
       end
     end
   end
 
-<<<<<<< HEAD
   describe "#new_personal_messages_notifications_count" do
-=======
-  describe '#new_personal_messages_notifications_count' do
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     it "returns count of new and unread private_message notifications of the user" do
       another_user = Fabricate(:user)
 
       Fabricate(:notification, user: user, read: false)
 
-<<<<<<< HEAD
       last_seen_id =
         Fabricate(
           :notification,
@@ -3588,14 +3422,6 @@ RSpec.describe User do
           read: false,
           notification_type: Notification.types[:private_message],
         ).id
-=======
-      last_seen_id = Fabricate(
-        :notification,
-        user: user,
-        read: false,
-        notification_type: Notification.types[:private_message]
-      ).id
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(user.new_personal_messages_notifications_count).to eq(1)
 
@@ -3603,44 +3429,28 @@ RSpec.describe User do
         :notification,
         user: user,
         read: false,
-<<<<<<< HEAD
         notification_type: Notification.types[:private_message],
-=======
-        notification_type: Notification.types[:private_message]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       Fabricate(
         :notification,
         user: another_user,
         read: false,
-<<<<<<< HEAD
         notification_type: Notification.types[:private_message],
-=======
-        notification_type: Notification.types[:private_message]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       Fabricate(
         :notification,
         user: user,
         read: true,
-<<<<<<< HEAD
         notification_type: Notification.types[:private_message],
-=======
-        notification_type: Notification.types[:private_message]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       Fabricate(
         :notification,
         user: user,
         read: false,
-<<<<<<< HEAD
         notification_type: Notification.types[:replied],
-=======
-        notification_type: Notification.types[:replied]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
 
       user.update!(seen_notification_id: last_seen_id)

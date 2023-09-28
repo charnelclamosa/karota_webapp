@@ -1,42 +1,8 @@
-<<<<<<< HEAD
 .chat-skeleton {
   height: auto;
 
   &__body {
     padding: 0.5em 1em;
-=======
-$radius: 10px;
-
-.chat-skeleton {
-  height: auto;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 1em;
-    border-bottom: 1px solid var(--primary-100);
-    box-sizing: border-box;
-  }
-
-  &__header-img {
-    background-color: var(--primary-100);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-  }
-
-  &__header-name {
-    background-color: var(--primary-100);
-    width: 70px;
-    height: 18px;
-    border-radius: $radius;
-  }
-
-  &__body {
-    padding: 1em;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   &__message {
@@ -60,17 +26,10 @@ $radius: 10px;
     border-radius: 50%;
     margin-right: 0.5rem;
 
-<<<<<<< HEAD
     .chat-skeleton__body:nth-of-type(odd) & {
       background-color: var(--primary-100);
     }
     .chat-skeleton__body:nth-of-type(even) & {
-=======
-    .chat-skeleton__message:nth-of-type(odd) & {
-      background-color: var(--primary-100);
-    }
-    .chat-skeleton__message:nth-of-type(even) & {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       background-color: var(--primary-200);
     }
   }
@@ -81,21 +40,12 @@ $radius: 10px;
     margin-bottom: 0.25rem;
     width: 70px;
     height: 20px;
-<<<<<<< HEAD
     border-radius: var(--d-border-radius);
 
     .chat-skeleton__body:nth-of-type(odd) & {
       background-color: var(--primary-100);
     }
     .chat-skeleton__body:nth-of-type(even) & {
-=======
-    border-radius: $radius;
-
-    .chat-skeleton__message:nth-of-type(odd) & {
-      background-color: var(--primary-100);
-    }
-    .chat-skeleton__message:nth-of-type(even) & {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       background-color: var(--primary-200);
     }
   }
@@ -103,7 +53,6 @@ $radius: 10px;
   &__message-content {
     grid-area: content;
     width: 100%;
-<<<<<<< HEAD
     padding: 10px 0;
   }
 
@@ -153,51 +102,17 @@ $radius: 10px;
   *[class^="chat-skeleton__message-"] {
     position: relative;
     overflow: hidden;
-=======
-  }
-  &__message-msg {
-    height: 13px;
-    border-radius: $radius;
-
-    .chat-skeleton__message:nth-of-type(odd) & {
-      background-color: var(--primary-100);
-    }
-    .chat-skeleton__message:nth-of-type(even) & {
-      background-color: var(--primary-200);
-    }
-
-    &.-line1 {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5em;
-    }
-
-    &.-small {
-      width: 35%;
-    }
-
-    &.-medium {
-      width: 60%;
-    }
-
-    &.-large {
-      width: 85%;
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   &.-animation {
     position: relative;
     overflow: hidden;
 
-<<<<<<< HEAD
     *[class^="chat-skeleton__message-"]:not(
         .chat-skeleton__message-content
       ):not(.chat-skeleton__message-text):not(
         .chat-skeleton__message-reactions
       ):after {
-=======
-    &::after {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       position: absolute;
       top: 0;
       right: 0;
@@ -207,20 +122,12 @@ $radius: 10px;
       background: linear-gradient(
         90deg,
         rgba(var(--chat-skeleton-animation-rgb), 0) 0,
-<<<<<<< HEAD
         rgba(var(--chat-skeleton-animation-rgb), 0.3) 50%,
         rgba(var(--chat-skeleton-animation-rgb), 0.5) 100%
       );
       @media (prefers-reduced-motion: no-preference) {
         animation: shimmer 1.25s infinite;
       }
-=======
-        rgba(var(--chat-skeleton-animation-rgb), 0.2) 20%,
-        rgba(var(--chat-skeleton-animation-rgb), 0.5) 60%,
-        rgba(var(--chat-skeleton-animation-rgb), 0)
-      );
-      animation: shimmer 1.5s infinite;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       content: "";
     }
 

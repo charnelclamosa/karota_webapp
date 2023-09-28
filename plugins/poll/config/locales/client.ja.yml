@@ -37,17 +37,10 @@ ja:
         label: "今すぐ投票！"
       show-results:
         title: "投票結果を表示する"
-<<<<<<< HEAD
         label: "結果"
       remove-vote:
         title: "投票の削除"
         label: "投票を取り消す"
-=======
-        label: "結果を表示する"
-      remove-vote:
-        title: "投票の削除"
-        label: "投票を削除"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hide-results:
         title: "自分の投票に戻る"
         label: "投票"

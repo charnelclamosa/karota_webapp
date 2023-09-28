@@ -10,14 +10,10 @@ module UploadsHelpers
     SiteSetting.s3_access_key_id = "some key"
     SiteSetting.s3_secret_access_key = "some secrets3_region key"
 
-<<<<<<< HEAD
     stub_request(
       :head,
       "https://#{SiteSetting.s3_upload_bucket}.s3.#{SiteSetting.s3_region}.amazonaws.com/",
     )
-=======
-    stub_request(:head, "https://#{SiteSetting.s3_upload_bucket}.s3.#{SiteSetting.s3_region}.amazonaws.com/")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def enable_secure_uploads
