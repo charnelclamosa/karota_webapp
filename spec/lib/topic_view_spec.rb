@@ -457,6 +457,7 @@ RSpec.describe TopicView do
 
     describe "#bookmarks" do
       let!(:user) { Fabricate(:user) }
+<<<<<<< HEAD
       let!(:bookmark1) do
         Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.first_post, user: user)
       end
@@ -467,6 +468,10 @@ RSpec.describe TopicView do
           user: user,
         )
       end
+=======
+      let!(:bookmark1) { Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.first_post, user: user) }
+      let!(:bookmark2) { Fabricate(:bookmark_next_business_day_reminder, bookmarkable: topic.posts.order(:post_number)[1], user: user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "gets the first post bookmark reminder at for the user" do
         topic_view = TopicView.new(topic.id, user)
@@ -1004,9 +1009,14 @@ RSpec.describe TopicView do
 
   describe "#reviewable_counts" do
     it "exclude posts queued because the category needs approval" do
-      category = Fabricate.build(:category, user: admin)
-      category.custom_fields[Category::REQUIRE_TOPIC_APPROVAL] = true
-      category.save!
+      category =
+        Fabricate.create(
+          :category,
+          user: admin,
+          category_setting_attributes: {
+            require_topic_approval: true,
+          },
+        )
       manager =
         NewPostManager.new(
           user,
@@ -1081,13 +1091,16 @@ RSpec.describe TopicView do
       let(:queue_enabled) { false }
 
       context "when category is moderated" do
-        before { category.custom_fields[Category::REQUIRE_REPLY_APPROVAL] = true }
+        before do
+          category.require_reply_approval = true
+          category.save!
+        end
 
         it { expect(topic_view.queued_posts_enabled?).to be(true) }
       end
 
       context "when category is not moderated" do
-        it { expect(topic_view.queued_posts_enabled?).to be(nil) }
+        it { expect(topic_view.queued_posts_enabled?).to be(false) }
       end
     end
   end

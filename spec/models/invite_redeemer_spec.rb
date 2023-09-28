@@ -20,12 +20,16 @@ RSpec.describe InviteRedeemer do
 
       context "when an email is passed in with a redeeming user" do
         it "uses the redeeming user's email for invite redemption" do
+<<<<<<< HEAD
           redeemer =
             described_class.new(
               invite: invite,
               email: "blah@test.com",
               redeeming_user: redeeming_user,
             )
+=======
+          redeemer = described_class.new(invite: invite, email: "blah@test.com", redeeming_user: redeeming_user)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(redeemer.email).to eq(redeeming_user.email)
           expect { redeemer.redeem }.not_to change { User.count }
         end
@@ -41,9 +45,13 @@ RSpec.describe InviteRedeemer do
 
       context "when no email and no redeeming user is passed in" do
         it "raises an error" do
+<<<<<<< HEAD
           expect {
             described_class.new(invite: invite, email: nil, redeeming_user: nil)
           }.to raise_error(Discourse::InvalidParameters)
+=======
+          expect { described_class.new(invite: invite, email: nil, redeeming_user: nil) }.to raise_error(Discourse::InvalidParameters)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
@@ -62,6 +70,7 @@ RSpec.describe InviteRedeemer do
 
       context "when an email is passed in with a redeeming user" do
         it "uses the redeeming user's email for invite redemption" do
+<<<<<<< HEAD
           redeemer =
             described_class.new(
               invite: invite,
@@ -73,6 +82,11 @@ RSpec.describe InviteRedeemer do
             ActiveRecord::RecordNotSaved,
             I18n.t("invite.not_matching_email"),
           )
+=======
+          redeemer = described_class.new(invite: invite, email: "blah@test.com", redeeming_user: redeeming_user)
+          expect(redeemer.email).to eq(redeeming_user.email)
+          expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.not_matching_email"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -80,10 +94,14 @@ RSpec.describe InviteRedeemer do
         it "uses the invite email for invite redemption" do
           redeemer = described_class.new(invite: invite, email: nil, redeeming_user: redeeming_user)
           expect(redeemer.email).to eq("foobar@example.com")
+<<<<<<< HEAD
           expect { redeemer.redeem }.to raise_error(
             ActiveRecord::RecordNotSaved,
             I18n.t("invite.not_matching_email"),
           )
+=======
+          expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.not_matching_email"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
 
@@ -98,7 +116,11 @@ RSpec.describe InviteRedeemer do
     end
   end
 
+<<<<<<< HEAD
   describe ".create_user_from_invite" do
+=======
+  describe '.create_user_from_invite' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     it "should be created correctly" do
       invite = Fabricate(:invite, email: "walter.white@email.com")
       user =
@@ -293,17 +315,30 @@ RSpec.describe InviteRedeemer do
   end
 
   describe "#redeem" do
+<<<<<<< HEAD
     let(:name) { "john snow" }
     let(:username) { "kingofthenorth" }
     let(:password) { "know5nOthiNG" }
     let(:invite_redeemer) do
       InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name)
     end
+=======
+    let(:name) { 'john snow' }
+    let(:username) { 'kingofthenorth' }
+    let(:password) { 'know5nOthiNG' }
+    let(:invite_redeemer) { InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     context "with email" do
       fab!(:invite) { Fabricate(:invite, email: "foobar@example.com") }
       context "when must_approve_users setting is enabled" do
+<<<<<<< HEAD
         before { SiteSetting.must_approve_users = true }
+=======
+        before do
+          SiteSetting.must_approve_users = true
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "should redeem an invite but not approve the user when invite is created by a staff user" do
           inviter = invite.invited_by
@@ -358,6 +393,7 @@ RSpec.describe InviteRedeemer do
       end
 
       it "can set password" do
+<<<<<<< HEAD
         user =
           InviteRedeemer.new(
             invite: invite,
@@ -366,6 +402,9 @@ RSpec.describe InviteRedeemer do
             name: name,
             password: password,
           ).redeem
+=======
+        user = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name, password: password).redeem
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(user).to have_password
         expect(user.confirm_password?(password)).to eq(true)
         expect(user.approved).to eq(false)
@@ -374,6 +413,7 @@ RSpec.describe InviteRedeemer do
       it "can set custom fields" do
         required_field = Fabricate(:user_field)
         optional_field = Fabricate(:user_field, required: false)
+<<<<<<< HEAD
         user_fields = { required_field.id.to_s => "value1", optional_field.id.to_s => "value2" }
         user =
           InviteRedeemer.new(
@@ -388,11 +428,23 @@ RSpec.describe InviteRedeemer do
         expect(user).to be_present
         expect(user.custom_fields["user_field_#{required_field.id}"]).to eq("value1")
         expect(user.custom_fields["user_field_#{optional_field.id}"]).to eq("value2")
+=======
+        user_fields = {
+          required_field.id.to_s => 'value1',
+          optional_field.id.to_s => 'value2'
+        }
+        user = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name, password: password, user_custom_fields: user_fields).redeem
+
+        expect(user).to be_present
+        expect(user.custom_fields["user_field_#{required_field.id}"]).to eq('value1')
+        expect(user.custom_fields["user_field_#{optional_field.id}"]).to eq('value2')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "does not add user to group if inviter does not have permissions" do
         group = Fabricate(:group, grant_trust_level: 2)
         InvitedGroup.create(group_id: group.id, invite_id: invite.id)
+<<<<<<< HEAD
         user =
           InviteRedeemer.new(
             invite: invite,
@@ -401,6 +453,9 @@ RSpec.describe InviteRedeemer do
             name: name,
             password: password,
           ).redeem
+=======
+        user = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name, password: password).redeem
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(user.group_users.count).to eq(0)
       end
@@ -410,6 +465,7 @@ RSpec.describe InviteRedeemer do
         InvitedGroup.create(group_id: group.id, invite_id: invite.id)
         group.add_owner(invite.invited_by)
 
+<<<<<<< HEAD
         user =
           InviteRedeemer.new(
             invite: invite,
@@ -418,6 +474,9 @@ RSpec.describe InviteRedeemer do
             name: name,
             password: password,
           ).redeem
+=======
+        user = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name, password: password).redeem
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(user.group_users.count).to eq(4)
         expect(user.trust_level).to eq(2)
@@ -430,6 +489,7 @@ RSpec.describe InviteRedeemer do
 
         GroupHistory.destroy_all
 
+<<<<<<< HEAD
         user =
           InviteRedeemer.new(
             invite: invite,
@@ -448,6 +508,23 @@ RSpec.describe InviteRedeemer do
             action: GroupHistory.actions[:add_user_to_group],
           ),
         ).to eq(true)
+=======
+        user = InviteRedeemer.new(
+          invite: invite,
+          email: invite.email,
+          username: username,
+          name: name,
+          password: password
+        ).redeem
+
+        expect(group.reload.usernames.split(",")).to include(user.username)
+        expect(GroupHistory.exists?(
+          target_user_id: user.id,
+          acting_user: invite.invited_by.id,
+          group_id: group.id,
+          action: GroupHistory.actions[:add_user_to_group]
+        )).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "only allows one user to be created per invite" do
@@ -457,8 +534,12 @@ RSpec.describe InviteRedeemer do
         user.email = "john@example.com"
         user.save!
 
+<<<<<<< HEAD
         another_invite_redeemer =
           InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name)
+=======
+        another_invite_redeemer = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         another_user = another_invite_redeemer.redeem
         expect(another_user).to eq(nil)
       end
@@ -478,18 +559,24 @@ RSpec.describe InviteRedeemer do
       end
 
       it "raises an error if the email does not match the invite email" do
+<<<<<<< HEAD
         redeemer =
           InviteRedeemer.new(invite: invite, email: "blah@test.com", username: username, name: name)
         expect { redeemer.redeem }.to raise_error(
           ActiveRecord::RecordNotSaved,
           I18n.t("invite.not_matching_email"),
         )
+=======
+        redeemer = InviteRedeemer.new(invite: invite, email: "blah@test.com", username: username, name: name)
+        expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.not_matching_email"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "adds the user to the appropriate private topic and no others" do
         topic1 = Fabricate(:private_message_topic)
         topic2 = Fabricate(:private_message_topic)
         TopicInvite.create(invite: invite, topic: topic1)
+<<<<<<< HEAD
         user =
           InviteRedeemer.new(
             invite: invite,
@@ -498,6 +585,9 @@ RSpec.describe InviteRedeemer do
             name: name,
             password: password,
           ).redeem
+=======
+        user = InviteRedeemer.new(invite: invite, email: invite.email, username: username, name: name, password: password).redeem
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(TopicAllowedUser.exists?(topic: topic1, user: user)).to eq(true)
         expect(TopicAllowedUser.exists?(topic: topic2, user: user)).to eq(false)
       end
@@ -508,10 +598,14 @@ RSpec.describe InviteRedeemer do
         it "raises an error if the email does not match the invite email" do
           redeeming_user.update!(email: "foo@bar.com")
           redeemer = InviteRedeemer.new(invite: invite, redeeming_user: redeeming_user)
+<<<<<<< HEAD
           expect { redeemer.redeem }.to raise_error(
             ActiveRecord::RecordNotSaved,
             I18n.t("invite.not_matching_email"),
           )
+=======
+          expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.not_matching_email"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "adds the user to the appropriate private topic and no others" do
@@ -527,13 +621,18 @@ RSpec.describe InviteRedeemer do
           topic1 = Fabricate(:private_message_topic)
           TopicInvite.create(invite: invite, topic: topic1)
           TopicAllowedUser.create(topic: topic1, user: redeeming_user)
+<<<<<<< HEAD
           expect {
             InviteRedeemer.new(invite: invite, redeeming_user: redeeming_user).redeem
           }.not_to change { TopicAllowedUser.count }
+=======
+          expect { InviteRedeemer.new(invite: invite, redeeming_user: redeeming_user).redeem }.not_to change { TopicAllowedUser.count }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
       end
     end
 
+<<<<<<< HEAD
     context "with domain" do
       fab!(:invite) { Fabricate(:invite, email: nil, domain: "test.com") }
 
@@ -578,6 +677,32 @@ RSpec.describe InviteRedeemer do
       let(:invite_redeemer) { InviteRedeemer.new(invite: invite_link, email: "foo@example.com") }
 
       it "works as expected" do
+=======
+    context 'with domain' do
+      fab!(:invite) { Fabricate(:invite, email: nil, domain: "test.com") }
+
+      it "raises an error if the email domain does not match the invite domain" do
+        redeemer = InviteRedeemer.new(invite: invite, email: "blah@somesite.com", username: username, name: name)
+        expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.domain_not_allowed"))
+      end
+
+      context "when a redeeming user is passed in" do
+        fab!(:redeeming_user) { Fabricate(:user, email: "foo@test.com") }
+
+        it "raises an error if the user's email domain does not match the invite domain" do
+          redeeming_user.update!(email: "foo@bar.com")
+          redeemer = InviteRedeemer.new(invite: invite, redeeming_user: redeeming_user)
+          expect { redeemer.redeem }.to raise_error(ActiveRecord::RecordNotSaved, I18n.t("invite.domain_not_allowed"))
+        end
+      end
+    end
+
+    context 'with invite_link' do
+      fab!(:invite_link) { Fabricate(:invite, email: nil, max_redemptions_allowed: 5, expires_at: 1.month.from_now, emailed_status: Invite.emailed_status_types[:not_required]) }
+      let(:invite_redeemer) { InviteRedeemer.new(invite: invite_link, email: 'foo@example.com') }
+
+      it 'works as expected' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         user = invite_redeemer.redeem
         invite_link.reload
 
@@ -606,6 +731,7 @@ RSpec.describe InviteRedeemer do
       end
 
       it "raises an error if the email is already being used by an existing user" do
+<<<<<<< HEAD
         Fabricate(:user, email: "foo@example.com")
         expect { invite_redeemer.redeem }.to raise_error(
           ActiveRecord::RecordInvalid,
@@ -615,6 +741,14 @@ RSpec.describe InviteRedeemer do
 
       context "when a redeeming user is passed in" do
         fab!(:redeeming_user) { Fabricate(:user, email: "foo@example.com") }
+=======
+        Fabricate(:user, email: 'foo@example.com')
+        expect { invite_redeemer.redeem }.to raise_error(ActiveRecord::RecordInvalid, /Primary email has already been taken/)
+      end
+
+      context "when a redeeming user is passed in" do
+        fab!(:redeeming_user) { Fabricate(:user, email: 'foo@example.com') }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "does not create a new user" do
           expect do

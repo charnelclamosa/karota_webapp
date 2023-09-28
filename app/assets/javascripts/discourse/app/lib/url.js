@@ -227,14 +227,14 @@ const DiscourseURL = EmberObject.extend({
     path = path.replace(/(https?\:)?\/\/[^\/]+/, "");
 
     // Rewrite /my/* urls
-    let myPath = getURL("/my");
+    let myPath = getURL("/my/");
     const fullPath = getURL(path);
     if (fullPath.startsWith(myPath)) {
       const currentUser = User.current();
       if (currentUser) {
         path = fullPath.replace(
           myPath,
-          userPath(currentUser.get("username_lower"))
+          `${userPath(currentUser.get("username_lower"))}/`
         );
       } else {
         return this.redirectTo("/login-preferences");
@@ -413,7 +413,11 @@ const DiscourseURL = EmberObject.extend({
   },
 
   get isComposerOpen() {
+<<<<<<< HEAD
     return this.container.lookup("service:composer")?.visible;
+=======
+    return this.controllerFor("composer")?.visible;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   get router() {

@@ -6,6 +6,7 @@ RSpec.describe Admin::ThemesController do
   fab!(:user) { Fabricate(:user) }
 
   let! :repo do
+<<<<<<< HEAD
     setup_git_repo("about.json" => { name: "discourse-branch-header" }.to_json)
   end
 
@@ -20,6 +21,28 @@ RSpec.describe Admin::ThemesController do
       before { sign_in(admin) }
 
       it "can generate key pairs" do
+=======
+    setup_git_repo(
+      "about.json" => { name: "discourse-branch-header" }.to_json,
+    )
+  end
+
+  let! :repo_url do
+    MockGitImporter.register('https://github.com/discourse/discourse-brand-header.git', repo)
+  end
+
+  around(:each) do |group|
+    MockGitImporter.with_mock do
+      group.run
+    end
+  end
+
+  describe '#generate_key_pair' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it 'can generate key pairs' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post "/admin/themes/generate_key_pair.json"
         expect(response.status).to eq(200)
         json = response.parsed_body
@@ -45,7 +68,11 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "key pair generation not allowed"
     end
@@ -59,7 +86,11 @@ RSpec.describe Admin::ThemesController do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
+<<<<<<< HEAD
       it "can create a theme upload" do
+=======
+      it 'can create a theme upload' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post "/admin/themes/upload_asset.json", params: { file: upload }
         expect(response.status).to eq(201)
 
@@ -103,18 +134,27 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme asset upload not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#export" do
+=======
+  describe '#export' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "exports correctly" do
         theme = Fabricate(:theme, name: "Awesome Theme")
+<<<<<<< HEAD
         theme.set_field(target: :common, name: :scss, value: ".body{color: black;}")
         theme.set_field(target: :desktop, name: :after_header, value: "<b>test</b>")
         theme.set_field(
@@ -122,13 +162,22 @@ RSpec.describe Admin::ThemesController do
           name: "discourse/controller/blah",
           value: 'console.log("test");',
         )
+=======
+        theme.set_field(target: :common, name: :scss, value: '.body{color: black;}')
+        theme.set_field(target: :desktop, name: :after_header, value: '<b>test</b>')
+        theme.set_field(target: :extra_js, name: "discourse/controller/blah", value: 'console.log("test");')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         theme.save!
 
         get "/admin/customize/themes/#{theme.id}/export"
         expect(response.status).to eq(200)
 
         # Save the output in a temp file (automatically cleaned up)
+<<<<<<< HEAD
         file = Tempfile.new("archive.zip")
+=======
+        file = Tempfile.new('archive.zip')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         file.write(response.body)
         file.rewind
         uploaded_file = Rack::Test::UploadedFile.new(file.path, "application/zip")
@@ -163,13 +212,21 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme export not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#import" do
+=======
+  describe '#import' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     let(:theme_json_file) do
       Rack::Test::UploadedFile.new(
         file_from_fixtures("sam-s-simple-theme.dcstyle.json", "json"),
@@ -189,19 +246,31 @@ RSpec.describe Admin::ThemesController do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
+<<<<<<< HEAD
       context "when theme allowlist mode is enabled" do
         before do
           global_setting :allowed_theme_repos,
                          "https://github.com/discourse/discourse-brand-header.git"
+=======
+      context 'when theme allowlist mode is enabled' do
+        before do
+          global_setting :allowed_theme_repos, "https://github.com/discourse/discourse-brand-header.git"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "allows allowlisted imports" do
           expect(Theme.allowed_remote_theme_ids.length).to eq(0)
 
+<<<<<<< HEAD
           post "/admin/themes/import.json",
                params: {
                  remote: "    https://github.com/discourse/discourse-brand-header.git       ",
                }
+=======
+          post "/admin/themes/import.json", params: {
+            remote: '    https://github.com/discourse/discourse-brand-header.git       '
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(Theme.allowed_remote_theme_ids.length).to eq(1)
           expect(response.status).to eq(201)
@@ -209,14 +278,22 @@ RSpec.describe Admin::ThemesController do
 
         it "prevents adding disallowed themes" do
           RemoteTheme.stubs(:import_theme)
+<<<<<<< HEAD
           remote = "    https://bad.com/discourse/discourse-brand-header.git       "
+=======
+          remote = '    https://bad.com/discourse/discourse-brand-header.git       '
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           post "/admin/themes/import.json", params: { remote: remote }
 
           expect(response.status).to eq(403)
+<<<<<<< HEAD
           expect(response.parsed_body["errors"]).to include(
             I18n.t("themes.import_error.not_allowed_theme", { repo: remote.strip }),
           )
+=======
+          expect(response.parsed_body['errors']).to include(I18n.t("themes.import_error.not_allowed_theme", { repo: remote.strip }))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
         it "bans json file import" do
@@ -225,22 +302,38 @@ RSpec.describe Admin::ThemesController do
         end
       end
 
+<<<<<<< HEAD
       it "can import a theme from Git" do
         RemoteTheme.stubs(:import_theme)
         post "/admin/themes/import.json",
              params: {
                remote: "    https://github.com/discourse/discourse-brand-header.git       ",
              }
+=======
+      it 'can import a theme from Git' do
+        RemoteTheme.stubs(:import_theme)
+        post "/admin/themes/import.json", params: {
+          remote: '    https://github.com/discourse/discourse-brand-header.git       '
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(201)
       end
 
+<<<<<<< HEAD
       it "fails to import with a failing status" do
         post "/admin/themes/import.json", params: { remote: "non-existent" }
+=======
+      it 'fails to import with a failing status' do
+        post "/admin/themes/import.json", params: {
+          remote: 'non-existant'
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(422)
       end
 
+<<<<<<< HEAD
       it "fails to import with a failing status" do
         post "/admin/themes/import.json", params: { remote: "https://#{"a" * 10_000}.com" }
 
@@ -264,11 +357,33 @@ RSpec.describe Admin::ThemesController do
              }
 
         expect(RemoteTheme.last.private_key).to eq("rsa private key")
+=======
+      it 'can lookup a private key by public key' do
+        Discourse.redis.setex('ssh_key_abcdef', 1.hour, 'rsa private key')
+
+        ThemeStore::GitImporter.any_instance.stubs(:import!)
+        RemoteTheme.stubs(:extract_theme_info).returns(
+          'name' => 'discourse-brand-header',
+          'component' => true
+        )
+        RemoteTheme.any_instance.stubs(:update_from_remote)
+
+        post '/admin/themes/import.json', params: {
+          remote: '    https://github.com/discourse/discourse-brand-header.git       ',
+          public_key: 'abcdef',
+        }
+
+        expect(RemoteTheme.last.private_key).to eq('rsa private key')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(201)
       end
 
+<<<<<<< HEAD
       it "imports a theme" do
+=======
+      it 'imports a theme' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post "/admin/themes/import.json", params: { theme: theme_json_file }
         expect(response.status).to eq(201)
 
@@ -280,27 +395,43 @@ RSpec.describe Admin::ThemesController do
         expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
       end
 
+<<<<<<< HEAD
       it "can fail if theme is not accessible" do
         post "/admin/themes/import.json",
              params: {
                remote: "git@github.com:discourse/discourse-inexistent-theme.git",
              }
+=======
+      it 'can fail if theme is not accessible' do
+        post "/admin/themes/import.json", params: {
+          remote: 'git@github.com:discourse/discourse-inexistent-theme.git'
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(422)
         expect(response.parsed_body["errors"]).to contain_exactly(I18n.t("themes.import_error.git"))
       end
 
+<<<<<<< HEAD
       it "can force install theme" do
         post "/admin/themes/import.json",
              params: {
                remote: "git@github.com:discourse/discourse-inexistent-theme.git",
                force: true,
              }
+=======
+      it 'can force install theme' do
+        post "/admin/themes/import.json", params: {
+          remote: 'git@github.com:discourse/discourse-inexistent-theme.git',
+          force: true
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(201)
         expect(response.parsed_body["theme"]["name"]).to eq("discourse-inexistent-theme")
       end
 
+<<<<<<< HEAD
       it "fails to import with an error if uploads are not allowed" do
         SiteSetting.theme_authorized_extensions = "nothing"
 
@@ -323,21 +454,6 @@ RSpec.describe Admin::ThemesController do
         expect(json["theme"]["name"]).to eq("Header Icons")
         expect(json["theme"]["theme_fields"].length).to eq(5)
         expect(json["theme"]["auto_update"]).to eq(false)
-        expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
-      end
-
-      it "updates an existing theme from an archive by name" do
-        # Old theme CLI method, remove Jan 2020
-        _existing_theme = Fabricate(:theme, name: "Header Icons")
-
-        expect do
-          post "/admin/themes/import.json", params: { bundle: theme_archive }
-        end.to change { Theme.count }.by (0)
-        expect(response.status).to eq(201)
-        json = response.parsed_body
-
-        expect(json["theme"]["name"]).to eq("Header Icons")
-        expect(json["theme"]["theme_fields"].length).to eq(5)
         expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
       end
 
@@ -387,6 +503,89 @@ RSpec.describe Admin::ThemesController do
         expect(json["theme"]["auto_update"]).to eq(false)
         expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
       end
+=======
+      it 'fails to import with an error if uploads are not allowed' do
+        SiteSetting.theme_authorized_extensions = "nothing"
+
+        expect do
+          post "/admin/themes/import.json", params: { theme: theme_archive }
+        end.to change { Theme.count }.by (0)
+
+        expect(response.status).to eq(422)
+      end
+
+      it 'imports a theme from an archive' do
+        _existing_theme = Fabricate(:theme, name: "Header Icons")
+
+        expect do
+          post "/admin/themes/import.json", params: { theme: theme_archive }
+        end.to change { Theme.count }.by (1)
+        expect(response.status).to eq(201)
+        json = response.parsed_body
+
+        expect(json["theme"]["name"]).to eq("Header Icons")
+        expect(json["theme"]["theme_fields"].length).to eq(5)
+        expect(json["theme"]["auto_update"]).to eq(false)
+        expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
+      end
+
+      it 'updates an existing theme from an archive by name' do
+        # Old theme CLI method, remove Jan 2020
+        _existing_theme = Fabricate(:theme, name: "Header Icons")
+
+        expect do
+          post "/admin/themes/import.json", params: { bundle: theme_archive }
+        end.to change { Theme.count }.by (0)
+        expect(response.status).to eq(201)
+        json = response.parsed_body
+
+        expect(json["theme"]["name"]).to eq("Header Icons")
+        expect(json["theme"]["theme_fields"].length).to eq(5)
+        expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
+      end
+
+      it 'updates an existing theme from an archive by id' do
+        # Used by theme CLI
+        _existing_theme = Fabricate(:theme, name: "Header Icons")
+        other_existing_theme = Fabricate(:theme, name: "Some other name")
+
+        messages = MessageBus.track_publish do
+          expect do
+            post "/admin/themes/import.json", params: { bundle: theme_archive, theme_id: other_existing_theme.id }
+          end.to change { Theme.count }.by (0)
+        end
+        expect(response.status).to eq(201)
+        json = response.parsed_body
+
+        # Ensure only one refresh message is sent.
+        # More than 1 is wasteful, and can trigger unusual race conditions in the client
+        # If this test fails, it probably means `theme.save` is being called twice - check any 'autosave' relations
+        file_change_messages = messages.filter { |m| m[:channel] == "/file-change" }
+        expect(file_change_messages.count).to eq(1)
+
+        expect(json["theme"]["name"]).to eq("Some other name")
+        expect(json["theme"]["id"]).to eq(other_existing_theme.id)
+        expect(json["theme"]["theme_fields"].length).to eq(5)
+        expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
+      end
+
+      it 'creates a new theme when id specified as nil' do
+        # Used by theme CLI
+        existing_theme = Fabricate(:theme, name: "Header Icons")
+
+        expect do
+          post "/admin/themes/import.json", params: { bundle: theme_archive, theme_id: nil }
+        end.to change { Theme.count }.by (1)
+        expect(response.status).to eq(201)
+        json = response.parsed_body
+
+        expect(json["theme"]["name"]).to eq("Header Icons")
+        expect(json["theme"]["id"]).not_to eq(existing_theme.id)
+        expect(json["theme"]["theme_fields"].length).to eq(5)
+        expect(json["theme"]["auto_update"]).to eq(false)
+        expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     shared_examples "theme import not allowed" do
@@ -405,21 +604,34 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme import not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#index" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "correctly returns themes" do
+=======
+  describe '#index' do
+    context "when logged in as an admin" do
+      before  { sign_in(admin) }
+
+      it 'correctly returns themes' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ColorScheme.destroy_all
         Theme.destroy_all
 
         theme = Fabricate(:theme)
+<<<<<<< HEAD
         theme.set_field(target: :common, name: :scss, value: ".body{color: black;}")
         theme.set_field(target: :desktop, name: :after_header, value: "<b>test</b>")
 
@@ -430,6 +642,17 @@ RSpec.describe Admin::ThemesController do
             local_version: "8",
             remote_updated_at: Time.zone.now,
           )
+=======
+        theme.set_field(target: :common, name: :scss, value: '.body{color: black;}')
+        theme.set_field(target: :desktop, name: :after_header, value: '<b>test</b>')
+
+        theme.remote_theme = RemoteTheme.new(
+          remote_url: 'awesome.git',
+          remote_version: '7',
+          local_version: '8',
+          remote_updated_at: Time.zone.now
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         theme.save!
 
@@ -465,12 +688,17 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "themes inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#create" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
@@ -488,6 +716,24 @@ RSpec.describe Admin::ThemesController do
 
         json = response.parsed_body
 
+=======
+  describe '#create' do
+    context "when logged in as an admin" do
+      before  { sign_in(admin) }
+
+      it 'creates a theme' do
+        post "/admin/themes.json", params: {
+          theme: {
+            name: 'my test name',
+            theme_fields: [name: 'scss', target: 'common', value: 'body{color: red;}']
+          }
+        }
+
+        expect(response.status).to eq(201)
+
+        json = response.parsed_body
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(json["theme"]["theme_fields"].length).to eq(1)
         expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
       end
@@ -496,6 +742,7 @@ RSpec.describe Admin::ThemesController do
     shared_examples "theme creation not allowed" do
       it "prevents creation with a 404 response" do
         expect do
+<<<<<<< HEAD
           post "/admin/themes.json",
                params: {
                  theme: {
@@ -503,6 +750,14 @@ RSpec.describe Admin::ThemesController do
                    theme_fields: [name: "scss", target: "common", value: "body{color: red;}"],
                  },
                }
+=======
+          post "/admin/themes.json", params: {
+            theme: {
+              name: 'my test name',
+              theme_fields: [name: 'scss', target: 'common', value: 'body{color: red;}']
+            }
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end.not_to change { Theme.count }
 
         expect(response.status).to eq(404)
@@ -517,7 +772,11 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme creation not allowed"
     end
@@ -527,37 +786,66 @@ RSpec.describe Admin::ThemesController do
     let!(:theme) { Fabricate(:theme) }
 
     context "when logged in as an admin" do
+<<<<<<< HEAD
       before { sign_in(admin) }
 
       it "returns the right response when an invalid id is given" do
+=======
+      before  { sign_in(admin) }
+
+      it 'returns the right response when an invalid id is given' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         put "/admin/themes/99999.json"
 
         expect(response.status).to eq(400)
       end
 
+<<<<<<< HEAD
       it "can change default theme" do
         SiteSetting.default_theme_id = -1
 
         put "/admin/themes/#{theme.id}.json", params: { id: theme.id, theme: { default: true } }
+=======
+      it 'can change default theme' do
+        SiteSetting.default_theme_id = -1
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          id: theme.id, theme: { default: true }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         expect(SiteSetting.default_theme_id).to eq(theme.id)
       end
 
+<<<<<<< HEAD
       it "can unset default theme" do
         SiteSetting.default_theme_id = theme.id
 
         put "/admin/themes/#{theme.id}.json", params: { theme: { default: false } }
+=======
+      it 'can unset default theme' do
+        SiteSetting.default_theme_id = theme.id
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: { default: false }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         expect(SiteSetting.default_theme_id).to eq(-1)
       end
 
+<<<<<<< HEAD
       context "when theme allowlist mode is enabled" do
+=======
+      context 'when theme allowlist mode is enabled' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         before do
           global_setting :allowed_theme_repos, "  https://magic.com/repo.git, https://x.com/git"
         end
 
+<<<<<<< HEAD
         it "unconditionally bans theme_fields from updating" do
           r = RemoteTheme.create!(remote_url: "https://magic.com/repo.git")
           theme.update!(remote_theme_id: r.id)
@@ -572,17 +860,38 @@ RSpec.describe Admin::ThemesController do
                   ],
                 },
               }
+=======
+        it 'unconditionally bans theme_fields from updating' do
+          r = RemoteTheme.create!(remote_url: "https://magic.com/repo.git")
+          theme.update!(remote_theme_id: r.id)
+
+          put "/admin/themes/#{theme.id}.json", params: {
+            theme: {
+              name: 'my test name',
+              theme_fields: [
+                { name: 'scss', target: 'common', value: '' },
+                { name: 'scss', target: 'desktop', value: 'body{color: blue;}' },
+              ]
+            }
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(403)
         end
       end
 
+<<<<<<< HEAD
       it "updates a theme" do
         theme.set_field(target: :common, name: :scss, value: ".body{color: black;}")
+=======
+      it 'updates a theme' do
+        theme.set_field(target: :common, name: :scss, value: '.body{color: black;}')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         theme.save
 
         child_theme = Fabricate(:theme, component: true)
 
+<<<<<<< HEAD
         upload =
           UploadCreator.new(file_from_fixtures("logo.png"), "logo.png").create_for(
             Discourse.system_user.id,
@@ -600,16 +909,41 @@ RSpec.describe Admin::ThemesController do
                 ],
               },
             }
+=======
+        upload = UploadCreator.new(file_from_fixtures("logo.png"), "logo.png").create_for(Discourse.system_user.id)
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            child_theme_ids: [child_theme.id],
+            name: 'my test name',
+            theme_fields: [
+              { name: 'scss', target: 'common', value: '' },
+              { name: 'scss', target: 'desktop', value: 'body{color: blue;}' },
+              { name: 'bob', target: 'common', value: '', type_id: 2, upload_id: upload.id },
+            ]
+          }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
         json = response.parsed_body
 
+<<<<<<< HEAD
         expect(json["theme"]["theme_fields"].length).to eq(2)
+=======
+        fields = json["theme"]["theme_fields"].sort { |a, b| a["value"] <=> b["value"] }
+
+        expect(fields[0]["value"]).to eq('')
+        expect(fields[0]["upload_id"]).to eq(upload.id)
+        expect(fields[1]["value"]).to eq('body{color: blue;}')
+        expect(fields.length).to eq(2)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(json["theme"]["child_themes"].length).to eq(1)
         expect(UserHistory.where(action: UserHistory.actions[:change_theme]).count).to eq(1)
       end
 
+<<<<<<< HEAD
       it "prevents theme update when using ember css selectors" do
         child_theme = Fabricate(:theme, component: true)
 
@@ -624,6 +958,21 @@ RSpec.describe Admin::ThemesController do
                 ],
               },
             }
+=======
+      it 'prevents theme update when using ember css selectors' do
+        child_theme = Fabricate(:theme, component: true)
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            child_theme_ids: [child_theme.id],
+            name: 'my test name',
+            theme_fields: [
+              { name: 'scss', target: 'common', value: '' },
+              { name: 'scss', target: 'desktop', value: '.ember-view{color: blue;}' },
+            ]
+          }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
@@ -632,6 +981,7 @@ RSpec.describe Admin::ThemesController do
         fields = json["theme"]["theme_fields"].sort { |a, b| a["value"] <=> b["value"] }
         expect(fields[0]["error"]).to eq(I18n.t("themes.ember_selector_error"))
 
+<<<<<<< HEAD
         put "/admin/themes/#{theme.id}.json",
             params: {
               theme: {
@@ -643,6 +993,18 @@ RSpec.describe Admin::ThemesController do
                 ],
               },
             }
+=======
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            child_theme_ids: [child_theme.id],
+            name: 'my test name',
+            theme_fields: [
+              { name: 'scss', target: 'common', value: '' },
+              { name: 'scss', target: 'desktop', value: '#ember392{color: blue;}' },
+            ]
+          }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         json = response.parsed_body
@@ -651,6 +1013,7 @@ RSpec.describe Admin::ThemesController do
         expect(fields[0]["error"]).to eq(I18n.t("themes.ember_selector_error"))
       end
 
+<<<<<<< HEAD
       it "blocks remote theme fields from being locally edited" do
         r = RemoteTheme.create!(remote_url: "https://magic.com/repo.git")
         theme.update!(remote_theme_id: r.id)
@@ -897,6 +1260,210 @@ RSpec.describe Admin::ThemesController do
         SiteSetting.default_theme_id = -1
 
         put "/admin/themes/#{theme.id}.json", params: { id: theme.id, theme: { default: true } }
+=======
+      it 'blocks remote theme fields from being locally edited' do
+        r = RemoteTheme.create!(remote_url: "https://magic.com/repo.git")
+        theme.update!(remote_theme_id: r.id)
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            theme_fields: [
+              { name: 'scss', target: 'common', value: '' },
+              { name: 'header', target: 'common', value: 'filename.jpg', upload_id: 4 }
+            ]
+          }
+        }
+
+        expect(response.status).to eq(403)
+      end
+
+      it 'allows zip-imported theme fields to be locally edited' do
+        r = RemoteTheme.create!(remote_url: "")
+        theme.update!(remote_theme_id: r.id)
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            theme_fields: [
+              { name: 'scss', target: 'common', value: '' },
+              { name: 'header', target: 'common', value: 'filename.jpg', upload_id: 4 }
+            ]
+          }
+        }
+
+        expect(response.status).to eq(200)
+      end
+
+      it 'updates a child theme' do
+        child_theme = Fabricate(:theme, component: true)
+        put "/admin/themes/#{child_theme.id}.json", params: {
+          theme: {
+            parent_theme_ids: [theme.id],
+          }
+        }
+        expect(child_theme.parent_themes).to eq([theme])
+      end
+
+      it 'can update translations' do
+        theme.set_field(target: :translations, name: :en, value: { en: { somegroup: { somestring: "defaultstring" } } }.deep_stringify_keys.to_yaml)
+        theme.save!
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            translations: {
+              "somegroup.somestring" => "overriddenstring"
+            }
+          }
+        }
+
+        # Response correct
+        expect(response.status).to eq(200)
+        json = response.parsed_body
+        expect(json["theme"]["translations"][0]["value"]).to eq("overriddenstring")
+
+        # Database correct
+        theme.reload
+        expect(theme.theme_translation_overrides.count).to eq(1)
+        expect(theme.theme_translation_overrides.first.translation_key).to eq("somegroup.somestring")
+
+        # Set back to default
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            translations: {
+              "somegroup.somestring" => "defaultstring"
+            }
+          }
+        }
+        # Response correct
+        expect(response.status).to eq(200)
+        json = response.parsed_body
+        expect(json["theme"]["translations"][0]["value"]).to eq("defaultstring")
+
+        # Database correct
+        theme.reload
+        expect(theme.theme_translation_overrides.count).to eq(0)
+      end
+
+      it 'checking for updates saves the remote_theme record' do
+        theme.remote_theme = RemoteTheme.create!(remote_url: "http://discourse.org", remote_version: "a", local_version: "a", commits_behind: 0)
+        theme.save!
+        ThemeStore::GitImporter.any_instance.stubs(:import!)
+        ThemeStore::GitImporter.any_instance.stubs(:commits_since).returns(["b", 1])
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: {
+            remote_check: true
+          }
+        }
+        theme.reload
+        expect(theme.remote_theme.remote_version).to eq("b")
+        expect(theme.remote_theme.commits_behind).to eq(1)
+      end
+
+      it 'can disable component' do
+        child = Fabricate(:theme, component: true)
+
+        put "/admin/themes/#{child.id}.json", params: {
+          theme: {
+            enabled: false
+          }
+        }
+        expect(response.status).to eq(200)
+        json = response.parsed_body
+        expect(json["theme"]["enabled"]).to eq(false)
+        expect(UserHistory.where(
+          context: child.id.to_s,
+          action: UserHistory.actions[:disable_theme_component]
+        ).size).to eq(1)
+        expect(json["theme"]["disabled_by"]["id"]).to eq(admin.id)
+      end
+
+      it "enabling/disabling a component creates the correct staff action log" do
+        child = Fabricate(:theme, component: true)
+        UserHistory.destroy_all
+
+        put "/admin/themes/#{child.id}.json", params: {
+          theme: {
+            enabled: false
+          }
+        }
+        expect(response.status).to eq(200)
+
+        expect(UserHistory.where(
+          context: child.id.to_s,
+          action: UserHistory.actions[:disable_theme_component]
+        ).size).to eq(1)
+        expect(UserHistory.where(
+          context: child.id.to_s,
+          action: UserHistory.actions[:enable_theme_component]
+        ).size).to eq(0)
+
+        put "/admin/themes/#{child.id}.json", params: {
+          theme: {
+            enabled: true
+          }
+        }
+        expect(response.status).to eq(200)
+        json = response.parsed_body
+
+        expect(UserHistory.where(
+          context: child.id.to_s,
+          action: UserHistory.actions[:disable_theme_component]
+        ).size).to eq(1)
+        expect(UserHistory.where(
+          context: child.id.to_s,
+          action: UserHistory.actions[:enable_theme_component]
+        ).size).to eq(1)
+
+        expect(json["theme"]["disabled_by"]).to eq(nil)
+        expect(json["theme"]["enabled"]).to eq(true)
+      end
+
+      it 'handles import errors on update' do
+        theme.create_remote_theme!(remote_url: "https://example.com/repository")
+        theme.save!
+
+        # RemoteTheme is extensively tested, and setting up the test scaffold is a large overhead
+        # So use a stub here to test the controller
+        RemoteTheme.any_instance.stubs(:update_from_remote).raises(RemoteTheme::ImportError.new("error message"))
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: { remote_update: true }
+        }
+        expect(response.status).to eq(422)
+        expect(response.parsed_body["errors"].first).to eq("error message")
+      end
+
+      it 'returns the right error message' do
+        theme.update!(component: true)
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: { default: true }
+        }
+
+        expect(response.status).to eq(400)
+        expect(response.parsed_body["errors"].first).to include(I18n.t("themes.errors.component_no_default"))
+      end
+
+      it 'prevents converting the default theme to a component' do
+        SiteSetting.default_theme_id = theme.id
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          theme: { component: true }
+        }
+
+        # should this error message be localized? InvalidParameters :component
+        expect(response.status).to eq(400)
+        expect(response.parsed_body["errors"].first).to include('component')
+      end
+    end
+
+    shared_examples "theme update not allowed" do
+      it "prevents updates with a 404 response" do
+        SiteSetting.default_theme_id = -1
+
+        put "/admin/themes/#{theme.id}.json", params: {
+          id: theme.id, theme: { default: true }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -911,7 +1478,11 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme update not allowed"
     end
@@ -923,13 +1494,18 @@ RSpec.describe Admin::ThemesController do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
+<<<<<<< HEAD
       it "returns the right response when an invalid id is given" do
+=======
+      it 'returns the right response when an invalid id is given' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete "/admin/themes/9999.json"
 
         expect(response.status).to eq(400)
       end
 
       it "deletes the field's javascript cache" do
+<<<<<<< HEAD
         theme.set_field(
           target: :common,
           name: :header,
@@ -942,6 +1518,12 @@ RSpec.describe Admin::ThemesController do
             .theme_fields
             .find_by(target_id: Theme.targets[:common], name: :header)
             .javascript_cache
+=======
+        theme.set_field(target: :common, name: :header, value: '<script>console.log("test")</script>')
+        theme.save!
+
+        javascript_cache = theme.theme_fields.find_by(target_id: Theme.targets[:common], name: :header).javascript_cache
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(javascript_cache).to_not eq(nil)
 
         delete "/admin/themes/#{theme.id}.json"
@@ -969,13 +1551,21 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme deletion not allowed"
     end
   end
 
+<<<<<<< HEAD
   describe "#preview" do
+=======
+  describe '#preview' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -1004,7 +1594,11 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme previews inaccessible"
     end
@@ -1022,7 +1616,14 @@ RSpec.describe Admin::ThemesController do
       before { sign_in(admin) }
 
       it "should update a theme setting" do
+<<<<<<< HEAD
         put "/admin/themes/#{theme.id}/setting.json", params: { name: "bg", value: "green" }
+=======
+        put "/admin/themes/#{theme.id}/setting.json", params: {
+          name: "bg",
+          value: "green"
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["bg"]).to eq("green")
@@ -1031,7 +1632,13 @@ RSpec.describe Admin::ThemesController do
         expect(theme.cached_settings[:bg]).to eq("green")
         user_history = UserHistory.last
 
+<<<<<<< HEAD
         expect(user_history.action).to eq(UserHistory.actions[:change_theme_setting])
+=======
+        expect(user_history.action).to eq(
+          UserHistory.actions[:change_theme_setting]
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "should clear a theme setting" do
@@ -1045,7 +1652,14 @@ RSpec.describe Admin::ThemesController do
 
     shared_examples "theme update not allowed" do
       it "prevents updates with a 404 response" do
+<<<<<<< HEAD
         put "/admin/themes/#{theme.id}/setting.json", params: { name: "bg", value: "green" }
+=======
+        put "/admin/themes/#{theme.id}/setting.json", params: {
+          name: "bg",
+          value: "green"
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -1062,7 +1676,11 @@ RSpec.describe Admin::ThemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "theme update not allowed"
     end

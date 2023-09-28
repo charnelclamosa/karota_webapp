@@ -23,11 +23,16 @@ RSpec.describe Admin::EmailTemplatesController do
       before { sign_in(admin) }
 
       it "should work if you are an admin" do
+<<<<<<< HEAD
         get "/admin/customize/email_templates.json"
+=======
+        get '/admin/customize/email_templates.json'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(200)
 
         json = response.parsed_body
+<<<<<<< HEAD
         expect(json["email_templates"]).to be_present
       end
 
@@ -55,6 +60,30 @@ RSpec.describe Admin::EmailTemplatesController do
         templates = response.parsed_body["email_templates"]
         template = templates.find { |t| t["id"] == "user_notifications.admin_login" }
         expect(template["can_revert"]).to eq(false)
+=======
+        expect(json['email_templates']).to be_present
+      end
+
+      it 'returns overridden = true if subject or body has translation_overrides record' do
+        put '/admin/customize/email_templates/user_notifications.admin_login', params: {
+          email_template: { subject: original_subject, body: original_body }
+        }, headers: headers
+        expect(response.status).to eq(200)
+
+        get '/admin/customize/email_templates.json'
+        expect(response.status).to eq(200)
+        templates = response.parsed_body['email_templates']
+        template = templates.find { |t| t['id'] == 'user_notifications.admin_login' }
+        expect(template['can_revert']).to eq(true)
+
+        TranslationOverride.destroy_all
+
+        get '/admin/customize/email_templates.json'
+        expect(response.status).to eq(200)
+        templates = response.parsed_body['email_templates']
+        template = templates.find { |t| t['id'] == 'user_notifications.admin_login' }
+        expect(template['can_revert']).to eq(false)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -74,7 +103,11 @@ RSpec.describe Admin::EmailTemplatesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "email templates inaccessible"
     end
@@ -316,6 +349,7 @@ RSpec.describe Admin::EmailTemplatesController do
 
     shared_examples "email template update not allowed" do
       it "prevents updates with a 404 response" do
+<<<<<<< HEAD
         put "/admin/customize/email_templates/some_id",
             params: {
               email_template: {
@@ -324,6 +358,11 @@ RSpec.describe Admin::EmailTemplatesController do
               },
             },
             headers: headers
+=======
+        put "/admin/customize/email_templates/some_id", params: {
+          email_template: { subject: 'Subject', body: 'Body' }
+        }, headers: headers
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))

@@ -11,11 +11,12 @@ import getURL from "discourse-common/lib/get-url";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import { inject as service } from "@ember/service";
 import { next } from "@ember/runloop";
-import showModal from "discourse/lib/show-modal";
 import { exportUserArchive } from "discourse/lib/export-csv";
+import UserStatusModal from "discourse/components/modal/user-status";
 
 export default Controller.extend(CanCheckEmails, {
   dialog: service(),
+  modal: service(),
   user: controller(),
   canDownloadPosts: alias("user.viewingSelf"),
 
@@ -164,12 +165,13 @@ export default Controller.extend(CanCheckEmails, {
 
   @action
   showUserStatusModal(status) {
-    showModal("user-status", {
-      title: "user_status.set_custom_status",
-      modalClass: "user-status",
+    this.modal.show(UserStatusModal, {
       model: {
         status,
+<<<<<<< HEAD
         hidePauseNotifications: true,
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         saveAction: (s) => this.set("newStatus", s),
         deleteAction: () => this.set("newStatus", null),
       },
@@ -224,7 +226,11 @@ export default Controller.extend(CanCheckEmails, {
                   });
                 },
                 () => {
-                  this.dialog.alert(I18n.t("user.delete_yourself_not_allowed"));
+                  next(() =>
+                    this.dialog.alert(
+                      I18n.t("user.delete_yourself_not_allowed")
+                    )
+                  );
                   this.set("deleting", false);
                 }
               );

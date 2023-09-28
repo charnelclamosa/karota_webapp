@@ -25,7 +25,11 @@ ru:
         colors:
           title: "Цвета"
         icons:
+<<<<<<< HEAD
+          title: "Значки"
+=======
           title: "Иконки"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           full_list: "См. полный список значков Font Awesome"
         input_fields:
           title: "Поля ввода"
@@ -66,7 +70,7 @@ ru:
         topic_notifications:
           title: "Уведомления темы"
         post:
-          title: "Сообщение"
+          title: "Запись"
         topic_map:
           title: "Карта темы"
         site_header:
@@ -87,8 +91,10 @@ ru:
           title: "Спиннеры"
         empty_state:
           title: "Пустое состояние"
-        rich_tooltip:
-          title: "Всплывающая подсказка"
+        tooltips:
           description: "Описание"
-          header: "Заголовок"
+          header: "Шапка"
           hover_to_see: "Наведите курсор, чтобы увидеть всплывающую подсказку"
+        char_counter:
+          title: "Счетчик символов"
+          placeholder: "Введите текст..."

@@ -92,12 +92,16 @@ module Onebox
       end
 
       result = StringIO.new
+<<<<<<< HEAD
       FinalDestination::HTTP.start(
         uri.host,
         uri.port,
         open_timeout: Onebox.options.connect_timeout,
         use_ssl: uri.normalized_scheme == "https",
       ) do |http|
+=======
+      FinalDestination::HTTP.start(uri.host, uri.port, open_timeout: Onebox.options.connect_timeout, use_ssl: uri.normalized_scheme == 'https') do |http|
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         http.read_timeout = Onebox.options.timeout
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE # Work around path building bugs
 
@@ -152,12 +156,16 @@ module Onebox
     def self.fetch_content_length(location)
       uri = URI(location)
 
+<<<<<<< HEAD
       FinalDestination::HTTP.start(
         uri.host,
         uri.port,
         open_timeout: Onebox.options.connect_timeout,
         use_ssl: uri.is_a?(URI::HTTPS),
       ) do |http|
+=======
+      FinalDestination::HTTP.start(uri.host, uri.port, open_timeout: Onebox.options.connect_timeout, use_ssl: uri.is_a?(URI::HTTPS)) do |http|
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         http.read_timeout = Onebox.options.timeout
         if uri.is_a?(URI::HTTPS)
           http.use_ssl = true

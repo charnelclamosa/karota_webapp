@@ -790,9 +790,15 @@ RSpec.describe SiteSettingExtension do
     end
   end
 
+<<<<<<< HEAD
   describe ".all_settings" do
     describe "uploads settings" do
       it "should return the right values" do
+=======
+  describe '.all_settings' do
+    describe 'uploads settings' do
+      it 'should return the right values' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         negative_upload_id = [(Upload.minimum(:id) || 0) - 1, -10].min
         system_upload = Fabricate(:upload, id: negative_upload_id)
         settings.setting(:logo, system_upload.id, type: :upload)
@@ -853,6 +859,7 @@ RSpec.describe SiteSettingExtension do
       end
     end
   end
+<<<<<<< HEAD
 
   describe "_map extension for list settings" do
     it "handles splitting group_list settings" do
@@ -870,6 +877,11 @@ RSpec.describe SiteSettingExtension do
       expect(SiteSetting.ga_universal_auto_link_domains_map).to eq(%w[test.com xy.com])
     end
 
+    it "handles splitting list settings with no type" do
+      SiteSetting.post_menu = "read|like"
+      expect(SiteSetting.post_menu_map).to eq(%w[read like])
+    end
+
     it "does not handle splitting secret list settings" do
       SiteSetting.discourse_connect_provider_secrets = "test|secret1\ntest2|secret2"
       expect(SiteSetting.respond_to?(:discourse_connect_provider_secrets_map)).to eq(false)
@@ -885,4 +897,6 @@ RSpec.describe SiteSettingExtension do
       expect(SiteSetting.exclude_rel_nofollow_domains_map).to eq([])
     end
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

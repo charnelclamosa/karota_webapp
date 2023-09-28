@@ -54,6 +54,12 @@ acceptance("User Preferences - Security", function (needs) {
     await authTokenDropdown.selectRowByValue("notYou");
 
     assert.strictEqual(count(".d-modal:visible"), 1, "modal should appear");
+<<<<<<< HEAD
+  });
+
+  test("Viewing user api keys", async function (assert) {
+    updateCurrentUser({
+=======
 
     await click(".modal-footer .btn-primary");
 
@@ -64,8 +70,10 @@ acceptance("User Preferences - Security", function (needs) {
     );
   });
 
-  test("Viewing user api keys", async function (assert) {
+  test("Viewing user api keys when user has redesign user page navigation enabled", async function (assert) {
     updateCurrentUser({
+      redesigned_user_page_nav_enabled: true,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_api_keys: [
         {
           id: 1,

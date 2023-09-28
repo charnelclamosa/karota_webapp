@@ -443,16 +443,23 @@ RSpec.describe UserNotifications do
 
   describe ".user_replied" do
     let(:response_by_user) { Fabricate(:user, name: "John Doe") }
+<<<<<<< HEAD
     let(:category) { Fabricate(:category, name: "India") }
-    let(:tag1) { Fabricate(:tag, name: "Taggo") }
-    let(:tag2) { Fabricate(:tag, name: "Taggie") }
-    let(:tag3) { Fabricate(:tag, name: "Teggo") }
+    let(:tag1) { Fabricate(:tag, name: "Taggo", public_topic_count: 1) }
+    let(:tag2) { Fabricate(:tag, name: "Taggie", public_topic_count: 3) }
+    let(:tag3) { Fabricate(:tag, name: "Teggo", public_topic_count: 2) }
+=======
+    let(:category) { Fabricate(:category, name: 'India') }
+    let(:tag1) { Fabricate(:tag, name: 'Taggo') }
+    let(:tag2) { Fabricate(:tag, name: 'Taggie') }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     let(:hidden_tag) { Fabricate(:tag, name: "hidden") }
     let!(:hidden_tag_group) do
       Fabricate(:tag_group, permissions: { "staff" => 1 }, tag_names: [hidden_tag.name])
     end
 
+<<<<<<< HEAD
     let(:topic) do
       Fabricate(
         :topic,
@@ -462,6 +469,10 @@ RSpec.describe UserNotifications do
       )
     end
     let(:post) { Fabricate(:post, topic: topic, raw: "This is My super duper cool topic") }
+=======
+    let(:topic) { Fabricate(:topic, category: category, tags: [tag1, tag2, hidden_tag], title: "Super cool topic") }
+    let(:post) { Fabricate(:post, topic: topic, raw: 'This is My super duper cool topic') }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     let(:response) { Fabricate(:basic_reply, topic: post.topic, user: response_by_user) }
     let(:user) { Fabricate(:user) }
     let(:notification) { Fabricate(:replied_notification, user: user, post: response) }
@@ -569,6 +580,7 @@ RSpec.describe UserNotifications do
             "[%{site_name}] %{optional_pm}%{optional_cat}%{optional_tags}%{topic_title}"
           SiteSetting.max_tags_per_topic = 1
           SiteSetting.max_tags_per_email_subject = 2
+
           mail =
             UserNotifications.user_replied(
               user,
@@ -576,9 +588,10 @@ RSpec.describe UserNotifications do
               notification_type: notification.notification_type,
               notification_data_hash: notification.data_hash,
             )
-          expect(mail.subject).to match(/Taggo/)
-          expect(mail.subject).to match(/Taggie/)
-          expect(mail.subject).not_to match(/Teggo/)
+
+          expect(mail.subject).to eq(
+            "[Discourse] [#{category.name}] #{tag2.name} #{tag3.name} #{topic.title}",
+          )
         end
       end
 
@@ -598,9 +611,10 @@ RSpec.describe UserNotifications do
               notification_type: notification.notification_type,
               notification_data_hash: notification.data_hash,
             )
-          expect(mail.subject).to match(/Taggo/)
-          expect(mail.subject).to match(/Taggie/)
-          expect(mail.subject).not_to match(/Teggo/)
+
+          expect(mail.subject).to eq(
+            "[Discourse] [#{category.name}] #{tag2.name} #{tag3.name} #{topic.title}",
+          )
         end
       end
     end

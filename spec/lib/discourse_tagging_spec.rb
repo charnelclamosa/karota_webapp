@@ -7,7 +7,11 @@ require "discourse_tagging"
 
 RSpec.describe DiscourseTagging do
   fab!(:admin) { Fabricate(:admin) }
+<<<<<<< HEAD
   fab!(:user) { Fabricate(:user) }
+=======
+  fab!(:user)  { Fabricate(:user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let(:admin_guardian) { Guardian.new(admin) }
   let(:guardian) { Guardian.new(user) }
 
@@ -21,10 +25,17 @@ RSpec.describe DiscourseTagging do
     SiteSetting.min_trust_level_to_tag_topics = 0
   end
 
+<<<<<<< HEAD
   describe "visible_tags" do
     fab!(:tag4) { Fabricate(:tag, name: "fun4") }
 
     fab!(:user2) { Fabricate(:user) }
+=======
+  describe 'visible_tags' do
+    fab!(:tag4) { Fabricate(:tag, name: "fun4") }
+
+    fab!(:user2)  { Fabricate(:user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     let(:guardian2) { Guardian.new(user2) }
 
     fab!(:group) { Fabricate(:group, name: "my-group") }
@@ -42,7 +53,11 @@ RSpec.describe DiscourseTagging do
       Fabricate(:tag_group, permissions: { "my-group" => 1 }, tag_names: [tag4.name])
     end
 
+<<<<<<< HEAD
     context "for admin" do
+=======
+    context 'for admin' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "includes tags with no tag_groups" do
         expect(DiscourseTagging.visible_tags(admin_guardian)).to include(tag1)
       end
@@ -60,7 +75,11 @@ RSpec.describe DiscourseTagging do
       end
     end
 
+<<<<<<< HEAD
     context "for users in a group" do
+=======
+    context 'for users in a group' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "includes tags with no tag_groups" do
         expect(DiscourseTagging.visible_tags(guardian)).to include(tag1)
       end
@@ -78,7 +97,11 @@ RSpec.describe DiscourseTagging do
       end
     end
 
+<<<<<<< HEAD
     context "for other users" do
+=======
+    context 'for other users' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "includes tags with no tag_groups" do
         expect(DiscourseTagging.visible_tags(guardian2)).to include(tag1)
       end
@@ -97,6 +120,7 @@ RSpec.describe DiscourseTagging do
     end
   end
 
+<<<<<<< HEAD
   describe "#validate_one_tag_from_group_per_topic" do
     fab!(:tag_group) { Fabricate(:tag_group, tags: [tag1, tag2, tag3], one_per_topic: true) }
     fab!(:topic) { Fabricate(:topic) }
@@ -405,6 +429,10 @@ RSpec.describe DiscourseTagging do
 
   describe "filter_allowed_tags" do
     context "for input fields" do
+=======
+  describe 'filter_allowed_tags' do
+    context 'for input fields' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "doesn't return selected tags if there's a search term" do
         tags =
           DiscourseTagging.filter_allowed_tags(

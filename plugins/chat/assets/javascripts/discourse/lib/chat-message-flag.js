@@ -34,11 +34,21 @@ export default class ChatMessageFlag {
     });
   }
 
+<<<<<<< HEAD
+  flagsAvailable(flagModal) {
+    let flagsAvailable = flagModal.site.flagTypes;
+
+    flagsAvailable = flagsAvailable.filter((flag) => {
+      return flagModal.args.model.flagModel.availableFlags.includes(
+        flag.name_key
+      );
+=======
   flagsAvailable(_controller, site, model) {
     let flagsAvailable = site.flagTypes;
 
     flagsAvailable = flagsAvailable.filter((flag) => {
-      return model.availableFlags.includes(flag.name_key);
+      return model.available_flags.includes(flag.name_key);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     // "message user" option should be at the top
@@ -55,19 +65,32 @@ export default class ChatMessageFlag {
     return this._rewriteFlagDescriptions(flagsAvailable);
   }
 
+<<<<<<< HEAD
+  create(flagModal, opts) {
+    flagModal.args.closeModal();
+=======
   create(controller, opts) {
     controller.send("hideModal");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     return ajax("/chat/flag", {
       method: "PUT",
       data: {
+<<<<<<< HEAD
+        chat_message_id: flagModal.args.model.flagModel.id,
+        flag_type_id: flagModal.selected.id,
+=======
         chat_message_id: controller.get("model.id"),
         flag_type_id: controller.get("selected.id"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         message: opts.message,
         is_warning: opts.isWarning,
         take_action: opts.takeAction,
         queue_for_review: opts.queue_for_review,
       },
+<<<<<<< HEAD
+    }).catch((error) => popupAjaxError(error));
+=======
     })
       .then(() => {
         if (controller.isDestroying || controller.isDestroyed) {
@@ -87,5 +110,6 @@ export default class ChatMessageFlag {
         }
         popupAjaxError(error);
       });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

@@ -1,5 +1,5 @@
 import I18n from "I18n";
-import ComposerEditor, {
+import {
   addComposerUploadHandler,
   addComposerUploadMarkdownResolver,
   addComposerUploadPreProcessor,
@@ -8,6 +8,7 @@ import {
   addButton,
   apiExtraButtons,
   removeButton,
+  replaceButton,
 } from "discourse/widgets/post-menu";
 import {
   addExtraIconRenderer,
@@ -40,7 +41,6 @@ import {
 import Composer, {
   registerCustomizationCallback,
 } from "discourse/models/composer";
-import DiscourseBanner from "discourse/components/discourse-banner";
 import KeyboardShortcuts from "discourse/lib/keyboard-shortcuts";
 import Sharing from "discourse/lib/sharing";
 import { addAdvancedSearchOptions } from "discourse/components/search-advanced-options";
@@ -54,11 +54,22 @@ import { addGlobalNotice } from "discourse/components/global-notice";
 import { addNavItem } from "discourse/models/nav-item";
 import { addPluginDocumentTitleCounter } from "discourse/components/d-document";
 import { addPluginOutletDecorator } from "discourse/components/plugin-connector";
-import { addPluginReviewableParam } from "discourse/components/reviewable-item";
+<<<<<<< HEAD
+import {
+  addPluginReviewableParam,
+  registerReviewableActionModal,
+} from "discourse/components/reviewable-item";
 import {
   addComposerSaveErrorCallback,
   addPopupMenuOptionsCallback,
 } from "discourse/services/composer";
+=======
+import { addPluginReviewableParam } from "discourse/components/reviewable-item";
+import {
+  addComposerSaveErrorCallback,
+  addPopupMenuOptionsCallback,
+} from "discourse/controllers/composer";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { addPostClassesCallback } from "discourse/widgets/post";
 import {
   addGroupPostSmallActionCode,
@@ -75,11 +86,10 @@ import { addWidgetCleanCallback } from "discourse/components/mount-widget";
 import deprecated from "discourse-common/lib/deprecated";
 import { disableNameSuppression } from "discourse/widgets/poster-name";
 import { extraConnectorClass } from "discourse/lib/plugin-connectors";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
 import { h } from "virtual-dom";
 import { includeAttributes } from "discourse/lib/transform-post";
 import { modifySelectKit } from "select-kit/mixins/plugin-api";
-import { on } from "@ember/object/evented";
 import { registerCustomAvatarHelper } from "discourse/helpers/user-avatar";
 import { registerCustomPostMessageCallback as registerCustomPostMessageCallback1 } from "discourse/controllers/topic";
 import {
@@ -105,7 +115,10 @@ import { CUSTOM_USER_SEARCH_OPTIONS } from "select-kit/components/user-chooser";
 import { downloadCalendar } from "discourse/lib/download-calendar";
 import { consolePrefix } from "discourse/lib/source-identifier";
 import { addSectionLink as addCustomCommunitySectionLink } from "discourse/lib/sidebar/custom-community-section-links";
-import { addSidebarSection } from "discourse/lib/sidebar/custom-sections";
+import {
+  addSidebarPanel,
+  addSidebarSection,
+} from "discourse/lib/sidebar/custom-sections";
 import {
   registerCustomCategoryLockIcon,
   registerCustomCategorySectionLinkPrefix,
@@ -118,14 +131,25 @@ import { registerNotificationTypeRenderer } from "discourse/lib/notification-typ
 import { registerUserMenuTab } from "discourse/lib/user-menu/tab";
 import { registerModelTransformer } from "discourse/lib/model-transformers";
 import { registerCustomUserNavMessagesDropdownRow } from "discourse/controllers/user-private-messages";
+<<<<<<< HEAD
 import { registerFullPageSearchType } from "discourse/controllers/full-page-search";
 import { registerHashtagType } from "discourse/lib/hashtag-autocomplete";
+import { _addBulkButton } from "discourse/components/modal/topic-bulk-actions";
+import { addBeforeAuthCompleteCallback } from "discourse/instance-initializers/auth-complete";
+import { isTesting } from "discourse-common/config/environment";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 // If you add any methods to the API ensure you bump up the version number
 // based on Semantic Versioning 2.0.0. Please update the changelog at
 // docs/CHANGELOG-JAVASCRIPT-PLUGIN-API.md whenever you change the version
 // using the format described at https://keepachangelog.com/en/1.0.0/.
-export const PLUGIN_API_VERSION = "1.6.1";
+<<<<<<< HEAD
+
+export const PLUGIN_API_VERSION = "1.12.0";
+=======
+const PLUGIN_API_VERSION = "1.5.0";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 // This helper prevents us from applying the same `modifyClass` over and over in test mode.
 function canModify(klass, type, resolverName, changes) {
@@ -157,6 +181,9 @@ function wrapWithErrorHandler(func, messageKey) {
           detail: { messageKey, error },
         })
       );
+      if (isTesting()) {
+        throw error;
+      }
       return;
     }
   };
@@ -358,13 +385,9 @@ class PluginApi {
    *
    * ```
    * api.decorateCookedElement(
-   *   elem => { elem.style.backgroundColor = 'yellow' },
-   *   { id: 'yellow-decorator' }
+   *   elem => { elem.style.backgroundColor = 'yellow' }
    * );
    * ```
-   *
-   * NOTE: To avoid memory leaks, it is highly recommended to pass a unique `id` parameter.
-   * You will receive a warning if you do not.
    **/
   decorateCookedElement(callback, opts) {
     opts = opts || {};
@@ -374,12 +397,7 @@ class PluginApi {
     addDecorator(callback, { afterAdopt: !!opts.afterAdopt });
 
     if (!opts.onlyStream) {
-      decorate(ComposerEditor, "previewRefreshed", callback, opts.id);
-      decorate(DiscourseBanner, "didInsertElement", callback, opts.id);
-      ["didInsertElement", "user-stream:new-item-inserted"].forEach((event) => {
-        const klass = this.container.factoryFor("component:user-stream").class;
-        decorate(klass, event, callback, opts.id);
-      });
+      this.onAppEvent("decorate-non-stream-cooked-element", callback);
     }
   }
 
@@ -632,6 +650,30 @@ class PluginApi {
   }
 
   /**
+   * Add a new button in the post admin menu.
+   *
+   * Example:
+   *
+   * ```
+   * api.addPostAdminMenuButton((name, attrs) => {
+   *   return {
+   *     action: () => {
+   *       alert('You clicked on the coffee button!');
+   *     },
+   *     icon: 'coffee',
+   *     className: 'hot-coffee',
+   *     title: 'coffee.title',
+   *   };
+   * });
+   * ```
+   **/
+  addPostAdminMenuButton(name, callback) {
+    this.container
+      .lookup("service:admin-post-menu-buttons")
+      .addButton(name, callback);
+  }
+
+  /**
    * Remove existing button below a post with your plugin.
    *
    * Example:
@@ -650,6 +692,26 @@ class PluginApi {
    **/
   removePostMenuButton(name, callback) {
     removeButton(name, callback);
+  }
+
+  /**
+   * Replace an existing button with a widget
+   *
+   * Example:
+   * ```
+   * api.replacePostMenuButton("like", {
+   *   name: "widget-name",
+   *   buildAttrs: (widget) => {
+   *     return { post: widget.findAncestorModel() };
+   *   },
+   *   shouldRender: (widget) => {
+   *     const post = widget.findAncestorModel();
+   *     return post.id === 1
+   *   }
+   * });
+   **/
+  replacePostMenuButton(name, widget) {
+    replaceButton(name, widget);
   }
 
   /**
@@ -1623,8 +1685,42 @@ class PluginApi {
   addSaveableUserOptionField(fieldName) {
     addSaveableUserOptionField(fieldName);
   }
+
+  /**
+   * Adds additional params to be sent to the reviewable/:id/perform/:action
+   * endpoint for a given reviewable type. This is so plugins can provide more
+   * complex reviewable actions that may depend on a custom modal.
+   *
+   * This is copied from the reviewable model instance when performing an action
+   * on the ReviewableItem component.
+   *
+   * ```
+   * api.addPluginReviewableParam("ReviewablePluginType", "some_param");
+   * ```
+   **/
   addPluginReviewableParam(reviewableType, param) {
     addPluginReviewableParam(reviewableType, param);
+  }
+
+  /**
+   * Registers a mapping between a JavaScript modal component class and a server-side reviewable
+   * action, which is registered via `actions.add` and `build_actions`.
+   *
+   * For more information about modal classes, which are special Ember components used with
+   * the DModal API, see:
+   *
+   * https://meta.discourse.org/t/using-the-dmodal-api-to-render-modal-windows-aka-popups-dialogs-in-discourse/268304.
+   *
+   * @param {String} reviewableAction - The action name, as registered in the server-side.
+   * @param {Class} modalClass - The actual JavaScript class of the modal.
+   *
+   * @example
+   * ```
+   * api.registerReviewableActionModal("approve_category_expert", ExpertGroupChooserModal);
+   * ```
+   **/
+  registerReviewableActionModal(reviewableType, modalClass) {
+    registerReviewableActionModal(reviewableType, modalClass);
   }
 
   /**
@@ -1813,7 +1909,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Support for adding a navigation link to Sidebar Community section under the "More..." links drawer by returning a
    * class which extends from the BaseSectionLink class interface. See `lib/sidebar/user/community-section/base-section-link.js`
    * for documentation on the BaseSectionLink class interface.
@@ -1873,7 +1968,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Registers a new countable for section links under Sidebar Categories section on top of the default countables of
    * unread topics count and new topics count.
    *
@@ -1942,7 +2036,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Changes the lock icon used for a sidebar category section link to indicate that a category is read restricted.
    *
    * @param {String} Name of a FontAwesome 5 icon
@@ -1952,7 +2045,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Register a custom prefix for a sidebar category section link.
    *
    * Example:
@@ -1966,15 +2058,15 @@ class PluginApi {
    * })
    * ```
    *
-   * @params {Object} arg - An object
-   * @params {string} arg.categoryId - The id of the category
-   * @params {string} arg.prefixType - The type of prefix to use. Can be "icon", "image", "text" or "span".
-   * @params {string} arg.prefixValue - The value of the prefix to use.
+   * @param {Object} arg - An object
+   * @param {string} arg.categoryId - The id of the category
+   * @param {string} arg.prefixType - The type of prefix to use. Can be "icon", "image", "text" or "span".
+   * @param {string} arg.prefixValue - The value of the prefix to use.
    *                                    For "icon", pass in the name of a FontAwesome 5 icon.
    *                                    For "image", pass in the src of the image.
    *                                    For "text", pass in the text to display.
    *                                    For "span", pass in an array containing two hex color values. Example: `[FF0000, 000000]`.
-   * @params {string} arg.prefixColor - The color of the prefix to use. Example: "FF0000".
+   * @param {string} arg.prefixColor - The color of the prefix to use. Example: "FF0000".
    */
   registerCustomCategorySectionLinkPrefix({
     categoryId,
@@ -1991,7 +2083,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Register a custom prefix for a sidebar tag section link.
    *
    * Example:
@@ -2005,10 +2096,10 @@ class PluginApi {
    * });
    * ```
    *
-   * @params {Object} arg - An object
-   * @params {string} arg.tagName - The name of the tag
-   * @params {string} arg.prefixValue - The name of a FontAwesome 5 icon.
-   * @params {string} arg.prefixColor - The color represented using hexadecimal to use for the prefix. Example: "#FF0000" or "#FFF".
+   * @param {Object} arg - An object
+   * @param {string} arg.tagName - The name of the tag
+   * @param {string} arg.prefixValue - The name of a FontAwesome 5 icon.
+   * @param {string} arg.prefixColor - The color represented using hexadecimal to use for the prefix. Example: "#FF0000" or "#FFF".
    */
   registerCustomTagSectionLinkPrefixIcon({
     tagName,
@@ -2023,7 +2114,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Triggers a refresh of the counts for all category section links under the categories section for a logged in user.
    */
   refreshUserSidebarCategoriesSectionCounts() {
@@ -2036,6 +2126,75 @@ class PluginApi {
 
   /**
    * EXPERIMENTAL. Do not use.
+   * Support for adding a Sidebar panel by returning a class which extends from the BaseCustomSidebarPanel
+   * class interface. See `lib/sidebar/user/base-custom-sidebar-panel.js` for documentation on the BaseCustomSidebarPanel class
+   * interface.
+   *
+   * ```
+   * api.addSidebarPanel((BaseCustomSidebarPanel) => {
+   *   const ChatSidebarPanel = class extends BaseCustomSidebarPanel {
+   *     get key() {
+   *       return "chat";
+   *     }
+   *     get switchButtonLabel() {
+   *       return I18n.t("sidebar.panels.chat.label");
+   *     }
+   *     get switchButtonIcon() {
+   *       return "d-chat";
+   *     }
+   *     get switchButtonDefaultUrl() {
+   *       return "/chat";
+   *     }
+   *   };
+   *   return ChatSidebarPanel;
+   * });
+   * ```
+   */
+  addSidebarPanel(func) {
+    addSidebarPanel(func);
+  }
+
+  /**
+   * EXPERIMENTAL. Do not use.
+   * Support for setting a Sidebar panel.
+   */
+  setSidebarPanel(name) {
+    this._lookupContainer("service:sidebar-state")?.setPanel(name);
+  }
+
+  /**
+   * EXPERIMENTAL. Do not use.
+   * Set combined sidebar section mode. In this mode, sections from all panels are displayed together.
+   */
+  setCombinedSidebarMode() {
+    this._lookupContainer("service:sidebar-state")?.setCombinedMode();
+  }
+
+  /**
+   * EXPERIMENTAL. Do not use.
+   * Set separated sidebar section mode. In this mode, only sections from the current panel are displayed.
+   */
+  setSeparatedSidebarMode() {
+    this._lookupContainer("service:sidebar-state").setSeparatedMode();
+  }
+
+  /**
+   * EXPERIMENTAL. Do not use.
+   * Show sidebar switch panels buttons in separated mode.
+   */
+  showSidebarSwitchPanelButtons() {
+    this._lookupContainer("service:sidebar-state").showSwitchPanelButtons();
+  }
+
+  /**
+   * EXPERIMENTAL. Do not use.
+   * Hide sidebar switch panels buttons in separated mode.
+   */
+  hideSidebarSwitchPanelButtons() {
+    this._lookupContainer("service:sidebar-state")?.hideSwitchPanelButtons();
+  }
+
+  /**
    * Support for adding a Sidebar section by returning a class which extends from the BaseCustomSidebarSection
    * class interface. See `lib/sidebar/user/base-custom-sidebar-section.js` for documentation on the BaseCustomSidebarSection class
    * interface.
@@ -2154,12 +2313,11 @@ class PluginApi {
    * })
    * ```
    */
-  addSidebarSection(func) {
-    addSidebarSection(func);
+  addSidebarSection(func, panelKey = "main") {
+    addSidebarSection(func, panelKey);
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Register a custom renderer for a notification type or override the
    * renderer of an existing type. See lib/notification-types/base.js for
    * documentation and the default renderer.
@@ -2223,7 +2381,6 @@ class PluginApi {
   }
 
   /**
-   * EXPERIMENTAL. Do not use.
    * Apply transformation using a callback on a list of model instances of a
    * specific type. Currently, this API only works on lists rendered in the
    * user menu such as notifications, bookmarks and topics (i.e. messages), but
@@ -2254,7 +2411,10 @@ class PluginApi {
   }
 
   /**
+<<<<<<< HEAD
+=======
    * EXPERIMENTAL. Do not use.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
    * Adds a row to the dropdown used on the `userPrivateMessages` route used to navigate between the different user
    * messages pages.
    *
@@ -2264,6 +2424,7 @@ class PluginApi {
    */
   addUserMessagesNavigationDropdownRow(routeName, name, icon) {
     registerCustomUserNavMessagesDropdownRow(routeName, name, icon);
+<<<<<<< HEAD
   }
 
   /**
@@ -2279,6 +2440,15 @@ class PluginApi {
   }
 
   /**
+   * @param {function} fn - Function that will be called before the auth complete logic is run
+   * in instance-initializers/auth-complete.js. If any single callback returns false, the
+   * auth-complete logic will be aborted.
+   */
+  addBeforeAuthCompleteCallback(fn) {
+    addBeforeAuthCompleteCallback(fn);
+  }
+
+  /**
    * Registers a hashtag type and its corresponding class.
    * This is used when generating CSS classes in the hashtag-css-generator.
    *
@@ -2288,6 +2458,51 @@ class PluginApi {
    */
   registerHashtagType(type, typeClassInstance) {
     registerHashtagType(type, typeClassInstance);
+  }
+
+  /**
+   * Adds a button to the bulk topic actions modal.
+   *
+   * ```
+   * api.addBulkActionButton({
+   *   label: "super_plugin.bulk.enhance",
+   *   icon: "magic",
+   *   class: "btn-default",
+   *   visible: ({ currentUser, siteSettings }) => siteSettings.super_plugin_enabled && currentUser.staff,
+   *   async action({ setComponent }) {
+   *     await doSomething(this.model.topics);
+   *     setComponent(MyBulkModal);
+   *   },
+   * });
+   * ```
+   *
+   * @callback buttonVisibilityCallback
+   * @param {Object} opts
+   * @param {Topic[]} opts.topics - the selected topic for the bulk action
+   * @param {Category} opts.category - the category in which the action is performed (if applicable)
+   * @param {User} opts.currentUser
+   * @param {SiteSettings} opts.siteSettings
+   * @returns {Boolean} - whether the button should be visible or not
+   *
+   * @callback buttonAction
+   * @param {Object} opts
+   * @param {Topic[]} opts.topics - the selected topic for the bulk action
+   * @param {Category} opts.category - the category in which the action is performed (if applicable)
+   * @param {function} opts.setComponent - render a template in the bulk action modal (pass in an imported component)
+   * @param {function} opts.performAndRefresh
+   * @param {function} opts.forEachPerformed
+   *
+   * @param {Object} opts
+   * @param {string} opts.label
+   * @param {string} opts.icon
+   * @param {string} opts.class
+   * @param {buttonVisibilityCallback} opts.visible
+   * @param {buttonAction} opts.action
+   */
+  addBulkActionButton(opts) {
+    _addBulkButton(opts);
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }
 
@@ -2312,7 +2527,7 @@ function getPluginApi(version) {
   version = version.toString();
 
   if (cmpVersions(version, PLUGIN_API_VERSION) <= 0) {
-    const owner = getOwner(this);
+    const owner = getOwnerWithFallback(this);
     let pluginApi = owner.lookup("plugin-api:main");
 
     if (!pluginApi) {
@@ -2351,43 +2566,4 @@ export function withPluginApi(version, apiCodeCallback, opts) {
   if (api) {
     return apiCodeCallback(api, opts);
   }
-}
-
-let _decorateId = 0;
-let _decorated = new WeakMap();
-
-function decorate(klass, evt, cb, id) {
-  if (!id) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      consolePrefix(),
-      "`decorateCooked` should be supplied with an `id` option to avoid memory leaks in test mode. The id will be used to ensure the decorator is only applied once."
-    );
-  } else {
-    if (!_decorated.has(klass)) {
-      _decorated.set(klass, new Set());
-    }
-    id = `${id}:${evt}`;
-    let set = _decorated.get(klass);
-    if (set.has(id)) {
-      return;
-    }
-    set.add(id);
-  }
-
-  const mixin = {};
-  let name = `_decorate_${_decorateId++}`;
-
-  if (id) {
-    name += `_${id.replaceAll(/\W/g, "_")}`;
-  }
-
-  mixin[name] = on(evt, function (elem) {
-    elem = elem || this.element;
-    if (elem) {
-      cb(elem);
-    }
-  });
-
-  klass.reopen(mixin);
 }

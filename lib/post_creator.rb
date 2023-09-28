@@ -167,7 +167,11 @@ class PostCreator
     DiscourseEvent.trigger :before_create_post, @post, @opts
     DiscourseEvent.trigger :validate_post, @post
 
-    post_validator = PostValidator.new(skip_topic: true)
+    post_validator =
+      PostValidator.new(
+        skip_topic: true,
+        private_message: @opts[:archetype] == Archetype.private_message,
+      )
     post_validator.validate(@post)
 
     valid = @post.errors.blank?
@@ -480,7 +484,7 @@ class PostCreator
   end
 
   def update_uploads_secure_status
-    @post.update_uploads_secure_status(source: "post creator") if SiteSetting.secure_uploads?
+    @post.update_uploads_secure_status(source: "post creator") if SiteSetting.secure_media?
   end
 
   def delete_owned_bookmarks
@@ -512,10 +516,7 @@ class PostCreator
     return unless @post && @post.errors.count == 0 && @topic && @topic.category_id
 
     if @post.is_first_post?
-      Category.where(id: @topic.category_id).update_all(
-        latest_topic_id: @topic.id,
-        latest_post_id: @post.id,
-      )
+      Category.where(id: @topic.category_id).update_all(latest_topic_id: @topic.id, latest_post_id: @post.id)
     else
       Category.where(id: @topic.category_id).update_all(latest_post_id: @post.id)
     end
@@ -626,13 +627,10 @@ class PostCreator
   def setup_post
     @opts[:raw] = TextCleaner.normalize_whitespaces(@opts[:raw] || "").rstrip
 
-    post =
-      Post.new(
-        raw: @opts[:raw],
-        topic_id: @topic.try(:id),
-        user: @user,
-        reply_to_post_number: @opts[:reply_to_post_number],
-      )
+    post = Post.new(raw: @opts[:raw],
+                    topic_id: @topic.try(:id),
+                    user: @user,
+                    reply_to_post_number: @opts[:reply_to_post_number])
 
     # Attributes we pass through to the post instance if present
     %i[
@@ -650,12 +648,11 @@ class PostCreator
 
     post.extract_quoted_post_numbers
 
-    post.created_at =
-      if @opts[:created_at].is_a?(Time)
-        @opts[:created_at]
-      elsif @opts[:created_at].present?
-        Time.zone.parse(@opts[:created_at].to_s)
-      end
+    post.created_at = if @opts[:created_at].is_a?(Time)
+      @opts[:created_at]
+    elsif @opts[:created_at].present?
+      Time.zone.parse(@opts[:created_at].to_s)
+    end
 
     if fields = @opts[:custom_fields]
       post.custom_fields = fields

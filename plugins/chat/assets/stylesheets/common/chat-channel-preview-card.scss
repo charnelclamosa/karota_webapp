@@ -1,11 +1,18 @@
 .chat-channel-preview-card {
   margin: 1rem 1rem 2rem 1rem;
   padding: 1.5rem 1rem;
+<<<<<<< HEAD
   background-color: var(--secondary-very-high);
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 3;
+=======
+  background-color: var(--primary-50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   &.-no-description {
     .chat-channel-title {
@@ -13,6 +20,7 @@
     }
   }
 
+<<<<<<< HEAD
   &.-no-button {
     .chat-channel-preview-card__browse-all {
       margin-top: 0;
@@ -24,6 +32,11 @@
     text-align: center;
     overflow-wrap: break-word;
     max-width: 100%;
+=======
+  &__description {
+    color: var(--primary-600);
+    text-align: center;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   .chat-channel-title__name {
@@ -33,7 +46,11 @@
   &__join-channel-btn {
     font-size: var(--font-up-2);
     border: 1px solid transparent;
+<<<<<<< HEAD
     border-radius: var(--d-button-border-radius);
+=======
+    border-radius: 0.25rem;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     line-height: normal;
     box-sizing: border-box;
     padding: 0.5em 0.65em;

@@ -72,7 +72,11 @@ RSpec.describe "S3Helper" do
       { "some/bucket" => "bucket/testing", "some" => "testing" }.each do |bucket_name, prefix|
         s3_helper = S3Helper.new(bucket_name, "", client: client)
         Aws::S3::Bucket.any_instance.expects(:objects).with({ prefix: prefix })
+<<<<<<< HEAD
         s3_helper.list("testing")
+=======
+        s3_helper.list('testing')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
   end
@@ -245,7 +249,11 @@ RSpec.describe "S3Helper" do
     it "works" do
       # The S3::Client with `stub_responses: true` includes validation of requests.
       # If the request were invalid, this spec would raise an error
+<<<<<<< HEAD
       s3_helper.delete_objects(%w[object/one.txt object/two.txt])
+=======
+      s3_helper.delete_objects(["object/one.txt", "object/two.txt"])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

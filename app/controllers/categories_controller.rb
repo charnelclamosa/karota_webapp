@@ -316,7 +316,14 @@ class CategoriesController < ApplicationController
       include_topics: false,
     }
 
+<<<<<<< HEAD
     topic_options = { per_page: CategoriesController.topics_per_page, no_definitions: true }
+=======
+    topic_options = {
+      per_page: CategoriesController.topics_per_page,
+      no_definitions: true,
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     topic_options.merge!(build_topic_list_options)
     style = SiteSetting.desktop_category_page_style
@@ -411,7 +418,12 @@ class CategoriesController < ApplicationController
             :read_only_banner,
             :default_list_filter,
             :reviewable_by_group_id,
-            category_setting_attributes: %i[auto_bump_cooldown_days],
+            category_setting_attributes: %i[
+              auto_bump_cooldown_days
+              num_auto_bump_daily
+              require_reply_approval
+              require_topic_approval
+            ],
             custom_fields: [custom_field_params],
             permissions: [*p.try(:keys)],
             allowed_tags: [],

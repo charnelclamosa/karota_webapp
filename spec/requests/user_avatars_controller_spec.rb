@@ -111,6 +111,7 @@ RSpec.describe UserAvatarsController do
     it "redirects to external store when enabled" do
       global_setting :redirect_avatar_requests, true
       setup_s3
+<<<<<<< HEAD
       SiteSetting.avatar_sizes = "100|98|49"
       SiteSetting.s3_cdn_url = "https://s3-cdn.example.com"
       set_cdn_url("https://app-cdn.example.com")
@@ -132,6 +133,22 @@ RSpec.describe UserAvatarsController do
             "//#{SiteSetting.s3_upload_bucket}.s3.dualstack.us-west-1.amazonaws.com/optimized/path",
           version: OptimizedImage::VERSION,
         )
+=======
+      SiteSetting.avatar_sizes = "100|49"
+      SiteSetting.s3_cdn_url = "https://s3-cdn.example.com"
+      set_cdn_url("https://app-cdn.example.com")
+
+      upload = Fabricate(:upload, url: "//#{SiteSetting.s3_upload_bucket}.s3.dualstack.us-west-1.amazonaws.com/upload/path")
+
+      optimized_image = Fabricate(:optimized_image,
+        sha1: SecureRandom.hex << "A" * 8,
+        upload: upload,
+        width: 98,
+        height: 98,
+        url: "//#{SiteSetting.s3_upload_bucket}.s3.dualstack.us-west-1.amazonaws.com/optimized/path",
+        version: OptimizedImage::VERSION
+      )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       user = Fabricate(:user, uploaded_avatar_id: upload.id)
 
@@ -139,12 +156,19 @@ RSpec.describe UserAvatarsController do
 
       expect(response.status).to eq(302)
       expect(response.location).to eq("https://s3-cdn.example.com/optimized/path")
+<<<<<<< HEAD
       expect(response.headers["Cache-Control"]).to eq(
         "max-age=3600, public, immutable, stale-while-revalidate=86400",
       )
     end
 
     it "serves new version for old urls" do
+=======
+      expect(response.headers["Cache-Control"]).to eq('max-age=3600, public, immutable')
+    end
+
+    it 'serves new version for old urls' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user = Fabricate(:user)
       SiteSetting.avatar_sizes = "45"
 

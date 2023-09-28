@@ -18,7 +18,7 @@ et:
       no_day: "%B. %Y"
   date:
     month_names:
-    - null
+    -
     - jaanuar
     - veebruar
     - märts
@@ -150,7 +150,6 @@ et:
     more_replies:
       one: "veel %{count} vastus"
       other: "veel %{count} vastust"
-    loading: "Laen arutelu..."
     permalink: "Püsilink"
     imported_from: "See on kaasnev vestlusteema originaalsisestusele %{link}"
     in_reply_to: "▶ %{username}"
@@ -384,6 +383,13 @@ et:
         one: "peaaegu %{count} aasta tagasi"
         other: "peaaegu %{count} aastat tagasi"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Vali uus parool"
+    choose: "Vali parool"
+    update: "Uuenda parooli"
+    save: "Määra Parool"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Uuenda Parool"
     success: "Sinu parooli muutmine õnnestus ja oled nüüd sisse logitud."
     success_unapproved: "Sinu parooli muutmine õnnestus."
@@ -721,7 +727,6 @@ et:
     host_names_warning: "Sinu config/database.yml fail kasutab vaikimisi hostinime localhost. Kirjuta sinna oma saidi hostinimi."
   site_settings:
     disabled: "välja lülitatud"
-    min_post_length: "Lühim lubatud postituse pikkus"
     max_post_length: "Maksimaalne lubatud postituse pikkus tähemärkides"
     min_topic_title_length: "Lühim lubatud teema pealkirja pikkus tähemärkides"
     max_topic_title_length: "Maksimaalne lubatud teema pealkirja pikkus tähemärkides"
@@ -1020,6 +1025,13 @@ et:
                 label: "Foorumid esiletõstetud teemadega"
               categories_and_latest_topics:
                 label: "Foorumid ja viimased teemad"
+<<<<<<< HEAD
+=======
+      branding:
+        fields:
+          logo:
+            label: "Peamine logo"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:
@@ -1063,7 +1075,6 @@ et:
       approve_user:
         title: "Kiida kasutaja heaks"
       reject_user:
-        title: "Kustuta kasutaja..."
         delete:
           title: "Kustuta kasutaja"
       reject:

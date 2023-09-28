@@ -1,6 +1,10 @@
 import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+=======
 import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { settled } from "@ember/test-helpers";
 
 module("Unit | Model | pending-post", function (hooks) {
@@ -47,7 +51,11 @@ module("Unit | Model | pending-post", function (hooks) {
     await settled();
 
     assert.strictEqual(
+<<<<<<< HEAD
+      post.expandedExcerpt.toString(),
+=======
       post.expandedExcerpt.string,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "<p><strong>bold text</strong></p>"
     );
   });

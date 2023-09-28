@@ -3,14 +3,20 @@ import { setupRenderingTest } from "discourse/tests/helpers/component-test";
 import { fillIn, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import pretender, { response } from "discourse/tests/helpers/create-pretender";
+<<<<<<< HEAD
 import { query } from "discourse/tests/helpers/qunit-helpers";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Integration | Component | ComposerEditor", function (hooks) {
   setupRenderingTest(hooks);
 
   test("warns about users that will not see a mention", async function (assert) {
+<<<<<<< HEAD
+=======
     assert.expect(2);
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.set("model", {});
     this.set("noop", () => {});
     this.set("expectation", (warning) => {
@@ -44,6 +50,7 @@ module("Integration | Component | ComposerEditor", function (hooks) {
 
     await fillIn("textarea", "@user-no @user-ok @user-nope");
   });
+<<<<<<< HEAD
 
   test("preview sanitizes HTML", async function (assert) {
     this.set("model", {});
@@ -62,4 +69,6 @@ module("Integration | Component | ComposerEditor", function (hooks) {
       '<p>"&gt;<svg></svg></p>'
     );
   });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

@@ -441,6 +441,7 @@ module("Integration | Component | select-kit/single-select", function (hooks) {
     );
   });
 
+<<<<<<< HEAD
   test("row index", async function (assert) {
     this.setProperties({
       content: [
@@ -459,6 +460,8 @@ module("Integration | Component | select-kit/single-select", function (hooks) {
     assert.dom('.select-kit-row[data-index="1"][data-value="2"]').exists();
   });
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("options.verticalOffset", async function (assert) {
     setDefaultState(this, { verticalOffset: -50 });
     await render(hbs`
@@ -477,6 +480,7 @@ module("Integration | Component | select-kit/single-select", function (hooks) {
 
     assert.ok(header.bottom > body.top, "it correctly offsets the body");
   });
+<<<<<<< HEAD
 
   test("options.expandedOnInsert", async function (assert) {
     setDefaultState(this);
@@ -506,4 +510,6 @@ module("Integration | Component | select-kit/single-select", function (hooks) {
       .hasAttribute("type", "hidden")
       .hasAttribute("value", "1");
   });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

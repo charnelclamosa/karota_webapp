@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 import { setupRenderingTest } from "discourse/tests/helpers/component-test";
 import { exists, query } from "discourse/tests/helpers/qunit-helpers";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 import { render, settled } from "@ember/test-helpers";
+=======
+import componentTest, {
+  setupRenderingTest,
+} from "discourse/tests/helpers/component-test";
+import { exists, query } from "discourse/tests/helpers/qunit-helpers";
+import hbs from "htmlbars-inline-precompile";
+import { module } from "qunit";
+import { settled } from "@ember/test-helpers";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const IMAGE_FIXTURE = {
   id: 290,
@@ -23,7 +33,11 @@ const IMAGE_FIXTURE = {
 
 const VIDEO_FIXTURE = {
   id: 290,
+<<<<<<< HEAD
   url: null, // Nulled out to avoid actually setting the src - avoids an HTTP request
+=======
+  url: null, // Nulled out to avoid actually setting the img src - avoids an HTTP request
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   original_filename: "video.mp4",
   filesize: 172214,
   width: 1024,
@@ -37,6 +51,7 @@ const VIDEO_FIXTURE = {
   human_filesize: "168 KB",
 };
 
+<<<<<<< HEAD
 const AUDIO_FIXTURE = {
   id: 290,
   url: null, // Nulled out to avoid actually setting the src - avoids an HTTP request
@@ -53,6 +68,8 @@ const AUDIO_FIXTURE = {
   human_filesize: "168 KB",
 };
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 const TXT_FIXTURE = {
   id: 290,
   url: "https://example.com/file.txt",
@@ -68,6 +85,7 @@ const TXT_FIXTURE = {
 module("Discourse Chat | Component | chat-upload", function (hooks) {
   setupRenderingTest(hooks);
 
+<<<<<<< HEAD
   test("with an image", async function (assert) {
     this.set("upload", IMAGE_FIXTURE);
 
@@ -131,5 +149,67 @@ module("Discourse Chat | Component | chat-upload", function (hooks) {
     assert.true(exists("a.chat-other-upload"), "displays as a link");
     const link = query("a.chat-other-upload");
     assert.strictEqual(link.href, TXT_FIXTURE.url, "has the correct URL");
+=======
+  componentTest("with an image", {
+    template: hbs`{{chat-upload upload=upload}}`,
+
+    beforeEach() {
+      this.set("upload", IMAGE_FIXTURE);
+    },
+
+    async test(assert) {
+      assert.true(exists("img.chat-img-upload"), "displays as an image");
+      const image = query("img.chat-img-upload");
+      assert.strictEqual(image.loading, "lazy", "is lazy loading");
+
+      assert.strictEqual(
+        image.style.backgroundColor,
+        "rgb(120, 131, 112)",
+        "sets background to dominant color"
+      );
+
+      image.dispatchEvent(new Event("load")); // Fake that the image has loaded
+      await settled();
+
+      assert.strictEqual(
+        image.style.backgroundColor,
+        "",
+        "removes the background color once the image has loaded"
+      );
+    },
+  });
+
+  componentTest("with a video", {
+    template: hbs`{{chat-upload upload=upload}}`,
+
+    beforeEach() {
+      this.set("upload", VIDEO_FIXTURE);
+    },
+
+    async test(assert) {
+      assert.true(exists("video.chat-video-upload"), "displays as an video");
+      const video = query("video.chat-video-upload");
+      assert.ok(video.hasAttribute("controls"), "has video controls");
+      assert.strictEqual(
+        video.getAttribute("preload"),
+        "metadata",
+        "video has correct preload settings"
+      );
+    },
+  });
+
+  componentTest("non image upload", {
+    template: hbs`{{chat-upload upload=upload}}`,
+
+    beforeEach() {
+      this.set("upload", TXT_FIXTURE);
+    },
+
+    async test(assert) {
+      assert.true(exists("a.chat-other-upload"), "displays as a link");
+      const link = query("a.chat-other-upload");
+      assert.strictEqual(link.href, TXT_FIXTURE.url, "has the correct URL");
+    },
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 });

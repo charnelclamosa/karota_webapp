@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SiteSerializer < ApplicationSerializer
+  include NavigationMenuTagsMixin
+
   attributes(
     :default_archetype,
     :notification_types,
@@ -21,6 +23,7 @@ class SiteSerializer < ApplicationSerializer
     :can_tag_pms,
     :tags_filter_regexp,
     :top_tags,
+    :navigation_menu_site_top_tags,
     :can_associate_groups,
     :wizard_required,
     :topic_featured_link_allowed_category_ids,
@@ -187,7 +190,7 @@ class SiteSerializer < ApplicationSerializer
   end
 
   def top_tags
-    Tag.top_tags(guardian: scope)
+    @top_tags ||= Tag.top_tags(guardian: scope)
   end
 
   def wizard_required
@@ -243,16 +246,45 @@ class SiteSerializer < ApplicationSerializer
   end
 
   def hashtag_icons
+<<<<<<< HEAD
     HashtagAutocompleteService.data_source_icon_map
+=======
+    HashtagAutocompleteService.data_source_icons
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def displayed_about_plugin_stat_groups
     About.displayed_plugin_stat_groups
   end
 
+  SIDEBAR_TOP_TAGS_TO_SHOW = 5
+
+  def navigation_menu_site_top_tags
+    if top_tags.present?
+      tag_names = top_tags[0...SIDEBAR_TOP_TAGS_TO_SHOW]
+      serialized = serialize_tags(Tag.where(name: tag_names))
+
+      # Ensures order of top tags is preserved
+      serialized.sort_by { |tag| tag_names.index(tag[:name]) }
+    else
+      []
+    end
+  end
+
+<<<<<<< HEAD
+  def include_navigation_menu_site_top_tags?
+    !SiteSetting.legacy_navigation_menu? && SiteSetting.tagging_enabled
+  end
+
   def anonymous_default_navigation_menu_tags
     @anonymous_default_navigation_menu_tags ||=
-      SiteSetting.default_navigation_menu_tags.split("|") - DiscourseTagging.hidden_tag_names(scope)
+      begin
+        tag_names =
+          SiteSetting.default_navigation_menu_tags.split("|") -
+            DiscourseTagging.hidden_tag_names(scope)
+
+        serialize_tags(Tag.where(name: tag_names))
+      end
   end
 
   def include_anonymous_default_navigation_menu_tags?
@@ -303,6 +335,14 @@ class SiteSerializer < ApplicationSerializer
 
   def include_privacy_policy_url?
     privacy_policy_url.present?
+=======
+  def anonymous_default_sidebar_tags
+    SiteSetting.default_sidebar_tags.split("|") - DiscourseTagging.hidden_tag_names(scope)
+  end
+
+  def include_anonymous_default_sidebar_tags?
+    scope.anonymous? && !SiteSetting.legacy_navigation_menu? && SiteSetting.tagging_enabled && SiteSetting.default_sidebar_tags.present?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   private

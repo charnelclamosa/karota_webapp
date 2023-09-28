@@ -1,13 +1,25 @@
 const TapReporter = require("testem/lib/reporters/tap_reporter");
+<<<<<<< HEAD
+const { shouldLoadPlugins } = require("discourse-plugins");
+const fs = require("fs");
+const displayUtils = require("testem/lib/utils/displayutils");
+const colors = require("@colors/colors/safe");
+=======
 const { shouldLoadPluginTestJs } = require("discourse-plugins");
 const fs = require("fs");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
-class Reporter {
+class Reporter extends TapReporter {
   failReports = [];
   deprecationCounts = new Map();
 
   constructor() {
-    this._tapReporter = new TapReporter(...arguments);
+    super(...arguments);
+
+    // Colors are enabled automatically in dev env, just need to toggle them on in GH
+    if (process.env.GITHUB_ACTIONS) {
+      colors.enable();
+    }
   }
 
   reportMetadata(tag, metadata) {
@@ -16,17 +28,89 @@ class Reporter {
       const currentCount = this.deprecationCounts.get(id) || 0;
       this.deprecationCounts.set(id, currentCount + 1);
     } else if (tag === "summary-line") {
+<<<<<<< HEAD
+      this.out.write(`\n${metadata.message}\n`);
+=======
       process.stdout.write(`\n${metadata.message}\n`);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     } else {
-      this._tapReporter.reportMetadata(...arguments);
+      super.reportMetadata(...arguments);
     }
   }
 
   report(prefix, data) {
     if (data.failed) {
-      this.failReports.push([prefix, data, this._tapReporter.id]);
+      this.failReports.push([prefix, data, this.id]);
     }
-    this._tapReporter.report(prefix, data);
+
+    super.report(prefix, data);
+  }
+
+  display(prefix, result) {
+    if (this.willDisplay(result)) {
+      const string = displayUtils.resultString(
+        this.id++,
+        prefix,
+        result,
+        this.quietLogs,
+        this.strictSpecCompliance
+      );
+
+      const color = this.colorForResult(result);
+      const matches = string.match(/([\S\s]+?)(\n\s+browser\slog:[\S\s]+)/);
+
+      if (matches) {
+        this.out.write(color(matches[1]));
+        this.out.write(colors.cyan(matches[2]));
+      } else {
+        this.out.write(color(string));
+      }
+    }
+  }
+
+  colorForResult(result) {
+    if (result.todo || result.skipped) {
+      return colors.yellow;
+    } else if (result.passed) {
+      return colors.green;
+    } else {
+      return colors.red;
+    }
+  }
+
+  generateDeprecationTable() {
+    const maxIdLength = Math.max(
+      ...Array.from(this.deprecationCounts.keys()).map((k) => k.length)
+    );
+
+    let msg = `| ${"id".padEnd(maxIdLength)} | count |\n`;
+    msg += `| ${"".padEnd(maxIdLength, "-")} | ----- |\n`;
+
+    for (const [id, count] of this.deprecationCounts.entries()) {
+      const countString = count.toString();
+      msg += `| ${id.padEnd(maxIdLength)} | ${countString.padStart(5)} |\n`;
+    }
+
+    return msg;
+  }
+
+  reportDeprecations() {
+    let deprecationMessage = "[Deprecation Counter] ";
+    if (this.deprecationCounts.size > 0) {
+      const table = this.generateDeprecationTable();
+      deprecationMessage += `Test run completed with deprecations:\n\n${table}`;
+
+      if (process.env.GITHUB_ACTIONS && process.env.GITHUB_STEP_SUMMARY) {
+        let jobSummary = `### ⚠️ JS Deprecations\n\nTest run completed with deprecations:\n\n`;
+        jobSummary += table;
+        jobSummary += `\n\n`;
+
+        fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, jobSummary);
+      }
+    } else {
+      deprecationMessage += "No deprecations logged";
+    }
+    this.out.write(`\n${deprecationMessage}\n\n`);
   }
 
   generateDeprecationTable() {
@@ -65,20 +149,31 @@ class Reporter {
   }
 
   finish() {
-    this._tapReporter.finish();
+    super.finish();
+
+    this.reportDeprecations();
 
     this.reportDeprecations();
 
     if (this.failReports.length > 0) {
+<<<<<<< HEAD
+      this.out.write("\nFailures:\n\n");
+=======
       process.stdout.write("\nFailures:\n\n");
+>>>>>>> 85d03045c7 (Sync to forked branch)
 
       this.failReports.forEach(([prefix, data, id]) => {
         if (process.env.GITHUB_ACTIONS) {
-          process.stdout.write(`::error ::QUnit Test Failure: ${data.name}\n`);
+          this.out.write(`::error ::QUnit Test Failure: ${data.name}\n`);
         }
 
+<<<<<<< HEAD
+        this.id = id;
+        super.report(prefix, data);
+=======
         this._tapReporter.id = id;
         this._tapReporter.report(prefix, data);
+>>>>>>> 85d03045c7 (Sync to forked branch)
       });
     }
   }
@@ -139,7 +234,7 @@ if (process.argv.includes("-t")) {
       });
     },
   ];
-} else if (shouldLoadPluginTestJs()) {
+} else if (shouldLoadPlugins()) {
   // Running with ember cli, but we want to pass through plugin request to Rails
   module.exports.proxies = {
     "/assets/plugins/*_extra.js": {

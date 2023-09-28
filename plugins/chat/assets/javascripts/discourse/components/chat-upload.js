@@ -1,7 +1,11 @@
 import Component from "@glimmer/component";
 
 import { inject as service } from "@ember/service";
+<<<<<<< HEAD
 import { isAudio, isImage, isVideo } from "discourse/lib/uploads";
+=======
+import { isImage, isVideo } from "discourse/lib/uploads";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { htmlSafe } from "@ember/template";
@@ -13,7 +17,10 @@ export default class extends Component {
 
   IMAGE_TYPE = "image";
   VIDEO_TYPE = "video";
+<<<<<<< HEAD
   AUDIO_TYPE = "audio";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   ATTACHMENT_TYPE = "attachment";
 
   get type() {
@@ -25,10 +32,13 @@ export default class extends Component {
       return this.VIDEO_TYPE;
     }
 
+<<<<<<< HEAD
     if (isAudio(this.args.upload.original_filename)) {
       return this.AUDIO_TYPE;
     }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     return this.ATTACHMENT_TYPE;
   }
 

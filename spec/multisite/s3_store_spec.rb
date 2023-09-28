@@ -227,10 +227,14 @@ RSpec.describe "Multisite s3 uploads", type: :multisite do
 
           s3_helper.expects(:s3_bucket).returns(s3_bucket).at_least_once
           s3_bucket.expects(:object).with("#{upload_path}/#{path}").returns(s3_object).at_least_once
+<<<<<<< HEAD
           s3_object.expects(:presigned_url).with(
             :get,
             { expires_in: SiteSetting.s3_presigned_get_url_expires_after_seconds },
           )
+=======
+          s3_object.expects(:presigned_url).with(:get, { expires_in: SiteSetting.s3_presigned_get_url_expires_after_seconds })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           upload.url = store.store_upload(uploaded_file, upload)
           expect(upload.url).to eq(
@@ -384,7 +388,7 @@ RSpec.describe "Multisite s3 uploads", type: :multisite do
     end
   end
 
-  describe "#signed_url_for_temporary_upload" do
+  describe "#signed_request_for_temporary_upload" do
     before { setup_s3 }
 
     let(:store) { FileStore::S3Store.new }
@@ -392,19 +396,26 @@ RSpec.describe "Multisite s3 uploads", type: :multisite do
     context "for a bucket with no folder path" do
       before { SiteSetting.s3_upload_bucket = "s3-upload-bucket" }
 
-      it "returns a presigned url with the correct params and the key for the temporary file" do
-        url = store.signed_url_for_temporary_upload("test.png")
+      it "returns a presigned url and headers with the correct params and the key for the temporary file" do
+        url, signed_headers = store.signed_request_for_temporary_upload("test.png")
         key = store.s3_helper.path_from_url(url)
+        expect(signed_headers).to eq("x-amz-acl" => "private")
         expect(url).to match(/Amz-Expires/)
         expect(key).to match(
           /temp\/uploads\/default\/test_[0-9]\/[a-zA-z0-9]{0,32}\/[a-zA-z0-9]{0,32}.png/,
         )
       end
 
-      it "presigned url contains the metadata when provided" do
-        url =
-          store.signed_url_for_temporary_upload("test.png", metadata: { "test-meta": "testing" })
-        expect(url).to include("&x-amz-meta-test-meta=testing")
+      it "presigned url headers contains the metadata when provided" do
+        url, signed_headers =
+          store.signed_request_for_temporary_upload(
+            "test.png",
+            metadata: {
+              "test-meta": "testing",
+            },
+          )
+        expect(signed_headers).to eq("x-amz-acl" => "private", "x-amz-meta-test-meta" => "testing")
+        expect(url).not_to include("&x-amz-meta-test-meta=testing")
       end
     end
 
@@ -412,7 +423,7 @@ RSpec.describe "Multisite s3 uploads", type: :multisite do
       before { SiteSetting.s3_upload_bucket = "s3-upload-bucket/site" }
 
       it "returns a presigned url with the correct params and the key for the temporary file" do
-        url = store.signed_url_for_temporary_upload("test.png")
+        url, _signed_headers = store.signed_request_for_temporary_upload("test.png")
         key = store.s3_helper.path_from_url(url)
         expect(url).to match(/Amz-Expires/)
         expect(key).to match(
@@ -426,7 +437,7 @@ RSpec.describe "Multisite s3 uploads", type: :multisite do
 
       it "returns a presigned url with the correct params and the key for the temporary file" do
         test_multisite_connection("second") do
-          url = store.signed_url_for_temporary_upload("test.png")
+          url, _signed_headers = store.signed_request_for_temporary_upload("test.png")
           key = store.s3_helper.path_from_url(url)
           expect(url).to match(/Amz-Expires/)
           expect(key).to match(

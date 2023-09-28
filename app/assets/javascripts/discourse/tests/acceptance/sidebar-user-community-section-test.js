@@ -60,6 +60,13 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
       "additional section links are displayed"
     );
 
+    assert.ok(
+      exists(
+        ".sidebar-section[data-section-name='community'] .sidebar-more-section-links-details-summary[aria-expanded='true']"
+      ),
+      "aria-expanded toggles to true when additional links are displayed"
+    );
+
     await click(
       ".sidebar-section[data-section-name='community'] .sidebar-more-section-links-details-summary"
     );
@@ -82,6 +89,13 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
         ".sidebar-section[data-section-name='community'] .sidebar-more-section-links-details-content"
       ),
       "additional section links are hidden when clicking outside"
+    );
+
+    assert.ok(
+      exists(
+        ".sidebar-section[data-section-name='community'] .sidebar-more-section-links-details-summary[aria-expanded='false']"
+      ),
+      "aria-expanded toggles to false when additional links are hidden"
     );
   });
 
@@ -588,7 +602,11 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     await visit("/");
 
     assert.strictEqual(
+<<<<<<< HEAD
       query(".sidebar-section-link[data-link-name='my-posts']").title,
+=======
+      query(".sidebar-section-link-my-posts").title,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       I18n.t("sidebar.sections.community.links.my_posts.title"),
       "displays the default title when no drafts are present"
     );
@@ -598,12 +616,17 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     });
 
     assert.strictEqual(
+<<<<<<< HEAD
       query(".sidebar-section-link[data-link-name='my-posts']").title,
+=======
+      query(".sidebar-section-link-my-posts").title,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       I18n.t("sidebar.sections.community.links.my_posts.title_drafts"),
       "displays the draft title when drafts are present"
     );
   });
 
+<<<<<<< HEAD
   test("my posts changes its text when drafts are present and new new view experiment is enabled", async function (assert) {
     updateCurrentUser({
       user_option: {
@@ -641,6 +664,8 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     );
   });
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("visiting top route", async function (assert) {
     await visit("/top");
 
@@ -700,9 +725,13 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
 
   test("show suffix indicator for unread and new content on everything link", async function (assert) {
     updateCurrentUser({
+<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: false,
       },
+=======
+      sidebar_list_destination: "default",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([
@@ -731,6 +760,7 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     await visit("/");
 
     assert.ok(
+<<<<<<< HEAD
       exists(
         ".sidebar-section-link[data-link-name='everything'] .sidebar-section-link-suffix"
       ),
@@ -745,6 +775,12 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
       topicTrackingState.stateChangeCallbacks
     ).length;
 
+=======
+      exists(".sidebar-section-link-everything .sidebar-section-link-suffix"),
+      "shows suffix indicator for unread posts on everything link"
+    );
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     // simulate reading topic 2
     await publishToMessageBus("/unread", {
       topic_id: 2,
@@ -757,6 +793,7 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     });
 
     assert.ok(
+<<<<<<< HEAD
       exists(
         ".sidebar-section-link[data-link-name='everything'] .sidebar-section-link-suffix"
       ),
@@ -769,6 +806,12 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
       "it does not add a new topic tracking state callback when the topic is read"
     );
 
+=======
+      exists(".sidebar-section-link-everything .sidebar-section-link-suffix"),
+      "shows suffix indicator for new topics on categories link"
+    );
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     // simulate reading topic 1
     await publishToMessageBus("/unread", {
       topic_id: 1,
@@ -781,18 +824,26 @@ acceptance("Sidebar - Logged on user - Community Section", function (needs) {
     });
 
     assert.ok(
+<<<<<<< HEAD
       !exists(
         ".sidebar-section-link[data-link-name='everything'] .sidebar-section-link-suffix"
       ),
+=======
+      !exists(".sidebar-section-link-everything .sidebar-section-link-suffix"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "it removes the suffix indicator when all topics are read"
     );
   });
 
   test("new and unread count for everything link", async function (assert) {
     updateCurrentUser({
+<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: true,
       },
+=======
+      sidebar_list_destination: "unread_new",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([

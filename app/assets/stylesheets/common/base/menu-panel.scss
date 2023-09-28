@@ -17,6 +17,7 @@
   top: 100%; // directly underneath .panel
   right: -10px; // 10px to the right of .panel - adjust as needed
   max-height: 80vh;
+  border-radius: var(--d-border-radius-large);
 }
 
 .menu-panel {
@@ -100,6 +101,7 @@
   right: 0;
   width: 320px;
   padding: 0;
+  border-top-right-radius: 0px;
 
   .panel-body-bottom {
     flex: 0;
@@ -122,6 +124,7 @@
       display: flex;
       padding: 0.857em;
       position: relative;
+      border-radius: 0px;
 
       .d-icon {
         color: var(--primary-medium);
@@ -623,6 +626,60 @@
     height: calc(var(--base-height) - var(--footer-nav-height));
   }
 
+  transform: translateX(var(--offset));
+  @media (prefers-reduced-motion: no-preference) {
+    &.animate {
+      transition: transform 0.1s linear;
+    }
+  }
+  &.moving,
+  &.animate {
+    // PERF: only render first 20 items in a list to allow for smooth
+    // pan events
+    li:nth-child(n + 20) {
+      display: none;
+    }
+  }
+}
+
+body.footer-nav-ipad {
+  .hamburger-panel .revamped,
+  .menu-panel.slide-in {
+    margin-top: var(--footer-nav-height);
+  }
+}
+
+.hamburger-panel .menu-panel.slide-in {
+  left: 0;
+
+  .panel-body {
+    display: block;
+  }
+  .panel-body-contents {
+    max-height: unset;
+    min-height: 100%;
+  }
+}
+.header-cloak {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  --opacity: 0.5;
+  opacity: var(--opacity);
+  top: 0;
+  left: 0;
+  display: none;
+  touch-action: pan-y pinch-zoom;
+
+  @media (prefers-reduced-motion: no-preference) {
+    &.animate {
+      transition: opacity 0.1s linear;
+    }
+  }
+}
+
+.menu-panel.slide-in {
   transform: translateX(var(--offset));
   @media (prefers-reduced-motion: no-preference) {
     &.animate {

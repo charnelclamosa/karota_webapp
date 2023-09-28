@@ -3,6 +3,7 @@
 module PageObjects
   module Pages
     class Chat < PageObjects::Pages::Base
+<<<<<<< HEAD
       def message_creator
         @message_creator ||= PageObjects::Components::Chat::MessageCreator.new
       end
@@ -17,21 +18,32 @@ module PageObjects
         )
       end
 
+      def prefers_drawer
+        page.execute_script(
+          "window.localStorage.setItem('discourse_chat_preferred_mode', '\"DRAWER_CHAT\"');",
+        )
+      end
+
       def open_from_header
         find(".chat-header-icon").click
       end
 
       def has_header_href?(href)
         find(".chat-header-icon").has_link?(href: href)
+=======
+      def open_from_header
+        find(".open-chat").click
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def open
         visit("/chat")
       end
 
-      def open_new_message
+<<<<<<< HEAD
+      def open_new_message(ensure_open: true)
         send_keys([PLATFORM_KEY_MODIFIER, "k"])
-        find(".chat-modal-new-message")
+        find(".chat-modal-new-message") if ensure_open
       end
 
       def has_drawer?(channel_id: nil, expanded: true)
@@ -50,7 +62,7 @@ module PageObjects
 
       def visit_thread(thread)
         visit(thread.url)
-        has_no_css?(".chat-skeleton")
+        has_css?(".chat-thread:not(.loading)[data-id=\"#{thread.id}\"]")
       end
 
       def visit_channel_settings(channel)
@@ -74,17 +86,16 @@ module PageObjects
         url += "/" + filter.to_s if filter
         visit(url)
         PageObjects::Pages::ChatBrowse.new.has_finished_loading?
+=======
+      def visit_channel(channel)
+        visit(channel.url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def minimize_full_page
         find(".open-drawer-btn").click
       end
-
-      def has_message?(message)
-        container = find(".chat-message-container[data-id=\"#{message.id}\"")
-        container.has_content?(message.message)
-        container.has_content?(message.user.username)
-      end
+<<<<<<< HEAD
 
       NEW_CHANNEL_BUTTON_SELECTOR = ".new-channel-btn"
 
@@ -108,6 +119,8 @@ module PageObjects
         selector += "[data-chat-channel-id=\"#{channel_id}\"]" if channel_id
         expectation ? has_css?(selector) : has_no_css?(selector)
       end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

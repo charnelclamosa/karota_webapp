@@ -148,9 +148,7 @@ const Composer = RestModel.extend({
     set(categoryId) {
       const oldCategoryId = this._categoryId;
 
-      if (this.privateMessage) {
-        categoryId = null;
-      } else if (isEmpty(categoryId)) {
+      if (isEmpty(categoryId)) {
         // Check if there is a default composer category to set
         const defaultComposerCategoryId = parseInt(
           this.siteSettings.default_composer_category,
@@ -1150,9 +1148,59 @@ const Composer = RestModel.extend({
       action_cost: this.action_cost
     })
 
-    try {
-      const result = await createdPost.save();
-      let saving = true;
+    return createdPost
+      .save()
+      .then((result) => {
+        let saving = true;
+
+        if (result.responseJson.action === "enqueued") {
+          if (postStream) {
+            postStream.undoPost(createdPost);
+          }
+          return result;
+        }
+
+        // We sometimes want to hide the `reply_to_user` if the post contains a quote
+        if (
+          result.responseJson &&
+          result.responseJson.post &&
+          !result.responseJson.post.reply_to_user
+        ) {
+          createdPost.set("reply_to_user", null);
+        }
+
+        if (topic) {
+          // It's no longer a new post
+          topic.set("draft_sequence", result.target.draft_sequence);
+          postStream.commitPost(createdPost);
+          addedToStream = true;
+        } else {
+          // We created a new topic, let's show it.
+          composer.set("composeState", CLOSED);
+          saving = false;
+
+          // Update topic_count for the category
+          const category = composer.site.categories.find(
+            (x) => x.id === (parseInt(createdPost.category, 10) || 1)
+          );
+          if (category) {
+            category.incrementProperty("topic_count");
+          }
+        }
+
+        composer.clearState();
+        composer.set("createdPost", createdPost);
+        if (composer.replyingToTopic) {
+          this.appEvents.trigger("post:created", createdPost);
+        } else {
+          this.appEvents.trigger("topic:created", createdPost, composer);
+        }
+
+        if (addedToStream) {
+          composer.set("composeState", CLOSED);
+        } else if (saving) {
+          composer.set("composeState", SAVING);
+        }
 
       if (result.responseJson.action === "enqueued") {
         postStream?.undoPost(createdPost);

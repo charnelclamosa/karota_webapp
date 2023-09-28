@@ -1,6 +1,14 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
+<<<<<<< HEAD
 import { PLATFORM_KEY_MODIFIER } from "discourse/lib/keyboard-shortcuts";
 import ChatModalNewMessage from "discourse/plugins/chat/discourse/components/chat/modal/new-message";
+=======
+import showModal from "discourse/lib/show-modal";
+
+const APPLE =
+  navigator.platform.startsWith("Mac") || navigator.platform === "iPhone";
+export const KEY_MODIFIER = APPLE ? "meta" : "ctrl";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default {
   name: "chat-keyboard-shortcuts",
@@ -13,6 +21,7 @@ export default {
 
     const router = container.lookup("service:router");
     const appEvents = container.lookup("service:app-events");
+<<<<<<< HEAD
     const modal = container.lookup("service:modal");
     const chatStateManager = container.lookup("service:chat-state-manager");
     const chatThreadPane = container.lookup("service:chat-thread-pane");
@@ -26,6 +35,17 @@ export default {
       e.preventDefault();
       e.stopPropagation();
       modal.show(ChatModalNewMessage);
+=======
+    const chatStateManager = container.lookup("service:chat-state-manager");
+    const openChannelSelector = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (document.getElementById("chat-channel-selector-modal-inner")) {
+        appEvents.trigger("chat-channel-selector-modal:close");
+      } else {
+        showModal("chat-channel-selector-modal");
+      }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     };
 
     const handleMoveUpShortcut = (e) => {
@@ -40,8 +60,12 @@ export default {
       chatService.switchChannelUpOrDown("down");
     };
 
+<<<<<<< HEAD
     const isChatComposer = (el) =>
       el.classList.contains("chat-composer__input");
+=======
+    const isChatComposer = (el) => el.classList.contains("chat-composer-input");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const isInputSelection = (el) => {
       const inputs = ["input", "textarea", "select", "button"];
       const elementTagName = el?.tagName.toLowerCase();
@@ -57,10 +81,14 @@ export default {
       }
       event.preventDefault();
       event.stopPropagation();
+<<<<<<< HEAD
       appEvents.trigger("chat:modify-selection", event, {
         type,
         context: event.target.dataset.chatComposerContext,
       });
+=======
+      appEvents.trigger("chat:modify-selection", { type });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     };
 
     const openInsertLinkModal = (event) => {
@@ -69,9 +97,13 @@ export default {
       }
       event.preventDefault();
       event.stopPropagation();
+<<<<<<< HEAD
       appEvents.trigger("chat:open-insert-link-modal", event, {
         context: event.target.dataset.chatComposerContext,
       });
+=======
+      appEvents.trigger("chat:open-insert-link-modal", { event });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     };
 
     const openChatDrawer = (event) => {
@@ -85,6 +117,7 @@ export default {
       router.transitionTo(chatStateManager.lastKnownChatURL || "chat");
     };
 
+<<<<<<< HEAD
     const closeChat = (event) => {
       // TODO (joffrey): removes this when we move from magnific popup
       // there's no proper way to prevent propagation in mfp
@@ -139,6 +172,34 @@ export default {
           },
         }
       );
+=======
+    const closeChatDrawer = (event) => {
+      if (!chatStateManager.isDrawerActive) {
+        return;
+      }
+
+      if (!isChatComposer(event.target)) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      appEvents.trigger("chat:toggle-close", event);
+    };
+
+    withPluginApi("0.12.1", (api) => {
+      api.addKeyboardShortcut(`${KEY_MODIFIER}+k`, openChannelSelector, {
+        global: true,
+        help: {
+          category: "chat",
+          name: "chat.keyboard_shortcuts.open_quick_channel_selector",
+          definition: {
+            keys1: ["meta", "k"],
+            keysDelimiter: "plus",
+          },
+        },
+      });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api.addKeyboardShortcut("alt+up", handleMoveUpShortcut, {
         global: true,
         help: {
@@ -157,7 +218,11 @@ export default {
         global: true,
       });
       api.addKeyboardShortcut(
+<<<<<<< HEAD
         `${PLATFORM_KEY_MODIFIER}+b`,
+=======
+        `${KEY_MODIFIER}+b`,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         (event) => modifyComposerSelection(event, "bold"),
         {
           global: true,
@@ -172,7 +237,11 @@ export default {
         }
       );
       api.addKeyboardShortcut(
+<<<<<<< HEAD
         `${PLATFORM_KEY_MODIFIER}+i`,
+=======
+        `${KEY_MODIFIER}+i`,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         (event) => modifyComposerSelection(event, "italic"),
         {
           global: true,
@@ -187,7 +256,11 @@ export default {
         }
       );
       api.addKeyboardShortcut(
+<<<<<<< HEAD
         `${PLATFORM_KEY_MODIFIER}+e`,
+=======
+        `${KEY_MODIFIER}+e`,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         (event) => modifyComposerSelection(event, "code"),
         {
           global: true,
@@ -202,7 +275,11 @@ export default {
         }
       );
       api.addKeyboardShortcut(
+<<<<<<< HEAD
         `${PLATFORM_KEY_MODIFIER}+l`,
+=======
+        `${KEY_MODIFIER}+l`,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         (event) => openInsertLinkModal(event),
         {
           global: true,
@@ -226,7 +303,11 @@ export default {
           },
         },
       });
+<<<<<<< HEAD
       api.addKeyboardShortcut("esc", (event) => closeChat(event), {
+=======
+      api.addKeyboardShortcut("esc", (event) => closeChatDrawer(event), {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         global: true,
         help: {
           category: "chat",
@@ -236,6 +317,7 @@ export default {
           },
         },
       });
+<<<<<<< HEAD
       api.addKeyboardShortcut(
         `shift+esc`,
         (event) => markAllChannelsRead(event),
@@ -251,6 +333,8 @@ export default {
           },
         }
       );
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   },
 };

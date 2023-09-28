@@ -295,7 +295,59 @@ RSpec.describe CategoriesController do
       end
     end
 
+<<<<<<< HEAD
     it "includes subcategories and topics by default when view is subcategories_with_featured_topics" do
+=======
+    describe "welcome topic" do
+      fab!(:category) { Fabricate(:category) }
+      fab!(:topic1) { Fabricate(:topic, category: category, created_at: 5.days.ago, updated_at: Time.now, bumped_at: Time.now) }
+      fab!(:topic2) { Fabricate(:topic, category: category, created_at: 2.days.ago, bumped_at: 2.days.ago) }
+      fab!(:topic3) { Fabricate(:topic, category: category, created_at: 1.day.ago, bumped_at: 1.day.ago) }
+      fab!(:welcome_topic) { Fabricate(:topic) }
+      fab!(:post) { Fabricate(:post, topic: welcome_topic) }
+
+      before do
+        SiteSetting.desktop_category_page_style = "categories_and_latest_topics"
+        SiteSetting.welcome_topic_id = welcome_topic.id
+        SiteSetting.editing_grace_period = 1.minute.to_i
+        SiteSetting.bootstrap_mode_enabled = true
+      end
+
+      it "is hidden for non-admins" do
+        get "/categories_and_latest.json"
+        expect(response.status).to eq(200)
+        expect(response.parsed_body['topic_list']['topics'].map { |t| t["id"] }).not_to include(welcome_topic.id)
+      end
+
+      it "is shown to non-admins when there is an edit" do
+        post.revise(post.user, { raw: "#{post.raw}2" }, revised_at: post.updated_at + 2.minutes)
+        post.reload
+        expect(post.version).to eq(2)
+
+        get "/categories_and_latest.json"
+        expect(response.status).to eq(200)
+        expect(response.parsed_body['topic_list']['topics'].map { |t| t["id"] }).to include(welcome_topic.id)
+      end
+
+      it "is hidden to admins" do
+        sign_in(admin)
+
+        get "/categories_and_latest.json"
+        expect(response.status).to eq(200)
+        expect(response.parsed_body['topic_list']['topics'].map { |t| t["id"] }).not_to include(welcome_topic.id)
+      end
+
+      it "is shown to users when bootstrap mode is disabled" do
+        SiteSetting.bootstrap_mode_enabled = false
+
+        get "/categories_and_latest.json"
+        expect(response.status).to eq(200)
+        expect(response.parsed_body['topic_list']['topics'].map { |t| t["id"] }).to include(welcome_topic.id)
+      end
+    end
+
+    it 'includes subcategories and topics by default when view is subcategories_with_featured_topics' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       SiteSetting.max_category_nesting = 3
       subcategory = Fabricate(:category, user: admin, parent_category: category)
 
@@ -714,9 +766,8 @@ RSpec.describe CategoriesController do
         end
 
         it "updates per-category settings correctly" do
-          category.custom_fields[Category::REQUIRE_TOPIC_APPROVAL] = false
-          category.custom_fields[Category::REQUIRE_REPLY_APPROVAL] = false
-          category.custom_fields[Category::NUM_AUTO_BUMP_DAILY] = 0
+          category.require_topic_approval = false
+          category.require_reply_approval = false
 
           category.navigate_to_first_post_after_read = false
           category.save!
@@ -727,7 +778,7 @@ RSpec.describe CategoriesController do
                 color: category.color,
                 text_color: category.text_color,
                 navigate_to_first_post_after_read: true,
-                custom_fields: {
+                category_setting_attributes: {
                   require_reply_approval: true,
                   require_topic_approval: true,
                   num_auto_bump_daily: 10,

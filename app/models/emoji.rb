@@ -37,11 +37,19 @@ class Emoji
   end
 
   def self.aliases
+<<<<<<< HEAD
     db["aliases"]
   end
 
   def self.search_aliases
     db["searchAliases"]
+=======
+    db['aliases']
+  end
+
+  def self.search_aliases
+    db['searchAliases']
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def self.translations
@@ -53,7 +61,11 @@ class Emoji
   end
 
   def self.tonable_emojis
+<<<<<<< HEAD
     db["tonableEmojis"]
+=======
+    db['tonableEmojis']
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def self.custom?(name)
@@ -122,7 +134,11 @@ class Emoji
   end
 
   def self.clear_cache
+<<<<<<< HEAD
     %w[custom standard translations allowed denied all].each do |key|
+=======
+    %w{custom standard translations all}.each do |key|
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       Discourse.cache.delete(cache_key("#{key}_emojis"))
     end
     global_emoji_cache.clear

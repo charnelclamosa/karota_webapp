@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::ScreenedUrlsController < Admin::StaffController
+<<<<<<< HEAD
+=======
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def index
     screened_urls =
       ScreenedUrl

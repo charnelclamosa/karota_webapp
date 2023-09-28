@@ -52,19 +52,29 @@ RSpec.describe SiteSettings::YamlLoader do
   end
 
   it "can load client settings" do
+<<<<<<< HEAD
     receiver.expects(:setting).with("category1", "title", "Discourse", { client: true })
     receiver.expects(:setting).with("category2", "tos_url", "", { client: true })
     receiver.expects(:setting).with("category2", "must_approve_users", false, { client: true })
+=======
+    receiver.expects(:setting).with('category1', 'title', 'Discourse', { client: true })
+    receiver.expects(:setting).with('category2', 'tos_url', '', { client: true })
+    receiver.expects(:setting).with('category2', 'must_approve_users', false, { client: true })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     receiver.load_yaml(client)
   end
 
   it "can load enum settings" do
+<<<<<<< HEAD
     receiver.expects(:setting).with(
       "email",
       "default_email_digest_frequency",
       7,
       { enum: "DigestEmailSiteSetting" },
     )
+=======
+    receiver.expects(:setting).with('email', 'default_email_digest_frequency', 7, { enum: 'DigestEmailSiteSetting' })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     receiver.load_yaml(enum)
   end
 
@@ -83,12 +93,16 @@ RSpec.describe SiteSettings::YamlLoader do
   end
 
   it "can load settings with locale default" do
+<<<<<<< HEAD
     receiver.expects(:setting).with(
       "search",
       "min_search_term_length",
       3,
       { min: 2, client: true, locale_default: { zh_CN: 2, zh_TW: 2 } },
     )
+=======
+    receiver.expects(:setting).with('search', 'min_search_term_length', 3, { min: 2, client: true, locale_default: { zh_CN: 2, zh_TW: 2 } })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     receiver.load_yaml(locale_default)
   end
 end

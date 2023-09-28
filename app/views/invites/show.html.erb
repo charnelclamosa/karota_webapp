@@ -2,7 +2,11 @@
   <%if flash[:error]%>
     <div class='invite-error'>
       <div class="error-image">
+<<<<<<< HEAD
         <img src="<%= Discourse.base_path + '/images/sweat-smile-face.svg' %>" alt="sweat-smile-face emoji">
+=======
+        <img src="/images/sweat-smile-face.svg" alt="sweat-smile-face emoji">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
       <div class="error-info">
         <%=flash[:error].html_safe%>

@@ -10,6 +10,13 @@ da:
       site_settings:
         categories:
           chat: Chat
+<<<<<<< HEAD
+        chat_separate_sidebar_mode:
+          always: "Altid"
+          fullscreen: "Når chat er i fuld skærm"
+          never: "Aldrig"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
@@ -25,6 +32,10 @@ da:
       chat_channels_count: "Chatkanaler"
       chat_users_count: "Chatbrugere"
     chat:
+<<<<<<< HEAD
+      deleted_chat_username: slettet
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "tt:mm"
       all_loaded: "Viser alle beskeder"
@@ -59,20 +70,35 @@ da:
         title: "Luk Kanal"
       channel_delete:
         title: "Slet Kanal"
+<<<<<<< HEAD
         confirm_channel_name: "Indtast kanalnavn"
       channels_list_popup:
         browse: "Gennemse kanaler"
         create: "Ny kanal"
       click_to_join: "Klik her for at se tilgængelige kanaler."
       close: "Luk"
+      remove: "Fjern"
+=======
+        instructions: "<p>Sletter <strong>%{name}</strong>-kanalen og chathistorikken. Alle beskeder og relaterede data, såsom reaktioner og uploads, slettes permanent. Hvis du vil bevare kanalhistorikken og nedlægge den, kan du i stedet for arkivere kanalen.</p> <p>Er du sikker på, at du vil slette <strong>kanalen</strong>? Skriv navnet på kanalen i boksen nedenfor for at bekræfte.</p>"
+        confirm_channel_name: "Indtast kanalnavn"
+      channels_list_popup:
+        browse: "Gennemse kanaler"
+      click_to_join: "Klik her for at se tilgængelige kanaler."
+      close: "Luk"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Slet"
       edited: "redigeret"
       muted: "stille!"
       joined: "tilmeldt"
       email_frequency:
         never: "Aldrig"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Aldrig"
+      separate_sidebar_mode:
+        title: "Vis separate sidebjælke-tilstande for forum og chat"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Aktiver chat"
       flag: "Rapportér"
       invalid_access: "Du har ikke adgang til at se denne chatkanal"
@@ -80,9 +106,13 @@ da:
       in_reply_to: "Som svar til"
       heading: "Chat"
       join: "Tilslut"
+<<<<<<< HEAD
       last_visit: "sidste besøg"
+=======
+      new_messages: "nye beskeder"
       mention_warning:
         dismiss: "afvis"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Svar"
       edit: "Rediger"
       rebake_message: "Gendan HTML"
@@ -120,7 +150,10 @@ da:
         yesterday: I går
       about_view:
         title: Titel
+<<<<<<< HEAD
         name: Navn
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Beskrivelse
       channel_info:
         back_to_channel: "Tilbage"
@@ -128,11 +161,20 @@ da:
           about: Om
           members: Brugere
           settings: Indstillinger
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Ingen punkter"
       direct_message_creator:
         title: Ny Besked
         prefix: "Til:"
+=======
+      direct_message_creator:
+        title: Ny Besked
+        prefix: "Til:"
+      channel_selector:
+        title: "Hop til kanal"
+        no_channels: "Ingen kanaler matcher din søgning"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create_channel:
         choose_category:
           label: "Vælg en kategori"
@@ -140,7 +182,10 @@ da:
         create: "Opret kanal"
         description: "Beskrivelse (valgfrit)"
         name: "Kanal navn"
+<<<<<<< HEAD
         title: "Ny kanal"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Type"
         types:
           category: "Kategori"
@@ -149,11 +194,21 @@ da:
         type: "Chatbesked"
       reactions:
         only_you: "Du reagerede med :%{emoji}:"
+<<<<<<< HEAD
+=======
+        and_others: "Du, %{usernames} reagerede med :%{emoji}:"
+        only_others: "%{usernames} reagerede med :%{emoji}:"
+        others_and_more: "%{usernames} og %{more} andre reagerede med :%{emoji}:"
+        you_others_and_more: "Du, %{usernames} og %{more} andre reagerede med :%{emoji}:"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         italic_text: "kursiv skrift"
         bold_text: "fed skrift"
         code_text: "kode tekst"
+<<<<<<< HEAD
         send: "Send"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         copy_success: "Chat-citat kopieret til udklipsholderen"
       notification_levels:
@@ -161,8 +216,11 @@ da:
       settings:
         follow: "Tilslut"
         followed: "Tilmeldt"
+<<<<<<< HEAD
         threading_enabled: "Aktiveret"
         threading_disabled: "Deaktiveret"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Notifikationer"
         preview: "Forhåndsvisning"
         save: "Gem"
@@ -171,6 +229,11 @@ da:
         admin_title: "Admin"
       admin:
         title: "Chat"
+<<<<<<< HEAD
+        export_messages:
+          description: "Dette eksporterer alle beskeder fra alle kanaler."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       incoming_webhooks:
         back: "Tilbage"
         description: "Beskrivelse"
@@ -196,11 +259,18 @@ da:
           title: "Flyt til ny besked"
       replying_indicator:
         single_user: "%{username} skriver"
+<<<<<<< HEAD
+=======
+      retention_reminders:
+        public: "Kanalhistorikken gemmes i %{days} dage."
+        dm: "Personlig chathistorik gemmes i %{days} dage."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       emoji_picker:
         objects: "Objekter"
         activities: "Aktiviteter"
         flags: "Flag"
         symbols: "Symboler"
+<<<<<<< HEAD
       thread:
         title: "Titel"
         replies:
@@ -216,6 +286,8 @@ da:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Ny Besked"
         cancel: "Annuller"
@@ -251,8 +323,23 @@ da:
             sender:
               label: Afsender
               description: Standard er system
+    review:
+      types:
+        reviewable_chat_message:
+<<<<<<< HEAD
+          noun: "chatbesked"
+=======
+          flagged_by: "Markeret af"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Chat"
         keyboard_shortcuts:
           switch_channel_arrows: "%{shortcut} Skift kanal"
+<<<<<<< HEAD
+    sidebar:
+      panels:
+        chat:
+          label: "Chat"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

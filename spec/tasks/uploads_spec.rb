@@ -54,22 +54,47 @@ RSpec.describe "tasks/uploads" do
           expect(upload3.reload.access_control_post).to eq(post3)
         end
 
-        it "sets everything attached to a post as secure and rebakes all those posts if login is required" do
-          SiteSetting.login_required = true
-          freeze_time
+        context "when login_required" do
+          before { SiteSetting.login_required = true }
 
-          post1.update_columns(baked_at: 1.week.ago)
-          post2.update_columns(baked_at: 1.week.ago)
-          post3.update_columns(baked_at: 1.week.ago)
+          it "sets everything attached to a post as secure and rebakes all those posts" do
+            freeze_time
 
-          invoke_task
+            post1.update_columns(baked_at: 1.week.ago)
+            post2.update_columns(baked_at: 1.week.ago)
+            post3.update_columns(baked_at: 1.week.ago)
 
-          expect(post1.reload.baked_at).not_to eq_time(1.week.ago)
-          expect(post2.reload.baked_at).not_to eq_time(1.week.ago)
-          expect(post3.reload.baked_at).not_to eq_time(1.week.ago)
-          expect(upload2.reload.secure).to eq(true)
-          expect(upload1.reload.secure).to eq(true)
-          expect(upload3.reload.secure).to eq(true)
+            invoke_task
+
+            expect(post1.reload.baked_at).not_to eq_time(1.week.ago)
+            expect(post2.reload.baked_at).not_to eq_time(1.week.ago)
+            expect(post3.reload.baked_at).not_to eq_time(1.week.ago)
+            expect(upload2.reload.secure).to eq(true)
+            expect(upload1.reload.secure).to eq(true)
+            expect(upload3.reload.secure).to eq(true)
+          end
+
+          context "when secure_uploads_pm_only" do
+            before { SiteSetting.secure_uploads_pm_only = true }
+
+            it "only sets everything attached to a private message post as secure and rebakes all those posts" do
+              freeze_time
+
+              post1.update_columns(baked_at: 1.week.ago)
+              post2.update_columns(baked_at: 1.week.ago)
+              post3.update_columns(baked_at: 1.week.ago)
+              post3.topic.update(archetype: "private_message", category: nil)
+
+              invoke_task
+
+              expect(post1.reload.baked_at).to eq_time(1.week.ago)
+              expect(post2.reload.baked_at).to eq_time(1.week.ago)
+              expect(post3.reload.baked_at).not_to eq_time(1.week.ago)
+              expect(upload1.reload.secure).to eq(false)
+              expect(upload2.reload.secure).to eq(true)
+              expect(upload3.reload.secure).to eq(true)
+            end
+          end
         end
 
         it "sets the uploads that are media and attachments in the read restricted topic category to secure" do
@@ -193,17 +218,46 @@ RSpec.describe "tasks/uploads" do
     it "updates the affected ACLs via the SyncAclsForUploads job" do
       invoke_task
       expect(Jobs::SyncAclsForUploads.jobs.last["args"][0]["upload_ids"]).to match_array(
+<<<<<<< HEAD
         [upload1.id, upload2.id, upload3.id, upload4.id],
+=======
+        [upload1.id, upload2.id, upload3.id, upload4.id]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
   end
 
   describe "uploads:downsize" do
     def invoke_task
+<<<<<<< HEAD
       capture_stdout { Rake::Task["uploads:downsize"].invoke }
     end
 
     before { STDIN.stubs(:beep) }
+
+    fab!(:upload) { Fabricate(:image_upload, width: 200, height: 200) }
+
+    it "corrects upload attributes" do
+      upload.update!(thumbnail_height: 0)
+
+      expect { invoke_task }.to change { upload.reload.thumbnail_height }.to(200)
+    end
+
+    it "updates attributes of uploads that are over the size limit" do
+      upload.update!(thumbnail_height: 0)
+      SiteSetting.max_image_size_kb = 0.001 # 1 byte
+
+      expect { invoke_task }.to change { upload.reload.thumbnail_height }.to(200)
+=======
+      capture_stdout do
+        Rake::Task["uploads:downsize"].invoke
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+    end
+
+    before do
+      STDIN.stubs(:beep)
+    end
 
     fab!(:upload) { Fabricate(:image_upload, width: 200, height: 200) }
 

@@ -6,7 +6,17 @@
 
 nb_NO:
   js:
+<<<<<<< HEAD
+    admin:
+      site_settings:
+        chat_separate_sidebar_mode:
+          always: "Alltid"
+          never: "Aldri"
     chat:
+      deleted_chat_username: slettet
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Opprett"
       cancel: "Avbryt"
       channel_settings:
@@ -15,19 +25,28 @@ nb_NO:
         join: "Bli medlem"
         leave: "Forlat"
       close: "Lukk"
+<<<<<<< HEAD
+      remove: "Fjern"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Slett"
       edited: "redigert"
       muted: "ignorert"
       joined: "medlem fra"
       email_frequency:
         never: "Aldri"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Aldri"
       flag: "Flagg"
       join: "Bli medlem"
       last_visit: "siste besøk"
+=======
+      flag: "Flagg"
+      join: "Bli medlem"
       mention_warning:
         dismiss: "forkast"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Svar"
       edit: "Endre"
       rebake_message: "Generer HTML på nytt"
@@ -49,7 +68,10 @@ nb_NO:
         yesterday: I går
       about_view:
         title: Tittel
+<<<<<<< HEAD
         name: Navn
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Beskrivelse
       channel_info:
         back_to_channel: "Forrige"
@@ -68,7 +90,10 @@ nb_NO:
       composer:
         italic_text: "kursiv tekst"
         bold_text: "sterk tekst"
+<<<<<<< HEAD
         send: "Send"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Aldri"
       settings:
@@ -76,8 +101,11 @@ nb_NO:
         channel_wide_mentions_description: "Tillat brukere å varsle alle medlemmer av #%{channel} med @alle eller bare de som er aktive i øyeblikket med @alleher"
         follow: "Bli medlem"
         followed: "Medlem fra"
+<<<<<<< HEAD
         threading_enabled: "Aktivert"
         threading_disabled: "Deaktivert"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Varsler"
         preview: "Forhåndsvis"
         save: "Lagre"
@@ -109,6 +137,7 @@ nb_NO:
         activities: "Aktiviteter"
         flags: "Flagg"
         symbols: "Symboler"
+<<<<<<< HEAD
       thread:
         title: "Tittel"
         replies:
@@ -124,6 +153,8 @@ nb_NO:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Ny Melding"
         cancel: "Avbryt"
@@ -135,3 +166,10 @@ nb_NO:
           fields:
             message:
               label: Send
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Rapportert av"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

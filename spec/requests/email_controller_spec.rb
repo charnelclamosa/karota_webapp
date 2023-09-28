@@ -187,9 +187,13 @@ RSpec.describe EmailController do
 
       navigate_to_unsubscribe(key_without_owner)
 
+<<<<<<< HEAD
       expect(response.body).to include(
         CGI.escapeHTML(I18n.t("unsubscribe.user_not_found_description")),
       )
+=======
+      expect(response.body).to include(CGI.escapeHTML(I18n.t("unsubscribe.user_not_found_description")))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     let(:unsubscribe_key) { UnsubscribeKey.create_key_for(user, key_type, post: post) }

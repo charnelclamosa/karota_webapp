@@ -54,8 +54,20 @@ RSpec.describe WebHook do
 
     it "includes enabled plugin web_hooks" do
       SiteSetting.stubs(:solved_enabled).returns(true)
-      web_hook_event_types = WebHookEventType.active.where(name: "solved")
-      expect(web_hook_event_types.count).to eq(1)
+      solved_event_types = WebHookEventType.active.where(name: "solved")
+      expect(solved_event_types.count).to eq(1)
+
+      SiteSetting.stubs(:assign_enabled).returns(true)
+      assign_event_types = WebHookEventType.active.where(name: "assign")
+      expect(assign_event_types.count).to eq(1)
+
+      SiteSetting.stubs(:voting_enabled).returns(true)
+      voting_event_types = WebHookEventType.active.where(name: "topic_voting")
+      expect(voting_event_types.count).to eq(1)
+
+      SiteSetting.stubs(:chat_enabled).returns(true)
+      chat_enabled_types = WebHookEventType.active.where("name LIKE 'chat_%'")
+      expect(chat_enabled_types.count).to eq(1)
     end
 
     describe "#active_web_hooks" do
@@ -700,6 +712,7 @@ RSpec.describe WebHook do
     end
   end
 
+<<<<<<< HEAD
   describe "#payload_url_safety" do
     fab!(:post_hook) { Fabricate(:web_hook, payload_url: "https://example.com") }
 
@@ -725,14 +738,39 @@ RSpec.describe WebHook do
       post_hook.save
       expect(post_hook.errors.full_messages).to contain_exactly(
         I18n.t("webhooks.payload_url.blocked_or_internal"),
+=======
+  describe '#payload_url_safety' do
+    fab!(:post_hook) { Fabricate(:web_hook, payload_url: "https://example.com") }
+
+    it 'errors if payload_url resolves to a blocked IP' do
+      SiteSetting.blocked_ip_blocks = "92.110.0.0/16"
+      FinalDestination::SSRFDetector.stubs(:lookup_ips).with { |h| h == "badhostname.com" }.returns(["92.110.44.17"])
+      post_hook.payload_url = "https://badhostname.com"
+      post_hook.save
+      expect(post_hook.errors.full_messages).to contain_exactly(
+        I18n.t("webhooks.payload_url.blocked_or_internal")
+      )
+    end
+
+    it 'errors if payload_url resolves to an internal IP' do
+      FinalDestination::SSRFDetector.stubs(:lookup_ips).with { |h| h == "badhostname.com" }.returns(["172.18.11.39"])
+      post_hook.payload_url = "https://badhostname.com"
+      post_hook.save
+      expect(post_hook.errors.full_messages).to contain_exactly(
+        I18n.t("webhooks.payload_url.blocked_or_internal")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       )
     end
 
     it "doesn't error if payload_url resolves to an allowed IP" do
+<<<<<<< HEAD
       FinalDestination::SSRFDetector
         .stubs(:lookup_ips)
         .with { |h| h == "goodhostname.com" }
         .returns(["172.32.11.39"])
+=======
+      FinalDestination::SSRFDetector.stubs(:lookup_ips).with { |h| h == "goodhostname.com" }.returns(["172.32.11.39"])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       post_hook.payload_url = "https://goodhostname.com"
       post_hook.save!
     end

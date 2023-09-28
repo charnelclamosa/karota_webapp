@@ -312,10 +312,13 @@ module("Integration | Component | d-button", function (hooks) {
 
     assert.strictEqual(this.foo, "bar");
   });
+<<<<<<< HEAD
 
   test("ellipses", async function (assert) {
     await render(hbs`<DButton @translatedLabel="test label" @ellipsis=true />`);
 
     assert.dom(".d-button-label").hasText("test label…");
   });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

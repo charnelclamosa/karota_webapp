@@ -17,11 +17,16 @@ RSpec.describe ReviewableClaimedTopicsController do
 
     context "when logged in" do
       before do
+<<<<<<< HEAD
         SiteSetting.reviewable_claiming = "optional"
+=======
+        SiteSetting.reviewable_claiming = 'optional'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         sign_in(moderator)
       end
 
       it "works" do
+<<<<<<< HEAD
         messages =
           MessageBus.track_publish("/reviewable_claimed") do
             post "/reviewable_claimed_topics.json", params: params
@@ -39,6 +44,15 @@ RSpec.describe ReviewableClaimedTopicsController do
             .where(reviewable_history_type: ReviewableHistory.types[:claimed])
             .size,
         ).to eq(1)
+=======
+        messages = MessageBus.track_publish("/reviewable_claimed") do
+          post "/reviewable_claimed_topics.json", params: params
+          expect(response.status).to eq(200)
+        end
+
+        expect(ReviewableClaimedTopic.where(user_id: moderator.id, topic_id: topic.id).exists?).to eq(true)
+        expect(topic.reviewables.first.history.where(reviewable_history_type: ReviewableHistory.types[:claimed]).size).to eq(1)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(messages.size).to eq(1)
 
         message = messages[0]
@@ -50,16 +64,27 @@ RSpec.describe ReviewableClaimedTopicsController do
 
       it "publishes reviewable claimed changes to the category moderators of the topic's category" do
         SiteSetting.enable_category_group_moderation = true
+<<<<<<< HEAD
         SiteSetting.reviewable_claiming = "optional"
+=======
+        SiteSetting.reviewable_claiming = 'optional'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         group = Fabricate(:group)
         topic.category.update!(reviewable_by_group: group)
 
+<<<<<<< HEAD
         messages =
           MessageBus.track_publish("/reviewable_claimed") do
             post "/reviewable_claimed_topics.json", params: params
             expect(response.status).to eq(200)
           end
+=======
+        messages = MessageBus.track_publish("/reviewable_claimed") do
+          post "/reviewable_claimed_topics.json", params: params
+          expect(response.status).to eq(200)
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(messages.size).to eq(1)
 
@@ -83,7 +108,11 @@ RSpec.describe ReviewableClaimedTopicsController do
       end
 
       it "raises an error if user cannot claim the topic" do
+<<<<<<< HEAD
         SiteSetting.reviewable_claiming = "disabled"
+=======
+        SiteSetting.reviewable_claiming = 'disabled'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         post "/reviewable_claimed_topics.json", params: params
 
         expect(response.status).to eq(403)
@@ -114,9 +143,13 @@ RSpec.describe ReviewableClaimedTopicsController do
 
         expect_enqueued_with(
           job: :refresh_users_reviewable_counts,
+<<<<<<< HEAD
           args: {
             group_ids: [Group::AUTO_GROUPS[:staff], group.id],
           },
+=======
+          args: { group_ids: [Group::AUTO_GROUPS[:staff], group.id] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ) do
           post "/reviewable_claimed_topics.json", params: params
           expect(response.status).to eq(200)
@@ -133,11 +166,18 @@ RSpec.describe ReviewableClaimedTopicsController do
     it "works" do
       SiteSetting.reviewable_claiming = "optional"
 
+<<<<<<< HEAD
       messages =
         MessageBus.track_publish("/reviewable_claimed") do
           delete "/reviewable_claimed_topics/#{claimed.topic_id}.json"
           expect(response.status).to eq(200)
         end
+=======
+      messages = MessageBus.track_publish("/reviewable_claimed") do
+        delete "/reviewable_claimed_topics/#{claimed.topic_id}.json"
+        expect(response.status).to eq(200)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(ReviewableClaimedTopic.where(topic_id: claimed.topic_id).exists?).to eq(false)
       expect(
@@ -183,7 +223,11 @@ RSpec.describe ReviewableClaimedTopicsController do
     end
 
     it "queues a sidekiq job to refresh reviewable counts for users who can see the reviewable" do
+<<<<<<< HEAD
       SiteSetting.reviewable_claiming = "optional"
+=======
+      SiteSetting.reviewable_claiming = 'optional'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       SiteSetting.navigation_menu = "sidebar"
       SiteSetting.enable_category_group_moderation = true
 
@@ -198,9 +242,13 @@ RSpec.describe ReviewableClaimedTopicsController do
 
       expect_enqueued_with(
         job: :refresh_users_reviewable_counts,
+<<<<<<< HEAD
         args: {
           group_ids: [Group::AUTO_GROUPS[:staff], group.id],
         },
+=======
+        args: { group_ids: [Group::AUTO_GROUPS[:staff], group.id] }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ) do
         delete "/reviewable_claimed_topics/#{claimed.topic_id}.json"
         expect(response.status).to eq(200)

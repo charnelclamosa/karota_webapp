@@ -161,7 +161,11 @@ RSpec.describe PostCreator do
 
         expect(events).to include(
           event_name: :before_create_post,
+<<<<<<< HEAD
           params: [creator.post, creator.opts],
+=======
+          params: [creator.post, creator.opts]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
 
@@ -208,7 +212,6 @@ RSpec.describe PostCreator do
         cat.save
 
         created_post = nil
-        other_user_tracking_topic = nil
 
         messages =
           MessageBus.track_publish do
@@ -1097,6 +1100,26 @@ RSpec.describe PostCreator do
         target_usernames: [target_user1.username, target_user2.username].join(","),
         category: 1,
       )
+    end
+
+    it "respects min_personal_message_post_length" do
+      SiteSetting.min_personal_message_post_length = 5
+      SiteSetting.min_first_post_length = 20
+      SiteSetting.min_post_length = 25
+      SiteSetting.body_min_entropy = 20
+      user.update!(trust_level: 3)
+      Group.refresh_automatic_groups!
+
+      expect {
+        PostCreator.create!(
+          user,
+          title: "hi there welcome to my PM",
+          raw: "sorry",
+          archetype: Archetype.private_message,
+          target_usernames: [target_user1.username, target_user2.username].join(","),
+          category: 1,
+        )
+      }.not_to raise_error
     end
 
     it "acts correctly" do

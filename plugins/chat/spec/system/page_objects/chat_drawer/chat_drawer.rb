@@ -4,6 +4,12 @@ module PageObjects
   module Pages
     class ChatDrawer < PageObjects::Pages::Base
       VISIBLE_DRAWER = ".chat-drawer.is-expanded"
+<<<<<<< HEAD
+
+      def channel_index
+        @channel_index ||= ::PageObjects::Components::Chat::ChannelIndex.new(VISIBLE_DRAWER)
+      end
+
       def open_browse
         mouseout
         find("#{VISIBLE_DRAWER} .open-browse-page-btn").click
@@ -20,10 +26,16 @@ module PageObjects
       end
 
       def open_channel(channel)
-        find(
-          "#{VISIBLE_DRAWER} .channels-list .chat-channel-row[data-chat-channel-id='#{channel.id}']",
-        ).click
+        channel_index.open_channel(channel)
         has_no_css?(".chat-skeleton")
+      end
+
+      def has_unread_channel?(channel)
+        channel_index.has_unread_channel?(channel)
+      end
+
+      def has_no_unread_channel?(channel)
+        channel_index.has_no_unread_channel?(channel)
       end
 
       def maximize
@@ -76,6 +88,33 @@ module PageObjects
         # overlap with the header, making certain buttons inaccessible.
         find("#site-logo").hover
       end
+=======
+      def open_browse
+        find("#{VISIBLE_DRAWER} .open-browse-page-btn").click
+      end
+
+      def open_draft_channel
+        find("#{VISIBLE_DRAWER} .open-draft-channel-page-btn").click
+      end
+
+      def close
+        find("#{VISIBLE_DRAWER} .chat-drawer-header__close-btn").click
+      end
+
+      def open_index
+        find("#{VISIBLE_DRAWER} .chat-drawer-header__return-to-channels-btn").click
+      end
+
+      def open_channel(channel)
+        find(
+          "#{VISIBLE_DRAWER} .channels-list .chat-channel-row[data-chat-channel-id='#{channel.id}']",
+        ).click
+      end
+
+      def maximize
+        find("#{VISIBLE_DRAWER} .chat-drawer-header__full-screen-btn").click
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

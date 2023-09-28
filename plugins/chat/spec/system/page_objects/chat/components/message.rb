@@ -18,7 +18,16 @@ module PageObjects
         end
 
         def hover
-          message_by_id(message.id).hover
+          component.hover
+        end
+
+        def open_more_menu
+          hover
+          click_more_button
+        end
+
+        def expand
+          component.find(".chat-message-expand").click
         end
 
         def select(shift: false)
@@ -37,7 +46,7 @@ module PageObjects
             component.click(delay: 0.6)
             page.find(".chat-message-actions [data-id=\"select\"]").click
           else
-            component.hover
+            hover
             click_more_button
             page.find("[data-value='select']").click
           end
@@ -69,7 +78,7 @@ module PageObjects
             page.find(context).send(
               selector_method,
               selector + " " + ".chat-message-text",
-              text: /#{Regexp.escape(text)}/,
+              exact_text: text,
             )
           else
             page.find(context).send(selector_method, selector)

@@ -14,6 +14,7 @@ import {
   WidgetMouseOverHook,
   WidgetMouseUpHook,
   WidgetTouchEndHook,
+  WidgetTouchMoveHook,
   WidgetTouchStartHook,
 } from "discourse/widgets/hooks";
 import DecoratorHelper from "discourse/widgets/decorator-helper";
@@ -25,6 +26,7 @@ import { h } from "virtual-dom";
 import { isProduction } from "discourse-common/config/environment";
 import { consolePrefix } from "discourse/lib/source-identifier";
 import { getOwner, setOwner } from "@ember/application";
+import { camelize } from "@ember/string";
 
 const _registry = {};
 
@@ -160,7 +162,7 @@ export default class Widget {
 
     // We can inject services into widgets by passing a `services` parameter on creation
     (this.services || []).forEach((s) => {
-      this[s] = register.lookup(`service:${s}`);
+      this[camelize(s)] = register.lookup(`service:${s}`);
     });
 
     this.init(this.attrs);
@@ -479,6 +481,10 @@ export default class Widget {
 
     if (this.touchEnd) {
       properties["widget-touch-end"] = new WidgetTouchEndHook(this);
+    }
+
+    if (this.touchMove) {
+      properties["widget-touch-move"] = new WidgetTouchMoveHook(this);
     }
 
     const attributes = properties["attributes"] || {};

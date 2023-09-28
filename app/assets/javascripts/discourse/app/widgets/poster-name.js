@@ -143,8 +143,6 @@ export default createWidget("poster-name", {
     const afterNameContents =
       applyDecorators(this, "after-name", attrs, this.state) || [];
     const credits = this.creditsIndicator(attrs);
-    
-
     nameContents = nameContents.concat(afterNameContents);
     nameContents = nameContents.concat(credits);
 

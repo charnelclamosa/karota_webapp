@@ -4,6 +4,7 @@ import {
   resetChatMessageDecorators,
 } from "discourse/plugins/chat/discourse/components/chat-message";
 import { registerChatComposerButton } from "discourse/plugins/chat/discourse/lib/chat-composer-buttons";
+<<<<<<< HEAD
 import { addChatDrawerStateCallback } from "discourse/plugins/chat/discourse/services/chat-state-manager";
 import { removeChatComposerSecondaryActions } from "discourse/plugins/chat/discourse/lib/chat-message-interactor";
 
@@ -123,6 +124,8 @@ import { removeChatComposerSecondaryActions } from "discourse/plugins/chat/disco
  *
  * api.removeChatComposerSecondaryActions("copyLink", "select");
  */
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default {
   name: "chat-plugin-api",
@@ -147,6 +150,7 @@ export default {
           },
         });
       }
+<<<<<<< HEAD
 
       if (!apiPrototype.hasOwnProperty("addChatDrawerStateCallback")) {
         Object.defineProperty(apiPrototype, "addChatDrawerStateCallback", {
@@ -181,6 +185,8 @@ export default {
           }
         );
       }
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   },
 

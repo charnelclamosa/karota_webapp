@@ -586,7 +586,13 @@ module DiscourseTagging
       builder.where("id NOT IN (SELECT target_tag_id FROM tags WHERE target_tag_id IS NOT NULL)")
     end
 
+<<<<<<< HEAD
     builder.where("name NOT IN (?)", opts[:excluded_tag_names]) if opts[:excluded_tag_names]&.any?
+=======
+    if opts[:excluded_tag_names]&.any?
+      builder.where("name NOT IN (?)", opts[:excluded_tag_names])
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if opts[:limit]
       if required_tag_ids && term.blank?
@@ -625,6 +631,7 @@ module DiscourseTagging
     else
       # Visible tags either have no permissions or have allowable permissions
       Tag
+<<<<<<< HEAD
         .where.not(id: TagGroupMembership.joins(tag_group: :tag_group_permissions).select(:tag_id))
         .or(
           Tag.where(
@@ -634,6 +641,23 @@ module DiscourseTagging
                 .where(group_id: permitted_group_ids_query(guardian))
                 .select("tag_group_memberships.tag_id"),
           ),
+=======
+        .where.not(
+          id:
+            TagGroupMembership
+              .joins(tag_group: :tag_group_permissions)
+              .select(:tag_id)
+        )
+        .or(
+          Tag
+            .where(
+              id:
+                TagGroupPermission
+                  .joins(tag_group: :tag_group_memberships)
+                  .where(group_id: permitted_group_ids_query(guardian))
+                  .select('tag_group_memberships.tag_id'),
+            )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
     end
   end
@@ -648,6 +672,7 @@ module DiscourseTagging
 
   def self.permitted_group_ids_query(guardian = nil)
     if guardian&.authenticated?
+<<<<<<< HEAD
       Group.from(
         Group.sanitize_sql(
           [
@@ -660,6 +685,23 @@ module DiscourseTagging
       Group.from(
         Group.sanitize_sql(["(SELECT ? AS id) AS groups", Group::AUTO_GROUPS[:everyone]]),
       ).select(:id)
+=======
+      Group
+        .from(
+          Group.sanitize_sql(
+            ["(SELECT ? AS id UNION #{guardian.user.groups.select(:id).to_sql}) as groups", Group::AUTO_GROUPS[:everyone]]
+          )
+        )
+        .select(:id)
+    else
+      Group
+        .from(
+          Group.sanitize_sql(
+            ["(SELECT ? AS id) AS groups", Group::AUTO_GROUPS[:everyone]]
+          )
+        )
+        .select(:id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -683,12 +725,23 @@ module DiscourseTagging
   # explicit permissions to use these tags
   def self.permitted_tag_names(guardian = nil)
     query =
+<<<<<<< HEAD
       Tag.joins(tag_groups: :tag_group_permissions).where(
         tag_group_permissions: {
           group_id: permitted_group_ids(guardian),
           permission_type: TagGroupPermission.permission_types[:full],
         },
       )
+=======
+      Tag
+        .joins(tag_groups: :tag_group_permissions)
+        .where(
+          tag_group_permissions: {
+            group_id: permitted_group_ids(guardian),
+            permission_type: TagGroupPermission.permission_types[:full],
+          },
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     query.pluck(:name).uniq
   end

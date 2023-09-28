@@ -1,16 +1,23 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import I18n from "I18n";
 import { bind } from "discourse-common/utils/decorators";
-import { getOwner } from "discourse-common/lib/get-owner";
+<<<<<<< HEAD
+import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
 import { MENTION_KEYWORDS } from "discourse/plugins/chat/discourse/components/chat-message";
 import { clearChatComposerButtons } from "discourse/plugins/chat/discourse/lib/chat-composer-buttons";
 import ChannelHashtagType from "discourse/plugins/chat/discourse/lib/hashtag-types/channel";
 import { replaceIcon } from "discourse-common/lib/icon-library";
 import chatStyleguide from "../components/styleguide/organisms/chat";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+import { MENTION_KEYWORDS } from "discourse/plugins/chat/discourse/components/chat-message";
+import { clearChatComposerButtons } from "discourse/plugins/chat/discourse/lib/chat-composer-buttons";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let _lastForcedRefreshAt;
 const MIN_REFRESH_DURATION_MS = 180000; // 3 minutes
 
+<<<<<<< HEAD
 replaceIcon("d-chat", "comment");
 
 export default {
@@ -26,11 +33,18 @@ export default {
     this.currentUser = container.lookup("service:current-user");
     this.appEvents = container.lookup("service:app-events");
     this.appEvents.on("discourse:focus-changed", this, "_handleFocusChanged");
+=======
+export default {
+  name: "chat-setup",
+  initialize(container) {
+    this.chatService = container.lookup("service:chat");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if (!this.chatService.userCanChat) {
       return;
     }
 
+<<<<<<< HEAD
     withPluginApi("0.12.1", (api) => {
       api.onPageChange((path) => {
         const route = this.router.recognize(path);
@@ -41,6 +55,13 @@ export default {
 
       api.registerHashtagType("channel", new ChannelHashtagType(container));
 
+=======
+    this.siteSettings = container.lookup("service:site-settings");
+    this.appEvents = container.lookup("service:appEvents");
+    this.appEvents.on("discourse:focus-changed", this, "_handleFocusChanged");
+
+    withPluginApi("0.12.1", (api) => {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api.registerChatComposerButton({
         id: "chat-upload-btn",
         icon: "far-image",
@@ -70,6 +91,7 @@ export default {
         label: "chat.emoji",
         id: "emoji",
         class: "chat-emoji-btn",
+<<<<<<< HEAD
         icon: "far-smile",
         position: this.site.desktopView ? "inline" : "dropdown",
         context: "channel",
@@ -88,10 +110,15 @@ export default {
         icon: "discourse-emojis",
         position: "dropdown",
         context: "thread",
+=======
+        icon: "discourse-emojis",
+        position: "dropdown",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         action() {
           const chatEmojiPickerManager = container.lookup(
             "service:chat-emoji-picker-manager"
           );
+<<<<<<< HEAD
           chatEmojiPickerManager.open({ context: "thread" });
         },
       });
@@ -99,7 +126,7 @@ export default {
       const summarizationAllowedGroups =
         this.siteSettings.custom_summarization_allowed_groups
           .split("|")
-          .map(parseInt);
+          .map((id) => parseInt(id, 10));
 
       const canSummarize =
         this.siteSettings.summarization_strategy &&
@@ -117,6 +144,40 @@ export default {
           action: "showChannelSummaryModal",
         });
       }
+
+      // we want to decorate the chat quote dates regardless
+      // of whether the current user has chat enabled
+      api.decorateCookedElement((elem) => {
+        const currentUser = getOwnerWithFallback(this).lookup(
+          "service:current-user"
+        );
+        const currentUserTimezone = currentUser?.user_option?.timezone;
+        const chatTranscriptElements =
+          elem.querySelectorAll(".chat-transcript");
+
+        chatTranscriptElements.forEach((el) => {
+          const dateTimeRaw = el.dataset["datetime"];
+          const dateTimeEl = el.querySelector(
+            ".chat-transcript-datetime a, .chat-transcript-datetime span"
+          );
+
+          if (currentUserTimezone) {
+            dateTimeEl.innerText = moment
+              .tz(dateTimeRaw, currentUserTimezone)
+              .format(I18n.t("dates.long_no_year"));
+          } else {
+            dateTimeEl.innerText = moment(dateTimeRaw).format(
+              I18n.t("dates.long_no_year")
+            );
+          }
+
+          dateTimeEl.dataset.dateFormatted = true;
+        });
+      });
+=======
+          chatEmojiPickerManager.startFromComposer(this.didSelectEmoji);
+        },
+      });
 
       // we want to decorate the chat quote dates regardless
       // of whether the current user has chat enabled
@@ -142,12 +203,11 @@ export default {
                 I18n.t("dates.long_no_year")
               );
             }
-
-            dateTimeEl.dataset.dateFormatted = true;
           });
         },
         { id: "chat-transcript-datetime" }
       );
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       if (!this.chatService.userCanChat) {
         return;
@@ -156,11 +216,18 @@ export default {
       document.body.classList.add("chat-enabled");
 
       const currentUser = api.getCurrentUser();
+<<<<<<< HEAD
 
       // NOTE: chat_channels is more than a simple array, it also contains
       // tracking and membership data, see Chat::StructuredChannelSerializer
       if (currentUser?.chat_channels) {
         this.chatService.setupWithPreloadedChannels(currentUser.chat_channels);
+=======
+      if (currentUser?.chat_channels) {
+        this.chatService.setupWithPreloadedChannels(currentUser.chat_channels);
+      } else {
+        this.chatService.setupWithoutPreloadedChannels();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
 
       const chatNotificationManager = container.lookup(
@@ -175,6 +242,7 @@ export default {
 
       api.addCardClickListenerSelector(".chat-drawer-outlet");
 
+<<<<<<< HEAD
       api.addToHeaderIcons("chat-header-icon");
 
       api.addStyleguideSection?.({
@@ -190,6 +258,21 @@ export default {
           document.body.classList.remove("chat-drawer-active");
         }
       });
+=======
+      api.dispatchWidgetAppEvent(
+        "site-header",
+        "header-chat-link",
+        "chat:rerender-header"
+      );
+
+      api.dispatchWidgetAppEvent(
+        "sidebar-header",
+        "header-chat-link",
+        "chat:rerender-header"
+      );
+
+      api.addToHeaderIcons("header-chat-link");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       api.decorateChatMessage(function (chatMessage, chatChannel) {
         if (!this.currentUser) {
@@ -197,7 +280,11 @@ export default {
         }
 
         const highlightable = [`@${this.currentUser.username}`];
+<<<<<<< HEAD
         if (chatChannel.allowChannelWideMentions) {
+=======
+        if (chatChannel.allow_channel_wide_mentions) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           highlightable.push(...MENTION_KEYWORDS.map((k) => `@${k}`));
         }
 
@@ -217,22 +304,32 @@ export default {
   },
 
   teardown() {
+<<<<<<< HEAD
     this.appEvents.off("discourse:focus-changed", this, "_handleFocusChanged");
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (!this.chatService.userCanChat) {
       return;
     }
 
+<<<<<<< HEAD
+=======
+    this.appEvents.off("discourse:focus-changed", this, "_handleFocusChanged");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     _lastForcedRefreshAt = null;
     clearChatComposerButtons();
   },
 
   @bind
   _handleFocusChanged(hasFocus) {
+<<<<<<< HEAD
     if (!this.chatService.userCanChat) {
       return;
     }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (!hasFocus) {
       _lastForcedRefreshAt = Date.now();
       return;
@@ -246,5 +343,9 @@ export default {
     }
 
     _lastForcedRefreshAt = Date.now();
+<<<<<<< HEAD
+=======
+    this.chatService.refreshTrackingState();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 };

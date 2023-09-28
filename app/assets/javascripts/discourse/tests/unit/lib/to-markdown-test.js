@@ -1,10 +1,13 @@
 import { module, test } from "qunit";
+import { setupTest } from "ember-qunit";
 import toMarkdown, {
   addBlockDecorateCallback,
   addTagDecorateCallback,
 } from "discourse/lib/to-markdown";
 
-module("Unit | Utility | to-markdown", function () {
+module("Unit | Utility | to-markdown", function (hooks) {
+  setupTest(hooks);
+
   test("converts styles between normal words", function (assert) {
     const html = `Line with <s>styles</s> <b><i>between</i></b> words.`;
     const markdown = `Line with ~~styles~~ ***between*** words.`;
@@ -353,6 +356,7 @@ helloWorld();</code>consectetur.`;
     assert.strictEqual(toMarkdown(html), markdown);
   });
 
+<<<<<<< HEAD
   test("strips user status from mentions", function (assert) {
     const statusHtml = `
         <img class="emoji user-status"
@@ -365,6 +369,8 @@ helloWorld();</code>consectetur.`;
     assert.strictEqual(toMarkdown(html), expectedMarkdown);
   });
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("keeps hashtag-cooked and converts to bare hashtag with type", function (assert) {
     const html = `
       <p dir="ltr">This is <a class="hashtag-cooked" href="/c/ux/14" data-type="category" data-slug="ux">

@@ -18,8 +18,11 @@ class CurrentUserOptionSerializer < ApplicationSerializer
              :should_be_redirected_to_top,
              :redirected_to_top,
              :treat_as_new_topic_start_date,
+<<<<<<< HEAD
              :sidebar_link_to_filtered_list,
              :sidebar_show_count_of_new_items
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def likes_notifications_disabled
     object.likes_notifications_disabled?

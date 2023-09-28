@@ -13,11 +13,20 @@ lv:
           title: "Apturētie lietotāji"
         disagree:
           title: "Nepiekrist"
-        ignore:
-          title: "Ignorēt"
+<<<<<<< HEAD
     channel:
       dm_title:
         single_user: "%{username}"
+    mention_warning:
+      dismiss: "nerādīt"
+=======
+        ignore:
+          title: "Ignorēt"
+    channel:
+      statuses:
+        closed: "Slēgts"
+        open: "Atvērt"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   discourse_push_notifications:
     popup:
       chat_mention:

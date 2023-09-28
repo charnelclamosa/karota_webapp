@@ -10,7 +10,7 @@ import { SECOND_FACTOR_METHODS } from "discourse/models/user";
 import { ajax } from "discourse/lib/ajax";
 import discourseComputed from "discourse-common/utils/decorators";
 import { escape } from "pretty-text/sanitizer";
-import { flashAjaxError } from "discourse/lib/ajax-error";
+import { extractError } from "discourse/lib/ajax-error";
 import { findAll } from "discourse/models/login-method";
 import getURL from "discourse-common/lib/get-url";
 import { getWebauthnCredential } from "discourse/lib/webauthn";
@@ -19,7 +19,6 @@ import { setting } from "discourse/lib/computed";
 import showModal from "discourse/lib/show-modal";
 import { wavingHandURL } from "discourse/lib/waving-hand-url";
 import { inject as service } from "@ember/service";
-import { htmlSafe } from "@ember/template";
 
 // This is happening outside of the app via popup
 const AuthErrors = [
@@ -42,7 +41,6 @@ export default Controller.extend(ModalFunctionality, {
   showLoginButtons: true,
   showSecondFactor: false,
   awaitingApproval: false,
-  maskPassword: true,
 
   canLoginLocal: setting("enable_local_logins"),
   canLoginLocalWithEmail: setting("enable_local_logins_via_email"),
@@ -60,7 +58,6 @@ export default Controller.extend(ModalFunctionality, {
       showSecurityKey: false,
       showLoginButtons: true,
       awaitingApproval: false,
-      maskPassword: true,
     });
   },
 
@@ -158,32 +155,26 @@ export default Controller.extend(ModalFunctionality, {
       .then((data) => {
         const loginName = escapeExpression(this.loginName);
         const isEmail = loginName.match(/@/);
-        let key = isEmail
-          ? "email_login.complete_email"
-          : "email_login.complete_username";
+        let key = `email_login.complete_${isEmail ? "email" : "username"}`;
         if (data.user_found === false) {
           this.flash(
-            htmlSafe(
-              I18n.t(`${key}_not_found`, {
-                email: loginName,
-                username: loginName,
-              })
-            ),
+            I18n.t(`${key}_not_found`, {
+              email: loginName,
+              username: loginName,
+            }),
             "error"
           );
         } else {
           let postfix = data.hide_taken ? "" : "_found";
           this.flash(
-            htmlSafe(
-              I18n.t(`${key}${postfix}`, {
-                email: loginName,
-                username: loginName,
-              })
-            )
+            I18n.t(`${key}${postfix}`, {
+              email: loginName,
+              username: loginName,
+            })
           );
         }
       })
-      .catch(flashAjaxError(this))
+      .catch((e) => this.flash(extractError(e), "error"))
       .finally(() => this.set("processingEmailLink", false));
   },
 
@@ -195,11 +186,6 @@ export default Controller.extend(ModalFunctionality, {
       forgotPasswordController.set("accountEmailOrUsername", this.loginName);
     }
     this.send("showForgotPassword");
-  },
-
-  @action
-  togglePasswordMask() {
-    this.toggleProperty("maskPassword");
   },
 
   actions: {
@@ -444,9 +430,10 @@ export default Controller.extend(ModalFunctionality, {
       return;
     }
 
-    const skipConfirmation = this.siteSettings.auth_skip_create_confirm;
-    const createAccountController = this.createAccount;
+    const skipConfirmation =
+      options && this.siteSettings.auth_skip_create_confirm;
 
+    const createAccountController = this.createAccount;
     createAccountController.setProperties({
       accountEmail: options.email,
       accountUsername: options.username,
@@ -456,7 +443,7 @@ export default Controller.extend(ModalFunctionality, {
     });
 
     next(() => {
-      showModal("create-account", {
+      showModal("createAccount", {
         modalClass: "create-account",
         titleAriaElementId: "create-account-title",
       });

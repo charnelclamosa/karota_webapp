@@ -1,2 +1,6 @@
 chat:
+<<<<<<< HEAD
   - plugins/chat/**/*
+=======
+- plugins/chat/**/*
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

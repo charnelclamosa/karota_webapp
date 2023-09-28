@@ -3,6 +3,7 @@
 module PageObjects
   module Pages
     class ChatChannel < PageObjects::Pages::Base
+<<<<<<< HEAD
       def composer
         @composer ||= PageObjects::Components::Chat::Composer.new(".chat-channel")
       end
@@ -48,12 +49,29 @@ module PageObjects
 
       def message_by_id(id)
         find(message_by_id_selector(id))
+=======
+      def type_in_composer(input)
+        find(".chat-composer-input").send_keys(input)
+      end
+
+      def fill_composer(input)
+        find(".chat-composer-input").fill_in(with: input)
+      end
+
+      def click_send_message
+        find(".chat-composer .send-btn").click
+      end
+
+      def message_by_id(id)
+        find(".chat-message-container[data-id=\"#{id}\"]")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def has_no_loading_skeleton?
         has_no_css?(".chat-skeleton")
       end
 
+<<<<<<< HEAD
       def has_selection_management?
         has_css?(".chat-selection-management")
       end
@@ -120,6 +138,12 @@ module PageObjects
         find("[data-value='delete']").click
       end
 
+      def restore_message(message)
+        hover_message(message)
+        click_more_button
+        find("[data-value='restore']").click
+      end
+
       def open_edit_message(message)
         hover_message(message)
         click_more_button
@@ -136,7 +160,6 @@ module PageObjects
         text = text.chomp if text.present? # having \n on the end of the string counts as an Enter keypress
         composer.fill_in(with: text)
         click_send_message
-        click_composer
         text
       end
 
@@ -187,27 +210,6 @@ module PageObjects
         find(".chat-composer-dropdown__action-btn.#{action_button_class}").click
       end
 
-      def has_message?(text: nil, id: nil)
-        check_message_presence(exists: true, text: text, id: id)
-      end
-
-      def has_no_message?(text: nil, id: nil)
-        check_message_presence(exists: false, text: text, id: id)
-      end
-
-      def check_message_presence(exists: true, text: nil, id: nil)
-        css_method = exists ? :has_css? : :has_no_css?
-        if text
-          find(".chat-channel").send(css_method, ".chat-message-text", text: text, wait: 5)
-        elsif id
-          find(".chat-channel").send(
-            css_method,
-            ".chat-message-container[data-id=\"#{id}\"]",
-            wait: 10,
-          )
-        end
-      end
-
       def has_thread_indicator?(message)
         message_thread_indicator(message).exists?
       end
@@ -246,6 +248,15 @@ module PageObjects
       def message_thread_indicator_selector(message)
         "#{message_by_id_selector(message.id)} .chat-message-thread-indicator"
       end
+=======
+      def has_message?(text: nil, id: nil)
+        if text
+          has_css?(".chat-message-text", text: text)
+        elsif id
+          has_css?(".chat-message-container[data-id=\"#{id}\"]", wait: 10)
+        end
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

@@ -5,7 +5,11 @@ require "rails_helper"
 RSpec.describe Category do
   it_behaves_like "a chatable model" do
     fab!(:chatable) { Fabricate(:category) }
+<<<<<<< HEAD
     let(:channel_class) { Chat::CategoryChannel }
+=======
+    let(:channel_class) { CategoryChannel }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   it { is_expected.to have_one(:category_channel).dependent(:destroy) }

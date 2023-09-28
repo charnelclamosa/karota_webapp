@@ -3,6 +3,7 @@
     <label class="control-label">{{i18n "user.tag_settings"}}</label>
 
     <div class="controls tracking-controls tracking-controls__watched-tags">
+<<<<<<< HEAD
       <label>{{d-icon "d-watching" class="icon watching"}}
         {{i18n "user.watched_tags"}}</label>
       <TagChooser
@@ -12,11 +13,18 @@
         @unlimitedTagCount={{true}}
         @options={{hash allowAny=false}}
       />
+=======
+      <label>{{d-icon "d-watching" class="icon watching"}} {{i18n "user.watched_tags"}}</label>
+      <TagChooser @tags={{@model.watched_tags}} @blockedTags={{@selectedTags}} @everyTag={{true}} @unlimitedTagCount={{true}} @options={{hash
+          allowAny=false
+        }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
 
     <div class="instructions">{{i18n "user.watched_tags_instructions"}}</div>
 
     <div class="controls tracking-controls tracking-controls__tracked-tags">
+<<<<<<< HEAD
       <label>{{d-icon "d-tracking" class="icon tracking"}}
         {{i18n "user.tracked_tags"}}</label>
       <TagChooser
@@ -26,10 +34,17 @@
         @unlimitedTagCount={{true}}
         @options={{hash allowAny=false}}
       />
+=======
+      <label>{{d-icon "d-tracking" class="icon tracking"}} {{i18n "user.tracked_tags"}}</label>
+      <TagChooser @tags={{@model.tracked_tags}} @blockedTags={{@selectedTags}} @everyTag={{true}} @unlimitedTagCount={{true}} @options={{hash
+          allowAny=false
+        }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
 
     <div class="instructions">{{i18n "user.tracked_tags_instructions"}}</div>
 
+<<<<<<< HEAD
     <div
       class="controls tracking-controls tracking-controls__watched-first-post-tags"
     >
@@ -42,6 +57,13 @@
         @unlimitedTagCount={{true}}
         @options={{hash allowAny=false}}
       />
+=======
+    <div class="controls tracking-controls tracking-controls__watched-first-post-tags">
+      <label>{{d-icon "d-watching-first" class="icon watching-first-post"}} {{i18n "user.watched_first_post_tags"}}</label>
+      <TagChooser @tags={{@model.watching_first_post_tags}} @blockedTags={{@selectedTags}} @everyTag={{true}} @unlimitedTagCount={{true}} @options={{hash
+          allowAny=false
+        }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
 
     <div class="instructions">
@@ -49,6 +71,7 @@
     </div>
 
     <div class="controls tracking-controls tracking-controls__muted-tags">
+<<<<<<< HEAD
       <label>{{d-icon "d-muted" class="icon muted"}}
         {{i18n "user.muted_tags"}}</label>
       <TagChooser
@@ -58,10 +81,17 @@
         @unlimitedTagCount={{true}}
         @options={{hash allowAny=false}}
       />
+=======
+      <label>{{d-icon "d-muted" class="icon muted"}} {{i18n "user.muted_tags"}}</label>
+      <TagChooser @tags={{@model.muted_tags}} @blockedTags={{@selectedTags}} @everyTag={{true}} @unlimitedTagCount={{true}} @options={{hash
+          allowAny=false
+        }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </div>
     <div class="instructions">{{i18n "user.muted_tags_instructions"}}</div>
   </div>
 
+<<<<<<< HEAD
   <PluginOutlet
     @name="user-preferences-tags"
     @connectorTagName="div"
@@ -73,3 +103,8 @@
     @outletArgs={{hash model=@model}}
   />
 {{/if}}
+=======
+  <PluginOutlet @name="user-preferences-tags" @connectorTagName="div" @args={{hash model=@model save=@save}} />
+  <PluginOutlet @name="user-custom-controls" @connectorTagName="div" @args={{hash model=@model}} />
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

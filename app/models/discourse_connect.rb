@@ -186,7 +186,11 @@ class DiscourseConnect < DiscourseConnectBase
     names = (groups || "").split(",").map(&:downcase)
 
     current_groups = user.groups.where(automatic: false)
+<<<<<<< HEAD
     desired_groups = Group.where("LOWER(NAME) in (?) AND NOT automatic", names)
+=======
+    desired_groups = Group.where('LOWER(NAME) in (?) AND NOT automatic', names)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     to_be_added = desired_groups
     if current_groups.present?
@@ -216,7 +220,11 @@ class DiscourseConnect < DiscourseConnectBase
     if add_groups
       split = add_groups.split(",").map(&:downcase)
       if split.length > 0
+<<<<<<< HEAD
         to_be_added = Group.where("LOWER(name) in (?) AND NOT automatic", split)
+=======
+        to_be_added = Group.where('LOWER(name) in (?) AND NOT automatic', split)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         if already_member = GroupUser.where(user_id: user.id).pluck(:group_id).presence
           to_be_added = to_be_added.where("id NOT IN (?)", already_member)
         end
@@ -227,11 +235,18 @@ class DiscourseConnect < DiscourseConnectBase
     if remove_groups
       split = remove_groups.split(",").map(&:downcase)
       if split.length > 0
+<<<<<<< HEAD
         to_be_removed =
           Group
             .joins(:group_users)
             .where(automatic: false, group_users: { user_id: user.id })
             .where("LOWER(name) IN (?)", split)
+=======
+        to_be_removed = Group
+          .joins(:group_users)
+          .where(automatic: false, group_users: { user_id: user.id })
+          .where("LOWER(name) IN (?)", split)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -267,7 +282,16 @@ class DiscourseConnect < DiscourseConnectBase
           ReviewableUser.set_approved_fields!(user, Discourse.system_user)
         end
 
-        user.save!
+        begin
+          user.save!
+        rescue ActiveRecord::RecordInvalid => e
+          if SiteSetting.verbose_discourse_connect_logging
+            Rails.logger.error(
+              "Verbose SSO log: User creation failed. External id: #{external_id}, New User (user_id: #{user.id}) Params: #{user_params} User Params: #{user.attributes} User Errors: #{user.errors.full_messages} Email: #{user.primary_email.attributes} Email Error: #{user.primary_email.errors.full_messages}",
+            )
+          end
+          raise e
+        end
 
         if SiteSetting.verbose_discourse_connect_logging
           Rails.logger.warn(

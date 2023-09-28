@@ -56,6 +56,7 @@ RSpec.describe RemoteTheme do
 
     let :initial_repo_url do
       MockGitImporter.register("https://example.com/initial_repo.git", initial_repo)
+<<<<<<< HEAD
     end
 
     after { `rm -fr #{initial_repo}` }
@@ -64,12 +65,32 @@ RSpec.describe RemoteTheme do
 
     it "can correctly import a remote theme" do
       time = Time.new("2000")
+=======
+    end
+
+    after do
+      `rm -fr #{initial_repo}`
+    end
+
+    around(:each) do |group|
+      MockGitImporter.with_mock do
+        group.run
+      end
+    end
+
+    it 'can correctly import a remote theme' do
+      time = Time.new('2000')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       freeze_time time
 
       @theme = RemoteTheme.import_theme(initial_repo_url)
       remote = @theme.remote_theme
 
+<<<<<<< HEAD
       expect(@theme.name).to eq("awesome theme")
+=======
+      expect(@theme.name).to eq('awesome theme')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(remote.remote_url).to eq(initial_repo_url)
       expect(remote.remote_version).to eq(`cd #{initial_repo} && git rev-parse HEAD`.strip)
       expect(remote.local_version).to eq(`cd #{initial_repo} && git rev-parse HEAD`.strip)
@@ -178,7 +199,11 @@ RSpec.describe RemoteTheme do
       remote = theme.remote_theme
 
       old_version = `cd #{initial_repo} && git rev-parse HEAD`.strip
+<<<<<<< HEAD
       expect(theme.name).to eq("awesome theme")
+=======
+      expect(theme.name).to eq('awesome theme')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(remote.remote_url).to eq(initial_repo_url)
       expect(remote.local_version).to eq(old_version)
       expect(remote.remote_version).to eq(old_version)
@@ -194,6 +219,40 @@ RSpec.describe RemoteTheme do
       expect(remote.reload.local_version).to eq(old_version)
       expect(remote.reload.remote_version).to eq(new_version)
       expect(remote.reload.commits_behind).to eq(-1)
+    end
+
+    it "fails if theme has too many files" do
+      stub_const(RemoteTheme, "MAX_THEME_FILE_COUNT", 1) do
+        expect { RemoteTheme.import_theme(initial_repo_url) }.to raise_error(
+          RemoteTheme::ImportError,
+          I18n.t("themes.import_error.too_many_files", count: 14, limit: 1),
+        )
+      end
+    end
+
+    it "fails if files are too large" do
+      stub_const(RemoteTheme, "MAX_ASSET_FILE_SIZE", 1.byte) do
+        expect { RemoteTheme.import_theme(initial_repo_url) }.to raise_error(
+          RemoteTheme::ImportError,
+          I18n.t(
+            "themes.import_error.asset_too_big",
+            filename: "common/color_definitions.scss",
+            limit: ActiveSupport::NumberHelper.number_to_human_size(1),
+          ),
+        )
+      end
+    end
+
+    it "fails if theme is too large" do
+      stub_const(RemoteTheme, "MAX_THEME_SIZE", 1.byte) do
+        expect { RemoteTheme.import_theme(initial_repo_url) }.to raise_error(
+          RemoteTheme::ImportError,
+          I18n.t(
+            "themes.import_error.theme_too_big",
+            limit: ActiveSupport::NumberHelper.number_to_human_size(1),
+          ),
+        )
+      end
     end
   end
 
@@ -229,6 +288,48 @@ RSpec.describe RemoteTheme do
     it "is blank when theme is up-to-date" do
       github_repo.update!(local_version: github_repo.remote_version, commits_behind: 0)
       expect(github_repo.reload.github_diff_link).to be_blank
+    end
+  end
+
+  describe ".extract_theme_info" do
+    let(:importer) { mock }
+
+    let(:theme_info) do
+      {
+        "name" => "My Theme",
+        "about_url" => "https://example.com/about",
+        "license_url" => "https://example.com/license",
+      }
+    end
+
+    it "raises an error if about.json is too big" do
+      importer.stubs(:file_size).with("about.json").returns(100_000_000)
+
+      expect { RemoteTheme.extract_theme_info(importer) }.to raise_error(
+        RemoteTheme::ImportError,
+        I18n.t(
+          "themes.import_error.about_json_too_big",
+          limit:
+            ActiveSupport::NumberHelper.number_to_human_size((RemoteTheme::MAX_METADATA_FILE_SIZE)),
+        ),
+      )
+    end
+
+    it "raises an error if about.json is invalid" do
+      importer.stubs(:file_size).with("about.json").returns(123)
+      importer.stubs(:[]).with("about.json").returns("{")
+
+      expect { RemoteTheme.extract_theme_info(importer) }.to raise_error(
+        RemoteTheme::ImportError,
+        I18n.t("themes.import_error.about_json"),
+      )
+    end
+
+    it "returns extracted theme info" do
+      importer.stubs(:file_size).with("about.json").returns(123)
+      importer.stubs(:[]).with("about.json").returns(theme_info.to_json)
+
+      expect(RemoteTheme.extract_theme_info(importer)).to eq(theme_info)
     end
   end
 
@@ -279,6 +380,17 @@ RSpec.describe RemoteTheme do
 
       remote.update!(last_error_text: nil)
       expect(described_class.unreachable_themes).to eq([])
+    end
+  end
+
+  describe ".import_theme_from_directory" do
+    let(:theme_dir) { "#{Rails.root}/spec/fixtures/themes/discourse-test-theme" }
+
+    it "imports a theme from a directory" do
+      theme = RemoteTheme.import_theme_from_directory(theme_dir)
+
+      expect(theme.name).to eq("Header Icons")
+      expect(theme.theme_fields.count).to eq(5)
     end
   end
 end

@@ -1,17 +1,20 @@
-{{#if (gt @channel.tracking.unreadCount 0)}}
+<<<<<<< HEAD
+{{#if this.showUnreadIndicator}}
   <div
     class={{concat-class
       "chat-channel-unread-indicator"
-      (if
-        (or
-          @channel.isDirectMessageChannel (gt @channel.tracking.mentionCount 0)
-        )
-        "-urgent"
-      )
+      (if this.isUrgent "-urgent")
     }}
   >
-    <div
-      class="chat-channel-unread-indicator__number"
-    >{{@channel.tracking.unreadCount}}</div>
+    <div class="chat-channel-unread-indicator__number">{{#if
+        this.showUnreadCount
+      }}{{this.unreadCount}}{{else}}&nbsp;{{/if}}</div>
   </div>
 {{/if}}
+=======
+{{#if this.hasUnread}}
+  <div class="chat-channel-unread-indicator {{if this.isUrgent "urgent"}}">
+    <div class="number">{{this.unreadCount}}</div>
+  </div>
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

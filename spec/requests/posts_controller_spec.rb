@@ -628,7 +628,7 @@ RSpec.describe PostsController do
       sign_in(post.user)
 
       category = Fabricate(:category)
-      category.custom_fields[Category::REQUIRE_TOPIC_APPROVAL] = true
+      category.require_topic_approval = true
       category.save!
 
       put "/posts/#{post.id}.json",
@@ -1038,6 +1038,7 @@ RSpec.describe PostsController do
 
         expect do
           post "/posts.json",
+<<<<<<< HEAD
                params: {
                  raw: "this is a test title",
                  title: "this is test body",
@@ -1047,6 +1048,10 @@ RSpec.describe PostsController do
                  HTTP_API_USERNAME: admin.username,
                  HTTP_API_KEY: master_key,
                }
+=======
+            params: { raw: "this is a test title", title: "this is test body", unlist_topic: true },
+            headers: { HTTP_API_USERNAME: admin.username, HTTP_API_KEY: master_key }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end.to change { Topic.count }.by(1)
 
         expect(response.status).to eq(200)
@@ -1058,6 +1063,7 @@ RSpec.describe PostsController do
 
         expect do
           post "/posts.json",
+<<<<<<< HEAD
                params: {
                  raw: "this is a test title",
                  title: "this is test body",
@@ -1067,11 +1073,19 @@ RSpec.describe PostsController do
                  HTTP_API_USERNAME: user.username,
                  HTTP_API_KEY: user_key,
                }
+=======
+            params: { raw: "this is a test title", title: "this is test body", unlist_topic: true },
+            headers: { HTTP_API_USERNAME: user.username, HTTP_API_KEY: user_key }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end.not_to change { Topic.count }
 
         expect(response.status).to eq(422)
         expect(response.parsed_body["errors"]).to include(
+<<<<<<< HEAD
           I18n.t("activerecord.errors.models.topic.attributes.base.unable_to_unlist"),
+=======
+          I18n.t("activerecord.errors.models.topic.attributes.base.unable_to_unlist")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
     end
@@ -1105,7 +1119,7 @@ RSpec.describe PostsController do
           user.reload
           expect(user).to be_silenced
 
-          rp = ReviewableQueuedPost.find_by(created_by: user)
+          rp = ReviewableQueuedPost.find_by(target_created_by: user)
           expect(rp.payload["typing_duration_msecs"]).to eq(100)
           expect(rp.payload["composer_open_duration_msecs"]).to eq(204)
           expect(rp.payload["reply_to_post_number"]).to eq(123)
@@ -1199,7 +1213,7 @@ RSpec.describe PostsController do
         parsed = response.parsed_body
 
         expect(parsed["action"]).to eq("enqueued")
-        reviewable = ReviewableQueuedPost.find_by(created_by: user)
+        reviewable = ReviewableQueuedPost.find_by(target_created_by: user)
         score = reviewable.reviewable_scores.first
         expect(score.reason).to eq("auto_silence_regex")
 
@@ -1222,7 +1236,7 @@ RSpec.describe PostsController do
         parsed = response.parsed_body
 
         expect(parsed["action"]).to eq("enqueued")
-        reviewable = ReviewableQueuedPost.find_by(created_by: user)
+        reviewable = ReviewableQueuedPost.find_by(target_created_by: user)
         score = reviewable.reviewable_scores.first
         expect(score.reason).to eq("auto_silence_regex")
 
@@ -1427,7 +1441,11 @@ RSpec.describe PostsController do
         expect(new_post.raw).to eq("this is the test content")
         expect(topic.title).to eq("This is the test title for the topic")
         expect(topic.category).to eq(category)
+<<<<<<< HEAD
         expect(topic.meta_data).to eq("xyz" => "abc")
+=======
+        expect(topic.meta_data).to eq("xyz" => 'abc')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(topic.visible).to eq(true)
       end
 
@@ -1660,6 +1678,7 @@ RSpec.describe PostsController do
 
     context "with topic unlisting" do
       context "when logged in as staff" do
+<<<<<<< HEAD
         before { sign_in(admin) }
 
         it "creates an unlisted topic" do
@@ -1670,6 +1689,19 @@ RSpec.describe PostsController do
                    title: "this is the test title for the topic",
                    unlist_topic: true,
                  }
+=======
+        before do
+          sign_in(admin)
+        end
+
+        it "creates an unlisted topic" do
+          expect do
+            post "/posts.json", params: {
+              raw: "this is the test content",
+              title: "this is the test title for the topic",
+              unlist_topic: true
+            }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           end.to change { Topic.count }.by(1)
 
           expect(response.status).to eq(200)
@@ -1678,6 +1710,7 @@ RSpec.describe PostsController do
       end
 
       context "when logged in as a non-staff user" do
+<<<<<<< HEAD
         before { sign_in(user) }
 
         it "prevents creation of an unlisted topic" do
@@ -1688,17 +1721,38 @@ RSpec.describe PostsController do
                    title: "this is the test title for the topic",
                    unlist_topic: true,
                  }
+=======
+        before do
+          sign_in(user)
+        end
+
+        it "prevents creation of an unlisted topic" do
+          expect do
+            post "/posts.json", params: {
+              raw: "this is the test content",
+              title: "this is the test title for the topic",
+              unlist_topic: true
+            }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           end.not_to change { Topic.count }
 
           expect(response.status).to eq(422)
           expect(response.parsed_body["errors"]).to include(
+<<<<<<< HEAD
             I18n.t("activerecord.errors.models.topic.attributes.base.unable_to_unlist"),
+=======
+            I18n.t("activerecord.errors.models.topic.attributes.base.unable_to_unlist")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           )
         end
       end
     end
 
+<<<<<<< HEAD
     describe "shared draft" do
+=======
+    describe 'shared draft' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       fab!(:destination_category) { Fabricate(:category) }
 
       it "will raise an error for regular users" do
@@ -2252,6 +2306,14 @@ RSpec.describe PostsController do
         sign_in(user)
         get "/posts/system/deleted.json"
         expect(response).to be_forbidden
+      end
+
+      describe "when limit params is invalid" do
+        before { sign_in(moderator) }
+
+        include_examples "invalid limit params",
+                         "/posts/system/deleted.json",
+                         described_class::DELETED_POSTS_MAX_LIMIT
       end
 
       it "can see the deleted posts when authorized" do

@@ -1,7 +1,10 @@
 const handlers = [];
 const disabledDeprecations = new Set();
+<<<<<<< HEAD
 const emberCliDeprecationWorkflows =
   window.deprecationWorkflow?.config?.workflow;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 /**
  * Display a deprecation warning with the provided message. The warning will be prefixed with the theme/plugin name
@@ -49,6 +52,7 @@ export default function deprecated(msg, options = {}) {
     throw msg;
   }
 
+<<<<<<< HEAD
   const matchedWorkflow = emberCliDeprecationWorkflows?.find(
     (w) => w.matchId === id
   );
@@ -56,6 +60,9 @@ export default function deprecated(msg, options = {}) {
   if (matchedWorkflow?.handler !== "silence") {
     console.warn(...[consolePrefix, msg].filter(Boolean)); //eslint-disable-line no-console
   }
+=======
+  console.warn(...[consolePrefix, msg].filter(Boolean)); //eslint-disable-line no-console
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 /**

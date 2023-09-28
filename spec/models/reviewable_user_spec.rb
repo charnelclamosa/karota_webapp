@@ -49,7 +49,9 @@ RSpec.describe ReviewableUser, type: :model do
     def assert_require_reject_reason(id, expected)
       actions = reviewable.actions_for(Guardian.new(moderator))
 
-      expect(actions.to_a.find { |a| a.id == id }.require_reject_reason).to eq(expected)
+      expect(actions.to_a.find { |a| a.server_action.to_sym == id }.require_reject_reason).to eq(
+        expected,
+      )
     end
   end
 
@@ -134,6 +136,7 @@ RSpec.describe ReviewableUser, type: :model do
 
       it "optionally sends email with reject reason" do
         SiteSetting.must_approve_users = true
+<<<<<<< HEAD
         Jobs::CriticalUserEmail
           .any_instance
           .expects(:execute)
@@ -151,6 +154,10 @@ RSpec.describe ReviewableUser, type: :model do
           reject_reason: "reject reason",
           send_email: true,
         )
+=======
+        Jobs::CriticalUserEmail.any_instance.expects(:execute).with({ type: :signup_after_reject, user_id: reviewable.target_id, reject_reason: "reject reason" }).once
+        reviewable.perform(moderator, :delete_user_block, reject_reason: "reject reason", send_email: true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "allows us to reject a user who has posts" do

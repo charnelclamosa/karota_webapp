@@ -18,7 +18,7 @@ sq:
       no_day: "%Y %B"
   date:
     month_names:
-    - null
+    -
     - Janar
     - Shkurt
     - Mars
@@ -116,7 +116,6 @@ sq:
     more_replies:
       one: "edhe %{count} përgjigje "
       other: "janë %{count} përgjigje"
-    loading: "Duke Ngarkuar Diskutimin..."
     permalink: "Permalink"
     imported_from: "This is a companion discussion topic for the original entry at %{link}"
     in_reply_to: "▶ %{username}"
@@ -300,6 +299,13 @@ sq:
         one: "pothuajse %{count} vit më parë"
         other: "pothuajse %{count} vite më parë"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Zgjidhni një fjalëkalim të ri"
+    choose: "Zgjidhni një fjalëkalim të ri"
+    update: "Rifresko Fjalëkalimin"
+    save: "Vendos Fjalëkalim"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Rivendos Fjalëkalimin"
     success: "Ndryshimi i fjalëkalimit u krye me sukses dhe tashmë ju jeni futur në faqe."
     success_unapproved: "Ndryshimi i fjalëkalimit u krye me sukses."
@@ -602,9 +608,6 @@ sq:
     censored_words: "Fjalët do të zhvendosen automatikisht me &#9632;&#9632;&#9632;&#9632;"
     delete_old_hidden_posts: "Auto-delete any hidden posts that stay hidden for more than 30 days."
     allow_user_locale: "Allow users to choose their own language interface preference"
-    min_post_length: "Minimum allowed post length in characters"
-    min_first_post_length: "Minimum allowed first post (topic body) length in characters"
-    min_personal_message_post_length: "Minimum allowed post length in characters for messages"
     max_post_length: "Maximum allowed post length in characters"
     min_topic_title_length: "Minimum allowed topic title length in characters"
     max_topic_title_length: "Maximum allowed topic title length in characters"
@@ -672,7 +675,6 @@ sq:
     previous_visit_timeout_hours: "How long a visit lasts before we consider it the 'previous' visit, in hours"
     rate_limit_create_topic: "After creating a topic, users must wait (n) seconds before creating another topic."
     rate_limit_create_post: "After posting, users must wait (n) seconds before creating another post."
-    rate_limit_new_user_create_topic: "After creating a topic, new users must wait (n) seconds before creating another topic."
     rate_limit_new_user_create_post: "After posting, new users must wait (n) seconds before creating another post."
     max_likes_per_day: "Maximum number of likes per user per day."
     max_flags_per_day: "Maximum number of flags per user per day."
@@ -1413,7 +1415,6 @@ sq:
       approve:
         title: "Aprovo"
       reject_user:
-        title: "Fshij Anëtarin..."
         delete:
           title: "Fshij Anëtarin"
       reject:

@@ -4,6 +4,7 @@ module PageObjects
   module Pages
     class Topic < PageObjects::Pages::Base
       def initialize
+<<<<<<< HEAD
         @composer_component = PageObjects::Components::Composer.new
         @fast_edit_component = PageObjects::Components::FastEditor.new
       end
@@ -16,8 +17,7 @@ module PageObjects
       end
 
       def open_new_topic
-        page.visit "/"
-        find("button#create-topic").click
+        page.visit "/new-topic"
         self
       end
 
@@ -32,8 +32,36 @@ module PageObjects
         self
       end
 
+      def current_topic_id
+        find("h1[data-topic-id]")["data-topic-id"]
+      end
+
+      def current_topic
+        ::Topic.find(current_topic_id)
+      end
+
       def has_topic_title?(text)
         has_css?("h1 .fancy-title", text: text)
+=======
+        setup_component_classes!(
+          post_show_more_actions: ".show-more-actions",
+          post_action_button_bookmark: ".bookmark.with-reminder",
+          reply_button: ".topic-footer-main-buttons > .create",
+          composer: "#reply-control",
+          composer_textarea: "#reply-control .d-editor .d-editor-input",
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+      end
+
+      def visit_topic(topic)
+        page.visit "/t/#{topic.id}"
+        self
+      end
+
+      def visit_topic_and_open_composer(topic)
+        visit_topic(topic)
+        click_reply_button
+        self
       end
 
       def has_post_content?(post)
@@ -44,13 +72,19 @@ module PageObjects
         has_css?("#post_#{number}")
       end
 
-      def post_by_number(post_or_number)
+<<<<<<< HEAD
+      def post_by_number(post_or_number, wait: Capybara.default_max_wait_time)
         post_or_number = post_or_number.is_a?(Post) ? post_or_number.post_number : post_or_number
-        find(".topic-post:not(.staged) #post_#{post_or_number}")
+        find(".topic-post:not(.staged) #post_#{post_or_number}", wait: wait)
       end
 
       def post_by_number_selector(post_number)
         ".topic-post:not(.staged) #post_#{post_number}"
+=======
+      def post_by_number(post_or_number)
+        post_or_number = post_or_number.is_a?(Post) ? post_or_number.post_number : post_or_number
+        find("#post_#{post_or_number}")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def has_post_more_actions?(post)
@@ -60,11 +94,17 @@ module PageObjects
       end
 
       def has_post_bookmarked?(post)
+<<<<<<< HEAD
         is_post_bookmarked(post, bookmarked: true)
       end
 
       def has_no_post_bookmarked?(post)
         is_post_bookmarked(post, bookmarked: false)
+=======
+        within post_by_number(post) do
+          has_css?(".bookmark.with-reminder.bookmarked")
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def expand_post_actions(post)
@@ -75,9 +115,27 @@ module PageObjects
         case button
         when :bookmark
           post_by_number(post).find(".bookmark.with-reminder").click
+<<<<<<< HEAD
         when :reply
           post_by_number(post).find(".post-controls .reply").click
         end
+      end
+
+      def expand_post_admin_actions(post)
+        post_by_number(post).find(".show-post-admin-menu").click
+      end
+
+      def click_post_admin_action_button(post, button)
+        element_klass = "[data-content][data-identifier='admin-post-menu']"
+        case button
+        when :grant_badge
+          element_klass += " .grant-badge"
+        end
+
+        find(element_klass).click
+=======
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def click_topic_footer_button(button)
@@ -88,13 +146,20 @@ module PageObjects
         has_css?("#{topic_footer_button_id("bookmark")}.bookmarked", text: "Edit Bookmark")
       end
 
+      def has_no_bookmarks?
+        has_no_css?("#{topic_footer_button_id("bookmark")}.bookmarked")
+      end
+
       def find_topic_footer_button(button)
         find(topic_footer_button_id(button))
       end
 
       def click_reply_button
         find(".topic-footer-main-buttons > .create").click
+<<<<<<< HEAD
         has_expanded_composer?
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       def has_expanded_composer?
@@ -102,6 +167,7 @@ module PageObjects
       end
 
       def type_in_composer(input)
+<<<<<<< HEAD
         @composer_component.type_content(input)
       end
 
@@ -142,11 +208,34 @@ module PageObjects
         @fast_edit_component.fast_edit_input
       end
 
+      def click_mention(post, mention)
+        within post_by_number(post) do
+          find("a.mention-group", text: mention).click
+        end
+      end
+
+      def click_footer_reply
+        find("#topic-footer-buttons .btn-primary", text: "Reply").click
+        self
+=======
+        find("#reply-control .d-editor .d-editor-input").send_keys(input)
+      end
+
+      def clear_composer
+        find("#reply-control .d-editor .d-editor-input").set("")
+      end
+
+      def send_reply
+        within("#reply-control") { find(".save-or-cancel .create").click }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+      end
+
       private
 
       def topic_footer_button_id(button)
         "#topic-footer-button-#{button}"
       end
+<<<<<<< HEAD
 
       def is_post_bookmarked(post, bookmarked:)
         within post_by_number(post) do
@@ -156,6 +245,8 @@ module PageObjects
           )
         end
       end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

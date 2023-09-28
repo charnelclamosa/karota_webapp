@@ -38,6 +38,17 @@ RSpec.describe GroupsController do
       expect(body["load_more_groups"]).to eq("/groups?page=2")
     end
 
+    it "only accepts valid page numbers" do
+      get "/groups.json", params: { page: -1 }
+      expect(response.status).to eq(400)
+
+      get "/groups.json", params: { page: 0 }
+      expect(response.status).to eq(200)
+
+      get "/groups.json", params: { page: 1 }
+      expect(response.status).to eq(200)
+    end
+
     context "when group directory is disabled" do
       before { SiteSetting.enable_group_directory = false }
 
@@ -1239,7 +1250,17 @@ RSpec.describe GroupsController do
       )
     end
 
+<<<<<<< HEAD
     fab!(:user3) { Fabricate(:user, last_seen_at: nil, last_posted_at: nil, email: "c@test.org") }
+=======
+    fab!(:user3) do
+      Fabricate(:user,
+        last_seen_at: nil,
+        last_posted_at: nil,
+        email: 'c@test.org'
+      )
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     fab!(:bot) { Fabricate(:bot) }
     let(:group) { Fabricate(:group, users: [user1, user2, user3, bot]) }

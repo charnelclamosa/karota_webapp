@@ -1,13 +1,20 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+<<<<<<< HEAD
+=======
+import { relativeAge } from "discourse/lib/formatter";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import I18n from "I18n";
 import { htmlSafe } from "@ember/template";
 import { inject as service } from "@ember/service";
 import { bind, debounce } from "discourse-common/utils/decorators";
 import { actionDescriptionHtml } from "discourse/widgets/post-small-action";
 import domUtils from "discourse-common/utils/dom-utils";
+<<<<<<< HEAD
 import { headerOffset } from "discourse/lib/offset-calculator";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export const SCROLLER_HEIGHT = 50;
 const MIN_SCROLLAREA_HEIGHT = 170;
@@ -17,7 +24,10 @@ const LAST_READ_HEIGHT = 20;
 export default class TopicTimelineScrollArea extends Component {
   @service appEvents;
   @service siteSettings;
+<<<<<<< HEAD
   @service currentUser;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   @tracked showButton = false;
   @tracked current;
@@ -28,16 +38,25 @@ export default class TopicTimelineScrollArea extends Component {
   @tracked total;
   @tracked date;
   @tracked lastReadPercentage = null;
+<<<<<<< HEAD
   @tracked lastRead;
   @tracked lastReadTop;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @tracked before;
   @tracked after;
   @tracked timelineScrollareaStyle;
   @tracked dragging = false;
   @tracked excerpt = "";
 
+<<<<<<< HEAD
   intersectionObserver = null;
+  scrollareaElement = null;
+  scrollerElement = null;
+  dragOffset = null;
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   constructor() {
     super(...arguments);
 
@@ -48,6 +67,7 @@ export default class TopicTimelineScrollArea extends Component {
       this.appEvents.on("composer:opened", this.calculatePosition);
       this.appEvents.on("composer:resized", this.calculatePosition);
       this.appEvents.on("composer:closed", this.calculatePosition);
+<<<<<<< HEAD
       this.appEvents.on("post-stream:posted", this.calculatePosition);
     }
 
@@ -83,6 +103,11 @@ export default class TopicTimelineScrollArea extends Component {
       this.args.model.has_summary &&
       !this.args.model.postStream.summary
     );
+=======
+    }
+
+    this.calculatePosition();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get displayTimeLineScrollArea() {
@@ -90,7 +115,12 @@ export default class TopicTimelineScrollArea extends Component {
       return true;
     }
 
+<<<<<<< HEAD
     if (this.total === 1) {
+=======
+    const streamLength = this.args.model.postStream?.stream?.length;
+    if (streamLength === 1) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       const postsWrapper = document.querySelector(".posts-wrapper");
       if (postsWrapper && postsWrapper.offsetHeight < 1000) {
         return false;
@@ -152,10 +182,24 @@ export default class TopicTimelineScrollArea extends Component {
     return this.lastReadTop > bottom ? bottom : this.lastReadTop;
   }
 
+<<<<<<< HEAD
+=======
+  get bottomAge() {
+    return relativeAge(
+      new Date(this.args.model.last_posted_at || this.args.model.created_at),
+      {
+        addAgo: true,
+        defaultFormat: timelineDate,
+      }
+    );
+  }
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get startDate() {
     return timelineDate(this.args.model.createdAt);
   }
 
+<<<<<<< HEAD
   get nowDateOptions() {
     return {
       addAgo: true,
@@ -167,6 +211,10 @@ export default class TopicTimelineScrollArea extends Component {
     return (
       this.args.model.get("last_posted_at") || this.args.model.get("created_at")
     );
+=======
+  get nowDate() {
+    return this.bottomAge;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   get lastReadHeight() {
@@ -206,8 +254,13 @@ export default class TopicTimelineScrollArea extends Component {
 
     this.date = date;
 
+<<<<<<< HEAD
     const lastReadNumber = topic.last_read_post_number;
     const lastReadId = topic.last_read_post_id;
+=======
+    const lastReadId = topic.last_read_post_id;
+    const lastReadNumber = topic.last_read_post_number;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if (lastReadId && lastReadNumber) {
       const idx = postStream.stream.indexOf(lastReadId) + 1;
@@ -235,6 +288,15 @@ export default class TopicTimelineScrollArea extends Component {
         this.before + SCROLLER_HEIGHT - 5 < this.lastReadTop ||
         this.before > this.lastReadTop + 25;
     }
+<<<<<<< HEAD
+=======
+
+    if (this.hasBackPosition) {
+      this.lastReadTop = Math.round(
+        this.lastReadPercentage * scrollareaHeight()
+      );
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   @debounce(50)
@@ -272,30 +334,68 @@ export default class TopicTimelineScrollArea extends Component {
 
   @bind
   updatePercentage(e) {
+<<<<<<< HEAD
+    const currentCursorY = e.pageY || e.touches[0].pageY;
+
+    const desiredScrollerCentre = currentCursorY - this.dragOffset;
+
+    const areaTop = domUtils.offset(this.scrollareaElement).top;
+    const areaHeight = this.scrollareaElement.offsetHeight;
+    const scrollerHeight = this.scrollerElement.offsetHeight;
+
+    // The range of possible positions for the centre of the scroller
+    const scrollableTop = areaTop + scrollerHeight / 2;
+    const scrollableHeight = areaHeight - scrollerHeight;
+
+    this.percentage = this.clamp(
+      parseFloat(desiredScrollerCentre - scrollableTop) / scrollableHeight
+    );
+=======
     // pageY for mouse and mobile
     const y = e.pageY || e.touches[0].pageY;
     const area = document.querySelector(".timeline-scrollarea");
     const areaTop = domUtils.offset(area).top;
 
     this.percentage = this.clamp(parseFloat(y - areaTop) / area.offsetHeight);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.commit();
   }
 
   @bind
+<<<<<<< HEAD
+  didStartDrag(event) {
+    const y = event.pageY || event.touches[0].pageY;
+
+    const scrollerCentre =
+      domUtils.offset(this.scrollerElement).top +
+      this.scrollerElement.offsetHeight / 2;
+
+    this.dragOffset = y - scrollerCentre;
+=======
   didStartDrag() {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.dragging = true;
   }
 
   @bind
+<<<<<<< HEAD
   dragMove(event) {
     event.stopPropagation();
     event.preventDefault();
     this.updatePercentage(event);
+=======
+  dragMove(e) {
+    this.updatePercentage(e);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   @bind
   didEndDrag() {
     this.dragging = false;
+<<<<<<< HEAD
+    this.dragOffset = null;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.commit();
   }
 
@@ -304,7 +404,10 @@ export default class TopicTimelineScrollArea extends Component {
     this.current = e.postIndex;
     this.percentage = e.percent;
     this.calculatePosition();
+<<<<<<< HEAD
     this.dockCheck();
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   @action
@@ -312,6 +415,7 @@ export default class TopicTimelineScrollArea extends Component {
     this.args.jumpToIndex(this.lastRead);
   }
 
+<<<<<<< HEAD
   dockCheck() {
     const timeline = document.querySelector(".timeline-container");
     const timelineHeight = (timeline && timeline.offsetHeight) || 400;
@@ -346,6 +450,8 @@ export default class TopicTimelineScrollArea extends Component {
     }
   }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   commit() {
     this.calculatePosition();
 
@@ -368,14 +474,20 @@ export default class TopicTimelineScrollArea extends Component {
 
   willDestroy() {
     if (!this.args.mobileView) {
+<<<<<<< HEAD
       this.intersectionObserver?.disconnect();
       this.intersectionObserver = null;
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.appEvents.off("composer:opened", this.calculatePosition);
       this.appEvents.off("composer:resized", this.calculatePosition);
       this.appEvents.off("composer:closed", this.calculatePosition);
       this.appEvents.off("topic:current-post-scrolled", this.postScrolled);
+<<<<<<< HEAD
       this.appEvents.off("post-stream:posted", this.calculatePosition);
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
@@ -393,6 +505,19 @@ export default class TopicTimelineScrollArea extends Component {
         return this.clamp(parseFloat(postIndex) / total);
     }
   }
+<<<<<<< HEAD
+
+  @action
+  registerScrollarea(element) {
+    this.scrollareaElement = element;
+  }
+
+  @action
+  registerScroller(element) {
+    this.scrollerElement = element;
+  }
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 export function scrollareaHeight() {

@@ -1,7 +1,11 @@
 import Service from "@ember/service";
 import A11yDialog from "a11y-dialog";
 import { bind } from "discourse-common/utils/decorators";
+<<<<<<< HEAD
 import { next } from "@ember/runloop";
+=======
+import { isBlank } from "@ember/utils";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Service.extend({
   dialogInstance: null,
@@ -16,7 +20,12 @@ export default Service.extend({
   confirmButtonIcon: null,
   confirmButtonLabel: null,
   confirmButtonClass: null,
+<<<<<<< HEAD
   confirmButtonDisabled: false,
+=======
+  confirmPhrase: null,
+  confirmPhraseInput: null,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   cancelButtonLabel: null,
   cancelButtonClass: null,
   shouldDisplayCancel: null,
@@ -42,6 +51,8 @@ export default Service.extend({
 
       cancelButtonClass = "btn-default",
       cancelButtonLabel = "cancel_value",
+      cancelButtonClass = "btn-default",
+      confirmPhrase,
       shouldDisplayCancel,
 
       didConfirm,
@@ -49,6 +60,7 @@ export default Service.extend({
       buttons,
     } = params;
 
+<<<<<<< HEAD
     let element = document.getElementById("dialog-holder");
     if (!element) {
       await new Promise((resolve) => next(resolve));
@@ -62,6 +74,11 @@ export default Service.extend({
       console.error(msg, params);
       throw new Error(msg);
     }
+=======
+    let confirmButtonDisabled = !isBlank(confirmPhrase);
+
+    const element = document.getElementById("dialog-holder");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     this.setProperties({
       message,
@@ -73,13 +90,19 @@ export default Service.extend({
       title,
       titleElementId: title !== null ? "dialog-title" : null,
 
+      confirmButtonDisabled,
       confirmButtonClass,
       confirmButtonDisabled,
       confirmButtonIcon,
+<<<<<<< HEAD
       confirmButtonLabel,
 
       cancelButtonClass,
+=======
+      confirmPhrase,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       cancelButtonLabel,
+      cancelButtonClass,
       shouldDisplayCancel,
 
       didConfirm,
@@ -163,7 +186,10 @@ export default Service.extend({
 
       cancelButtonClass: null,
       cancelButtonLabel: null,
+      cancelButtonClass: null,
       shouldDisplayCancel: null,
+      confirmPhrase: null,
+      confirmPhraseInput: null,
 
       didConfirm: null,
       didCancel: null,
@@ -194,7 +220,15 @@ export default Service.extend({
   },
 
   @bind
+<<<<<<< HEAD
   enableConfirmButton() {
     this.set("confirmButtonDisabled", false);
+=======
+  onConfirmPhraseInput() {
+    this.set(
+      "confirmButtonDisabled",
+      this.confirmPhrase && this.confirmPhraseInput !== this.confirmPhrase
+    );
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 });

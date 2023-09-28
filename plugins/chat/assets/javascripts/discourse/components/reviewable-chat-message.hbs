@@ -1,4 +1,5 @@
 <div class="flagged-post-header">
+<<<<<<< HEAD
   <LinkTo
     @route="chat.channel.near-message"
     @models={{array
@@ -7,6 +8,9 @@
       @reviewable.target_id
     }}
   >
+=======
+  <LinkTo @route="chat.channel" @models={{array this.chatChannel.id this.chatChannel.title}} @query={{hash messageId=@reviewable.target_id}}>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <ChatChannelTitle @channel={{this.chatChannel}} />
   </LinkTo>
 </div>
@@ -14,11 +18,15 @@
 <div class="post-contents-wrapper">
   <ReviewableCreatedBy @user={{@reviewable.target_created_by}} @tagName="" />
   <div class="post-contents">
+<<<<<<< HEAD
     <ReviewablePostHeader
       @reviewable={{@reviewable}}
       @createdBy={{@reviewable.target_created_by}}
       @tagName=""
     />
+=======
+    <ReviewablePostHeader @reviewable={{@reviewable}} @createdBy={{@reviewable.target_created_by}} @tagName="" />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     <div class="post-body">
       {{html-safe (or @reviewable.payload.message_cooked @reviewable.cooked)}}
@@ -26,11 +34,15 @@
 
     {{#if @reviewable.payload.transcript_topic_id}}
       <div class="transcript">
+<<<<<<< HEAD
         <LinkTo
           @route="topic"
           @models={{array "-" @reviewable.payload.transcript_topic_id}}
           class="btn btn-small"
         >
+=======
+        <LinkTo @route="topic" @models={{array "-" @reviewable.payload.transcript_topic_id}} class="btn btn-small">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           {{i18n "review.transcript.view"}}
         </LinkTo>
       </div>
@@ -38,4 +50,8 @@
 
     {{yield}}
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

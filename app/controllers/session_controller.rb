@@ -169,7 +169,13 @@ class SessionController < ApplicationController
         end
 
         if SiteSetting.must_approve_users? && !user.approved?
+<<<<<<< HEAD
           redeem_invitation(invite, sso, user) if invite.present? && user.invited_user.blank?
+=======
+          if invite.present? && user.invited_user.blank?
+            redeem_invitation(invite, sso, user)
+          end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           if SiteSetting.discourse_connect_not_approved_url.present?
             redirect_to SiteSetting.discourse_connect_not_approved_url, allow_other_host: true
@@ -344,9 +350,9 @@ class SessionController < ApplicationController
       end
 
       if matched_user&.security_keys_enabled?
-        Webauthn.stage_challenge(matched_user, secure_session)
+        DiscourseWebauthn.stage_challenge(matched_user, secure_session)
         response.merge!(
-          Webauthn.allowed_credentials(matched_user, secure_session).merge(
+          DiscourseWebauthn.allowed_credentials(matched_user, secure_session).merge(
             security_key_required: true,
           ),
         )
@@ -355,9 +361,15 @@ class SessionController < ApplicationController
       render json: response
     else
       render json: {
+<<<<<<< HEAD
                can_login: false,
                error: I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
              }
+=======
+        can_login: false,
+        error: I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
+      }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -387,7 +399,11 @@ class SessionController < ApplicationController
       end
     end
 
+<<<<<<< HEAD
     render json: { error: I18n.t("email_login.invalid_token", base_url: Discourse.base_url) }
+=======
+    render json: { error: I18n.t('email_login.invalid_token', base_url: Discourse.base_url) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def one_time_password
@@ -433,8 +449,8 @@ class SessionController < ApplicationController
         allowed_methods: challenge[:allowed_methods],
       )
       if user.security_keys_enabled?
-        Webauthn.stage_challenge(user, secure_session)
-        json.merge!(Webauthn.allowed_credentials(user, secure_session))
+        DiscourseWebauthn.stage_challenge(user, secure_session)
+        json.merge!(DiscourseWebauthn.allowed_credentials(user, secure_session))
         json[:security_keys_enabled] = true
       else
         json[:security_keys_enabled] = false
@@ -660,8 +676,8 @@ class SessionController < ApplicationController
     if !second_factor_authentication_result.ok
       failure_payload = second_factor_authentication_result.to_h
       if user.security_keys_enabled?
-        Webauthn.stage_challenge(user, secure_session)
-        failure_payload.merge!(Webauthn.allowed_credentials(user, secure_session))
+        DiscourseWebauthn.stage_challenge(user, secure_session)
+        failure_payload.merge!(DiscourseWebauthn.allowed_credentials(user, secure_session))
       end
       @second_factor_failure_payload = failed_json.merge(failure_payload)
       return second_factor_authentication_result
@@ -799,7 +815,11 @@ class SessionController < ApplicationController
       ip_address: request.remote_ip,
       session: session,
       email: sso.email,
+<<<<<<< HEAD
       redeeming_user: redeeming_user,
+=======
+      redeeming_user: redeeming_user
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ).redeem
     secure_session["invite-key"] = nil
 

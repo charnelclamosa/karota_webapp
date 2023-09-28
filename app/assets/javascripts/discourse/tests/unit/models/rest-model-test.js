@@ -2,7 +2,11 @@ import { module, test } from "qunit";
 import RestAdapter from "discourse/adapters/rest";
 import RestModel from "discourse/models/rest";
 import sinon from "sinon";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+=======
 import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { setupTest } from "ember-qunit";
 
 module("Unit | Model | rest-model", function (hooks) {
@@ -45,21 +49,21 @@ module("Unit | Model | rest-model", function (hooks) {
   });
 
   test("updating simultaneously", async function (assert) {
+<<<<<<< HEAD
+=======
     assert.expect(2);
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const store = getOwner(this).lookup("service:store");
     const widget = await store.find("widget", 123);
 
     const firstPromise = widget.update({ name: "new name" });
     const secondPromise = widget.update({ name: "new name" });
 
-    firstPromise.then(function () {
-      assert.ok(true, "the first promise succeeds");
-    });
+    firstPromise.then(() => assert.true(true, "the first promise succeeds"));
+    secondPromise.catch(() => assert.true(true, "the second promise fails"));
 
-    secondPromise.catch(function () {
-      assert.ok(true, "the second promise fails");
-    });
+    await Promise.allSettled([firstPromise, secondPromise]);
   });
 
   test("save new", async function (assert) {
@@ -88,21 +92,23 @@ module("Unit | Model | rest-model", function (hooks) {
     assert.strictEqual(result.target.name, widget.name);
   });
 
+<<<<<<< HEAD
+  test("creating simultaneously", async function (assert) {
+=======
   test("creating simultaneously", function (assert) {
     assert.expect(2);
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const store = getOwner(this).lookup("service:store");
     const widget = store.createRecord("widget");
 
     const firstPromise = widget.save({ name: "Evil Widget" });
     const secondPromise = widget.save({ name: "Evil Widget" });
-    firstPromise.then(function () {
-      assert.ok(true, "the first promise succeeds");
-    });
 
-    secondPromise.catch(function () {
-      assert.ok(true, "the second promise fails");
-    });
+    firstPromise.then(() => assert.true(true, "the first promise succeeds"));
+    secondPromise.catch(() => assert.true(true, "the second promise fails"));
+
+    await Promise.allSettled([firstPromise, secondPromise]);
   });
 
   test("destroyRecord", async function (assert) {

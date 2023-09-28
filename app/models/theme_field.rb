@@ -108,7 +108,10 @@ class ThemeField < ActiveRecord::Base
           if is_raw
             js_compiler.append_raw_template(name, hbs_template)
           else
-            js_compiler.append_ember_template("discourse/templates/#{name}", hbs_template)
+            js_compiler.append_ember_template(
+              "discourse/templates/#{name.delete_prefix("/")}",
+              hbs_template,
+            )
           end
         rescue ThemeJavascriptCompiler::CompileError => ex
           js_compiler.append_js_error("discourse/templates/#{name}", ex.message)
@@ -175,10 +178,21 @@ class ThemeField < ActiveRecord::Base
     javascript_cache.source_map = js_compiler.source_map
     javascript_cache.save!
 
+<<<<<<< HEAD
     doc.add_child(<<~HTML.html_safe) if javascript_cache.content.present?
           <link rel="preload" href="#{javascript_cache.url}" as="script">
           <script defer src='#{javascript_cache.url}' data-theme-id='#{theme_id}'></script>
         HTML
+=======
+    if javascript_cache.content.present?
+      doc.add_child(
+        <<~HTML.html_safe
+          <link rel="preload" href="#{javascript_cache.url}" as="script">
+          <script defer src='#{javascript_cache.url}' data-theme-id='#{theme_id}'></script>
+        HTML
+      )
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     [doc.to_s, errors&.join("\n")]
   end
 
@@ -201,7 +215,11 @@ class ThemeField < ActiveRecord::Base
 
     begin
       content = File.read(path)
-      Nokogiri.XML(content) { |config| config.options = Nokogiri::XML::ParseOptions::NOBLANKS }
+      if content.to_s.bytesize > SvgSprite::MAX_THEME_SPRITE_SIZE
+        error = "Error with #{self.name}: Icon sprite file is too large"
+      else
+        Nokogiri.XML(content) { |config| config.options = Nokogiri::XML::ParseOptions::NOBLANKS }
+      end
     rescue => e
       error = "Error with #{self.name}: #{e.inspect}"
     end
@@ -279,10 +297,20 @@ class ThemeField < ActiveRecord::Base
     javascript_cache.source_map = js_compiler.source_map
     javascript_cache.save!
     doc = ""
+<<<<<<< HEAD
     doc = <<~HTML.html_safe if javascript_cache.content.present?
           <link rel="preload" href="#{javascript_cache.url}" as="script">
           <script defer src='#{javascript_cache.url}' data-theme-id='#{theme_id}'></script>
         HTML
+=======
+    if javascript_cache.content.present?
+      doc =
+        <<~HTML.html_safe
+          <link rel="preload" href="#{javascript_cache.url}" as="script">
+          <script defer src='#{javascript_cache.url}' data-theme-id='#{theme_id}'></script>
+        HTML
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     [doc, errors&.join("\n")]
   end
 
@@ -664,7 +692,7 @@ class ThemeField < ActiveRecord::Base
     rescue => e
       Discourse.warn_exception(e, message: "Failed to fetch svg sprite for theme field #{id}")
     else
-      if content.length > 4 * 1024**2
+      if content.length > SvgSprite::MAX_THEME_SPRITE_SIZE
         Rails.logger.warn(
           "can't store theme svg sprite for theme #{theme_id} and upload #{upload_id}, sprite too big",
         )

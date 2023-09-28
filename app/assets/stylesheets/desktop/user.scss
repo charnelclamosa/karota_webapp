@@ -92,7 +92,7 @@
   margin-top: 2em;
   padding-bottom: 12px;
   margin-bottom: 12px;
-  background-color: var(--secondary);
+  background: var(--d-content-background, var(--secondary));
   box-sizing: border-box;
 
   .btn.right {
@@ -156,8 +156,31 @@ table.user-invite-list {
         margin: 0 20px 10px 0;
       }
 
+<<<<<<< HEAD
       .primary-textual {
         padding: 0 0 0.5em;
+=======
+      .primary {
+        .primary-textual {
+          padding: 0 4px 4px;
+          h1 {
+            max-width: 100%;
+            @include ellipsis;
+          }
+          .location-and-website {
+            display: flex;
+            max-width: 100%;
+            @include ellipsis;
+            .user-profile-location {
+              margin-right: 1em;
+            }
+          }
+        }
+
+        .bio {
+          max-width: 750px;
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
 
       .bio {

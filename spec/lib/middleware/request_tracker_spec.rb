@@ -122,6 +122,7 @@ RSpec.describe Middleware::RequestTracker do
     end
 
     it "logs API requests correctly" do
+<<<<<<< HEAD
       data =
         Middleware::RequestTracker.get_data(
           env("_DISCOURSE_API" => "1"),
@@ -142,6 +143,23 @@ RSpec.describe Middleware::RequestTracker do
 
       data =
         Middleware::RequestTracker.get_data(env("_DISCOURSE_USER_API" => "1"), ["200", {}], 0.1)
+=======
+      data = Middleware::RequestTracker.get_data(
+        env("_DISCOURSE_API" => "1"), ["200", { "Content-Type" => 'text/json' }], 0.1
+      )
+
+      Middleware::RequestTracker.log_request(data)
+
+      data = Middleware::RequestTracker.get_data(
+        env("_DISCOURSE_API" => "1"), ["404", { "Content-Type" => 'text/json' }], 0.1
+      )
+
+      Middleware::RequestTracker.log_request(data)
+
+      data = Middleware::RequestTracker.get_data(
+        env("_DISCOURSE_USER_API" => "1"), ["200", {}], 0.1
+      )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       Middleware::RequestTracker.log_request(data)
       CachedCounting.flush
@@ -661,6 +679,7 @@ RSpec.describe Middleware::RequestTracker do
       lambda do |env|
         sql_calls.times { User.where(id: -100).pluck(:id) }
         redis_calls.times { Discourse.redis.get("x") }
+        yield if block_given?
         result
       end
     end
@@ -677,6 +696,8 @@ RSpec.describe Middleware::RequestTracker do
     after { Middleware::RequestTracker.unregister_detailed_request_logger(logger) }
 
     it "can report data from anon cache" do
+      Middleware::AnonymousCache.enable_anon_cache
+
       cache = Middleware::AnonymousCache.new(app([200, {}, ["i am a thing"]]))
       tracker = Middleware::RequestTracker.new(cache)
 
@@ -745,6 +766,36 @@ RSpec.describe Middleware::RequestTracker do
       expect(headers["X-Sql-Time"].to_f).to be > 0
 
       expect(headers["X-Runtime"].to_f).to be > 0
+    end
+
+    it "correctly logs GC stats when `instrument_gc_stat_per_request` site setting has been enabled" do
+      tracker =
+        Middleware::RequestTracker.new(
+          app([200, {}, []]) do
+            GC.start(full_mark: true) # Major GC
+            GC.start(full_mark: false) # Minor GC
+          end,
+        )
+
+      tracker.call(env)
+
+      expect(@data[:timing][:gc]).to eq(nil)
+
+      SiteSetting.instrument_gc_stat_per_request = true
+
+      tracker =
+        Middleware::RequestTracker.new(
+          app([200, {}, []]) do
+            GC.start(full_mark: true) # Major GC
+            GC.start(full_mark: false) # Minor GC
+          end,
+        )
+
+      tracker.call(env)
+
+      expect(@data[:timing][:gc][:time]).to be > 0.0
+      expect(@data[:timing][:gc][:major_count]).to eq(1)
+      expect(@data[:timing][:gc][:minor_count]).to eq(1)
     end
 
     it "can correctly log messagebus request types" do

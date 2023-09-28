@@ -2,7 +2,11 @@ import { module, test } from "qunit";
 import Category from "discourse/models/category";
 import Topic from "discourse/models/topic";
 import { IMAGE_VERSION as v } from "pretty-text/emoji/version";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+=======
 import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { setupTest } from "ember-qunit";
 
 module("Unit | Model | topic", function (hooks) {

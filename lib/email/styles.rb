@@ -216,7 +216,11 @@ module Email
       correct_first_body_margin
       correct_footer_style
       correct_footer_style_highlight_first
+<<<<<<< HEAD
       strip_hashtag_link_icons
+=======
+      decorate_hashtags
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reset_tables
 
       html_lang = SiteSetting.default_locale.sub("_", "-")
@@ -405,6 +409,15 @@ module Email
           <span>##{hashtag["data-slug"]}</span>
         HTML
         end
+    end
+
+    def decorate_hashtags
+      @fragment.search(".hashtag-cooked").each do |hashtag|
+        hashtag.children.each(&:remove)
+        hashtag.add_child(<<~HTML)
+          <span>##{hashtag["data-slug"]}</span>
+        HTML
+      end
     end
 
     def make_all_links_absolute

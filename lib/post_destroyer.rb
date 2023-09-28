@@ -305,13 +305,11 @@ class PostDestroyer
   def make_previous_post_the_last_one
     last_post =
       Post
-        .where("topic_id = ? and id <> ?", @post.topic_id, @post.id)
         .select(:created_at, :user_id, :post_number)
         .where("topic_id = ? and id <> ?", @post.topic_id, @post.id)
         .where.not(user_id: nil)
         .where.not(post_type: Post.types[:whisper])
         .order("created_at desc")
-        .limit(1)
         .first
 
     if last_post.present?
@@ -379,6 +377,12 @@ class PostDestroyer
     flag_type = PostActionType.flag_types[rs.reviewable_score_type]
     return unless flag_type
 
+    # ReviewableScore#types is a superset of PostActionType#flag_types.
+    # If the reviewable score type is not on the latter, it means it's not a flag by a user and
+    #  must be an automated flag like `needs_approval`. There's no flag reason for these kind of types.
+    flag_type = PostActionType.flag_types[rs.reviewable_score_type]
+    return unless flag_type
+
     notify_responders = options[:notify_responders]
 
     Jobs.enqueue(
@@ -396,6 +400,7 @@ class PostDestroyer
         flagged_post_raw_content: notify_responders ? options[:parent_post].raw : @post.raw,
         flagged_post_response_raw_content: @post.raw,
         url: notify_responders ? options[:parent_post].url : @post.url,
+<<<<<<< HEAD
         flag_reason:
           I18n.t(
             "flag_reasons#{".responder" if notify_responders}.#{flag_type}",
@@ -403,6 +408,14 @@ class PostDestroyer
             base_path: Discourse.base_path,
           ),
       },
+=======
+        flag_reason: I18n.t(
+          "flag_reasons#{".responder" if notify_responders}.#{flag_type}",
+          locale: SiteSetting.default_locale,
+          base_path: Discourse.base_path
+        )
+      }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 

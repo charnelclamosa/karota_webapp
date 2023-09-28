@@ -8,10 +8,10 @@ import { ajax } from "discourse/lib/ajax";
 import discourseDebounce from "discourse-common/lib/debounce";
 import {
   caretPosition,
+<<<<<<< HEAD
   escapeExpression,
   inCodeBlock,
 } from "discourse/lib/utilities";
-import { search as searchCategoryTag } from "discourse/lib/category-tag-search";
 import { emojiUnescape } from "discourse/lib/text";
 import { htmlSafe } from "@ember/template";
 
@@ -49,6 +49,32 @@ export function decorateHashtags(element, site) {
   });
 }
 
+export function generatePlaceholderHashtagHTML(type, spanEl, data) {
+  // NOTE: When changing the HTML structure here, you must also change
+  // it in the hashtag-autocomplete markdown rule, and vice-versa.
+  const link = document.createElement("a");
+  link.classList.add("hashtag-cooked");
+  link.href = data.relative_url;
+  link.dataset.type = type;
+  link.dataset.id = data.id;
+  link.dataset.slug = data.slug;
+  const hashtagTypeClass = new getHashtagTypeClasses()[type];
+  link.innerHTML = `${hashtagTypeClass.generateIconHTML(
+    data
+  )}<span>${emojiUnescape(data.text)}</span>`;
+  spanEl.replaceWith(link);
+}
+
+=======
+  caretRowCol,
+  escapeExpression,
+  inCodeBlock,
+} from "discourse/lib/utilities";
+import { search as searchCategoryTag } from "discourse/lib/category-tag-search";
+import { emojiUnescape } from "discourse/lib/text";
+import { htmlSafe } from "@ember/template";
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 /**
  * Sets up a textarea using the jQuery autocomplete plugin, specifically
  * to match on the hashtag (#) character for autocompletion of categories,
@@ -61,6 +87,7 @@ export function decorateHashtags(element, site) {
  * @param {$Element} $textarea - jQuery element to use for the autocompletion
  *   plugin to attach to, this is what will watch for the # matcher when the user is typing.
  * @param {Hash} siteSettings - The clientside site settings.
+<<<<<<< HEAD
  * @param {Function} autocompleteOptions - Options to pass to the jQuery plugin. Must at least include:
  *
  *  - afterComplete - Called with the selected autocomplete option once it is selected.
@@ -69,6 +96,9 @@ export function decorateHashtags(element, site) {
  *
  *  - treatAsTextarea - Whether to anchor the autocompletion to the start of the input and
  *                      ensure the popper is always on top.
+=======
+ * @param {Function} afterComplete - Called with the selected autocomplete option once it is selected.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
  **/
 export function setupHashtagAutocomplete(
   contextualHashtagConfiguration,
@@ -76,19 +106,44 @@ export function setupHashtagAutocomplete(
   siteSettings,
   autocompleteOptions = {}
 ) {
+<<<<<<< HEAD
+  _setup(
+    contextualHashtagConfiguration,
+    $textArea,
+    siteSettings,
+    autocompleteOptions
+  );
+}
+
+export function hashtagTriggerRule(textarea) {
+=======
   if (siteSettings.enable_experimental_hashtag_autocomplete) {
     _setupExperimental(
       contextualHashtagConfiguration,
       $textArea,
       siteSettings,
-      autocompleteOptions
+      afterComplete
     );
   } else {
-    _setup($textArea, siteSettings, autocompleteOptions.afterComplete);
+    _setup($textArea, siteSettings, afterComplete);
   }
 }
 
-export function hashtagTriggerRule(textarea) {
+export function hashtagTriggerRule(textarea, opts) {
+  const result = caretRowCol(textarea);
+  const row = result.rowNum;
+  let line = textarea.value.split("\n")[row - 1];
+
+  if (opts && opts.backSpace) {
+    line = line.slice(0, line.length - 1);
+
+    // Don't trigger autocomplete when backspacing into a `#category |` => `#category|`
+    if (/^#{1}\w+/.test(line)) {
+      return false;
+    }
+  }
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   if (inCodeBlock(textarea.value, caretPosition(textarea))) {
     return false;
   }
@@ -147,11 +202,19 @@ export function linkSeenHashtagsInContext(
     .filter((slug) => !checkedHashtags.has(slug));
 }
 
-function _setupExperimental(
+<<<<<<< HEAD
+function _setup(
   contextualHashtagConfiguration,
   $textArea,
   siteSettings,
   autocompleteOptions
+=======
+function _setupExperimental(
+  contextualHashtagConfiguration,
+  $textArea,
+  siteSettings,
+  afterComplete
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 ) {
   $textArea.autocomplete({
     template: findRawTemplate("hashtag-autocomplete"),
@@ -166,6 +229,8 @@ function _setupExperimental(
         return null;
       }
       return _searchGeneric(term, siteSettings, contextualHashtagConfiguration);
+<<<<<<< HEAD
+=======
     },
     triggerRule: (textarea, opts) => hashtagTriggerRule(textarea, opts),
   });
@@ -182,6 +247,7 @@ function _setup($textArea, siteSettings, afterComplete) {
         return null;
       }
       return searchCategoryTag(term, siteSettings);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
     triggerRule: (textarea, opts) => hashtagTriggerRule(textarea, opts),
   });
@@ -220,10 +286,13 @@ function _searchGeneric(term, siteSettings, contextualHashtagConfiguration) {
           resolve(CANCELLED_STATUS);
         }, 5000);
 
+<<<<<<< HEAD
+=======
     if (!siteSettings.enable_experimental_hashtag_autocomplete && term === "") {
       return resolve(CANCELLED_STATUS);
     }
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const debouncedSearch = (q, ctx, resultFunc) => {
       discourseDebounce(this, _searchRequest, q, ctx, resultFunc, INPUT_DELAY);
     };
@@ -240,6 +309,7 @@ function _searchRequest(term, contextualHashtagConfiguration, resultFunc) {
     data: { term, order: contextualHashtagConfiguration },
   });
   currentSearch
+<<<<<<< HEAD
     .then((response) => {
       response.results?.forEach((result) => {
         // Convert :emoji: in the result text to HTML safely.
@@ -252,6 +322,14 @@ function _searchRequest(term, contextualHashtagConfiguration, resultFunc) {
         });
       });
       resultFunc(response.results || CANCELLED_STATUS);
+=======
+    .then((r) => {
+      r.results?.forEach((result) => {
+        // Convert :emoji: in the result text to HTML safely.
+        result.text = htmlSafe(emojiUnescape(escapeExpression(result.text)));
+      });
+      resultFunc(r.results || CANCELLED_STATUS);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     })
     .finally(() => {
       currentSearch = null;
@@ -265,7 +343,13 @@ function _findAndReplaceSeenHashtagPlaceholder(
   hashtagSpan
 ) {
   contextualHashtagConfiguration.forEach((type) => {
+<<<<<<< HEAD
     // Replace raw span for the hashtag with a cooked one
+    const matchingSeenHashtag = seenHashtags[type]?.[slugRef];
+    if (matchingSeenHashtag) {
+      generatePlaceholderHashtagHTML(type, hashtagSpan, matchingSeenHashtag);
+=======
+    // replace raw span for the hashtag with a cooked one
     const matchingSeenHashtag = seenHashtags[type]?.[slugRef];
     if (matchingSeenHashtag) {
       // NOTE: When changing the HTML structure here, you must also change
@@ -274,13 +358,10 @@ function _findAndReplaceSeenHashtagPlaceholder(
       link.classList.add("hashtag-cooked");
       link.href = matchingSeenHashtag.relative_url;
       link.dataset.type = type;
-      link.dataset.id = matchingSeenHashtag.id;
       link.dataset.slug = matchingSeenHashtag.slug;
-      const hashtagType = new getHashtagTypeClasses()[type];
-      link.innerHTML = `${hashtagType.generateIconHTML(
-        matchingSeenHashtag
-      )}<span>${emojiUnescape(matchingSeenHashtag.text)}</span>`;
+      link.innerHTML = `<svg class="fa d-icon d-icon-${matchingSeenHashtag.icon} svg-icon svg-node"><use href="#${matchingSeenHashtag.icon}"></use></svg><span>${matchingSeenHashtag.text}</span>`;
       hashtagSpan.replaceWith(link);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   });
 }

@@ -50,10 +50,15 @@ export default Component.extend({
     const connectorClass = this.connector.connectorClass;
     this.set("actions", connectorClass?.actions);
 
+<<<<<<< HEAD
     if (this.actions) {
       for (const [name, action] of Object.entries(this.actions)) {
         this.set(name, action.bind(this));
       }
+=======
+    for (const [name, action] of Object.entries(this.actions)) {
+      this.set(name, action.bind(this));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     const merged = buildArgsWithDeprecations(args, deprecatedArgs);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .btn-floating.open-new-message-btn {
   position: fixed;
   background: var(--tertiary);
@@ -33,6 +34,14 @@
   padding-bottom: env(safe-area-inset-bottom);
   position: relative;
   @include chat-scrollbar();
+=======
+.channels-list {
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+  position: relative;
+  @include chat-scrollbar(var(--secondary));
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   @include breakpoint(mobile-large) {
     @include chat-scrollbar();
@@ -88,6 +97,8 @@
       padding-top: 1rem;
     }
   }
+<<<<<<< HEAD
+=======
 
   .chat-channel-row {
     align-items: center;
@@ -97,24 +108,10 @@
     position: relative;
     cursor: pointer;
     color: var(--primary-high);
-
-    @media (hover: none) {
-      &:hover,
-      &:focus {
-        background: transparent;
-      }
-
-      &:active {
-        background: var(--primary-low);
-      }
-    }
+    transition: opacity 50ms ease-in;
+    opacity: 1;
 
     @media (hover: hover) {
-      &:hover,
-      &.active {
-        background: var(--primary-very-low);
-      }
-
       &.can-leave:hover {
         .toggle-channel-membership-button.-leave {
           display: block;
@@ -130,8 +127,17 @@
       }
     }
 
+    .discourse-no-touch &:hover,
+    &.active {
+      background: var(--primary-low);
+    }
+
     &:hover,
     &.active {
+      &.active {
+        font-weight: 600;
+      }
+
       .chat-channel-title {
         &,
         .category-chat-name,
@@ -202,14 +208,23 @@
       }
 
       .chat-channel-unread-indicator {
-        @include chat-unread-indicator;
         display: flex;
         align-items: center;
         justify-content: center;
         width: auto;
-        height: auto;
-        min-width: 0.6em;
-        padding: 0.3em 0.5em;
+        min-width: 14px;
+        padding: 2px;
+        font-size: var(--font-down-3);
+        border-radius: 1em;
+        background: var(--tertiary-med-or-tertiary);
+
+        &.urgent {
+          background: var(--success);
+        }
+
+        .number {
+          line-height: 1rem;
+        }
       }
     }
 
@@ -230,4 +245,5 @@
       margin-left: 0.3em;
     }
   }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

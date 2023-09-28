@@ -6,7 +6,7 @@ import Site from "discourse/models/site";
 import User from "discourse/models/user";
 import { ajax } from "discourse/lib/ajax";
 import { get } from "@ember/object";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
 import getURL from "discourse-common/lib/get-url";
 
 const STAFF_GROUP_NAME = "staff";
@@ -344,6 +344,19 @@ const Category = RestModel.extend({
   @discourseComputed("id")
   isUncategorizedCategory(id) {
     return Category.isUncategorized(id);
+<<<<<<< HEAD
+  },
+
+  get canCreateTopic() {
+    return this.permission === PermissionType.FULL;
+  },
+
+  get subcategoryWithCreateTopicPermission() {
+    return this.subcategories?.find(
+      (subcategory) => subcategory.canCreateTopic
+    );
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 });
 
@@ -373,7 +386,9 @@ Category.reopenClass({
   },
 
   slugEncoded() {
-    let siteSettings = getOwner(this).lookup("service:site-settings");
+    let siteSettings = getOwnerWithFallback(this).lookup(
+      "service:site-settings"
+    );
     return siteSettings.slug_generation_method === "encoded";
   },
 

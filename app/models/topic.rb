@@ -471,6 +471,10 @@ class Topic < ActiveRecord::Base
     ReviewableFlaggedPost.pending_and_default_visible
   end
 
+  def self.has_flag_scope
+    ReviewableFlaggedPost.pending_and_default_visible
+  end
+
   def has_flags?
     self.class.has_flag_scope.exists?(topic_id: self.id)
   end
@@ -573,8 +577,7 @@ class Topic < ActiveRecord::Base
     topics = topics.limit(opts[:limit]) if opts[:limit]
 
     # Remove category topics
-    category_topic_ids = Category.pluck(:topic_id).compact!
-    topics = topics.where("topics.id NOT IN (?)", category_topic_ids) if category_topic_ids.present?
+    topics = topics.where.not(id: Category.select(:topic_id).where.not(topic_id: nil))
 
     # Remove muted and shared draft categories
     remove_category_ids =
@@ -588,6 +591,16 @@ class Topic < ActiveRecord::Base
           "topics.category_id NOT IN (?)",
           SiteSetting.digest_suppress_categories.split("|").map(&:to_i),
         )
+    end
+    if SiteSetting.digest_suppress_tags.present?
+      tag_ids = Tag.where_name(SiteSetting.digest_suppress_tags.split("|")).pluck(:id)
+      if tag_ids.present?
+        topics =
+          topics.joins("LEFT JOIN topic_tags tg ON topics.id = tg.topic_id").where(
+            "tg.tag_id NOT IN (?) OR tg.tag_id IS NULL",
+            tag_ids,
+          )
+      end
     end
     remove_category_ids << SiteSetting.shared_drafts_category if SiteSetting.shared_drafts_enabled?
     if remove_category_ids.present?
@@ -649,7 +662,8 @@ class Topic < ActiveRecord::Base
     start_date,
     end_date,
     category_id = nil,
-    include_subcategories = false
+    include_subcategories = false,
+    group_ids = nil
   )
     result =
       listable_topics.where(
@@ -662,6 +676,15 @@ class Topic < ActiveRecord::Base
       result.where(
         category_id: include_subcategories ? Category.subcategory_ids(category_id) : category_id,
       ) if category_id
+
+    if group_ids
+      result =
+        result
+          .joins("INNER JOIN users ON users.id = topics.user_id")
+          .joins("INNER JOIN group_users ON group_users.user_id = users.id")
+          .where("group_users.group_id IN (?)", group_ids)
+    end
+
     result.count
   end
 
@@ -705,6 +728,7 @@ class Topic < ActiveRecord::Base
 
     guardian = Guardian.new(user)
 
+<<<<<<< HEAD
     excluded_category_ids_sql =
       Category
         .secured(guardian)
@@ -730,6 +754,29 @@ class Topic < ActiveRecord::Base
         .where("topics.category_id NOT IN (#{excluded_category_ids_sql})")
         .order("ts_rank(search_data, #{tsquery}) DESC")
         .limit(SiteSetting.max_similar_results * 3)
+=======
+    excluded_category_ids_sql = Category.secured(guardian).where(search_priority: Searchable::PRIORITIES[:ignore]).select(:id).to_sql
+
+    if user
+      excluded_category_ids_sql = <<~SQL
+      #{excluded_category_ids_sql}
+      UNION
+      #{CategoryUser.where(notification_level: CategoryUser.notification_levels[:muted], user: user).select(:category_id).to_sql}
+      SQL
+    end
+
+    candidates = Topic
+      .visible
+      .listable_topics
+      .secured(guardian)
+      .joins("JOIN topic_search_data s ON topics.id = s.topic_id")
+      .joins("LEFT JOIN categories c ON topics.id = c.topic_id")
+      .where("search_data @@ #{tsquery}")
+      .where("c.topic_id IS NULL")
+      .where("topics.category_id NOT IN (#{excluded_category_ids_sql})")
+      .order("ts_rank(search_data, #{tsquery}) DESC")
+      .limit(SiteSetting.max_similar_results * 3)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     candidate_ids = candidates.pluck(:id)
 
@@ -2047,6 +2094,10 @@ class Topic < ActiveRecord::Base
 
   def group_pm?
     private_message? && all_allowed_users.count > 2
+  end
+
+  def visible_tags(guardian)
+    tags.reject { |tag| guardian.hidden_tag_names.include?(tag[:name]) }
   end
 
   private

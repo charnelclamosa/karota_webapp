@@ -12,7 +12,10 @@ import { click, visit } from "@ember/test-helpers";
 acceptance("Sidebar - Anonymous user - Community Section", function (needs) {
   needs.settings({
     navigation_menu: "sidebar",
+<<<<<<< HEAD
     faq_url: "https://discourse.org",
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   needs.site({});

@@ -19,7 +19,7 @@ hu:
       calendar_ics: "%Y%m%dT%H%M%SZ"
   date:
     month_names:
-    - null
+    -
     - január
     - február
     - március
@@ -165,12 +165,19 @@ hu:
     embed:
       load_from_remote: "Hiba történt a bejegyzés betöltésekor."
     site_settings:
+<<<<<<< HEAD
       invalid_site_setting: "Nem létezik „%{name}” nevű beállítás"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       invalid_category_id: "Olyan kategóriát adott meg, amely nem létezik"
       default_categories_already_selected: "Nem választhat olyan kategóriát, amely már szerepel egy másik listában."
       default_tags_already_selected: "Más listában használt címke nem választható ki."
       s3_upload_bucket_is_required: "Nem lehet engedélyezni a feltöltést az S3-ba, amíg nincs megadva az „s3_upload_bucket”."
       enable_s3_uploads_is_required: "Az S3 leltár használatát csak akkor engedélyezheti, ha engedélyezte az S3 feltöltéseket."
+<<<<<<< HEAD
+=======
+      secure_uploads_requirements: "A biztonságos feltöltés engedélyezése előtt engedélyezni kell az S3 feltöltést."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       share_quote_facebook_requirements: "Be kell állítania egy Facebook-alkalmazás azonosítót, hogy engedélyezhesse a megosztást Facebookon."
       second_factor_cannot_enforce_with_socials: "A közösségi bejelentkezések engedélyezése mellett nem lehet 2FA-t érvényesíteni. Először le kell tiltania ezt a bejelentkezést: %{auth_provider_names}"
       second_factor_cannot_be_enforced_with_disabled_local_login: "A 2FA nem kényszeríthető, ha a helyi bejelentkezés le van tiltva."
@@ -178,7 +185,10 @@ hu:
       local_login_cannot_be_disabled_if_second_factor_enforced: "A helyi bejelentkezés nem tiltható le, ha a 2FA kényszerítve van. A helyi bejelentkezések letiltása előtt tiltsa le a kényszerített 2FA-t."
       cannot_enable_s3_uploads_when_s3_enabled_globally: "Nem engedélyezheti az S3 feltöltést, mivel az S3 feltöltés már globálisan engedélyezve van, és a helyszintű engedélyezés kritikus problémákat okozna a feltöltésekkel kapcsolatban."
       cors_origins_should_not_have_trailing_slash: "A CORS-eredethez nem szabad hozzáadni az utolsóként használt perjelet (/)."
+<<<<<<< HEAD
+=======
       slow_down_crawler_user_agent_must_be_at_least_3_characters: "A felhasználói ügynököknek legalább 3 karakteresnek kell lenniük, hogy elkerülje az emberi felhasználók téves korlátozását."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       slow_down_crawler_user_agent_cannot_be_popular_browsers: "A következő értékek egyikét sem adhatja hozzá a beállításhoz: %{values}."
       twitter_summary_large_image_no_svg: "A twitter:image metaadatokhoz használt Twitter összefoglaló képek nem lehetnek .svg képek."
     onebox:
@@ -225,7 +235,6 @@ hu:
     more_replies:
       one: "és %{count} további válasz"
       other: "és %{count} további válasz"
-    loading: "Beszélgetés betöltése…"
     permalink: "Közvetlen hivatkozás"
     imported_from: "Ez egy kapcsolódó beszélgetési téma, az eredeti bejegyzés itt található: %{link}"
     in_reply_to: "▶ %{username}"
@@ -336,6 +345,7 @@ hu:
 
       További információért lásd [közösségi irányelveinket](%{base_path}/guidelines). Ez a panel csak az első %{education_posts_text} alkalommal jelenik meg.
     "new-reply": "Üdözöllek a %{site_name} &mdash; n - **köszönjük, hogy aktív vagy!**\n\n- Kérlek, szelíden fogalmazz!\n\n- Mielőtt elküldöd a választ, gondold végig, hogy építő-e, amit írtál!\n\n- Az építő kritikáknak mindig örülünk, de vigyázz, hogy a *felvetést* kritizáld, ne a hozzászólót. \n\nA szabályzatunkat megtalálod ide kattintva: [see our community guidelines](%{base_path}/guidelines). Ez a panel csak az első %{education_posts_text} megírásakor fog megjelenni, utána magától eltűnik.\n"
+<<<<<<< HEAD
     sequential_replies: |
       ### Fontolja meg, hogy egyszerre több hozzászólásra válaszoljon
 
@@ -346,6 +356,9 @@ hu:
       Mindenki számára könnyebb elolvasni azokat a témákat, amelyekben kevesebb mélyreható válasz van, mint a sok apró, egyedi válasz.
     dominating_topic: Sokat írt ebben a témában! Fontolja meg, hogy lehetőséget ad másoknak arra, hogy itt válaszoljanak, és megbeszéljék egymással a dolgokat.
     dont_feed_the_trolls: Ezt a bejegyzést már megjelölték moderátor figyelmébe. Biztos, hogy válaszolni akarsz rá? A negatív tartalomra adott válaszok inkább negatív viselkedésre ösztönöznek.
+=======
+    dominating_topic: Sokat írt ebben a témában! Fontolja meg, hogy lehetőséget ad másoknak arra, hogy itt válaszoljanak, és megbeszéljék egymással a dolgokat.
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     too_many_replies: |
       ### Elérted a válaszkorlátot ebben a témában
 
@@ -424,7 +437,10 @@ hu:
       email_already_used_in_category: "A(z) „%{email}” címet már használja a(z) „%{category_name}” kategória."
       slug_contains_non_ascii_chars: "nem ASCII karaktereket tartalmaz"
       is_already_in_use: "már használatban van"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "Nem helyezheti át ezt a témát olyan kategóriába, ahol nincs engedélye új témák létrehozására."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       has_subcategories: "A kategóriát nem lehet törölni, mert vannak alkategóriái."
       topic_exists_no_oldest: "A kategóriát nem lehet törölni, mert a benne lévő témák száma %{count}."
@@ -435,7 +451,6 @@ hu:
   post:
     image_placeholder:
       broken: "Ez a kép hibás"
-    hidden_bidi_character: "A kétirányú karakterek megváltoztathatják a szöveg megjelenítési sorrendjét. Ez felhasználható rosszindulatú kódok elrejtésére is."
     has_likes:
       one: "%{count} kedvelés"
       other: "%{count} kedvelés"
@@ -526,6 +541,13 @@ hu:
         one: "majdnem %{count} éve"
         other: "majdnem %{count} éve"
   password_reset:
+<<<<<<< HEAD
+=======
+    choose_new: "Válasszon új jelszót"
+    choose: "Válasszon jelszót"
+    update: "Jelszó frissítése"
+    save: "Jelszó beállítása"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Jelszó visszaállítása"
     success: "Sikeresen megváltoztatta a jelszavát és bejelentkezett."
     success_unapproved: "Sikeresen megváltoztatta a jelszavát!"
@@ -547,9 +569,12 @@ hu:
       iphone: "iPhone"
       ipod: "iPod"
       windows: "Windows számítógép"
+<<<<<<< HEAD
     os:
       android: "Android"
       chromeos: "Chrome OS"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   change_email:
     confirmed: "Az e-mail címe frissítve lett."
     please_continue: "Tovább a(z) %{site_name} oldalra"
@@ -645,7 +670,11 @@ hu:
     mailing_list_mode: "Levelezőlista mód kikapcsolása"
     all: "Ne küldjön nekem semmilyen e-mailt a %{sitename} oldalról"
     different_user_description: "Jelenleg más felhasználóként van bejelentkezve, mint amit e-mailben küldtünk. Kérjük, jelentkezz ki, vagy lépj be anonim módban, és próbálkozz újra."
+<<<<<<< HEAD
     not_found_description: "Sajnáljuk, de nem találtuk ezt az előfizetést. Lehetséges, hogy az e-mailben található link túl régi és lejárt?"
+=======
+    not_found_description: Sajnáljuk, de nem találtuk ezt az előfizetést. Lehetséges, hogy az e-mailben található link túl régi és lejárt?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     user_not_found_description: "Sajnáljuk, nem találtunk felhasználót ehhez az előfizetéshez. Valószínűleg megpróbál leiratkozni egy olyan fiókról, amely már nem létezik."
     log_out: "Kijelentkezés"
     submit: "Beállítások mentése"
@@ -962,7 +991,6 @@ hu:
     review_every_post: "Minden bejegyzést jóvá kell hagyni. FIGYELEM! FORGALMAS OLDALAKON NEM AJÁNLOTT."
     use_admin_ip_allowlist: "Az adminokk csak akkor tudnak bejelentkezni, ha a Screened IPs listában megadott IP-címmel vannak megadva (Admin > Naplók > Screened Ips)."
     slow_down_crawler_user_agents: 'A forgalmi korlátozás alá elő webes robotok felhasználói ügynökei, ahogy a „robotok sebességének lelassítása” beállításban meg van adva. Minden egyes értéknek legalább 3 karakteresnek kell lennie.'
-    content_security_policy: "Tartalom-biztonsági házirend engedélyezése"
     content_security_policy_collect_reports: "Engedélyezze a CSP-szabálysértési jelentések gyűjtését /csp_reports címen."
     send_welcome_message: "A rövid gyorstalpalóról szóló üzenet elküldése minden új felhasználónak."
     remove_full_quote: "Automatikusan eltávolítja az idézetet, ha (a) a hozzászólás elején jelenik meg, (b) egy teljes hozzászólás, és (c) ha a közvetlenül az előző hozzászólásból származik. A részletekért lásd: <a href='https://meta.discourse.org/t/removal-of-full-quotes-from-direct-replies/106857' target='_blank'>Teljes idézetek eltávolítása a közvetlen válaszokból</a>"
@@ -972,10 +1000,14 @@ hu:
     hide_email_address_taken: "Ne tájékoztassa a felhasználókat arról, hogy létezik fiók egy adott e-mail címmel a regisztráció során vagy az elfelejtett jelszó folyamata során. Teljes e-mail cím megkövetelése az „elfelejtett jelszó” kérésekhez."
     min_password_length: "Minimum jelszóhossz."
     block_common_passwords: "A 10 000 leggyakoribb jelszó tiltása."
+<<<<<<< HEAD
     discourse_connect_url: "A DiscourseConnect végpont URL-je (tartalmaznia kell a http:// vagy https:// karaktereket, és nem tartalmazhat a végén perjelet)"
     discord_secret: "Discord titkos kulcs"
     maximum_backups: "A maximálisan megtartandó biztonsági másolatok száma. A régebbi biztonsági mentések automatikusan törlődnek"
+=======
+    discord_secret: "Discord titkos kulcs"
     rate_limit_new_user_create_topic: "Egy téma létrehozása után az új felhasználóknak (n) másodpercet kell várniuk, mielőtt új témát hozhatnak létre."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     suggested_topics: "A javasolt témák száma a téma alján láthatók."
     limit_suggested_to_category: "Csak a javasolt kategóriákból származó témakörök jelenhetnek meg a javasolt témakörökben."
     suggested_topics_max_days_old: "A javasolt olvasatlan témák nem lehetnek több, mint n naposak."
@@ -1004,7 +1036,10 @@ hu:
     embed_truncate: "Beágyazott bejegyzések rövidítése."
     embed_post_limit: "A bejegyzések maximális száma a beágyazásban."
     delete_drafts_older_than_n_days: "Törölje az (n) napnál régebbi piszkozatokat."
+<<<<<<< HEAD
     bootstrap_mode_min_users: "A bootstrap üzemmód kikapcsolásához szükséges felhasználók minimális száma (a kikapcsoláshoz 0-ra kell állítani, ez akár 24 órát is igénybe vehet)."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     enable_emoji: "Emodzsi engedélyezése"
     enable_emoji_shortcuts: "A gyakori mosolyt jelző szövegek, mint a :) :p és :( emodzsikká lesznek alakítva"
     emoji_set: "Hogy szeretné az emodzsiját?"
@@ -1015,10 +1050,15 @@ hu:
     default_other_like_notification_frequency: "A felhasználók értesítése a kedvelésekről alapértelmezett esetben."
     company_name: "Cégnév"
     use_email_for_username_and_name_suggestions: "Használja az e-mail címek első részét a felhasználónév- és névjavaslatokhoz. Vegye figyelembe, hogy ez megkönnyíti a nyilvánosság számára a teljes felhasználói e-mail címek kitalálását (mivel az emberek nagy része olyan gyakori szolgáltatásokat használ, mint a „gmail.com”)."
+<<<<<<< HEAD
     navigation_menu: "Határozza meg, melyik navigációs menüt használja. Az oldalsáv és a fejléc navigációja a felhasználók által testreszabható. A visszamenőleges kompatibilitás érdekében a régebbi opció is elérhető."
     enable_experimental_hashtag_autocomplete: "KÍSÉRLETI: Használja az új #hashtag automatikus kiegészítési rendszert a kategóriákhoz és címkékhez, amelyek másképp jelenítik meg a kiválasztott elemet, és javítják a keresést"
     experimental_new_new_view_groups: 'Kísérleti: Engedélyezzen egy új témalistát, amely egyesíti az olvasatlan és az új témákat, és az oldalsávban lévő "Minden" linket kapcsolja rá.'
     enable_custom_sidebar_sections: "Kísérleti: Egyéni oldalsáv szekciók engedélyezése"
+    experimental_form_templates: "KÍSÉRLETI: Az űrlapsablonok szolgáltatás engedélyezése. <b>Az engedélyezés után</b> a sablonokat a <a href='%{base_path}/admin/customize/form-templates'>Testreszabás / Sablonok</a> menüpont alatt kezelheti."
+=======
+    enable_experimental_topic_timeline_groups: "KÍSÉRLETI: A kiválasztott csoportok felhasználóinak megjelenik az átdolgozott téma idővonala"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       invalid_email: "Érvénytelen e-mail cím."
       invalid_username: "Nincs ilyen nevű felhasználó."
@@ -1102,8 +1142,11 @@ hu:
     invalid_security_key: "Érvénytelen biztonsági kulcs."
     missing_second_factor_name: "Kérjük, adjon meg egy nevet."
     missing_second_factor_code: "Kérjük, adjon meg egy kódot."
+<<<<<<< HEAD
     second_factor_toggle:
       backup_code: "Helyette biztonsági kód használata"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   admin:
     email:
       sent_test: "elküldve."
@@ -1836,6 +1879,11 @@ hu:
     search_button: "Keresés"
   offline:
     title: "Nem lehet betölteni az alkalmazást"
+<<<<<<< HEAD
+=======
+  deleted: "törölt"
+  image: "kép"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   upload:
     unauthorized: "Sajnos a feltölteni kívánt fájl nem engedélyezett (engedélyezett kiterjesztések: %{authorized_extensions})."
     size_zero_failure: "Sajnáljuk, úgy tűnik, hogy valami hiba történt, a feltöltendő fájl 0 bájtos. Próbálja újra."
@@ -2177,7 +2225,15 @@ hu:
               subcategories_with_featured_topics:
                 label: "Alkategóriák kiemelt témákkal"
       branding:
+<<<<<<< HEAD
         title: "Webhely logó"
+=======
+        fields:
+          logo:
+            label: "Elsődleges logó"
+          logo_small:
+            label: "Négyzet alakú logó"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           contact_url:
@@ -2229,8 +2285,6 @@ hu:
         description: "A bejegyzés visszaállítása, hogy minden felhasználó láthassa."
       delete_single:
         title: "Törlés"
-      delete:
-        title: "Törlés…"
       delete_and_ignore_replies:
         confirm: "Biztos vagy benne, hogy törölni szeretnéd a hozzászólásra adott válaszokat is?"
       delete_and_agree_replies:
@@ -2248,7 +2302,6 @@ hu:
       approve_post:
         title: "Bejegyzés jóváhagyása"
       reject_user:
-        title: "Felhasználó törlése..."
         delete:
           title: "Felhasználó törlése"
       reject:

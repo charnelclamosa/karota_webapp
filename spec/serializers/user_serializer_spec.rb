@@ -447,9 +447,52 @@ RSpec.describe UserSerializer do
       user2 = Fabricate(:user)
       serializer = described_class.new(user, scope: Guardian.new(user2), root: false)
 
+<<<<<<< HEAD
       expect(serializer.as_json[:sidebar_category_ids]).to eq(nil)
       expect(serializer.as_json[:sidebar_tags]).to eq(nil)
       expect(serializer.as_json[:display_sidebar_tags]).to eq(nil)
+=======
+      it "is not included when navigation menu is set to legacy" do
+        SiteSetting.navigation_menu = "legacy"
+        SiteSetting.tagging_enabled = true
+
+        expect(json[:sidebar_tags]).to eq(nil)
+      end
+
+      it "is not included when SiteSetting.tagging_enabled is false" do
+        SiteSetting.navigation_menu = "sidebar"
+        SiteSetting.tagging_enabled = false
+
+        expect(json[:sidebar_tags]).to eq(nil)
+      end
+
+      it "is present when sidebar and tagging has been enabled" do
+        SiteSetting.navigation_menu = "sidebar"
+        SiteSetting.tagging_enabled = true
+
+        tag_sidebar_section_link_2.linkable.update!(pm_topic_count: 5, topic_count: 0)
+
+        expect(json[:sidebar_tags]).to contain_exactly(
+          { name: tag_sidebar_section_link.linkable.name, pm_only: false },
+          { name: tag_sidebar_section_link_2.linkable.name, pm_only: true }
+        )
+      end
+    end
+
+    context 'when viewing another user' do
+      fab!(:user2) { Fabricate(:user) }
+
+      subject(:json) { UserSerializer.new(user, scope: Guardian.new(user2), root: false).as_json }
+
+      it "is not present even when sidebar and tagging has been enabled" do
+        SiteSetting.navigation_menu = "sidebar"
+        SiteSetting.tagging_enabled = true
+
+        expect(json[:sidebar_tags]).to eq(nil)
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
+
+  include_examples "#display_sidebar_tags", UserSerializer
 end

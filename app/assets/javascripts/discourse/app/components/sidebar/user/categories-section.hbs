@@ -11,8 +11,41 @@
   @collapsable={{@collapsable}}
 >
 
-  {{#if (gt this.sectionLinks.length 0)}}
-    {{#each this.sectionLinks as |sectionLink|}}
+    {{#if (gt this.sectionLinks.length 0)}}
+      {{#each this.sectionLinks as |sectionLink|}}
+        <Sidebar::SectionLink
+          @linkName={{sectionLink.name}}
+          @route={{sectionLink.route}}
+          @query={{sectionLink.query}}
+          @title={{sectionLink.title}}
+          @content={{sectionLink.text}}
+          @currentWhen={{sectionLink.currentWhen}}
+          @model={{sectionLink.model}}
+          @badgeText={{sectionLink.badgeText}}
+          @prefixBadge={{sectionLink.prefixBadge}}
+          @prefixType={{sectionLink.prefixType}}
+          @prefixValue={{sectionLink.prefixValue}}
+          @prefixColor={{sectionLink.prefixColor}}
+          @prefixElementColors={{sectionLink.prefixElementColors}}
+          @suffixCSSClass={{sectionLink.suffixCSSClass}}
+          @suffixValue={{sectionLink.suffixValue}}
+          @suffixType={{sectionLink.suffixType}} >
+        </Sidebar::SectionLink>
+      {{/each}}
+    {{else}}
+      <Sidebar::SectionLink
+        @linkName="configure-categories"
+        @route="preferences.sidebar"
+        @prefixType="icon"
+        @prefixValue="pencil-alt"
+        @model={{this.currentUser}}
+        @content={{i18n "sidebar.sections.categories.links.add_categories.content"}}
+        @title={{i18n "sidebar.sections.categories.links.add_categories.title"}} />
+    {{/if}}
+
+    <Sidebar::Common::AllCategoriesSectionLink />
+
+    {{#if (and this.currentUser.admin (not this.hasDefaultSidebarCategories))}}
       <Sidebar::SectionLink
         @route={{sectionLink.route}}
         @query={{sectionLink.query}}

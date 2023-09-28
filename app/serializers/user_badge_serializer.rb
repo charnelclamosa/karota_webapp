@@ -24,7 +24,11 @@ class UserBadgeSerializer < ApplicationSerializer
     include_post_attributes?
   end
 
+<<<<<<< HEAD
   alias include_post_number? include_post_id?
+=======
+  alias :include_post_number? :include_post_id?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def post_number
     object.post && object.post.post_number

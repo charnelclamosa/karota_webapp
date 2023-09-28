@@ -3,6 +3,7 @@
 class Tag < ActiveRecord::Base
   include Searchable
   include HasDestroyedWebHook
+  include HasSanitizableFields
 
   self.ignored_columns = [
     "topic_count", # TODO(tgxworld): Remove on 1 July 2023
@@ -55,6 +56,8 @@ class Tag < ActiveRecord::Base
   belongs_to :target_tag, class_name: "Tag", optional: true
   has_many :synonyms, class_name: "Tag", foreign_key: "target_tag_id", dependent: :destroy
   has_many :sidebar_section_links, as: :linkable, dependent: :delete_all
+
+  before_save :sanitize_description
 
   after_save :index_search
   after_save :update_synonym_associations
@@ -138,6 +141,7 @@ class Tag < ActiveRecord::Base
 
     return [] if scope_category_ids.empty?
 
+<<<<<<< HEAD
     filter_sql =
       (
         if guardian.is_staff?
@@ -146,6 +150,9 @@ class Tag < ActiveRecord::Base
           " AND tags.id IN (#{DiscourseTagging.visible_tags(guardian).select(:id).to_sql})"
         end
       )
+=======
+    filter_sql = guardian&.is_staff? ? '' : " AND tags.id IN (#{DiscourseTagging.visible_tags(guardian).select(:id).to_sql})"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     tag_names_with_counts = DB.query <<~SQL
       SELECT tags.name as tag_name, SUM(stats.topic_count) AS sum_topic_count
@@ -244,6 +251,9 @@ class Tag < ActiveRecord::Base
 
   private
 
+  def sanitize_description
+    self.description = sanitize_field(self.description) if description_changed?
+  end
   def name_validator
     errors.add(:name, :invalid) if name.present? && RESERVED_TAGS.include?(self.name.strip.downcase)
   end

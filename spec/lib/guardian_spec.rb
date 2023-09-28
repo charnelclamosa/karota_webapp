@@ -28,6 +28,13 @@ RSpec.describe Guardian do
   before do
     Group.refresh_automatic_groups!
     Guardian.enable_topic_can_see_consistency_check
+<<<<<<< HEAD
+=======
+  end
+
+  after do
+    Guardian.disable_topic_can_see_consistency_check
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   after { Guardian.disable_topic_can_see_consistency_check }
@@ -97,6 +104,38 @@ RSpec.describe Guardian do
   describe "#post_can_act?" do
     fab!(:user) { Fabricate(:user) }
     fab!(:post) { Fabricate(:post) }
+
+    describe "an anonymous user" do
+      before { SiteSetting.allow_anonymous_posting = true }
+
+      context "when allow_anonymous_likes is enabled" do
+        before { SiteSetting.allow_anonymous_likes = true }
+
+        it "returns true when liking" do
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :like)).to be_truthy
+        end
+
+        it "cannot perform any other action" do
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :flag)).to be_falsey
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :bookmark)).to be_falsey
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :notify_user)).to be_falsey
+        end
+      end
+
+      context "when allow_anonymous_likes is disabled" do
+        before { SiteSetting.allow_anonymous_likes = false }
+
+        it "returns false when liking" do
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :like)).to be_falsey
+        end
+
+        it "cannot perform any other action" do
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :flag)).to be_falsey
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :bookmark)).to be_falsey
+          expect(Guardian.new(anonymous_user).post_can_act?(post, :notify_user)).to be_falsey
+        end
+      end
+    end
 
     it "returns false when the user is nil" do
       expect(Guardian.new(nil).post_can_act?(post, :like)).to be_falsey
@@ -425,10 +464,15 @@ RSpec.describe Guardian do
     end
   end
 
+<<<<<<< HEAD
   describe "can_send_private_messages" do
     fab!(:suspended_user) do
       Fabricate(:user, suspended_till: 1.week.from_now, suspended_at: 1.day.ago)
     end
+=======
+  describe 'can_send_private_messages' do
+    fab!(:suspended_user) { Fabricate(:user, suspended_till: 1.week.from_now, suspended_at: 1.day.ago) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "returns false when the user is nil" do
       expect(Guardian.new(nil).can_send_private_messages?).to be_falsey
@@ -448,7 +492,13 @@ RSpec.describe Guardian do
 
     context "when personal_message_enabled_groups does contain the user" do
       let(:group) { Fabricate(:group) }
+<<<<<<< HEAD
       before { SiteSetting.personal_message_enabled_groups = group.id }
+=======
+      before do
+        SiteSetting.personal_message_enabled_groups = group.id
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns true" do
         expect(Guardian.new(user).can_send_private_messages?).to be_falsey
@@ -460,7 +510,13 @@ RSpec.describe Guardian do
 
     context "when personal_message_enabled_groups does not contain the user" do
       let(:group) { Fabricate(:group) }
+<<<<<<< HEAD
       before { SiteSetting.personal_message_enabled_groups = group.id }
+=======
+      before do
+        SiteSetting.personal_message_enabled_groups = group.id
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "returns false if user is not staff member" do
         expect(Guardian.new(trust_level_4).can_send_private_messages?).to be_falsey
@@ -495,7 +551,11 @@ RSpec.describe Guardian do
     end
   end
 
+<<<<<<< HEAD
   describe "can_reply_as_new_topic" do
+=======
+  describe 'can_reply_as_new_topic' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:topic) { Fabricate(:topic) }
     fab!(:private_message) { Fabricate(:private_message_topic) }
 
@@ -1288,7 +1348,13 @@ RSpec.describe Guardian do
       end
 
       context "with trashed topic" do
+<<<<<<< HEAD
         before { topic.trash!(admin) }
+=======
+        before do
+          topic.trash!(admin)
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         it "doesn't allow new posts from regular users" do
           expect(Guardian.new(coding_horror).can_create?(Post, topic)).to be_falsey
@@ -1509,6 +1575,11 @@ RSpec.describe Guardian do
     it "returns false when user is not in personal_message_enabled_groups" do
       SiteSetting.personal_message_enabled_groups = Group::AUTO_GROUPS[:trust_level_4]
       expect(Guardian.new(user).can_convert_topic?(topic)).to be_falsey
+    end
+
+    it "returns true if user is not in personal_message_enabled_groups but they are still admin" do
+      SiteSetting.personal_message_enabled_groups = Group::AUTO_GROUPS[:trust_level_4]
+      expect(Guardian.new(admin).can_convert_topic?(topic)).to be_truthy
     end
   end
 
@@ -1893,6 +1964,7 @@ RSpec.describe Guardian do
         end
       end
 
+<<<<<<< HEAD
       context "with private message" do
         fab!(:private_message) { Fabricate(:private_message_topic) }
 
@@ -1901,6 +1973,16 @@ RSpec.describe Guardian do
         end
 
         it "returns false at trust level 4" do
+=======
+      context 'with private message' do
+        fab!(:private_message) { Fabricate(:private_message_topic) }
+
+        it 'returns false at trust level 3' do
+          expect(Guardian.new(trust_level_3).can_edit?(private_message)).to eq(false)
+        end
+
+        it 'returns false at trust level 4' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           expect(Guardian.new(trust_level_4).can_edit?(private_message)).to eq(false)
         end
       end
@@ -2443,6 +2525,122 @@ RSpec.describe Guardian do
     end
   end
 
+  describe "#can_delete_post_action" do
+    before do
+      SiteSetting.allow_anonymous_posting = true
+      Guardian.any_instance.stubs(:anonymous?).returns(true)
+    end
+
+    context "with allow_anonymous_likes enabled" do
+      before { SiteSetting.allow_anonymous_likes = true }
+      describe "an anonymous user" do
+        let(:post_action) do
+          user.id = anonymous_user.id
+          post.id = 1
+
+          a =
+            PostAction.new(
+              user: anonymous_user,
+              post: post,
+              post_action_type_id: PostActionType.types[:like],
+            )
+          a.created_at = 1.minute.ago
+          a
+        end
+
+        let(:non_like_post_action) do
+          user.id = anonymous_user.id
+          post.id = 1
+
+          a =
+            PostAction.new(
+              user: anonymous_user,
+              post: post,
+              post_action_type_id: PostActionType.types[:reply],
+            )
+          a.created_at = 1.minute.ago
+          a
+        end
+
+        let(:other_users_post_action) do
+          user.id = user.id
+          post.id = 1
+
+          a =
+            PostAction.new(user: user, post: post, post_action_type_id: PostActionType.types[:like])
+          a.created_at = 1.minute.ago
+          a
+        end
+
+        it "returns true if the post belongs to the anonymous user" do
+          expect(Guardian.new(anonymous_user).can_delete_post_action?(post_action)).to be_truthy
+        end
+
+        it "return false if the post belongs to another user" do
+          expect(
+            Guardian.new(anonymous_user).can_delete_post_action?(other_users_post_action),
+          ).to be_falsey
+        end
+
+        it "returns false for any other action" do
+          expect(
+            Guardian.new(anonymous_user).can_delete_post_action?(non_like_post_action),
+          ).to be_falsey
+        end
+
+        it "returns false if the window has expired" do
+          post_action.created_at = 20.minutes.ago
+          SiteSetting.post_undo_action_window_mins = 10
+
+          expect(Guardian.new(anonymous_user).can_delete?(post_action)).to be_falsey
+        end
+      end
+    end
+
+    context "with allow_anonymous_likes disabled" do
+      before do
+        SiteSetting.allow_anonymous_likes = false
+        SiteSetting.allow_anonymous_posting = true
+      end
+      describe "an anonymous user" do
+        let(:post_action) do
+          user.id = anonymous_user.id
+          post.id = 1
+
+          a =
+            PostAction.new(
+              user: anonymous_user,
+              post: post,
+              post_action_type_id: PostActionType.types[:like],
+            )
+          a.created_at = 1.minute.ago
+          a
+        end
+
+        let(:non_like_post_action) do
+          user.id = anonymous_user.id
+          post.id = 1
+
+          a =
+            PostAction.new(
+              user: anonymous_user,
+              post: post,
+              post_action_type_id: PostActionType.types[:reply],
+            )
+          a.created_at = 1.minute.ago
+          a
+        end
+
+        it "any action returns false" do
+          expect(Guardian.new(anonymous_user).can_delete_post_action?(post_action)).to be_falsey
+          expect(
+            Guardian.new(anonymous_user).can_delete_post_action?(non_like_post_action),
+          ).to be_falsey
+        end
+      end
+    end
+  end
+
   describe "#can_see_deleted_posts?" do
     it "returns true if the user is an admin" do
       expect(Guardian.new(admin).can_see_deleted_posts?(post.topic.category)).to be_truthy
@@ -2926,6 +3124,40 @@ RSpec.describe Guardian do
     it "returns false without a logged in user" do
       expect(Guardian.new(nil).can_change_primary_group?(user, group)).to eq(false)
     end
+<<<<<<< HEAD
+=======
+
+    it "returns false for regular users" do
+      expect(Guardian.new(user).can_change_primary_group?(user, group)).to eq(false)
+    end
+
+    it "returns true for admins" do
+      expect(Guardian.new(admin).can_change_primary_group?(user, group)).to eq(true)
+    end
+
+    context "when moderators_manage_categories_and_groups site setting is enabled" do
+      before do
+        SiteSetting.moderators_manage_categories_and_groups = true
+      end
+
+      it "returns true for moderators" do
+        expect(Guardian.new(moderator).can_change_primary_group?(user, group)).to eq(true)
+      end
+    end
+
+    context "when moderators_manage_categories_and_groups site setting is disabled" do
+      before do
+        SiteSetting.moderators_manage_categories_and_groups = false
+      end
+
+      it "returns false for moderators" do
+        expect(Guardian.new(moderator).can_change_primary_group?(user, group)).to eq(false)
+      end
+    end
+  end
+
+  describe 'can_change_trust_level?' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     it "returns false for regular users" do
       expect(Guardian.new(user).can_change_primary_group?(user, group)).to eq(false)
@@ -4241,7 +4473,7 @@ RSpec.describe Guardian do
 
     context "when attempting to destroy your own reviewable" do
       it "returns true" do
-        queued_post = Fabricate(:reviewable_queued_post, created_by: user)
+        queued_post = Fabricate(:reviewable_queued_post, target_created_by: user)
         env =
           create_request_env(path: "/review/#{queued_post.id}.json").merge(
             { "REQUEST_METHOD" => "DELETE" },

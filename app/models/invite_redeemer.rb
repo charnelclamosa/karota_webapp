@@ -15,6 +15,7 @@
 # (email IS NULL) on the Invite model.
 class InviteRedeemer
   attr_reader :invite,
+<<<<<<< HEAD
               :email,
               :username,
               :name,
@@ -24,6 +25,17 @@ class InviteRedeemer
               :session,
               :email_token,
               :redeeming_user
+=======
+    :email,
+    :username,
+    :name,
+    :password,
+    :user_custom_fields,
+    :ip_address,
+    :session,
+    :email_token,
+    :redeeming_user
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def initialize(
     invite:,
@@ -35,8 +47,12 @@ class InviteRedeemer
     ip_address: nil,
     session: nil,
     email_token: nil,
+<<<<<<< HEAD
     redeeming_user: nil
   )
+=======
+    redeeming_user: nil)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     @invite = invite
     @username = username
     @name = name
@@ -82,6 +98,7 @@ class InviteRedeemer
 
   # This will _never_ be called if there is a redeeming_user being passed
   # in to InviteRedeemer -- see invited_user below.
+<<<<<<< HEAD
   def self.create_user_from_invite(
     email:,
     invite:,
@@ -95,6 +112,10 @@ class InviteRedeemer
   )
     if username && UsernameValidator.new(username).valid_format? &&
          User.username_available?(username, email)
+=======
+  def self.create_user_from_invite(email:, invite:, username: nil, name: nil, password: nil, user_custom_fields: nil, ip_address: nil, session: nil, email_token: nil)
+    if username && UsernameValidator.new(username).valid_format? && User.username_available?(username, email)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       available_username = username
     else
       available_username = UserNameSuggester.suggest(email)
@@ -156,7 +177,13 @@ class InviteRedeemer
     authenticator.finish
 
     if invite.emailed_status != Invite.emailed_status_types[:not_required] &&
+<<<<<<< HEAD
          email == invite.email && invite.email_token.present? && email_token == invite.email_token
+=======
+        email == invite.email &&
+        invite.email_token.present? &&
+        email_token == invite.email_token
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user.activate
     end
 
@@ -170,6 +197,7 @@ class InviteRedeemer
     return false if email.blank?
 
     # Invite scoped to email has already been redeemed by anyone.
+<<<<<<< HEAD
     return false if invite.is_email_invite? && InvitedUser.exists?(invite_id: invite.id)
 
     # The email will be present for either an invite link (where the user provides
@@ -192,6 +220,31 @@ class InviteRedeemer
     redeeming_user ||= User.where(admin: false, staged: false).find_by_email(email)
     if redeeming_user.present? &&
          InvitedUser.exists?(user_id: redeeming_user.id, invite_id: invite.id)
+=======
+    if invite.is_email_invite? && InvitedUser.exists?(invite_id: invite.id)
+      return false
+    end
+
+    # The email will be present for either an invite link (where the user provides
+    # us the email manually) or for an invite scoped to an email, where we
+    # prefill the email and do not let the user modify it.
+    #
+    # Note that an invite link can also have a domain scope which must be checked.
+    email_to_check = redeeming_user&.email || email
+
+    if invite.email.present? && !invite.email_matches?(email_to_check)
+      raise ActiveRecord::RecordNotSaved.new(I18n.t('invite.not_matching_email'))
+    end
+
+    if invite.domain.present? && !invite.domain_matches?(email_to_check)
+      raise ActiveRecord::RecordNotSaved.new(I18n.t('invite.domain_not_allowed'))
+    end
+
+    # Anon user is trying to redeem an invitation, if an existing user already
+    # redeemed it then we cannot redeem now.
+    redeeming_user ||= User.where(admin: false, staged: false).find_by_email(email)
+    if redeeming_user.present? && InvitedUser.exists?(user_id: redeeming_user.id, invite_id: invite.id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return false
     end
 
@@ -215,6 +268,7 @@ class InviteRedeemer
 
     # If there was no logged in user then we must attempt to create
     # one based on the provided params.
+<<<<<<< HEAD
     invited_user ||=
       InviteRedeemer.create_user_from_invite(
         email: email,
@@ -227,6 +281,19 @@ class InviteRedeemer
         session: session,
         email_token: email_token,
       )
+=======
+    invited_user ||= InviteRedeemer.create_user_from_invite(
+      email: email,
+      invite: invite,
+      username: username,
+      name: name,
+      password: password,
+      user_custom_fields: user_custom_fields,
+      ip_address: ip_address,
+      session: session,
+      email_token: email_token
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     invited_user.send_welcome_message = false
     @invited_user = invited_user
     @invited_user
@@ -243,7 +310,10 @@ class InviteRedeemer
     @invited_user_record = InvitedUser.create!(invite_id: invite.id, redeemed_at: Time.zone.now)
 
     if @invited_user_record.present?
-      Invite.increment_counter(:redemption_count, invite.id)
+      invite.with_lock("FOR UPDATE NOWAIT") do
+        Invite.increment_counter(:redemption_count, invite.id)
+        invite.save!
+      end
       delete_duplicate_invites
     end
 
@@ -254,6 +324,7 @@ class InviteRedeemer
     # Should not happen because of ensure_email_is_present!, but better to cover bases.
     return if email.blank?
 
+<<<<<<< HEAD
     topic_ids =
       TopicInvite
         .joins(:invite)
@@ -261,6 +332,13 @@ class InviteRedeemer
         .where("topics.archetype = ?", Archetype.private_message)
         .where("invites.email = ?", email)
         .pluck(:topic_id)
+=======
+    topic_ids = TopicInvite.joins(:invite)
+      .joins(:topic)
+      .where("topics.archetype = ?", Archetype::private_message)
+      .where("invites.email = ?", email)
+      .pluck(:topic_id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_ids.each do |id|
       if !TopicAllowedUser.exists?(user_id: invited_user.id, topic_id: id)
         TopicAllowedUser.create!(user_id: invited_user.id, topic_id: id)
@@ -290,7 +368,11 @@ class InviteRedeemer
     return if invite.invited_by.blank?
     invite.invited_by.notifications.create!(
       notification_type: Notification.types[:invitee_accepted],
+<<<<<<< HEAD
       data: { display_username: invited_user.username }.to_json,
+=======
+      data: { display_username: invited_user.username }.to_json
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 

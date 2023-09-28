@@ -104,7 +104,11 @@ class Invite < ActiveRecord::Base
   end
 
   def domain_matches?(email)
+<<<<<<< HEAD
     _, domain = email.split("@")
+=======
+    _, domain = email.split('@')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     self.domain == domain
   end
 
@@ -134,7 +138,7 @@ class Invite < ActiveRecord::Base
 
   def self.generate(invited_by, opts = nil)
     opts ||= {}
-
+    time_zone = Time.find_zone(invited_by&.user_option&.timezone) || Time.zone
     email = Email.downcase(opts[:email]) if opts[:email].present?
 
     raise UserExists.new(new.user_exists_error_msg(email)) if find_user_by_email(email)
@@ -170,7 +174,7 @@ class Invite < ActiveRecord::Base
       invite.update_columns(
         created_at: Time.zone.now,
         updated_at: Time.zone.now,
-        expires_at: opts[:expires_at] || SiteSetting.invite_expiry_days.days.from_now,
+        expires_at: opts[:expires_at] || time_zone.now + SiteSetting.invite_expiry_days.days,
         emailed_status: emailed_status,
       )
     else
@@ -179,7 +183,8 @@ class Invite < ActiveRecord::Base
       create_args[:invited_by] = invited_by
       create_args[:email] = email
       create_args[:emailed_status] = emailed_status
-      create_args[:expires_at] = opts[:expires_at] || SiteSetting.invite_expiry_days.days.from_now
+      create_args[:expires_at] = opts[:expires_at] ||
+        time_zone.now + SiteSetting.invite_expiry_days.days
 
       invite = Invite.create!(create_args)
     end
@@ -223,7 +228,11 @@ class Invite < ActiveRecord::Base
       ip_address: ip_address,
       session: session,
       email_token: email_token,
+<<<<<<< HEAD
       redeeming_user: redeeming_user,
+=======
+      redeeming_user: redeeming_user
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ).redeem
   end
 

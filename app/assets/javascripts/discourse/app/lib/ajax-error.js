@@ -1,5 +1,5 @@
 import I18n from "I18n";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
 import { htmlSafe } from "@ember/template";
 
 function extractErrorInfo(error, defaultMessage) {
@@ -36,10 +36,13 @@ function extractErrorInfo(error, defaultMessage) {
   }
 
   if (parsedJSON) {
+<<<<<<< HEAD
     if (parsedJSON.html_message) {
       html = true;
     }
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (parsedJSON.errors?.length > 1) {
       parsedError = I18n.t("multiple_errors", {
         errors: parsedJSON.errors.map((e, i) => `${i + 1}) ${e}`).join(" "),
@@ -90,7 +93,7 @@ export function flashAjaxError(modal, defaultMessage) {
 }
 
 export function popupAjaxError(error) {
-  const dialog = getOwner(this).lookup("service:dialog");
+  const dialog = getOwnerWithFallback(this).lookup("service:dialog");
   const errorInfo = extractErrorInfo(error);
 
   if (errorInfo.html) {

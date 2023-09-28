@@ -22,8 +22,12 @@ module TagGuardian
     return true if @user == Discourse.system_user
 
     group_ids = SiteSetting.pm_tags_allowed_for_groups_map
+<<<<<<< HEAD
     group_ids.include?(Group::AUTO_GROUPS[:everyone]) ||
       @user.group_users.exists?(group_id: group_ids)
+=======
+    group_ids.include?(Group::AUTO_GROUPS[:everyone]) || @user.group_users.exists?(group_id: group_ids)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def can_admin_tags?

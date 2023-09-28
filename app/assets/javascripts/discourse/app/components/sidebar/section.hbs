@@ -1,4 +1,5 @@
 {{#if this.displaySection}}
+<<<<<<< HEAD
   <div
     class={{concat-class "sidebar-section-wrapper sidebar-section" @class}}
     data-section-name={{@sectionName}}
@@ -19,14 +20,32 @@
 
           <span class="sidebar-section-header-text">
             {{@headerLinkText}}
+=======
+  <div class={{concat "sidebar-section-wrapper sidebar-section-" @sectionName}}>
+    <div class="sidebar-section-header-wrapper sidebar-row">
+      <Sidebar::SectionHeader
+        @collapsable={{@collapsable}}
+        @sidebarSectionContentID={{this.sidebarSectionContentID}}
+        @toggleSectionDisplay={{this.toggleSectionDisplay}}
+        @isExpanded={{this.displaySectionContent}}
+      >
+        {{#if @collapsable}}
+          <span class="sidebar-section-header-caret">
+            {{d-icon this.headerCaretIcon}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           </span>
+
           {{#if @indicatePublic}}
-            <span class="sidebar-section-header-global-indicator">
-              {{d-icon "globe"}}
-              <DTooltip @placement="top">{{d-icon "shield-alt"}}
-                {{i18n "sidebar.sections.global_section"}}
-              </DTooltip>
-            </span>
+            <DTooltip
+              @icon="globe"
+              class="sidebar-section-header-global-indicator"
+            >
+              <span
+                class="sidebar-section-header-global-indicator__content"
+              >{{d-icon "shield-alt"}}{{i18n
+                  "sidebar.sections.global_section"
+                }}</span>
+            </DTooltip>
           {{/if}}
         </Sidebar::SectionHeader>
 

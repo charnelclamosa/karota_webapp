@@ -7,7 +7,12 @@ require "htmlentities"
 require "parallel"
 
 class BulkImport::VBulletin < BulkImport::Base
+<<<<<<< HEAD
   TABLE_PREFIX ||= ENV["TABLE_PREFIX"] || "vb_"
+=======
+
+  TABLE_PREFIX ||= ENV['TABLE_PREFIX'] || "vb_"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   SUSPENDED_TILL ||= Date.new(3000, 1, 1)
   ATTACHMENT_DIR ||= ENV["ATTACHMENT_DIR"] || "/shared/import/data/attachments"
   AVATAR_DIR ||= ENV["AVATAR_DIR"] || "/shared/import/data/customavatars"
@@ -43,6 +48,10 @@ class BulkImport::VBulletin < BulkImport::Base
            AND `TABLE_NAME`='user'
            AND `COLUMN_NAME` LIKE 'post_thanks_%'
     SQL
+<<<<<<< HEAD
+=======
+    ).to_a.count > 0
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     @user_ids_by_email = {}
   end
@@ -94,7 +103,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_groups
+<<<<<<< HEAD
     puts "", "Importing groups..."
+=======
+    puts '', "Importing groups..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     groups = mysql_stream <<-SQL
         SELECT usergroupid, title, description, usertitle
@@ -114,7 +127,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_users
+<<<<<<< HEAD
     puts "", "Importing users..."
+=======
+    puts '', "Importing users..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     users = mysql_stream <<-SQL
         SELECT u.userid, username, email, joindate, birthday, ipaddress, u.usergroupid, bandate, liftdate
@@ -144,7 +161,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_user_emails
+<<<<<<< HEAD
     puts "", "Importing user emails..."
+=======
+    puts '', "Importing user emails..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     users = mysql_stream <<-SQL
         SELECT u.userid, email, joindate
@@ -154,7 +175,11 @@ class BulkImport::VBulletin < BulkImport::Base
     SQL
 
     create_user_emails(users) do |row|
+<<<<<<< HEAD
       user_id, email = row[0..1]
+=======
+      user_id, email = row[0 .. 1]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       @user_ids_by_email[email.downcase] ||= []
       user_ids = @user_ids_by_email[email.downcase] << user_id
@@ -169,7 +194,11 @@ class BulkImport::VBulletin < BulkImport::Base
         imported_id: user_id,
         imported_user_id: user_id,
         email: email,
+<<<<<<< HEAD
         created_at: Time.zone.at(row[2]),
+=======
+        created_at: Time.zone.at(row[2])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
     end
 
@@ -178,7 +207,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_user_stats
+<<<<<<< HEAD
     puts "", "Importing user stats..."
+=======
+    puts '', "Importing user stats..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     users = mysql_stream <<-SQL
               SELECT u.userid, joindate, posts, COUNT(t.threadid) AS threads, p.dateline
@@ -211,7 +244,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_group_users
+<<<<<<< HEAD
     puts "", "Importing group users..."
+=======
+    puts '', "Importing group users..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     group_users = mysql_stream <<-SQL
       SELECT usergroupid, userid
@@ -225,7 +262,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_user_passwords
+<<<<<<< HEAD
     puts "", "Importing user passwords..."
+=======
+    puts '', "Importing user passwords..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     user_passwords = mysql_stream <<-SQL
         SELECT userid, password
@@ -240,7 +281,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_user_salts
+<<<<<<< HEAD
     puts "", "Importing user salts..."
+=======
+    puts '', "Importing user salts..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     user_salts = mysql_stream <<-SQL
         SELECT userid, salt
@@ -256,7 +301,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_user_profiles
+<<<<<<< HEAD
     puts "", "Importing user profiles..."
+=======
+    puts '', "Importing user profiles..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     user_profiles = mysql_stream <<-SQL
         SELECT userid, homepage, profilevisits
@@ -282,9 +331,15 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_categories
+<<<<<<< HEAD
     puts "", "Importing categories..."
 
     categories = mysql_query(<<-SQL).to_a
+=======
+    puts '', "Importing categories..."
+
+    categories = mysql_query(<<-SQL
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       select
         forumid,
         parentid,
@@ -308,6 +363,10 @@ class BulkImport::VBulletin < BulkImport::Base
       from forum
       order by forumid
       SQL
+<<<<<<< HEAD
+=======
+    ).to_a
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     return if categories.empty?
 
@@ -321,7 +380,11 @@ class BulkImport::VBulletin < BulkImport::Base
       cc[1] = categories.find { |c| c[0] == cc[1] }[1] until parent_category_ids.include?(cc[1])
     end
 
+<<<<<<< HEAD
     puts "", "Importing parent categories..."
+=======
+    puts '', "Importing parent categories..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     create_categories(parent_categories) do |row|
       {
         imported_id: row[0],
@@ -331,7 +394,11 @@ class BulkImport::VBulletin < BulkImport::Base
       }
     end
 
+<<<<<<< HEAD
     puts "", "Importing children categories..."
+=======
+    puts '', "Importing children categories..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     create_categories(children_categories) do |row|
       {
         imported_id: row[0],
@@ -344,7 +411,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_topics
+<<<<<<< HEAD
     puts "", "Importing topics..."
+=======
+    puts '', "Importing topics..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     topics = mysql_stream <<-SQL
         SELECT threadid, title, forumid, postuserid, open, dateline, views, visible, sticky
@@ -375,7 +446,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_posts
+<<<<<<< HEAD
     puts "", "Importing posts..."
+=======
+    puts '', "Importing posts..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     posts = mysql_stream <<-SQL
         SELECT postid, p.threadid, parentid, userid, p.dateline, p.visible, pagetext
@@ -410,7 +485,11 @@ class BulkImport::VBulletin < BulkImport::Base
 
   def import_likes
     return unless @has_post_thanks
+<<<<<<< HEAD
     puts "", "Importing likes..."
+=======
+    puts '', "Importing likes..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     @imported_likes = Set.new
     @last_imported_post_id = 0
@@ -439,7 +518,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_private_topics
+<<<<<<< HEAD
     puts "", "Importing private topics..."
+=======
+    puts '', "Importing private topics..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     @imported_topics = {}
 
@@ -468,7 +551,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_topic_allowed_users
+<<<<<<< HEAD
     puts "", "Importing topic allowed users..."
+=======
+    puts '', "Importing topic allowed users..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     allowed_users = Set.new
 
@@ -492,7 +579,11 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def import_private_posts
+<<<<<<< HEAD
     puts "", "Importing private posts..."
+=======
+    puts '', "Importing private posts..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     posts = mysql_stream <<-SQL
         SELECT pmtextid, title, fromuserid, touserarray, dateline, message
@@ -530,9 +621,15 @@ class BulkImport::VBulletin < BulkImport::Base
         i += 1
         pcf = topic.posts.includes(:_custom_fields).where(post_number: 1).first.custom_fields
         if pcf && pcf["import_id"]
+<<<<<<< HEAD
           id = pcf["import_id"].split("-").last
 
           f.print ["XXX#{id}  YYY#{topic.id}"].to_csv
+=======
+          id = pcf["import_id"].split('-').last
+
+          f.print [ "XXX#{id}  YYY#{topic.id}" ].to_csv
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           print "\r%7d/%7d - %6d/sec" % [i, total, i.to_f / (Time.now - start)] if i % 5000 == 0
         end
       end
@@ -541,8 +638,12 @@ class BulkImport::VBulletin < BulkImport::Base
 
   # find the uploaded file information from the db
   def find_upload(post, attachment_id)
+<<<<<<< HEAD
     sql =
       "SELECT a.attachmentid attachment_id, a.userid user_id, a.filename filename
+=======
+    sql = "SELECT a.attachmentid attachment_id, a.userid user_id, a.filename filename
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
              FROM #{TABLE_PREFIX}attachment a
             WHERE a.attachmentid = #{attachment_id}"
     results = mysql_query(sql)
@@ -715,15 +816,26 @@ class BulkImport::VBulletin < BulkImport::Base
     total_count = 0
 
     duplicated = {}
+<<<<<<< HEAD
     @user_ids_by_email
       .select { |e, ids| ids.count > 1 }
       .each_with_index do |(email, ids), i|
         duplicated[email] = [ids, i]
+=======
+    @user_ids_by_email.
+      select { |e, ids| ids.count > 1 }.
+      each_with_index do |(email, ids), i|
+        duplicated[email] = [ ids, i ]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         count += 1
         total_count += ids.count
       end
 
+<<<<<<< HEAD
     puts "", "Merging #{total_count} duplicated users across #{count} distinct emails..."
+=======
+    puts '', "Merging #{total_count} duplicated users across #{count} distinct emails..."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     start = Time.now
 
@@ -732,15 +844,25 @@ class BulkImport::VBulletin < BulkImport::Base
       next unless email.presence
 
       # queried one by one to ensure ordering
+<<<<<<< HEAD
       first, *rest =
         user_ids.map do |id|
           UserCustomField.includes(:user).find_by!(name: "import_id", value: id).user
         end
+=======
+      first, *rest = user_ids.map do |id|
+        UserCustomField.includes(:user).find_by!(name: 'import_id', value: id).user
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       rest.each do |dup|
         UserMerger.new(dup, first).merge!
         first.reload
+<<<<<<< HEAD
         printf "."
+=======
+        printf '.'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       print "\n%6d/%6d - %6d/sec" % [i, count, i.to_f / (Time.now - start)] if i % 10 == 0
@@ -750,11 +872,21 @@ class BulkImport::VBulletin < BulkImport::Base
   end
 
   def save_duplicated_users
+<<<<<<< HEAD
     File.open("duplicated_users.json", "w+") { |f| f.puts @user_ids_by_email.to_json }
   end
 
   def read_duplicated_users
     @user_ids_by_email = JSON.parse File.read("duplicated_users.json")
+=======
+    File.open('duplicated_users.json', 'w+') do |f|
+      f.puts @user_ids_by_email.to_json
+    end
+  end
+
+  def read_duplicated_users
+    @user_ids_by_email = JSON.parse File.read('duplicated_users.json')
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def extract_pm_title(title)

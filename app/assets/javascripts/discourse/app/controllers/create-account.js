@@ -1,4 +1,4 @@
-import Controller, { inject as controller } from "@ember/controller";
+import Controller from "@ember/controller";
 import cookie, { removeCookie } from "discourse/lib/cookie";
 import discourseComputed, {
   observes,
@@ -23,6 +23,8 @@ import { notEmpty } from "@ember/object/computed";
 import { setting } from "discourse/lib/computed";
 import { userPath } from "discourse/lib/url";
 import { wavingHandURL } from "discourse/lib/waving-hand-url";
+import { inject as service } from "@ember/service";
+import LoginModal from "discourse/components/modal/login";
 
 export default Controller.extend(
   ModalFunctionality,
@@ -31,7 +33,7 @@ export default Controller.extend(
   NameValidation,
   UserFieldsValidation,
   {
-    login: controller(),
+    modal: service(),
 
     complete: false,
     accountChallenge: 0,
@@ -50,27 +52,6 @@ export default Controller.extend(
     @discourseComputed("hasAuthOptions", "canCreateLocal", "skipConfirmation")
     showCreateForm(hasAuthOptions, canCreateLocal, skipConfirmation) {
       return (hasAuthOptions || canCreateLocal) && !skipConfirmation;
-    },
-
-    resetForm() {
-      // We wrap the fields in a structure so we can assign a value
-      this.setProperties({
-        accountName: "",
-        accountEmail: "",
-        accountUsername: "",
-        accountPassword: "",
-        serverAccountEmail: null,
-        serverEmailValidation: null,
-        authOptions: null,
-        complete: false,
-        formSubmitted: false,
-        rejectedEmails: [],
-        rejectedPasswords: [],
-        prefilledUsername: null,
-        isDeveloper: false,
-        maskPassword: true,
-      });
-      this._createUserFields();
     },
 
     @discourseComputed("formSubmitted")
@@ -128,12 +109,20 @@ export default Controller.extend(
 
     @discourseComputed
     disclaimerHtml() {
+<<<<<<< HEAD
       if (this.site.tos_url && this.site.privacy_policy_url) {
         return I18n.t("create_account.disclaimer", {
           tos_link: this.site.tos_url,
           privacy_link: this.site.privacy_policy_url,
         });
       }
+=======
+      return I18n.t("create_account.disclaimer", {
+        tos_link: this.siteSettings.tos_url || getURL("/tos"),
+        privacy_link:
+          this.siteSettings.privacy_policy_url || getURL("/privacy"),
+      });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
 
     // Check the email address
@@ -444,7 +433,14 @@ export default Controller.extend(
 
     actions: {
       externalLogin(provider) {
-        this.login.send("externalLogin", provider, { signup: true });
+        // we will automatically redirect to the external auth service
+        this.modal.show(LoginModal, {
+          model: {
+            isExternalLogin: true,
+            externalLoginMethod: provider,
+            signup: true,
+          },
+        });
       },
 
       createAccount() {

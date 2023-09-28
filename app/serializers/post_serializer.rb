@@ -88,7 +88,8 @@ class PostSerializer < BasicPostSerializer
              :reviewable_score_pending_count,
              :user_suspended,
              :user_status,
-             :meta_tag,
+             :mentioned_users,
+             :meta_tag_id,
              :user_generated_tags,
              :action_cost,
              :subtitle,
@@ -327,8 +328,14 @@ class PostSerializer < BasicPostSerializer
         summary.delete(:can_act)
       end
 
+      if actions.present? && SiteSetting.allow_anonymous_likes && sym == :like &&
+           !scope.can_delete_post_action?(actions[id])
+        summary.delete(:can_act)
+      end
+
       if actions.present? && actions.has_key?(id)
         summary[:acted] = true
+
         summary[:can_undo] = true if scope.can_delete?(actions[id])
       end
 
@@ -591,23 +598,17 @@ class PostSerializer < BasicPostSerializer
   end
 
   def mentioned_users
-    users =
-      if @topic_view && (mentioned_users = @topic_view.mentioned_users[object.id])
-        mentioned_users
-      else
-        query = User
-        query = query.includes(:user_status) if SiteSetting.enable_user_status
-        query = query.where(username: object.mentions)
-      end
+    if @topic_view && (mentions = @topic_view.mentions[object.id])
+      return mentions
+          .map { |username| @topic_view.mentioned_users[username] }
+          .compact
+          .map { |user| BasicUserWithStatusSerializer.new(user, root: false) }
+    end
 
-    users.map { |user| BasicUserWithStatusSerializer.new(user, root: false) }
+    []
   end
 
-  def include_mentioned_users?
-    SiteSetting.enable_user_status
-  end
-
-  private
+private
 
   def can_review_topic?
     return @can_review_topic unless @can_review_topic.nil?

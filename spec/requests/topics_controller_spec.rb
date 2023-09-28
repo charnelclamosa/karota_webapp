@@ -78,6 +78,12 @@ RSpec.describe TopicsController do
         "#{Discourse.base_url_no_prefix}#{moderator.avatar_template}",
       )
     end
+
+    it "does not error out when using invalid parameters" do
+      get "/t/#{p1.topic.id}/wordpress.json", params: { topic_id: 1, best: { leet: "haxx0r" } }
+
+      expect(response.status).to eq(400)
+    end
   end
 
   describe "#move_posts" do
@@ -1593,7 +1599,7 @@ RSpec.describe TopicsController do
       end
 
       it "can not move to a category that requires topic approval" do
-        category.custom_fields[Category::REQUIRE_TOPIC_APPROVAL] = true
+        category.require_topic_approval = true
         category.save!
 
         put "/t/#{topic.id}.json", params: { category_id: category.id }
@@ -3025,6 +3031,7 @@ RSpec.describe TopicsController do
       expect(response.status).to eq(200)
     end
 
+<<<<<<< HEAD
     context "when `enable_user_status` site setting is enabled" do
       fab!(:post) { Fabricate(:post, user: post_author1) }
       fab!(:topic) { post.topic }
@@ -3054,6 +3061,19 @@ RSpec.describe TopicsController do
       it "returns mentions with status" do
         post_author1.set_status!("off to dentist", "tooth")
 
+=======
+    context "with mentions" do
+      fab!(:post) { Fabricate(:post, user: post_author1) }
+      fab!(:topic) { post.topic }
+      fab!(:post2) { Fabricate(
+        :post,
+        user: post_author2,
+        topic: topic,
+        raw: "I am mentioning @#{post_author1.username}."
+      ) }
+
+      it "returns mentions" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/t/#{topic.slug}/#{topic.id}.json"
 
         expect(response.status).to eq(200)
@@ -3065,15 +3085,54 @@ RSpec.describe TopicsController do
         expect(mentioned_user["id"]).to be(post_author1.id)
         expect(mentioned_user["name"]).to eq(post_author1.name)
         expect(mentioned_user["username"]).to eq(post_author1.username)
+<<<<<<< HEAD
 
         status = mentioned_user["status"]
+=======
+      end
+
+      it "doesn't return status on mentions by default" do
+        post_author1.set_status!("off to dentist", "tooth")
+
+        get "/t/#{topic.slug}/#{topic.id}.json"
+
+        expect(response.status).to eq(200)
+
+        json = response.parsed_body
+        expect(json["post_stream"]["posts"][1]["mentioned_users"].length).to be(1)
+        status = json["post_stream"]["posts"][1]["mentioned_users"][0]["status"]
+        expect(status).to be_nil
+      end
+
+      it "returns mentions with status if user status is enabled" do
+        SiteSetting.enable_user_status = true
+        post_author1.set_status!("off to dentist", "tooth")
+
+        get "/t/#{topic.slug}/#{topic.id}.json"
+
+        expect(response.status).to eq(200)
+
+        json = response.parsed_body
+        expect(json["post_stream"]["posts"][1]["mentioned_users"].length).to be(1)
+
+        status = json["post_stream"]["posts"][1]["mentioned_users"][0]["status"]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(status).to be_present
         expect(status["emoji"]).to eq(post_author1.user_status.emoji)
         expect(status["description"]).to eq(post_author1.user_status.description)
       end
 
+<<<<<<< HEAD
       it "returns an empty list of mentioned users if there are no mentions in a post" do
         Fabricate(:post, user: post_author2, topic: topic, raw: "Post without mentions.")
+=======
+      it "returns an empty list of mentioned users if there is no mentions in a post" do
+        Fabricate(
+          :post,
+          user: post_author2,
+          topic: topic,
+          raw: "Post without mentions.")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/t/#{topic.slug}/#{topic.id}.json"
 
@@ -3084,7 +3143,15 @@ RSpec.describe TopicsController do
       end
 
       it "returns an empty list of mentioned users if an unexisting user was mentioned" do
+<<<<<<< HEAD
         Fabricate(:post, user: post_author2, topic: topic, raw: "Mentioning an @unexisting_user.")
+=======
+        Fabricate(
+          :post,
+          user: post_author2,
+          topic: topic,
+          raw: "Mentioning an @unexisting_user.")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         get "/t/#{topic.slug}/#{topic.id}.json"
 
@@ -3516,7 +3583,7 @@ RSpec.describe TopicsController do
         expect(response.status).to eq(400)
       end
 
-      it "can mark sub-categories unread" do
+      it "can dismiss sub-categories posts as read" do
         sub = Fabricate(:category, parent_category_id: category.id)
 
         topic.update!(category_id: sub.id)
@@ -3536,6 +3603,31 @@ RSpec.describe TopicsController do
 
         expect(response.status).to eq(200)
         expect(TopicUser.get(post1.topic, post1.user).last_read_post_number).to eq(2)
+      end
+
+      it "can dismiss sub-subcategories posts as read" do
+        SiteSetting.max_category_nesting = 3
+
+        sub_category = Fabricate(:category, parent_category_id: category.id)
+        sub_subcategory = Fabricate(:category, parent_category_id: sub_category.id)
+
+        topic.update!(category_id: sub_subcategory.id)
+
+        post_1 = create_post(user: user, topic_id: topic.id)
+        post_2 = create_post(topic_id: topic.id)
+
+        put "/topics/bulk.json",
+            params: {
+              category_id: category.id,
+              include_subcategories: true,
+              filter: "unread",
+              operation: {
+                type: "dismiss_posts",
+              },
+            }
+
+        expect(response.status).to eq(200)
+        expect(TopicUser.get(post_1.topic, post_1.user).last_read_post_number).to eq(2)
       end
 
       it "can mark tag topics unread" do
@@ -3854,7 +3946,7 @@ RSpec.describe TopicsController do
 
       context "when tracked is unset" do
         it "updates the `new_since` date" do
-          TopicTrackingState.expects(:publish_dismiss_new)
+          TopicTrackingState.expects(:publish_dismiss_new).never
 
           put "/topics/reset-new.json"
           expect(response.status).to eq(200)
@@ -3972,8 +4064,32 @@ RSpec.describe TopicsController do
 
           put "/topics/reset-new.json?category_id=#{category.id}&include_subcategories=true"
 
+          expect(response.status).to eq(200)
+
           expect(DismissedTopicUser.where(user_id: user.id).pluck(:topic_id).sort).to eq(
             [category_topic.id, subcategory_topic.id].sort,
+          )
+        end
+
+        it "dismisses topics for main category, subcategories and sub-subcategories" do
+          SiteSetting.max_category_nesting = 3
+
+          sub_subcategory = Fabricate(:category, parent_category_id: subcategory.id)
+          sub_subcategory_topic = Fabricate(:topic, category: sub_subcategory)
+
+          TopicTrackingState.expects(:publish_dismiss_new).with(
+            user.id,
+            topic_ids: [category_topic.id, subcategory_topic.id, sub_subcategory_topic.id],
+          )
+
+          put "/topics/reset-new.json?category_id=#{category.id}&include_subcategories=true"
+
+          expect(response.status).to eq(200)
+
+          expect(DismissedTopicUser.where(user_id: user.id).pluck(:topic_id)).to contain_exactly(
+            category_topic.id,
+            subcategory_topic.id,
+            sub_subcategory_topic.id,
           )
         end
 
@@ -3993,16 +4109,17 @@ RSpec.describe TopicsController do
 
           it "doesn't dismiss topics in private child categories that the user can't see" do
             messages =
-              MessageBus.track_publish do
+              MessageBus.track_publish(TopicTrackingState.unread_channel_key(user.id)) do
                 put "/topics/reset-new.json",
                     params: {
                       category_id: category.id,
                       include_subcategories: true,
                     }
+
+                expect(response.status).to eq(200)
               end
-            expect(response.status).to eq(200)
+
             expect(messages.size).to eq(1)
-            expect(messages[0].channel).to eq(TopicTrackingState.unread_channel_key(user.id))
             expect(messages[0].user_ids).to eq([user.id])
             expect(messages[0].data["message_type"]).to eq(
               TopicTrackingState::DISMISS_NEW_MESSAGE_TYPE,
@@ -4017,17 +4134,19 @@ RSpec.describe TopicsController do
 
           it "dismisses topics in private child categories that the user can see" do
             group.add(user)
+
             messages =
-              MessageBus.track_publish do
+              MessageBus.track_publish(TopicTrackingState.unread_channel_key(user.id)) do
                 put "/topics/reset-new.json",
                     params: {
                       category_id: category.id,
                       include_subcategories: true,
                     }
+
+                expect(response.status).to eq(200)
               end
-            expect(response.status).to eq(200)
+
             expect(messages.size).to eq(1)
-            expect(messages[0].channel).to eq(TopicTrackingState.unread_channel_key(user.id))
             expect(messages[0].user_ids).to eq([user.id])
             expect(messages[0].data["message_type"]).to eq(
               TopicTrackingState::DISMISS_NEW_MESSAGE_TYPE,
@@ -4052,15 +4171,10 @@ RSpec.describe TopicsController do
             messages =
               MessageBus.track_publish do
                 put "/topics/reset-new.json", params: { category_id: private_category.id }
+                expect(response.status).to eq(200)
               end
-            expect(response.status).to eq(200)
-            expect(messages.size).to eq(1)
-            expect(messages[0].channel).to eq(TopicTrackingState.unread_channel_key(user.id))
-            expect(messages[0].user_ids).to eq([user.id])
-            expect(messages[0].data["message_type"]).to eq(
-              TopicTrackingState::DISMISS_NEW_MESSAGE_TYPE,
-            )
-            expect(messages[0].data["payload"]["topic_ids"]).to eq([])
+
+            expect(messages.size).to eq(0)
             expect(DismissedTopicUser.where(user_id: user.id).count).to eq(0)
           end
 
@@ -4715,8 +4829,15 @@ RSpec.describe TopicsController do
       end
     end
 
+<<<<<<< HEAD
     context "when logged in as a TL4 user" do
       before { SiteSetting.enable_category_group_moderation = true }
+=======
+    context 'when logged in as a TL4 user' do
+      before do
+        SiteSetting.enable_category_group_moderation = true
+      end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "raises an error if the user can't see the topic" do
         user.update!(trust_level: TrustLevel[4])
         sign_in(user)
@@ -4763,6 +4884,46 @@ RSpec.describe TopicsController do
 
         expect(response.status).to eq(403)
         expect(response.parsed_body["error_type"]).to eq("invalid_access")
+      end
+
+      it "allows a category moderator to create a delete timer" do
+        user.update!(trust_level: TrustLevel[4])
+        topic.category.update!(reviewable_by_group: user.groups.first)
+
+        sign_in(user)
+
+        post "/t/#{topic.id}/timer.json", params: {
+          time: 10,
+          status_type: 'delete'
+        }
+
+        expect(response.status).to eq(200)
+      end
+
+      it "raises an error setting a delete timer" do
+        user.update!(trust_level: TrustLevel[4])
+        sign_in(user)
+
+        post "/t/#{topic.id}/timer.json", params: {
+          time: 10,
+          status_type: 'delete'
+        }
+
+        expect(response.status).to eq(403)
+        expect(response.parsed_body["error_type"]).to eq('invalid_access')
+      end
+
+      it "raises an error setting delete_replies timer" do
+        user.update!(trust_level: TrustLevel[4])
+        sign_in(user)
+
+        post "/t/#{topic.id}/timer.json", params: {
+          time: 10,
+          status_type: 'delete_replies'
+        }
+
+        expect(response.status).to eq(403)
+        expect(response.parsed_body["error_type"]).to eq('invalid_access')
       end
     end
   end
@@ -5459,14 +5620,18 @@ RSpec.describe TopicsController do
   end
 
   describe "#summary" do
-    fab!(:topic) { Fabricate(:topic) }
+    fab!(:topic) { Fabricate(:topic, highest_post_number: 2) }
+    fab!(:post_1) { Fabricate(:post, topic: topic, post_number: 1) }
+    fab!(:post_2) { Fabricate(:post, topic: topic, post_number: 2) }
     let(:plugin) { Plugin::Instance.new }
+    let(:strategy) { DummyCustomSummarization.new({ summary: "dummy", chunks: [] }) }
 
     before do
-      strategy = DummyCustomSummarization.new("dummy")
       plugin.register_summarization_strategy(strategy)
       SiteSetting.summarization_strategy = strategy.model
     end
+
+    after { DiscoursePluginRegistry.reset_register!(:summarization_strategies) }
 
     context "for anons" do
       it "returns a 404 if there is no cached summary" do
@@ -5489,14 +5654,17 @@ RSpec.describe TopicsController do
         expect(response.status).to eq(200)
 
         summary = response.parsed_body
-        expect(summary["summary"]).to eq(section.summarized_text)
+        expect(summary.dig("topic_summary", "summarized_text")).to eq(section.summarized_text)
       end
     end
 
     context "when the user is a member of an allowlisted group" do
       fab!(:user) { Fabricate(:leader) }
 
-      before { sign_in(user) }
+      before do
+        sign_in(user)
+        Group.find(Group::AUTO_GROUPS[:trust_level_3]).add(user)
+      end
 
       it "returns a 404 if there is no topic" do
         invalid_topic_id = 999
@@ -5512,6 +5680,34 @@ RSpec.describe TopicsController do
         get "/t/#{pm.id}/strategy-summary.json"
 
         expect(response.status).to eq(403)
+      end
+
+      it "returns a summary" do
+        get "/t/#{topic.id}/strategy-summary.json"
+
+        expect(response.status).to eq(200)
+        summary = response.parsed_body["topic_summary"]
+        section = SummarySection.last
+
+        expect(summary["summarized_text"]).to eq(section.summarized_text)
+        expect(summary["algorithm"]).to eq(strategy.model)
+        expect(summary["outdated"]).to eq(false)
+        expect(summary["can_regenerate"]).to eq(true)
+        expect(summary["new_posts_since_summary"]).to be_zero
+      end
+
+      it "signals the summary is outdated" do
+        get "/t/#{topic.id}/strategy-summary.json"
+
+        Fabricate(:post, topic: topic, post_number: 3)
+        topic.update!(highest_post_number: 3)
+
+        get "/t/#{topic.id}/strategy-summary.json"
+        expect(response.status).to eq(200)
+        summary = response.parsed_body["topic_summary"]
+
+        expect(summary["outdated"]).to eq(true)
+        expect(summary["new_posts_since_summary"]).to eq(1)
       end
     end
 
@@ -5540,7 +5736,7 @@ RSpec.describe TopicsController do
         expect(response.status).to eq(200)
 
         summary = response.parsed_body
-        expect(summary["summary"]).to eq(section.summarized_text)
+        expect(summary.dig("topic_summary", "summarized_text")).to eq(section.summarized_text)
       end
     end
   end

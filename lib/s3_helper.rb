@@ -106,7 +106,16 @@ class S3Helper
   end
 
   def delete_objects(keys)
+<<<<<<< HEAD
     s3_bucket.delete_objects({ delete: { objects: keys.map { |k| { key: k } }, quiet: true } })
+=======
+    s3_bucket.delete_objects({
+      delete: {
+        objects: keys.map { |k| { key: k } },
+        quiet: true,
+      },
+    })
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def copy(source, destination, options: {})
@@ -348,6 +357,19 @@ class S3Helper
 
   def presigned_url(key, method:, expires_in: S3Helper::UPLOAD_URL_EXPIRES_AFTER_SECONDS, opts: {})
     Aws::S3::Presigner.new(client: s3_client).presigned_url(
+      method,
+      { bucket: s3_bucket_name, key: key, expires_in: expires_in }.merge(opts),
+    )
+  end
+
+  # Returns url, headers in a tuple which is needed in some cases.
+  def presigned_request(
+    key,
+    method:,
+    expires_in: S3Helper::UPLOAD_URL_EXPIRES_AFTER_SECONDS,
+    opts: {}
+  )
+    Aws::S3::Presigner.new(client: s3_client).presigned_request(
       method,
       { bucket: s3_bucket_name, key: key, expires_in: expires_in }.merge(opts),
     )

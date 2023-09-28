@@ -25,16 +25,37 @@ fi:
           title: "Tulokset näytetään kyselyn <strong>sulkeuduttua</strong>."
         staff:
           title: "Tulokset näytetään vain <strong>henkilökunnan</strong> jäsenille."
+      multiple:
+        help:
+          at_least_min_options:
+            one: "Valitse ainakin <strong>%{count} vaihtoehto</strong>."
+            other: "Valitse ainakin <strong>%{count} vaihtoehtoa</strong>."
+          up_to_max_options:
+            one: "Valitse enintään <strong>%{count} vaihtoehto</strong>."
+            other: "Valitse enintään <strong>%{count} vaihtoehtoa</strong>."
+          x_options:
+            one: "Valitse <strong>%{count} vaihtoehto</strong>."
+            other: "Valitse <strong>%{count} vaihtoehtoa</strong>."
+          between_min_and_max_options: "Valitse <strong>%{min}–%{max} vaihtoehtoa</strong>."
       cast-votes:
         title: "Antakaa äänenne"
         label: "Äänestä nyt!"
       show-results:
         title: "Näytä kyselyn tulos"
+<<<<<<< HEAD
         label: "Tulokset"
       remove-vote:
         title: "Poista äänesi"
+        label: "Kumoa äänestys"
+=======
+        label: "Näytä tulokset"
+      remove-vote:
+        title: "Poista äänesi"
+        label: "Poista ääni"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hide-results:
         title: "Palaa äänestysvalintaasi"
+        label: "Äänestä"
       group-results:
         title: "Lajittele äänet käyttäjäkentän perusteella"
         label: "Näytä erittely"

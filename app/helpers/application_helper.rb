@@ -64,8 +64,10 @@ module ApplicationHelper
     google_universal_analytics_json
   end
 
-  def self.google_tag_manager_nonce(env)
-    env[:discourse_content_security_policy_nonce] ||= SecureRandom.hex
+  def google_tag_manager_nonce_placeholder
+    placeholder = "[[csp_nonce_placeholder_#{SecureRandom.hex}]]"
+    response.headers["Discourse-GTM-Nonce-Placeholder"] = placeholder
+    placeholder
   end
 
   def shared_session_key
@@ -91,6 +93,7 @@ module ApplicationHelper
     path = ActionController::Base.helpers.asset_path("#{script}.js")
 
     if GlobalSetting.use_s3? && GlobalSetting.s3_cdn_url
+<<<<<<< HEAD
       resolved_s3_asset_cdn_url =
         GlobalSetting.s3_asset_cdn_url.presence || GlobalSetting.s3_cdn_url
       if GlobalSetting.cdn_url
@@ -100,6 +103,12 @@ module ApplicationHelper
             File.join(GlobalSetting.cdn_url, folder, "/"),
             File.join(resolved_s3_asset_cdn_url, "/"),
           )
+=======
+      resolved_s3_asset_cdn_url = GlobalSetting.s3_asset_cdn_url.presence || GlobalSetting.s3_cdn_url
+      if GlobalSetting.cdn_url
+        folder = ActionController::Base.config.relative_url_root || "/"
+        path = path.gsub(File.join(GlobalSetting.cdn_url, folder, "/"), File.join(resolved_s3_asset_cdn_url, "/"))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       else
         # we must remove the subfolder path here, assets are uploaded to s3
         # without it getting involved
@@ -131,10 +140,12 @@ module ApplicationHelper
   end
 
   def preload_script(script)
-    scripts = [script]
+    scripts = []
 
     if chunks = EmberCli.script_chunks[script]
       scripts.push(*chunks)
+    else
+      scripts.push(script)
     end
 
     scripts
@@ -369,6 +380,7 @@ module ApplicationHelper
         "@context" => "http://schema.org",
         "@type" => "WebSite",
         :url => Discourse.base_url,
+        :name => SiteSetting.title,
         :potentialAction => {
           "@type" => "SearchAction",
           :target => "#{Discourse.base_url}/search?q={search_term_string}",
@@ -661,12 +673,21 @@ module ApplicationHelper
     result = +""
     if dark_scheme_id != -1
       result << <<~HTML
+<<<<<<< HEAD
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="##{ColorScheme.hex_for_name("header_background", scheme_id)}">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="##{ColorScheme.hex_for_name("header_background", dark_scheme_id)}">
       HTML
     else
       result << <<~HTML
         <meta name="theme-color" media="all" content="##{ColorScheme.hex_for_name("header_background", scheme_id)}">
+=======
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="##{ColorScheme.hex_for_name('header_background', scheme_id)}">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="##{ColorScheme.hex_for_name('header_background', dark_scheme_id)}">
+      HTML
+    else
+      result << <<~HTML
+        <meta name="theme-color" media="all" content="##{ColorScheme.hex_for_name('header_background', scheme_id)}">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       HTML
     end
     result.html_safe

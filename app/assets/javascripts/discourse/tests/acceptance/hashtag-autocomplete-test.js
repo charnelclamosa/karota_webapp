@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   acceptance,
   emulateAutocomplete,
@@ -5,11 +6,41 @@ import {
 import { click, visit } from "@ember/test-helpers";
 import { test } from "qunit";
 
+=======
+import { setCaretPosition } from "discourse/lib/utilities";
+import { acceptance, query } from "discourse/tests/helpers/qunit-helpers";
+import {
+  click,
+  fillIn,
+  settled,
+  triggerKeyEvent,
+  visit,
+} from "@ember/test-helpers";
+import { test } from "qunit";
+
+async function typeHashtagAutocomplete() {
+  const composerInput = query(".d-editor-input");
+  await fillIn(".d-editor-input", "abc #");
+  await triggerKeyEvent(".d-editor-input", "keydown", "#");
+  await fillIn(".d-editor-input", "abc #");
+  await setCaretPosition(composerInput, 5);
+  await triggerKeyEvent(".d-editor-input", "keyup", "#");
+  await triggerKeyEvent(".d-editor-input", "keydown", "O");
+  await fillIn(".d-editor-input", "abc #o");
+  await setCaretPosition(composerInput, 6);
+  await triggerKeyEvent(".d-editor-input", "keyup", "O");
+  await settled();
+}
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 acceptance("#hashtag autocompletion in composer", function (needs) {
   needs.user();
   needs.settings({
     tagging_enabled: true,
+<<<<<<< HEAD
+=======
     enable_experimental_hashtag_autocomplete: true,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
   needs.pretender((server, helper) => {
     server.get("/hashtags", () => {
@@ -53,9 +84,13 @@ acceptance("#hashtag autocompletion in composer", function (needs) {
   test(":emoji: unescape in autocomplete search results", async function (assert) {
     await visit("/t/internationalization-localization/280");
     await click("#topic-footer-buttons .btn.create");
+<<<<<<< HEAD
 
     await emulateAutocomplete(".d-editor-input", "abc #o");
 
+=======
+    await typeHashtagAutocomplete();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.dom(".hashtag-autocomplete__option").exists({ count: 3 });
     assert
       .dom(

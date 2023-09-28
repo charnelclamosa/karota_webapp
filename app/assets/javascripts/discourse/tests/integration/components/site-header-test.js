@@ -128,6 +128,10 @@ module("Integration | Component | site-header", function (hooks) {
   });
 
   test("new personal messages bubble is prioritized over unseen reviewables and regular notifications bubbles", async function (assert) {
+<<<<<<< HEAD
+=======
+    this.currentUser.set("redesigned_user_menu_enabled", true);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.currentUser.set("all_unread_notifications_count", 5);
     this.currentUser.set("new_personal_messages_notifications_count", 2);
     this.currentUser.set("unseen_reviewable_count", 3);
@@ -168,6 +172,10 @@ module("Integration | Component | site-header", function (hooks) {
   });
 
   test("unseen reviewables bubble is prioritized over regular notifications", async function (assert) {
+<<<<<<< HEAD
+=======
+    this.currentUser.set("redesigned_user_menu_enabled", true);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.currentUser.set("all_unread_notifications_count", 5);
     this.currentUser.set("new_personal_messages_notifications_count", 0);
     this.currentUser.set("unseen_reviewable_count", 3);
@@ -207,6 +215,10 @@ module("Integration | Component | site-header", function (hooks) {
   });
 
   test("regular notifications bubble is shown if there are neither new personal messages nor unseen reviewables", async function (assert) {
+<<<<<<< HEAD
+=======
+    this.currentUser.set("redesigned_user_menu_enabled", true);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.currentUser.set("all_unread_notifications_count", 5);
     this.currentUser.set("new_personal_messages_notifications_count", 0);
     this.currentUser.set("unseen_reviewable_count", 0);

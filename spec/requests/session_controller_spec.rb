@@ -117,8 +117,10 @@ RSpec.describe SessionController do
             [user_security_key.credential_id],
           )
           secure_session = SecureSession.new(session["secure_session_id"])
-          expect(response_body_parsed["challenge"]).to eq(Webauthn.challenge(user, secure_session))
-          expect(Webauthn.rp_id(user, secure_session)).to eq(Discourse.current_hostname)
+          expect(response_body_parsed["challenge"]).to eq(
+            DiscourseWebauthn.challenge(user, secure_session),
+          )
+          expect(DiscourseWebauthn.rp_id).to eq(Discourse.current_hostname)
         end
       end
     end
@@ -178,7 +180,11 @@ RSpec.describe SessionController do
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["error"]).to eq(
+<<<<<<< HEAD
           I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
+=======
+          I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       end
 
@@ -191,7 +197,11 @@ RSpec.describe SessionController do
           expect(response.status).to eq(200)
 
           expect(response.parsed_body["error"]).to eq(
+<<<<<<< HEAD
             I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
+=======
+            I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           )
         end
       end

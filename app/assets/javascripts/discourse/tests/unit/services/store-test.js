@@ -1,10 +1,15 @@
 import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
-import { getOwner } from "discourse-common/lib/get-owner";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
 import pretender, {
   fixturesByUrl,
   response,
 } from "discourse/tests/helpers/create-pretender";
+=======
+import { getOwner } from "discourse-common/lib/get-owner";
+import pretender, { response } from "discourse/tests/helpers/create-pretender";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Service | store", function (hooks) {
   setupTest(hooks);
@@ -238,6 +243,7 @@ module("Unit | Service | store", function (hooks) {
     const store = getOwner(this).lookup("service:store");
     const users = await store.findAll("user");
     assert.strictEqual(users.objectAt(0).username, "souna");
+<<<<<<< HEAD
   });
 
   test("findFiltered", async function (assert) {
@@ -262,5 +268,18 @@ module("Unit | Service | store", function (hooks) {
     assert.true("topic_list" in result);
     assert.true(Array.isArray(result.topics));
     assert.strictEqual(result.filter, "topics/created-by/trout");
+  });
+
+  test("Spec incompliant embedded record name", async function (assert) {
+    const store = getOwner(this).lookup("service:store");
+    const fruit = await store.find("fruit", 4);
+
+    assert.propContains(
+      fruit.other_fruit_ids,
+      { apple: 1, banana: 2 },
+      "embedded record remains unhydrated"
+    );
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 });

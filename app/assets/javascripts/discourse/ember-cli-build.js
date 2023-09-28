@@ -1,7 +1,7 @@
 "use strict";
 
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
-const resolve = require("path").resolve;
+const path = require("path");
 const mergeTrees = require("broccoli-merge-trees");
 const concat = require("broccoli-concat");
 const { createI18nTree } = require("./lib/translation-plugin");
@@ -9,19 +9,40 @@ const { parsePluginClientSettings } = require("./lib/site-settings-plugin");
 const discourseScss = require("./lib/discourse-scss");
 const generateScriptsTree = require("./lib/scripts");
 const funnel = require("broccoli-funnel");
-const DeprecationSilencer = require("./lib/deprecation-silencer");
+const DeprecationSilencer = require("deprecation-silencer");
 const generateWorkboxTree = require("./lib/workbox-tree-builder");
 
+process.env.BROCCOLI_ENABLED_MEMOIZE = true;
+
 module.exports = function (defaults) {
-  const discourseRoot = resolve("../../../..");
+  const discourseRoot = path.resolve("../../../..");
   const vendorJs = discourseRoot + "/vendor/assets/javascripts/";
 
   // Silence deprecations which we are aware of - see `lib/deprecation-silencer.js`
   DeprecationSilencer.silence(console, "warn");
   DeprecationSilencer.silence(defaults.project.ui, "writeWarnLine");
 
+  const isEmbroider = process.env.USE_EMBROIDER === "1";
   const isProduction = EmberApp.env().includes("production");
-  const isTest = EmberApp.env().includes("test");
+
+  // This is more or less the same as the one in @embroider/test-setup
+  const maybeEmbroider = (app, options) => {
+    if (isEmbroider) {
+      const { compatBuild } = require("@embroider/compat");
+      const { Webpack } = require("@embroider/webpack");
+
+      // https://github.com/embroider-build/embroider/issues/1581
+      if (Array.isArray(options?.extraPublicTrees)) {
+        options.extraPublicTrees = [
+          app.addonPostprocessTree("all", mergeTrees(options.extraPublicTrees)),
+        ];
+      }
+
+      return compatBuild(app, Webpack, options);
+    } else {
+      return app.toTree(options?.extraPublicTrees);
+    }
+  };
 
   const app = new EmberApp(defaults, {
     autoRun: false,
@@ -47,8 +68,14 @@ module.exports = function (defaults) {
           fallback: {
             // Sinon needs a `util` polyfill
             util: require.resolve("util/"),
+<<<<<<< HEAD
             // Also for sinon
             timers: false,
+            // For source-map-support
+            path: require.resolve("path-browserify"),
+            fs: false,
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           },
         },
         module: {
@@ -79,14 +106,15 @@ module.exports = function (defaults) {
       enabled: false,
     },
 
+    "ember-cli-deprecation-workflow": {
+      enabled: true,
+    },
+
     "ember-cli-terser": {
       enabled: isProduction,
-      exclude: [
-        "**/test-*.js",
-        "**/core-tests*.js",
-        "**/highlightjs/*",
-        "**/javascripts/*",
-      ],
+      exclude:
+        ["**/highlightjs/*", "**/javascripts/*"] +
+        (isEmbroider ? [] : ["**/test-*.js", "**/core-tests*.js"]),
     },
 
     "ember-cli-babel": {
@@ -94,11 +122,12 @@ module.exports = function (defaults) {
     },
 
     babel: {
-      plugins: [require.resolve("./lib/deprecation-silencer")],
+      plugins: [require.resolve("deprecation-silencer")],
     },
 
-    // We need to build tests in prod for theme tests
-    tests: true,
+    // Was previously true so that we could run theme tests in production
+    // but we're moving away from that as part of the Embroider migration
+    tests: isEmbroider ? !isProduction : true,
 
     vendorFiles: {
       // Freedom patch - includes bug fix and async stack support
@@ -108,6 +137,8 @@ module.exports = function (defaults) {
     },
   });
 
+<<<<<<< HEAD
+=======
   // Patching a private method is not great, but there's no other way for us to tell
   // Ember CLI that we want the tests alone in a package without helpers/fixtures, since
   // we re-use those in the theme tests.
@@ -125,7 +156,7 @@ module.exports = function (defaults) {
       annotation: "TreeMerger (appTestTrees)",
     });
 
-    const tests = concat(appTestTrees, {
+    let tests = concat(appTestTrees, {
       inputFiles: ["**/tests/**/*-test.js"],
       headerFiles: ["vendor/ember-cli/tests-prefix.js"],
       footerFiles: ["vendor/ember-cli/app-config.js"],
@@ -134,7 +165,7 @@ module.exports = function (defaults) {
       sourceMapConfig: false,
     });
 
-    const testHelpers = concat(appTestTrees, {
+    let testHelpers = concat(appTestTrees, {
       inputFiles: [
         "**/tests/test-boot-ember-cli.js",
         "**/tests/helpers/**/*.js",
@@ -161,6 +192,7 @@ module.exports = function (defaults) {
     }
   };
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   // WARNING: We should only import scripts here if they are not in NPM.
   // For example: our very specific version of bootstrap-modal.
   app.import(vendorJs + "bootbox.js");
@@ -188,38 +220,82 @@ module.exports = function (defaults) {
     .findAddonByName("pretty-text")
     .treeForMarkdownItBundle();
 
-  const terserPlugin = app.project.findAddonByName("ember-cli-terser");
-  const applyTerser = (tree) => terserPlugin.postprocessTree("all", tree);
+  const testStylesheetTree = mergeTrees([
+    discourseScss(`${discourseRoot}/app/assets/stylesheets`, "qunit.scss"),
+    discourseScss(
+      `${discourseRoot}/app/assets/stylesheets`,
+      "qunit-custom.scss"
+    ),
+  ]);
+  app.project.liveReloadFilterPatterns = [/.*\.scss/];
 
-  return mergeTrees([
+  const extraPublicTrees = [
     createI18nTree(discourseRoot, vendorJs),
     parsePluginClientSettings(discourseRoot, vendorJs, app),
+<<<<<<< HEAD
+=======
     app.toTree(),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     funnel(`${discourseRoot}/public/javascripts`, { destDir: "javascripts" }),
     funnel(`${vendorJs}/highlightjs`, {
       files: ["highlight-test-bundle.min.js"],
       destDir: "assets/highlightjs",
     }),
     generateWorkboxTree(),
-    applyTerser(
-      concat(adminTree, {
-        inputFiles: ["**/*.js"],
-        outputFile: `assets/admin.js`,
-      })
-    ),
-    applyTerser(
-      concat(wizardTree, {
-        inputFiles: ["**/*.js"],
-        outputFile: `assets/wizard.js`,
-      })
-    ),
-    applyTerser(
-      concat(markdownItBundleTree, {
-        inputFiles: ["**/*.js"],
-        outputFile: `assets/markdown-it-bundle.js`,
-      })
-    ),
+    concat(adminTree, {
+      inputFiles: ["**/*.js"],
+      outputFile: `assets/admin.js`,
+    }),
+    concat(wizardTree, {
+      inputFiles: ["**/*.js"],
+      outputFile: `assets/wizard.js`,
+    }),
+    concat(markdownItBundleTree, {
+      inputFiles: ["**/*.js"],
+      outputFile: `assets/markdown-it-bundle.js`,
+    }),
     generateScriptsTree(app),
-    applyTerser(discoursePluginsTree),
-  ]);
+    discoursePluginsTree,
+    testStylesheetTree,
+  ];
+
+  return maybeEmbroider(app, {
+    extraPublicTrees,
+    packagerOptions: {
+      webpackConfig: {
+        devtool: "source-map",
+        externals: [
+          function ({ request }, callback) {
+            if (
+              !request.includes("-embroider-implicit") &&
+              (request.startsWith("admin/") ||
+                request.startsWith("wizard/") ||
+                (request.startsWith("pretty-text/engines/") &&
+                  request !== "pretty-text/engines/discourse-markdown-it") ||
+                request.startsWith("discourse/plugins/") ||
+                request.startsWith("discourse/theme-"))
+            ) {
+              callback(null, request, "commonjs");
+            } else {
+              callback();
+            }
+          },
+        ],
+        module: {
+          parser: {
+            javascript: {
+              exportsPresence: "error",
+            },
+          },
+        },
+        resolve: {
+          fallback: {
+            // For source-map-support
+            path: require.resolve("path-browserify"),
+            fs: false,
+          },
+        },
+      },
+    },
+  });
 };

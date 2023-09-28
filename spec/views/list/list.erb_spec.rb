@@ -18,16 +18,29 @@ RSpec.describe "list/list.erb" do
     )
   end
 
+<<<<<<< HEAD
   it "adds structured data" do
+=======
+  it "adds sturctured data" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     view.stubs(:include_crawler_content?).returns(true)
     topic.posters = []
     assign(:list, OpenStruct.new(topics: [topic]))
 
+<<<<<<< HEAD
     render template: "list/list", formats: []
 
     topic_list = Nokogiri::HTML5.fragment(rendered).css(".topic-list")
     first_item = topic_list.css('[itemprop="itemListElement"]')
     expect(first_item.css('[itemprop="position"]')[0]["content"]).to eq("1")
     expect(first_item.css('[itemprop="url"]')[0]["href"]).to eq(topic.url)
+=======
+    render template: 'list/list', formats: []
+
+    topic_list = Nokogiri::HTML5::fragment(rendered).css('.topic-list')
+    first_item = topic_list.css('[itemprop="itemListElement"]')
+    expect(first_item.css('[itemprop="position"]')[0]['content']).to eq('1')
+    expect(first_item.css('[itemprop="url"]')[0]['href']).to eq(topic.url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end

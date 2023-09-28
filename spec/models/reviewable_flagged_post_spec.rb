@@ -87,7 +87,11 @@ RSpec.describe ReviewableFlaggedPost, type: :model do
         it "excludes delete action if the reviewer cannot delete the user" do
           post.user.user_stat.update!(
             first_post_created_at: 1.year.ago,
+<<<<<<< HEAD
             post_count: User::MAX_STAFF_DELETE_POST_COUNT + 1,
+=======
+            post_count: User::MAX_STAFF_DELETE_POST_COUNT + 1
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           )
 
           expect(reviewable.actions_for(guardian).has?(:delete_user)).to be false
@@ -334,6 +338,14 @@ RSpec.describe ReviewableFlaggedPost, type: :model do
         Jobs::SendSystemMessage.jobs,
         :size,
       )
+    end
+
+    it "skips responders notification when the score type doesn't match any post action flag type" do
+      flagged_post.reviewable_scores.first.update!(reviewable_score_type: ReviewableScore.types[:needs_approval])
+
+      expect {
+        flagged_post.perform(moderator, :delete_and_agree_replies)
+      }.not_to change(Jobs::SendSystemMessage.jobs, :size)
     end
 
     it "ignores flagged responses" do

@@ -1,7 +1,10 @@
 import DiscourseRoute from "discourse/routes/discourse";
 import EmberObject, { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default class AdminLogsStaffActionLogsRoute extends DiscourseRoute {
+  @service router;
+
   queryParams = {
     filters: { refreshModel: true },
   };
@@ -15,7 +18,7 @@ export default class AdminLogsStaffActionLogsRoute extends DiscourseRoute {
   }
 
   deserializeQueryParam(value, urlKey, defaultValueType) {
-    if (urlKey === "filters") {
+    if (urlKey === "filters" && value) {
       return EmberObject.create(JSON.parse(decodeURIComponent(value)));
     }
 
@@ -34,10 +37,25 @@ export default class AdminLogsStaffActionLogsRoute extends DiscourseRoute {
     return super.serializeQueryParam(value, urlKey, defaultValueType);
   }
 
+<<<<<<< HEAD
   @action
   onFiltersChange(filters) {
-    this.transitionTo("adminLogs.staffActionLogs", {
+    this.router.transitionTo("adminLogs.staffActionLogs", {
       queryParams: { filters },
     });
   }
 }
+=======
+  actions: {
+    onFiltersChange(filters) {
+      if (filters && Object.keys(filters) === 0) {
+        this.transitionTo("adminLogs.staffActionLogs");
+      } else {
+        this.transitionTo("adminLogs.staffActionLogs", {
+          queryParams: { filters },
+        });
+      }
+    },
+  },
+});
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

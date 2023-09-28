@@ -35,8 +35,8 @@ class ApiKeyScope < ActiveRecord::Base
             actions: %w[topics#destroy],
           },
           read: {
-            actions: %w[topics#show topics#feed topics#posts],
-            params: %i[topic_id],
+            actions: %w[topics#show topics#feed topics#posts topics#show_by_external_id],
+            params: %i[topic_id external_id],
             aliases: {
               topic_id: :id,
             },
@@ -137,6 +137,10 @@ class ApiKeyScope < ActiveRecord::Base
             actions: %w[user_status#set user_status#clear],
           },
         },
+        user_status: {
+          read: { actions: %w[user_status#get] },
+          update: { actions: %w[user_status#set user_status#clear] },
+        },
         email: {
           receive_emails: {
             actions: %w[admin/email#handle_mail admin/email#smtp_should_reject],
@@ -174,7 +178,7 @@ class ApiKeyScope < ActiveRecord::Base
         },
         groups: {
           manage_groups: {
-            actions: %w[groups#members groups#add_members groups#remove_members],
+            actions: %w[groups#members groups#add_members groups#remove_member],
             params: %i[id],
           },
           administer_groups: {

@@ -6,12 +6,25 @@
 
 te:
   js:
+<<<<<<< HEAD
+    admin:
+      site_settings:
+        chat_separate_sidebar_mode:
+          always: "ఎల్లప్పుడూ"
     chat:
+      deleted_chat_username: తొలగించారు
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       cancel: "రద్దుచేయి"
       channel_settings:
         edit: "సవరణ"
         add: "కలుపు"
       close: "మూసివేయి"
+<<<<<<< HEAD
+      remove: "తొలగించు"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "తొలగించు"
       muted: "నిశ్శబ్దం"
       joined: "చేరినారు"
@@ -30,7 +43,10 @@ te:
         yesterday: నిన్న
       about_view:
         title: శీర్షిక
+<<<<<<< HEAD
         name: పేరు
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: వివరణ
       channel_info:
         back_to_channel: "వెనుకకు"
@@ -71,11 +87,14 @@ te:
           title: "ఇప్పటికే ఉన్న విషయానికి జరుపు"
       emoji_picker:
         flags: "కేతనాలు"
+<<<<<<< HEAD
       thread:
         title: "శీర్షిక"
         settings: "అమరికలు"
         notifications:
           tracking:
             title: "గమనిస్తున్నారు"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         cancel: "రద్దుచేయి"

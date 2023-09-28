@@ -6,7 +6,11 @@ const mergeTrees = require("broccoli-merge-trees");
 const MessageFormat = require("messageformat");
 const deepmerge = require("deepmerge");
 const glob = require("glob");
+<<<<<<< HEAD
+const { shouldLoadPlugins } = require("discourse-plugins");
+=======
 const { shouldLoadPluginTestJs } = require("discourse-plugins");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let built = false;
 
@@ -96,7 +100,7 @@ module.exports = function translatePlugin(...params) {
 module.exports.createI18nTree = function (discourseRoot, vendorJs) {
   let translations = [discourseRoot + "/config/locales"];
 
-  if (shouldLoadPluginTestJs()) {
+  if (shouldLoadPlugins()) {
     translations = translations.concat(
       glob
         .sync(discourseRoot + "/plugins/*/config/locales/client.en.yml")

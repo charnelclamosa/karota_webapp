@@ -1,11 +1,15 @@
 {{#if @fullscreen}}
   <div class="title">
     <h2>
+<<<<<<< HEAD
       <a
         class="fancy-title"
         href
         {{on "click" @jumpTop}}
       >{{this.topicTitle}}</a>
+=======
+      <a class="fancy-title" href {{on "click" @jumpTop}}>{{this.topicTitle}}</a>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </h2>
     {{#if (or this.siteSettings.topic_featured_link_enabled this.showTags)}}
       <div class="topic-header-extra">
@@ -34,12 +38,17 @@
   </div>
 {{/if}}
 
+<<<<<<< HEAD
 {{#if (and (not @fullscreen) this.currentUser)}}
   <div class="timeline-controls">
     <PluginOutlet
       @name="timeline-controls-before"
       @outletArgs={{hash model=@model}}
     />
+=======
+{{#if (and (not @fullscreen) @currentUser)}}
+  <div class="timeline-controls">
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <TopicAdminMenuButton
       @topic={{@model}}
       @addKeyboardTargetClass={{true}}
@@ -63,17 +72,26 @@
 {{#if this.displayTimeLineScrollArea}}
   <div class="timeline-scrollarea-wrapper">
     <div class="timeline-date-wrapper">
+<<<<<<< HEAD
       <a
         class="start-date"
         onClick={{this.updatePercentage}}
         title={{this.startDate}}
       >
+=======
+      <a class="start-date" onClick={{this.updatePercentage}} title={{this.startDate}}>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         <span>
           {{this.startDate}}
         </span>
       </a>
     </div>
-    <div class="timeline-scrollarea" style={{this.timelineScrollareaStyle}}>
+<<<<<<< HEAD
+    <div
+      class="timeline-scrollarea"
+      style={{this.timelineScrollareaStyle}}
+      {{did-insert this.registerScrollarea}}
+    >
       <div
         class="timeline-padding"
         style={{this.beforePadding}}
@@ -83,12 +101,22 @@
         @current={{this.current}}
         @total={{this.total}}
         @onGoBack={{this.onGoBack}}
+=======
+    <div class="timeline-scrollarea" style={{this.timelineScrollareaStyle}}>
+      <div class="timeline-padding" style={{this.beforePadding}} onClick={{this.updatePercentage}}></div>
+      <TopicTimeline::Scroller
+        @current={{this.current}}
+        @total={{this.total}}
+        @goBack={{this.goBack}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         @fullscreen={{@fullscreen}}
         @showDockedButton={{this.showDockedButton}}
         @date={{this.date}}
         @didStartDrag={{this.didStartDrag}}
         @dragMove={{this.dragMove}}
         @didEndDrag={{this.didEndDrag}}
+<<<<<<< HEAD
+        {{did-insert this.registerScroller}}
       />
       <div
         class="timeline-padding"
@@ -100,14 +128,31 @@
         <div class="timeline-last-read" style={{this.lastReadStyle}}>
           {{d-icon "minus" class="progress"}}
           <TopicTimeline::BackButton @onGoBack={{this.goBack}} />
+=======
+      />
+      <div class="timeline-padding" style={{this.afterPadding}} onClick={{this.updatePercentage}}></div>
+
+      {{#if this.hasBackPosition}}
+        <div class="timeline-last-read" style={{this.lastReadStyle}}>
+          {{d-icon "minus" class="progress"}}
+          {{#if this.showButton}}
+            <TopicTimeline::BackButton @onClick={{this.goBack}}/>
+          {{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </div>
       {{/if}}
     </div>
 
     <div class="timeline-date-wrapper">
+<<<<<<< HEAD
       <a class="now-date" onClick={{this.updatePercentage}}>
         <span>
           {{age-with-tooltip this.nowDate this.nowDateOptions}}
+=======
+      <a class="now-date" onClick={{this.updatePercentage}} title={{this.nowDate}}>
+        <span>
+          {{this.nowDate}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </span>
       </a>
     </div>
@@ -115,6 +160,7 @@
 
   <div class="timeline-footer-controls">
     {{#if this.displaySummary}}
+<<<<<<< HEAD
       <button
         type="button"
         class="show-summary btn btn-small"
@@ -134,6 +180,16 @@
           title={{i18n "topic.reply.help"}}
           {{on "click" (fn @replyToPost null)}}
         >
+=======
+      <button type="button" class="show-summary btn-small" label={{i18n "summary.short_label"}} title={{i18n "summary.short_title"}} {{on "click" @showSummary}}>
+        {{d-icon "layer-group"}}
+      </button>
+    {{/if}}
+
+    {{#if (and @currentUser (not @fullscreen))}}
+      {{#if this.canCreatePost}}
+        <button type="button" class="btn btn-default create reply-to-post no-text btn-icon" title={{i18n "topic.reply.help"}} {{on "click" (fn @replyToPost null)}}>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           {{d-icon "reply"}}
         </button>
       {{/if}}
@@ -142,23 +198,36 @@
     {{#if @fullscreen}}
       <button
         type="button"
+<<<<<<< HEAD
         class="timeline-open-jump-to-post-prompt-btn btn btn-text jump-to-post"
         title={{i18n "topic.progress.jump_prompt_long"}}
         {{on "click" @jumpToPostPrompt}}
       >
+=======
+        {{!-- we need to keep this a widget-button to not close the modal when opening form --}}
+        class="widget-button btn btn-text jump-to-post"
+        title={{i18n "topic.progress.jump_prompt_long"}}
+        {{on "click" @jumpToPostPrompt}}
+       >
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         <span class="d-button-label">
           {{i18n "topic.progress.jump_prompt"}}
         </span>
       </button>
     {{/if}}
 
+<<<<<<< HEAD
     {{#if this.currentUser}}
+=======
+    {{#if @currentUser}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <TopicNotificationsButton
         @notificationLevel={{@model.details.notification_level}}
         @topic={{@model}}
         @showFullTitle={{false}}
         @appendReason={{false}}
-        @placement={{"bottom-end"}}
+<<<<<<< HEAD
+        @placement="bottom-end"
         @showCaret={{false}}
       />
       {{#if @mobileView}}
@@ -175,3 +244,14 @@
     />
   </div>
 {{/if}}
+=======
+        @placement={{"bottom-end"}}
+        @showCaret={{false}}
+      />
+      {{#if @mobileView}}
+        <TopicAdminMenuButton @topic={{@model}} @addKeyboardTargetClass={{true}} @openUpwards={{true}} />
+      {{/if}}
+    {{/if}}
+  </div>
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

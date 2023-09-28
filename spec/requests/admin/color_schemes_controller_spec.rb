@@ -4,6 +4,7 @@ RSpec.describe Admin::ColorSchemesController do
   fab!(:admin) { Fabricate(:admin) }
   fab!(:moderator) { Fabricate(:moderator) }
   fab!(:user) { Fabricate(:user) }
+<<<<<<< HEAD
 
   let(:valid_params) do
     {
@@ -18,6 +19,22 @@ RSpec.describe Admin::ColorSchemesController do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
+=======
+
+  let(:valid_params) { { color_scheme: {
+      name: 'Such Design',
+      colors: [
+        { name: 'primary', hex: 'FFBB00' },
+        { name: 'secondary', hex: '888888' }
+      ]
+    }
+  } }
+
+  describe "#index" do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "returns JSON" do
         scheme_name = Fabricate(:color_scheme).name
         get "/admin/color_schemes.json"
@@ -63,7 +80,11 @@ RSpec.describe Admin::ColorSchemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "color schemes inaccessible"
     end
@@ -94,11 +115,19 @@ RSpec.describe Admin::ColorSchemesController do
     shared_examples "color scheme creation not allowed" do
       it "prevents creation with a 404 response" do
         params = valid_params
+<<<<<<< HEAD
         params[:color_scheme][:colors][0][:hex] = "cool color please"
 
         expect do post "/admin/color_schemes.json", params: valid_params end.not_to change {
           ColorScheme.count
         }
+=======
+        params[:color_scheme][:colors][0][:hex] = 'cool color please'
+
+        expect do
+          post "/admin/color_schemes.json", params: valid_params
+        end.not_to change { ColorScheme.count }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -112,7 +141,11 @@ RSpec.describe Admin::ColorSchemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "color scheme creation not allowed"
     end
@@ -166,7 +199,11 @@ RSpec.describe Admin::ColorSchemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "color scheme update not allowed"
     end
@@ -202,7 +239,11 @@ RSpec.describe Admin::ColorSchemesController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "color scheme deletion not allowed"
     end

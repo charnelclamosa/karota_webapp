@@ -11,12 +11,21 @@ RSpec.describe Admin::SiteTextsController do
     I18n.reload!
   end
 
+<<<<<<< HEAD
   describe "#index" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "returns json" do
         get "/admin/customize/site_texts.json", params: { q: "title", locale: default_locale }
+=======
+  describe '#index' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it 'returns json' do
+        get "/admin/customize/site_texts.json", params: { q: 'title', locale: default_locale }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(response.status).to eq(200)
         expect(response.parsed_body["site_texts"]).to include(include("id" => "title"))
       end
@@ -224,6 +233,9 @@ RSpec.describe Admin::SiteTextsController do
                 {
                   id: "colour.#{key}",
                   value: value,
+                  status: "up_to_date",
+                  old_default: nil,
+                  new_default: nil,
                   can_revert: overridden,
                   overridden: overridden,
                   interpolation_keys: interpolation_keys,
@@ -316,7 +328,11 @@ RSpec.describe Admin::SiteTextsController do
 
     shared_examples "site texts inaccessible" do
       it "denies access with a 404 response" do
+<<<<<<< HEAD
         get "/admin/customize/site_texts.json", params: { q: "title", locale: default_locale }
+=======
+        get "/admin/customize/site_texts.json", params: { q: 'title', locale: default_locale }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -330,17 +346,29 @@ RSpec.describe Admin::SiteTextsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "site texts inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#show" do
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
       it "returns a site text for a key that exists" do
+=======
+  describe '#show' do
+    context "when logged in as an admin" do
+      before { sign_in(admin) }
+
+      it 'returns a site text for a key that exists' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/admin/customize/site_texts/js.topic.list.json", params: { locale: default_locale }
         expect(response.status).to eq(200)
 
@@ -542,13 +570,21 @@ RSpec.describe Admin::SiteTextsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "site text inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#update & #revert" do
+=======
+  describe '#update & #revert' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -789,6 +825,7 @@ RSpec.describe Admin::SiteTextsController do
 
     shared_examples "site text update not allowed" do
       it "prevents updates with a 404 response" do
+<<<<<<< HEAD
         put "/admin/customize/site_texts/js.emoji_picker.animals_%26_nature.json",
             params: {
               site_text: {
@@ -796,6 +833,11 @@ RSpec.describe Admin::SiteTextsController do
                 locale: default_locale,
               },
             }
+=======
+        put "/admin/customize/site_texts/js.emoji_picker.animals_%26_nature.json", params: {
+          site_text: { value: 'foo', locale: default_locale }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -809,9 +851,78 @@ RSpec.describe Admin::SiteTextsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "site text update not allowed"
+    end
+  end
+
+<<<<<<< HEAD
+  describe "#dismiss_outdated" do
+    before { sign_in(admin) }
+
+    context "when using a key which isn't overridden" do
+      it "returns a not found error" do
+        put "/admin/customize/site_texts/title/dismiss_outdated.json",
+            params: {
+              locale: default_locale,
+            }
+
+        expect(response.status).to eq(404)
+
+        json = response.parsed_body
+        expect(json["error_type"]).to eq("not_found")
+      end
+    end
+
+    context "when the override isn't outdated" do
+      before do
+        Fabricate(
+          :translation_override,
+          locale: default_locale,
+          translation_key: "title",
+          value: "My Forum",
+        )
+      end
+
+      it "returns an unprocessable entity error" do
+        put "/admin/customize/site_texts/title/dismiss_outdated.json",
+            params: {
+              locale: default_locale,
+            }
+
+        expect(response.status).to eq(422)
+
+        json = response.parsed_body
+        expect(json["failed"]).to eq("FAILED")
+        expect(json["message"]).to eq("Can only dismiss outdated translations")
+      end
+    end
+
+    context "when the override is outdated" do
+      before do
+        Fabricate(
+          :translation_override,
+          locale: default_locale,
+          translation_key: "title",
+          value: "My Forum",
+          status: "outdated",
+        )
+      end
+
+      it "returns success" do
+        put "/admin/customize/site_texts/title/dismiss_outdated.json",
+            params: {
+              locale: default_locale,
+            }
+
+        expect(response.status).to eq(200)
+        expect(response.parsed_body["success"]).to eq("OK")
+      end
     end
   end
 
@@ -836,6 +947,32 @@ RSpec.describe Admin::SiteTextsController do
         before { sign_in(admin) }
 
         it "returns correct json" do
+=======
+  context "when reseeding" do
+    before do
+      staff_category = Fabricate(
+        :category,
+        name: "Staff EN",
+        user: Discourse.system_user
+      )
+      SiteSetting.staff_category_id = staff_category.id
+
+      guidelines_topic = Fabricate(
+        :topic,
+        title: "The English Guidelines",
+        category: @staff_category,
+        user: Discourse.system_user
+      )
+      Fabricate(:post, topic: guidelines_topic, user: Discourse.system_user)
+      SiteSetting.guidelines_topic_id = guidelines_topic.id
+    end
+
+    describe '#get_reseed_options' do
+      context "when logged in as an admin" do
+        before { sign_in(admin) }
+
+        it 'returns correct json' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           get "/admin/customize/reseed.json"
           expect(response.status).to eq(200)
 
@@ -871,17 +1008,29 @@ RSpec.describe Admin::SiteTextsController do
       end
 
       context "when logged in as a non-staff user" do
+<<<<<<< HEAD
         before { sign_in(user) }
+=======
+        before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         include_examples "reseed options inaccessible"
       end
     end
 
+<<<<<<< HEAD
     describe "#reseed" do
       context "when logged in as an admin" do
         before { sign_in(admin) }
 
         it "reseeds categories and topics" do
+=======
+    describe '#reseed' do
+      context "when logged in as an admin" do
+        before { sign_in(admin) }
+
+        it 'reseeds categories and topics' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           SiteSetting.default_locale = :de
 
           post "/admin/customize/reseed.json",
@@ -902,11 +1051,18 @@ RSpec.describe Admin::SiteTextsController do
 
       shared_examples "reseed not allowed" do
         it "prevents reseeds with a 404 response" do
+<<<<<<< HEAD
           post "/admin/customize/reseed.json",
                params: {
                  category_ids: ["staff_category_id"],
                  topic_ids: ["guidelines_topic_id"],
                }
+=======
+          post "/admin/customize/reseed.json", params: {
+            category_ids: ["staff_category_id"],
+            topic_ids: ["guidelines_topic_id"]
+          }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           expect(response.status).to eq(404)
           expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -920,7 +1076,11 @@ RSpec.describe Admin::SiteTextsController do
       end
 
       context "when logged in as a non-staff user" do
+<<<<<<< HEAD
         before { sign_in(user) }
+=======
+        before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         include_examples "reseed not allowed"
       end

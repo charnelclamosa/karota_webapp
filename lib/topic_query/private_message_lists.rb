@@ -114,9 +114,35 @@ class TopicQuery
       if type == :group
         user_groups_private_messages(user)
       elsif type == :user
+<<<<<<< HEAD
         user_personal_private_messages(user)
       elsif type == :all
         user_personal_and_groups_private_messages(user)
+=======
+        result = result.where("topics.id IN (SELECT topic_id FROM topic_allowed_users WHERE user_id = ?)", user.id.to_i)
+      elsif type == :all
+        group_ids = group_with_messages_ids(user)
+
+        result =
+        if group_ids.present?
+          result.where(<<~SQL, user.id.to_i, group_ids)
+            topics.id IN (
+              SELECT topic_id
+              FROM topic_allowed_users
+              WHERE user_id = ?
+              UNION ALL
+              SELECT topic_id FROM topic_allowed_groups
+              WHERE group_id IN (?)
+            )
+          SQL
+        else
+          result.joins(<<~SQL)
+          INNER JOIN topic_allowed_users tau
+            ON tau.topic_id = topics.id
+            AND tau.user_id = #{user.id.to_i}
+          SQL
+        end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 

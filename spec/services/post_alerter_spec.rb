@@ -118,6 +118,17 @@ RSpec.describe PostAlerter do
       )
     end
 
+    it "notifies about private message even if direct mention" do
+      pm = Fabricate(:topic, archetype: 'private_message', category_id: nil)
+      op = Fabricate(:post, topic: pm, user: pm.user, raw: "Hello @#{user.username}, nice to meet you")
+      pm.allowed_users << pm.user
+      pm.allowed_users << user
+      TopicUser.create!(user_id: user.id, topic_id: pm.id, notification_level: TopicUser.notification_levels[:watching])
+      PostAlerter.post_created(op)
+
+      expect(Notification.where(user_id: user.id).pluck_first(:notification_type)).to eq(Notification.types[:private_message])
+    end
+
     context "with group inboxes" do
       fab!(:user1) { Fabricate(:user) }
       fab!(:user2) { Fabricate(:user) }
@@ -943,8 +954,12 @@ RSpec.describe PostAlerter do
             let(:expected_notification) do
               notification_level == :watching ? :private_message : :mentioned
             end
+            let(:expected_notification) {
+              notification_level == :watching ? :private_message : :mentioned
+            }
 
             it "notifies about @username mention" do
+<<<<<<< HEAD
               args = { user: bob, topic: pm_topic, raw: "Hello @alice" }
               expect { create_post_with_alerts(args) }.to add_notification(
                 alice,
@@ -958,6 +973,15 @@ RSpec.describe PostAlerter do
                 alice,
                 expected_notification,
               )
+=======
+              args = { user: bob, topic: pm_topic, raw: 'Hello @alice' }
+              expect { create_post_with_alerts(args) }.to add_notification(alice, expected_notification)
+            end
+
+            it "notifies about @username mentions by non-human users" do
+              args = { user: Discourse.system_user, topic: pm_topic, raw: 'Hello @alice' }
+              expect { create_post_with_alerts(args) }.to add_notification(alice, expected_notification)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             end
 
             it "notifies about @group mention when allowed user is part of group" do
@@ -1194,13 +1218,30 @@ RSpec.describe PostAlerter do
       it "does not send push notifications when a filters returns false" do
         Plugin::Instance.new.register_push_notification_filter { |user, payload| false }
         expect { mention_post }.not_to change { Jobs::PushNotification.jobs.count }
+
+        events = DiscourseEvent.track_events { mention_post }
+        expect(events.find { |event| event[:event_name] == :push_notification }).not_to be_present
+
         DiscoursePluginRegistry.reset!
       end
+    end
+
+    it "triggers the push notification event" do
+      events = DiscourseEvent.track_events { mention_post }
+
+      push_notification_event = events.find { |event| event[:event_name] == :push_notification }
+      expect(push_notification_event).to be_present
+      expect(push_notification_event[:params][0].username).to eq("eviltrout")
+      expect(push_notification_event[:params][1][:username]).to eq(user.username)
+      expect(push_notification_event[:params][1][:excerpt]).to eq("Hello @eviltrout ❤")
     end
 
     it "pushes nothing to suspended users" do
       evil_trout.update_columns(suspended_till: 1.year.from_now)
       expect { mention_post }.to_not change { Jobs::PushNotification.jobs.count }
+
+      events = DiscourseEvent.track_events { mention_post }
+      expect(events.find { |event| event[:event_name] == :push_notification }).not_to be_present
     end
 
     it "pushes nothing when the user is in 'do not disturb'" do
@@ -1212,6 +1253,9 @@ RSpec.describe PostAlerter do
       )
 
       expect { mention_post }.to_not change { Jobs::PushNotification.jobs.count }
+
+      events = DiscourseEvent.track_events { mention_post }
+      expect(events.find { |event| event[:event_name] == :push_notification }).not_to be_present
     end
 
     it "correctly pushes notifications if configured correctly" do
@@ -1312,8 +1356,7 @@ RSpec.describe PostAlerter do
       expect(JSON.parse(body)).to eq(payload)
     end
 
-    it "does not have invalid HTML in the excerpt when enable_experimental_hashtag_autocomplete is enabled" do
-      SiteSetting.enable_experimental_hashtag_autocomplete = true
+    it "does not have invalid HTML in the excerpt" do
       Fabricate(:category, slug: "random")
       Jobs.run_immediately!
       body = nil
@@ -1413,7 +1456,11 @@ RSpec.describe PostAlerter do
             end
         end
 
-      expect(events.size).to eq(2)
+      expect(events.map { |event| event[:event_name] }).to include(
+        :pre_notification_alert,
+        :push_notification,
+        :post_notification_alert,
+      )
       expect(messages.size).to eq(0)
       expect(Jobs::PushNotification.jobs.size).to eq(1)
     end
@@ -1697,6 +1744,7 @@ RSpec.describe PostAlerter do
 
       u1.notifications.destroy_all
 
+<<<<<<< HEAD
       expect do create_post(topic: topic, user: u2) end.to change {
         u1.reload.notifications.count
       }.by(1)
@@ -1708,6 +1756,17 @@ RSpec.describe PostAlerter do
           read: false,
         ),
       ).to eq(true)
+=======
+      expect do
+        create_post(topic: topic, user: u2)
+      end.to change { u1.reload.notifications.count }.by(1)
+      expect(u1.notifications.exists?(
+        topic_id: topic.id,
+        notification_type: Notification.types[:replied],
+        post_number: 1,
+        read: false
+      )).to eq(true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "it doesn't notify about small action posts when the topic author is watching the topic " do
@@ -1720,9 +1779,15 @@ RSpec.describe PostAlerter do
 
       u1.notifications.destroy_all
 
+<<<<<<< HEAD
       expect do topic.update_status("closed", true, u2, message: "hello world") end.not_to change {
         u1.reload.notifications.count
       }
+=======
+      expect do
+        topic.update_status("closed", true, u2, message: "hello world")
+      end.not_to change { u1.reload.notifications.count }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Admin::ReportsController < Admin::StaffController
+<<<<<<< HEAD
+  REPORTS_LIMIT = 50
+
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def index
     reports_methods =
       ["page_view_total_reqs"] +
@@ -108,10 +113,7 @@ class Admin::ReportsController < Admin::StaffController
     facets = nil
     facets = report_params[:facets].map { |s| s.to_s.to_sym } if Array === report_params[:facets]
 
-    limit = nil
-    if report_params.has_key?(:limit) && report_params[:limit].to_i > 0
-      limit = report_params[:limit].to_i
-    end
+    limit = fetch_limit_from_params(params: report_params, default: nil, max: REPORTS_LIMIT)
 
     filters = nil
     filters = report_params[:filters] if report_params.has_key?(:filters)

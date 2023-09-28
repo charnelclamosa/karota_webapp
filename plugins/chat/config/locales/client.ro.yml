@@ -6,28 +6,50 @@
 
 ro:
   js:
+<<<<<<< HEAD
     admin:
+      site_settings:
+        chat_separate_sidebar_mode:
+          always: "Întotdeauna"
+          never: "Niciodată"
       logs:
         staff_actions:
           actions:
             chat_auto_remove_membership: "Membrii sunt eliminați automat din canale"
     chat:
+      deleted_chat_username: șters
       create: "Creează"
       cancel: "Anulare"
+      move_to_channel:
+        instructions:
+          one: "Mutați <strong>%{count}</strong> mesaj. Selectați un canal de destinație. Un mesaj placeholder va fi creat în canalul <strong>%{channelTitle}</strong> pentru a indica faptul că acest mesaj a fost mutat. Retineți că lanțurile de răspuns nu vor fi păstrate în noul canal, iar mesajele din vechiul canal nu vor mai apărea ca raspunsuri la mesajele mutate."
+          few: "Mutați <strong>%{count}</strong> mesaje. Selectați un canal destinație. Un mesaj substitut va fi creat în canalul <strong>%{channelTitle}</strong> pentru a indica faptul că aceste mesaje au fost mutate. Rețineți că lanțurile de răspunsuri nu vor fi păstrate în noul canal, iar mesajele din vechiul canal nu vor mai apărea ca răspunsuri la mesajele mutate."
+          other: "Mutați <strong>%{count}</strong> mesaje. Selectați un canal destinație. Un mesaj substitut va fi creat în canalul <strong>%{channelTitle}</strong> pentru a indica faptul că aceste mesaje au fost mutate. Rețineți că lanțurile de răspunsuri nu vor fi păstrate în noul canal, iar mesajele din vechiul canal nu vor mai apărea ca răspunsuri la mesajele mutate."
+=======
+    chat:
+      create: "Creează"
+      cancel: "Anulare"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_settings:
         edit: "Modifică"
         add: "Adaugă"
         join: "Alătură-te"
         leave: "Părăsește"
+<<<<<<< HEAD
       channel_delete:
         instructions: "<p>Șterge canalul <strong>%{name}</strong> și istoricul de chat. Toate mesajele și datele asociate, cum ar fi reacțiile și încărcările, vor fi șterse permanent. Dacă doriți să păstrați istoricul canalului și să-l decomisionați, s-ar putea să doriți să arhivați canalul în schimb.</p> <p>Sunteți sigur că doriți să ștergeți <strong>permanent</strong> canalul? Pentru a confirma, tastați numele canalului în caseta de mai jos.</p>"
       close: "Închide sondajul"
+      remove: "Elimină"
       expand: "Extinde sertarul de chat"
+=======
+      close: "Închide sondajul"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Șterge"
       muted: "silențios"
       joined: "înscris"
       email_frequency:
         never: "Niciodată"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "Afișați indicatorul de activitate în antet"
         all_new: "Toate mesajele noi"
@@ -41,7 +63,18 @@ ro:
         description: "Selectați o opțiune de mai jos pentru a rezuma conversația trimisă în intervalul de timp dorit."
         summarize: "Rezumat"
       mention_warning:
+        groups:
+          unreachable_1: "@%{group} nu permite mențiuni."
+          unreachable_multiple:
+            one: "@%{group} și %{count} alt grup nu permit mențiuni."
+            few: "@%{group} și %{count} alte grupuri nu permit mențiuni."
+            other: "@%{group} și %{count} alte grupuri nu permit mențiuni."
+=======
+      flag: "Marchează cu marcaj de avertizare"
+      join: "Alătură-te"
+      mention_warning:
         dismiss: "renunță"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Răspunde"
       edit: "Modifică"
       rebake_message: "Reconstruieşte HTML"
@@ -63,13 +96,20 @@ ro:
         yesterday: Ieri
       about_view:
         title: Titlu
+<<<<<<< HEAD
         name: Nume
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Descriere
       channel_info:
         back_to_channel: "Înapoi"
         tabs:
           about: Despre
+<<<<<<< HEAD
           members: Membri
+=======
+          members: Membrii
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           settings: Opțiuni
       direct_message_creator:
         title: Mesaj nou
@@ -82,13 +122,19 @@ ro:
       composer:
         italic_text: "text italic"
         bold_text: "text aldin"
+<<<<<<< HEAD
         send: "Trimite"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Niciodată"
       settings:
         follow: "Alătură-te"
         followed: "Înscris"
+<<<<<<< HEAD
         threading_enabled: "Activat"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Notificări"
         preview: "Previzualizează"
         save: "Salvare"
@@ -116,6 +162,7 @@ ro:
       emoji_picker:
         objects: "Obiecte"
         flags: "Marcaje de avertizare"
+<<<<<<< HEAD
       thread:
         title: "Titlu"
         replies:
@@ -129,6 +176,8 @@ ro:
             title: "Normal"
           tracking:
             title: "Urmărire"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Mesaj nou"
         cancel: "Anulare"
@@ -140,3 +189,10 @@ ro:
           fields:
             message:
               label: Mesaj
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Semnalat de"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

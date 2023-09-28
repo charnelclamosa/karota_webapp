@@ -89,8 +89,11 @@ class UserOption < ActiveRecord::Base
     self.title_count_mode = SiteSetting.default_title_count_mode
 
     self.hide_profile_and_presence = SiteSetting.default_hide_profile_and_presence
+<<<<<<< HEAD
     self.sidebar_link_to_filtered_list = SiteSetting.default_sidebar_link_to_filtered_list
     self.sidebar_show_count_of_new_items = SiteSetting.default_sidebar_show_count_of_new_items
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     true
   end
@@ -288,10 +291,15 @@ end
 #  chat_email_frequency                 :integer          default(1), not null
 #  enable_experimental_sidebar          :boolean          default(FALSE)
 #  seen_popups                          :integer          is an Array
+<<<<<<< HEAD
 #  chat_header_indicator_preference     :integer          default(0), not null
 #  sidebar_link_to_filtered_list        :boolean          default(FALSE), not null
 #  sidebar_show_count_of_new_items      :boolean          default(FALSE), not null
 #  watched_precedence_over_muted        :boolean
+#  chat_separate_sidebar_mode           :integer          default(0), not null
+=======
+#  sidebar_list_destination             :integer          default("none_selected"), not null
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 #
 # Indexes
 #

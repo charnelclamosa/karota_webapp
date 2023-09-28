@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 {{#if @channel.id}}
   <ChatChannel
     @channel={{@channel}}
     @targetMessageId={{readonly @targetMessageId}}
   />
 {{/if}}
+=======
+{{#if this.chat.activeChannel}}
+  <ChatLivePane @chatChannel={{this.chat.activeChannel}} @onBackClick={{action "navigateToIndex"}} @onSwitchChannel={{action "switchChannel"}} />
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

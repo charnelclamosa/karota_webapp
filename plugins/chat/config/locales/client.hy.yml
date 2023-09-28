@@ -6,7 +6,17 @@
 
 hy:
   js:
+<<<<<<< HEAD
+    admin:
+      site_settings:
+        chat_separate_sidebar_mode:
+          always: "Միշտ"
+          never: "Երբեք"
     chat:
+      deleted_chat_username: ջնջված
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Ստեղծել"
       cancel: "Չեղարկել"
       channel_settings:
@@ -15,19 +25,28 @@ hy:
         join: "Միանալ"
         leave: "Լքել"
       close: "Փակել"
+<<<<<<< HEAD
+      remove: "Հեռացնել"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Ջնջել"
       edited: "խմբագրվել է"
       muted: "խլացված"
       joined: "միացել է"
       email_frequency:
         never: "Երբեք"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "Երբեք"
       flag: "Դրոշակավորել"
       join: "Միանալ"
       last_visit: "վերջին այցելությունը"
+=======
+      flag: "Դրոշակավորել"
+      join: "Միանալ"
       mention_warning:
         dismiss: "չեղարկել"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Պատասխանել"
       edit: "Խմբագրել"
       rebake_message: "Վերակառուցել HTML-ը"
@@ -48,7 +67,10 @@ hy:
         yesterday: Երեկվա
       about_view:
         title: Վերնագիր
+<<<<<<< HEAD
         name: Անուն
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Նկարագրությունը
       channel_info:
         back_to_channel: "Ետ"
@@ -56,8 +78,11 @@ hy:
           about: Մասին
           members: Անդամներ
           settings: Կարգավորումներ
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Տարրեր չկան"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Նոր Հաղորդագրություն
         prefix: "Ում:"
@@ -69,13 +94,19 @@ hy:
       composer:
         italic_text: "շեղ տեքստ"
         bold_text: "թավ տեքստ"
+<<<<<<< HEAD
         send: "Ուղարկել"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Երբեք"
       settings:
         follow: "Միանալ"
         followed: "Միացել է"
+<<<<<<< HEAD
         threading_disabled: "Անջատված"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Ծանուցումներ"
         preview: "Նախադիտում"
         save: "Պահպանել"
@@ -107,6 +138,7 @@ hy:
         activities: "Ակտիվություն"
         flags: "Դրոշակներ"
         symbols: "Նշաններ"
+<<<<<<< HEAD
       thread:
         title: "Վերնագիր"
         replies:
@@ -119,6 +151,8 @@ hy:
             title: "Նորմալ"
           tracking:
             title: "Հետևում Եմ"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Նոր Հաղորդագրություն"
         cancel: "Չեղարկել"
@@ -130,3 +164,10 @@ hy:
           fields:
             message:
               label: Նոր Հաղորդագրություն
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "Դրոշակավորել է"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

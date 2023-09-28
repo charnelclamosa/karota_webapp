@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="chat-browse-view__header chat-full-page-header">
   {{#if this.site.mobileView}}
     <LinkTo
@@ -5,6 +6,17 @@
       class="chat-full-page-header__back-btn no-text btn-flat btn"
       title={{i18n "chat.browse.back"}}
     >
+=======
+{{#if this.chatProgressBarContainer}}
+  {{#in-element this.chatProgressBarContainer}}
+    <DProgressBar @key="browse-list" @isLoading={{this.isLoading}} />
+  {{/in-element}}
+{{/if}}
+
+<div class="chat-browse-view__header chat-full-page-header">
+  {{#if this.site.mobileView}}
+    <LinkTo @route="chat.index" class="chat-full-page-header__back-btn no-text btn-flat btn" title={{i18n "chat.browse.back"}}>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       {{d-icon "chevron-left"}}
     </LinkTo>
   {{/if}}
@@ -13,13 +25,20 @@
 
   {{#if this.currentUser.staff}}
     <DButton
-      @action={{action "createChannel"}}
+<<<<<<< HEAD
+      @action={{this.createChannel}}
       @icon="plus"
-      @class={{concat-class
+      @label={{if this.site.desktopView "chat.create_channel.title"}}
+      class={{concat-class
         "new-channel-btn"
         (if this.site.mobileView "btn-flat")
       }}
+=======
+      @action={{action "createChannel"}}
+      @icon="plus"
+      @class={{concat-class "new-channel-btn" (if this.site.mobileView "btn-flat")}}
       @label={{if this.site.desktopView "chat.create_channel.title"}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     />
   {{/if}}
 </div>
@@ -50,15 +69,20 @@
     />
   </div>
 
+<<<<<<< HEAD
   {{#if
     (and
       this.channelsCollection.fetchedOnce (not this.channelsCollection.length)
     )
   }}
+=======
+  {{#if (and (not this.channels.length) (not this.isLoading))}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <div class="empty-state">
       <span class="empty-state-title">{{i18n "chat.empty_state.title"}}</span>
       <div class="empty-state-body">
         <p>{{i18n "chat.empty_state.direct_message"}}</p>
+<<<<<<< HEAD
         <DButton
           @action={{this.showChatNewMessageModal}}
           @label="chat.empty_state.direct_message_cta"
@@ -86,3 +110,27 @@
     </LoadMore>
   {{/if}}
 </div>
+=======
+
+        <LinkTo @route={{concat "chat.draft-channel"}}>
+          {{i18n "chat.empty_state.direct_message_cta"}}
+        </LinkTo>
+      </div>
+    </div>
+  {{else if this.channels.length}}
+    <div class="chat-browse-view__content_wrapper">
+      <div class="chat-browse-view__content">
+        <div class="chat-browse-view__cards">
+          {{#each this.channels as |channel|}}
+            <ChatChannelCard @channel={{channel}} />
+          {{/each}}
+        </div>
+
+        {{#unless this.isLoading}}
+          <OnVisibilityAction @action={{action "onScroll"}} />
+        {{/unless}}
+      </div>
+    </div>
+  {{/if}}
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

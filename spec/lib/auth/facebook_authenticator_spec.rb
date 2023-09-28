@@ -5,8 +5,12 @@ RSpec.describe Auth::FacebookAuthenticator do
     {
       provider: "facebook",
       extra: {
+<<<<<<< HEAD
         raw_info: {
         },
+=======
+        raw_info: {}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       },
       info: {
         email: "bob@bob.com",

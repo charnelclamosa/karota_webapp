@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::SearchLogsController < Admin::StaffController
+<<<<<<< HEAD
+=======
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def index
     period = params[:period] || "all"
     search_type = params[:search_type] || "all"

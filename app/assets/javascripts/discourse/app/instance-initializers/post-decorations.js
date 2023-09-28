@@ -10,6 +10,7 @@ import { nativeLazyLoading } from "discourse/lib/lazy-load-images";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { create } from "virtual-dom";
 import FullscreenTableModal from "discourse/components/modal/fullscreen-table";
+import { SELECTORS } from "discourse/lib/lightbox/constants";
 
 export default {
   initialize(owner) {
@@ -18,63 +19,68 @@ export default {
       const session = owner.lookup("service:session");
       const site = owner.lookup("service:site");
       const modal = owner.lookup("service:modal");
-      api.decorateCookedElement(
-        (elem) => {
-          return highlightSyntax(elem, siteSettings, session);
-        },
-        {
-          id: "discourse-syntax-highlighting",
-        }
-      );
+      // will eventually just be called lightbox
+      const lightboxService = owner.lookup("service:lightbox");
+      api.decorateCookedElement((elem) => {
+        return highlightSyntax(elem, siteSettings, session);
+      });
 
-      api.decorateCookedElement(
-        (elem) => {
-          return lightbox(elem, siteSettings);
-        },
-        { id: "discourse-lightbox" }
-      );
-
-      api.decorateCookedElement(
-        (elem) => {
-          const grids = elem.querySelectorAll(".d-image-grid");
-
-          if (!grids.length) {
-            return;
+      if (siteSettings.enable_experimental_lightbox) {
+        api.decorateCookedElement(
+          (element, helper) => {
+            return helper &&
+              element.querySelector(SELECTORS.DEFAULT_ITEM_SELECTOR)
+              ? lightboxService.setupLightboxes({
+                  container: element,
+                  selector: SELECTORS.DEFAULT_ITEM_SELECTOR,
+                })
+              : null;
+          },
+          {
+            onlyStream: true,
           }
+        );
 
-          grids.forEach((grid) => {
-            return new Columns(grid, {
-              columns: site.mobileView ? 2 : 3,
-            });
+        api.cleanupStream(lightboxService.cleanupLightboxes);
+      } else {
+        api.decorateCookedElement((elem) => {
+          return lightbox(elem, siteSettings);
+        });
+      }
+
+      api.decorateCookedElement((elem) => {
+        const grids = elem.querySelectorAll(".d-image-grid");
+
+        if (!grids.length) {
+          return;
+        }
+
+        grids.forEach((grid) => {
+          return new Columns(grid, {
+            columns: site.mobileView ? 2 : 3,
           });
-        },
-        { id: "discourse-image-grid" }
-      );
+        });
+      });
 
       if (siteSettings.support_mixed_text_direction) {
-        api.decorateCookedElement(setTextDirections, {
-          id: "discourse-text-direction",
-        });
+        api.decorateCookedElement(setTextDirections, {});
       }
 
       nativeLazyLoading(api);
 
-      api.decorateCookedElement(
-        (elem) => {
-          elem.querySelectorAll("audio").forEach((player) => {
-            player.addEventListener("play", () => {
-              const postId = parseInt(
-                elem.closest("article")?.dataset.postId,
-                10
-              );
-              if (postId) {
-                api.preventCloak(postId);
-              }
-            });
+      api.decorateCookedElement((elem) => {
+        elem.querySelectorAll("audio").forEach((player) => {
+          player.addEventListener("play", () => {
+            const postId = parseInt(
+              elem.closest("article")?.dataset.postId,
+              10
+            );
+            if (postId) {
+              api.preventCloak(postId);
+            }
           });
-        },
-        { id: "discourse-audio" }
-      );
+        });
+      });
 
       const caps = owner.lookup("service:capabilities");
       if (caps.isSafari || caps.isIOS) {
@@ -96,7 +102,7 @@ export default {
               }
             });
           },
-          { id: "safari-video-poster", afterAdopt: true, onlyStream: true }
+          { afterAdopt: true, onlyStream: true }
         );
       }
 
@@ -113,45 +119,39 @@ export default {
         wikipedia: "fab-wikipedia-w",
       };
 
-      api.decorateCookedElement(
-        (elem) => {
-          elem.querySelectorAll(".onebox").forEach((onebox) => {
-            Object.entries(oneboxTypes).forEach(([key, value]) => {
-              if (onebox.classList.contains(key)) {
-                onebox
-                  .querySelector(".source")
-                  .insertAdjacentHTML("afterbegin", iconHTML(value));
-              }
+      api.decorateCookedElement((elem) => {
+        elem.querySelectorAll(".onebox").forEach((onebox) => {
+          Object.entries(oneboxTypes).forEach(([key, value]) => {
+            if (onebox.classList.contains(key)) {
+              onebox
+                .querySelector(".source")
+                .insertAdjacentHTML("afterbegin", iconHTML(value));
+            }
+          });
+        });
+      });
+
+      api.decorateCookedElement((element) => {
+        element
+          .querySelectorAll(".video-container")
+          .forEach((videoContainer) => {
+            const video = videoContainer.getElementsByTagName("video")[0];
+            video.addEventListener("loadeddata", () => {
+              discourseLater(() => {
+                if (video.videoWidth === 0 || video.videoHeight === 0) {
+                  const notice = document.createElement("div");
+                  notice.className = "notice";
+                  notice.innerHTML =
+                    iconHTML("exclamation-triangle") +
+                    " " +
+                    I18n.t("cannot_render_video");
+
+                  videoContainer.appendChild(notice);
+                }
+              }, 500);
             });
           });
-        },
-        { id: "onebox-source-icons" }
-      );
-
-      api.decorateCookedElement(
-        (element) => {
-          element
-            .querySelectorAll(".video-container")
-            .forEach((videoContainer) => {
-              const video = videoContainer.getElementsByTagName("video")[0];
-              video.addEventListener("loadeddata", () => {
-                discourseLater(() => {
-                  if (video.videoWidth === 0 || video.videoHeight === 0) {
-                    const notice = document.createElement("div");
-                    notice.className = "notice";
-                    notice.innerHTML =
-                      iconHTML("exclamation-triangle") +
-                      " " +
-                      I18n.t("cannot_render_video");
-
-                    videoContainer.appendChild(notice);
-                  }
-                }, 500);
-              });
-            });
-        },
-        { id: "discourse-video-codecs" }
-      );
+      });
 
       function _createButton() {
         const openPopupBtn = document.createElement("button");
@@ -211,7 +211,6 @@ export default {
         },
         {
           onlyStream: true,
-          id: "fullscreen-table",
         }
       );
     });

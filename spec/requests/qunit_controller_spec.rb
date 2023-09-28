@@ -1,64 +1,53 @@
 # frozen_string_literal: true
 
 RSpec.describe QunitController do
-  describe "#theme" do
-    let(:theme) { Fabricate(:theme, name: "main-theme") }
-    let(:component) { Fabricate(:theme, component: true, name: "enabled-component") }
-    let(:disabled_component) do
-      Fabricate(:theme, component: true, enabled: false, name: "disabled-component")
-    end
-    let(:theme_without_tests) { Fabricate(:theme, name: "no-tests-guy") }
+  def production_sign_in(user)
+    # We need to call sign_in before stubbing the method because SessionController#become
+    # checks for the current env when the file is loaded.
+    # We need to make sure become is called once before stubbing, or the method
+    # wont'be available for future tests if this one runs first.
+    sign_in(user) if user
+    Rails.env.stubs(:production?).returns(true)
+  end
 
-    before do
-      Theme.destroy_all
-      theme.set_default!
-      component.add_relative_theme!(:parent, theme)
-      disabled_component.add_relative_theme!(:parent, theme)
-      [theme, component, disabled_component].each do |t|
-        t.set_field(
-          target: :extra_js,
-          type: :js,
-          name: "discourse/initializers/my-#{t.id}-initializer.js",
-          value: "console.log(#{t.id});",
-        )
-        t.set_field(
-          target: :tests_js,
-          type: :js,
-          name: "acceptance/some-test-#{t.id}.js",
-          value: "assert.ok(#{t.id});",
-        )
-        t.save!
-      end
-    end
+  it "hides page for regular users in production" do
+    production_sign_in(Fabricate(:user))
+    get "/theme-qunit"
+    expect(response.status).to eq(404)
+  end
 
-    context "with non-admin users on production" do
-      before do
-        # We need to call sign_in before stubbing the method because SessionController#become
-        # checks for the current env when the file is loaded.
-        # We need to make sure become is called once before stubbing, or the method
-        # wont'be available for future tests if this one runs first.
-        sign_in(Fabricate(:user))
-        Rails.env.stubs(:production?).returns(true)
-      end
+  it "hides page for anon in production" do
+    production_sign_in(nil)
+    get "/theme-qunit"
+    expect(response.status).to eq(404)
+  end
 
+<<<<<<< HEAD
+  it "shows page for admin in production" do
+    production_sign_in(Fabricate(:admin))
+    get "/theme-qunit"
+    expect(response.status).to eq(200)
+=======
       it "regular users cannot see the page" do
-        get "/theme-qunit"
+        get '/theme-qunit'
         expect(response.status).to eq(404)
       end
 
       it "anons cannot see the page" do
         sign_out
-        get "/theme-qunit"
+        get '/theme-qunit'
         expect(response.status).to eq(404)
       end
     end
 
     context "with admin users" do
-      before { sign_in(Fabricate(:admin)) }
+      before do
+        sign_in(Fabricate(:admin))
+      end
 
       context "when no theme is specified" do
         it "renders a list of themes and components that have tests" do
-          get "/theme-qunit"
+          get '/theme-qunit'
           expect(response.status).to eq(200)
           [theme, component, disabled_component].each do |t|
             expect(response.body).to include(t.name)
@@ -106,5 +95,6 @@ RSpec.describe QunitController do
         expect(response.body).to include("/theme-javascripts/tests/#{theme.id}-")
       end
     end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end

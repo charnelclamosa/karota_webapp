@@ -5,11 +5,7 @@ $d-popover-border: var(--primary-low);
   color: var(--primary);
   background: $d-popover-background;
   border: 1px solid var(--primary-low);
-  box-shadow: var(--shadow-menu-panel);
-
-  > .tippy-svg-arrow {
-    color: $d-popover-background;
-  }
+  box-shadow: shadow("menu-panel");
 }
 
 .tippy-box[data-placement^="top"] .tippy-svg-arrow > svg {
@@ -19,9 +15,13 @@ $d-popover-border: var(--primary-low);
   top: -10px;
 }
 
-#tippy-rounded-arrow {
+.tippy-rounded-arrow {
+  fill: $d-popover-background;
   .svg-arrow {
     fill: $d-popover-border;
+  }
+  .svg-content {
+    fill: $d-popover-background;
   }
 }
 

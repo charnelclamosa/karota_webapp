@@ -4,7 +4,13 @@ import { test } from "qunit";
 import selectKit from "discourse/tests/helpers/select-kit-helper";
 
 acceptance("User Preferences - Tracking", function (needs) {
+<<<<<<< HEAD
   needs.user();
+=======
+  needs.user({
+    redesigned_user_page_nav_enabled: true,
+  });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   let putRequestData;
 
@@ -196,6 +202,7 @@ acceptance("User Preferences - Tracking", function (needs) {
     });
   });
 
+<<<<<<< HEAD
   test("additional precedence option when one category is watched and tag is muted", async function (assert) {
     this.siteSettings.tagging_enabled = true;
 
@@ -212,6 +219,8 @@ acceptance("User Preferences - Tracking", function (needs) {
     assert.dom(".user-preferences__watched-precedence-over-muted").exists();
   });
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("tracking category which is set to regular notification level for user when mute_all_categories_by_default site setting is disabled", async function (assert) {
     this.siteSettings.tagging_enabled = false;
 

@@ -16,6 +16,7 @@
 
   {{#unless this.showPositionInput}}
     <section class="field position-disabled">
+<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/edit-category-settings.hbs
       {{html-safe
         (i18n
           "category.position_disabled"
@@ -24,6 +25,9 @@
           )
         )
       }}
+=======
+      {{html-safe (i18n "category.position_disabled" url=(get-url "/admin/site_settings/category/all_results?filter=fixed_category_positions"))}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/templates/components/edit-category-settings.hbs
     </section>
   {{/unless}}
 
@@ -128,7 +132,7 @@
     <label>
       <Input
         @type="checkbox"
-        @checked={{this.category.custom_fields.require_topic_approval}}
+        @checked={{this.category.category_setting.require_topic_approval}}
       />
       {{i18n "category.require_topic_approval"}}
     </label>
@@ -138,7 +142,7 @@
     <label>
       <Input
         @type="checkbox"
-        @checked={{this.category.custom_fields.require_reply_approval}}
+        @checked={{this.category.category_setting.require_reply_approval}}
       />
       {{i18n "category.require_reply_approval"}}
     </label>
@@ -187,7 +191,7 @@
       {{i18n "category.num_auto_bump_daily"}}
     </label>
     <NumberField
-      @number={{this.category.custom_fields.num_auto_bump_daily}}
+      @number={{this.category.category_setting.num_auto_bump_daily}}
       @id="category-number-daily-bump"
       @type="number"
       @min="0"
@@ -328,15 +332,20 @@
         {{d-icon "envelope"}}
         {{i18n "category.email_in"}}
       </label>
+<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/edit-category-settings.hbs
       <TextField
         @id="category-email-in"
         @class="email-in"
         @value={{this.category.email_in}}
       />
+
+=======
+      <TextField @id="category-email-in" @class="email-in" @value={{this.category.email_in}} />
       <span>
         {{d-icon "info-circle"}}
         <DTooltip>{{i18n "category.email_in_tooltip"}}</DTooltip>
       </span>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/templates/components/edit-category-settings.hbs
     </section>
 
     <section class="field email-in-allow-strangers">

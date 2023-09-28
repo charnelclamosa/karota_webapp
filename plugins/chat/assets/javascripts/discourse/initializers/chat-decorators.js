@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { decorateGithubOneboxBody } from "discourse/instance-initializers/onebox-decorators";
 import { decorateHashtags } from "discourse/lib/hashtag-autocomplete";
+=======
+import { decorateGithubOneboxBody } from "discourse/initializers/onebox-decorators";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { withPluginApi } from "discourse/lib/plugin-api";
 import highlightSyntax from "discourse/lib/highlight-syntax";
 import I18n from "I18n";
@@ -13,7 +17,12 @@ export default {
 
   initializeWithPluginApi(api, container) {
     const siteSettings = container.lookup("service:site-settings");
+<<<<<<< HEAD
+    const lightboxService = container.lookup("service:lightbox");
     const site = container.lookup("service:site");
+
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     api.decorateChatMessage((element) => decorateGithubOneboxBody(element), {
       id: "onebox-github-body",
     });
@@ -65,6 +74,32 @@ export default {
       id: "linksNewTab",
     });
 
+<<<<<<< HEAD
+    if (siteSettings.enable_experimental_lightbox) {
+      api.decorateChatMessage(
+        (element) => {
+          lightboxService.setupLightboxes({
+            container: element,
+            selector: "img:not(.emoji, .avatar, .site-icon)",
+          });
+        },
+        {
+          id: "experimental-chat-lightbox",
+        }
+      );
+    } else {
+      api.decorateChatMessage(
+        (element) =>
+          this.lightbox(element.querySelectorAll("img:not(.emoji, .avatar)")),
+        {
+          id: "lightbox",
+        }
+      );
+    }
+    api.decorateChatMessage((element) => decorateHashtags(element, site), {
+      id: "hashtagIcons",
+    });
+=======
     api.decorateChatMessage(
       (element) =>
         this.lightbox(element.querySelectorAll("img:not(.emoji, .avatar)")),
@@ -72,10 +107,7 @@ export default {
         id: "lightbox",
       }
     );
-
-    api.decorateChatMessage((element) => decorateHashtags(element, site), {
-      id: "hashtagIcons",
-    });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   _getScrollParent(node, maxParentSelector) {

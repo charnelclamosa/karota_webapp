@@ -118,7 +118,11 @@ RSpec.describe PostSerializer do
 
   context "with a hidden post with add_raw enabled" do
     let(:user) { Fabricate(:user) }
+<<<<<<< HEAD
     let(:raw) { "Raw contents of the post." }
+=======
+    let(:raw)  { "Raw contents of the post." }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     context "with a public post" do
       let(:post) { Fabricate(:post, raw: raw, user: user) }
@@ -307,6 +311,58 @@ RSpec.describe PostSerializer do
       expect(serialized_post_for_user(nil)[:action_code]).to eq("public_topic")
       SiteSetting.login_required = true
       expect(serialized_post_for_user(nil)[:action_code]).to eq("open_topic")
+    end
+  end
+
+  context "with allow_anonymous_likes enabled" do
+    fab!(:user) { Fabricate(:user) }
+    fab!(:topic) { Fabricate(:topic, user: user) }
+    fab!(:post) { Fabricate(:post, topic: topic, user: topic.user) }
+    fab!(:anonymous_user) { Fabricate(:anonymous) }
+
+    let(:serializer) { PostSerializer.new(post, scope: Guardian.new(anonymous_user), root: false) }
+    let(:post_action) do
+      user.id = anonymous_user.id
+      post.id = 1
+
+      a =
+        PostAction.new(
+          user: anonymous_user,
+          post: post,
+          post_action_type_id: PostActionType.types[:like],
+        )
+      a.created_at = 1.minute.ago
+      a
+    end
+
+    before do
+      SiteSetting.allow_anonymous_posting = true
+      SiteSetting.allow_anonymous_likes = true
+      SiteSetting.post_undo_action_window_mins = 10
+      PostSerializer.any_instance.stubs(:post_actions).returns({ 2 => post_action })
+    end
+
+    context "when post_undo_action_window_mins has not passed" do
+      before { post_action.created_at = 5.minutes.ago }
+
+      it "allows anonymous users to unlike posts" do
+        like_actions_summary =
+          serializer.actions_summary.find { |a| a[:id] == PostActionType.types[:like] }
+
+        #When :can_act is present, the JavaScript allows the user to click the unlike button
+        expect(like_actions_summary[:can_act]).to eq(true)
+      end
+    end
+
+    context "when post_undo_action_window_mins has passed" do
+      before { post_action.created_at = 20.minutes.ago }
+
+      it "disallows anonymous users from unliking posts" do
+        # There are no other post actions available to anonymous users so the action_summary will be an empty array
+        expect(serializer.actions_summary.find { |a| a[:id] == PostActionType.types[:like] }).to eq(
+          nil,
+        )
+      end
     end
   end
 

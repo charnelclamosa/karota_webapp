@@ -7,7 +7,11 @@ const path = require("path");
 const fs = require("fs");
 const fsPromises = fs.promises;
 const { JSDOM } = require("jsdom");
+<<<<<<< HEAD
+const { shouldLoadPlugins } = require("discourse-plugins");
+=======
 const { shouldLoadPluginTestJs } = require("discourse-plugins");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 const { Buffer } = require("node:buffer");
 const { cwd, env } = require("node:process");
 
@@ -206,7 +210,14 @@ function replaceIn(bootstrap, template, id, headers, baseURL) {
   BUILDERS[id](buffer, bootstrap, headers, baseURL);
   let contents = buffer.filter((b) => b && b.length > 0).join("\n");
 
-  return template.replace(`<bootstrap-content key="${id}">`, contents);
+  if (id === "html-tag") {
+    return template.replace(`<html>`, contents);
+  } else {
+    return template.replace(
+      `<bootstrap-content key="${id}"></bootstrap-content>`,
+      contents
+    );
+  }
 }
 
 function extractPreloadJson(html) {
@@ -390,7 +401,7 @@ module.exports = {
   },
 
   contentFor(type, config) {
-    if (shouldLoadPluginTestJs() && type === "test-plugin-js") {
+    if (shouldLoadPlugins() && type === "test-plugin-js") {
       const scripts = [];
 
       const pluginInfos = this.app.project
@@ -431,7 +442,7 @@ module.exports = {
             `<script src="${config.rootURL}assets/${src}" data-discourse-plugin="${name}"></script>`
         )
         .join("\n");
-    } else if (shouldLoadPluginTestJs() && type === "test-plugin-tests-js") {
+    } else if (shouldLoadPlugins() && type === "test-plugin-tests-js") {
       return this.app.project
         .findAddonByName("discourse-plugins")
         .pluginInfos()
@@ -441,7 +452,7 @@ module.exports = {
             `<script src="${config.rootURL}assets/plugins/test/${directoryName}_tests.js" data-discourse-plugin="${pluginName}"></script>`
         )
         .join("\n");
-    } else if (shouldLoadPluginTestJs() && type === "test-plugin-css") {
+    } else if (shouldLoadPlugins() && type === "test-plugin-css") {
       return `<link rel="stylesheet" href="${config.rootURL}bootstrap/plugin-css-for-tests.css" data-discourse-plugin="_all" />`;
     }
   },
@@ -483,7 +494,11 @@ to serve API requests. For example:
 
     app.use(pathRestrictedRawMiddleware, async (req, res, next) => {
       try {
+<<<<<<< HEAD
         if (this.shouldHandleRequest(req, baseURL)) {
+=======
+        if (this.shouldForwardRequest(req, baseURL)) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           await handleRequest(proxy, baseURL, req, res);
         } else {
           // Fixes issues when using e.g. "localhost" instead of loopback IP address
@@ -504,7 +519,11 @@ to serve API requests. For example:
     });
   },
 
+<<<<<<< HEAD
   shouldHandleRequest(request, baseURL) {
+=======
+  shouldForwardRequest(request, baseURL) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (
       [
         `${baseURL}tests/index.html`,
@@ -512,6 +531,15 @@ to serve API requests. For example:
         `${baseURL}testem.js`,
         `${baseURL}assets/test-i18n.js`,
       ].includes(request.path)
+    ) {
+      return false;
+    }
+
+    // All JS assets are served by Ember CLI, except for
+    // plugin assets which end in _extra.js
+    if (
+      request.path.startsWith(`${baseURL}assets/`) &&
+      !request.path.endsWith("_extra.js")
     ) {
       return false;
     }

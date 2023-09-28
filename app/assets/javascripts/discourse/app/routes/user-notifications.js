@@ -1,18 +1,20 @@
 import DiscourseRoute from "discourse/routes/discourse";
 import ViewingActionType from "discourse/mixins/viewing-action-type";
-import { action } from "@ember/object";
 import I18n from "I18n";
 
 export default DiscourseRoute.extend(ViewingActionType, {
   controllerName: "user-notifications",
   queryParams: { filter: { refreshModel: true } },
 
+<<<<<<< HEAD
+=======
   @action
   didTransition() {
     this.controllerFor("user-notifications")._showFooter();
     return true;
   },
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   model(params) {
     const username = this.modelFor("user").get("username");
 

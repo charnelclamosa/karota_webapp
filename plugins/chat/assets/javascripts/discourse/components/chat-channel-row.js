@@ -19,7 +19,11 @@ export default class ChatChannelRow extends Component {
   }
 
   get channelHasUnread() {
-    return this.args.channel.tracking.unreadCount > 0;
+    return (
+      this.currentUser.get(
+        `chat_channel_tracking_state.${this.args.channel?.id}.unread_count`
+      ) > 0
+    );
   }
 
   get #firstDirectMessageUser() {

@@ -1,7 +1,11 @@
 import { module, test } from "qunit";
 import Category from "discourse/models/category";
 import sinon from "sinon";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+=======
 import { getOwner } from "discourse-common/lib/get-owner";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { setupTest } from "ember-qunit";
 
 module("Unit | Model | category", function (hooks) {
@@ -69,8 +73,11 @@ module("Unit | Model | category", function (hooks) {
   });
 
   test("findBySlug", function (assert) {
+<<<<<<< HEAD
+=======
     assert.expect(6);
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const store = getOwner(this).lookup("service:store");
     const darth = store.createRecord("category", { id: 1, slug: "darth" }),
       luke = store.createRecord("category", {
@@ -134,8 +141,11 @@ module("Unit | Model | category", function (hooks) {
   });
 
   test("findSingleBySlug", function (assert) {
+<<<<<<< HEAD
+=======
     assert.expect(6);
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const store = getOwner(this).lookup("service:store");
     const darth = store.createRecord("category", { id: 1, slug: "darth" }),
       luke = store.createRecord("category", {
@@ -263,6 +273,7 @@ module("Unit | Model | category", function (hooks) {
     });
 
     assert.strictEqual(quux.minimumRequiredTags, null);
+<<<<<<< HEAD
 
     const foobar = store.createRecord("category", {
       id: 1,
@@ -284,6 +295,8 @@ module("Unit | Model | category", function (hooks) {
     });
 
     assert.strictEqual(barfoo.minimumRequiredTags, 3);
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   test("search with category name", function (assert) {

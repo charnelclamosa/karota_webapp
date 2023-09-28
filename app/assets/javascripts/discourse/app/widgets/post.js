@@ -21,9 +21,12 @@ import { relativeAgeMediumSpan } from "discourse/lib/formatter";
 import { transformBasicPost } from "discourse/lib/transform-post";
 import autoGroupFlairForUser from "discourse/lib/avatar-flair";
 import { nativeShare } from "discourse/lib/pwa-utils";
-import { hideUserTip } from "discourse/lib/user-tips";
+<<<<<<< HEAD
 import ShareTopicModal from "discourse/components/modal/share-topic";
 import { getOwner } from "@ember/application";
+=======
+import { hideUserTip } from "discourse/lib/user-tips";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function transformWithCallbacks(post) {
   let transformed = transformBasicPost(post);
@@ -529,6 +532,10 @@ createWidget("post-contents", {
       result.push(this.attach("expand-hidden", attrs));
     }
 
+    if (attrs.user_generated_tags !== undefined && attrs.user_generated_tags !== null) {
+      result.push(this.attach("post-user-generated-tags", attrs))
+    }
+
     if (!state.expandedFirstPost && attrs.expandablePost) {
       result.push(this.attach("expand-post-button", attrs));
     }
@@ -751,8 +758,11 @@ createWidget("post-article", {
     return `post_${attrs.post_number}`;
   },
 
-  buildClasses(attrs) {
+  buildClasses(attrs, state) {
     let classNames = [];
+    if (state.repliesAbove.length) {
+      classNames.push("replies-above");
+    }
     if (attrs.via_email) {
       classNames.push("via-email");
     }
@@ -902,7 +912,7 @@ export function addPostClassesCallback(callback) {
 
 export default createWidget("post", {
   buildKey: (attrs) => `post-${attrs.id}`,
-  services: ["dialog"],
+  services: ["dialog", "user-tips"],
   shadowTree: true,
 
   buildAttributes(attrs) {
@@ -975,7 +985,10 @@ export default createWidget("post", {
       return "";
     }
 
-    return this.attach("post-article", attrs);
+    return [
+      this.attach("post-user-tip-shim"),
+      this.attach("post-article", attrs),
+    ];
   },
 
   toggleLike() {

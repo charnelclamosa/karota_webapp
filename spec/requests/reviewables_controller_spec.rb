@@ -544,6 +544,7 @@ RSpec.describe ReviewablesController do
       fab!(:reviewable_phony) { Fabricate(:reviewable, type: "ReviewablePhony") }
 
       it "passes the added param into the reviewable class' perform method" do
+<<<<<<< HEAD
         MessageBus
           .expects(:publish)
           .with(
@@ -552,6 +553,18 @@ RSpec.describe ReviewablesController do
             user_ids: [1],
           )
           .once
+=======
+        MessageBus.expects(:publish).with(
+          "/phony-reviewable-test",
+          {
+            args: {
+              version: reviewable_phony.version,
+              "fake_id" => "2",
+            }
+          },
+          user_ids: [1]
+        ).once
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         put "/review/#{reviewable_phony.id}/perform/approve_phony.json?version=#{reviewable_phony.version}",
             params: {
@@ -805,7 +818,7 @@ RSpec.describe ReviewablesController do
 
       it "returns 200 if the user can delete the reviewable" do
         sign_in(user)
-        queued_post = Fabricate(:reviewable_queued_post, created_by: user)
+        queued_post = Fabricate(:reviewable_queued_post, target_created_by: user)
         delete "/review/#{queued_post.id}.json"
         expect(response.code).to eq("200")
         expect(queued_post.reload).to be_deleted
@@ -813,7 +826,7 @@ RSpec.describe ReviewablesController do
 
       it "denies attempts to destroy unowned reviewables" do
         sign_in(admin)
-        queued_post = Fabricate(:reviewable_queued_post, created_by: user)
+        queued_post = Fabricate(:reviewable_queued_post, target_created_by: user)
         delete "/review/#{queued_post.id}.json"
         expect(response.status).to eq(404)
         # Reviewable is not deleted because request is not via API
@@ -823,7 +836,7 @@ RSpec.describe ReviewablesController do
       shared_examples "for a passed user" do
         it "deletes reviewable" do
           api_key = Fabricate(:api_key).key
-          queued_post = Fabricate(:reviewable_queued_post, created_by: recipient)
+          queued_post = Fabricate(:reviewable_queued_post, target_created_by: recipient)
           delete "/review/#{queued_post.id}.json",
                  params: {
                    username: recipient.username,

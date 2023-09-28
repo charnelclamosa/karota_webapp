@@ -589,6 +589,14 @@ RSpec.describe Plugin::Instance do
       expect(custom_emoji.url).to eq("/baz/bar.png")
       expect(custom_emoji.group).to eq("baz")
     end
+
+    it "sanitizes emojis' names" do
+      Plugin::Instance.new.register_emoji("?", "/baz/bar.png", "baz")
+      Plugin::Instance.new.register_emoji("?test?!!", "/foo/bar.png", "baz")
+
+      expect(Emoji.custom.first.name).to eq("_")
+      expect(Emoji.custom.second.name).to eq("_test_")
+    end
   end
 
   describe "#replace_flags" do
@@ -872,6 +880,38 @@ RSpec.describe Plugin::Instance do
 
       sum = DiscoursePluginRegistry.apply_modifier(:magic_sum_modifier, 1, 2)
       expect(sum).to eq(3)
+    end
+  end
+
+  describe "#register_user_destroyer_on_content_deletion_callback" do
+    let(:plugin) { Plugin::Instance.new }
+
+    after do
+      DiscoursePluginRegistry.reset_register!(:user_destroyer_on_content_deletion_callbacks)
+    end
+
+    fab!(:user) { Fabricate(:user) }
+
+    it "calls the callback when the UserDestroyer runs with the delete_posts opt set to true" do
+      callback_called = false
+
+      cb = Proc.new { callback_called = true }
+      plugin.register_user_destroyer_on_content_deletion_callback(cb)
+
+      UserDestroyer.new(Discourse.system_user).destroy(user, { delete_posts: true })
+
+      expect(callback_called).to eq(true)
+    end
+
+    it "doesn't run the callback when delete_posts opt is not true" do
+      callback_called = false
+
+      cb = Proc.new { callback_called = true }
+      plugin.register_user_destroyer_on_content_deletion_callback(cb)
+
+      UserDestroyer.new(Discourse.system_user).destroy(user, {})
+
+      expect(callback_called).to eq(false)
     end
   end
 end

@@ -87,6 +87,15 @@ RSpec.describe NotificationsController do
           Discourse.clear_redis_readonly!
         end
 
+        describe "when limit params is invalid" do
+          include_examples "invalid limit params",
+                           "/notifications.json",
+                           described_class::INDEX_LIMIT,
+                           params: {
+                             recent: true,
+                           }
+        end
+
         it "get notifications with all filters" do
           notification = Fabricate(:notification, user: user)
           notification2 = Fabricate(:notification, user: user)
@@ -154,13 +163,38 @@ RSpec.describe NotificationsController do
 
           fab!(:pending_reviewable) { Fabricate(:reviewable) }
 
+<<<<<<< HEAD
           before { SiteSetting.navigation_menu = "sidebar" }
+
+          it "gets notifications list with unread ones at the top" do
+=======
+          before do
+            SiteSetting.navigation_menu = "sidebar"
+          end
 
           it "gets notifications list with unread ones at the top" do
             get "/notifications.json", params: { recent: true }
 
             expect(response.status).to eq(200)
 
+            expect(response.parsed_body["notifications"].map { |n| n["id"] }).to eq([
+              unread_high_priority.id,
+              notification.id,
+              unread_regular.id,
+              read_regular.id,
+              read_high_priority.id
+            ])
+          end
+
+          it "gets notifications list with unread high priority notifications at the top when navigation menu is legacy" do
+            SiteSetting.navigation_menu = "legacy"
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+            get "/notifications.json", params: { recent: true }
+
+            expect(response.status).to eq(200)
+
+<<<<<<< HEAD
             expect(response.parsed_body["notifications"].map { |n| n["id"] }).to eq(
               [
                 unread_high_priority.id,
@@ -170,6 +204,15 @@ RSpec.describe NotificationsController do
                 read_high_priority.id,
               ],
             )
+=======
+            expect(response.parsed_body["notifications"].map { |n| n["id"] }).to eq([
+              unread_high_priority.id,
+              notification.id,
+              read_regular.id,
+              unread_regular.id,
+              read_high_priority.id
+            ])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           end
 
           it "should not bump last seen reviewable in readonly mode" do
@@ -243,12 +286,44 @@ RSpec.describe NotificationsController do
 
             expect(response.status).to eq(200)
 
+<<<<<<< HEAD
             expect(response.parsed_body["pending_reviewables"].map { |r| r["id"] }).to eq(
               [pending_reviewable.id, pending_reviewable2.id],
             )
           end
 
           it "doesn't include reviewables that are claimed by someone that's not the current user" do
+=======
+            expect(response.parsed_body["pending_reviewables"].map { |r| r["id"] }).to eq([
+              pending_reviewable.id,
+              pending_reviewable2.id
+            ])
+          end
+
+          it "doesn't include reviewables that are claimed by someone that's not the current user" do
+            user.update!(admin: true)
+
+            claimed_by_user = Fabricate(:reviewable, topic: Fabricate(:topic), created_at: 5.minutes.ago)
+            Fabricate(:reviewable_claimed_topic, topic: claimed_by_user.topic, user: user)
+
+            user2 = Fabricate(:user)
+            claimed_by_user2 = Fabricate(:reviewable, topic: Fabricate(:topic))
+            Fabricate(:reviewable_claimed_topic, topic: claimed_by_user2.topic, user: user2)
+
+            unclaimed = Fabricate(:reviewable, topic: Fabricate(:topic), created_at: 10.minutes.ago)
+
+            get "/notifications.json", params: { recent: true }
+            expect(response.status).to eq(200)
+            expect(response.parsed_body["pending_reviewables"].map { |r| r["id"] }).to eq([
+              pending_reviewable.id,
+              claimed_by_user.id,
+              unclaimed.id,
+            ])
+          end
+
+          it "doesn't include reviewables when navigation menu is legacy" do
+            SiteSetting.navigation_menu = "legacy"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             user.update!(admin: true)
 
             claimed_by_user =
@@ -262,6 +337,7 @@ RSpec.describe NotificationsController do
             unclaimed = Fabricate(:reviewable, topic: Fabricate(:topic), created_at: 10.minutes.ago)
 
             get "/notifications.json", params: { recent: true }
+
             expect(response.status).to eq(200)
             expect(response.parsed_body["pending_reviewables"].map { |r| r["id"] }).to eq(
               [pending_reviewable.id, claimed_by_user.id, unclaimed.id],
@@ -348,6 +424,7 @@ RSpec.describe NotificationsController do
         context "with notifications for inaccessible topics" do
           fab!(:sender) { Fabricate.build(:topic_allowed_user, user: Fabricate(:coding_horror)) }
           fab!(:allowed_user) { Fabricate.build(:topic_allowed_user, user: user) }
+<<<<<<< HEAD
           fab!(:another_allowed_user) do
             Fabricate.build(:topic_allowed_user, user: Fabricate(:user))
           end
@@ -366,6 +443,13 @@ RSpec.describe NotificationsController do
           fab!(:forbidden_pm_notification) do
             Fabricate(:private_message_notification, user: user, topic: forbidden_pm)
           end
+=======
+          fab!(:another_allowed_user) { Fabricate.build(:topic_allowed_user, user: Fabricate(:user)) }
+          fab!(:allowed_pm) { Fabricate(:private_message_topic, topic_allowed_users: [sender, allowed_user, another_allowed_user]) }
+          fab!(:forbidden_pm) { Fabricate(:private_message_topic, topic_allowed_users: [sender, another_allowed_user]) }
+          fab!(:allowed_pm_notification) { Fabricate(:private_message_notification, user: user, topic: allowed_pm) }
+          fab!(:forbidden_pm_notification) { Fabricate(:private_message_notification, user: user, topic: forbidden_pm) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           def expect_correct_notifications(response)
             notification_ids = response.parsed_body["notifications"].map { |n| n["id"] }

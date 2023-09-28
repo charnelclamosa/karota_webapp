@@ -41,8 +41,13 @@
       padding-left: 0.5em;
       padding-right: 0.1em; // avoids some overflow cropping
       text-align: right;
+<<<<<<< HEAD
       color: var(--d-sidebar-link-badge-color);
       font-size: var(--font-down-2);
+=======
+      color: var(--primary-high);
+      font-size: var(--font-down-1);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       font-weight: normal;
       margin-left: auto;
     }
@@ -50,6 +55,7 @@
     .sidebar-section-link-suffix {
       margin-left: 1em;
       font-size: var(--font-down-4);
+<<<<<<< HEAD
       &.icon {
         &.urgent svg {
           color: var(--success);
@@ -59,6 +65,9 @@
           color: var(--tertiary-med-or-tertiary);
         }
       }
+=======
+      color: var(--tertiary-medium);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     .sidebar-section-link-content-text {

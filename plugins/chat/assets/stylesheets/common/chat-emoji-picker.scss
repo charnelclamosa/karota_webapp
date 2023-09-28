@@ -17,7 +17,11 @@
     &:hover,
     &:focus {
       background: var(--primary-very-low);
+<<<<<<< HEAD
       border-radius: var(--d-border-radius);
+=======
+      border-radius: 5px;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       transform: scale(1.25);
     }
   }
@@ -54,11 +58,17 @@
     height: 100%;
     overflow-y: scroll;
     text-transform: capitalize;
+<<<<<<< HEAD
     @include chat-scrollbar();
     margin: 1px;
   }
 
   &__no-results {
+=======
+  }
+
+  &__no-reults {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     padding: 1em;
   }
 
@@ -100,8 +110,12 @@
     }
   }
 
+<<<<<<< HEAD
   &__section-emojis,
   &__section.filtered {
+=======
+  &__section-emojis {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     padding: 0.5rem;
   }
 
@@ -139,7 +153,11 @@
     background: none;
     margin-right: 0.5rem;
     border: 0;
+<<<<<<< HEAD
     border-radius: var(--d-border-radius);
+=======
+    border-radius: 5px;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     .d-icon {
       visibility: hidden;
@@ -167,6 +185,7 @@
     &.t1 {
       background: #ffcc4d;
     }
+<<<<<<< HEAD
 
     &.t2 {
       background: #f7dece;
@@ -184,6 +203,20 @@
       background: #af7e57;
     }
 
+=======
+    &.t2 {
+      background: #f7dece;
+    }
+    &.t3 {
+      background: #f3d2a2;
+    }
+    &.t4 {
+      background: #d5ab88;
+    }
+    &.t5 {
+      background: #af7e57;
+    }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     &.t6 {
       background: #7c533e;
     }
@@ -199,13 +232,21 @@
   }
 }
 
+<<<<<<< HEAD
 .chat-channel-message-emoji-picker-connector {
   position: relative;
+=======
+.chat-message-emoji-picker-anchor {
+  z-index: z("header") + 1;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   .chat-emoji-picker {
     border: 1px solid var(--primary-low);
     width: 320px;
+<<<<<<< HEAD
     z-index: z("header") + 1;
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     .emoji {
       width: 22px;
@@ -213,3 +254,34 @@
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+.mobile-view {
+  .chat-message-emoji-picker-anchor.-opened {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: shadowcreatePopper("card");
+
+    .chat-emoji-picker {
+      height: 50vh;
+      width: 100%;
+    }
+  }
+}
+
+.chat-composer-container.with-emoji-picker {
+  background: var(--primary-very-low);
+
+  .chat-emoji-picker {
+    border-bottom: 1px solid var(--primary-low);
+
+    &.closing {
+      height: 0;
+    }
+  }
+}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

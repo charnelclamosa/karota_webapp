@@ -671,6 +671,9 @@ users:
   allow_anonymous_posting:
     default: false
     client: true
+  allow_anonymous_likes:
+    default: false
+    client: true
   anonymous_posting_min_trust_level:
     default: 1
     enum: "TrustLevelSetting"
@@ -926,6 +929,10 @@ posting:
   max_mentions_per_post: 10
   max_users_notified_per_group_mention:
     default: 100
+<<<<<<< HEAD
+=======
+    max: 250
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     client: true
   newuser_max_replies_per_topic: 3
   newuser_max_mentions_per_post: 2
@@ -1003,7 +1010,8 @@ posting:
     list_type: compact
   show_copy_button_on_codeblocks:
     client: true
-    default: false
+    default: true
+    hidden: true
   delete_old_hidden_posts: true
   enable_emoji:
     default: true
@@ -1115,12 +1123,15 @@ posting:
   max_draft_length:
     default: 400_000
     hidden: true
+  max_drafts_per_user:
+    default: 10_000
+    hidden: true
   max_form_template_title_length:
     default: 100
     min: 5
     max: 255
   max_form_template_content_length:
-    default: 2000
+    default: 5000
     max: 150000
 
 email:
@@ -1152,6 +1163,9 @@ email:
     max: 36500
   digest_suppress_categories:
     type: category_list
+    default: ""
+  digest_suppress_tags:
+    type: tag_list
     default: ""
   disable_digest_emails:
     default: false
@@ -1433,6 +1447,10 @@ files:
     default: 1024
     min: 1
     max: 10240
+  secure_uploads_pm_only:
+    default: false
+    hidden: true
+    client: true
   enable_s3_uploads:
     default: false
     client: true
@@ -1832,10 +1850,21 @@ security:
   suppress_secured_categories_from_admin:
     default: false
     hidden: true
+<<<<<<< HEAD
   include_secure_categories_in_tag_counts:
     default: false
   display_personal_messages_tag_counts:
     default: false
+  cross_origin_opener_policy_header:
+    default: "unsafe-none"
+    type: enum
+    choices:
+      - "unsafe-none"
+      - "same-origin"
+      - "same-origin-allow-popups"
+    hidden: true
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 onebox:
   post_onebox_maxlength:
@@ -1916,7 +1945,9 @@ spam:
   auto_respond_to_flag_actions: true
   min_first_post_typing_time: 3000
   auto_silence_fast_typers_on_first_post: true
-  auto_silence_fast_typers_max_trust_level: 0
+  auto_silence_fast_typers_max_trust_level:
+    default: 0
+    enum: "TrustLevelSetting"
   auto_silence_first_post_regex: ""
   high_trust_flaggers_auto_hide_posts: true
   cooldown_hours_until_reflag:
@@ -1949,7 +1980,6 @@ rate_limits:
   unique_posts_mins: 5
   rate_limit_create_topic: 15
   rate_limit_create_post: 5
-  rate_limit_new_user_create_topic: 120
   rate_limit_new_user_create_post: 30
   rate_limit_search_anon_global_per_minute:
     hidden: true
@@ -2111,6 +2141,9 @@ developer:
   enable_experimental_hashtag_autocomplete:
     default: true
     client: true
+  experimental_hashtag_search_result_limit:
+    default: 20
+    client: true
     hidden: true
   experimental_hashtag_search_result_limit:
     default: 20
@@ -2122,7 +2155,6 @@ developer:
   experimental_form_templates:
     client: true
     default: false
-    hidden: true
   experimental_new_new_view_groups:
     client: true
     type: group_list
@@ -2130,6 +2162,9 @@ developer:
     default: ""
     allow_any: false
     refresh: true
+  enable_experimental_lightbox:
+    default: false
+    client: true
   experimental_topics_filter:
     client: true
     default: false
@@ -2142,6 +2177,10 @@ developer:
   max_sidebar_section_links:
     default: 50
     hidden: true
+  instrument_gc_stat_per_request:
+    default: false
+    hidden: true
+<<<<<<< HEAD
 
 navigation:
   navigation_menu:
@@ -2150,6 +2189,23 @@ navigation:
     type: enum
     enum: "NavigationMenuSiteSetting"
   default_navigation_menu_categories:
+=======
+  enable_experimental_topic_timeline_groups:
+    client: true
+    type: group_list
+    list_type: compact
+    default: ""
+    allow_any: false
+    refresh: true
+
+navigation:
+  navigation_menu:
+    client: true
+    default: "legacy"
+    type: enum
+    enum: "NavigationMenuSiteSetting"
+  default_sidebar_categories:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     type: category_list
     default: ""
     client: true
@@ -2157,6 +2213,13 @@ navigation:
     type: tag_list
     default: ""
     client: true
+  default_sidebar_switch_panel_position:
+    default: "bottom"
+    type: enum
+    client: true
+    choices:
+      - "top"
+      - "bottom"
 
 embedding:
   embed_by_username:
@@ -2374,7 +2437,7 @@ uncategorized:
     client: true
     type: group_list
     list_type: compact
-    default: "3|14" # 3: @staff, 14: @trust_level_4
+    default: "3|13" # 3: @staff, 13: @trust_level_3
 
   automatic_topic_heat_values: true
 
@@ -2429,7 +2492,10 @@ uncategorized:
   educate_until_posts: 2
   sequential_replies_threshold: 2
   get_a_room_threshold: 3
+<<<<<<< HEAD
   dont_feed_the_trolls_threshold: 2
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   dominating_topic_minimum_percent: 40
   disable_avatar_education_message: false
   pm_warn_user_last_seen_months_ago: 24
@@ -2470,10 +2536,6 @@ uncategorized:
   notify_about_reviewable_item_after:
     type: float
     default: 48
-
-  enable_system_avatars:
-    hidden: true
-    default: true
 
   use_site_small_logo_as_system_avatar:
     default: true
@@ -2539,10 +2601,6 @@ uncategorized:
   bootstrap_mode_enabled:
     default: false
     client: true
-    hidden: true
-
-  check_for_new_features:
-    default: false
     hidden: true
 
   automatically_unpin_topics:
@@ -2664,7 +2722,10 @@ user_preferences:
     default: false
   default_hide_profile_and_presence:
     default: false
+<<<<<<< HEAD
+=======
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   default_other_new_topic_duration_minutes:
     enum: "NewTopicDurationSiteSetting"
     default: 2880
@@ -2749,13 +2810,15 @@ api:
   api_key_last_used_epoch:
     default: "" # Value is added in a migration
     hidden: true
-  revoke_api_keys_days:
+  revoke_api_keys_unused_days:
     default: 180
     max: 36500
+  revoke_api_keys_maxlife_days:
+    default: 0
+    max: 36500
+    hidden: true
 
 user_api:
-  allow_user_api_keys:
-    default: true
   allow_user_api_key_scopes:
     default: "read|write|message_bus|push|notifications|session_info|one_time_password"
     type: list
@@ -2772,9 +2835,13 @@ user_api:
   allowed_user_api_auth_redirects:
     default: "https://api.discourse.org/api/auth_redirect|discourse://auth_redirect"
     type: list
-  expire_user_api_keys_days:
+  revoke_user_api_keys_unused_days:
     default: 180
     max: 36500
+  revoke_user_api_keys_maxlife_days:
+    default: 0
+    max: 36500
+    hidden: true
 
 tags:
   tagging_enabled:

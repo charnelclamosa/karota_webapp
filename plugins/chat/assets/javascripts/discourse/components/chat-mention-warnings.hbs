@@ -8,17 +8,36 @@
         {{this.warningHeaderText}}
       </div>
       <ul class={{this.listStyleClass}}>
+<<<<<<< HEAD
         {{#if this.hasTooManyMentions}}
           <li>{{this.tooManyMentionsBody}}</li>
         {{else}}
+          {{#if this.channelWideMentionDisallowed}}
+            <li>{{i18n
+                "chat.mention_warning.channel_wide_mentions_disallowed"
+              }}</li>
+          {{/if}}
           {{#if this.hasUnreachableGroupMentions}}
             <li>{{this.unreachableBody}}</li>
           {{/if}}
           {{#if this.hasOverMembersLimitGroupMentions}}
+=======
+        {{#if @tooManyMentions}}
+          <li>{{this.tooManyMentionsBody}}</li>
+        {{else}}
+          {{#if @unreachableGroupMentions}}
+            <li>{{this.unreachableBody}}</li>
+          {{/if}}
+          {{#if @overMembersLimitGroupMentions}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             <li>{{this.overMembersLimitBody}}</li>
           {{/if}}
         {{/if}}
       </ul>
     </div>
   </div>
+<<<<<<< HEAD
 {{/if}}
+=======
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

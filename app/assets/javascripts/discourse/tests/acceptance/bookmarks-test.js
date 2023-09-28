@@ -10,6 +10,7 @@ import selectKit from "discourse/tests/helpers/select-kit-helper";
 import { test } from "qunit";
 import topicFixtures from "discourse/tests/fixtures/topic";
 import { cloneJSON } from "discourse-common/lib/object";
+import User from "discourse/models/user";
 
 async function openBookmarkModal(postNumber = 1) {
   if (exists(`#post_${postNumber} button.show-more-actions`)) {
@@ -168,6 +169,12 @@ acceptance("Bookmarking", function (needs) {
     await selectKit(".bookmark-option-selector").expand();
     await selectKit(".bookmark-option-selector").selectRowByValue(1);
     await click("#save-bookmark");
+
+    assert.equal(
+      User.currentProp("user_option.bookmark_auto_delete_preference"),
+      "1"
+    );
+
     await openEditBookmarkModal();
 
     assert.ok(

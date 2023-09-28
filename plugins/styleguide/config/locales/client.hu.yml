@@ -87,10 +87,13 @@ hu:
           title: "Forgók"
         empty_state:
           title: "Üres állapot"
-        rich_tooltip:
+        tooltips:
           description: "Leírás"
           header: "Fejléc"
           hover_to_see: "Vigye az egérmutatót az eszköztipp megtekintéséhez"
+<<<<<<< HEAD
         char_counter:
           title: "Karakterszámláló"
           placeholder: "Írja be a szöveget ide..."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

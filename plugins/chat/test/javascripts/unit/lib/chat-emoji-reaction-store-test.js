@@ -1,7 +1,16 @@
 import { module, test } from "qunit";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+import { setupTest } from "ember-qunit";
+
+module("Discourse Chat | Unit | chat-emoji-reaction-store", function (hooks) {
+  setupTest(hooks);
+
+=======
 import { getOwner } from "discourse-common/lib/get-owner";
 
 module("Discourse Chat | Unit | chat-emoji-reaction-store", function (hooks) {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   hooks.beforeEach(function () {
     this.siteSettings = getOwner(this).lookup("service:site-settings");
     this.chatEmojiReactionStore = getOwner(this).lookup(
@@ -16,10 +25,20 @@ module("Discourse Chat | Unit | chat-emoji-reaction-store", function (hooks) {
     this.chatEmojiReactionStore.reset();
   });
 
+<<<<<<< HEAD
   test("defaults", function (assert) {
     assert.deepEqual(
       this.chatEmojiReactionStore.favorites,
       this.siteSettings.default_emoji_reactions.split("|").filter((val) => val)
+=======
+  // TODO (martin) Remove site setting workarounds after core PR#1290
+  test("defaults", function (assert) {
+    assert.deepEqual(
+      this.chatEmojiReactionStore.favorites,
+      (this.siteSettings.default_emoji_reactions || "")
+        .split("|")
+        .filter((val) => val)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
   });
 

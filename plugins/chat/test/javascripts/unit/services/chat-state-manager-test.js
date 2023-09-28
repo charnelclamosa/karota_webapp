@@ -2,11 +2,14 @@ import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
 import Site from "discourse/models/site";
 import sinon from "sinon";
-import { getOwner } from "discourse-common/lib/get-owner";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
 import {
   addChatDrawerStateCallback,
   resetChatDrawerStateCallbacks,
 } from "discourse/plugins/chat/discourse/services/chat-state-manager";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module(
   "Discourse Chat | Unit | Service | chat-state-manager",
@@ -14,7 +17,11 @@ module(
     setupTest(hooks);
 
     hooks.beforeEach(function () {
+<<<<<<< HEAD
       this.subject = getOwner(this).lookup("service:chat-state-manager");
+=======
+      this.subject = this.owner.lookup("service:chat-state-manager");
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     hooks.afterEach(function () {
@@ -53,6 +60,14 @@ module(
     test("lastKnownChatURL", function (assert) {
       assert.strictEqual(this.subject.lastKnownChatURL, "/chat");
 
+<<<<<<< HEAD
+=======
+      sinon.stub(this.subject.router, "currentURL").value("/foo");
+      this.subject.storeChatURL();
+
+      assert.strictEqual(this.subject.lastKnownChatURL, "/foo");
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.subject.storeChatURL("/bar");
 
       assert.strictEqual(this.subject.lastKnownChatURL, "/bar");
@@ -129,6 +144,7 @@ module(
       assert.strictEqual(this.subject.lastKnownChatURL, "/foo");
       sinon.assert.calledTwice(stub);
     });
+<<<<<<< HEAD
 
     test("callbacks", function (assert) {
       this.state = null;
@@ -148,5 +164,7 @@ module(
 
       resetChatDrawerStateCallbacks();
     });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 );

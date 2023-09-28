@@ -1,60 +1,72 @@
-import { alias, empty, equal, gt, not, readOnly } from "@ember/object/computed";
-import BulkTopicSelection from "discourse/mixins/bulk-topic-selection";
+import { inject as controller } from "@ember/controller";
+import { inject as service } from "@ember/service";
+import { alias, empty, equal, gt, or, readOnly } from "@ember/object/computed";
+import BulkSelectHelper from "discourse/lib/bulk-select-helper";
 import DismissTopics from "discourse/mixins/dismiss-topics";
 import DiscoveryController from "discourse/controllers/discovery";
 import I18n from "I18n";
 import Topic from "discourse/models/topic";
-import { inject as controller } from "@ember/controller";
 import deprecated from "discourse-common/lib/deprecated";
 import discourseComputed from "discourse-common/utils/decorators";
 import { endWith } from "discourse/lib/computed";
 import { routeAction } from "discourse/helpers/route-action";
-import { inject as service } from "@ember/service";
 import { userPath } from "discourse/lib/url";
 import { action } from "@ember/object";
+import { filterTypeForMode } from "discourse/lib/filter-mode";
 
-const controllerOpts = {
-  discovery: controller(),
-  router: service(),
+export default class TopicsController extends DiscoveryController.extend(
+  DismissTopics
+) {
+  @service router;
+  @service composer;
+  @controller discovery;
 
-  period: null,
-  canCreateTopicOnCategory: null,
+  bulkSelectHelper = new BulkSelectHelper(this);
 
+<<<<<<< HEAD
+  period = null;
+  expandGloballyPinned = false;
+  expandAllPinned = false;
+
+  @alias("currentUser.id") canStar;
+  @alias("currentUser.user_option.redirected_to_top.reason") redirectedReason;
+  @readOnly("model.params.order") order;
+  @readOnly("model.params.ascending") ascending;
+  @gt("model.topics.length", 0) hasTopics;
+  @empty("model.more_topics_url") allLoaded;
+  @endWith("model.filter", "latest") latest;
+  @endWith("model.filter", "top") top;
+  @equal("period", "yearly") yearly;
+  @equal("period", "quarterly") quarterly;
+  @equal("period", "monthly") monthly;
+  @equal("period", "weekly") weekly;
+  @equal("period", "daily") daily;
+=======
   canStar: alias("currentUser.id"),
   showTopicPostBadges: not("new"),
   redirectedReason: alias("currentUser.user_option.redirected_to_top.reason"),
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
-  expandGloballyPinned: false,
-  expandAllPinned: false,
+  @or("currentUser.canManageTopic", "showDismissRead", "showResetNew")
+  canBulkSelect;
 
-  order: readOnly("model.params.order"),
-  ascending: readOnly("model.params.ascending"),
+  get bulkSelectEnabled() {
+    return this.bulkSelectHelper.bulkSelectEnabled;
+  }
 
-  selected: null,
-
-  // Remove these actions which are defined in `DiscoveryController`
-  // We want them to bubble in DiscoveryTopicsController
-  @action
-  loadingBegan() {
-    this.set("application.showFooter", false);
-    return true;
-  },
-
-  @action
-  loadingComplete() {
-    this.set("application.showFooter", this.loadedAllItems);
-    return true;
-  },
+  get selected() {
+    return this.bulkSelectHelper.selected;
+  }
 
   @discourseComputed("model.filter", "model.topics.length")
-  showDismissRead(filter, topicsLength) {
-    return this._isFilterPage(filter, "unread") && topicsLength > 0;
-  },
+  showDismissRead(filterMode, topicsLength) {
+    return filterTypeForMode(filterMode) === "unread" && topicsLength > 0;
+  }
 
   @discourseComputed("model.filter", "model.topics.length")
-  showResetNew(filter, topicsLength) {
-    return this._isFilterPage(filter, "new") && topicsLength > 0;
-  },
+  showResetNew(filterMode, topicsLength) {
+    return filterTypeForMode(filterMode) === "new" && topicsLength > 0;
+  }
 
   callResetNew(dismissPosts = false, dismissTopics = false, untrack = false) {
     const tracked =
@@ -80,7 +92,7 @@ const controllerOpts = {
         tracked ? { skipResettingParams: ["filter", "f"] } : {}
       );
     });
-  },
+  }
 
   // Show newly inserted topics
   @action
@@ -91,8 +103,18 @@ const controllerOpts = {
     // Move inserted into topics
     this.model.loadBefore(tracker.get("newIncoming"), true);
     tracker.resetTracking();
-  },
+  }
 
+<<<<<<< HEAD
+  @action
+  changeSort() {
+    deprecated(
+      "changeSort has been changed from an (action) to a (route-action)",
+      {
+        since: "2.6.0",
+        dropFrom: "2.7.0",
+        id: "discourse.topics.change-sort",
+=======
   actions: {
     changeSort() {
       deprecated(
@@ -105,12 +127,24 @@ const controllerOpts = {
       );
       return routeAction("changeSort", this.router._router, ...arguments)();
     },
-  },
+
+    refresh(options = { skipResettingParams: [] }) {
+      const filter = this.get("model.filter");
+      this.send("resetParams", options.skipResettingParams);
+
+      // Don't refresh if we're still loading
+      if (this.discovery.loading) {
+        return;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+      }
+    );
+    return routeAction("changeSort", this.router._router, ...arguments)();
+  }
 
   @action
   refresh() {
     this.send("triggerRefresh");
-  },
+  }
 
   afterRefresh(filter, list, listModel = list) {
     this.setProperties({ model: listModel });
@@ -121,22 +155,46 @@ const controllerOpts = {
     }
 
     this.send("loadingComplete");
-  },
-
-  hasTopics: gt("model.topics.length", 0),
-  allLoaded: empty("model.more_topics_url"),
-  latest: endWith("model.filter", "latest"),
-  top: endWith("model.filter", "top"),
-  yearly: equal("period", "yearly"),
-  quarterly: equal("period", "quarterly"),
-  monthly: equal("period", "monthly"),
-  weekly: equal("period", "weekly"),
-  daily: equal("period", "daily"),
+  }
 
   @discourseComputed("model.filter")
   new(filter) {
-    return filter?.endsWith("new") && !this.currentUser?.new_new_view_enabled;
-  },
+    return filter?.endsWith("new");
+  }
+
+  @discourseComputed("new")
+  showTopicsAndRepliesToggle(isNew) {
+    return isNew && this.currentUser?.new_new_view_enabled;
+  }
+
+  @discourseComputed("topicTrackingState.messageCount")
+  newRepliesCount() {
+    if (this.currentUser?.new_new_view_enabled) {
+      return this.topicTrackingState.countUnread({
+        categoryId: this.category?.id,
+        noSubcategories: this.noSubcategories,
+      });
+    } else {
+      return 0;
+    }
+  }
+
+  @discourseComputed("topicTrackingState.messageCount")
+  newTopicsCount() {
+    if (this.currentUser?.new_new_view_enabled) {
+      return this.topicTrackingState.countNew({
+        categoryId: this.category?.id,
+        noSubcategories: this.noSubcategories,
+      });
+    } else {
+      return 0;
+    }
+  }
+
+  @discourseComputed("new")
+  showTopicPostBadges(isNew) {
+    return !isNew || this.currentUser?.new_new_view_enabled;
+  }
 
   @discourseComputed("allLoaded", "model.topics.length")
   footerMessage(allLoaded, topicsLength) {
@@ -161,7 +219,7 @@ const controllerOpts = {
         });
       }
     }
-  },
+  }
 
   @discourseComputed("allLoaded", "model.topics.length")
   footerEducation(allLoaded, topicsLength) {
@@ -186,11 +244,33 @@ const controllerOpts = {
         `${this.currentUser.get("username_lower")}/preferences/tracking`
       ),
     });
-  },
-};
+  }
 
-export default DiscoveryController.extend(
-  controllerOpts,
-  BulkTopicSelection,
-  DismissTopics
-);
+  get renderNewListHeaderControls() {
+    return (
+      this.site.mobileView &&
+      this.get("showTopicsAndRepliesToggle") &&
+      !this.get("bulkSelectEnabled")
+    );
+  }
+
+  @action
+  toggleBulkSelect() {
+    this.bulkSelectHelper.toggleBulkSelect();
+  }
+
+  @action
+  dismissRead(operationType, options) {
+    this.bulkSelectHelper.dismissRead(operationType, options);
+  }
+
+  @action
+  updateAutoAddTopicsToBulkSelect(value) {
+    this.bulkSelectHelper.autoAddTopicsToBulkSelect = value;
+  }
+
+  @action
+  addTopicsToBulkSelect(topics) {
+    this.bulkSelectHelper.addTopics(topics);
+  }
+}

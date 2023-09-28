@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { tracked } from "@glimmer/tracking";
 import User from "discourse/models/user";
 
@@ -11,8 +12,8 @@ export default class UserChatChannelMembership {
   @tracked desktopNotificationLevel = null;
   @tracked mobileNotificationLevel = null;
   @tracked lastReadMessageId = null;
-  @tracked user = null;
   @tracked lastViewedAt = null;
+  @tracked user = null;
 
   constructor(args = {}) {
     this.following = args.following;
@@ -20,7 +21,7 @@ export default class UserChatChannelMembership {
     this.desktopNotificationLevel = args.desktop_notification_level;
     this.mobileNotificationLevel = args.mobile_notification_level;
     this.lastReadMessageId = args.last_read_message_id;
-    this.lastViewedAt = args.last_viewed_at;
+    this.lastViewedAt = new Date(args.last_viewed_at);
     this.user = this.#initUserModel(args.user);
   }
 
@@ -32,3 +33,8 @@ export default class UserChatChannelMembership {
     return User.create(user);
   }
 }
+=======
+import RestModel from "discourse/models/rest";
+
+export default class UserChatChannelMembership extends RestModel {}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

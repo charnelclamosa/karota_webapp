@@ -1,13 +1,25 @@
+<<<<<<< HEAD
+/* eslint-disable ember/require-tagless-components */
+/* eslint-disable ember/no-classic-classes */
+/* eslint-disable ember/no-classic-components */
+
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { click, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+<<<<<<< HEAD
+import ClassicComponent from "@ember/component";
+import GlimmerComponent from "@glimmer/component";
+=======
 
 /* eslint-disable ember/require-tagless-components */
 /* eslint-disable ember/no-classic-classes */
 /* eslint-disable ember/no-classic-components */
 import { default as ClassicComponent } from "@ember/component";
 import { default as GlimmerComponent } from "@glimmer/component";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { action } from "@ember/object";
 
 // Configure test-local Classic and Glimmer components that

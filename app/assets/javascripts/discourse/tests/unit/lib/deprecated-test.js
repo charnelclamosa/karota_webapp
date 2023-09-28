@@ -1,5 +1,7 @@
-import {
-  default as deprecated,
+<<<<<<< HEAD
+import { module, test } from "qunit";
+import { setupTest } from "ember-qunit";
+import deprecated, {
   withSilencedDeprecations,
   withSilencedDeprecationsAsync,
 } from "discourse-common/lib/deprecated";
@@ -8,12 +10,26 @@ import {
   enableRaiseOnDeprecation,
 } from "discourse/tests/helpers/raise-on-deprecation";
 import DeprecationCounter from "discourse/tests/helpers/deprecation-counter";
+import Sinon from "sinon";
+
+module("Unit | Utility | deprecated", function (hooks) {
+  setupTest(hooks);
+
+  hooks.beforeEach(function () {
+    disableRaiseOnDeprecation();
+=======
+import {
+  default as deprecated,
+  withSilencedDeprecations,
+  withSilencedDeprecationsAsync,
+} from "discourse-common/lib/deprecated";
+import DeprecationCounter from "discourse/tests/helpers/deprecation-counter";
 import { module, test } from "qunit";
 import Sinon from "sinon";
 
 module("Unit | Utility | deprecated", function (hooks) {
   hooks.beforeEach(function () {
-    disableRaiseOnDeprecation();
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.warnStub = Sinon.stub(console, "warn");
     this.counterStub = Sinon.stub(
       DeprecationCounter.prototype,
@@ -21,10 +37,13 @@ module("Unit | Utility | deprecated", function (hooks) {
     );
   });
 
-  hooks.afterEach(() => {
+<<<<<<< HEAD
+  hooks.afterEach(function () {
     enableRaiseOnDeprecation();
   });
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("works with just a message", function (assert) {
     deprecated("My message");
     assert.strictEqual(

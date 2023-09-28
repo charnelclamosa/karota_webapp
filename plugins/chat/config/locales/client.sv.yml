@@ -10,12 +10,21 @@ sv:
       site_settings:
         categories:
           chat: Chatt
+<<<<<<< HEAD
+        chat_separate_sidebar_mode:
+          always: "Alltid"
+          never: "Aldrig"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Chattkanalens status har ändrats"
             chat_channel_delete: "Chattkanal raderad"
+<<<<<<< HEAD
             chat_auto_remove_membership: "Medlemskap tas automatiskt bort från kanaler"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
@@ -26,6 +35,10 @@ sv:
       chat_channels_count: "Chattkanaler"
       chat_users_count: "Chattanvändare"
     chat:
+<<<<<<< HEAD
+      deleted_chat_username: raderat
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Visar alla meddelanden"
@@ -40,8 +53,13 @@ sv:
       move_to_channel:
         title: "Flytta meddelanden till kanal"
         instructions:
+<<<<<<< HEAD
           one: "Du flyttar <strong>%{count}</strong> meddelande. Välj en destinationskanal. Ett platshållarmeddelande kommer att skapas i kanalen <strong>%{channelTitle}</strong> för att indikera att detta meddelande har flyttats. Observera att svarskedjor inte kommer att bevaras i den nya kanalen, och meddelanden i den gamla kanalen kommer inte längre att visas som svar på flyttade meddelanden."
           other: "Du flyttar <strong>%{count}</strong> meddelanden. Välj en destinationskanal. Ett platshållarmeddelande kommer att skapas i kanalen <strong>%{channelTitle}</strong> för att indikera att dessa meddelanden har flyttats. Observera att svarskedjor inte kommer att bevaras i den nya kanalen, och meddelanden i den gamla kanalen kommer inte längre att visas som svar på flyttade meddelanden."
+=======
+          one: "Du flyttar <strong>%{count}</strong> meddelande. Välj en destinationskanal. Ett platshållarmeddelande kommer att skapas i kanalen <strong>%{channelTitle}</strong> för att indikera att detta meddelande har flyttats."
+          other: "Du flyttar <strong>%{count}</strong> meddelanden. Välj en destinationskanal. Ett platshållarmeddelande kommer att skapas i kanalen <strong>%{channelTitle}</strong> för att indikera att dessa meddelanden har flyttats."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Flytta meddelanden"
       channel_settings:
         title: "Kanalinställningar"
@@ -72,7 +90,11 @@ sv:
         instructions: "Genom att stänga kanalen hindras användare som inte är personal att skicka nya meddelanden eller redigera befintliga meddelanden. Är du säker på att du vill stänga denna kanal?"
       channel_delete:
         title: "Radera kanal"
+<<<<<<< HEAD
         instructions: "<p>Tar bort kanalen <strong>%{name}</strong> och chatthistoriken. Alla meddelanden och relaterad data, såsom reaktioner och uppladdningar, kommer att raderas permanent. Om du vill bevara kanalhistoriken och avveckla den, kanske du vill arkivera kanalen istället.</p> <p>Är du säker på att du vill <strong>ta bort kanalen permanent</strong>? Bekräfta genom att skriva in kanalens namn i rutan nedan.</p>"
+=======
+        instructions: "<p>Tar bort <strong>%{name}</strong> kanalen och chatthistoriken. Alla meddelanden och relaterad data, såsom reaktioner och uppladdningar, kommer att raderas permanent. Om du vill bevara kanalhistoriken men avveckla den, kanske du vill arkivera kanalen istället.</p> <p>Är du säker på att du <strong>permanent vill ta bort</strong> kanalen? För att bekräfta, skriv in namnet på kanalen i rutan nedan.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "Jag förstår konsekvenserna, radera kanalen"
         confirm_channel_name: "Ange kanalnamn"
         process_started: "Processen för att radera kanalen har påbörjats. Denna modal kommer att stängas inom kort och du kommer inte längre att se den raderade kanalen någonstans."
@@ -81,12 +103,19 @@ sv:
         create: "Ny kanal"
       click_to_join: "Klicka här för att se tillgängliga kanaler."
       close: "Stäng"
+<<<<<<< HEAD
+      remove: "Ta bort"
       collapse: "Komprimera chattruta"
       expand: "Expandera chattlådan"
       confirm_flag: "Är du säker på att du vill flagga %{username}:s meddelande?"
       deleted:
         one: "Ett meddelande raderades. [view]"
         other: "%{count} meddelanden raderades. [visa alla]"
+=======
+      collapse: "Komprimera chattruta"
+      confirm_flag: "Är du säker på att du vill flagga %{username}:s meddelande?"
+      deleted: "Ett meddelande raderades. [view]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       hidden: "Ett meddelande doldes. [view]"
       delete: "Radera"
       edited: "redigerad"
@@ -101,11 +130,14 @@ sv:
         never: "Aldrig"
         title: "E-postaviseringar"
         when_away: "Endast när du är borta"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "Visa aktivitetsindikator i sidhuvudet"
         all_new: "Alla nya meddelanden"
         dm_and_mentions: "Direktmeddelanden och omnämnanden"
         never: "Aldrig"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Aktivera chatt"
       flag: "Flagga"
       emoji: "Infoga emoji"
@@ -115,6 +147,7 @@ sv:
       in_reply_to: "Som svar på"
       heading: "Chatt"
       join: "Gå med"
+<<<<<<< HEAD
       last_visit: "senaste besök"
       summarization:
         title: "Sammanfatta meddelanden"
@@ -124,27 +157,19 @@ sv:
           one: "Senaste timmen"
           other: "Senaste %{count} timmarna"
       mention_warning:
+=======
+      new_messages: "nya meddelanden"
+      mention_warning:
+        cannot_see:
+          one: "%{usernames} kan inte komma åt den här kanalen och har inte blivit meddelad."
+          other: "%{usernames} kan inte komma åt den här kanalen och har inte blivit meddelade."
         dismiss: "avfärda"
-        cannot_see: "%{username} kan inte komma åt den här kanalen och har inte aviserats."
-        cannot_see_multiple:
-          one: "%{username} och %{count} annan användare kan inte komma åt den här kanalen och har inte aviserats."
-          other: "%{username} och %{count} andra användare kan inte komma åt den här kanalen och har inte aviserats."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Inbjudan skickad"
           other: "Inbjudningar skickade"
         invite: "Bjud in till kanal"
-        without_membership: "%{username} har inte gått med i den här kanalen."
-        without_membership_multiple:
-          one: "%{username} och %{count} annan användare har inte gått med i den här kanalen."
-          other: "%{username} och %{count} andra användare har inte gått med i den här kanalen."
-        group_mentions_disabled: "%{group_name} tillåter inte omnämnanden."
-        group_mentions_disabled_multiple:
-          one: "%{group_name} och ytterligare %{count} grupp tillåter inte omnämnanden."
-          other: "%{group_name} och ytterligare %{count} grupper tillåter inte omnämnanden."
-        too_many_members: "%{group_name} har för många medlemmar. Ingen aviserades."
-        too_many_members_multiple:
-          one: "%{group_name} och %{count} annan grupp har för många medlemmar. Ingen aviserades."
-          other: "%{group_name} och %{count} andra grupper har för många medlemmar. Ingen aviserades."
+<<<<<<< HEAD
         groups:
           header:
             some: "Vissa användare kommer inte att aviseras"
@@ -214,12 +239,20 @@ sv:
         too_many_mentions_admin:
           one: 'Det här meddelandet överstiger <a href="%{siteSettingUrl}" target="_blank">aviseringsgränsen</a> som är %{count} omnämnande.'
           other: 'Det här meddelandet överstiger <a href="%{siteSettingUrl}" target="_blank">aviseringsgränsen</a> som är %{count} omnämnanden.'
+=======
+        without_membership:
+          one: "%{usernames} har inte gått med i den här kanalen."
+          other: "%{usernames} har inte gått med i den här kanalen."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       aria_roles:
         header: "Chatthuvud"
         composer: "Chattkompositör"
         channels_list: "Lista över chattkanaler"
       no_public_channels: "Du har inte gått med i några kanaler."
+<<<<<<< HEAD
       kicked_from_channel: "Du har inte längre tillgång till den här kanalen."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       only_chat_push_notifications:
         title: "Skicka bara push-meddelanden för chatt"
         description: "Blockera alla push-meddelanden som inte är chattmeddelanden från att skickas"
@@ -231,6 +264,7 @@ sv:
       close_full_page: "Stäng helskärmschatt"
       open_message: "Öppna meddelande i chatten"
       placeholder_self: "Gör en anteckning"
+<<<<<<< HEAD
       placeholder_channel: "Chatta i %{channelName}"
       placeholder_thread: "Chatta i tråden"
       placeholder_users: "Chatta med %{commaSeparatedNames}"
@@ -239,8 +273,12 @@ sv:
         closed: "Kanalen är stängd, och du kan inte skicka nya meddelanden just nu."
         read_only: "Kanalen är lässkyddad, och du kan inte skicka nya meddelanden just nu."
       placeholder_silenced: "Du kan inte skicka meddelanden just nu."
-      placeholder_start_conversation: "Inled ett samtal med ..."
-      placeholder_start_conversation_users: "Inled ett samtal med %{commaSeparatedUsernames}"
+=======
+      placeholder_others: "Chatta med %{messageRecipient}"
+      placeholder_new_message_disallowed: "Kanalen är %{status}, du kan inte skicka nya meddelanden just nu."
+      placeholder_silenced: "Du kan inte skicka meddelanden just nu."
+      placeholder_start_conversation: Starta en konversation med %{usernames}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       remove_upload: "Ta bort fil"
       react: "Reagera med emoji"
       reply: "Svara"
@@ -256,11 +294,16 @@ sv:
       restore: "Återställ raderat meddelande"
       save: "Spara"
       select: "Välj"
+<<<<<<< HEAD
       return_to_list: "Återgå till listan över kanaler"
       return_to_threads_list: "Gå tillbaka till pågående diskussioner"
       unread_threads_count:
         one: "Du har %{count} oläst diskussion"
         other: "Du har %{count} olästa diskussioner"
+=======
+      silence: "Tysta användare"
+      return_to_list: "Återgå till listan över kanaler"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       scroll_to_bottom: "Scrolla till botten"
       scroll_to_new_messages: "Se nya meddelanden"
       sound:
@@ -272,8 +315,11 @@ sv:
       title: "chatt"
       title_capitalized: "Chatt"
       upload: "Bifoga en fil"
+<<<<<<< HEAD
       upload_to_channel: "Ladda upp till %{title}"
       upload_to_thread: "Ladda upp till tråd"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       uploaded_files:
         one: "%{count} fil"
         other: "%{count} filer"
@@ -284,13 +330,21 @@ sv:
         read_only: "Endast läsning"
         archived_header: "Kanalen är arkiverad"
         archived: "Arkiverad"
-        archive_failed: "Arkivkanalen misslyckades. %{completed}/%{total} meddelanden har arkiverats. <a target=\"_blank\" href=\"%{topic_url}\">målämnet</a>. Tryck på försök igen för att försöka slutföra arkiveringen."
+<<<<<<< HEAD
+        archive_failed: "Arkivering av kanalen misslyckades. %{completed}/%{total} meddelanden har arkiverats. <a target=\"_blank\" href=\"%{topic_url}\">Målämnet</a> skapades. Tryck på försök igen för att försöka slutföra arkivet."
         archive_failed_no_topic: "Arkivkanalen misslyckades. %{completed}/%{total} meddelanden har arkiverats. Målämnet skapades inte. Tryck på försök igen för att försöka slutföra arkiveringen."
+=======
+        archive_failed: "Arkivering av kanalen misslyckades. %{completed}/%{total} meddelanden har arkiverats i <a target=\"_blank\" href=\"%{topic_url}\">destinationsämnet</a>. Tryck på försök igen för att försöka slutföra arkivet."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         archive_completed: "Se det <a target=\"_blank\" href=\"%{topic_url}\">arkiverade ämnet</a>"
         closed_header: "Kanalen är stängd"
         closed: "Stängd"
         open_header: "Kanalen är öppen"
+<<<<<<< HEAD
         open: "Öppen"
+=======
+        open: "Öppna"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       browse:
         back: "Tillbaka"
         title: Kanaler
@@ -308,7 +362,10 @@ sv:
         associated_topic: Länkat ämne
         associated_category: Länkad kategori
         title: Rubrik
+<<<<<<< HEAD
         name: Namn
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Beskrivning
       channel_info:
         back_to_all_channels: "Alla kanaler"
@@ -317,12 +374,15 @@ sv:
           about: Om
           members: Medlemmar
           settings: Inställningar
+<<<<<<< HEAD
       new_message_modal:
         title: Skicka meddelande
         add_user_long: <kbd>skift + klicka</kbd> eller <kbd>skift + enter</kbd><span>Lägg till @%{username}</span>
         add_user_short: <span>Lägg till användare</span>
         open_channel: <span>Öppna kanal</span>
         default_search_placeholder: "#a-kanal, @någon eller något"
+        default_channel_search_placeholder: "#en-kanal"
+        default_user_search_placeholder: "@någon"
         user_search_placeholder: "...lägg till fler användare"
         disabled_user: "har inaktiverat chatten"
         no_items: "Inga objekt"
@@ -332,6 +392,12 @@ sv:
         slug_description: Ett dynamiskt kanalfält används i URL:en istället för kanalnamnet
         name: Kanalnamn
         slug: Dynamiskt kanalfält (valfritt)
+=======
+      channel_edit_title_modal:
+        title: Redigera titel
+        input_placeholder: Lägg till en titel
+        description: Ge en kort beskrivande titel till din kanal
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_edit_description_modal:
         title: Redigera beskrivning
         input_placeholder: Lägg till en beskrivning
@@ -341,6 +407,12 @@ sv:
         prefix: "Till:"
         no_results: Inga resultat
         selected_user_title: "Avmarkera %{username}"
+<<<<<<< HEAD
+=======
+      channel_selector:
+        title: "Byt till kanal"
+        no_channels: "Inga kanaler matchar din sökning"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel:
         no_memberships: Denna kanal har inga medlemmar
         no_memberships_found: Inga medlemmar hittades
@@ -348,6 +420,7 @@ sv:
           one: "%{count} medlem"
           other: "%{count} medlemmar"
       create_channel:
+<<<<<<< HEAD
         threading:
           label: "Aktivera trådning"
         auto_join_users:
@@ -373,10 +446,19 @@ sv:
                       }
                     }
             }
+=======
+        auto_join_users:
+          public_category_warning: "%{category} är en offentlig kategori. Vill du automatiskt lägga till alla nyligen aktiva användare till den här kanalen?"
+          warning_groups:
+            one: Lägg automatiskt till %{members_count} användare från %{group}?
+            other: Lägg automatiskt till %{members_count} användare från %{group} och %{group_2}?
+          warning_multiple_groups: Lägg automatiskt till %{members_count} användare från %{group_1} och %{count} andra?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         choose_category:
           label: "Välj en kategori"
           none: "Välj en..."
           default_hint: Hantera åtkomst genom att besöka <a href=%{link} target="_blank">%{category} säkerhetsinställningar</a>
+<<<<<<< HEAD
           hint_1_group: 'Användare i %{group} kommer att ha åtkomst till denna kanal enligt <a href="%{settingLink}" target="_blank">säkerhetsinställningar</a>'
           hint_2_groups: 'Användare i %{group1} och %{group2} kommer att ha åtkomst till denna kanal enligt <a href="%{settingLink}" target="_blank">säkerhetsinställningar</a>'
           hint_multiple_groups:
@@ -386,6 +468,15 @@ sv:
         description: "Beskrivning (valfritt)"
         name: "Kanalnamn"
         slug: "Dynamiskt kanalfält (valfritt)"
+=======
+          hint_groups:
+            one: Användare i %{hint} kommer att ha åtkomst till denna kanal enligt <a href=%{link} target="_blank">säkerhetsinställningar</a>
+            other: Användare i %{hint} och %{hint_2} kommer att ha åtkomst till denna kanal enligt <a href=%{link} target="_blank">säkerhetsinställningarna</a>
+          hint_multiple_groups: Användare i %{hint_1} och %{count} andra grupper kommer att ha åtkomst till denna kanal enligt <a href=%{link} target="_blank">säkerhetsinställningarna</a>
+        create: "Skapa kanal"
+        description: "Beskrivning (valfritt)"
+        name: "Kanalnamn"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Ny kanal"
         type: "Typ"
         types:
@@ -395,6 +486,7 @@ sv:
         type: "Chatt meddelande"
       reactions:
         only_you: "Du reagerade med :%{emoji}:"
+<<<<<<< HEAD
         you_and_single_user: "Du och %{username} reagerade med :%{emoji}:"
         you_and_multiple_users: "Du, %{commaSeparatedUsernames} och %{username} reagerade med :%{emoji}:"
         you_multiple_users_and_more:
@@ -405,12 +497,21 @@ sv:
         multiple_users_and_more:
           one: "%{commaSeparatedUsernames} och ytterligare %{count} reagerade med :%{emoji}:"
           other: "%{commaSeparatedUsernames} och ytterligare %{count} reagerade med :%{emoji}:"
+=======
+        and_others: "Du, %{usernames} reagerade med :%{emoji}:"
+        only_others: "%{usernames} reagerade med :%{emoji}:"
+        others_and_more: "%{usernames} och %{more} andra reagerade med :%{emoji}:"
+        you_others_and_more: "Du, %{usernames} och %{more} andra reagerade med :%{emoji}:"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       composer:
         toggle_toolbar: "Växla verktygsfält"
         italic_text: "kursiv text"
         bold_text: "fet text"
         code_text: "kod text"
+<<<<<<< HEAD
         send: "Skicka"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       quote:
         original_channel: 'Ursprungligen skickad i <a href="%{channelLink}">%{channel}</a>'
         copy_success: "Chattcitat kopierat till urklipp"
@@ -421,19 +522,28 @@ sv:
       settings:
         channel_wide_mentions_label: "Tillåt @all och @here omnämnanden"
         channel_wide_mentions_description: "Tillåt användare att avisera alla #%{channel}-medlemmar med @all eller bara de som är aktiva för tillfället med @here"
+<<<<<<< HEAD
         channel_threading_label: "Trådning"
         channel_threading_description: "När trådning är aktiverat kommer svar på ett chattmeddelande att skapa ett separat samtal som existerar parallellt med huvudkanalen."
         auto_join_users_label: "Lägg till användare automatiskt"
         auto_join_users_info: "Kontrollera varje timme vilka användare som har varit aktiva under de senaste 3 månaderna. Lägg till dem till den här kanalen om de har tillgång till kategorin %{category}."
         auto_join_users_info_no_category: "Kontrollera varje timme vilka användare som har varit aktiva under de senaste 3 månaderna. Lägg till dem till den här kanalen om de har tillgång till vald kategori."
+=======
+        auto_join_users_label: "Lägg till användare automatiskt"
+        auto_join_users_info: "Kontrollera varje timme vilka användare som har varit aktiva under de senaste 3 månaderna och, om de har tillgång till kategorin %{category}, lägg till dem i den här kanalen."
+        enable_auto_join_users: "Lägg automatiskt till alla nyligen aktiva användare"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         auto_join_users_warning: "Varje användare som inte är medlem i den här kanalen och har tillgång till kategorin %{category} kommer att gå med. Är du säker?"
         desktop_notification_level: "Skrivbordsaviseringar"
         follow: "Gå med"
         followed: "Gick med"
         mobile_notification_level: "Mobila push-meddelanden"
         mute: "Tysta kanal"
+<<<<<<< HEAD
         threading_enabled: "Aktiverad"
         threading_disabled: "Inaktiverad"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted_on: "På"
         muted_off: "Av"
         notifications: "Aviseringar"
@@ -442,16 +552,24 @@ sv:
         saved: "Sparad"
         unfollow: "Lämna"
         admin_title: "Admin"
+<<<<<<< HEAD
       admin:
         title: "Chatt"
         export_messages:
           title: "Exportera chattmeddelanden"
-          description: "Exporten är för närvarande begränsad till de 10 000 senaste meddelanden under de senaste 6 månaderna."
           create_export: "Skapa export"
           export_has_started: "Exporten har börjat. Du får ett PM när det är klart."
       direct_messages:
         title: "Personlig chatt"
         new: "Skapa en personlig chatt"
+=======
+        retention_info: "Chatthistoriken sparas i %{days} dagar."
+      admin:
+        title: "Chatt"
+      direct_messages:
+        title: "Personlig chatt"
+        new: "Ny personlig chatt"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         create: "Kör"
         leave: "Lämna den här personliga chatten"
         cannot_create: "Tyvärr kan du inte skicka direktmeddelanden."
@@ -512,6 +630,7 @@ sv:
           one: "%{commaSeparatedUsernames} och %{count} skriver"
           other: "%{commaSeparatedUsernames} och %{count} andra skriver"
       retention_reminders:
+<<<<<<< HEAD
         public_none: "Kanalhistoriken bevaras på obestämd tid."
         public:
           one: "Kanalhistoriken bevaras %{count} dag."
@@ -520,6 +639,10 @@ sv:
         dm:
           one: "Personlig chatthistorik bevaras %{count} dag."
           other: "Personlig chatthistorik bevaras %{count} dagar."
+=======
+        public: "Kanalhistoriken behålls i %{days} dagar."
+        dm: "Personlig chatthistorik behålls i %{days} dagar."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       flags:
         off_topic: "Det här meddelandet är inte relevant för den aktuella diskussionen enligt kanaltiteln och bör förmodligen flyttas någon annanstans."
         inappropriate: "Detta meddelande innehåller saker som en förnuftig person skulle anse vara stötande, kränkande eller en överträdelse av <a href=\"%{basePath}/guidelines\">vårt forums riktlinjer</a>."
@@ -541,10 +664,10 @@ sv:
         symbols: "Symboler"
         search_placeholder: "Sök efter emojinamn och alias..."
         no_results: "Inga resultat"
+<<<<<<< HEAD
       thread:
         title: "Rubrik"
         view_thread: Visa tråd
-        default_title: "Tråd"
         replies:
           one: "%{count} svar"
           other: "%{count} svar"
@@ -568,6 +691,8 @@ sv:
         open: "Öppna tråd"
         list: "Pågående diskussioner"
         none: "Du deltar inte i några trådar i den här kanalen."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nytt meddelande"
         cancel: "Avbryt"
@@ -612,8 +737,16 @@ sv:
       transcript:
         view: "Visa tidigare meddelandens avskrift"
       types:
+<<<<<<< HEAD
         chat_reviewable_message:
           title: "Flaggat chattmeddelande"
+        reviewable_chat_message:
+          title: "Flaggat chattmeddelande"
+=======
+        reviewable_chat_message:
+          title: "Flaggat chattmeddelande"
+          flagged_by: "Flaggat av"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     keyboard_shortcuts_help:
       chat:
         title: "Chatt"
@@ -626,7 +759,10 @@ sv:
           composer_code: "%{shortcut} Kod (endast kompositör)"
           drawer_open: "%{shortcut} Öppna chattmenyn"
           drawer_close: "%{shortcut} Stäng chattmenyn"
+<<<<<<< HEAD
           mark_all_channels_read: "%{shortcut} Markera alla kanaler som lästa"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_statuses:
       chat:
         help: "Chatt är aktiverat för detta ämne"
@@ -645,7 +781,14 @@ sv:
         chat_notifications_with_unread:
           one: "Chattaviseringar - %{count} oläst avisering"
           other: "Chattaviseringar - %{count} olästa aviseringar"
+<<<<<<< HEAD
     styleguide:
       sections:
         chat:
           title: Chatt
+    sidebar:
+      panels:
+        chat:
+          label: "Chatt"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

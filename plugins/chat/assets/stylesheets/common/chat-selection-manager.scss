@@ -8,7 +8,11 @@
     flex-direction: column;
   }
 
+<<<<<<< HEAD
   &__buttons {
+=======
+  .chat-selection-management-buttons {
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     display: flex;
     gap: 0.5rem;
 
@@ -18,8 +22,16 @@
     }
   }
 
+<<<<<<< HEAD
   &__copy-success {
     animation: chat-quote-message-background-fade-highlight 2s ease-out 3s;
+    @media (prefers-reduced-motion) {
+      animation-duration: 0s;
+    }
+=======
+  .chat-selection-message {
+    animation: chat-quote-message-background-fade-highlight 2s ease-out 3s;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     animation-fill-mode: forwards;
     background-color: var(--success-low);
     color: var(--primary);

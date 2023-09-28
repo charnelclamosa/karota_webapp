@@ -10,6 +10,7 @@ $mobile-breakpoint: 700px;
   width: 100%;
   overflow: hidden;
   height: 100%;
+  background: var(--d-content-background);
 
   @include breakpoint(tablet) {
     width: calc(100% + 10px);
@@ -294,6 +295,18 @@ $mobile-breakpoint: 700px;
       font-size: var(--font-down-1);
       line-height: var(--line-height-large);
       color: var(--primary-medium);
+    }
+    .outdated {
+      border: 1px solid var(--primary-low);
+      box-sizing: border-box;
+      color: var(--primary);
+      margin-bottom: 1em;
+      max-width: 800px;
+      padding: 1em;
+
+      p {
+        color: var(--primary-high);
+      }
     }
   }
   p.warning {
@@ -1020,6 +1033,10 @@ a.inline-editable-field {
 @import "common/admin/settings";
 @import "common/admin/users";
 @import "common/admin/penalty";
+<<<<<<< HEAD
+=======
+@import "common/admin/suspend";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 @import "common/admin/badges";
 @import "common/admin/emails";
 @import "common/admin/json_schema_editor";

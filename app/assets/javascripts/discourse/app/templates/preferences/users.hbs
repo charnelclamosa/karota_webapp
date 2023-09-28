@@ -29,6 +29,7 @@
 </div>
 
 {{#if this.currentUser.can_send_private_messages}}
+<<<<<<< HEAD
   <div class="control-group private-messages">
     <label class="control-label">{{i18n "user.private_messages"}}</label>
     <div
@@ -40,6 +41,21 @@
           @labelKey="user.allow_private_messages"
           @checked={{this.model.user_option.allow_private_messages}}
         />
+=======
+  {{#if this.currentUser.redesigned_user_page_nav_enabled}}
+    <UserPreferences::AllowPrivateMessages @model={{this.model}} />
+  {{/if}}
+
+  <div class="control-group user-allow-pm">
+    <div class="controls">
+      <PreferenceCheckbox @labelKey="user.allow_private_messages_from_specific_users" @checked={{this.model.user_option.enable_allowed_pm_users}} @disabled={{this.disableAllowPmUsersSetting}} />
+    </div>
+    {{#if this.allowPmUsersEnabled}}
+      <div class="controls tracking-controls">
+        <UserChooser @value={{this.allowedPmUsernames}} @onChange={{action "onChangeAllowedPmUsernames"}} @options={{hash
+            excludeCurrentUser=true
+          }} />
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     </div>
 

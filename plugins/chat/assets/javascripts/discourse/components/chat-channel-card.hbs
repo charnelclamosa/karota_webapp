@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{#if @channel}}
   <div
     class={{concat-class
@@ -7,10 +8,21 @@
     }}
     style={{border-color @channel.chatable.color}}
     data-channel-id={{@channel.id}}
+=======
+{{#if this.channel}}
+  <div
+    class={{concat-class
+      "chat-channel-card"
+      (if this.channel.isClosed "-closed")
+      (if this.channel.isArchived "-archived")
+    }}
+    style={{border-color this.channel.chatable.color}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   >
     <div class="chat-channel-card__header">
       <LinkTo
         @route="chat.channel"
+<<<<<<< HEAD
         @models={{@channel.routeModels}}
         class="chat-channel-card__name-container"
       >
@@ -18,15 +30,34 @@
           {{replace-emoji @channel.title}}
         </span>
         {{#if @channel.chatable.read_restricted}}
+=======
+        @models={{array this.channel.id (slugify-channel this.channel)}}
+        class="chat-channel-card__name-container"
+      >
+        <span class="chat-channel-card__name">
+          {{replace-emoji this.channel.escapedTitle}}
+        </span>
+        {{#if this.channel.chatable.read_restricted}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           {{d-icon "lock" class="chat-channel-card__read-restricted"}}
         {{/if}}
       </LinkTo>
 
       <div class="chat-channel-card__header-actions">
+<<<<<<< HEAD
         {{#if @channel.currentUserMembership.muted}}
           <LinkTo
             @route="chat.channel.info.settings"
             @models={{@channel.routeModels}}
+=======
+        {{#if this.channel.current_user_membership.muted}}
+          <LinkTo
+            @route="chat.channel.info.settings"
+            @models={{array
+              this.channel.id
+              (slugify-channel this.channel)
+            }}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             class="chat-channel-card__tag -muted"
             tabindex="-1"
           >
@@ -36,7 +67,11 @@
 
         <LinkTo
           @route="chat.channel.info.settings"
+<<<<<<< HEAD
           @models={{@channel.routeModels}}
+=======
+          @models={{array this.channel.id (slugify-channel this.channel)}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           class="chat-channel-card__setting"
           tabindex="-1"
         >
@@ -45,30 +80,52 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     {{#if @channel.description}}
       <div class="chat-channel-card__description">
         {{replace-emoji @channel.description}}
+=======
+    {{#if this.channel.description}}
+      <div class="chat-channel-card__description">
+        {{replace-emoji this.channel.escapedDescription}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     {{/if}}
 
     <div class="chat-channel-card__cta">
+<<<<<<< HEAD
       {{#if @channel.isFollowing}}
+=======
+      {{#if this.channel.isFollowing}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         <div class="chat-channel-card__tags">
           <span class="chat-channel-card__tag -joined">
             {{i18n "chat.joined"}}
           </span>
 
           <ToggleChannelMembershipButton
+<<<<<<< HEAD
             @channel={{@channel}}
+=======
+            @channel={{this.channel}}
+            @onToggle={{action "afterMembershipToggle"}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             @options={{hash
               leaveClass="btn-link btn-small chat-channel-card__leave-btn"
               labelType="short"
             }}
           />
         </div>
+<<<<<<< HEAD
       {{else if @channel.isJoinable}}
         <ToggleChannelMembershipButton
           @channel={{@channel}}
+=======
+      {{else if this.channel.isJoinable}}
+        <ToggleChannelMembershipButton
+          @channel={{this.channel}}
+          @onToggle={{action "afterMembershipToggle"}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           @options={{hash
             joinClass="btn-primary btn-small chat-channel-card__join-btn"
             labelType="short"
@@ -76,19 +133,34 @@
         />
       {{/if}}
 
+<<<<<<< HEAD
       {{#if (gt @channel.membershipsCount 0)}}
         <LinkTo
           @route="chat.channel.info.members"
           @models={{@channel.routeModels}}
+=======
+      {{#if (gt this.channel.membershipsCount 0)}}
+        <LinkTo
+          @route="chat.channel.info.members"
+          @models={{array this.channel.id (slugify-channel this.channel)}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           class="chat-channel-card__members"
           tabindex="-1"
         >
           {{i18n
             "chat.channel.memberships_count"
+<<<<<<< HEAD
             count=@channel.membershipsCount
+=======
+            count=this.channel.membershipsCount
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }}
         </LinkTo>
       {{/if}}
     </div>
   </div>
+<<<<<<< HEAD
 {{/if}}
+=======
+{{/if}}
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

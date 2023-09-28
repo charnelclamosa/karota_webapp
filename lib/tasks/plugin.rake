@@ -6,13 +6,11 @@ desc "install all official plugins (use GIT_WRITE=1 to pull with write access)"
 task "plugin:install_all_official" do
   skip = Set.new(%w[customer-flair poll])
 
-  map = { "Canned Replies" => "https://github.com/discourse/discourse-canned-replies" }
-
   STDERR.puts "Allowing write to all repos!" if ENV["GIT_WRITE"]
 
   Plugin::Metadata::OFFICIAL_PLUGINS.each do |name|
     next if skip.include? name
-    repo = map[name] || "https://github.com/discourse/#{name}"
+    repo = "https://github.com/discourse/#{name}"
     dir = repo.split("/").last
     path = File.expand_path("plugins/" + dir)
 
@@ -179,6 +177,13 @@ def spec(plugin, parallel: false, argv: nil)
   files =
     Dir.glob("./plugins/#{plugin}/spec/**/*_spec.rb").reject { |f| f.include?("spec/system/") }.sort
 
+<<<<<<< HEAD
+=======
+  ruby = `which ruby`.strip
+  # reject system specs as they are slow and need dedicated setup
+  files =
+    Dir.glob("./plugins/#{plugin}/spec/**/*_spec.rb").reject { |f| f.include?("spec/system/") }.sort
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   if files.length > 0
     cmd = parallel ? "bin/turbo_rspec" : "bin/rspec"
 
@@ -209,14 +214,17 @@ task "plugin:qunit", %i[plugin timeout] do |t, args|
   rake = "#{Rails.root}/bin/rake"
 
   cmd = "LOAD_PLUGINS=1 "
-  cmd += "QUNIT_SKIP_CORE=1 "
 
-  if args[:plugin] == "*"
-    puts "Running qunit tests for all plugins"
-  else
-    puts "Running qunit tests for #{args[:plugin]}"
-    cmd += "QUNIT_SINGLE_PLUGIN='#{args[:plugin]}' "
-  end
+  target =
+    if args[:plugin] == "*"
+      puts "Running qunit tests for all plugins"
+      "plugins"
+    else
+      puts "Running qunit tests for #{args[:plugin]}"
+      args[:plugin]
+    end
+
+  cmd += "TARGET='#{target}' "
 
   cmd += "#{rake} qunit:test"
   cmd += "[#{args[:timeout]}]" if args[:timeout]

@@ -33,6 +33,12 @@ RSpec.describe ListController do
 
       get "/latest?tags[1]=hello"
       expect(response.status).to eq(400)
+
+      get "/latest?before[1]=haxx"
+      expect(response.status).to eq(400)
+
+      get "/latest?bumped_before[1]=haxx"
+      expect(response.status).to eq(400)
     end
 
     it "returns 200 for legit requests" do
@@ -100,6 +106,7 @@ RSpec.describe ListController do
       get "/latest"
 
       expect(response.status).to eq(200)
+<<<<<<< HEAD
       topic_list = Nokogiri.HTML5(response.body).css(".topic-list")
       first_item = topic_list.css('[itemprop="itemListElement"]')
       expect(first_item.css('[itemprop="position"]')[0]["content"]).to eq("1")
@@ -194,6 +201,34 @@ RSpec.describe ListController do
         end.count
 
       expect(new_sql_queries_count).to be <= initial_sql_queries_count
+    end
+
+    context "with topics with tags" do
+      let(:tag_group) { Fabricate.build(:tag_group) }
+      let(:tag_group_permission) { Fabricate.build(:tag_group_permission, tag_group: tag_group) }
+      let(:restricted_tag) { Fabricate(:tag) }
+      let(:public_tag) { Fabricate(:tag) }
+
+      before do
+        tag_group.tag_group_permissions << tag_group_permission
+        tag_group.save!
+        tag_group_permission.tag_group.tags << restricted_tag
+        topic.tags << [public_tag, restricted_tag]
+      end
+
+      it "does not show hidden tags" do
+        get "/latest"
+
+        expect(response.status).to eq(200)
+        expect(response.body).to include(public_tag.name)
+        expect(response.body).not_to include(restricted_tag.name)
+      end
+=======
+      topic_list = Nokogiri::HTML5(response.body).css('.topic-list')
+      first_item = topic_list.css('[itemprop="itemListElement"]')
+      expect(first_item.css('[itemprop="position"]')[0]['content']).to eq('1')
+      expect(first_item.css('[itemprop="url"]')[0]['href']).to eq(topic.url)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -1116,6 +1151,7 @@ RSpec.describe ListController do
       expect(response.status).to eq(404)
     end
 
+<<<<<<< HEAD
     it "returns category definition topics if `show_category_definitions_in_topic_lists` site setting is enabled" do
       category_topic = Fabricate(:topic, category: category)
       category.update!(topic: category_topic)
@@ -1125,12 +1161,22 @@ RSpec.describe ListController do
       sign_in(user)
 
       get "/filter.json"
+=======
+    it "is hidden to admins" do
+      sign_in(admin)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(response.status).to eq(200)
+<<<<<<< HEAD
 
       expect(
         response.parsed_body["topic_list"]["topics"].map { |topic| topic["id"] },
       ).to contain_exactly(topic.id, category_topic.id)
+=======
+      parsed = response.parsed_body
+      expect(parsed["topic_list"]["topics"].length).to eq(1)
+      expect(parsed["topic_list"]["topics"].first["id"]).not_to eq(welcome_topic.id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "does not return category definition topics if `show_category_definitions_in_topic_lists` site setting is disabled" do
@@ -1385,6 +1431,152 @@ RSpec.describe ListController do
         expect(
           response.parsed_body["topic_list"]["topics"].map { |topic| topic["id"] },
         ).to contain_exactly(topic.id)
+      end
+    end
+  end
+
+  describe "#new" do
+    def extract_topic_ids(response)
+      response.parsed_body["topic_list"]["topics"].map { |topics| topics["id"] }
+    end
+
+    def make_topic_with_unread_replies(topic, user)
+      TopicUser.change(
+        user.id,
+        topic.id,
+        notification_level: TopicUser.notification_levels[:tracking],
+      )
+      TopicUser.update_last_read(user, topic.id, 1, 1, 1)
+      Fabricate(:post, topic: topic)
+      topic
+    end
+
+    def make_topic_read(topic, user)
+      TopicUser.update_last_read(user, topic.id, 1, 1, 1)
+      topic
+    end
+
+    context "when the user is part of the `experimental_new_new_view_groups` site setting group" do
+      fab!(:category) { Fabricate(:category) }
+      fab!(:tag) { Fabricate(:tag) }
+
+      fab!(:new_reply) { make_topic_with_unread_replies(Fabricate(:post).topic, user) }
+      fab!(:new_topic) { Fabricate(:post).topic }
+      fab!(:old_topic) { make_topic_read(Fabricate(:post).topic, user) }
+
+      fab!(:new_reply_in_category) do
+        make_topic_with_unread_replies(
+          Fabricate(:post, topic: Fabricate(:topic, category: category)).topic,
+          user,
+        )
+      end
+      fab!(:new_topic_in_category) do
+        Fabricate(:post, topic: Fabricate(:topic, category: category)).topic
+      end
+      fab!(:old_topic_in_category) do
+        make_topic_read(Fabricate(:post, topic: Fabricate(:topic, category: category)).topic, user)
+      end
+
+      fab!(:new_reply_with_tag) do
+        make_topic_with_unread_replies(
+          Fabricate(:post, topic: Fabricate(:topic, tags: [tag])).topic,
+          user,
+        )
+      end
+      fab!(:new_topic_with_tag) { Fabricate(:post, topic: Fabricate(:topic, tags: [tag])).topic }
+      fab!(:old_topic_with_tag) do
+        make_topic_read(Fabricate(:post, topic: Fabricate(:topic, tags: [tag])).topic, user)
+      end
+
+      before do
+        make_topic_read(topic, user)
+
+        SiteSetting.experimental_new_new_view_groups = group.name
+        group.add(user)
+
+        sign_in(user)
+      end
+
+      it "returns new topics and topics with new replies" do
+        get "/new.json"
+
+        ids = extract_topic_ids(response)
+        expect(ids).to contain_exactly(
+          new_reply.id,
+          new_topic.id,
+          new_reply_in_category.id,
+          new_topic_in_category.id,
+          new_reply_with_tag.id,
+          new_topic_with_tag.id,
+        )
+      end
+
+      context "when the subset param is set to topics" do
+        it "returns only new topics" do
+          get "/new.json", params: { subset: "topics" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(
+            new_topic.id,
+            new_topic_in_category.id,
+            new_topic_with_tag.id,
+          )
+        end
+      end
+
+      context "when the subset param is set to replies" do
+        it "returns only topics with new replies" do
+          get "/new.json", params: { subset: "replies" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(
+            new_reply.id,
+            new_reply_in_category.id,
+            new_reply_with_tag.id,
+          )
+        end
+      end
+
+      context "when filtering the list to a specific category" do
+        it "returns new topics in that category" do
+          get "/c/#{category.slug}/#{category.id}/l/new.json"
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_topic_in_category.id, new_reply_in_category.id)
+        end
+
+        it "respects the subset param" do
+          get "/c/#{category.slug}/#{category.id}/l/new.json", params: { subset: "topics" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_topic_in_category.id)
+
+          get "/c/#{category.slug}/#{category.id}/l/new.json", params: { subset: "replies" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_reply_in_category.id)
+        end
+      end
+
+      context "when filtering the list to topics with a specific tag" do
+        it "returns new topics with the specified tag" do
+          get "/tag/#{tag.name}/l/new.json"
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_topic_with_tag.id, new_reply_with_tag.id)
+        end
+
+        it "respects the subset param" do
+          get "/tag/#{tag.name}/l/new.json", params: { subset: "topics" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_topic_with_tag.id)
+
+          get "/tag/#{tag.name}/l/new.json", params: { subset: "replies" }
+
+          ids = extract_topic_ids(response)
+          expect(ids).to contain_exactly(new_reply_with_tag.id)
+        end
       end
     end
   end

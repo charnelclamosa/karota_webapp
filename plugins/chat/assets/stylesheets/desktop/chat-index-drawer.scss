@@ -4,6 +4,7 @@
     font-size: var(--font-0);
   }
 
+<<<<<<< HEAD
   &.has-scrollbar {
     .chat-channel-row {
       margin-right: 0;
@@ -14,6 +15,12 @@
     height: 3.6em;
     padding: 0 0.5rem;
     margin: 0 0.5rem 0 0.5rem;
+=======
+  .chat-channel-row {
+    height: 3.6em;
+    padding: 0 0.5rem;
+    margin: 0 0 0 0.5rem;
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     &:not(:last-of-type) {
       border-bottom: 1px solid var(--primary-low);

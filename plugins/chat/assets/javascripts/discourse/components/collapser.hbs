@@ -2,16 +2,17 @@
   {{this.header}}
 
   {{#if this.collapsed}}
+<<<<<<< HEAD
     <DButton
-      @action={{action "open"}}
+      @action={{this.open}}
       @icon="caret-right"
-      @class="chat-message-collapser-button chat-message-collapser-closed"
+      class="chat-message-collapser-button chat-message-collapser-closed"
     />
   {{else}}
     <DButton
-      @action={{action "close"}}
+      @action={{this.close}}
       @icon="caret-down"
-      @class="chat-message-collapser-button chat-message-collapser-opened"
+      class="chat-message-collapser-button chat-message-collapser-opened"
     />
   {{/if}}
 </div>
@@ -24,3 +25,14 @@
 >
   {{yield this.collapsed}}
 </div>
+=======
+    <DButton @action={{action "open"}} @icon="caret-right" @class="chat-message-collapser-button chat-message-collapser-closed" />
+  {{else}}
+    <DButton @action={{action "close"}} @icon="caret-down" @class="chat-message-collapser-button chat-message-collapser-opened" />
+  {{/if}}
+</div>
+
+<div class={{if this.collapsed "hidden" ""}}>
+  {{yield}}
+</div>
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

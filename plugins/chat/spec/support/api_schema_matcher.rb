@@ -9,7 +9,11 @@ RSpec::Matchers.define :match_response_schema do |schema|
       JSON::Validator.validate!(schema_path, object, strict: true)
     rescue JSON::Schema::ValidationError => e
       puts "-- Printing response body after validation error\n"
+<<<<<<< HEAD
       pp object # rubocop:disable Lint/Debugger
+=======
+      pp object
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       raise e
     end
   end

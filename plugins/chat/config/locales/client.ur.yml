@@ -6,7 +6,17 @@
 
 ur:
   js:
+<<<<<<< HEAD
+    admin:
+      site_settings:
+        chat_separate_sidebar_mode:
+          always: "ہمیشہ"
+          never: "کبھی نہیں"
     chat:
+      deleted_chat_username: حذف کردہ
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "بنائیں"
       cancel: "منسوخ"
       channel_settings:
@@ -15,12 +25,17 @@ ur:
         join: "شمولیت اختیار کریں"
         leave: "چھوڑ دیں"
       close: "بند کریں"
+<<<<<<< HEAD
+      remove: "خارج کریں"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "مٹائیں"
       edited: "ترمیم کردہ"
       muted: "خاموش کِیا ہوا"
       joined: "شمولیت اختیار کی"
       email_frequency:
         never: "کبھی نہیں"
+<<<<<<< HEAD
       header_indicator_preference:
         never: "کبھی نہیں"
       flag: "فلَیگ"
@@ -28,8 +43,12 @@ ur:
       last_visit: "آخری وزٹ"
       summarization:
         summarize: "خلاصہ"
+=======
+      flag: "فلَیگ"
+      join: "شمولیت اختیار کریں"
       mention_warning:
         dismiss: "بر خاست کریں"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "جواب"
       edit: "ترمیم کریں"
       rebake_message: "HTML دوبارہ بِلڈ کریں"
@@ -51,7 +70,10 @@ ur:
         yesterday: کَل
       about_view:
         title: عنوان
+<<<<<<< HEAD
         name: نام
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: تفصیل
       channel_info:
         back_to_channel: "واپس"
@@ -59,8 +81,11 @@ ur:
           about: بارے میں
           members: ممبران
           settings: ترتیبات
+<<<<<<< HEAD
       new_message_modal:
         no_items: "کوئی اشیاء نہیں"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: نیا پیغام
         prefix: "کے لئے:"
@@ -72,13 +97,19 @@ ur:
       composer:
         italic_text: "زور دیا گیا ٹَیکسٹ"
         bold_text: "گہرا ٹَیکسٹ"
+<<<<<<< HEAD
         send: "بھیجیں"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "کبھی نہیں"
       settings:
         follow: "شمولیت اختیار کریں"
         followed: "شمولیت اختیار کی"
+<<<<<<< HEAD
         threading_disabled: "غیر فعال"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "اطلاعات"
         preview: "پیشگی دیکھیں"
         save: "محفوظ کریں"
@@ -110,6 +141,7 @@ ur:
         activities: "سرگرمیاں"
         flags: "فلَیگز"
         symbols: "علامات"
+<<<<<<< HEAD
       thread:
         title: "عنوان"
         replies:
@@ -125,6 +157,8 @@ ur:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "نیا پیغام"
         cancel: "منسوخ"
@@ -136,3 +170,10 @@ ur:
           fields:
             message:
               label: پیغام
+<<<<<<< HEAD
+=======
+    review:
+      types:
+        reviewable_chat_message:
+          flagged_by: "کی طرف سے فلَیگ کردہ"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -27,11 +27,19 @@ export const directMessageChannels = [
       id: 75,
       title: "@hawk",
       current_user_membership: {
+<<<<<<< HEAD
+=======
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
+=======
+      last_message_sent_at: "2021-07-20T08:14:16.950Z",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       message_bus_last_ids: {
         new_mentions: 0,
         new_messages: 0,
@@ -62,11 +70,19 @@ export const directMessageChannels = [
       id: 76,
       title: "@eviltrout, @markvanlan",
       current_user_membership: {
+<<<<<<< HEAD
+=======
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
+=======
+      last_message_sent_at: "2021-07-05T12:04:00.850Z",
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       message_bus_last_ids: {
         new_mentions: 0,
         new_messages: 0,
@@ -108,8 +124,14 @@ export const chatChannels = {
       status: "open",
       chatable: chatables[1],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-24T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -127,8 +149,14 @@ export const chatChannels = {
       status: "open",
       chatable: chatables[1],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-15T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -146,8 +174,14 @@ export const chatChannels = {
       status: "open",
       chatable: chatables[8],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-14T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -165,8 +199,14 @@ export const chatChannels = {
       status: "read_only",
       chatable: chatables[8],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-10T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -184,8 +224,14 @@ export const chatChannels = {
       status: "closed",
       chatable: chatables[8],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-21T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -203,8 +249,14 @@ export const chatChannels = {
       status: "archived",
       chatable: chatables[8],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-25T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -222,8 +274,14 @@ export const chatChannels = {
       status: "open",
       chatable: chatables[12],
       allow_channel_wide_mentions: true,
+<<<<<<< HEAD
       last_message: { id: 333, created_at: "2021-07-02T08:14:16.950Z" },
       current_user_membership: {
+=======
+      last_message_sent_at: "2021-07-02T08:14:16.950Z",
+      current_user_membership: {
+        unread_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         muted: false,
         following: true,
       },
@@ -233,6 +291,7 @@ export const chatChannels = {
       },
     },
   ],
+<<<<<<< HEAD
   tracking: {
     channel_tracking: {
       4: { unread_count: 0, mention_count: 0 },
@@ -247,6 +306,8 @@ export const chatChannels = {
     },
     thread_tracking: {},
   },
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   direct_message_channels: directMessageChannels.mapBy("chat_channel"),
   message_bus_last_ids: {
     channel_metadata: 0,

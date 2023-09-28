@@ -1,12 +1,20 @@
 .chat-message-actions {
   .react-btn,
   .reply-btn,
+<<<<<<< HEAD
   .chat-message-thread-btn,
   .bookmark-btn {
     border: 1px solid transparent;
     border-bottom-color: var(--primary-300);
     border-radius: 0;
     border-top-color: var(--primary-300);
+=======
+  .bookmark-btn {
+    border: 1px solid transparent;
+    border-bottom-color: var(--primary-low);
+    border-radius: 0;
+    border-top-color: var(--primary-low);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     &:hover {
       background: var(--primary-low);

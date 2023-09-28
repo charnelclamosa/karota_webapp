@@ -175,8 +175,13 @@ class ComposerMessagesFinder
       id: "dominating_topic",
       templateName: "dominating-topic",
       wait_for_typing: true,
+<<<<<<< HEAD
       extraClass: "education-message dominating-topic-message",
       body: PrettyText.cook(I18n.t("education.dominating_topic")),
+=======
+      extraClass: 'education-message dominating-topic-message',
+      body: PrettyText.cook(I18n.t('education.dominating_topic'))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   end
 
@@ -238,7 +243,7 @@ class ComposerMessagesFinder
 
     return if post.blank?
 
-    flags = post.flags.group(:user_id).count
+    flags = post.flags.active.group(:user_id).count
     flagged_by_replier = flags[@user.id].to_i > 0
     flagged_by_others = flags.values.sum >= SiteSetting.dont_feed_the_trolls_threshold
 

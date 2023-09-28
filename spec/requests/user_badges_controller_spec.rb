@@ -31,9 +31,21 @@ RSpec.describe UserBadgesController do
       get "/user_badges.json", params: { badge_id: badge.id }
       expect(response.status).to eq(404)
     end
+
+    it "only accepts valid offset params" do
+      get "/user_badges.json", params: { badge_id: badge.id, offset: -1 }
+      expect(response.status).to eq(400)
+
+      get "/user_badges.json", params: { badge_id: badge.id, offset: 100 }
+      expect(response.status).to eq(200)
+    end
   end
 
+<<<<<<< HEAD
   describe "#index" do
+=======
+  describe '#index' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     fab!(:post) { Fabricate(:post) }
     fab!(:private_message_post) { Fabricate(:private_message_post) }
     let(:topic) { post.topic }
@@ -85,8 +97,13 @@ RSpec.describe UserBadgesController do
       expect(parsed["user_badges"].first.has_key?("count")).to eq(true)
     end
 
+<<<<<<< HEAD
     context "for post and topic attributes associated with user badge" do
       it "does not include the attributes for the private topic when user is anon" do
+=======
+    context 'for post and topic attributes associated with user badge' do
+      it 'does not include the attributes for the private topic when user is anon' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         get "/user_badges.json", params: { badge_id: badge.id }
 
         expect(response.status).to eq(200)
@@ -98,9 +115,67 @@ RSpec.describe UserBadgesController do
         parsed_user_badges = parsed["user_badge_info"]["user_badges"]
 
         expect(parsed_user_badges.map { |ub| ub["post_id"] }.compact).to contain_exactly(post.id)
+<<<<<<< HEAD
         expect(parsed_user_badges.map { |ub| ub["post_number"] }.compact).to contain_exactly(
           post.post_number,
         )
+=======
+        expect(parsed_user_badges.map { |ub| ub["post_number"] }.compact).to contain_exactly(post.post_number)
+      end
+
+      it 'does not include the attributes for topics which the current user cannot see' do
+        get "/user_badges.json", params: { badge_id: badge.id }
+
+        expect(response.status).to eq(200)
+
+        parsed = response.parsed_body
+
+        expect(parsed["topics"].map { |t| t["id"] }).to contain_exactly(post.topic_id)
+
+        parsed_user_badges = parsed["user_badge_info"]["user_badges"]
+
+        expect(parsed_user_badges.map { |ub| ub["post_id"] }.compact).to contain_exactly(post.id)
+        expect(parsed_user_badges.map { |ub| ub["post_number"] }.compact).to contain_exactly(post.post_number)
+      end
+
+      it 'includes the attributes for regular topic, private messages and restricted topics which the current user can see' do
+        group.add(user)
+        private_message_topic.allowed_users << user
+
+        sign_in(user)
+
+        get "/user_badges.json", params: { badge_id: badge.id }
+
+        expect(response.status).to eq(200)
+
+        parsed = response.parsed_body
+
+        expect(parsed["topics"].map { |t| t["id"] }).to contain_exactly(
+          post.topic_id,
+          private_message_post.topic_id,
+          restricted_post.topic_id
+        )
+
+        parsed_user_badges = parsed["user_badge_info"]["user_badges"]
+
+        expect(parsed_user_badges.map { |ub| ub["post_id"] }.compact).to contain_exactly(
+          post.id,
+          private_message_post.id,
+          restricted_post.id
+        )
+
+        expect(parsed_user_badges.map { |ub| ub["post_number"] }.compact).to contain_exactly(
+          post.post_number,
+          private_message_post.post_number,
+          restricted_post.post_number
+        )
+      end
+    end
+
+    context 'with hidden profiles' do
+      before do
+        user.user_option.update_columns(hide_profile_and_presence: true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       it "does not include the attributes for topics which the current user cannot see" do

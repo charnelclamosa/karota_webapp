@@ -7,7 +7,6 @@ export default {
       avatar_template: "/user_avatar/localhost/eviltrout/{size}/5275.png",
       name: "Robin Ward",
       unread_notifications: 0,
-      unread_private_messages: 0,
       unread_high_priority_notifications: 0,
       admin: true,
       notification_channel_position: null,
@@ -15,6 +14,7 @@ export default {
       moderator: true,
       staff: true,
       can_create_group: true,
+      can_create_topic: true,
       title: "co-founder",
       reply_count: 859,
       topic_count: 36,
@@ -25,6 +25,10 @@ export default {
       custom_fields: {},
       muted_category_ids: [],
       dismissed_banner_key: null,
+<<<<<<< HEAD
+=======
+      akismet_review_count: 0,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       can_review: true,
       ignored_users: [],
       groups: [
@@ -50,6 +54,7 @@ export default {
         skip_new_user_tips: false,
         should_be_redirected_to_top: false,
       },
+<<<<<<< HEAD
       sidebar_sections: [
         {
           id: 111,
@@ -132,6 +137,8 @@ export default {
           ],
         },
       ]
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
   },
 };

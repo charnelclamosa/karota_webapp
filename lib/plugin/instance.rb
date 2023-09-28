@@ -189,26 +189,8 @@ class Plugin::Instance
     end
   end
 
-  def whitelist_staff_user_custom_field(field)
-    Discourse.deprecate(
-      "whitelist_staff_user_custom_field is deprecated, use the allow_staff_user_custom_field.",
-      drop_from: "2.6",
-      raise_error: true,
-    )
-    allow_staff_user_custom_field(field)
-  end
-
   def allow_staff_user_custom_field(field)
     DiscoursePluginRegistry.register_staff_user_custom_field(field, self)
-  end
-
-  def whitelist_public_user_custom_field(field)
-    Discourse.deprecate(
-      "whitelist_public_user_custom_field is deprecated, use the allow_public_user_custom_field.",
-      drop_from: "2.6",
-      raise_error: true,
-    )
-    allow_public_user_custom_field(field)
   end
 
   def allow_public_user_custom_field(field)
@@ -376,15 +358,6 @@ class Plugin::Instance
 
       hidden_method_name
     end
-  end
-
-  def topic_view_post_custom_fields_whitelister(&block)
-    Discourse.deprecate(
-      "topic_view_post_custom_fields_whitelister is deprecated, use the topic_view_post_custom_fields_allowlister.",
-      drop_from: "2.6",
-      raise_error: true,
-    )
-    topic_view_post_custom_fields_allowlister(&block)
   end
 
   # Add a post_custom_fields_allowlister block to the TopicView, respecting if the plugin is enabled
@@ -653,10 +626,19 @@ class Plugin::Instance
   end
 
   def register_asset(file, opts = nil)
+<<<<<<< HEAD
     raise <<~ERROR if file.end_with?(".hbs", ".handlebars")
         [#{name}] Handlebars templates can no longer be included via `register_asset`.
         Any hbs files under `assets/javascripts` will be automatically compiled and included."
       ERROR
+=======
+    if file.end_with?(".hbs", ".handlebars")
+      raise <<~ERROR
+        [#{name}] Handlebars templates can no longer be included via `register_asset`.
+        Any hbs files under `assets/javascripts` will be automatically compiled and included."
+      ERROR
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if opts && opts == :vendored_core_pretty_text
       full_path = DiscoursePluginRegistry.core_asset_for_name(file)
@@ -684,6 +666,7 @@ class Plugin::Instance
   end
 
   def register_emoji(name, url, group = Emoji::DEFAULT_GROUP)
+    name = name.gsub(/[^a-z0-9]+/i, "_").gsub(/_{2,}/, "_").downcase
     Plugin::CustomEmoji.register(name, url, group)
     Emoji.clear_cache
   end
@@ -997,36 +980,7 @@ class Plugin::Instance
   #
   # See Auth::DefaultCurrentUserProvider::PARAMETER_API_PATTERNS for more examples
   # and Auth::DefaultCurrentUserProvider#api_parameter_allowed? for implementation
-  def add_api_parameter_route(
-    method: nil,
-    methods: nil,
-    route: nil,
-    actions: nil,
-    format: nil,
-    formats: nil
-  )
-    if Array(format).include?("*")
-      Discourse.deprecate(
-        "* is no longer a valid api_parameter_route format matcher. Use `nil` instead",
-        drop_from: "2.7",
-        raise_error: true,
-      )
-      # Old API used * as wildcard. New api uses `nil`
-      format = nil
-    end
-
-    # Backwards compatibility with old parameter names:
-    if method || route || format
-      Discourse.deprecate(
-        "method, route and format parameters for api_parameter_routes are deprecated. Use methods, actions and formats instead.",
-        drop_from: "2.7",
-        raise_error: true,
-      )
-      methods ||= method
-      actions ||= route
-      formats ||= format
-    end
-
+  def add_api_parameter_route(methods: nil, actions: nil, formats: nil)
     DiscoursePluginRegistry.register_api_parameter_route(
       RouteMatcher.new(methods: methods, actions: actions, formats: formats),
       self,
@@ -1197,6 +1151,7 @@ class Plugin::Instance
   # Used to register data sources for HashtagAutocompleteService to look
   # up results based on a #hashtag string.
   #
+<<<<<<< HEAD
   # @param {Class} klass - Must be a class that implements methods with the following
   # signatures:
   #
@@ -1212,6 +1167,15 @@ class Plugin::Instance
   #   def self.icon
   #   end
   #
+=======
+  # @param {String} type - Roughly corresponding to a model, this is used as a unique
+  #                        key for the datasource and is also used when allowing different
+  #                        contexts to search for and lookup these types. The `category`
+  #                        and `tag` types are registered by default.
+  # @param {Class} klass - Must be a class that implements methods with the following
+  # signatures:
+  #
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   #   @param {Guardian} guardian - Current user's guardian, used for permission-based filtering
   #   @param {Array} slugs - An array of strings that represent slugs to search this type for,
   #                          e.g. category slugs.
@@ -1225,6 +1189,7 @@ class Plugin::Instance
   #   @returns {Array} An Array of HashtagAutocompleteService::HashtagItem
   #   def self.search(guardian, term, limit)
   #   end
+<<<<<<< HEAD
   #
   #   @param {Array} search_results - An array of HashtagAutocompleteService::HashtagItem to sort
   #   @param {String} term - The search term which was used, which may help with sorting.
@@ -1239,6 +1204,10 @@ class Plugin::Instance
   #   end
   def register_hashtag_data_source(klass)
     DiscoursePluginRegistry.register_hashtag_autocomplete_data_source(klass, self)
+=======
+  def register_hashtag_data_source(type, klass)
+    HashtagAutocompleteService.register_data_source(type, klass)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   ##
@@ -1254,11 +1223,16 @@ class Plugin::Instance
   #                           for certain types of hashtag result.
   # @param {Integer} priority - A number value for ordering type results when hashtag searches
   #                             or lookups occur. Priority is ordered by DESCENDING order.
+<<<<<<< HEAD
   def register_hashtag_type_priority_for_context(type, context, priority)
     DiscoursePluginRegistry.register_hashtag_autocomplete_contextual_type_priority(
       { type: type, context: context, priority: priority },
       self,
     )
+=======
+  def register_hashtag_type_in_context(type, context, priority)
+    HashtagAutocompleteService.register_type_in_context(type, context, priority)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   ##
@@ -1270,6 +1244,7 @@ class Plugin::Instance
   # @param {Block} callback to be called with the user, guardian, and the destroyer opts as arguments
   def register_user_destroyer_on_content_deletion_callback(callback)
     DiscoursePluginRegistry.register_user_destroyer_on_content_deletion_callback(callback, self)
+<<<<<<< HEAD
   end
 
   ##
@@ -1291,6 +1266,8 @@ class Plugin::Instance
       raise ArgumentError.new("Not a valid summarization strategy")
     end
     DiscoursePluginRegistry.register_summarization_strategy(strategy, self)
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   protected

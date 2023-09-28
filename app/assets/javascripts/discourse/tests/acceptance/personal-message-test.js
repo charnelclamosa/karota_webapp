@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { click, currentURL, visit } from "@ember/test-helpers";
 import DiscourseURL from "discourse/lib/url";
 import {
@@ -5,6 +6,9 @@ import {
   publishToMessageBus,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
+=======
+import { acceptance, query } from "discourse/tests/helpers/qunit-helpers";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import I18n from "I18n";
 import { test } from "qunit";
 import sinon from "sinon";
@@ -12,7 +16,7 @@ import {
   getCachedTopicList,
   setCachedTopicList,
 } from "discourse/lib/cached-topic-list";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { getOwner } from "@ember/application";
 
 acceptance("Personal Message", function (needs) {
   needs.user();
@@ -21,7 +25,7 @@ acceptance("Personal Message", function (needs) {
     await visit("/t/pm-for-testing/12");
 
     assert.strictEqual(
-      query("#suggested-topics .suggested-topics-title").innerText.trim(),
+      query("#suggested-topics-title").innerText.trim(),
       I18n.t("suggested_topics.pm_title")
     );
   });
@@ -82,7 +86,7 @@ acceptance("Personal Message - invite", function (needs) {
     await click(".private-message-map .controls .add-participant-btn");
 
     assert
-      .dom(".d-modal.share-and-invite .invite-user-control")
+      .dom(".d-modal.add-pm-participants .invite-user-control")
       .exists("invite modal is displayed");
   });
 });

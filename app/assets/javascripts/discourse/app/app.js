@@ -1,10 +1,15 @@
 import "./global-compat";
+import "./loader-shims";
 
 import require from "require";
 import Application from "@ember/application";
 import { buildResolver } from "discourse-common/resolver";
 import { isTesting } from "discourse-common/config/environment";
 import { normalizeEmberEventHandling } from "./lib/ember-events";
+<<<<<<< HEAD
+import { registerDiscourseImplicitInjections } from "discourse/lib/implicit-injections";
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const _pluginCallbacks = [];
 let _unhandledThemeErrors = [];
@@ -28,6 +33,12 @@ const Discourse = Application.extend({
     // between Glimmer and Classic components.
     normalizeEmberEventHandling(this);
 
+<<<<<<< HEAD
+    // Register Discourse's standard implicit injections on common framework classes.
+    registerDiscourseImplicitInjections();
+
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     if (Error.stackTraceLimit) {
       // We need Errors to have full stack traces for `lib/source-identifier`
       Error.stackTraceLimit = Infinity;
@@ -85,7 +96,7 @@ function loadInitializers(app) {
   let discourseInitializers = [];
   let discourseInstanceInitializers = [];
 
-  for (let moduleName of Object.keys(requirejs._eak_seen)) {
+  for (let moduleName of Object.keys(requirejs.entries)) {
     if (moduleName.startsWith("discourse/") && !moduleName.endsWith("-test")) {
       // In discourse core, initializers follow standard Ember conventions
       if (moduleName.startsWith("discourse/initializers/")) {

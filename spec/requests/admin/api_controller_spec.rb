@@ -9,7 +9,11 @@ RSpec.describe Admin::ApiController do
   fab!(:key2, refind: false) { Fabricate(:api_key, user: admin) }
   fab!(:key3, refind: false) { Fabricate(:api_key, user: admin) }
 
+<<<<<<< HEAD
   describe "#index" do
+=======
+  describe '#index' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -18,6 +22,12 @@ RSpec.describe Admin::ApiController do
 
         expect(response.status).to eq(200)
         expect(response.parsed_body["keys"].length).to eq(3)
+      end
+
+      describe "when limit params is invalid" do
+        include_examples "invalid limit params",
+                         "/admin/api/keys.json",
+                         described_class::INDEX_LIMIT
       end
 
       it "can paginate results" do
@@ -61,13 +71,21 @@ RSpec.describe Admin::ApiController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       include_examples "keys inaccessible"
     end
   end
 
+<<<<<<< HEAD
   describe "#show" do
+=======
+  describe '#show' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -106,7 +124,11 @@ RSpec.describe Admin::ApiController do
     end
   end
 
+<<<<<<< HEAD
   describe "#update" do
+=======
+  describe '#update' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     context "when logged in as an admin" do
       before { sign_in(admin) }
 
@@ -145,6 +167,7 @@ RSpec.describe Admin::ApiController do
         original_key = key1.key
         original_description = key1.description
 
+<<<<<<< HEAD
         put "/admin/api/keys/#{key1.id}.json",
             params: {
               key: {
@@ -152,6 +175,14 @@ RSpec.describe Admin::ApiController do
                 key: "overridekey",
               },
             }
+=======
+        put "/admin/api/keys/#{key1.id}.json", params: {
+          key: {
+            description: "my new description",
+            key: "overridekey"
+          }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         key1.reload
         expect(response.status).to eq(404)
@@ -333,7 +364,15 @@ RSpec.describe Admin::ApiController do
 
     shared_examples "key creation not allowed" do
       it "prevents key creation with a 404 response" do
+<<<<<<< HEAD
         post "/admin/api/keys.json", params: { key: { description: "master key description" } }
+=======
+        post "/admin/api/keys.json", params: {
+          key: {
+            description: "master key description"
+          }
+        }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         expect(response.status).to eq(404)
         expect(response.parsed_body["errors"]).to include(I18n.t("not_found"))
@@ -423,11 +462,15 @@ RSpec.describe Admin::ApiController do
           "users",
           "email",
           "posts",
+<<<<<<< HEAD
           "tags",
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           "uploads",
           "user_status",
           "global",
           "badges",
+<<<<<<< HEAD
           "groups",
           "categories",
           "search",
@@ -435,9 +478,33 @@ RSpec.describe Admin::ApiController do
           "wordpress",
         )
 
-        expect(scopes["topics"].any? { |h| h["urls"].include?("/latest.rss (GET)") }).to be_truthy
+        topic_routes = [
+          "/t/:id (GET)",
+          "/t/external_id/:external_id (GET)",
+          "/t/:slug/:topic_id/print (GET)",
+          "/t/:slug/:topic_id/summary (GET)",
+          "/t/:topic_id/summary (GET)",
+          "/t/:topic_id/:post_number (GET)",
+          "/t/:topic_id/last (GET)",
+          "/t/:slug/:topic_id.rss (GET)",
+          "/t/:slug/:topic_id (GET)",
+          "/t/:slug/:topic_id/:post_number (GET)",
+          "/t/:slug/:topic_id/last (GET)",
+          "/t/:topic_id/posts (GET)",
+          "/latest.rss (GET)",
+        ]
+
+        topic_routes.each do |route|
+          expect(scopes["topics"].any? { |h| h["urls"].include?(route) }).to be_truthy
+        end
+
         expect(scopes["posts"].any? { |h| h["urls"].include?("/posts (GET)") }).to be_truthy
         expect(scopes["posts"].any? { |h| h["urls"].include?("/private-posts (GET)") }).to be_truthy
+=======
+          "categories",
+          "wordpress"
+        )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 

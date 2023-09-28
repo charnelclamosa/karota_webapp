@@ -15,7 +15,11 @@ end
 
 def rebake_uncooked_chat_messages
   puts "Rebaking uncooked chat messages on #{RailsMultisite::ConnectionManagement.current_db}"
+<<<<<<< HEAD
   uncooked = Chat::Message.uncooked
+=======
+  uncooked = ChatMessage.uncooked
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   rebaked = 0
   total = uncooked.count
@@ -100,7 +104,11 @@ task "chat:make_channel_to_test_archiving", [:user_for_membership] => :environme
       raw: "This is some cool first post for archive stuff",
     )
     chat_channel =
+<<<<<<< HEAD
       Chat::Channel.create(
+=======
+      ChatChannel.create(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         chatable: topic,
         chatable_type: "Topic",
         name: "testing channel for archiving #{SecureRandom.hex(4)}",
@@ -112,13 +120,21 @@ task "chat:make_channel_to_test_archiving", [:user_for_membership] => :environme
 
   users = [make_test_user, make_test_user, make_test_user]
 
+<<<<<<< HEAD
   Chat::Channel.transaction do
+=======
+  ChatChannel.transaction do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     start_time = Time.now
 
     puts "creating 1039 messages for the channel"
     1039.times do
+<<<<<<< HEAD
       cm =
         Chat::Message.new(message: messages.sample, user: users.sample, chat_channel: chat_channel)
+=======
+      cm = ChatMessage.new(message: messages.sample, user: users.sample, chat_channel: chat_channel)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       cm.cook
       cm.save!
     end
@@ -126,7 +142,11 @@ task "chat:make_channel_to_test_archiving", [:user_for_membership] => :environme
     puts "message creation done"
     puts "took #{Time.now - start_time} seconds"
 
+<<<<<<< HEAD
     Chat::UserChatChannelMembership.create(
+=======
+    UserChatChannelMembership.create(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       chat_channel: chat_channel,
       last_read_message_id: 0,
       user: User.find_by(username: user_for_membership),

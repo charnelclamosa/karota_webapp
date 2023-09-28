@@ -18,7 +18,7 @@ else
   # this allows us to include the bits of rails we use without pieces we do not.
   #
   # To issue a rails update bump the version number here
-  rails_version = "7.0.5.1"
+  rails_version = "7.0.7"
   gem "actionmailer", rails_version
   gem "actionpack", rails_version
   gem "actionview", rails_version
@@ -63,11 +63,17 @@ gem "active_model_serializers", "~> 0.8.3"
 
 gem "http_accept_language", require: false
 
+<<<<<<< HEAD
 gem "discourse-fonts", require: "discourse_fonts"
 
 gem "message_bus"
 
 gem "rails_multisite"
+=======
+gem 'discourse-fonts', require: 'discourse_fonts'
+
+gem 'message_bus'
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 gem "fast_xs", platform: :ruby
 
@@ -141,10 +147,10 @@ group :test do
   gem "fakeweb", require: false
   gem "minitest", require: false
   gem "simplecov", require: false
-  gem "selenium-webdriver", require: false
+  gem "selenium-webdriver", "~> 4.11", require: false
   gem "test-prof"
-  gem "webdrivers", require: false
   gem "rails-dom-testing", require: false
+  gem "minio_runner", require: false
 end
 
 group :test, :development do
@@ -158,7 +164,7 @@ group :test, :development do
 
   gem "rspec-rails"
 
-  gem "shoulda-matchers", require: false
+  gem "shoulda-matchers", require: false, github: "thoughtbot/shoulda-matchers"
   gem "rspec-html-matchers"
   gem "byebug", require: ENV["RM_INFO"].nil?, platform: :mri
   gem "rubocop-discourse", require: false
@@ -228,9 +234,8 @@ gem "logstash-event", require: false
 gem "logstash-logger", require: false
 gem "logster"
 
-# These are forks of sassc and sassc-rails with dart-sass support
+# A fork of sassc with dart-sass support
 gem "dartsass-ruby"
-gem "dartsass-sprockets"
 
 gem "rotp", require: false
 
@@ -250,6 +255,7 @@ if ENV["IMPORT"] == "1"
   gem "redcarpet"
 
   # NOTE: in import mode the version of sqlite can matter a lot, so we stick it to a specific one
+<<<<<<< HEAD
   gem "sqlite3", "~> 1.3", ">= 1.3.13"
   gem "ruby-bbcode-to-md", git: "https://github.com/nlalonde/ruby-bbcode-to-md"
   gem "reverse_markdown"
@@ -257,6 +263,20 @@ if ENV["IMPORT"] == "1"
   gem "csv"
 
   gem "parallel", require: false
+=======
+  gem 'sqlite3', '~> 1.3', '>= 1.3.13'
+  gem 'ruby-bbcode-to-md', git: 'https://github.com/nlalonde/ruby-bbcode-to-md'
+  gem 'reverse_markdown'
+  gem 'tiny_tds'
+  gem 'csv'
+
+  gem 'parallel', require: false
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+end
+
+if ENV["GENERIC_IMPORT"] == "1"
+  gem "sqlite3"
+  gem "redcarpet"
 end
 
 gem "web-push"
@@ -271,9 +291,6 @@ gem "faraday-retry"
 # workaround for faraday-net_http, see
 # https://github.com/ruby/net-imap/issues/16#issuecomment-803086765
 gem "net-http"
-
-# workaround for prometheus-client
-gem "webrick", require: false
 
 # Workaround until Ruby ships with cgi version 0.3.6 or higher.
 gem "cgi", ">= 0.3.6", require: false

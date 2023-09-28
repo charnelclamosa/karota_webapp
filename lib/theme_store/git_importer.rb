@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-module ThemeStore
-end
-
-class ThemeStore::GitImporter
+class ThemeStore::GitImporter < ThemeStore::BaseImporter
   COMMAND_TIMEOUT_SECONDS = 20
 
   attr_reader :url
 
   def initialize(url, private_key: nil, branch: nil)
     @url = GitUrl.normalize(url)
+<<<<<<< HEAD
+=======
     @temp_folder = "#{Pathname.new(Dir.tmpdir).realpath}/discourse_theme_#{SecureRandom.hex}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     @private_key = private_key
     @branch = branch
   end
@@ -18,7 +18,11 @@ class ThemeStore::GitImporter
   def import!
     clone!
 
+<<<<<<< HEAD
+    if version = Discourse.find_compatible_git_resource(temp_folder)
+=======
     if version = Discourse.find_compatible_git_resource(@temp_folder)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       begin
         execute "git", "cat-file", "-e", version
       rescue RuntimeError => e
@@ -56,52 +60,36 @@ class ThemeStore::GitImporter
     execute("git", "rev-parse", "HEAD").strip
   end
 
-  def cleanup!
-    FileUtils.rm_rf(@temp_folder)
-  end
-
-  def real_path(relative)
-    fullpath = "#{@temp_folder}/#{relative}"
-    return nil unless File.exist?(fullpath)
-
-    # careful to handle symlinks here, don't want to expose random data
-    fullpath = Pathname.new(fullpath).realpath.to_s
-
-    if fullpath && fullpath.start_with?(@temp_folder)
-      fullpath
-    else
-      nil
-    end
-  end
-
-  def all_files
-    Dir.glob("**/*", base: @temp_folder).reject { |f| File.directory?(File.join(@temp_folder, f)) }
-  end
-
-  def [](value)
-    fullpath = real_path(value)
-    return nil unless fullpath
-    File.read(fullpath)
-  end
-
   protected
 
   def redirected_uri
     first_clone_uri = @uri.dup
+<<<<<<< HEAD
     first_clone_uri.path.gsub!(%r{/\z}, "")
+=======
+    first_clone_uri.path.gsub!(/\/\z/, "")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     first_clone_uri.path += "/info/refs"
     first_clone_uri.query = "service=git-upload-pack"
 
     redirected_uri = FinalDestination.resolve(first_clone_uri.to_s, http_verb: :get)
 
     if redirected_uri&.path.ends_with?("/info/refs")
+<<<<<<< HEAD
       redirected_uri.path.gsub!(%r{/info/refs\z}, "")
+=======
+      redirected_uri.path.gsub!(/\/info\/refs\z/, "")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       redirected_uri.query = nil
       redirected_uri
     else
       @uri
     end
+<<<<<<< HEAD
   rescue StandardError
+=======
+  rescue
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     @uri
   end
 
@@ -129,13 +117,27 @@ class ThemeStore::GitImporter
   def clone_args(url, config = {})
     args = ["git"]
 
+<<<<<<< HEAD
     config.each { |key, value| args.concat(["-c", "#{key}=#{value}"]) }
 
     args << "clone"
 
     args.concat(["--single-branch", "-b", @branch]) if @branch.present?
 
+    args.concat([url, temp_folder])
+=======
+    config.each do |key, value|
+      args.concat(['-c', "#{key}=#{value}"])
+    end
+
+    args << "clone"
+
+    if @branch.present?
+      args.concat(['--single-branch', "-b", @branch])
+    end
+
     args.concat([url, @temp_folder])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     args
   end
@@ -143,19 +145,33 @@ class ThemeStore::GitImporter
   def clone_http!
     uri = redirected_uri
 
+<<<<<<< HEAD
     raise_import_error! unless %w[http https].include?(@uri.scheme)
+=======
+    unless ["http", "https"].include?(@uri.scheme)
+      raise_import_error!
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     addresses = FinalDestination::SSRFDetector.lookup_and_filter_ips(uri.host)
 
     unless addresses.empty?
       env = { "GIT_TERMINAL_PROMPT" => "0" }
 
+<<<<<<< HEAD
       args =
         clone_args(
           uri.to_s,
           "http.followRedirects" => "false",
           "http.curloptResolve" => "#{uri.host}:#{uri.port}:#{addresses.join(",")}",
         )
+=======
+      args = clone_args(
+        uri.to_s,
+        "http.followRedirects" => "false",
+        "http.curloptResolve" => "#{uri.host}:#{uri.port}:#{addresses.join(',')}",
+      )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       begin
         Discourse::Utils.execute_command(env, *args, timeout: COMMAND_TIMEOUT_SECONDS)
@@ -165,6 +181,7 @@ class ThemeStore::GitImporter
   end
 
   def clone_ssh!
+<<<<<<< HEAD
     raise_import_error! unless @private_key.present?
 
     with_ssh_private_key do |ssh_folder|
@@ -173,6 +190,15 @@ class ThemeStore::GitImporter
         "GIT_SSH_COMMAND" =>
           "ssh -i #{ssh_folder}/id_rsa -o IdentitiesOnly=yes -o IdentityFile=#{ssh_folder}/id_rsa -o StrictHostKeyChecking=no",
       }
+=======
+    unless @private_key.present?
+      raise_import_error!
+    end
+
+    with_ssh_private_key do |ssh_folder|
+      # Use only the specified SSH key
+      env = { 'GIT_SSH_COMMAND' => "ssh -i #{ssh_folder}/id_rsa -o IdentitiesOnly=yes -o IdentityFile=#{ssh_folder}/id_rsa -o StrictHostKeyChecking=no" }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       args = clone_args(@url)
 
       begin
@@ -196,6 +222,6 @@ class ThemeStore::GitImporter
   end
 
   def execute(*args)
-    Discourse::Utils.execute_command(*args, chdir: @temp_folder, timeout: COMMAND_TIMEOUT_SECONDS)
+    Discourse::Utils.execute_command(*args, chdir: temp_folder, timeout: COMMAND_TIMEOUT_SECONDS)
   end
 end

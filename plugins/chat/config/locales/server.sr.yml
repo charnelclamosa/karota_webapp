@@ -15,8 +15,15 @@ sr:
         disagree:
           title: "Odbaci"
     channel:
+<<<<<<< HEAD
       dm_title:
         single_user: "%{username}"
+    mention_warning:
+      dismiss: "одбаци"
+=======
+      statuses:
+        open: "Otvori"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   unsubscribe:
     chat_summary:
       never: Nikad

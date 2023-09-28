@@ -3,7 +3,6 @@ import Component from "@ember/component";
 import { action } from "@ember/object";
 import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
-import deprecated from "discourse-common/lib/deprecated";
 
 export default Component.extend({
   @on("init")
@@ -15,6 +14,8 @@ export default Component.extend({
         this.set("classNames", classes);
       }
     }
+<<<<<<< HEAD
+=======
     if (this.currentPath) {
       deprecated("{{mobile-nav}} no longer requires the currentPath property", {
         since: "2.7.0.beta4",
@@ -22,6 +23,7 @@ export default Component.extend({
         id: "discourse.mobile-nav.currentPath",
       });
     }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   tagName: "ul",

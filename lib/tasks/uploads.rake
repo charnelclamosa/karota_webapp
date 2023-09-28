@@ -30,8 +30,12 @@ def gather_uploads
 
   puts "", "Gathering uploads for '#{current_db}'...", ""
 
+<<<<<<< HEAD
   Upload
     .where("url ~ '^\/uploads\/'")
+=======
+  Upload.where("url ~ '^\/uploads\/'")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     .where("url !~ ?", "^\/uploads\/#{current_db}")
     .find_each do |upload|
       begin
@@ -609,11 +613,15 @@ task "uploads:secure_upload_analyse_and_update" => :environment do
       update_uploads_access_control_post if SiteSetting.secure_uploads?
 
       puts "", "Analysing which uploads need to be marked secure and be rebaked.", ""
-      if SiteSetting.login_required?
-        # Simply mark all uploads linked to posts secure if login_required because no anons will be able to access them.
+      if SiteSetting.login_required? && !SiteSetting.secure_uploads_pm_only?
+        # Simply mark all uploads linked to posts secure if login_required because
+        # no anons will be able to access them; however if secure_uploads_pm_only is
+        # true then login_required will not mark other uploads secure.
         post_ids_to_rebake, all_upload_ids_changed = mark_all_as_secure_login_required
       else
-        # Otherwise only mark uploads linked to posts in secure categories or PMs as secure.
+        # Otherwise only mark uploads linked to posts either:
+        #   * In secure categories or PMs if !SiteSetting.secure_uploads_pm_only
+        #   * In PMs if SiteSetting.secure_uploads_pm_only
         post_ids_to_rebake, all_upload_ids_changed =
           update_specific_upload_security_no_login_required
       end
@@ -693,15 +701,24 @@ end
 def update_specific_upload_security_no_login_required
   # A simplification of the rules found in UploadSecurity which is a lot faster than
   # having to loop through records and use that class to check security.
+  filter_clause =
+    if SiteSetting.secure_uploads_pm_only?
+      "WHERE topics.archetype = 'private_message'"
+    else
+      <<~SQL
+        LEFT JOIN categories ON categories.id = topics.category_id
+        WHERE (topics.category_id IS NOT NULL AND categories.read_restricted) OR
+          (topics.archetype = 'private_message')
+      SQL
+    end
+
   post_upload_ids_marked_secure = DB.query_single(<<~SQL)
     WITH upl AS (
       SELECT DISTINCT ON (upload_id) upload_id
       FROM upload_references
       INNER JOIN posts ON posts.id = upload_references.target_id AND upload_references.target_type = 'Post'
       INNER JOIN topics ON topics.id = posts.topic_id
-      LEFT JOIN categories ON categories.id = topics.category_id
-      WHERE (topics.category_id IS NOT NULL AND categories.read_restricted) OR
-        (topics.archetype = 'private_message')
+      #{filter_clause}
     )
     UPDATE uploads
     SET secure = true,
@@ -1152,7 +1169,14 @@ task "uploads:downsize" => :environment do
   min_image_pixels = 500_000 # 0.5 megapixels
   default_image_pixels = 1_000_000 # 1 megapixel
 
+<<<<<<< HEAD
   max_image_pixels = [ARGV[0]&.to_i || default_image_pixels, min_image_pixels].max
+=======
+  max_image_pixels = [
+    ARGV[0]&.to_i || default_image_pixels,
+    min_image_pixels
+  ].max
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   ENV["VERBOSE"] = "1" if ENV["INTERACTIVE"]
 
@@ -1165,10 +1189,17 @@ task "uploads:downsize" => :environment do
   dimensions_count = 0
   downsized_count = 0
 
+<<<<<<< HEAD
   scope =
     Upload.by_users.with_no_non_post_relations.where(
       "LOWER(extension) IN ('jpg', 'jpeg', 'gif', 'png')",
     )
+=======
+  scope = Upload
+    .by_users
+    .with_no_non_post_relations
+    .where("LOWER(extension) IN ('jpg', 'jpeg', 'gif', 'png')")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   scope = scope.where(<<-SQL, max_image_pixels)
     COALESCE(width, 0) = 0 OR
@@ -1182,7 +1213,13 @@ task "uploads:downsize" => :environment do
     scope = scope.where("uploads.id % ? = ?", ENV["WORKER_COUNT"], ENV["WORKER_ID"])
   end
 
+<<<<<<< HEAD
   scope = scope.where("uploads.id >= ?", ENV["START_ID"]) if ENV["START_ID"]
+=======
+  if ENV["START_ID"]
+    scope = scope.where("uploads.id >= ?", ENV["START_ID"])
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   skipped = 0
   total_count = scope.count
@@ -1195,12 +1232,20 @@ task "uploads:downsize" => :environment do
     print "\r#{progress}% Fixed dimensions: #{dimensions_count} Downsized: #{downsized_count} Skipped: #{skipped} (upload id: #{upload.id})"
     log "\n"
 
+<<<<<<< HEAD
     path =
       if upload.local?
         Discourse.store.path_for(upload)
       else
         Discourse.store.download_safe(upload, max_file_size_kb: 100.megabytes)&.path
       end
+=======
+    path = if upload.local?
+      Discourse.store.path_for(upload)
+    else
+      (Discourse.store.download(upload, max_file_size_kb: 100.megabytes) rescue nil)&.path
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     unless path
       log "No image path"
@@ -1239,7 +1284,11 @@ task "uploads:downsize" => :environment do
       height: h,
       thumbnail_width: ww,
       thumbnail_height: hh,
+<<<<<<< HEAD
       filesize: File.size(path),
+=======
+      filesize: File.size(path)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     if upload.changed?
@@ -1261,6 +1310,7 @@ task "uploads:downsize" => :environment do
       next
     end
 
+<<<<<<< HEAD
     result =
       ShrinkUploadedImage.new(
         upload: upload,
@@ -1269,6 +1319,15 @@ task "uploads:downsize" => :environment do
         verbose: ENV["VERBOSE"],
         interactive: ENV["INTERACTIVE"],
       ).perform
+=======
+    result = ShrinkUploadedImage.new(
+      upload: upload,
+      path: path,
+      max_pixels: max_image_pixels,
+      verbose: ENV["VERBOSE"],
+      interactive: ENV["INTERACTIVE"]
+    ).perform
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if result
       downsized_count += 1

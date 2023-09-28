@@ -17,7 +17,19 @@ describe Chat do
     fab!(:unused_upload) { Fabricate(:upload, user: user, created_at: 1.month.ago) }
 
     let!(:chat_message) do
-      Chat::MessageCreator.create(
+<<<<<<< HEAD
+      Fabricate(
+        :chat_message,
+        chat_channel: chat_channel,
+        user: user,
+        message: "Hello world!",
+        uploads: [upload],
+      )
+    end
+
+    it "marks uploads with reference to ChatMessage via UploadReference in use" do
+=======
+      Chat::ChatMessageCreator.create(
         chat_channel: chat_channel,
         user: user,
         in_reply_to_id: nil,
@@ -26,7 +38,8 @@ describe Chat do
       )
     end
 
-    it "marks uploads with reference to ChatMessage via UploadReference in use" do
+    it "marks uploads with ChatUpload in use" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       unused_upload
 
       expect { Jobs::CleanUpUploads.new.execute({}) }.to change { Upload.count }.by(-1)
@@ -43,7 +56,18 @@ describe Chat do
     fab!(:unused_upload) { Fabricate(:upload, user: user, created_at: 1.month.ago) }
 
     let!(:chat_message) do
-      Chat::MessageCreator.create(
+<<<<<<< HEAD
+      Fabricate(
+        :chat_message,
+        chat_channel: chat_channel,
+        user: user,
+        message: "Hello world! #{message_upload.sha1}",
+      )
+    end
+    let!(:draft_message) do
+      Chat::Draft.create!(
+=======
+      Chat::ChatMessageCreator.create(
         chat_channel: chat_channel,
         user: user,
         in_reply_to_id: nil,
@@ -53,7 +77,8 @@ describe Chat do
     end
 
     let!(:draft_message) do
-      Chat::Draft.create!(
+      ChatDraft.create!(
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         user: user,
         chat_channel: chat_channel,
         data:
@@ -61,7 +86,11 @@ describe Chat do
       )
     end
 
+<<<<<<< HEAD
     it "marks uploads with reference to ChatMessage via UploadReference in use" do
+=======
+    it "marks uploads with ChatUpload in use" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_upload
       unused_upload
 
@@ -129,13 +158,22 @@ describe Chat do
 
   describe "chat oneboxes" do
     fab!(:chat_channel) { Fabricate(:category_channel) }
+<<<<<<< HEAD
+    fab!(:user) { Fabricate(:user) }
+
+    fab!(:chat_message) do
+      Fabricate(:chat_message, chat_channel: chat_channel, user: user, message: "Hello world!")
+    end
+
+    let(:chat_url) { "#{Discourse.base_url}/chat/c/-/#{chat_channel.id}" }
+=======
     fab!(:user) { Fabricate(:user, active: true) }
     fab!(:user_2) { Fabricate(:user, active: false) }
     fab!(:user_3) { Fabricate(:user, staged: true) }
     fab!(:user_4) { Fabricate(:user, suspended_till: 3.weeks.from_now) }
 
     let!(:chat_message) do
-      Chat::MessageCreator.create(
+      Chat::ChatMessageCreator.create(
         chat_channel: chat_channel,
         user: user,
         in_reply_to_id: nil,
@@ -144,7 +182,8 @@ describe Chat do
       ).chat_message
     end
 
-    let(:chat_url) { "#{Discourse.base_url}/chat/c/-/#{chat_channel.id}" }
+    let(:chat_url) { "#{Discourse.base_url}/chat/channel/#{chat_channel.id}" }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     context "when inline" do
       it "renders channel" do
@@ -155,14 +194,23 @@ describe Chat do
       end
 
       it "renders messages" do
+<<<<<<< HEAD
         results = InlineOneboxer.new(["#{chat_url}/#{chat_message.id}"], skip_cache: true).process
         expect(results).to be_present
         expect(results[0][:url]).to eq("#{chat_url}/#{chat_message.id}")
+=======
+        results =
+          InlineOneboxer.new(["#{chat_url}?messageId=#{chat_message.id}"], skip_cache: true).process
+        expect(results).to be_present
+        expect(results[0][:url]).to eq("#{chat_url}?messageId=#{chat_message.id}")
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         expect(results[0][:title]).to eq(
           "Message ##{chat_message.id} by #{chat_message.user.username} – ##{chat_channel.name}",
         )
       end
     end
+<<<<<<< HEAD
+=======
 
     context "when regular" do
       it "renders channel, excluding inactive, staged, and suspended users" do
@@ -170,7 +218,7 @@ describe Chat do
         user_2.user_chat_channel_memberships.create!(chat_channel: chat_channel, following: true)
         user_3.user_chat_channel_memberships.create!(chat_channel: chat_channel, following: true)
         user_4.user_chat_channel_memberships.create!(chat_channel: chat_channel, following: true)
-        Chat::Channel.ensure_consistency!
+        Jobs::UpdateUserCountsForChatChannels.new.execute({})
 
         expect(Oneboxer.preview(chat_url)).to match_html <<~HTML
           <aside class="onebox chat-onebox">
@@ -178,7 +226,7 @@ describe Chat do
               <h3 class="chat-onebox-title">
                 <a href="#{chat_url}">
                   <span class="category-chat-badge" style="color: ##{chat_channel.chatable.color}">
-                    <svg class="fa d-icon d-icon-d-chat svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#d-chat"></use></svg>
+                    <svg class="fa d-icon d-icon-hashtag svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#hashtag"></use></svg>
                  </span>
                   <span class="clear-badge">#{chat_channel.name}</span>
                 </a>
@@ -196,7 +244,7 @@ describe Chat do
       end
 
       it "renders messages" do
-        expect(Oneboxer.preview("#{chat_url}/#{chat_message.id}")).to match_html <<~HTML
+        expect(Oneboxer.preview("#{chat_url}?messageId=#{chat_message.id}")).to match_html <<~HTML
           <div class="chat-transcript" data-message-id="#{chat_message.id}" data-username="#{user.username}" data-datetime="#{chat_message.created_at.iso8601}" data-channel-name="#{chat_channel.name}" data-channel-id="#{chat_channel.id}">
           <div class="chat-transcript-user">
             <div class="chat-transcript-user-avatar">
@@ -206,11 +254,11 @@ describe Chat do
             </div>
             <div class="chat-transcript-username">#{user.username}</div>
               <div class="chat-transcript-datetime">
-                <a href="#{chat_url}/#{chat_message.id}" title="#{chat_message.created_at}">#{chat_message.created_at}</a>
+                <a href="#{chat_url}?messageId=#{chat_message.id}" title="#{chat_message.created_at}">#{chat_message.created_at}</a>
               </div>
-              <a class="chat-transcript-channel" href="/chat/c/-/#{chat_channel.id}">
+              <a class="chat-transcript-channel" href="/chat/channel/#{chat_channel.id}/-">
                 <span class="category-chat-badge" style="color: ##{chat_channel.chatable.color}">
-                  <svg class="fa d-icon d-icon-d-chat svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#d-chat"></use></svg>
+                  <svg class="fa d-icon d-icon-hashtag svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#hashtag"></use></svg>
                 </span>
                 #{chat_channel.name}
               </a>
@@ -220,6 +268,7 @@ describe Chat do
         HTML
       end
     end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   describe "auto-joining users to a channel" do
@@ -230,7 +279,11 @@ describe Chat do
     before { Jobs.run_immediately! }
 
     def assert_user_following_state(user, channel, following:)
+<<<<<<< HEAD
       membership = Chat::UserChatChannelMembership.find_by(user: user, chat_channel: channel)
+=======
+      membership = UserChatChannelMembership.find_by(user: user, chat_channel: channel)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       following ? (expect(membership.following).to eq(true)) : (expect(membership).to be_nil)
     end
@@ -344,10 +397,22 @@ describe Chat do
       end
     end
 
+<<<<<<< HEAD
     context "when followed direct message channels exist" do
       fab!(:user_2) { Fabricate(:user) }
       fab!(:channel) { Fabricate(:direct_message_channel, users: [user, user_2]) }
 
+=======
+    context "when followed public channels exist" do
+      fab!(:user_2) { Fabricate(:user) }
+      fab!(:channel) { Fabricate(:direct_message_channel, users: [user, user_2]) }
+
+      before do
+        Fabricate(:user_chat_channel_membership, user: user, chat_channel: channel, following: true)
+        Fabricate(:direct_message_channel, users: [user, user_2])
+      end
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       it "returns them" do
         expect(serializer.chat_channels[:public_channels]).to eq([])
         expect(serializer.chat_channels[:direct_message_channels].count).to eq(1)
@@ -355,7 +420,11 @@ describe Chat do
       end
     end
 
+<<<<<<< HEAD
     context "when followed public channels exist" do
+=======
+    context "when followed direct message channels exist" do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       fab!(:channel) { Fabricate(:chat_channel) }
 
       before do
@@ -369,6 +438,30 @@ describe Chat do
         expect(serializer.chat_channels[:public_channels][0].id).to eq(channel.id)
       end
     end
+<<<<<<< HEAD
+
+    context "when the category is restricted and user has readonly persmissions" do
+      fab!(:channel_1) { Fabricate(:chat_channel) }
+      fab!(:group_1) { Fabricate(:group) }
+      fab!(:private_channel_1) { Fabricate(:private_category_channel, group: group_1) }
+
+      before do
+        private_channel_1.chatable.category_groups.first.update!(
+          permission_type: CategoryGroup.permission_types[:readonly],
+        )
+        group_1.add(user)
+        channel_1.add(user)
+        private_channel_1.add(user)
+      end
+
+      it "doesn’t list the associated channel" do
+        expect(serializer.chat_channels[:public_channels].map(&:id)).to contain_exactly(
+          channel_1.id,
+        )
+      end
+    end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   describe "current_user_serializer#has_joinable_public_channels" do
@@ -423,7 +516,11 @@ describe Chat do
       deletion_opts = { delete_posts: true }
 
       expect { UserDestroyer.new(Discourse.system_user).destroy(user, deletion_opts) }.to change(
+<<<<<<< HEAD
         Jobs::Chat::DeleteUserMessages.jobs,
+=======
+        Jobs::DeleteUserMessages.jobs,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         :size,
       ).by(1)
     end

@@ -6,7 +6,11 @@ RSpec.describe Admin::ScreenedUrlsController do
   fab!(:user) { Fabricate(:user) }
   fab!(:screened_url) { Fabricate(:screened_url) }
 
+<<<<<<< HEAD
   describe "#index" do
+=======
+  describe '#index' do
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     shared_examples "screened urls accessible" do
       it "returns screened urls" do
         get "/admin/logs/screened_urls.json"
@@ -30,7 +34,11 @@ RSpec.describe Admin::ScreenedUrlsController do
     end
 
     context "when logged in as a non-staff user" do
+<<<<<<< HEAD
       before { sign_in(user) }
+=======
+      before  { sign_in(user) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       it "denies access with a 404 response" do
         get "/admin/logs/screened_urls.json"

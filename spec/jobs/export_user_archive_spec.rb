@@ -168,6 +168,13 @@ RSpec.describe Jobs::ExportUserArchive do
       expect(post1["post_raw"]).to eq(normal_post.raw)
       expect(post2["post_raw"]).to eq(subsubpost.raw)
       expect(post3["post_raw"]).to eq(message_post.raw)
+<<<<<<< HEAD
+=======
+
+      expect(post1["post_cooked"]).to eq(normal_post.cooked)
+      expect(post2["post_cooked"]).to eq(subsubpost.cooked)
+      expect(post3["post_cooked"]).to eq(message_post.cooked)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       expect(post1["post_cooked"]).to eq(normal_post.cooked)
       expect(post2["post_cooked"]).to eq(subsubpost.cooked)
@@ -522,9 +529,11 @@ RSpec.describe Jobs::ExportUserArchive do
 
   describe "queued posts" do
     let(:component) { "queued_posts" }
-    let(:reviewable_post) { Fabricate(:reviewable_queued_post, topic: topic, created_by: user) }
+    let(:reviewable_post) do
+      Fabricate(:reviewable_queued_post, topic: topic, target_created_by: user)
+    end
     let(:reviewable_topic) do
-      Fabricate(:reviewable_queued_post_topic, category: category, created_by: user)
+      Fabricate(:reviewable_queued_post_topic, category: category, target_created_by: user)
     end
 
     it "correctly exports queued posts" do

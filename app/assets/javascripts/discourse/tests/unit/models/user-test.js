@@ -4,9 +4,13 @@ import PreloadStore from "discourse/lib/preload-store";
 import sinon from "sinon";
 import { settled } from "@ember/test-helpers";
 import User from "discourse/models/user";
+<<<<<<< HEAD
+import { getOwner } from "@ember/application";
+=======
 import pretender, { response } from "discourse/tests/helpers/create-pretender";
 import { getOwner } from "discourse-common/lib/get-owner";
 import * as userTips from "discourse/lib/user-tips";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user", function (hooks) {
   setupTest(hooks);
@@ -234,5 +238,17 @@ module("Unit | Model | user", function (hooks) {
 
     assert.ok(hideSpy.calledWith("first_notification"));
     assert.ok(showNextSpy.calledWith());
+  });
+
+  test("hideUserTipForever() can hide all the user tips", async function (assert) {
+    const site = getOwner(this).lookup("service:site");
+    site.set("user_tips", { first_notification: 1 });
+    const store = getOwner(this).lookup("service:store");
+    const user = store.createRecord("user", { username: "eviltrout" });
+
+    const hideAllSpy = sinon.spy(userTips, "hideAllUserTips");
+    await user.hideUserTipForever();
+
+    assert.ok(hideAllSpy.calledWith());
   });
 });

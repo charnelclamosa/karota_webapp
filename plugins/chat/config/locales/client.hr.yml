@@ -10,20 +10,34 @@ hr:
       site_settings:
         categories:
           chat: Čet
+<<<<<<< HEAD
+        chat_separate_sidebar_mode:
+          always: "Uvijek"
+          never: "Nikad"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       logs:
         staff_actions:
           actions:
             chat_channel_status_change: "Status chat kanala je promijenjen"
             chat_channel_delete: "Chat kanal je izbrisan"
+<<<<<<< HEAD
             chat_auto_remove_membership: "Članstva su automatski uklonjena s kanala"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       api:
         scopes:
           descriptions:
             chat:
               create_message: "Izradite chat poruku na određenom kanalu."
+<<<<<<< HEAD
     about:
       chat_messages_count: "Chat poruke"
     chat:
+      deleted_chat_username: izbrisao
+=======
+    chat:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       dates:
         time_tiny: "h:mm"
       all_loaded: "Prikaz svih poruka"
@@ -36,10 +50,13 @@ hr:
       chat_channels: "Kanali"
       move_to_channel:
         title: "Premještanje poruka na kanal"
+<<<<<<< HEAD
         instructions:
           one: "Premještate <strong>%{count}</strong> poruku. Odaberite odredišni kanal. Poruka rezerviranog mjesta stvorit će se u kanalu <strong>%{channelTitle}</strong> kako bi označila da je ova poruka premještena. Imajte na umu da se lanci odgovora neće sačuvati u novom kanalu, a poruke u starom kanalu više se neće prikazivati kao odgovori na premještene poruke."
           few: "Premještate <strong>%{count}</strong> poruke. Odaberite odredišni kanal. Poruka rezerviranog mjesta stvorit će se u kanalu <strong>%{channelTitle}</strong> kako bi označila da je ova poruka premještena. Imajte na umu da se lanci odgovora neće sačuvati u novom kanalu, a poruke u starom kanalu više se neće prikazivati kao odgovori na premještene poruke."
           other: "Premještate <strong>%{count}</strong> poruka. Odaberite odredišni kanal. Poruka rezerviranog mjesta stvorit će se u kanalu <strong>%{channelTitle}</strong> kako bi označila da su te poruke premještene. Imajte na umu da se lanci odgovora neće sačuvati u novom kanalu, a poruke u starom kanalu više se neće prikazivati kao odgovori na premještene poruke."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm_move: "Premjesti poruke"
       channel_settings:
         title: "Postavke kanala"
@@ -61,7 +78,11 @@ hr:
         instructions: "Zatvaranje kanala onemogućuje korisnicima koji nisu zaposlenici da šalju nove poruke ili uređuju postojeće poruke. Jeste li sigurni da želite zatvoriti ovaj kanal?"
       channel_delete:
         title: "Izbriši kanal"
+<<<<<<< HEAD
         instructions: "<p>Briše <strong>%{name}</strong> kanal i povijest čavrljanja. Sve poruke i povezani podaci, kao što su reakcije i prijenosi, bit će trajno izbrisani. Ako želite sačuvati povijest kanala i poništiti ga, možda radije želite arhivirati kanal.</p> <p>Jeste li sigurni da želite <strong>trajno izbrisati</strong> kanal? Za potvrdu upišite naziv kanala u okvir ispod.</p>"
+=======
+        instructions: "<p>Briše <strong>%{name}</strong> kanal i povijest razgovora. Sve poruke i srodni podaci, kao što su reakcije i prijenosi, trajno će biti izbrisani. Ako želite sačuvati povijest kanala i raspada ga, možda želite arhivirati kanal umjesto.</p> <p>Jeste li sigurni da želite <strong>trajno izbrisati</strong> kanal? Da biste potvrdili, upišite naziv kanala u okvir ispod.</p>"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         confirm: "Razumijem posljedice, obriši kanal"
         confirm_channel_name: "Unesite naziv kanala"
         process_started: "Započeo je proces brisanja kanala. Ovaj modal će se uskoro zatvoriti, više nigdje nećete vidjeti izbrisani kanal."
@@ -69,6 +90,8 @@ hr:
         browse: "Pretražujte kanale"
       click_to_join: "Kliknite ovdje da biste vidjeli dostupne kanale."
       close: "Zatvori"
+<<<<<<< HEAD
+      remove: "Ukloni"
       collapse: "Sažmi ladicu za chat"
       expand: "Proširi ladicu za čavrljanje"
       confirm_flag: "Jeste li sigurni da želite označiti poruku korisnika %{username}?"
@@ -76,6 +99,11 @@ hr:
         one: "Poruka je izbrisana. [view]"
         few: "%{count} poruke su izbrisane. [view all]"
         other: "%{count} poruka je izbrisano. [view all]"
+=======
+      collapse: "Sažmi ladicu za chat"
+      confirm_flag: "Jeste li sigurni da želite označiti poruku korisnika %{username}?"
+      deleted: "Poruka je izbrisana. [pogledaj]"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Pobriši"
       edited: "uredio"
       muted: "utišano"
@@ -84,11 +112,14 @@ hr:
         direct_message: "Također možete započeti osobni razgovor s jednim ili više korisnika."
       email_frequency:
         never: "Nikad"
+<<<<<<< HEAD
       header_indicator_preference:
         title: "Prikaži indikator aktivnosti u zaglavlju"
         all_new: "Sve nove poruke"
         dm_and_mentions: "Izravne poruke i spominjanja"
         never: "Nikad"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       enable: "Omogući chat"
       flag: "Označi zastavicom"
       flagged: "Ova poruka je označena za pregled"
@@ -97,6 +128,7 @@ hr:
       in_reply_to: "U odgovoru na"
       heading: "Čet"
       join: "Pridružite se"
+<<<<<<< HEAD
       last_visit: "posljednji posjet"
       summarization:
         title: "Sažmi poruke"
@@ -107,32 +139,21 @@ hr:
           few: "Posljednja %{count} sata"
           other: "Posljednjih %{count} sati"
       mention_warning:
+=======
+      new_messages: "nove poruke"
+      mention_warning:
+        cannot_see:
+          one: "%{usernames} ne može pristupiti ovom kanalu i nije obaviješten."
+          few: "%{usernames} ne mogu pristupiti ovom kanalu i nisu obaviješteni."
+          other: "%{usernames} ne mogu pristupiti ovom kanalu i nisu obaviješteni."
         dismiss: "skloni"
-        cannot_see: "%{username} ne može pristupiti ovom kanalu i nije obaviješten."
-        cannot_see_multiple:
-          one: "%{username} i %{count} drugi korisnik ne mogu pristupiti ovom kanalu i nisu bili obaviješteni."
-          few: "%{username} i %{count} druga korisnika ne mogu pristupiti ovom kanalu i nisu bili obaviješteni."
-          other: "%{username} i %{count} drugih korisnika ne može pristupiti ovom kanalu i nisu bili obaviješteni."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         invitations_sent:
           one: "Poziv poslan"
           few: "Pozivnice poslane"
           other: "Pozivnice poslane"
         invite: "Pozovite na kanal"
-        without_membership: "%{username} se nije pridružio ovom kanalu."
-        without_membership_multiple:
-          one: "%{username} i još %{count} korisnik se nisu pridružili ovom kanalu."
-          few: "%{username} i još %{count} korisnika se nisu pridružili ovom kanalu."
-          other: "%{username} i još %{count} korisnika se nisu pridružili ovom kanalu."
-        group_mentions_disabled: "%{group_name} ne dopušta spominjanje."
-        group_mentions_disabled_multiple:
-          one: "%{group_name} i %{count} druga grupa ne dopuštaju spominjanje."
-          few: "%{group_name} i %{count} druge grupe ne dopuštaju spominjanje."
-          other: "%{group_name} i %{count} drugih grupa ne dopuštaju spominjanje."
-        too_many_members: "%{group_name} ima previše članova. Nitko nije obaviješten."
-        too_many_members_multiple:
-          one: "%{group_name} i %{count} druga grupa imaju previše članova. Nitko nije obaviješten."
-          few: "%{group_name} i %{count} druge grupe imaju previše članova. Nitko nije obaviješten."
-          other: "%{group_name} i %{count} drugih grupa imaju previše članova. Nitko nije obaviješten."
+<<<<<<< HEAD
         groups:
           unreachable_1: "@%{group} ne dopušta spominjanje."
           unreachable_2: "@%{group1} i @%{group2} ne dopuštaju spominjanje."
@@ -159,29 +180,43 @@ hr:
         archived: "Kanal je arhiviran, trenutno ne možete slati nove poruke."
         closed: "Kanal je zatvoren, trenutno ne možete slati nove poruke."
         read_only: "Kanal je samo za čitanje, trenutno ne možete slati nove poruke."
-      placeholder_start_conversation: "Započnite razgovor s..."
-      placeholder_start_conversation_users: "Započnite razgovor s %{commaSeparatedUsernames}"
+=======
+        without_membership:
+          one: "%{usernames} se nije pridružio ovom kanalu."
+          few: "%{usernames} se nisu pridružili ovom kanalu."
+          other: "%{usernames} se nisu pridružili ovom kanalu."
+      aria_roles:
+        header: "Zaglavlje chata"
+        composer: "Skladatelj chata"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odgovor"
       edit: "Uredi"
       rebake_message: "Popravi HTML"
       bookmark_message: "Zabilješka"
       bookmark_message_edit: "Uredi oznaku"
       save: "Spremi"
+<<<<<<< HEAD
       return_to_threads_list: "Povratak na tekuće rasprave"
       unread_threads_count:
         one: "Imate %{count} nepročitanu raspravu"
         few: "Imate %{count} nepročitane rasprave"
         other: "Imate %{count} nepročitanih rasprava"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       sounds:
         none: "Ništa"
       title: "čet"
       title_capitalized: "Čet"
+<<<<<<< HEAD
       upload_to_channel: "Prenesi na %{title}"
       upload_to_thread: "Prenesi u nit"
       exit: "natrag"
       channel_status:
-        archive_failed: "Arhiviranje kanala nije uspjelo. %{completed}/%{total} poruke su arhivirane. <a target=\"_blank\" href=\"%{topic_url}\">tema odredišta</a>. Pritisnite ponovno za pokušaj dovršetka arhiviranja."
         archive_failed_no_topic: "Arhiviranje kanala nije uspjelo. %{completed}/%{total} poruka je arhivirano, odredišna tema nije kreirana. Pritisnite ponovno za pokušaj dovršetka arhiviranja."
+=======
+      exit: "natrag"
+      channel_status:
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         closed: "Zatvoreno"
         open: "Otvori"
       browse:
@@ -194,7 +229,10 @@ hr:
         yesterday: Jučer
       about_view:
         title: Naslov
+<<<<<<< HEAD
         name: Ime
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Opis
       channel_info:
         back_to_channel: "Natrag"
@@ -202,16 +240,20 @@ hr:
           about: O nama
           members: Članovi
           settings: Postavke
+<<<<<<< HEAD
       new_message_modal:
         no_items: "Nema stvari"
       channel_edit_name_slug_modal:
         title: Uredi kanal
         input_placeholder: Dodajte ime
         name: Naziv kanala
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Nova poruka
         prefix: "Za:"
       create_channel:
+<<<<<<< HEAD
         auto_join_users:
           warning_1_group:
             one: "Automatski dodati %{count} korisnika iz %{group}?"
@@ -228,10 +270,13 @@ hr:
             one: 'Korisnici u %{group} i %{count} drugoj grupi će imati pristup ovom kanalu u skladu sa <a href="%{settingLink}" target="_blank">sigurnosnim postavkama</a>'
             few: 'Korisnici u %{group} i %{count} druge grupe će imati pristup ovom kanalu u skladu sa <a href="%{settingLink}" target="_blank">sigurnosnim postavkama</a>'
             other: 'Korisnici u %{group} i %{count} drugih grupa će imati pristup ovom kanalu u skladu sa <a href="%{settingLink}" target="_blank">sigurnosnim postavkama</a>'
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type: "Tip"
         types:
           category: "Kategorija"
           topic: "Tema"
+<<<<<<< HEAD
       reactions:
         you_and_single_user: "Vi i %{username} ste reagirali s :%{emoji}:"
         you_and_multiple_users: "Vi, %{commaSeparatedUsernames} i %{username} ste reagirali s :%{emoji}:"
@@ -258,6 +303,16 @@ hr:
         followed: "Prijavljen"
         threading_enabled: "Omogućeno"
         threading_disabled: "Onemogućeno"
+=======
+      composer:
+        italic_text: "naglašen tekst"
+        bold_text: "jaki text"
+      notification_levels:
+        never: "Nikad"
+      settings:
+        follow: "Pridružite se"
+        followed: "Prijavljen"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Obavijest"
         preview: "Pregled"
         save: "Spremi"
@@ -266,11 +321,13 @@ hr:
         admin_title: "Administrator"
       admin:
         title: "Čet"
+<<<<<<< HEAD
         export_messages:
           title: "Izvezi poruke čavrljanja"
-          description: "Izvoz je trenutno ograničen na 10 000 najnovijih poruka u zadnjih 6 mjeseci."
           create_export: "Stvori izvoz"
           export_has_started: "Izvoz je počeo. Dobit ćete PM kad bude spreman."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       incoming_webhooks:
         back: "Natrag"
         description: "Opis"
@@ -291,6 +348,7 @@ hr:
           title: "Prebaci u postojeću temu"
         new_message:
           title: "Premjestite u novu poruku"
+<<<<<<< HEAD
       retention_reminders:
         public_none: "Povijest kanala čuva se na neodređeno vrijeme."
         public:
@@ -302,15 +360,17 @@ hr:
           one: "Osobna povijest čavrljanja čuva se %{count} dan."
           few: "Osobna povijest čavrljanja čuva se %{count} dana."
           other: "Osobna povijest čavrljanja čuva se %{count} dana."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       emoji_picker:
         objects: "Objekti"
         activities: "Aktivnosti"
         flags: "Oznake zastavicom"
         symbols: "Simboli"
+<<<<<<< HEAD
       thread:
         title: "Naslov"
         view_thread: Pogledaj nit
-        default_title: "Nit"
         replies:
           one: "%{count} odgovor"
           few: "%{count} odgovora"
@@ -336,6 +396,8 @@ hr:
         open: "Otvori nit"
         list: "Tekuće rasprave"
         none: "Ne sudjelujete ni u jednoj niti na ovom kanalu."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Nova poruka"
         cancel: "Odustani"
@@ -350,6 +412,7 @@ hr:
               label: Poruka
     review:
       types:
+<<<<<<< HEAD
         chat_reviewable_message:
           title: "Označena poruka čavrljanja"
     keyboard_shortcuts_help:
@@ -361,3 +424,14 @@ hr:
       sections:
         chat:
           title: Čavrljanje
+    sidebar:
+      panels:
+        chat:
+          label: "Čavrljanje"
+=======
+        reviewable_chat_message:
+          flagged_by: "Označio"
+    keyboard_shortcuts_help:
+      chat:
+        title: "Čet"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

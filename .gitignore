@@ -38,10 +38,15 @@
 !/plugins/discourse-local-dates
 !/plugins/discourse-narrative-bot
 !/plugins/discourse-presence
+<<<<<<< HEAD
 !/plugins/discourse-lazy-videos/
+=======
+!/plugins/lazy-yt/
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 !/plugins/chat/
 !/plugins/poll/
 !/plugins/styleguide
+!/plugins/checklist/
 /plugins/*/auto_generated/
 
 /spec/fixtures/plugins/my_plugin/auto_generated
@@ -53,6 +58,9 @@
 # We provide a .sample but people can use newer versions if they want to
 .ruby-version
 .ruby-gemset
+
+# Likewise, there is a .vscode-sample for VSCode config
+.vscode
 
 # Front-end
 dist
@@ -71,3 +79,4 @@ openapi/*
 
 # Cached License Data Files
 /.licenses
+/app/assets/javascripts/compiled-js-processor.js

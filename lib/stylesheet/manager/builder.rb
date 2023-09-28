@@ -252,8 +252,12 @@ class Stylesheet::Manager::Builder
     digest_string = "#{current_hostname}-"
     if cs || categories_updated > 0
       theme_color_defs = resolve_baked_field(:common, :color_definitions)
+<<<<<<< HEAD
       digest_string +=
         "#{RailsMultisite::ConnectionManagement.current_db}-#{cs&.id}-#{cs&.version}-#{theme_color_defs}-#{Stylesheet::Manager.fs_asset_cachebuster}-#{categories_updated}-#{fonts}"
+=======
+      digest_string += "#{RailsMultisite::ConnectionManagement.current_db}-#{cs&.id}-#{cs&.version}-#{theme_color_defs}-#{Stylesheet::Manager.fs_asset_cachebuster}-#{categories_updated}-#{fonts}"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     else
       digest_string += "defaults-#{Stylesheet::Manager.fs_asset_cachebuster}-#{fonts}"
 

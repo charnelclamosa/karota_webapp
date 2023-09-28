@@ -410,8 +410,13 @@ class ImportScripts::Drupal < ImportScripts::Base
     Topic.listable_topics.find_each do |topic|
       begin
         tcf = topic.custom_fields
+<<<<<<< HEAD
         if tcf && tcf["import_id"]
           node_id = tcf["import_id"][/nid:(\d+)/, 1]
+=======
+        if tcf && tcf['import_id']
+          node_id = tcf['import_id'][/nid:(\d+)/, 1]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           slug = "/node/#{node_id}"
           Permalink.create(url: slug, topic_id: topic.id)
         end

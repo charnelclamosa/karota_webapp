@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 class Admin::ScreenedIpAddressesController < Admin::StaffController
+<<<<<<< HEAD
   before_action :fetch_screened_ip_address, only: %i[update destroy]
+=======
+
+  before_action :fetch_screened_ip_address, only: [:update, :destroy]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def index
     filter = params[:filter]

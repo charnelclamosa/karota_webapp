@@ -625,7 +625,11 @@ class Group < ActiveRecord::Base
   end
 
   def self.reset_groups_user_count!(only_group_ids: [])
+<<<<<<< HEAD
     where_sql = ""
+=======
+    where_sql = ''
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if only_group_ids.present?
       where_sql = "WHERE group_id IN (#{only_group_ids.map(&:to_i).join(",")})"
@@ -980,15 +984,19 @@ class Group < ActiveRecord::Base
   end
 
   def flair_type
-    return :icon if flair_icon.present?
-    return :image if flair_upload.present?
+    if flair_icon.present?
+      :icon
+    elsif flair_upload.present?
+      :image
+    end
   end
 
   def flair_url
-    return flair_icon if flair_type == :icon
-    return upload_cdn_path(flair_upload.url) if flair_type == :image
-
-    nil
+    if flair_type == :icon
+      flair_icon
+    elsif flair_type == :image
+      upload_cdn_path(flair_upload.url)
+    end
   end
 
   %i[muted regular tracking watching watching_first_post].each do |level|

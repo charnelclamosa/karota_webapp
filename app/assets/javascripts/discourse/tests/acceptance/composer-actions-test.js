@@ -25,6 +25,10 @@ acceptance("Composer Actions", function (needs) {
   needs.settings({
     prioritize_username_in_ux: true,
     display_name_on_posts: false,
+<<<<<<< HEAD
+=======
+    enable_whispers: true,
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
   needs.site({ can_tag_topics: true });
   needs.pretender((server, helper) => {

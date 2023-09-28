@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import typography from "../components/sections/atoms/00-typography";
 import fontScale from "../components/sections/atoms/01-font-scale";
 import buttons from "../components/sections/atoms/02-buttons";
@@ -18,7 +19,9 @@ import headerIcons from "../components/sections/molecules/header-icons";
 import navigationBar from "../components/sections/molecules/navigation-bar";
 import navigationStacked from "../components/sections/molecules/navigation-stacked";
 import postMenu from "../components/sections/molecules/post-menu";
-import richTooltip from "../components/sections/molecules/rich-tooltip";
+import tooltips from "../components/sections/molecules/tooltips";
+import menus from "../components/sections/molecules/menus";
+import toasts from "../components/sections/molecules/toasts";
 import signupCta from "../components/sections/molecules/signup-cta";
 import topicListItem from "../components/sections/molecules/topic-list-item";
 import topicNotifications from "../components/sections/molecules/topic-notifications";
@@ -35,6 +38,9 @@ import siteHeader from "../components/sections/organisms/site-header";
 import suggestedTopics from "../components/sections/organisms/suggested-topics";
 import userAbout from "../components/sections/organisms/user-about";
 
+=======
+import DiscourseTemplateMap from "discourse-common/lib/discourse-template-map";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 let _allCategories = null;
 let _sectionsById = {};
 
@@ -70,7 +76,9 @@ const SECTIONS = [
     id: "navigation-stacked",
   },
   { component: postMenu, category: "molecules", id: "post-menu" },
-  { component: richTooltip, category: "molecules", id: "rich-tooltip" },
+  { component: tooltips, category: "molecules", id: "tooltips" },
+  { component: menus, category: "molecules", id: "menus" },
+  { component: toasts, category: "molecules", id: "toasts" },
   { component: signupCta, category: "molecules", id: "signup-cta" },
   { component: topicListItem, category: "molecules", id: "topic-list-item" },
   {
@@ -136,8 +144,37 @@ export function allCategories() {
     categories[section.category] ||= [];
     categories[section.category].push(section);
 
+<<<<<<< HEAD
     _sectionsById[section.id] = section;
   }
+=======
+  // Find a list of sections based on what templates are available
+  // eslint-disable-next-line no-undef
+  DiscourseTemplateMap.keys().forEach((e) => {
+    let regexp = new RegExp(`styleguide\/(${paths})\/(\\d+)?\\-?([^\\/]+)$`);
+    let matches = e.match(regexp);
+    if (matches) {
+      let section = {
+        id: matches[3],
+        priority: parseInt(matches[2] || "100", 10),
+        category: matches[1],
+        templateName: e.replace(/^.*styleguide\//, ""),
+      };
+      if (!categories[section.category]) {
+        categories[section.category] = [];
+      }
+      categories[section.category].push(section);
+      _sectionsById[section.id] = section;
+    }
+
+    // Look for notes
+    regexp = new RegExp(`components\/notes\/(\\d+)?\\-?([^\\/]+)$`);
+    matches = e.match(regexp);
+    if (matches) {
+      _notes[matches[2]] = e.replace(/^.*notes\//, "");
+    }
+  });
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   _allCategories = [];
   for (const category of CATEGORIES) {

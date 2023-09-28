@@ -25,6 +25,7 @@ module Jobs
       visits
     ]
 
+<<<<<<< HEAD
     HEADER_ATTRS_FOR ||=
       HashWithIndifferentAccess.new(
         user_archive: %w[
@@ -115,6 +116,22 @@ module Jobs
         queued_posts: %w[id verdict category_id topic_id post_raw other_json],
         visits: %w[visited_at posts_read mobile time_read],
       )
+=======
+    HEADER_ATTRS_FOR ||= HashWithIndifferentAccess.new(
+      user_archive: ['topic_title', 'categories', 'is_pm', 'post_raw', 'post_cooked', 'like_count', 'reply_count', 'url', 'created_at'],
+      user_archive_profile: ['location', 'website', 'bio', 'views'],
+      auth_tokens: ['id', 'auth_token_hash', 'prev_auth_token_hash', 'auth_token_seen', 'client_ip', 'user_agent', 'seen_at', 'rotated_at', 'created_at', 'updated_at'],
+      auth_token_logs: ['id', 'action', 'user_auth_token_id', 'client_ip', 'auth_token_hash', 'created_at', 'path', 'user_agent'],
+      badges: ['badge_id', 'badge_name', 'granted_at', 'post_id', 'seq', 'granted_manually', 'notification_id', 'featured_rank'],
+      bookmarks: ['bookmarkable_id', 'bookmarkable_type', 'link', 'name', 'created_at', 'updated_at', 'reminder_at', 'reminder_last_sent_at', 'reminder_set_at', 'auto_delete_preference'],
+      category_preferences: ['category_id', 'category_names', 'notification_level', 'dismiss_new_timestamp'],
+      flags: ['id', 'post_id', 'flag_type', 'created_at', 'updated_at', 'deleted_at', 'deleted_by', 'related_post_id', 'targets_topic', 'was_take_action'],
+      likes: ['id', 'post_id', 'topic_id', 'post_number', 'created_at', 'updated_at', 'deleted_at', 'deleted_by'],
+      post_actions: ['id', 'post_id', 'post_action_type', 'created_at', 'updated_at', 'deleted_at', 'deleted_by', 'related_post_id'],
+      queued_posts: ['id', 'verdict', 'category_id', 'topic_id', 'post_raw', 'other_json'],
+      visits: ['visited_at', 'posts_read', 'mobile', 'time_read'],
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     def execute(args)
       @current_user = User.find_by(id: args[:user_id])
@@ -459,7 +476,7 @@ module Jobs
 
       # Most Reviewable fields staff-private, but post content needs to be exported.
       ReviewableQueuedPost
-        .where(created_by: @current_user.id)
+        .where(target_created_by_id: @current_user.id)
         .order(:created_at)
         .each do |rev|
           yield(
@@ -562,6 +579,18 @@ module Jobs
         "url" => url,
       }
 
+<<<<<<< HEAD
+=======
+      topic_hash = {
+        "post_raw" => user_archive['raw'],
+        "post_cooked" => user_archive["cooked"],
+        "topic_title" => topic_data.title,
+        "categories" => categories,
+        "is_pm" => is_pm,
+        "url" => url
+      }
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       user_archive.merge!(topic_hash)
 
       HEADER_ATTRS_FOR["user_archive"].each { |attr| user_archive_array.push(user_archive[attr]) }

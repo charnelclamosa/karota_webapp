@@ -78,6 +78,8 @@
 }
 
 .user-main {
+  background: var(--d-content-background);
+
   .about {
     width: 100%;
     margin-bottom: 0;
@@ -692,6 +694,7 @@
 
 .second-factor {
   .second-factor-item {
+<<<<<<< HEAD
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -713,6 +716,21 @@
           color: var(--primary-high);
         }
       }
+=======
+    margin-top: 0.75em;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    margin: 5px 0px;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+    .btn-danger .d-icon {
+      color: var(--danger);
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 

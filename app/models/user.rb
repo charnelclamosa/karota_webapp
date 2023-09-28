@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   has_many :pending_posts,
            -> { merge(Reviewable.pending) },
            class_name: "ReviewableQueuedPost",
-           foreign_key: :created_by_id
+           foreign_key: :target_created_by_id
 
   has_one :user_option, dependent: :destroy
   has_one :user_avatar, dependent: :destroy
@@ -96,6 +96,7 @@ class User < ActiveRecord::Base
   has_many :directory_items
   has_many :email_logs
   has_many :security_keys, -> { where(enabled: true) }, class_name: "UserSecurityKey"
+  has_many :all_security_keys, class_name: "UserSecurityKey"
 
   has_many :badges, through: :user_badges
   has_many :default_featured_user_badges,
@@ -137,13 +138,6 @@ class User < ActiveRecord::Base
   belongs_to :uploaded_avatar, class_name: "Upload"
 
   has_many :sidebar_section_links, dependent: :delete_all
-  has_many :category_sidebar_section_links,
-           -> { where(linkable_type: "Category") },
-           class_name: "SidebarSectionLink"
-  has_many :custom_sidebar_tags,
-           through: :sidebar_section_links,
-           source: :linkable,
-           source_type: "Tag"
 
   delegate :last_sent_email_address, to: :email_logs
 
@@ -170,11 +164,20 @@ class User < ActiveRecord::Base
   after_create :ensure_in_trust_level_group
   after_create :set_default_categories_preferences
   after_create :set_default_tags_preferences
+<<<<<<< HEAD
+  after_create :set_default_sidebar_section_links
+  after_update :set_default_sidebar_section_links, if: Proc.new { self.saved_change_to_staged? }
+=======
   after_create :add_default_sidebar_section_links
 
-  after_update :update_default_sidebar_section_links, if: Proc.new { self.saved_change_to_admin? }
+  after_update :update_default_sidebar_section_links, if: Proc.new  {
+    self.saved_change_to_admin?
+  }
 
-  after_update :add_default_sidebar_section_links, if: Proc.new { self.saved_change_to_staged? }
+  after_update :add_default_sidebar_section_links, if: Proc.new {
+    self.saved_change_to_staged?
+  }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   after_update :trigger_user_updated_event,
                if: Proc.new { self.human? && self.saved_change_to_uploaded_avatar_id? }
@@ -349,6 +352,7 @@ class User < ActiveRecord::Base
   MAX_STAFF_DELETE_POST_COUNT ||= 5
 
   def self.user_tips
+<<<<<<< HEAD
     @user_tips ||=
       Enum.new(
         first_notification: 1,
@@ -360,9 +364,35 @@ class User < ActiveRecord::Base
       )
   end
 
+  def secured_sidebar_category_ids(user_guardian = nil)
+    user_guardian ||= guardian
+
+    SidebarSectionLink.where(user_id: self.id, linkable_type: "Category").pluck(:linkable_id) &
+      user_guardian.allowed_category_ids
+=======
+    @user_tips ||= Enum.new(
+      first_notification: 1,
+      topic_timeline: 2,
+      post_menu: 3,
+      topic_notification_levels: 4,
+      suggested_topics: 5,
+    )
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+  end
+
   def visible_sidebar_tags(user_guardian = nil)
     user_guardian ||= guardian
+<<<<<<< HEAD
+
+    DiscourseTagging.filter_visible(
+      Tag.where(
+        id: SidebarSectionLink.where(user_id: self.id, linkable_type: "Tag").select(:linkable_id),
+      ),
+      user_guardian,
+    )
+=======
     DiscourseTagging.filter_visible(custom_sidebar_tags, user_guardian)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def self.max_password_length
@@ -659,14 +689,6 @@ class User < ActiveRecord::Base
     results.to_h
   end
 
-  ###
-  # DEPRECATED: This is only maintained for backwards compat until v2.5. There
-  # may be inconsistencies with counts in the UI because of this, because unread
-  # high priority includes PMs AND bookmark reminders.
-  def unread_private_messages
-    @unread_pms ||= unread_high_priority_notifications
-  end
-
   def unread_high_priority_notifications
     @unread_high_prios ||= unread_notifications_of_priority(high_priority: true)
   end
@@ -675,7 +697,11 @@ class User < ActiveRecord::Base
     args = {
       user_id: self.id,
       seen_notification_id: self.seen_notification_id,
+<<<<<<< HEAD
       private_message: Notification.types[:private_message],
+=======
+      private_message: Notification.types[:private_message]
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     DB.query_single(<<~SQL, args).first
@@ -762,7 +788,14 @@ class User < ActiveRecord::Base
   end
 
   def reviewable_count
+<<<<<<< HEAD
     Reviewable.list_for(self, include_claimed_by_others: false).count
+=======
+    Reviewable.list_for(
+      self,
+      include_claimed_by_others: !redesigned_user_menu_enabled?
+    ).count
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def saw_notification_id(notification_id)
@@ -791,7 +824,13 @@ class User < ActiveRecord::Base
   def bump_last_seen_reviewable!
     query = Reviewable.unseen_list_for(self, preload: false)
 
+<<<<<<< HEAD
     query = query.where("reviewables.id > ?", last_seen_reviewable_id) if last_seen_reviewable_id
+=======
+    if last_seen_reviewable_id
+      query = query.where("reviewables.id > ?", last_seen_reviewable_id)
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     max_reviewable_id = query.maximum(:id)
 
     if max_reviewable_id
@@ -803,7 +842,11 @@ class User < ActiveRecord::Base
   def publish_reviewable_counts(extra_data = nil)
     data = {
       reviewable_count: self.reviewable_count,
+<<<<<<< HEAD
       unseen_reviewable_count: Reviewable.unseen_reviewable_count(self),
+=======
+      unseen_reviewable_count: Reviewable.unseen_reviewable_count(self)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
     data.merge!(extra_data) if extra_data.present?
     MessageBus.publish("/reviewable_counts/#{self.id}", data, user_ids: [self.id])
@@ -849,7 +892,6 @@ class User < ActiveRecord::Base
 
     payload = {
       unread_notifications: unread_notifications,
-      unread_private_messages: unread_private_messages,
       unread_high_priority_notifications: unread_high_priority_notifications,
       read_first_notification: read_first_notification?,
       last_notification: json,
@@ -857,9 +899,17 @@ class User < ActiveRecord::Base
       seen_notification_id: seen_notification_id,
     }
 
+<<<<<<< HEAD
     payload[:all_unread_notifications_count] = all_unread_notifications_count
     payload[:grouped_unread_notifications] = grouped_unread_notifications
     payload[:new_personal_messages_notifications_count] = new_personal_messages_notifications_count
+=======
+    if self.redesigned_user_menu_enabled?
+      payload[:all_unread_notifications_count] = all_unread_notifications_count
+      payload[:grouped_unread_notifications] = grouped_unread_notifications
+      payload[:new_personal_messages_notifications_count] = new_personal_messages_notifications_count
+    end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     MessageBus.publish("/notification/#{id}", payload, user_ids: [id])
   end
@@ -1199,13 +1249,6 @@ class User < ActiveRecord::Base
     user_warnings.count
   end
 
-  def flags_received_count
-    posts
-      .includes(:post_actions)
-      .where("post_actions.post_action_type_id" => PostActionType.flag_types_without_custom.values)
-      .count
-  end
-
   def private_topics_count
     topics_allowed.where(archetype: Archetype.private_message).count
   end
@@ -1264,7 +1307,7 @@ class User < ActiveRecord::Base
   end
 
   def full_suspend_reason
-    return suspend_record.try(:details) if suspended?
+    suspend_record.try(:details) if suspended?
   end
 
   def suspend_reason
@@ -1405,12 +1448,14 @@ class User < ActiveRecord::Base
       else
         secure_categories.references(:categories)
       end
+<<<<<<< HEAD
+=======
+
+    cats.pluck('categories.id').sort
+  end
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     cats.pluck("categories.id").sort
-  end
-
-  def topic_create_allowed_category_ids
-    Category.topic_create_allowed(self.id).select(:id)
   end
 
   # Flag all posts from a user as spam
@@ -1536,11 +1581,17 @@ class User < ActiveRecord::Base
   end
 
   def number_of_flagged_posts
-    ReviewableFlaggedPost.where(target_created_by: self.id).count
+    posts
+      .with_deleted
+      .includes(:post_actions)
+      .where("post_actions.post_action_type_id" => PostActionType.flag_types_without_custom.values)
+      .where("post_actions.agreed_at IS NOT NULL")
+      .count
   end
+  alias_method :flags_received_count, :number_of_flagged_posts
 
   def number_of_rejected_posts
-    ReviewableQueuedPost.rejected.where(created_by_id: self.id).count
+    ReviewableQueuedPost.rejected.where(target_created_by_id: self.id).count
   end
 
   def number_of_flags_given
@@ -1804,6 +1855,7 @@ class User < ActiveRecord::Base
     user_status && !user_status.expired?
   end
 
+<<<<<<< HEAD
   def new_new_view_enabled?
     in_any_groups?(SiteSetting.experimental_new_new_view_groups_map)
   end
@@ -1818,6 +1870,10 @@ class User < ActiveRecord::Base
     else
       user_option.watched_precedence_over_muted
     end
+=======
+  def redesigned_user_menu_enabled?
+    !SiteSetting.legacy_navigation_menu?
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   protected
@@ -2054,18 +2110,9 @@ class User < ActiveRecord::Base
     return if SiteSetting.legacy_navigation_menu?
     return if staged? || bot?
 
+<<<<<<< HEAD
     if SiteSetting.default_navigation_menu_categories.present?
       categories_to_update = SiteSetting.default_navigation_menu_categories.split("|")
-
-      if update
-        filtered_default_category_ids =
-          Category.secured(self.guardian).where(id: categories_to_update).pluck(:id)
-        existing_category_ids =
-          SidebarSectionLink.where(user: self, linkable_type: "Category").pluck(:linkable_id)
-
-        categories_to_update =
-          existing_category_ids + (filtered_default_category_ids & self.secure_category_ids)
-      end
 
       SidebarSectionLinksUpdater.update_category_section_links(
         self,
@@ -2074,31 +2121,49 @@ class User < ActiveRecord::Base
     end
 
     if SiteSetting.tagging_enabled && SiteSetting.default_navigation_menu_tags.present?
-      tags_to_update = SiteSetting.default_navigation_menu_tags.split("|")
+      SidebarSectionLinksUpdater.update_tag_section_links(
+        self,
+        tag_ids: Tag.where(name: SiteSetting.default_navigation_menu_tags.split("|")).pluck(:id),
+=======
+    if SiteSetting.default_sidebar_categories.present?
+      categories_to_update = SiteSetting.default_sidebar_categories.split("|")
+
+      if update
+        filtered_default_category_ids = Category.secured(self.guardian).where(id: categories_to_update).pluck(:id)
+        existing_category_ids = SidebarSectionLink.where(user: self, linkable_type: 'Category').pluck(:linkable_id)
+
+        categories_to_update = existing_category_ids + (filtered_default_category_ids & self.secure_category_ids)
+      end
+
+      SidebarSectionLinksUpdater.update_category_section_links(
+        self,
+        category_ids: categories_to_update
+      )
+    end
+
+    if SiteSetting.tagging_enabled && SiteSetting.default_sidebar_tags.present?
+      tags_to_update = SiteSetting.default_sidebar_tags.split("|")
 
       if update
         default_tag_ids = Tag.where(name: tags_to_update).pluck(:id)
-        filtered_default_tags =
-          DiscourseTagging
-            .filter_visible(Tag, self.guardian)
-            .where(id: default_tag_ids)
-            .pluck(:name)
+        filtered_default_tags = DiscourseTagging.filter_visible(Tag, self.guardian).where(id: default_tag_ids).pluck(:name)
 
-        existing_tag_ids =
-          SidebarSectionLink.where(user: self, linkable_type: "Tag").pluck(:linkable_id)
-        existing_tags =
-          DiscourseTagging
-            .filter_visible(Tag, self.guardian)
-            .where(id: existing_tag_ids)
-            .pluck(:name)
+        existing_tag_ids = SidebarSectionLink.where(user: self, linkable_type: 'Tag').pluck(:linkable_id)
+        existing_tags = DiscourseTagging.filter_visible(Tag, self.guardian).where(id: existing_tag_ids).pluck(:name)
 
         tags_to_update = existing_tags + (filtered_default_tags & DiscourseTagging.hidden_tag_names)
       end
 
-      SidebarSectionLinksUpdater.update_tag_section_links(self, tag_names: tags_to_update)
+      SidebarSectionLinksUpdater.update_tag_section_links(
+        self,
+        tag_names: tags_to_update
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+      )
     end
   end
 
+<<<<<<< HEAD
+=======
   def add_default_sidebar_section_links
     set_default_sidebar_section_links
   end
@@ -2107,6 +2172,7 @@ class User < ActiveRecord::Base
     set_default_sidebar_section_links(update: true)
   end
 
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def stat
     user_stat || create_user_stat
   end

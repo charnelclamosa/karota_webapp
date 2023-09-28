@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 require "faker"
 
 module ChatSystemHelpers
   def chat_system_bootstrap(user = Fabricate(:admin), channels_for_membership = [])
+=======
+module ChatSystemHelpers
+  def chat_system_bootstrap(user, channels_for_membership = [])
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     # ensures we have one valid registered admin/user
     user.activate
 
@@ -19,34 +24,35 @@ module ChatSystemHelpers
 
     Group.refresh_automatic_groups!
   end
+<<<<<<< HEAD
 
   def chat_system_user_bootstrap(user:, channel:)
     user.activate
     user.user_option.update!(chat_enabled: true)
     Group.refresh_automatic_group!("trust_level_#{user.trust_level}".to_sym)
-    Fabricate(:user_chat_channel_membership, chat_channel: channel, user: user)
+    channel.add(user)
   end
 
   def chat_thread_chain_bootstrap(channel:, users:, messages_count: 4, thread_attrs: {})
     last_user = nil
     last_message = nil
 
+    users.each { |user| chat_system_user_bootstrap(user: user, channel: channel) }
     messages_count.times do |i|
       in_reply_to = i.zero? ? nil : last_message.id
       thread_id = i.zero? ? nil : last_message.thread_id
-      last_user = last_user.present? ? (users - [last_user]).sample : users.sample
+      last_user = ((users - [last_user]).presence || users).sample
       creator =
-        Chat::MessageCreator.new(
-          chat_channel: channel,
+        Chat::CreateMessage.call(
+          chat_channel_id: channel.id,
           in_reply_to_id: in_reply_to,
           thread_id: thread_id,
-          user: last_user,
-          content: Faker::Lorem.paragraph,
+          guardian: last_user.guardian,
+          message: Faker::Lorem.paragraph,
         )
-      creator.create
 
-      raise creator.error if creator.error
-      last_message = creator.chat_message
+      raise "#{creator.inspect_steps.inspect}\n\n#{creator.inspect_steps.error}" if creator.failure?
+      last_message = creator.message
     end
 
     last_message.thread.set_replies_count_cache(messages_count - 1, update_db: true)
@@ -67,10 +73,13 @@ module ChatSpecHelpers
             "Service failed, see below for step details:\n\n" + result.inspect_steps.inspect,
           )
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end
 
 RSpec.configure do |config|
   config.include ChatSystemHelpers, type: :system
+<<<<<<< HEAD
   config.include ChatSpecHelpers
   config.include Chat::WithServiceHelper
   config.include Chat::ServiceMatchers
@@ -79,4 +88,6 @@ RSpec.configure do |config|
     # Or a very large value, if you do want to truncate at some point
     c.max_formatted_output_length = nil
   end
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

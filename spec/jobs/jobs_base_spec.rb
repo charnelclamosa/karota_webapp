@@ -25,6 +25,14 @@ RSpec.describe ::Jobs::Base do
   class ConcurrentJob < ::Jobs::Base
     cluster_concurrency 1
 
+    def self.stop!
+      @stop = true
+    end
+
+    def self.stop
+      @stop
+    end
+
     def self.running?
       @running
     end
@@ -35,7 +43,7 @@ RSpec.describe ::Jobs::Base do
 
     def execute(args)
       self.class.running = true
-      sleep 20
+      sleep 0.0001 while !self.class.stop
     ensure
       self.class.running = false
     end
@@ -58,7 +66,8 @@ RSpec.describe ::Jobs::Base do
 
     expect(Sidekiq::Queues["default"][0]["args"][0]).to eq("test" => 100)
 
-    thread.wakeup
+    ConcurrentJob.stop!
+
     thread.join
   end
 
@@ -97,9 +106,15 @@ RSpec.describe ::Jobs::Base do
     end
   end
 
+<<<<<<< HEAD
   it "delegates the process call to execute" do
     ::Jobs::Base.any_instance.expects(:execute).with({ "hello" => "world" })
     ::Jobs::Base.new.perform("hello" => "world")
+=======
+  it 'delegates the process call to execute' do
+    ::Jobs::Base.any_instance.expects(:execute).with({ 'hello' => 'world' })
+    ::Jobs::Base.new.perform('hello' => 'world', 'sync_exec' => true)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   it "converts to an indifferent access hash" do

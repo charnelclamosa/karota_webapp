@@ -104,6 +104,7 @@ class DiscoursePluginRegistry
 
   define_filtered_register :user_destroyer_on_content_deletion_callbacks
 
+<<<<<<< HEAD
   define_filtered_register :hashtag_autocomplete_data_sources
   define_filtered_register :hashtag_autocomplete_contextual_type_priorities
 
@@ -116,6 +117,8 @@ class DiscoursePluginRegistry
 
   define_filtered_register :summarization_strategies
 
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def self.register_auth_provider(auth_provider)
     self.auth_providers << auth_provider
   end

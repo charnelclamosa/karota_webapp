@@ -78,8 +78,11 @@ en:
       generic: An error occurred while importing that theme
       upload: "Error creating upload asset: %{name}. %{errors}"
       about_json: "Import Error: about.json does not exist, or is invalid. Are you sure this is a Discourse Theme?"
+      about_json_too_big: "Import Error: about.json is bigger than the %{limit} limit."
       about_json_values: "about.json contains invalid values: %{errors}"
       modifier_values: "about.json modifiers contain invalid values: %{errors}"
+      asset_too_big: "Asset %{filename} is bigger than the %{limit} limit"
+      theme_too_big: "Theme is bigger than the %{limit} limit"
       git: "Error cloning git repository, access is denied or repository is not found"
       git_ref_not_found: "Unable to checkout git reference: %{ref}"
       git_unsupported_scheme: "Unable to clone git repo: scheme unsupported"
@@ -88,6 +91,7 @@ en:
       unknown_file_type: "The file you uploaded does not appear to be a valid Discourse theme."
       not_allowed_theme: "`%{repo}` is not in the list of allowed themes (check `allowed_theme_repos` global setting)."
       ssh_key_gone: "You waited too long to install the theme and SSH key expired. Please try again."
+      too_many_files: "The number of files (%{count}) in the theme has exceeded the maximum allowed number of files (%{limit})"
     errors:
       component_no_user_selectable: "Theme components can't be user-selectable"
       component_no_default: "Theme components can't be default theme"
@@ -225,7 +229,7 @@ en:
       local_login_cannot_be_disabled_if_second_factor_enforced: "You cannot disable local login if 2FA is enforced. Disable enforced 2FA before disabling local logins."
       cannot_enable_s3_uploads_when_s3_enabled_globally: "You cannot enable S3 uploads because S3 uploads are already globally enabled, and enabling this site-level could cause critical issues with uploads"
       cors_origins_should_not_have_trailing_slash: "You should not add the trailing slash (/) to CORS origins."
-      slow_down_crawler_user_agent_must_be_at_least_3_characters: "User agents must be at least 3 characters long to avoid incorrectly rate limiting human users."
+      slow_down_crawler_user_agent_must_be_at_least_3_characters: "User agents must be at least 3 characters long to avoid accidentally rate-limiting legitimate users."
       slow_down_crawler_user_agent_cannot_be_popular_browsers: "You cannot add any of the following values to the setting: %{values}."
       strip_image_metadata_cannot_be_disabled_if_composer_media_optimization_image_enabled: "You cannot disable strip image metadata if 'composer media optimization image enabled' is enabled. Disable 'composer media optimization image enabled' before disabling strip image metadata."
       twitter_summary_large_image_no_svg: "Twitter summary images used for twitter:image metadata cannot be an .svg image."
@@ -353,7 +357,7 @@ en:
       one: "%{count} more reply"
       other: "%{count} more replies"
 
-    loading: "Loading Discussion..."
+    loading: "Loading Discussion…"
     permalink: "Permalink"
     imported_from: "This is a companion discussion topic for the original entry at %{link}"
     in_reply_to: "▶ %{username}"
@@ -697,7 +701,7 @@ en:
 
       :handshake: **Contribute** by commenting, sharing your own perspective, asking questions, or offering feedback in the discussion. Before replying or starting new topics, please review the [Community Guidelines](%{base_path}/faq).
 
-      > If you need help or have a suggestion, feel free to ask in [#feedback](%{base_path}/c/site-feedback) or [contact the admins](%{base_path}/about).
+      > If you need help or have a suggestion, feel free to ask in %{feedback_category} or [contact the admins](%{base_path}/about).
 
   admin_quick_start_title: "Admin Guide: Getting Started"
 
@@ -719,7 +723,10 @@ en:
       disallowed_tags_generic: "This topic has disallowed tags."
       slug_contains_non_ascii_chars: "contains non-ascii characters"
       is_already_in_use: "is already in use"
+<<<<<<< HEAD
       move_topic_to_category_disallowed: "You cannot move this topic to a category where you do not have permission to create new topics."
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "This category is special. It is intended as a holding area for topics that have no category; it cannot be deleted."
       has_subcategories: "Can't delete this category because it has sub-categories."
@@ -741,7 +748,7 @@ en:
     media_placeholder:
       blocked_hotlinked_title: "Media hosted on another site. Click to open in a new tab."
       blocked_hotlinked: "External Media"
-    hidden_bidi_character: "Bidirectional characters can change the order that text is rendered. This could be used to obscure malicious code."
+    hidden_bidi_character: "Bidirectional control characters can change the order in which text is rendered. This could be used to obscure malicious code."
     has_likes:
       one: "%{count} Like"
       other: "%{count} Likes"
@@ -852,6 +859,13 @@ en:
 
   password_reset:
     no_token: 'Oops! The link you used no longer works. You can <a href="%{base_url}/login">Log In</a> now. If you forgot your password, you can <a href="%{base_url}/password-reset">request a link</a> to reset it.'
+<<<<<<< HEAD
+=======
+    choose_new: "Choose a new password"
+    choose: "Choose a password"
+    update: "Update Password"
+    save: "Set Password"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Reset Password"
     success: "You successfully changed your password and are now logged in."
     success_unapproved: "You successfully changed your password."
@@ -978,11 +992,14 @@ en:
     sequence_conflict_error:
       title: "draft error"
       description: "Draft is being edited in another window. Please reload this page."
+    too_many_drafts:
+      title: "Too many drafts"
+      description: "You have reached the maximum number of allowed drafts. Please delete some of [your drafts](%{base_url}/my/activity/drafts) and try again."
   draft_backup:
     pm_title: "Backup Drafts from ongoing topics"
     pm_body: "Topic containing backup drafts"
   user_activity:
-    no_log_search_queries: "Search log queries are currently disabled (an administrator can enable them in site settings)."
+    no_log_search_queries: "Search queries logs are currently disabled (an administrator can enable them in site settings)."
 
   email_settings:
     pop3_authentication_error: "There was an issue with the POP3 credentials provided, check the username and password and try again."
@@ -1064,7 +1081,11 @@ en:
     mailing_list_mode: "Turn off mailing list mode"
     all: "Don’t send me any mail from %{sitename}"
     different_user_description: "You are currently logged in as a different user than the one we emailed. Please log out, or enter anonymous mode, and try again."
+<<<<<<< HEAD
     not_found_description: "Sorry, we couldn't find that subscription. It's possible the link in your email is too old and has expired?"
+=======
+    not_found_description: Sorry, we couldn't find that subscription. It's possible the link in your email is too old and has expired?"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     user_not_found_description: "Sorry, we couldn't find a user for this subscription. You are probably attempting to unsubscribe an account that no longer exists."
     log_out: "Log Out"
     submit: "Save preferences"
@@ -1462,7 +1483,7 @@ en:
       description: "Top 10 users who have had likes from a wide range of people."
 
   dashboard:
-    group_email_credentials_warning: 'There was an issue with the email credentials for the group <a href="%{base_path}/g/%{group_name}/manage/email">%{group_full_name}</a>. No emails will send from the group inbox until this problem is addressed. %{error}'
+    group_email_credentials_warning: 'There was an issue with the email credentials for the group <a href="%{base_path}/g/%{group_name}/manage/email">%{group_full_name}</a>. No emails will be sent from the group inbox until this problem is addressed. %{error}'
     rails_env_warning: "Your server is running in %{env} mode."
     host_names_warning: "Your config/database.yml file is using the default localhost hostname. Update it to use your site's hostname."
     sidekiq_warning: 'Sidekiq is not running. Many tasks, like sending emails, are executed asynchronously by Sidekiq. Please ensure at least one Sidekiq process is running. <a href="https://github.com/mperham/sidekiq" target="_blank">Learn about Sidekiq here</a>.'
@@ -1491,6 +1512,7 @@ en:
     unreachable_themes: "We were unable to check for updates on the following themes:"
     watched_word_regexp_error: "The regular expression for '%{action}' watched words is invalid. Please check your <a href='%{base_path}/admin/customize/watched_words'>Watched Word settings</a>, or disable the 'watched words regular expressions' site setting."
     v3_analytics_deprecated: "Your Discourse is currently using Google Analytics 3, which will no longer be supported after July 2023. <a href='https://meta.discourse.org/t/260498'>Upgrade to Google Analytics 4</a> now to continue receiving valuable insights and analytics for your website's performance."
+    legacy_navigation_menu_deprecated: "Your Discourse is currently using the 'legacy' navigation menu which <a href='https://meta.discourse.org/t/removing-the-legacy-hamburger-navigation-menu-option/265274'>will be removed in the first beta release of Discourse 3.2</a>. Migrate to the new navigation menu by updating your <a href='%{base_path}/admin/site_settings/category/all_results?filter=navigation_menu'>navigation menu site setting</a> to 'sidebar' or 'header dropdown'."
 
   site_settings:
     allow_bulk_invite: "Allow bulk invites by uploading a CSV file"
@@ -1502,9 +1524,9 @@ en:
     allow_user_locale: "Allow users to choose their own language interface preference"
     set_locale_from_accept_language_header: "set interface language for anonymous users from their web browser's language headers"
     support_mixed_text_direction: "Support mixed left-to-right and right-to-left text directions."
-    min_post_length: "Minimum allowed post length in characters"
-    min_first_post_length: "Minimum allowed first post (topic body) length in characters"
-    min_personal_message_post_length: "Minimum allowed post length in characters for messages"
+    min_post_length: "Minimum allowed post length in characters (excluding personal messages)"
+    min_first_post_length: "Minimum allowed first post (topic body) length (excluding personal messages)"
+    min_personal_message_post_length: "Minimum allowed post length in characters for messages (both first post and replies)"
     max_post_length: "Maximum allowed post length in characters"
     topic_featured_link_enabled: "Enable posting a link with topics."
     show_topic_featured_link_in_digest: "Show the topic featured link in the digest email."
@@ -1671,11 +1693,11 @@ en:
     blocked_crawler_user_agents: "Unique case insensitive word in the user agent string identifying web crawlers that should not be allowed to access the site. Does not apply if allowlist is defined."
     slow_down_crawler_user_agents: 'User agents of web crawlers that should be rate limited as configured in the "slow down crawler rate" setting. Each value must be at least 3 characters long.'
     slow_down_crawler_rate: "If slow_down_crawler_user_agents is specified this rate will apply to all the crawlers (number of seconds delay between requests)"
-    content_security_policy: "Enable Content-Security-Policy"
-    content_security_policy_report_only: "Enable Content-Security-Policy-Report-Only"
+    content_security_policy: "Enable Content-Security-Policy (CSP)"
+    content_security_policy_report_only: "Enable Content-Security-Policy-Report-Only (CSP)"
     content_security_policy_collect_reports: "Enable CSP violation report collection at /csp_reports"
     content_security_policy_frame_ancestors: "Restrict who can embed this site in iframes via CSP. Control allowed hosts on <a href='%{base_path}/admin/customize/embedding'>Embedding</a>"
-    content_security_policy_script_src: "Additional allowlisted script sources. The current host and CDN are included by default. See <a href='https://meta.discourse.org/t/mitigate-xss-attacks-with-content-security-policy/104243' target='_blank'>Mitigate XSS Attacks with Content Security Policy.</a>"
+    content_security_policy_script_src: "Additional allowlisted script sources. The current host and CDN are included by default. See <a href='https://meta.discourse.org/t/mitigate-xss-attacks-with-content-security-policy/104243' target='_blank'>Mitigate XSS Attacks with Content Security Policy.</a> (CSP)"
     invalidate_inactive_admin_email_after_days: "Admin accounts that have not visited the site in this number of days will need to re-validate their email address before logging in. Set to 0 to disable."
     include_secure_categories_in_tag_counts: "When enabled, count of topics for a tag will include topics that are in read restricted categories for all users. When disabled, normal users are only shown a count of topics for a tag where all the topics are in public categories."
     display_personal_messages_tag_counts: "When enabled, count of personal messages tagged with a given tag will be displayed."
@@ -1820,7 +1842,6 @@ en:
 
     rate_limit_create_topic: "After creating a topic, users must wait (n) seconds before creating another topic."
     rate_limit_create_post: "After posting, users must wait (n) seconds before creating another post."
-    rate_limit_new_user_create_topic: "After creating a topic, new users must wait (n) seconds before creating another topic."
     rate_limit_new_user_create_post: "After posting, new users must wait (n) seconds before creating another post."
 
     max_likes_per_day: "Maximum number of likes per user per day."
@@ -1970,7 +1991,7 @@ en:
     title_min_entropy: "The minimum entropy (unique characters, non-english count for more) required for a topic title."
     body_min_entropy: "The minimum entropy (unique characters, non-english count for more) required for a post body."
     allow_uppercase_posts: "Allow all caps in a topic title or a post body."
-    max_consecutive_replies: "Number of posts a user has to make in a row in a topic before being prevented from adding another reply."
+    max_consecutive_replies: "Number of posts in a row a user can make in a topic before being prevented from adding another reply. This limit does not apply to the topic owner, site staff, or category moderators."
     enable_filtered_replies_view: '"(n) replies" button collapses all other posts and only shows the current post and its replies.'
 
     title_fancy_entities: "Convert common ASCII characters to fancy HTML entities in topic titles, ala SmartyPants <a href='https://daringfireball.net/projects/smartypants/' target='_blank'>https://daringfireball.net/projects/smartypants/</a>"
@@ -2148,6 +2169,7 @@ en:
     digest_min_excerpt_length: "Minimum post excerpt in the email summary, in characters."
     suppress_digest_email_after_days: "Suppress summary emails for users not seen on the site for more than (n) days."
     digest_suppress_categories: "Suppress these categories from summary emails."
+    digest_suppress_tags: "Suppress these tags from summary emails."
     disable_digest_emails: "Disable summary emails for all users."
     apply_custom_styles_to_digest: "Custom email template and css are applied to summary emails."
     email_accent_bg_color: "The accent color to be used as the background of some elements in HTML emails. Enter a color name ('red') or hex value ('#FF0000')."
@@ -2163,6 +2185,7 @@ en:
     enable_category_group_moderation: "Allow groups to moderate content in specific categories"
     group_in_subject: "Set %%{optional_pm} in email subject to name of first group in PM, see: <a href='https://meta.discourse.org/t/customize-specific-email-templates/88323' target='_blank'>Customize subject format for standard emails</a>"
     allow_anonymous_posting: "Allow users to switch to anonymous mode"
+    allow_anonymous_likes: "Allow anonymous users to like posts"
     anonymous_posting_min_trust_level: "Minimum trust level required to enable anonymous posting"
     anonymous_account_duration_minutes: "To protect anonymity create a new anonymous account every N minutes for each user. Example: if set to 600, as soon as 600 minutes elapse from last post AND user switches to anon, a new anonymous account is created."
 
@@ -2216,9 +2239,9 @@ en:
 
     disable_system_edit_notifications: "Disables edit notifications by the system user when 'download_remote_images_to_local' is active."
 
-    disable_category_edit_notifications: "Disable notifications for topic category edits."
+    disable_category_edit_notifications: "Disable notifications for topic category edits. This includes topics which are 'published' (e.g. shared drafts)."
 
-    disable_tags_edit_notifications: "Disable notifications for topic tag edits."
+    disable_tags_edit_notifications: "Disable notifications for topic tag edits. This includes topics which are 'published' (e.g. shared drafts)."
 
     notification_consolidation_threshold: "Number of liked or membership request notifications received before the notifications are consolidated into a single one. Set to 0 to disable."
 
@@ -2273,6 +2296,10 @@ en:
     bootstrap_mode_min_users: "Minimum number of users required to disable bootstrap mode (set to 0 to disable, can take up to 24 hours)"
 
     prevent_anons_from_downloading_files: "Prevent anonymous users from downloading attachments."
+<<<<<<< HEAD
+=======
+    secure_media: "DEPRECATED: Use the secure_uploads setting instead, will be removed in Discourse 3.0."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     secure_uploads: 'Limits access to ALL uploads (images, video, audio, text, pdfs, zips, and others). If "login required” is enabled, only logged-in users can access uploads. Otherwise, access will be limited only for media uploads in private messages and private categories. WARNING: This setting is complex and requires deep administrative understanding. See <a target="_blank" href="https://meta.discourse.org/t/-/140017">the secure uploads topic on Meta</a> for details.'
     secure_uploads_allow_embed_images_in_emails: "Allows embedding secure images that would normally be redacted in emails, if their size is smaller than the 'secure uploads max email embed image size kb' setting."
     secure_uploads_max_email_embed_image_size_kb: "The size cutoff for secure images that will be embedded in emails if the 'secure uploads allow embed in emails' setting is enabled. Without that setting enabled, this setting has no effect."
@@ -2356,19 +2383,21 @@ en:
     enable_offline_indicator: "Display a message to users when it is detected that they have no network connection"
     default_sidebar_link_to_filtered_list: "Make navigation menu links link to filtered list by default."
     default_sidebar_show_count_of_new_items: "Make navigation menu links show count of new items instead of badges by default."
+    default_sidebar_switch_panel_position: "Position of sidebar switch panel buttons"
 
     retain_web_hook_events_period_days: "Number of days to retain web hook event records."
     retry_web_hook_events: "Automatically retry failed web hook events for 4 times. Time gaps between the retries are 1, 5, 25 and 125 minutes."
-    revoke_api_keys_days: "Number of days before an unused API key is automatically revoked (0 for never)"
+    revoke_api_keys_unused_days: "Number of days since an API key was last used before it is automatically revoked (0 for never)"
+    revoke_api_keys_maxlife_days: "Number of days before an API key is automatically revoked (0 for never)"
 
-    allow_user_api_keys: "Allow generation of user API keys"
     allow_user_api_key_scopes: "List of scopes allowed for user API keys"
     min_trust_level_for_user_api_key: |
       Trust level required for generation of user API keys.<br>
       <b>WARNING</b>: Changing the trust level will prevent users with a lower trust level from logging in via Discourse Hub
     allowed_user_api_auth_redirects: "Allowed URL for authentication redirect for user API keys. Wildcard symbol * can be used to match any part of it (e.g. www.example.com/*)."
     allowed_user_api_push_urls: "Allowed URLs for server push to user API"
-    expire_user_api_keys_days: "Number of days before a user API key automatically expires (0 for never)"
+    revoke_user_api_keys_unused_days: "Number of days since a user API key was last used before it is automatically revoked (0 for never)"
+    revoke_user_api_keys_maxlife_days: "Number of days before a user API key is automatically revoked (0 for never)"
 
     tagging_enabled: "Enable tags on topics?"
     min_trust_to_create_tag: "The minimum trust level required to create a tag."
@@ -2408,7 +2437,11 @@ en:
     sitemap_page_size: "Number of URLs to include in each sitemap page. Max 50.000"
 
     enable_user_status: "(experimental) Allow users to set custom status message (emoji + description)."
+<<<<<<< HEAD
     enable_user_tips: "Enable new user tips that describe key features to users"
+=======
+    enable_user_tips: "(experimental) Enable new user tips that describe key features to users"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     short_title: "The short title will be used on the user's home screen, launcher, or other places where space may be limited. It should be limited to 12 characters."
 
@@ -2432,6 +2465,7 @@ en:
 
     splash_screen: "Displays a temporary loading screen while site assets load"
     navigation_menu: "Determine which navigation menu to use. Sidebar and header navigation are customizable by users. Legacy option is available for backward compatibility."
+<<<<<<< HEAD
     default_navigation_menu_categories: "Selected categories will be displayed under Navigation Menu's Categories section by default."
     default_navigation_menu_tags: "Selected tags will be displayed under Navigation Menu's Tags section by default."
     enable_experimental_hashtag_autocomplete: "EXPERIMENTAL: Use the new #hashtag autocompletion system for categories and tags that renders the selected item differently and has improved search"
@@ -2439,8 +2473,18 @@ en:
     enable_custom_sidebar_sections: "EXPERIMENTAL: Enable custom sidebar sections"
     experimental_topics_filter: "EXPERIMENTAL: Enables the experimental topics filter route at /filter"
     experimental_search_menu_groups: "EXPERIMENTAL: Enables the new search menu that has been upgraded to use glimmer"
+    enable_experimental_lightbox: "EXPERIMENTAL: Replace the default image lightbox with the revamped design."
+
+    experimental_form_templates: "EXPERIMENTAL: Enable the form templates feature. <b>After enabled,</b> manage the templates at <a href='%{base_path}/admin/customize/form-templates'>Customize / Templates</a>."
 
     page_loading_indicator: "Configure the loading indicator which appears during page navigations within Discourse. 'Spinner' is a full page indicator. 'Slider' shows a narrow bar at the top of the screen."
+=======
+    default_sidebar_categories: "Selected categories will be displayed under Sidebar's Categories section by default."
+    default_sidebar_tags: "Selected tags will be displayed under Sidebar's Tags section by default."
+    enable_new_user_profile_nav_groups: "EXPERIMENTAL: Users of the selected groups will be shown the new user profile navigation menu"
+    enable_experimental_topic_timeline_groups: "EXPERIMENTAL: Users of the selected groups will be shown the refactored topic timeline"
+    enable_experimental_hashtag_autocomplete: "EXPERIMENTAL: Use the new #hashtag autocompletion system for categories and tags that renders the selected item differently and has improved search"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     errors:
       invalid_css_color: "Invalid color. Enter a color name or hex value."
@@ -2497,8 +2541,12 @@ en:
       search_tokenize_japanese_enabled: "You must disable 'search_tokenize_japanese' before enabling this setting."
       discourse_connect_cannot_be_enabled_if_second_factor_enforced: "You cannot enable DiscourseConnect if 2FA is enforced."
       delete_rejected_email_after_days: "This setting cannot be set lower than the delete_email_logs_after_days setting or greater than %{max}"
+<<<<<<< HEAD
       invalid_uncategorized_category_setting: 'The "Uncategorized" category cannot be selected if ''allow uncategorized topics'' is not enabled.'
       invalid_search_ranking_weights: "Value is invalid for search_ranking_weights site setting. Example: '{0.1,0.2,0.3,1.0}'. Note that maximum value for each weight is 1.0."
+=======
+      invalid_uncategorized_category_setting: "The Uncategorized category cannot be selected if allow uncategorized topics is not allowed"
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     placeholder:
       discourse_connect_provider_secrets:
@@ -2671,6 +2719,8 @@ en:
     invalid_security_key: "Invalid security key."
     missing_second_factor_name: "Please provide a name."
     missing_second_factor_code: "Please provide a code."
+    too_many_authenticators: "Sorry, you can't have more than 50 authenticators. Please remove an existing one and try again."
+    too_many_security_keys: "Sorry, you can't have more than 50 security keys. Please remove an existing one and try again."
     second_factor_toggle:
       totp: "Use an authenticator app or security key instead"
       backup_code: "Use a backup code instead"
@@ -2689,16 +2739,16 @@ en:
       sent_test: "sent!"
     user:
       merge_user:
-        updating_username: "Updating username..."
-        changing_post_ownership: "Changing post ownership..."
-        merging_given_daily_likes: "Merging given daily likes..."
-        merging_post_timings: "Merging post timings..."
-        merging_user_visits: "Merging user visits..."
-        updating_site_settings: "Updating site settings..."
-        updating_user_stats: "Updating user stats..."
-        merging_user_attributes: "Merging user attributes..."
-        updating_user_ids: "Updating user ids..."
-        deleting_source_user: "Deleting source user..."
+        updating_username: "Updating username…"
+        changing_post_ownership: "Changing post ownership…"
+        merging_given_daily_likes: "Merging given daily likes…"
+        merging_post_timings: "Merging post timings…"
+        merging_user_visits: "Merging user visits…"
+        updating_site_settings: "Updating site settings…"
+        updating_user_stats: "Updating user stats…"
+        merging_user_attributes: "Merging user attributes…"
+        updating_user_ids: "Updating user ids…"
+        deleting_source_user: "Deleting source user…"
   user:
     deactivated: "Was deactivated due to too many bounced emails to '%{email}'."
     deactivated_by_staff: "Deactivated by staff"
@@ -5047,8 +5097,13 @@ en:
             label: "Primary logo"
             description: "Recommended size: 600 x 200"
           logo_small:
+<<<<<<< HEAD
             label: "Square logo"
             description: "Recommended size: 512 x 512. Also used as the favicon and mobile home screen app icon."
+=======
+            label: "Square Logo"
+            description: "A square version of your logo. Shown at the top left when scrolling down, and when sharing on social platforms. Ideally at least 512x512."
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       corporate:
         title: "Your organization"
@@ -5118,6 +5173,9 @@ en:
       automatic_revoked:
         one: "Automatically revoked, last activity more than %{count} day ago"
         other: "Automatically revoked, last activity more than %{count} days ago"
+      automatic_revoked_max_life:
+        one: "Automatically revoked, created at more than %{count} day ago"
+        other: "Automatically revoked, created at more than %{count} days ago"
       revoked: Revoked
       restored: Restored
 
@@ -5181,7 +5239,7 @@ en:
       delete_single:
         title: "Delete"
       delete:
-        title: "Delete..."
+        title: "Delete…"
       delete_and_ignore:
         title: "Ignore flag and delete post"
         description: "Ignore the flag by removing it from the queue and delete the post; if the first post, delete the topic as well. "
@@ -5201,6 +5259,8 @@ en:
         description: "Restore the post so that all users can see it."
       disagree:
         title: "No"
+      discard_post:
+        title: "Discard Post"
       ignore:
         title: "Ignore"
       ignore_and_do_nothing:
@@ -5216,7 +5276,7 @@ en:
       approve_user:
         title: "Approve User"
       reject_user:
-        title: "Delete User..."
+        title: "Delete User…"
         delete:
           title: "Delete User"
           description: "The user will be deleted from the forum."
@@ -5225,7 +5285,7 @@ en:
           description: "The user will be deleted, and we'll block their IP and email address."
       reject:
         title: "Reject"
-        bundle_title: "Reject..."
+        bundle_title: "Reject…"
       reject_and_suspend:
         title: "Reject and Suspend user"
       reject_and_silence:
@@ -5278,9 +5338,15 @@ en:
     payload_url:
       blocked_or_internal: "Payload URL cannot be used because it resolves to a blocked or internal IP"
       unsafe: "Payload URL cannot be used because it's unsafe"
+<<<<<<< HEAD
 
   form_templates:
     errors:
       invalid_yaml: "is not a valid YAML string"
       invalid_type: "contains an invalid template type: %{type} (valid types are: %{valid_types})"
       missing_type: "is missing a field type"
+      missing_id: "is missing a field id"
+      duplicate_ids: "has duplicate ids"
+      reserved_id: "has a reserved keyword as id: %{id}"
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

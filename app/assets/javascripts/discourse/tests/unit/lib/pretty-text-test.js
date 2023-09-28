@@ -1,13 +1,20 @@
+import QUnit, { module, test } from "qunit";
+import { setupTest } from "ember-qunit";
 import PrettyText, { buildOptions } from "pretty-text/pretty-text";
 import {
   applyCachedInlineOnebox,
   deleteCachedInlineOnebox,
 } from "pretty-text/inline-oneboxer";
+<<<<<<< HEAD
+=======
 import QUnit, { module, test } from "qunit";
+import { buildQuote } from "discourse/lib/quote";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { deepMerge } from "discourse-common/lib/object";
 import { extractDataAttribute } from "pretty-text/engines/discourse-markdown-it";
 import { registerEmoji } from "pretty-text/emoji";
 import { IMAGE_VERSION as v } from "pretty-text/emoji/version";
+import { getOwner } from "discourse-common/lib/get-owner";
 
 const rawOpts = {
   siteSettings: {
@@ -53,7 +60,9 @@ QUnit.assert.cookedPara = function (input, expected, message) {
   QUnit.assert.cooked(input, `<p>${expected}</p>`, message);
 };
 
-module("Unit | Utility | pretty-text", function () {
+module("Unit | Utility | pretty-text", function (hooks) {
+  setupTest(hooks);
+
   test("buildOptions", function (assert) {
     assert.ok(
       buildOptions({ siteSettings: { enable_emoji: true } }).discourse.features
@@ -640,73 +649,6 @@ eviltrout</p>
       "@eviltrout",
       { siteSettings: { enable_mentions: false } },
       "<p>@eviltrout</p>"
-    );
-  });
-
-  test("Category hashtags", function (assert) {
-    const alwaysTrue = {
-      categoryHashtagLookup: function () {
-        return [
-          "http://test.discourse.org/category-hashtag",
-          "category-hashtag",
-        ];
-      },
-    };
-
-    assert.cookedOptions(
-      "Check out #category-hashtag",
-      alwaysTrue,
-      '<p>Check out <a class="hashtag" href="http://test.discourse.org/category-hashtag">#<span>category-hashtag</span></a></p>',
-      "it translates category hashtag into links"
-    );
-
-    assert.cooked(
-      "Check out #category-hashtag",
-      '<p>Check out <span class="hashtag">#category-hashtag</span></p>',
-      "it does not translate category hashtag into links if it is not a valid category hashtag"
-    );
-
-    assert.cookedOptions(
-      "[#category-hashtag](http://www.test.com)",
-      alwaysTrue,
-      '<p><a href="http://www.test.com">#category-hashtag</a></p>',
-      "it does not translate category hashtag within links"
-    );
-
-    assert.cooked(
-      "```\n# #category-hashtag\n```",
-      '<pre><code class="lang-auto"># #category-hashtag\n</code></pre>',
-      "it does not translate category hashtags to links in code blocks"
-    );
-
-    assert.cooked(
-      "># #category-hashtag\n",
-      '<blockquote>\n<h1><span class="hashtag">#category-hashtag</span></h1>\n</blockquote>',
-      "it handles category hashtags in simple quotes"
-    );
-
-    assert.cooked(
-      "# #category-hashtag",
-      '<h1><a name="category-hashtag-1" class="anchor" href="#category-hashtag-1"></a><span class="hashtag">#category-hashtag</span></h1>',
-      "it works within ATX-style headers"
-    );
-
-    assert.cooked(
-      "don't `#category-hashtag`",
-      "<p>don't <code>#category-hashtag</code></p>",
-      "it does not mention in an inline code block"
-    );
-
-    assert.cooked(
-      "<small>#category-hashtag</small>",
-      '<p><small><span class="hashtag">#category-hashtag</span></small></p>',
-      "it works between HTML tags"
-    );
-
-    assert.cooked(
-      "Checkout #ụdị",
-      '<p>Checkout <span class="hashtag">#ụdị</span></p>',
-      "it works for non-english characters"
     );
   });
 
@@ -1307,6 +1249,93 @@ eviltrout</p>
     );
   });
 
+<<<<<<< HEAD
+=======
+  test("quotes", function (assert) {
+    const store = getOwner(this).lookup("service:store");
+    const post = store.createRecord("post", {
+      cooked: "<p><b>lorem</b> ipsum</p>",
+      username: "eviltrout",
+      post_number: 1,
+      topic_id: 2,
+    });
+
+    function formatQuote(val, expected, text, opts) {
+      assert.strictEqual(buildQuote(post, val, opts), expected, text);
+    }
+
+    formatQuote(undefined, "", "empty string for undefined content");
+    formatQuote(null, "", "empty string for null content");
+    formatQuote("", "", "empty string for empty string content");
+
+    formatQuote(
+      "lorem",
+      '[quote="eviltrout, post:1, topic:2"]\nlorem\n[/quote]\n\n',
+      "correctly formats quotes"
+    );
+
+    formatQuote(
+      "  lorem \t  ",
+      '[quote="eviltrout, post:1, topic:2"]\nlorem\n[/quote]\n\n',
+      "trims white spaces before & after the quoted contents"
+    );
+
+    formatQuote(
+      "lorem ipsum",
+      '[quote="eviltrout, post:1, topic:2, full:true"]\nlorem ipsum\n[/quote]\n\n',
+      "marks quotes as full if the `full` option is passed",
+      { full: true }
+    );
+
+    formatQuote(
+      "**lorem** ipsum",
+      '[quote="eviltrout, post:1, topic:2"]\n**lorem** ipsum\n[/quote]\n\n',
+      "keeps BBCode formatting"
+    );
+
+    assert.cooked(
+      "[quote]\ntest\n[/quote]",
+      '<aside class="quote no-group">\n<blockquote>\n<p>test</p>\n</blockquote>\n</aside>',
+      "it supports quotes without params"
+    );
+
+    assert.cooked(
+      "[quote]\n*test*\n[/quote]",
+      '<aside class="quote no-group">\n<blockquote>\n<p><em>test</em></p>\n</blockquote>\n</aside>',
+      "it doesn't insert a new line for italics"
+    );
+
+    assert.cooked(
+      "[quote=,script='a'><script>alert('test');//':a]\n[/quote]",
+      '<aside class="quote no-group">\n<blockquote></blockquote>\n</aside>',
+      "It will not create a script tag within an attribute"
+    );
+  });
+
+  test("quoting a quote", function (assert) {
+    const store = getOwner(this).lookup("service:store");
+    const post = store.createRecord("post", {
+      cooked: new PrettyText(defaultOpts).cook(
+        '[quote="sam, post:1, topic:1, full:true"]\nhello\n[/quote]\n*Test*'
+      ),
+      username: "eviltrout",
+      post_number: 1,
+      topic_id: 2,
+    });
+
+    const quote = buildQuote(
+      post,
+      '[quote="sam, post:1, topic:1, full:true"]\nhello\n[/quote]'
+    );
+
+    assert.strictEqual(
+      quote,
+      '[quote="eviltrout, post:1, topic:2"]\n[quote="sam, post:1, topic:1, full:true"]\nhello\n[/quote]\n[/quote]\n\n',
+      "allows quoting a quote"
+    );
+  });
+
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test("quote formatting", function (assert) {
     assert.cooked(
       '[quote="EvilTrout, post:123, topic:456, full:true"]\n[sam]\n[/quote]',

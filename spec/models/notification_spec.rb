@@ -159,11 +159,11 @@ RSpec.describe Notification do
         }.to change(user, :total_unread_notifications)
       end
 
-      it "doesn't increase unread_private_messages" do
+      it "doesn't increase unread_high_priority_notifications" do
         expect {
           Fabricate(:notification, user: user)
           user.reload
-        }.not_to change(user, :unread_private_messages)
+        }.not_to change(user, :unread_high_priority_notifications)
       end
     end
 
@@ -180,13 +180,6 @@ RSpec.describe Notification do
           Fabricate(:notification, user: user)
           user.reload
         }.to change(user, :total_unread_notifications)
-      end
-
-      it "increases unread_private_messages" do
-        expect {
-          Fabricate(:private_message_notification, user: user)
-          user.reload
-        }.to change(user, :unread_private_messages)
       end
 
       it "increases unread_high_priority_notifications" do
@@ -283,11 +276,11 @@ RSpec.describe Notification do
       )
       expect(@post.user.unread_notifications).to eq(0)
       expect(@post.user.total_unread_notifications).to eq(0)
-      expect(@target.unread_private_messages).to eq(1)
+      expect(@target.unread_high_priority_notifications).to eq(1)
 
       Fabricate(:post, topic: @topic, user: @topic.user)
       @target.reload
-      expect(@target.unread_private_messages).to eq(1)
+      expect(@target.unread_high_priority_notifications).to eq(1)
     end
   end
 
@@ -351,9 +344,6 @@ RSpec.describe Notification do
 
       expect(user.unread_notifications).to eq(0)
       expect(user.total_unread_notifications).to eq(3)
-      # NOTE: because of deprecation this will be equal to unread_high_priority_notifications,
-      #       to be removed in 2.5
-      expect(user.unread_private_messages).to eq(2)
       expect(user.unread_high_priority_notifications).to eq(2)
     end
   end
@@ -504,6 +494,7 @@ RSpec.describe Notification do
     end
     fab!(:unread_regular_1) { create(high_priority: false, read: false, created_at: 6.minutes.ago) }
     fab!(:read_regular_1) { create(high_priority: false, read: true, created_at: 5.minutes.ago) }
+<<<<<<< HEAD
     fab!(:unread_like) do
       create(
         high_priority: false,
@@ -512,6 +503,9 @@ RSpec.describe Notification do
         notification_type: Notification.types[:liked],
       )
     end
+=======
+    fab!(:unread_like) { create(high_priority: false, read: false, created_at: 130.seconds.ago, notification_type: Notification.types[:liked]) }
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     fab!(:unread_high_priority_2) do
       create(high_priority: true, read: false, created_at: 1.minutes.ago)
@@ -523,6 +517,7 @@ RSpec.describe Notification do
     fab!(:read_regular_2) { create(high_priority: false, read: true, created_at: 4.minutes.ago) }
 
     it "puts unread high_priority on top followed by unread normal notifications and then everything else in reverse chronological order" do
+<<<<<<< HEAD
       expect(Notification.prioritized_list(user).map(&:id)).to eq(
         [
           unread_high_priority_2,
@@ -536,10 +531,24 @@ RSpec.describe Notification do
           read_high_priority_1,
         ].map(&:id),
       )
+=======
+      expect(Notification.prioritized_list(user).map(&:id)).to eq([
+        unread_high_priority_2,
+        unread_high_priority_1,
+        unread_regular_2,
+        unread_regular_1,
+        read_high_priority_2,
+        unread_like,
+        read_regular_2,
+        read_regular_1,
+        read_high_priority_1,
+      ].map(&:id))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "doesn't include notifications from other users" do
       another_user_notification = create(high_priority: true, read: false, user: Fabricate(:user))
+<<<<<<< HEAD
       expect(Notification.prioritized_list(user).map(&:id)).to contain_exactly(
         *[
           unread_high_priority_2,
@@ -553,6 +562,19 @@ RSpec.describe Notification do
           read_high_priority_1,
         ].map(&:id),
       )
+=======
+      expect(Notification.prioritized_list(user).map(&:id)).to contain_exactly(*[
+        unread_high_priority_2,
+        unread_high_priority_1,
+        unread_regular_2,
+        unread_regular_1,
+        read_high_priority_2,
+        unread_like,
+        read_regular_2,
+        read_regular_1,
+        read_high_priority_1,
+      ].map(&:id))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expect(
         Notification.prioritized_list(another_user_notification.user).map(&:id),
       ).to contain_exactly(another_user_notification.id)
@@ -562,6 +584,7 @@ RSpec.describe Notification do
       unread_high_priority_1.topic.trash!
       unread_regular_2.topic.trash!
       read_regular_1.topic.trash!
+<<<<<<< HEAD
       expect(Notification.prioritized_list(user).map(&:id)).to contain_exactly(
         *[
           unread_high_priority_2,
@@ -572,6 +595,16 @@ RSpec.describe Notification do
           read_high_priority_1,
         ].map(&:id),
       )
+=======
+      expect(Notification.prioritized_list(user).map(&:id)).to contain_exactly(*[
+        unread_high_priority_2,
+        unread_regular_1,
+        read_high_priority_2,
+        unread_like,
+        read_regular_2,
+        read_high_priority_1,
+      ].map(&:id))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "doesn't include like notifications if the user doesn't want like notifications" do
@@ -604,12 +637,19 @@ RSpec.describe Notification do
     it "can filter the list by specific types" do
       unread_regular_1.update!(notification_type: Notification.types[:liked])
       read_regular_2.update!(notification_type: Notification.types[:liked_consolidated])
+<<<<<<< HEAD
       expect(
         Notification.prioritized_list(
           user,
           types: [Notification.types[:liked], Notification.types[:liked_consolidated]],
         ).map(&:id),
       ).to eq([unread_like, unread_regular_1, read_regular_2].map(&:id))
+=======
+      expect(Notification.prioritized_list(
+        user,
+        types: [Notification.types[:liked], Notification.types[:liked_consolidated]]
+      ).map(&:id)).to eq([unread_like, unread_regular_1, read_regular_2].map(&:id))
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     it "includes like notifications when filtering by like types even if the user doesn't want like notifications" do
@@ -618,6 +658,7 @@ RSpec.describe Notification do
       )
       unread_regular_1.update!(notification_type: Notification.types[:liked])
       read_regular_2.update!(notification_type: Notification.types[:liked_consolidated])
+<<<<<<< HEAD
       expect(
         Notification.prioritized_list(
           user,
@@ -627,6 +668,16 @@ RSpec.describe Notification do
       expect(
         Notification.prioritized_list(user, types: [Notification.types[:liked]]).map(&:id),
       ).to contain_exactly(unread_like.id, unread_regular_1.id)
+=======
+      expect(Notification.prioritized_list(
+        user,
+        types: [Notification.types[:liked], Notification.types[:liked_consolidated]]
+      ).map(&:id)).to eq([unread_like, unread_regular_1, read_regular_2].map(&:id))
+      expect(Notification.prioritized_list(
+        user,
+        types: [Notification.types[:liked]]
+      ).map(&:id)).to contain_exactly(unread_like.id, unread_regular_1.id)
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

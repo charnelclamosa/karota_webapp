@@ -1,7 +1,19 @@
 import { module, test } from "qunit";
-import { cookAsync, excerpt, parseAsync } from "discourse/lib/text";
+<<<<<<< HEAD
+import { setupTest } from "ember-qunit";
+import {
+  cookAsync,
+  excerpt,
+  parseAsync,
+  parseMentions,
+} from "discourse/lib/text";
 
-module("Unit | Utility | text", function () {
+module("Unit | Utility | text", function (hooks) {
+  setupTest(hooks);
+=======
+import { cookAsync, excerpt, parseAsync } from "discourse/lib/text";
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
+
   test("parseAsync", async function (assert) {
     await parseAsync("**test**").then((tokens) => {
       assert.strictEqual(
@@ -34,4 +46,42 @@ module("Unit | Utility | text", function () {
       "<a><code>&lt;script&gt;alert('hi')&lt;/script&gt;</code></a>"
     );
   });
+<<<<<<< HEAD
+});
+
+module("Unit | Utility | text | parseMentions", function (hooks) {
+  setupTest(hooks);
+
+  test("parses mentions from markdown", async function (assert) {
+    const markdown = "Hey @user1, @user2, @group1, @group2, @here, @all";
+    const mentions = await parseMentions(markdown);
+    assert.deepEqual(mentions, [
+      "user1",
+      "user2",
+      "group1",
+      "group2",
+      "here",
+      "all",
+    ]);
+  });
+
+  test("ignores duplicated mentions", async function (assert) {
+    const markdown = "Hey @john, @john, @john, @john";
+    const mentions = await parseMentions(markdown);
+    assert.deepEqual(mentions, ["john"]);
+  });
+
+  test("ignores mentions in codeblocks", async function (assert) {
+    const markdown = `Hey
+    \`\`\`
+      def foo
+        @bar = true
+      end
+    \`\`\`
+    `;
+    const mentions = await parseMentions(markdown);
+    assert.equal(mentions.length, 0);
+  });
+=======
+>>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });
