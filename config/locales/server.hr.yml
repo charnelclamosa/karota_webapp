@@ -615,10 +615,7 @@ hr:
     success: "Uspiješno ste promijenili zaporku i sad ste prijavljeni."
     success_unapproved: "Uspiješno ste promijenili zaporku."
   email_login:
-<<<<<<< HEAD
     invalid_token: 'Ups! Link koji ste koristili više ne radi. Možete se <a href="%{base_url}/login">Prijaviti</a> sada. Ako ste zaboravili lozinku, možete <a href="%{base_url}/password-reset">zatražiti vezu</a> da je poništite.'
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Prijava emailom"
   user_auth_tokens:
     browser:

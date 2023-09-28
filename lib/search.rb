@@ -459,14 +459,10 @@ class Search
       WHERE pa.user_id = ? AND
             pa.post_action_type_id = ? AND
             deleted_at IS NULL
-<<<<<<< HEAD
     )",
       @guardian.user.id,
       post_action_type,
     )
-=======
-    )", @guardian.user.id, post_action_type)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   advanced_filter(/\Ain:(likes)\z/i) do |posts, match|
@@ -477,14 +473,8 @@ class Search
   # this at some point, as it only acts on posts at the moment. On the other
   # hand, this may not be necessary, as the user bookmark list has advanced
   # search based on a RegisteredBookmarkable's #search_query method.
-<<<<<<< HEAD
   advanced_filter(/\Ain:(bookmarks)\z/i) do |posts, match|
     posts.where(<<~SQL, @guardian.user.id) if @guardian.user
-=======
-  advanced_filter(/^in:(bookmarks)$/i) do |posts, match|
-    if @guardian.user
-      posts.where(<<~SQL, @guardian.user.id)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         posts.id IN (
           SELECT bookmarkable_id FROM bookmarks
           WHERE bookmarks.user_id = ? AND bookmarks.bookmarkable_type = 'Post'
@@ -492,11 +482,7 @@ class Search
       SQL
   end
 
-<<<<<<< HEAD
   advanced_filter(/\Ain:posted\z/i) do |posts|
-=======
-  advanced_filter(/^in:posted$/i) do |posts|
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     posts.where("posts.user_id = ?", @guardian.user.id) if @guardian.user
   end
 
@@ -694,17 +680,10 @@ class Search
     end
   end
 
-<<<<<<< HEAD
   advanced_filter(/\A\@(\S+)\z/i) do |posts, match|
     username = User.normalize_username(match)
 
     user_id = User.not_staged.where(username_lower: username).pick(:id)
-=======
-  advanced_filter(/^\@(\S+)$/i) do |posts, match|
-    username = User.normalize_username(match)
-
-    user_id = User.not_staged.where(username_lower: username).pluck_first(:id)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     user_id = @guardian.user&.id if !user_id && username == "me"
 
@@ -1180,7 +1159,6 @@ class Search
 
           posts.where("topics.category_id in (?)", category_ids)
         elsif is_topic_search
-<<<<<<< HEAD
           posts.where("topics.id = ?", @search_context.id).order(
             "posts.post_number #{@order == :latest ? "DESC" : ""}",
           )
@@ -1189,14 +1167,6 @@ class Search
             posts.joins("LEFT JOIN topic_tags ON topic_tags.topic_id = topics.id").joins(
               "LEFT JOIN tags ON tags.id = topic_tags.tag_id",
             )
-=======
-          posts.where("topics.id = ?", @search_context.id)
-            .order("posts.post_number #{@order == :latest ? "DESC" : ""}")
-        elsif @search_context.is_a?(Tag)
-          posts = posts
-            .joins("LEFT JOIN topic_tags ON topic_tags.topic_id = topics.id")
-            .joins("LEFT JOIN tags ON tags.id = topic_tags.tag_id")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           posts.where("tags.id = ?", @search_context.id)
         end
       else

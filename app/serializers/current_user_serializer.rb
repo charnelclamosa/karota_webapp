@@ -61,7 +61,6 @@ class CurrentUserSerializer < BasicUserSerializer
              :draft_count,
              :pending_posts_count,
              :status,
-<<<<<<< HEAD
              :grouped_unread_notifications,
              :display_sidebar_tags,
              :sidebar_tags,
@@ -69,21 +68,12 @@ class CurrentUserSerializer < BasicUserSerializer
              :sidebar_sections,
              :new_new_view_enabled?,
              :experimental_search_menu_groups_enabled?
-=======
-             :sidebar_category_ids,
-             :grouped_unread_notifications,
-             :redesigned_user_menu_enabled,
-             :redesigned_user_page_nav_enabled,
-             :sidebar_list_destination,
-             :redesigned_topic_timeline_enabled
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   delegate :user_stat, to: :object, private: true
   delegate :any_posts, :draft_count, :pending_posts_count, :read_faq?, to: :user_stat
 
   has_one :user_option, embed: :object, serializer: CurrentUserOptionSerializer
 
-<<<<<<< HEAD
   def sidebar_sections
     SidebarSection
       .public_sections
@@ -93,8 +83,6 @@ class CurrentUserSerializer < BasicUserSerializer
       .map { |section| SidebarSectionSerializer.new(section, root: false) }
   end
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def groups
     owned_group_ids = GroupUser.where(user_id: id, owner: true).pluck(:group_id).to_set
 
@@ -124,13 +112,6 @@ class CurrentUserSerializer < BasicUserSerializer
     scope.can_create_group?
   end
 
-<<<<<<< HEAD
-=======
-  def sidebar_list_destination
-    object.user_option.sidebar_list_none_selected? ? SiteSetting.default_sidebar_list_destination : object.user_option.sidebar_list_destination
-  end
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def can_send_private_email_messages
     scope.can_send_private_messages_to_email?
   end
@@ -286,17 +267,6 @@ class CurrentUserSerializer < BasicUserSerializer
     Draft.has_topic_draft(object)
   end
 
-<<<<<<< HEAD
-=======
-  def sidebar_category_ids
-    object.category_sidebar_section_links.pluck(:linkable_id) & scope.allowed_category_ids
-  end
-
-  def include_sidebar_category_ids?
-    !SiteSetting.legacy_navigation_menu?
-  end
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def include_status?
     SiteSetting.enable_user_status && object.has_status?
   end
@@ -307,37 +277,6 @@ class CurrentUserSerializer < BasicUserSerializer
 
   def unseen_reviewable_count
     Reviewable.unseen_reviewable_count(object)
-<<<<<<< HEAD
-=======
-  end
-
-  def redesigned_user_menu_enabled
-    object.redesigned_user_menu_enabled?
-  end
-
-  def include_all_unread_notifications_count?
-    redesigned_user_menu_enabled
-  end
-
-  def include_grouped_unread_notifications?
-    redesigned_user_menu_enabled
-  end
-
-  def include_unseen_reviewable_count?
-    redesigned_user_menu_enabled
-  end
-
-  def include_new_personal_messages_notifications_count?
-    redesigned_user_menu_enabled
-  end
-
-  def redesigned_user_page_nav_enabled
-    if SiteSetting.enable_new_user_profile_nav_groups.present?
-      object.in_any_groups?(SiteSetting.enable_new_user_profile_nav_groups_map)
-    else
-      false
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def redesigned_topic_timeline_enabled

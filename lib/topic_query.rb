@@ -370,15 +370,10 @@ class TopicQuery
         "
       topics.user_id IN (
         SELECT user_id FROM group_users gu WHERE gu.group_id = ?
-<<<<<<< HEAD
       )
     ",
         group.id.to_i,
       )
-=======
-      )
-    ", group.id.to_i)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     create_list(:group_topics, {}, list)
   end

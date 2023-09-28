@@ -35,32 +35,10 @@ class Jobs::NotifyReviewable < ::Jobs::Base
 
       notify_users(User.real.admins, all_updates[:admins])
 
-<<<<<<< HEAD
       if reviewable.reviewable_by_moderator?
         notify_users(
           User.real.moderators.where("id NOT IN (?)", @contacted),
           all_updates[:moderators],
-=======
-    if SiteSetting.legacy_navigation_menu?
-      notify_legacy(
-        User.real.admins.pluck(:id),
-        count: counts[:admins],
-        updates: all_updates[:admins],
-      )
-    else
-      notify_users(
-        User.real.admins,
-        all_updates[:admins]
-      )
-    end
-
-    if reviewable.reviewable_by_moderator?
-      if SiteSetting.legacy_navigation_menu?
-        notify_legacy(
-          User.real.moderators.where("id NOT IN (?)", @contacted).pluck(:id),
-          count: counts[:moderators],
-          updates: all_updates[:moderators],
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       else
         notify_users(
@@ -80,12 +58,6 @@ class Jobs::NotifyReviewable < ::Jobs::Base
             count += counts[gu.group_id]
           end
 
-<<<<<<< HEAD
-=======
-        if SiteSetting.legacy_navigation_menu?
-          notify_legacy([user.id], count: count, updates: updates)
-        else
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           notify_user(user, updates)
         end
 

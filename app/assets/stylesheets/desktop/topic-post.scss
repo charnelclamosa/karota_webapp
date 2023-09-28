@@ -203,11 +203,7 @@ pre.codeblock-buttons:hover {
     margin-left: var(--topic-avatar-width);
     width: calc(
       var(--topic-body-width) + (var(--topic-body-width-padding) * 2) +
-<<<<<<< HEAD
         var(--topic-avatar-width) - (var(--topic-avatar-width) + 2px)
-=======
-        var(--topic-avatar-width) - (var(--topic-avatar-width + 2px))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ); // 2px accounts for left and right borders
     .row {
       border-bottom: none;
@@ -375,13 +371,6 @@ span.post-count {
 button.expand-post {
   margin-top: 10px;
   margin-left: var(--topic-body-width-padding);
-<<<<<<< HEAD
-=======
-}
-
-iframe {
-  max-width: 100%;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 video {

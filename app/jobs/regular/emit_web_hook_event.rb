@@ -127,7 +127,6 @@ module Jobs
         end
 
       headers = {
-<<<<<<< HEAD
         "Accept" => "*/*",
         "Connection" => "close",
         "Content-Length" => web_hook_body.bytesize.to_s,
@@ -137,17 +136,6 @@ module Jobs
         "X-Discourse-Instance" => Discourse.base_url,
         "X-Discourse-Event-Id" => web_hook_event.id.to_s,
         "X-Discourse-Event-Type" => @arguments[:event_type],
-=======
-        'Accept' => '*/*',
-        'Connection' => 'close',
-        'Content-Length' => web_hook_body.bytesize.to_s,
-        'Content-Type' => content_type,
-        'Host' => uri.host,
-        'User-Agent' => "Discourse/#{Discourse::VERSION::STRING}",
-        'X-Discourse-Instance' => Discourse.base_url,
-        'X-Discourse-Event-Id' => web_hook_event.id.to_s,
-        'X-Discourse-Event-Type' => @arguments[:event_type]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
 
       headers["X-Discourse-Event"] = @arguments[:event_name] if @arguments[:event_name].present?

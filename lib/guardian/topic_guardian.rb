@@ -198,11 +198,7 @@ module TopicGuardian
     can_moderate?(topic) || can_perform_action_available_to_group_moderators?(topic)
   end
 
-<<<<<<< HEAD
   alias can_create_unlisted_topic? can_toggle_topic_visibility?
-=======
-  alias :can_create_unlisted_topic? :can_toggle_topic_visibility?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   def can_convert_topic?(topic)
     return false if topic.blank?
@@ -338,7 +334,6 @@ module TopicGuardian
     topic&.access_topic_via_group.present? && authenticated?
   end
 
-<<<<<<< HEAD
   def filter_allowed_categories(records, category_id_column: "topics.category_id")
     return records if is_admin? && !SiteSetting.suppress_secured_categories_from_admin
 
@@ -351,14 +346,6 @@ module TopicGuardian
           allowed_category_ids,
         )
       end
-=======
-  def filter_allowed_categories(records)
-    return records if is_admin? && !SiteSetting.suppress_secured_categories_from_admin
-
-    records = allowed_category_ids.size == 0 ?
-      records.where('topics.category_id IS NULL') :
-      records.where('topics.category_id IS NULL or topics.category_id IN (?)', allowed_category_ids)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     records.references(:categories)
   end
@@ -421,19 +408,10 @@ module TopicGuardian
   def private_message_topic_scope(scope)
     pm_scope = scope.private_messages_for_user(user)
 
-<<<<<<< HEAD
     pm_scope = pm_scope.or(scope.where(<<~SQL)) if is_moderator?
         topics.subtype = '#{TopicSubtype.moderator_warning}'
         OR topics.id IN (#{Topic.has_flag_scope.select(:topic_id).to_sql})
       SQL
-=======
-    if is_moderator?
-      pm_scope = pm_scope.or(scope.where(<<~SQL))
-        topics.subtype = '#{TopicSubtype.moderator_warning}'
-        OR topics.id IN (#{Topic.has_flag_scope.select(:topic_id).to_sql})
-      SQL
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     pm_scope
   end
@@ -458,12 +436,8 @@ module TopicGuardian
       )
       SQL
 
-<<<<<<< HEAD
       secured_scope =
         secured_scope.or(Topic.unscoped.where(sql, user_id: user.id, topic_ids: topic_ids))
-=======
-      secured_scope = secured_scope.or(Topic.unscoped.where(sql, user_id: user.id, topic_ids: topic_ids))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     scope.listable_topics.merge(secured_scope)

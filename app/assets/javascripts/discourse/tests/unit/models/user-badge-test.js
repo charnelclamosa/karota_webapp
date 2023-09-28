@@ -3,11 +3,7 @@ import UserBadge from "discourse/models/user-badge";
 import badgeFixtures from "discourse/tests/fixtures/user-badges";
 import { cloneJSON } from "discourse-common/lib/object";
 import { setupTest } from "ember-qunit";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user-badge", function (hooks) {
   setupTest(hooks);
@@ -62,17 +58,10 @@ module("Unit | Model | user-badge", function (hooks) {
   });
 
   test("revoke", async function (assert) {
-<<<<<<< HEAD
     const store = getOwner(this).lookup("service:store");
     const userBadge = store.createRecord("user-badge", { id: 1 });
     const result = await userBadge.revoke();
     assert.deepEqual(result, { success: true });
-=======
-    assert.expect(0);
-    const store = getOwner(this).lookup("service:store");
-    const userBadge = store.createRecord("user-badge", { id: 1 });
-    await userBadge.revoke();
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   test("favorite", async function (assert) {

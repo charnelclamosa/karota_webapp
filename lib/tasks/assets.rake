@@ -9,7 +9,6 @@ task "assets:precompile:before": "environment" do
   end
 
   if ENV["EMBER_CLI_COMPILE_DONE"] != "1"
-<<<<<<< HEAD
     compile_command = "yarn --cwd app/assets/javascripts/discourse run ember build"
 
     heap_size_limit = check_node_heap_size_limit
@@ -26,15 +25,6 @@ task "assets:precompile:before": "environment" do
 
     compile_command = "EMBER_ENV=production #{compile_command}" if ENV["EMBER_ENV"].nil?
 
-=======
-    compile_command = "yarn --cwd app/assets/javascripts/discourse run ember build -prod"
-
-    if check_node_heap_size_limit < 1024
-      STDERR.puts "Detected low Node.js heap_size_limit. Using --max-old-space-size=1024."
-      compile_command = "NODE_OPTIONS='--max-old-space-size=1024' #{compile_command}"
-    end
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     only_assets_precompile_remaining = (ARGV.last == "assets:precompile")
 
     if only_assets_precompile_remaining
@@ -129,12 +119,8 @@ task "assets:flush_sw" => "environment" do
 end
 
 def check_node_heap_size_limit
-<<<<<<< HEAD
   output, status =
     Open3.capture2("node", "-e", "console.log(v8.getHeapStatistics().heap_size_limit/1024/1024)")
-=======
-  output, status = Open3.capture2("node", "-e", "console.log(v8.getHeapStatistics().heap_size_limit/1024/1024)")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   raise "Failed to fetch node memory limit" if status != 0
   output.to_f
 end

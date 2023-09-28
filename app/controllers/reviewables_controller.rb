@@ -46,7 +46,6 @@ class ReviewablesController < ApplicationController
     # is mutated by the serializer and contains the side loaded records which must be merged in the end.
     hash = {}
     json = {
-<<<<<<< HEAD
       reviewables:
         reviewables.map! do |r|
           result =
@@ -66,25 +65,6 @@ class ReviewablesController < ApplicationController
           reviewable_count: current_user.reviewable_count,
           unseen_reviewable_count: Reviewable.unseen_reviewable_count(current_user),
         ),
-=======
-      reviewables: reviewables.map! do |r|
-        result = r.serializer.new(
-          r,
-          root: nil,
-          hash: hash,
-          scope: guardian,
-          claimed_topics: claimed_topics
-        ).as_json
-        hash[:bundled_actions].uniq!
-        (hash['actions'] || []).uniq!
-        result
-      end,
-      meta: filters.merge(
-        total_rows_reviewables: total_rows, types: meta_types, reviewable_types: Reviewable.types,
-        reviewable_count: current_user.reviewable_count,
-        unseen_reviewable_count: Reviewable.unseen_reviewable_count(current_user)
-      )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
     if (offset + PER_PAGE) < total_rows
       json[:meta][:load_more_reviewables] = review_path(filters.merge(offset: offset + PER_PAGE))

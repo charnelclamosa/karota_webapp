@@ -186,11 +186,7 @@ class DiscourseConnect < DiscourseConnectBase
     names = (groups || "").split(",").map(&:downcase)
 
     current_groups = user.groups.where(automatic: false)
-<<<<<<< HEAD
     desired_groups = Group.where("LOWER(NAME) in (?) AND NOT automatic", names)
-=======
-    desired_groups = Group.where('LOWER(NAME) in (?) AND NOT automatic', names)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     to_be_added = desired_groups
     if current_groups.present?
@@ -220,11 +216,7 @@ class DiscourseConnect < DiscourseConnectBase
     if add_groups
       split = add_groups.split(",").map(&:downcase)
       if split.length > 0
-<<<<<<< HEAD
         to_be_added = Group.where("LOWER(name) in (?) AND NOT automatic", split)
-=======
-        to_be_added = Group.where('LOWER(name) in (?) AND NOT automatic', split)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         if already_member = GroupUser.where(user_id: user.id).pluck(:group_id).presence
           to_be_added = to_be_added.where("id NOT IN (?)", already_member)
         end
@@ -235,18 +227,11 @@ class DiscourseConnect < DiscourseConnectBase
     if remove_groups
       split = remove_groups.split(",").map(&:downcase)
       if split.length > 0
-<<<<<<< HEAD
         to_be_removed =
           Group
             .joins(:group_users)
             .where(automatic: false, group_users: { user_id: user.id })
             .where("LOWER(name) IN (?)", split)
-=======
-        to_be_removed = Group
-          .joins(:group_users)
-          .where(automatic: false, group_users: { user_id: user.id })
-          .where("LOWER(name) IN (?)", split)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 

@@ -662,13 +662,6 @@ ko:
       almost_x_years:
         other: "약 %{count}년 전"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "새 비밀번호를 입력하세요"
-    choose: "비밀번호를 입력하세요"
-    update: "비밀번호 업데이트"
-    save: "비밀번호 설정"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "비밀번호 리셋"
     success: "비밀번호를 변경했으며, 로그인되었습니다."
     success_unapproved: "비밀번호를 변경했습니다."
@@ -3750,19 +3743,10 @@ ko:
           login_required:
             placeholder: "비공개"
             extra_description: "로그인 한 사용자 만이 커뮤니티에 액세스 할 수 있습니다"
-<<<<<<< HEAD
           chat_enabled:
             placeholder: "채팅 활성화"
           enable_sidebar:
             placeholder: "사이드바 활성화"
-=======
-          invite_only:
-            placeholder: "초대 전용"
-          must_approve_users:
-            placeholder: "승인 필요"
-      ready:
-        title: "당신의 Discourse가 준비되었습니다!"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       styling:
         fields:
           color_scheme:
@@ -3792,15 +3776,6 @@ ko:
                 label: "글이 있는 카테고리 상자"
               subcategories_with_featured_topics:
                 label: "추천 글이 포함된 하위 카테고리"
-<<<<<<< HEAD
-=======
-      branding:
-        fields:
-          logo:
-            label: "기본 로고"
-          logo_small:
-            label: "스퀘어 로고"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         title: "소속"
         fields:

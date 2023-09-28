@@ -472,13 +472,6 @@ sk:
         many: "pred takmer %{count} rokmi"
         other: "pred takmer %{count} rokmi"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "Napíš nové heslo"
-    choose: "Napíš heslo"
-    update: "Aktualizujte heslo"
-    save: "Nastavte heslo"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Obnoviť heslo"
     success: "Heslo bolo úspešne zmenené a ste prihlasený do systému. "
     success_unapproved: "Heslo bolo úspešne zmenené."

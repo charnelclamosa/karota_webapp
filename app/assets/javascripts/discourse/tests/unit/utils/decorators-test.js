@@ -72,11 +72,6 @@ const TestStub = EmberObject.extend({
     this.state = state;
   },
 
-<<<<<<< HEAD
-=======
-  // Note: it only works in this particular order:
-  // `@observes()` first, then `@debounce()`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @observes("prop")
   propChanged() {
     this.react();
@@ -192,19 +187,6 @@ module("Unit | Utils | decorators", function (hooks) {
   });
 
   test("immediate debounce", async function (assert) {
-<<<<<<< HEAD
-=======
-    const stub = TestStub.create();
-
-    stub.setState("foo");
-    stub.setState("bar");
-    await settled();
-
-    assert.strictEqual(stub.state, "foo");
-  });
-
-  test("debounce works with @observe", async function (assert) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const stub = TestStub.create();
 
     stub.setState("foo");

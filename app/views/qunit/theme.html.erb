@@ -5,11 +5,7 @@
     <%= discourse_color_scheme_stylesheets %>
     <meta name="color-scheme" content="light dark">
 
-<<<<<<< HEAD
     <%- if @has_test_bundle && !@suggested_themes %>
-=======
-    <%- if !@suggested_themes %>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <%= preload_script "locales/#{I18n.locale}" %>
       <%= preload_script "vendor" %>
       <%= preload_script "test-support" %>
@@ -18,11 +14,6 @@
       <%- Discourse.find_plugin_js_assets(include_disabled: true).each do |file| %>
         <%= preload_script file %>
       <%- end %>
-<<<<<<< HEAD
-=======
-      <%= preload_script "test-support" %>
-      <%= preload_script "test-helpers" %>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <%= preload_script "test-site-settings" %>
       <%= theme_translations_lookup %>
       <%= theme_js_lookup %>

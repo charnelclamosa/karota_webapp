@@ -172,7 +172,6 @@ module Onebox
 
       def follow_redirect!
         begin
-<<<<<<< HEAD
           http =
             FinalDestination::HTTP.start(
               uri.host,
@@ -181,15 +180,6 @@ module Onebox
               open_timeout: timeout,
               read_timeout: timeout,
             )
-=======
-          http = FinalDestination::HTTP.start(
-            uri.host,
-            uri.port,
-            use_ssl: uri.scheme == 'https',
-            open_timeout: timeout,
-            read_timeout: timeout
-          )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           response = http.head(uri.path)
           unless %w[200 301 302].include?(response.code)

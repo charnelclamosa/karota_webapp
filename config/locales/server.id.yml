@@ -985,16 +985,12 @@ id:
         author: Pengarang
         edit_reason: Alasan
     consolidated_api_requests:
-<<<<<<< HEAD
       title: "Permintaan API Terkonsolidasi"
       xaxis:
         api: "API"
         user_api: "API Pengguna"
       yaxis: "Hari"
       description: "Permintaan API untuk kunci API reguler dan kunci API pengguna."
-=======
-      yaxis: "Hari"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     dau_by_mau:
       title: "DAU/MAU"
       xaxis: "Hari"

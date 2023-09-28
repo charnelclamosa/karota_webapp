@@ -5,15 +5,11 @@
         {{i18n "chat.about_view.associated_category"}}
       </label>
       <div class="chat-form__control">
-<<<<<<< HEAD
         {{category-badge
           this.channel.chatable
           link=true
           allowUncategorized=true
         }}
-=======
-        {{category-badge this.channel.chatable link=true allowUncategorized=true}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     </div>
   </div>
@@ -22,7 +18,6 @@
 <div class="chat-form__section">
   <div class="chat-form__field">
     <label class="chat-form__label">
-<<<<<<< HEAD
       <span>{{i18n "chat.about_view.name"}}</span>
       {{#if (chat-guardian "can-edit-chat-channel")}}
         <div class="chat-form__label-actions">
@@ -31,45 +26,29 @@
             @action={{if this.onEditChatChannelName this.onEditChatChannelName}}
             class="edit-name-slug-btn btn-flat"
           />
-=======
-      <span>{{i18n "chat.about_view.title"}}</span>
-      {{#if (chat-guardian "can-edit-chat-channel")}}
-        <div class="chat-form__label-actions">
-          <DButton @class="edit-title-btn btn-flat" @label="chat.channel_settings.edit" @action={{if this.onEditChatChannelTitle this.onEditChatChannelTitle}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </div>
       {{/if}}
     </label>
     <div class="chat-form__control">
-<<<<<<< HEAD
       <div class="channel-info-about-view__name">
         {{replace-emoji this.channel.title}}
       </div>
       <div class="channel-info-about-view__slug">
         {{this.channel.slug}}
-=======
-      <div class="channel-info-about-view__title">
-        {{replace-emoji this.channel.escapedTitle}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     </div>
   </div>
 </div>
 
-<<<<<<< HEAD
 {{#if
   (or (chat-guardian "can-edit-chat-channel") this.channel.description.length)
 }}
-=======
-{{#if (or (chat-guardian "can-edit-chat-channel") this.channel.description.length)}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   <div class="chat-form__section">
     <div class="chat-form__field">
       <label class="chat-form__label">
         <span>{{i18n "chat.about_view.description"}}</span>
         {{#if (chat-guardian "can-edit-chat-channel")}}
           <div class="chat-form__label-actions">
-<<<<<<< HEAD
             <DButton
               @label={{if
                 this.channel.description.length
@@ -82,9 +61,6 @@
               }}
               class="edit-description-btn btn-flat"
             />
-=======
-            <DButton @class="edit-description-btn btn-flat" @label={{if this.channel.description.length "chat.channel_settings.edit" "chat.channel_settings.add"}} @action={{if this.onEditChatChannelDescription this.onEditChatChannelDescription}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           </div>
         {{/if}}
       </label>
@@ -107,7 +83,6 @@
 <div class="chat-form__section">
   <ToggleChannelMembershipButton
     @channel={{this.channel}}
-<<<<<<< HEAD
     @options={{hash
       joinClass="btn-primary"
       leaveClass="btn-flat"
@@ -116,9 +91,3 @@
     }}
   />
 </div>
-=======
-    @onToggle={{action "afterMembershipToggle"}}
-    @options={{hash joinClass="btn-primary" leaveClass="btn-flat" joinIcon="sign-in-alt" leaveIcon="sign-out-alt"}}
-  />
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

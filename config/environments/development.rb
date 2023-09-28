@@ -35,11 +35,7 @@ Discourse::Application.configure do
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
-<<<<<<< HEAD
   config.watchable_dirs["lib"] = [:rb]
-=======
-  config.watchable_dirs['lib'] = [:rb]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   # we recommend you use mailhog https://github.com/mailhog/MailHog
   config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }

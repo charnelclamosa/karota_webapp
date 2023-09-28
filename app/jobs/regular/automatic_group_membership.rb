@@ -12,7 +12,6 @@ module Jobs
       domains = group.automatic_membership_email_domains
       return if domains.blank?
 
-<<<<<<< HEAD
       Group
         .automatic_membership_users(domains)
         .find_each do |user|
@@ -20,13 +19,6 @@ module Jobs
           group.add(user, automatic: true)
           GroupActionLogger.new(Discourse.system_user, group).log_add_user_to_group(user)
         end
-=======
-      Group.automatic_membership_users(domains).find_each do |user|
-        next unless user.email_confirmed?
-        group.add(user, automatic: true)
-        GroupActionLogger.new(Discourse.system_user, group).log_add_user_to_group(user)
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 end

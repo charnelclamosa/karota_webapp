@@ -29,15 +29,6 @@ class UserApiKeyScope < ActiveRecord::Base
       RouteMatcher.new(methods: :put, actions: "user_status#set"),
       RouteMatcher.new(methods: :delete, actions: "user_status#clear"),
     ],
-<<<<<<< HEAD
-=======
-    bookmarks_calendar: [ RouteMatcher.new(methods: :get, actions: 'users#bookmarks', formats: :ics, params: %i[username]) ],
-    user_status: [
-      RouteMatcher.new(methods: :get, actions: 'user_status#get'),
-      RouteMatcher.new(methods: :put, actions: 'user_status#set'),
-      RouteMatcher.new(methods: :delete, actions: 'user_status#clear')
-    ]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   def self.all_scopes

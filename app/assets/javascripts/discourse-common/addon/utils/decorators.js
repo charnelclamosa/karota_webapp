@@ -100,11 +100,7 @@ export function debounce(delay, immediate = false) {
       configurable: descriptor.configurable,
       get: function () {
         const originalFunction = descriptor.value;
-<<<<<<< HEAD
         const debounced = (...args) => {
-=======
-        const debounced = function (...args) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           return discourseDebounce(
             this,
             originalFunction,

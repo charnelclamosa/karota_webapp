@@ -57,7 +57,6 @@ class HtmlToMarkdown
           else
             before, after = parent.children.slice_when { |n| n == br }.to_a
 
-<<<<<<< HEAD
             if before.size > 1
               b = doc.document.create_element(parent.name)
               before[0...-1].each { |c| b.add_child(c) }
@@ -74,23 +73,6 @@ class HtmlToMarkdown
 
             changed = true
           end
-=======
-          if before.size > 1
-            b = doc.document.create_element(parent.name)
-            before[0...-1].each { |c| b.add_child(c) }
-            parent.previous = b if b.inner_html.present?
-          end
-
-          if after.present?
-            a = doc.document.create_element(parent.name)
-            after.each { |c| a.add_child(c) }
-            parent.next = a if a.inner_html.present?
-          end
-
-          parent.replace(br)
-
-          changed = true
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         end
 
       break if !changed

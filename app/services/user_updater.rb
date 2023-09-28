@@ -210,7 +210,6 @@ class UserUpdater
       end
 
       if attributes.key?(:sidebar_category_ids)
-<<<<<<< HEAD
         SidebarSectionLinksUpdater.update_category_section_links(
           user,
           category_ids:
@@ -234,13 +233,6 @@ class UserUpdater
 
       if SiteSetting.enable_user_status?
         update_user_status(attributes[:status]) if attributes.has_key?(:status)
-=======
-        SidebarSectionLinksUpdater.update_category_section_links(user, category_ids: attributes[:sidebar_category_ids])
-      end
-
-      if attributes.key?(:sidebar_tag_names) && SiteSetting.tagging_enabled
-        SidebarSectionLinksUpdater.update_tag_section_links(user, tag_names: attributes[:sidebar_tag_names])
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
 
       if SiteSetting.enable_user_status?
@@ -356,7 +348,6 @@ class UserUpdater
 
   private
 
-<<<<<<< HEAD
   def update_user_status(status)
     if status.blank?
       @user.clear_status!
@@ -379,8 +370,6 @@ class UserUpdater
     end
   end
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def update_user_status(status)
     if status.blank?
       @user.clear_status!

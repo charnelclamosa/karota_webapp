@@ -184,12 +184,8 @@ class PostAlerter
       end
 
       topic_author = post.topic.user
-<<<<<<< HEAD
       if topic_author && !notified.include?(topic_author) &&
            user_watching_topic?(topic_author, post.topic)
-=======
-      if topic_author && !notified.include?(topic_author) && user_watching_topic?(topic_author, post.topic)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notified += notify_non_pm_users(topic_author, :replied, post)
       end
     end
@@ -767,11 +763,7 @@ class PostAlerter
     end
   end
 
-<<<<<<< HEAD
   def notify_pm_users(post, reply_to_user, quoted_users, notified, new_record = false)
-=======
-  def notify_pm_users(post, reply_to_user, quoted_users, notified)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     return [] unless post.topic
 
     warn_if_not_sidekiq
@@ -790,16 +782,12 @@ class PostAlerter
     DiscourseEvent.trigger(:before_create_notifications_for_users, users, post)
     users.each do |user|
       if reply_to_user == user || pm_watching_users(post).include?(user) || user.staged?
-<<<<<<< HEAD
         create_notification(
           user,
           Notification.types[:private_message],
           post,
           skip_send_email_to: emails_to_skip_send,
         )
-=======
-        create_notification(user, Notification.types[:private_message], post, skip_send_email_to: emails_to_skip_send)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -1062,7 +1050,6 @@ class PostAlerter
     TopicUser.exists?(
       user_id: user.id,
       topic_id: topic.id,
-<<<<<<< HEAD
       notification_level: TopicUser.notification_levels[:watching],
     )
   end
@@ -1070,9 +1057,4 @@ class PostAlerter
   def group_watched_first_post?(user, post)
     post.is_first_post? && group_watchers(post.topic).include?(user.id)
   end
-=======
-      notification_level: TopicUser.notification_levels[:watching]
-    )
-  end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 end

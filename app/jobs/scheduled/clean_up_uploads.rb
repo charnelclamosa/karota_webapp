@@ -53,7 +53,6 @@ module Jobs
         if upload.sha1.present?
           # TODO: Remove this check after UploadReferences records were created
           encoded_sha = Base62.encode(upload.sha1.hex)
-<<<<<<< HEAD
           if ReviewableQueuedPost
                .pending
                .where(
@@ -78,11 +77,6 @@ module Jobs
              ).exists?
             next
           end
-=======
-          next if ReviewableQueuedPost.pending.where("payload->>'raw' LIKE ? OR payload->>'raw' LIKE ?", "%#{upload.sha1}%", "%#{encoded_sha}%").exists?
-          next if Draft.where("data LIKE ? OR data LIKE ?", "%#{upload.sha1}%", "%#{encoded_sha}%").exists?
-          next if UserProfile.where("bio_raw LIKE ? OR bio_raw LIKE ?", "%#{upload.sha1}%", "%#{encoded_sha}%").exists?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           upload.destroy
         else

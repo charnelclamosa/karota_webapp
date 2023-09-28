@@ -666,13 +666,6 @@ gl:
         one: "hai case %{count} ano"
         other: "hai case %{count} anos"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "Elixir un novo contrasinal"
-    choose: "Elixir un contrasinal"
-    update: "Actualizar o contrasinal"
-    save: "Estabelecer o contrasinal"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Restabelecer contrasinal"
     success: "Cambiou correctamente o seu contrasinal e agora iniciou sesión."
     success_unapproved: "Cambiou correctamente o seu contrasinal."
@@ -3638,15 +3631,6 @@ gl:
                 label: "Categorías e últimos temas"
               categories_and_top_topics:
                 label: "Categorías e temas destacados"
-<<<<<<< HEAD
-=======
-      branding:
-        fields:
-          logo:
-            label: "Logotipo principal"
-          logo_small:
-            label: "Logotipo cadrado"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

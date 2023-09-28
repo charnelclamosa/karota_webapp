@@ -25,14 +25,7 @@ class Admin::SiteSettingsController < Admin::AdminController
 
           break new_name
         end
-<<<<<<< HEAD
       end
-=======
-
-        break new_name
-      end
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     id = new_setting_name if new_setting_name
 
@@ -142,16 +135,12 @@ class Admin::SiteSettingsController < Admin::AdminController
             end
         end
       elsif is_sidebar_default_setting?(id)
-<<<<<<< HEAD
         Jobs.enqueue(
           :backfill_sidebar_site_settings,
           setting_name: id,
           previous_value: previous_value,
           new_value: new_value,
         )
-=======
-        Jobs.enqueue(:backfill_sidebar_site_settings, setting_name: id, previous_value: previous_value, new_value: new_value)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
 
@@ -227,15 +216,11 @@ class Admin::SiteSettingsController < Admin::AdminController
 
       json[:user_count] = user_ids.uniq.count
     elsif is_sidebar_default_setting?(id)
-<<<<<<< HEAD
       json[:user_count] = SidebarSiteSettingsBackfiller.new(
         id,
         previous_value: previous_value,
         new_value: new_value,
       ).number_of_users_to_backfill
-=======
-      json[:user_count] = SidebarSiteSettingsBackfiller.new(id, previous_value: previous_value, new_value: new_value).number_of_users_to_backfill
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
 
     render json: json
@@ -244,11 +229,7 @@ class Admin::SiteSettingsController < Admin::AdminController
   private
 
   def is_sidebar_default_setting?(setting_name)
-<<<<<<< HEAD
     %w[default_navigation_menu_categories default_navigation_menu_tags].include?(setting_name.to_s)
-=======
-    %w{default_sidebar_categories default_sidebar_tags}.include?(setting_name.to_s)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def user_options
@@ -273,13 +254,9 @@ class Admin::SiteSettingsController < Admin::AdminController
       default_include_tl0_in_digests: "include_tl0_in_digests",
       default_text_size: "text_size_key",
       default_title_count_mode: "title_count_mode_key",
-<<<<<<< HEAD
       default_hide_profile_and_presence: "hide_profile_and_presence",
       default_sidebar_link_to_filtered_list: "sidebar_link_to_filtered_list",
       default_sidebar_show_count_of_new_items: "sidebar_show_count_of_new_items",
-=======
-      default_hide_profile_and_presence: "hide_profile_and_presence"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   end
 

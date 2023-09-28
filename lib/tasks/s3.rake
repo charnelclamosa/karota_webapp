@@ -20,11 +20,7 @@ def prefix_s3_path(path)
 end
 
 def should_skip?(path)
-<<<<<<< HEAD
   return false if ENV["FORCE_S3_UPLOADS"]
-=======
-  return false if ENV['FORCE_S3_UPLOADS']
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   existing_assets.include?(prefix_s3_path(path))
 end
 
@@ -206,7 +202,6 @@ task "s3:expire_missing_assets" => :environment do
 
   puts "Checking for stale S3 assets..."
 
-<<<<<<< HEAD
   if Discourse.readonly_mode?
     puts "Discourse is in readonly mode. Skipping s3 asset deletion in case this is a read-only mirror of a live site."
     exit 0
@@ -214,10 +209,6 @@ task "s3:expire_missing_assets" => :environment do
 
   assets_to_delete = existing_assets.dup
 
-=======
-  assets_to_delete = existing_assets.dup
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   # Check that all current assets are uploaded, and remove them from the to_delete list
   asset_paths.each do |current_asset_path|
     uploaded = assets_to_delete.delete?(prefix_s3_path(current_asset_path))

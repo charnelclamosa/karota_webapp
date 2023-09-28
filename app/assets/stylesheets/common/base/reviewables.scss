@@ -470,13 +470,8 @@
   }
 
   .post-body {
-<<<<<<< HEAD
     position: relative;
     max-width: var(--topic-body-width);
-=======
-    max-width: var(--topic-body-width);
-    max-height: 300px;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     margin-top: 0.5em;
 
     &.is-collapsed {

@@ -87,7 +87,6 @@ module SeedData
           name: I18n.t("general_category_name"),
           description: I18n.t("general_category_description"),
           position: 3,
-<<<<<<< HEAD
           color: "25AAE2",
           text_color: "FFFFFF",
           permissions: {
@@ -97,15 +96,6 @@ module SeedData
           sidebar: true,
           default_composer_category: true,
         },
-=======
-          color: '25AAE2',
-          text_color: 'FFFFFF',
-          permissions: { everyone: :full },
-          force_permissions: true,
-          sidebar: true,
-          default_composer_category: true
-        }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ]
 
       if site_setting_names
@@ -115,7 +105,6 @@ module SeedData
       categories
     end
 
-<<<<<<< HEAD
     def create_category(
       site_setting_name:,
       name:,
@@ -129,10 +118,6 @@ module SeedData
       sidebar: false,
       default_composer_category: false
     )
-=======
-    def create_category(site_setting_name:, name:, description:, position:, color:, text_color:,
-                        permissions:, force_permissions:, force_existence: false, sidebar: false, default_composer_category: false)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       category_id = SiteSetting.get(site_setting_name)
 
       if should_create_category?(category_id, force_existence)
@@ -158,13 +143,7 @@ module SeedData
           SiteSetting.set("default_navigation_menu_categories", sidebar_categories.join("|"))
         end
 
-<<<<<<< HEAD
         SiteSetting.set("default_composer_category", category.id) if default_composer_category
-=======
-        if default_composer_category
-          SiteSetting.set('default_composer_category', category.id)
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       elsif category = Category.find_by(id: category_id)
         if description.present? && (category.topic_id.blank? || !Topic.exists?(category.topic_id))
           category.description = description

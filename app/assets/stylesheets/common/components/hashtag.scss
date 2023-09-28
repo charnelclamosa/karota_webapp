@@ -14,11 +14,7 @@ a.hashtag {
   }
 }
 
-<<<<<<< HEAD
 .hashtag-cooked {
-=======
-a.hashtag-cooked {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @include mention;
 
   &:visited,
@@ -26,7 +22,6 @@ a.hashtag-cooked {
     color: var(--primary);
   }
 
-<<<<<<< HEAD
   .hashtag-icon-placeholder {
     width: 0.72em;
     height: 0.72em;
@@ -48,12 +43,6 @@ a.hashtag-cooked {
         margin-right: 0.7em;
       }
     }
-=======
-  .d-icon {
-    color: var(--primary-high);
-    font-size: var(--font-down-1);
-    margin: 0 0.2em 0 0.1em;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   img.emoji {
@@ -61,7 +50,6 @@ a.hashtag-cooked {
     height: 15px;
     vertical-align: text-bottom;
   }
-<<<<<<< HEAD
 
   svg {
     display: inline;
@@ -150,36 +138,4 @@ a.hashtag-cooked {
     color: var(--primary-700);
     font-size: var(--font-down-1);
   }
-=======
-}
-
-.hashtag-autocomplete {
-  max-height: 210px;
-  overflow-y: auto;
-
-  .hashtag-autocomplete__option {
-    .hashtag-autocomplete__link {
-      align-items: center;
-      color: var(--primary-medium);
-      display: flex;
-
-      .d-icon {
-        padding-right: 0.5em;
-      }
-
-      .hashtag-autocomplete__text {
-        flex: 1;
-        margin-left: 0;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-
-        .emoji {
-          width: 15px;
-          height: 15px;
-        }
-      }
-    }
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

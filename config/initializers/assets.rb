@@ -29,11 +29,7 @@ Rails.application.config.assets.precompile += %w[
   admin.js
   wizard.js
   test-support.js
-<<<<<<< HEAD
   tests.js
-=======
-  test-helpers.js
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   test-site-settings.js
   browser-detect.js
   browser-update.js

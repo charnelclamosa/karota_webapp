@@ -47,12 +47,5 @@ class ReviewablePerformResultSerializer < ApplicationSerializer
 
   def unseen_reviewable_count
     Reviewable.unseen_reviewable_count(scope.user)
-<<<<<<< HEAD
-=======
-  end
-
-  def include_unseen_reviewable_count?
-    scope.user.redesigned_user_menu_enabled?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end

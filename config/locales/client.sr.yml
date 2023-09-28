@@ -156,7 +156,6 @@ sr:
       email: "Пошаљи е-поштом"
       url: "Копирај и подели линк"
     action_codes:
-<<<<<<< HEAD
       public_topic: "Објављује ову тему %{when}"
       private_topic: "Претвара ову тему у приватну поруку %{when}"
       split_topic: "Раздваја ову тему %{when}"
@@ -187,48 +186,11 @@ sr:
       banner:
         enabled: "Прави транспарент %{when}. Транспарент ће бити приказан на врху сваке странице док га корисник не одбаци."
         disabled: "Уклања овај транспарент %{when}. Транспарент више неће бити приказан на врху сваке странице."
-=======
-      public_topic: "објављује ову тему %{when}"
-      private_topic: "претвара ову тему у приватну поруку %{when}"
-      split_topic: "раздваја ову тему %{when}"
-      invited_user: "позива корисника %{who} %{when}"
-      invited_group: "позива групу %{who} %{when}"
-      user_left: "%{who} напушта овај разговор %{when}"
-      removed_user: "уклања корисника %{who} %{when}"
-      removed_group: "уклања групу %{who} %{when}"
-      autobumped: "аутоматски ставља на врх %{when}"
-      autoclosed:
-        enabled: "затвара %{when}"
-        disabled: "отвара %{when}"
-      closed:
-        enabled: "затвара %{when}"
-        disabled: "отвара %{when}"
-      archived:
-        enabled: "архивира %{when}"
-        disabled: "деархивира %{when}"
-      pinned:
-        enabled: "закачи %{when}"
-        disabled: "откачи %{when}"
-      pinned_globally:
-        enabled: "глобално закачи %{when}"
-        disabled: "откачи %{when}"
-      visible:
-        enabled: "укључује %{when}"
-        disabled: "искључује %{when}"
-      banner:
-        enabled: "прави транспарент %{when}. Транспарент ће бити приказан на врху сваке странице док га корисник не одбаци."
-        disabled: "уклања овај транспарент %{when}. Транспарент више неће бити приказан на врху сваке странице."
-      forwarded: "прослеђује наведену е-поруку"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     topic_admin_menu: "радње око теме"
     emails_are_disabled: "Администратор је глобално онемогућио одлазну е-пошту. Ниједно обавештење неће бити послато."
     software_update_prompt:
       message: "Ажурирали смо сајт. <span>Освежите страницу</span> да бисте избегли непријатности."
       dismiss: "Одбаци"
-<<<<<<< HEAD
-=======
-    bootstrap_mode_disabled: "Режим покретања ће бити искључен у року од 24 сата."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     themes:
       default_description: "Подразумевано"
     s3:

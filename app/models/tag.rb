@@ -141,7 +141,6 @@ class Tag < ActiveRecord::Base
 
     return [] if scope_category_ids.empty?
 
-<<<<<<< HEAD
     filter_sql =
       (
         if guardian.is_staff?
@@ -150,9 +149,6 @@ class Tag < ActiveRecord::Base
           " AND tags.id IN (#{DiscourseTagging.visible_tags(guardian).select(:id).to_sql})"
         end
       )
-=======
-    filter_sql = guardian&.is_staff? ? '' : " AND tags.id IN (#{DiscourseTagging.visible_tags(guardian).select(:id).to_sql})"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     tag_names_with_counts = DB.query <<~SQL
       SELECT tags.name as tag_name, SUM(stats.topic_count) AS sum_topic_count

@@ -309,13 +309,9 @@ a.badge-category {
       }
     }
     .mini-tag-chooser {
-<<<<<<< HEAD
       flex: 1 1 54%;
       margin: 0 0 9px 0;
       margin-left: 1%; // category at 40%, tag chooser at 58%
-=======
-      margin-left: 2%; // category/tag chooser are 49% wide, so this is 1% * 2
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       @media all and (max-width: 500px) {
         margin-left: 0;
       }

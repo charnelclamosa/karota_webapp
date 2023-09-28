@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class ApplicationRequest < ActiveRecord::Base
-<<<<<<< HEAD
   enum req_type: %i[
          http_total
          http_2xx
@@ -16,22 +15,6 @@ class ApplicationRequest < ActiveRecord::Base
          api
          user_api
        ]
-=======
-
-  enum req_type: %i(http_total
-                    http_2xx
-                    http_background
-                    http_3xx
-                    http_4xx
-                    http_5xx
-                    page_view_crawler
-                    page_view_logged_in
-                    page_view_anon
-                    page_view_logged_in_mobile
-                    page_view_anon_mobile
-                    api
-                    user_api)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   include CachedCounting
 

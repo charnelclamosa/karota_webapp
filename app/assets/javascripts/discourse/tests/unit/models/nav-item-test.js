@@ -1,33 +1,17 @@
 import { module, test } from "qunit";
 import Category from "discourse/models/category";
 import NavItem from "discourse/models/nav-item";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import Site from "discourse/models/site";
-import { run } from "@ember/runloop";
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { setupTest } from "ember-qunit";
 
 module("Unit | Model | nav-item", function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {
-<<<<<<< HEAD
     const store = getOwner(this).lookup("service:store");
     const fooCategory = store.createRecord("category", {
       slug: "foo",
       id: 123,
-=======
-    run(function () {
-      const store = getOwner(this).lookup("service:store");
-      const fooCategory = store.createRecord("category", {
-        slug: "foo",
-        id: 123,
-      });
-      Site.currentProp("categories").addObject(fooCategory);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
     const site = getOwner(this).lookup("service:site");
     site.categories.addObject(fooCategory);

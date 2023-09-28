@@ -317,10 +317,7 @@ hr:
       like_count: "Likeovi"
       topic_count: "Teme"
       post_count: "Objave"
-<<<<<<< HEAD
       user_count: "Učlani se"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       active_user_count: "Aktivni korisnici"
       contact: "Kontaktirajte nas"
       contact_info: "U slučaju kritičnog problema ili hitnosti koje utječu na rad stranice, kontaktirajte nas na %{contact_info}."
@@ -1122,10 +1119,7 @@ hr:
       dynamic_favicon: "Prikaži brojeve na ikoni preglednika"
       skip_new_user_tips:
         description: "Preskoči savjete i značke novog korisnika"
-<<<<<<< HEAD
       reset_seen_user_tips: "Ponovno prikaži savjete za korisnike"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       theme_default_on_all_devices: "Postavi ovu temu kao zadanu na svim mojim uređajima"
       color_scheme_default_on_all_devices: "Postavljanje zadane sheme boja na svim mojim uređajima"
       color_scheme: "Shema boja"
@@ -1827,13 +1821,8 @@ hr:
       enabled: "Ova stranica je u načinu rada samo za čitanje. Nastavite pregledavati, ali odgovaranje, sviđanja i druge radnje su za sada onemogućene."
       login_disabled: "Prijava je onemogućena dok je stranica u modelu \"samo čitanje\","
       logout_disabled: "Odjava je onemogućena dok je forum u načinu rada samo za čitanje."
-<<<<<<< HEAD
     staff_writes_only_mode:
       enabled: "Ova stranica je u načinu rada samo za osoblje. Nastavite s pregledavanjem, ali odgovaranje, sviđanje i druge radnje ograničeni su samo na članove osoblja."
-=======
-    too_few_posts_notice_MF: >-
-      Hajde da <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">započnemo diskusiju!</a> Tamo {currentPosts, plural, one {je <strong>#</strong> tema} few {su <strong>#</strong> teme} other {su <strong>#</strong> teme}}. Posjetiteljima je potrebno više čitati i odgovoriti na — preporučujemo barem {requiredPosts, plural, one {<strong>#</strong> tema} few {<strong>#</strong> teme} other {<strong>#</strong> teme}}. Samo osoblje može vidjeti ovu poruku.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> — <a href='{url}' target='_blank'>{rate, plural, one {# Greška/sat} few {# greške/sat} other {# greške/sat}}</a> dosegao ograničenje za postavljanje stranice {limit, plural, one {# Greška/sat} few {# greške/sat} other {# greške/sat}}.
@@ -3452,10 +3441,7 @@ hr:
       this_year: "ove godine"
       position: "Položaj na stranici kategorija:"
       default_position: "Zadana pozicija"
-<<<<<<< HEAD
       position_disabled: "Kategorije će biti prikazane prema redoslijedu aktivnosti. Da biste kontrolirali redoslijed kategorija na popisima, omogućite postavku <a href='%{url}'>'fiksnih pozicija kategorija'</a>."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       minimum_required_tags: "Minimalan broj oznaka potrebnih u temi:"
       default_slow_mode: 'Omogućite "Spori način rada" za nove teme u ovoj kategoriji.'
       parent: "Nadkategorija"
@@ -4140,10 +4126,7 @@ hr:
               title: "Sve teme"
             faq:
               content: "ČPP"
-<<<<<<< HEAD
               title: "Smjernice za korištenje ove stranice"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Grupe"
               title: "Popis dostupnih korisničkih grupa"

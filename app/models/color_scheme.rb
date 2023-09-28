@@ -150,7 +150,6 @@ class ColorScheme < ActiveRecord::Base
       "primary_low_mid" => "8C8D94",
       "primary_medium" => "A3A4AA",
       "primary_high" => "CCCCCF",
-<<<<<<< HEAD
       "primary" => "f2f2f2",
       "primary-50" => "3F414E",
       "primary-100" => "535460",
@@ -162,19 +161,6 @@ class ColorScheme < ActiveRecord::Base
       "primary-700" => "C7C7C7",
       "primary-800" => "DEDFE0",
       "primary-900" => "F5F5F5",
-=======
-      "primary" => 'f2f2f2',
-      "primary-50" => '3F414E',
-      "primary-100" => '535460',
-      "primary-200" => '666972',
-      "primary-300" => '7A7C84',
-      "primary-400" => '8D8F96',
-      "primary-500" => 'A2A3A9',
-      "primary-600" => 'B6B7BC',
-      "primary-700" => 'C7C7C7',
-      "primary-800" => 'DEDFE0',
-      "primary-900" => 'F5F5F5',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "secondary_low" => "CCCCCF",
       "secondary_medium" => "91939A",
       "secondary_high" => "6A6C76",
@@ -190,10 +176,6 @@ class ColorScheme < ActiveRecord::Base
       "header_primary" => "f2f2f2",
       "highlight_low" => "686D55",
       "highlight_medium" => "52592B",
-<<<<<<< HEAD
-=======
-      "highlight" => '52592B',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "highlight_high" => "C0C879",
       "selected" => "4A4463",
       "hover" => "61597f",
@@ -212,7 +194,6 @@ class ColorScheme < ActiveRecord::Base
       "primary_low_mid" => "A4AFA5",
       "primary_medium" => "7E918C",
       "primary_high" => "4C6869",
-<<<<<<< HEAD
       "primary" => "002B36",
       "primary-50" => "F0EBDA",
       "primary-100" => "DAD8CA",
@@ -224,19 +205,6 @@ class ColorScheme < ActiveRecord::Base
       "primary-700" => "556F74",
       "primary-800" => "415F66",
       "primary-900" => "21454E",
-=======
-      "primary" => '002B36',
-      "primary-50" => 'F0EBDA',
-      "primary-100" => 'DAD8CA',
-      "primary-200" => 'B2B9B3',
-      "primary-300" => '839496',
-      "primary-400" => '76898C',
-      "primary-500" => '697F83',
-      "primary-600" => '627A7E',
-      "primary-700" => '556F74',
-      "primary-800" => '415F66',
-      "primary-900" => '21454E',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "secondary_low" => "325458",
       "secondary_medium" => "6C8280",
       "secondary_high" => "97A59D",
@@ -251,11 +219,7 @@ class ColorScheme < ActiveRecord::Base
       "header_primary" => "002B36",
       "highlight_low" => "FDF9AD",
       "highlight_medium" => "E3D0A3",
-<<<<<<< HEAD
       "highlight" => "F2F481",
-=======
-      "highlight" => 'F2F481',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "highlight_high" => "BCAA7F",
       "selected" => "E8E6D3",
       "hover" => "F0EBDA",
@@ -274,7 +238,6 @@ class ColorScheme < ActiveRecord::Base
       "primary_low_mid" => "798C88",
       "primary_medium" => "97A59D",
       "primary_high" => "B5BDB1",
-<<<<<<< HEAD
       "primary" => "FCF6E1",
       "primary-50" => "21454E",
       "primary-100" => "415F66",
@@ -286,19 +249,6 @@ class ColorScheme < ActiveRecord::Base
       "primary-700" => "B2B9B3",
       "primary-800" => "DAD8CA",
       "primary-900" => "F0EBDA",
-=======
-      "primary" => 'FCF6E1',
-      "primary-50" => '21454E',
-      "primary-100" => '415F66',
-      "primary-200" => '556F74',
-      "primary-300" => '627A7E',
-      "primary-400" => '697F83',
-      "primary-500" => '76898C',
-      "primary-600" => '839496',
-      "primary-700" => 'B2B9B3',
-      "primary-800" => 'DAD8CA',
-      "primary-900" => 'F0EBDA',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "secondary_low" => "B5BDB1",
       "secondary_medium" => "81938D",
       "secondary_high" => "4E6A6B",
@@ -314,11 +264,7 @@ class ColorScheme < ActiveRecord::Base
       "header_primary" => "FCF6E1",
       "highlight_low" => "4D6B3D",
       "highlight_medium" => "464C33",
-<<<<<<< HEAD
       "highlight" => "F2F481",
-=======
-      "highlight" => 'F2F481',
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "highlight_high" => "BFCA47",
       "selected" => "143B44",
       "hover" => "21454E",

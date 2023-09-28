@@ -488,13 +488,6 @@ fa_IR:
         one: "تقریبا %{count} سال قبل"
         other: "تقریبا %{count} سال قبل"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "رمز‌عبور جدید را وارد کنید"
-    choose: "رمز‌عبور وارد کنید"
-    update: "به‌روز کردن رمز‌عبور"
-    save: "تنظیم رمز‌عبور"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "بازیابی رمز‌عبور"
     success: "شما با موفقیت رمز‌عبورتان را تغییر دادید و الان وارد سیستم هستید. "
     success_unapproved: "شما با موفقیت رمز‌عبورتان را تغییر دادید."
@@ -2284,14 +2277,10 @@ fa_IR:
         title: "لوگوی سایت"
         fields:
           logo:
-<<<<<<< HEAD
             label: "لوگوی اصلی"
             description: "اندازه پیشنهادی: 600*200"
           logo_small:
             label: "لوگو مربع"
-=======
-            label: "لوگو اصلی"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         title: "سازمان شما"
         fields:

@@ -17,22 +17,8 @@ $topic-body-width-padding: 11px;
 $topic-avatar-width: 45px;
 $reply-area-max-width: 1475px !default;
 
-<<<<<<< HEAD
 $d-sidebar-width: 17em !default;
 $d-sidebar-narrow-width: 14em !default;
-=======
-:root {
-  --topic-body-width: #{$topic-body-width};
-  --topic-body-width-padding: #{$topic-body-width-padding};
-  --topic-avatar-width: #{$topic-avatar-width};
-  --d-border-radius: initial;
-  --d-nav-pill-border-radius: var(--d-border-radius);
-  --d-button-border-radius: var(--d-border-radius);
-  --d-input-border-radius: var(--d-border-radius);
-}
-
-$d-sidebar-width: 16em !default;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 // Brand color variables
 // --------------------------------------------------

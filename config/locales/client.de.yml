@@ -1136,21 +1136,10 @@ de:
       experimental_sidebar:
         enable: "Seitenleiste aktivieren"
         options: "Optionen"
-<<<<<<< HEAD
         navigation_section: "Navigation"
         navigation_section_instruction: "Wenn eine Themenliste im Navigationsmenü neue oder ungelesene Elemente enthält …"
         link_to_filtered_list_checkbox_description: "Gefilterte Liste verlinken"
         show_count_new_items_checkbox_description: "Zähler für die neuen Elemente anzeigen"
-=======
-        categories_section: "Abschnitt „Kategorien“"
-        categories_section_instruction: "Ausgewählte Kategorien werden im Abschnitt „Kategorien“ der Seitenleiste angezeigt."
-        tags_section: "Abschnitt „Schlagwörter“"
-        tags_section_instruction: "Ausgewählte Schlagwörter werden im Abschnitt „Schlagwörter“ der Seitenleiste angezeigt."
-        navigation_section: "Navigation"
-        list_destination_instruction: "Wenn es neue Inhalte in der Seitenleiste gibt …"
-        list_destination_default: "den Standardlink verwenden und ein Symbol für neue Elemente anzeigen"
-        list_destination_unread_new: "auf ungelesen/neu verlinken und die Anzahl der neuen Elemente anzeigen"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "ändern"
       featured_topic: "Hervorgehobenes Thema"
       moderator: "%{user} ist ein Moderator"
@@ -1790,12 +1779,7 @@ de:
       pause_notifications: "Benachrichtigungen pausieren"
       remove_status: "Status entfernen"
     user_tips:
-<<<<<<< HEAD
       button: "Verstanden!"
-=======
-      primary: "Verstanden!"
-      secondary: "diese Tipps nicht anzeigen"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Deine erste Benachrichtigung!"
         content: "Benachrichtigungen dienen dazu, dich auf dem Laufenden zu halten, was in der Community passiert."
@@ -1811,15 +1795,11 @@ de:
       suggested_topics:
         title: "Lies weiter!"
         content: "Hier sind einige Themen, von denen wir denken, dass du sie als Nächstes lesen möchtest."
-<<<<<<< HEAD
       admin_guide:
         title: "Willkommen auf deiner neuen Website!"
         content: "<a href='%{admin_guide_url}'>Lies den Admin-Leitfaden</a> , um mit dem Aufbau deiner Website und Community fortzufahren."
         content_no_url: "Lies den Administrator-Leitfaden, um deine Website und deine Community weiter auszubauen."
     loading: "Wird geladen …"
-=======
-    loading: "Wird geladen …"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "während des Ladens"
       reasons:
@@ -4182,11 +4162,7 @@ de:
           none: "Du hast keine Schlagwörter hinzugefügt."
           click_to_get_started: "Klicke hier, um zu beginnen."
           header_link_text: "Schlagwörter"
-<<<<<<< HEAD
           header_action_title: "Bearbeite die Schlagwörter in deiner Seitenleiste"
-=======
-          header_action_title: "bearbeite die Schlagwörter in deiner Seitenleiste"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Standardeinstellungen konfigurieren"
         categories:
           links:
@@ -4196,11 +4172,7 @@ de:
           none: "Du hast keine Kategorien hinzugefügt."
           click_to_get_started: "Klicke hier, um zu beginnen."
           header_link_text: "Kategorien"
-<<<<<<< HEAD
           header_action_title: "Bearbeite die Kategorien in deiner Seitenleiste"
-=======
-          header_action_title: "bearbeite die Kategorien in deiner Seitenleiste"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Standardeinstellungen konfigurieren"
         community:
           edit_section:
@@ -4212,10 +4184,7 @@ de:
               title: "Weitere Details zu dieser Website"
             admin:
               content: "Admin-Panel"
-<<<<<<< HEAD
               title: "Website-Einstellungen und -Berichte"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             badges:
               content: "Abzeichen"
               title: "Alle Abzeichen, die es zu verdienen gibt"
@@ -4224,10 +4193,7 @@ de:
               title: "Alle Themen"
             faq:
               content: "FAQ"
-<<<<<<< HEAD
               title: "Richtlinien für die Nutzung dieser Website"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Gruppen"
               title: "Liste der verfügbaren Benutzergruppen"
@@ -4236,12 +4202,9 @@ de:
               title: "Liste aller Benutzer"
             my_posts:
               content: "Meine Beiträge"
-<<<<<<< HEAD
               content_drafts: "Meine Entwürfe"
               title: "Meine aktuelle Themenaktivität"
               title_drafts: "Meine nicht geposteten Entwürfe"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} Entwurf"
                 other: "%{count} Entwürfe"
@@ -4453,7 +4416,6 @@ de:
         about: "Hier kannst du Gruppenzugehörigkeiten und Gruppennamen bearbeiten."
         group_members: "Gruppenmitglieder"
         delete: "Löschen"
-<<<<<<< HEAD
         delete_confirm: "Möchtest du %{group} wirklich löschen?"
         delete_details:
           one: "%{count} Person wird den Zugang zu dieser Gruppe verlieren"
@@ -4462,8 +4424,6 @@ de:
           one: "%{count} Nachricht steht Gruppenmitgliedern nicht mehr zur Verfügung"
           other: "%{count} Nachrichten stehen Gruppenmitgliedern nicht mehr zur Verfügung"
         delete_warning: "Gelöschte Gruppen können nicht wiederhergestellt werden"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Gruppe konnte nicht gelöscht werden. Wenn dies eine automatische Gruppe ist, kann sie nicht gelöscht werden."
         delete_automatic_group: Dies ist eine automatische Gruppe und sie kann nicht gelöscht werden.
         delete_owner_confirm: "Eigentümerrechte für „%{username}“ entfernen?"
@@ -4690,13 +4650,10 @@ de:
         howto: "Wie installiere ich Plug-ins?"
         official: "Offizielles Plug-in"
         broken_route: "Link zu „%{name}“ kann nicht konfiguriert werden. Vergewissere dich, dass Werbeblocker deaktiviert sind, und versuche, die Seite neu zu laden."
-<<<<<<< HEAD
       navigation_menu:
         sidebar: "Seitenleiste"
         header_dropdown: "Kopfzeilen-Drop-down"
         legacy: "Legacy"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Backups"
         menu:
@@ -5843,11 +5800,7 @@ de:
           search: "Suche"
           groups: "Gruppen"
           dashboard: "Dashboard"
-<<<<<<< HEAD
           navigation: "Navigation"
-=======
-          sidebar: "Seitenleiste"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "Eingabefelder können nicht leer sein oder vertikale Balkenzeichen enthalten."
         default_categories:

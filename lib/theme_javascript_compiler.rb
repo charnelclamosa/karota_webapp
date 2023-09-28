@@ -129,13 +129,9 @@ class ThemeJavascriptCompiler
 
     # Handle colocated components
     tree.dup.each_pair do |filename, content|
-<<<<<<< HEAD
       is_component_template =
         filename.end_with?(".hbs") &&
           filename.start_with?("discourse/components/", "admin/components/")
-=======
-      is_component_template = filename.end_with?(".hbs") && filename.start_with?("discourse/components/", "admin/components/")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       next if !is_component_template
       template_contents = content
 

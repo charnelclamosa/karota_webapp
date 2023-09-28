@@ -708,13 +708,6 @@ ur:
         one: "تقریباً %{count} سال قبل"
         other: "تقریباً %{count} سال قبل"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "نیا پاسورڈ منتخب کریں"
-    choose: "پاسورڈ منتخب کریں"
-    update: "پاسورڈ اَپ ڈیٹ کریں"
-    save: "پاسورڈ رکھیں"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "پاسورڈ رِی سَیٹ کریں"
     success: "آپ نے کامیابی سے اپنا پاسورڈ تبدیل کر لیا اور اب آپ لاگ ان ہوے وے ہیں۔"
     success_unapproved: "آپ نے کامیابی سے اپنا پاسورڈ تبدیل کر لیا۔"
@@ -3381,15 +3374,6 @@ ur:
                 label: "زمرہ جات اور ٹاپ ٹاپکس"
               subcategories_with_featured_topics:
                 label: "نمایاں عنوانات کے ساتھ ذیلی زمرہ جات"
-<<<<<<< HEAD
-=======
-      branding:
-        fields:
-          logo:
-            label: "بنیادی لَوگَو"
-          logo_small:
-            label: "چکور لَوگَو"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

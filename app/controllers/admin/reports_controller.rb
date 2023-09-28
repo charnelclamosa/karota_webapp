@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 class Admin::ReportsController < Admin::StaffController
-<<<<<<< HEAD
   REPORTS_LIMIT = 50
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def index
     reports_methods =
       ["page_view_total_reqs"] +

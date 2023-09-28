@@ -117,7 +117,6 @@ class WebHook < ActiveRecord::Base
     return if payload_url.blank?
     uri = URI(payload_url.strip)
 
-<<<<<<< HEAD
     allowed =
       begin
         FinalDestination::SSRFDetector.lookup_and_filter_ips(uri.hostname).present?
@@ -126,17 +125,6 @@ class WebHook < ActiveRecord::Base
       end
 
     self.errors.add(:base, I18n.t("webhooks.payload_url.blocked_or_internal")) if !allowed
-=======
-    allowed = begin
-      FinalDestination::SSRFDetector.lookup_and_filter_ips(uri.hostname).present?
-    rescue FinalDestination::SSRFDetector::DisallowedIpError
-      false
-    end
-
-    if !allowed
-      self.errors.add(:base, I18n.t("webhooks.payload_url.blocked_or_internal"))
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end
 

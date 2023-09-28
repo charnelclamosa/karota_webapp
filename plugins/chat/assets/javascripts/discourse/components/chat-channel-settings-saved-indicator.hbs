@@ -1,22 +1,14 @@
 <span
   {{did-update this.activate @property}}
   {{will-destroy this.teardown}}
-<<<<<<< HEAD
   class={{concat-class
     "chat-channel-settings-saved-indicator"
     (if this.isActive "is-active")
   }}
-=======
-  class={{concat-class "chat-channel-settings-saved-indicator" (if this.isActive "is-active")}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   role="status"
 >
   {{#if this.isActive}}
     {{d-icon "check"}}
     <span>{{i18n "saved"}}</span>
   {{/if}}
-<<<<<<< HEAD
 </span>
-=======
-</span>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -1036,12 +1036,6 @@ fa_IR:
         enable: "فعال کردن نوار کناری"
         options: "تنظیمات"
         navigation_section: "ناوبری"
-<<<<<<< HEAD
-=======
-        list_destination_instruction: "وقتی محتوای جدیدی در نوار کناری وجود دارد..."
-        list_destination_default: "از پیوند پیش‌فرض استفاده کنید و یک نشان برای موارد جدید نشان دهید"
-        list_destination_unread_new: "پیوند به خوانده نشده/جدید و نمایش تعداد موارد جدید"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "تغییر"
       featured_topic: "مبحث برجسته"
       moderator: "%{user} یک مدیر است"
@@ -1549,12 +1543,7 @@ fa_IR:
       pause_notifications: "مکث کردن آگاه‌سازی‌ها"
       remove_status: "حذف وضعیت"
     user_tips:
-<<<<<<< HEAD
       button: "فهمیدم!"
-=======
-      primary: "فهمیدم!"
-      secondary: "این نکات را به من نشان نده"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "اولین آگاه‌سازی شما!"
         content: "آگاه‌سازی‌ها برای این است که هر آنچه در انجمن اتفاق می‌افتد را به شما اطلاع بدهد، مورد استفاده قرار می‌گیرد."
@@ -1568,11 +1557,7 @@ fa_IR:
         title: "شما اکنون این موضوع را دنبال می‌کنید"
       suggested_topics:
         title: "به خواندن ادامه دهید!"
-<<<<<<< HEAD
     loading: "در حال بارگیری…"
-=======
-    loading: "بارگذاری..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "هنگام تلاش برای بارگذاری"
       reasons:
@@ -1727,11 +1712,7 @@ fa_IR:
       blank_username: "لطفا ایمیل یا نام کاربری خود را وارد کنید"
       blank_username_or_password: "لطفا نام‌کاربری یا ایمیل خود ، و رمز‌عبور وارد نمایید."
       reset_password: "باز‌یابی رمز عبور"
-<<<<<<< HEAD
       logging_in: "در حال ورود…"
-=======
-      logging_in: "در حال ورود..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       previous_sign_up: "از قبل حساب کاربری دارید؟"
       or: "یا"
       authenticating: "در حال احراز هویت…"
@@ -3427,10 +3408,7 @@ fa_IR:
               title: "همه موضوعات"
             faq:
               content: "پرسش‌های متداول"
-<<<<<<< HEAD
               title: "راهنمای استفاده از این سایت"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "گروه‌ها"
               title: "فهرست گروه‌های کاربری موجود"
@@ -3581,10 +3559,6 @@ fa_IR:
         about: "عضویت و نام‌های گروه را در اینجا ویرایش کنید"
         group_members: "اعضای گروه"
         delete: "حذف"
-<<<<<<< HEAD
-=======
-        delete_confirm: "آیا مطمئن هستید که می‌خواهید این گروه را حذف کنید؟"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "قادر به حذف گروه نیستیم. اگر این یک گروه خودکار است، نمی توان آن را از بین برد."
         delete_owner_confirm: "حذف حق مالکیت برای '%{username}'؟"
         add: "اضافه کردن"
@@ -3617,15 +3591,11 @@ fa_IR:
           action: اقدام
           descriptions:
             topics:
-<<<<<<< HEAD
               delete: حذف موضوع.
             posts:
               delete: حذف نوشته.
             tags:
               list: فهرست برچسب‌ها.
-=======
-              update: به‌روزرسانی موضوع. تغییر عنوان، دسته‌بندی، برچسب‌ها و غیره.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             user_status:
               read: خواندن وضعیت کاربر.
               update: به‌روزرسانی وضعیت کاربر.

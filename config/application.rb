@@ -52,13 +52,8 @@ require "rails_failover/active_record" if !GlobalSetting.skip_db?
 
 require "rails_failover/redis" if !GlobalSetting.skip_redis?
 
-<<<<<<< HEAD
 require "pry-rails" if Rails.env.development?
 require "pry-byebug" if Rails.env.development?
-=======
-require 'pry-rails' if Rails.env.development?
-require 'pry-byebug' if Rails.env.development?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 require "discourse_fonts"
 
@@ -178,7 +173,6 @@ module Discourse
     require "middleware/discourse_public_exceptions"
     config.exceptions_app = Middleware::DiscoursePublicExceptions.new(Rails.public_path)
 
-<<<<<<< HEAD
     require "discourse_js_processor"
     require "discourse_sourcemapping_url_processor"
 
@@ -192,10 +186,6 @@ module Discourse
         raise "Discourse does not support compiling scss/sass files via Sprockets"
       end
     end
-=======
-    require 'discourse_js_processor'
-    require 'discourse_sourcemapping_url_processor'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     Sprockets.register_engine(".sass", SprocketsSassUnsupported, silence_deprecation: true)
     Sprockets.register_engine(".scss", SprocketsSassUnsupported, silence_deprecation: true)
@@ -225,11 +215,7 @@ module Discourse
     # our setup does not use rack cache and instead defers to nginx
     config.action_dispatch.rack_cache = nil
 
-<<<<<<< HEAD
     require "auth"
-=======
-    require 'auth'
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if GlobalSetting.relative_url_root.present?
       config.relative_url_root = GlobalSetting.relative_url_root

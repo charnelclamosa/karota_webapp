@@ -26,7 +26,6 @@ class Wizard
           value: SiteSetting.site_description,
         )
 
-<<<<<<< HEAD
         languages =
           step.add_field(
             id: "default_locale",
@@ -34,12 +33,6 @@ class Wizard
             required: false,
             value: SiteSetting.default_locale,
           )
-=======
-        languages = step.add_field(id: 'default_locale',
-                                   type: 'dropdown',
-                                   required: false,
-                                   value: SiteSetting.default_locale)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         LocaleSiteSetting.values.each do |locale|
           languages.add_choice(locale[:value], label: locale[:name])
@@ -182,7 +175,6 @@ class Wizard
           heading_font.add_choice(font[:key], label: font[:name])
         end
 
-<<<<<<< HEAD
         current =
           (
             if SiteSetting.top_menu.starts_with?("categories")
@@ -201,14 +193,6 @@ class Wizard
           )
         style.add_choice("latest")
         CategoryPageStyle.values.each { |page| style.add_choice(page[:value]) }
-=======
-        current = SiteSetting.top_menu.starts_with?("categories") ? SiteSetting.desktop_category_page_style : "latest"
-        style = step.add_field(id: 'homepage_style', type: 'dropdown', required: false, value: current, show_in_sidebar: true)
-        style.add_choice('latest')
-        CategoryPageStyle.values.each do |page|
-          style.add_choice(page[:value])
-        end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
         step.add_field(id: "styling_preview", type: "component")
 

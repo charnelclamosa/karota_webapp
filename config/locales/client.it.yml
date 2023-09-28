@@ -1136,21 +1136,10 @@ it:
       experimental_sidebar:
         enable: "Abilita barra laterale"
         options: "Opzioni"
-<<<<<<< HEAD
         navigation_section: "Navigazione"
         navigation_section_instruction: "Quando un elenco di argomenti nel menu di navigazione contiene elementi nuovi o non letti…"
         link_to_filtered_list_checkbox_description: "Collegamento all'elenco filtrato"
         show_count_new_items_checkbox_description: "Mostra un conteggio dei nuovi elementi"
-=======
-        categories_section: "Sezione Categorie"
-        categories_section_instruction: "Le categorie selezionate saranno visualizzate nella sezione Categorie della barra laterale."
-        tags_section: "Sezione etichette"
-        tags_section_instruction: "Le etichette selezionate appariranno nella sezione Etichette della barra laterale."
-        navigation_section: "Navigazione"
-        list_destination_instruction: "Quando ci sono nuovi contenuti nella barra laterale..."
-        list_destination_default: "usa il link predefinito e mostra un distintivo per i nuovi elementi"
-        list_destination_unread_new: "collega a elementi non letti/nuovi e mostra un contatore dei nuovi elementi"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "cambia"
       featured_topic: "Argomento in primo piano"
       moderator: "%{user} è un moderatore"
@@ -1790,12 +1779,7 @@ it:
       pause_notifications: "Metti in pausa le notifiche"
       remove_status: "Rimuovi lo stato"
     user_tips:
-<<<<<<< HEAD
       button: "Ho capito!"
-=======
-      primary: "Fatto!"
-      secondary: "non mostrarmi questi suggerimenti"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "La tua prima notifica!"
         content: "Le notifiche vengono utilizzate per tenerti aggiornato su ciò che sta accadendo nella community."
@@ -1811,15 +1795,11 @@ it:
       suggested_topics:
         title: "Continua a leggere!"
         content: "Ecco alcuni argomenti che riteniamo gradiresti leggere in seguito."
-<<<<<<< HEAD
       admin_guide:
         title: "Eccoti nel tuo nuovo sito!"
         content: "<a href='%{admin_guide_url}'>Leggi la guida dell'amministratore</a> per continuare a costruire il tuo sito e la tua community."
         content_no_url: "Leggi la guida dell'amministratore per continuare a costruire il tuo sito e la tua community."
     loading: "Caricamento in corso..."
-=======
-    loading: " Caricamento..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "durante il caricamento"
       reasons:
@@ -4181,11 +4161,7 @@ it:
           none: "Non hai aggiunto nessuna etichetta."
           click_to_get_started: "Clicca qui per iniziare."
           header_link_text: "Etichette"
-<<<<<<< HEAD
           header_action_title: "Modifica le etichette nella barra laterale"
-=======
-          header_action_title: "modifica le etichette nella barra laterale"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configura impostazioni predefinite"
         categories:
           links:
@@ -4195,11 +4171,7 @@ it:
           none: "Non hai aggiunto nessuna categoria."
           click_to_get_started: "Clicca qui per iniziare."
           header_link_text: "Categorie"
-<<<<<<< HEAD
           header_action_title: "Modifica le categorie nella barra laterale"
-=======
-          header_action_title: "modifica le categorie nella barra laterale"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configura impostazioni predefinite"
         community:
           edit_section:
@@ -4220,10 +4192,7 @@ it:
               title: "Tutti gli argomenti"
             faq:
               content: "FAQ"
-<<<<<<< HEAD
               title: "Linee guida per l'utilizzo di questo sito"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Gruppi"
               title: "Elenco dei gruppi di utenti disponibili"
@@ -4232,12 +4201,9 @@ it:
               title: "Elenco di tutti gli utenti"
             my_posts:
               content: "I miei Messaggi"
-<<<<<<< HEAD
               content_drafts: "Le mie bozze"
               title: "La mia recente attività sull'argomento"
               title_drafts: "Le mie bozze non pubblicate"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} bozza"
                 other: "%{count} bozze"
@@ -4449,7 +4415,6 @@ it:
         about: "Modifica qui la tua appartenenza ai gruppi e i loro nomi"
         group_members: "Membri del gruppo"
         delete: "Cancella"
-<<<<<<< HEAD
         delete_confirm: "Sei sicuro di voler eliminare %{group}?"
         delete_details:
           one: "%{count} persona perderà l'accesso a questo gruppo"
@@ -4458,8 +4423,6 @@ it:
           one: "%{count} messaggio diventerà inaccessibile ai membri del gruppo"
           other: "%{count} messaggi diventeranno inaccessibili ai membri del gruppo"
         delete_warning: "I gruppi eliminati non possono essere recuperati"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Impossibile cancellare il gruppo. Se questo è un gruppo automatico, non può essere eliminato."
         delete_automatic_group: Questo è un gruppo automatico e non può essere eliminato.
         delete_owner_confirm: "Rimuovere i privilegi per '%{username}'?"
@@ -4686,13 +4649,10 @@ it:
         howto: "Come installo i plugin?"
         official: "Plugin Ufficiale"
         broken_route: "Impossibile configurare il collegamento a '%{name}'. Assicurati che i blocchi degli annunci siano disabilitati e prova a ricaricare la pagina."
-<<<<<<< HEAD
       navigation_menu:
         sidebar: "Barra laterale"
         header_dropdown: "Intestazione a discesa"
         legacy: "Compatibile"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Backup"
         menu:
@@ -5838,11 +5798,7 @@ it:
           search: "Cerca"
           groups: "Gruppi"
           dashboard: "Dashboard"
-<<<<<<< HEAD
           navigation: "Navigazione"
-=======
-          sidebar: "Barra laterale"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "I campi di inserimento non possono essere vuoti o contenere il carattere barra verticale."
         default_categories:

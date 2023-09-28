@@ -169,13 +169,7 @@ class SessionController < ApplicationController
         end
 
         if SiteSetting.must_approve_users? && !user.approved?
-<<<<<<< HEAD
           redeem_invitation(invite, sso, user) if invite.present? && user.invited_user.blank?
-=======
-          if invite.present? && user.invited_user.blank?
-            redeem_invitation(invite, sso, user)
-          end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           if SiteSetting.discourse_connect_not_approved_url.present?
             redirect_to SiteSetting.discourse_connect_not_approved_url, allow_other_host: true
@@ -361,15 +355,9 @@ class SessionController < ApplicationController
       render json: response
     else
       render json: {
-<<<<<<< HEAD
                can_login: false,
                error: I18n.t("email_login.invalid_token", base_url: Discourse.base_url),
              }
-=======
-        can_login: false,
-        error: I18n.t('email_login.invalid_token', base_url: Discourse.base_url)
-      }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 
@@ -399,11 +387,7 @@ class SessionController < ApplicationController
       end
     end
 
-<<<<<<< HEAD
     render json: { error: I18n.t("email_login.invalid_token", base_url: Discourse.base_url) }
-=======
-    render json: { error: I18n.t('email_login.invalid_token', base_url: Discourse.base_url) }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def one_time_password
@@ -815,11 +799,7 @@ class SessionController < ApplicationController
       ip_address: request.remote_ip,
       session: session,
       email: sso.email,
-<<<<<<< HEAD
       redeeming_user: redeeming_user,
-=======
-      redeeming_user: redeeming_user
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ).redeem
     secure_session["invite-key"] = nil
 
