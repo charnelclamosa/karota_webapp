@@ -182,15 +182,10 @@ module SiteSettingExtension
     defaults
       .all(default_locale)
       .reject do |setting_name, _|
-<<<<<<< HEAD
         plugins[name] && !Discourse.plugins_by_name[plugins[name]].configurable?
       end
       .reject { |setting_name, _| !include_hidden && hidden_settings.include?(setting_name) }
       .map do |s, v|
-=======
-        !include_hidden && hidden_settings.include?(setting_name)
-      end.map do |s, v|
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         type_hash = type_supervisor.type_hash(s)
         default = defaults.get(s, default_locale).to_s
 

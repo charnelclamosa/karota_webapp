@@ -18,15 +18,10 @@
       @toggleAnonymous={{route-action "toggleAnonymous"}}
       @logout={{route-action "logout"}}
       @sidebarEnabled={{this.sidebarEnabled}}
-<<<<<<< HEAD
       @navigationMenuQueryParamOverride={{this.navigationMenuQueryParamOverride}}
       @showSidebar={{this.showSidebar}}
       @toggleSidebar={{action "toggleSidebar"}}
     />
-=======
-      @showSidebar={{this.showSidebar}}
-      @toggleSidebar={{action "toggleSidebar"}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   {{/if}}
 
   <SoftwareUpdatePrompt />
@@ -44,15 +39,9 @@
   <div id="main-outlet-wrapper" class="wrap" role="main">
 
     <div class="sidebar-wrapper">
-<<<<<<< HEAD
       {{! empty div allows for animation }}
       {{#if (and this.sidebarEnabled this.showSidebar)}}
         <Sidebar @toggleSidebar={{action "toggleSidebar"}} />
-=======
-      {{!-- empty div allows for animation --}}
-      {{#if (and this.sidebarEnabled this.showSidebar)}}
-        <Sidebar @toggleSidebar={{action "toggleSidebar"}}/>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       {{/if}}
     </div>
 

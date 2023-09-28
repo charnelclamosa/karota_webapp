@@ -12,16 +12,12 @@ import lightbox, {
 import { next } from "@ember/runloop";
 import { htmlSafe } from "@ember/template";
 import { authorizesOneOrMoreExtensions } from "discourse/lib/uploads";
-<<<<<<< HEAD
 import I18n from "I18n";
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Component.extend(UppyUploadMixin, {
   classNames: ["image-uploader"],
   disabled: or("notAllowed", "uploading", "processing"),
 
-<<<<<<< HEAD
   @discourseComputed("siteSettings.enable_experimental_lightbox")
   experimentalLightboxEnabled(experimentalLightboxEnabled) {
     return experimentalLightboxEnabled;
@@ -34,8 +30,6 @@ export default Component.extend(UppyUploadMixin, {
     }
   },
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   @discourseComputed(
     "currentUser.staff",
     "siteSettings.{authorized_extensions,authorized_extensions_for_staff}"

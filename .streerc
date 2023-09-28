@@ -1,6 +1,2 @@
 --print-width=100
-<<<<<<< HEAD
 --plugins=plugin/trailing_comma,disable_ternary
-=======
---plugins=plugin/trailing_comma
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

@@ -1109,25 +1109,11 @@ export default Component.extend(
     },
 
     _deprecated(text) {
-<<<<<<< HEAD
       deprecated(text, {
         since: "v2.4.0",
         dropFrom: "2.9.0.beta1",
         id: "discourse.select-kit",
       });
-=======
-      const discourseSetup = document.getElementById("data-discourse-setup");
-      if (
-        discourseSetup &&
-        discourseSetup.getAttribute("data-environment") === "development"
-      ) {
-        deprecated(text, {
-          since: "v2.4.0",
-          dropFrom: "2.9.0.beta1",
-          id: "discourse.select-kit",
-        });
-      }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
 
     _deprecateValueAttribute() {

@@ -32,15 +32,12 @@ const TopicRoute = DiscourseRoute.extend({
   scheduledReplace: null,
   lastScrollPos: null,
   isTransitioning: false,
-<<<<<<< HEAD
 
   buildRouteInfoMetadata() {
     return {
       scrollOnTransition: false,
     };
   },
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   redirect() {
     return this.redirectIfLoginRequired();

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .mobile-view.has-full-page-chat {
   &.disable-message-actions-touch {
     .chat-message-actions {
@@ -43,15 +42,4 @@
       transform: scale(1);
     }
   }
-=======
-.chat-message *,
-.chat-composer-row,
-.chat-reply,
-.replying-text {
-  @include unselectable;
-}
-
-.chat-message-container {
-  transform: translateZ(0);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

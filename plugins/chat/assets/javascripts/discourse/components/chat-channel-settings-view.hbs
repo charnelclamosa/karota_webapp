@@ -1,58 +1,33 @@
 <div class="chat-form__section">
-<<<<<<< HEAD
   <div class="chat-form__field -mute">
     <label class="chat-form__label">
       <span>{{i18n "chat.settings.mute"}}</span>
       <ChatChannelSettingsSavedIndicator
         @property={{@channel.currentUserMembership.muted}}
-=======
-  <div class="chat-form__field">
-    <label class="chat-form__label">
-      <span>{{i18n "chat.settings.mute"}}</span>
-      <ChatChannelSettingsSavedIndicator
-        @property={{this.channel.current_user_membership.muted}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       />
     </label>
     <div class="chat-form__control">
       <ComboBox
         @content={{this.mutedOptions}}
-<<<<<<< HEAD
         @value={{@channel.currentUserMembership.muted}}
         @valueProperty="value"
         @class="channel-settings-view__selector"
         @onChange={{fn this.saveNotificationSettings "muted" "muted"}}
-=======
-        @value={{this.channel.current_user_membership.muted}}
-        @valueProperty="value"
-        @class="channel-settings-view__muted-selector"
-        @onChange={{action (fn this.saveNotificationSettings "muted")}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       />
     </div>
   </div>
 
-<<<<<<< HEAD
   {{#unless @channel.currentUserMembership.muted}}
     <div class="chat-form__field -desktop-notification-level">
       <label class="chat-form__label">
         <span>{{i18n "chat.settings.desktop_notification_level"}}</span>
         <ChatChannelSettingsSavedIndicator
           @property={{@channel.currentUserMembership.desktopNotificationLevel}}
-=======
-  {{#unless this.channel.current_user_membership.muted}}
-    <div class="chat-form__field">
-      <label class="chat-form__label">
-        <span>{{i18n "chat.settings.desktop_notification_level"}}</span>
-        <ChatChannelSettingsSavedIndicator
-          @property={{this.channel.current_user_membership.desktop_notification_level}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         />
       </label>
       <div class="chat-form__control">
         <ComboBox
           @content={{this.notificationLevels}}
-<<<<<<< HEAD
           @value={{@channel.currentUserMembership.desktopNotificationLevel}}
           @valueProperty="value"
           @class="channel-settings-view__selector"
@@ -60,37 +35,21 @@
             this.saveNotificationSettings
             "desktopNotificationLevel"
             "desktop_notification_level"
-=======
-          @value={{this.channel.current_user_membership.desktop_notification_level}}
-          @valueProperty="value"
-          @class="channel-settings-view__desktop-notification-level-selector"
-          @onChange={{action
-            (fn this.saveNotificationSettings "desktop_notification_level")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }}
         />
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="chat-form__field -mobile-notification-level">
       <label class="chat-form__label">
         <span>{{i18n "chat.settings.mobile_notification_level"}}</span>
         <ChatChannelSettingsSavedIndicator
           @property={{@channel.currentUserMembership.mobileNotificationLevel}}
-=======
-    <div class="chat-form__field">
-      <label class="chat-form__label">
-        <span>{{i18n "chat.settings.mobile_notification_level"}}</span>
-        <ChatChannelSettingsSavedIndicator
-          @property={{this.channel.current_user_membership.mobile_notification_level}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         />
       </label>
       <div class="chat-form__control">
         <ComboBox
           @content={{this.notificationLevels}}
-<<<<<<< HEAD
           @value={{@channel.currentUserMembership.mobileNotificationLevel}}
           @valueProperty="value"
           @class="channel-settings-view__selector"
@@ -98,13 +57,6 @@
             this.saveNotificationSettings
             "mobileNotificationLevel"
             "mobile_notification_level"
-=======
-          @value={{this.channel.current_user_membership.mobile_notification_level}}
-          @valueProperty="value"
-          @class="channel-settings-view__mobile-notification-level-selector"
-          @onChange={{action
-            (fn this.saveNotificationSettings "mobile_notification_level")
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }}
         />
       </div>
@@ -112,14 +64,7 @@
   {{/unless}}
   <div class="chat-retention-info">
     {{d-icon "info-circle"}}
-<<<<<<< HEAD
     <ChatRetentionReminderText @channel={{@channel}} />
-=======
-    {{i18n
-      "chat.settings.retention_info"
-      days=this.siteSettings.chat_channel_retention_days
-    }}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   </div>
 </div>
 
@@ -127,28 +72,18 @@
   <h3 class="chat-form__section-admin-title">
     {{i18n "chat.settings.admin_title"}}
   </h3>
-<<<<<<< HEAD
 
   {{#if this.autoJoinAvailable}}
     <div class="chat-form__section -autojoin">
-=======
-  {{#if this.autoJoinAvailable}}
-    <div class="chat-form__section">
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <div class="chat-form__field">
         <label class="chat-form__label">
           <span>{{i18n "chat.settings.auto_join_users_label"}}</span>
           <ChatChannelSettingsSavedIndicator
-<<<<<<< HEAD
             @property={{@channel.autoJoinUsers}}
-=======
-            @property={{this.channel.auto_join_users}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           />
         </label>
         <ComboBox
           @content={{this.autoAddUsersOptions}}
-<<<<<<< HEAD
           @value={{@channel.autoJoinUsers}}
           @valueProperty="value"
           @class="channel-settings-view__selector"
@@ -160,19 +95,6 @@
           {{i18n
             "chat.settings.auto_join_users_info"
             category=@channel.chatable.name
-=======
-          @value={{this.channel.auto_join_users}}
-          @valueProperty="value"
-          @class="channel-settings-view__auto-join-selector"
-          @onChange={{action
-            (fn this.onToggleAutoJoinUsers this.channel.auto_join_users)
-          }}
-        />
-        <p class="chat-form__description -autojoin">
-          {{i18n
-            "chat.settings.auto_join_users_info"
-            category=this.channel.chatable.name
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           }}
         </p>
       </div>
@@ -180,25 +102,16 @@
   {{/if}}
 
   {{#if this.togglingChannelWideMentionsAvailable}}
-<<<<<<< HEAD
     <div class="chat-form__section -channel-wide-mentions">
-=======
-    <div class="chat-form__section">
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       <div class="chat-form__field">
         <label class="chat-form__label">
           <span>{{i18n "chat.settings.channel_wide_mentions_label"}}</span>
           <ChatChannelSettingsSavedIndicator
-<<<<<<< HEAD
             @property={{@channel.allowChannelWideMentions}}
-=======
-            @property={{this.channel.allow_channel_wide_mentions}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           />
         </label>
         <ComboBox
           @content={{this.channelWideMentionsOptions}}
-<<<<<<< HEAD
           @value={{@channel.allowChannelWideMentions}}
           @valueProperty="value"
           @class="channel-settings-view__selector"
@@ -209,20 +122,10 @@
             "chat.settings.channel_wide_mentions_description"
             channel=@channel.title
           }}
-=======
-          @value={{this.channel.allow_channel_wide_mentions}}
-          @valueProperty="value"
-          @class="channel-settings-view__channel-wide-mentions-selector"
-          @onChange={{this.onToggleChannelWideMentions}}
-        />
-        <p class="chat-form__description -channel-wide-mentions">
-          {{i18n "chat.settings.channel_wide_mentions_description" channel=this.channel.title}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </p>
       </div>
     </div>
   {{/if}}
-<<<<<<< HEAD
 
   <div class="chat-form__section -threading">
     <div class="chat-form__field">
@@ -259,25 +162,10 @@
             @label="chat.channel_settings.archive_channel"
             @icon="archive"
             class="archive-btn chat-form__btn btn-flat"
-=======
-{{/if}}
-
-{{#unless this.channel.isDirectMessageChannel}}
-  <div class="chat-form__section">
-    {{#if (chat-guardian "can-edit-chat-channel")}}
-      {{#if (chat-guardian "can-archive-channel" this.channel)}}
-        <div class="chat-form__field">
-          <DButton
-            @action={{action "onArchiveChannel"}}
-            @label="chat.channel_settings.archive_channel"
-            @class="archive-btn chat-form__btn btn-flat"
-            @icon="archive"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           />
         </div>
       {{/if}}
 
-<<<<<<< HEAD
       {{#if @channel.isClosed}}
         <div class="chat-form__field">
           <DButton
@@ -285,54 +173,27 @@
             @label="chat.channel_settings.open_channel"
             @icon="unlock"
             class="open-btn chat-form__btn btn-flat"
-=======
-      {{#if this.channel.isClosed}}
-        <div class="chat-form__field">
-          <DButton
-            @action={{action "onToggleChannelState"}}
-            @label="chat.channel_settings.open_channel"
-            @class="open-btn chat-form__btn btn-flat"
-            @icon="unlock"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           />
         </div>
       {{else}}
         <div class="chat-form__field">
           <DButton
-<<<<<<< HEAD
             @action={{this.onToggleChannelState}}
             @label="chat.channel_settings.close_channel"
             @icon="lock"
             class="close-btn chat-form__btn btn-flat"
-=======
-            @action={{action "onToggleChannelState"}}
-            @label="chat.channel_settings.close_channel"
-            @class="close-btn chat-form__btn btn-flat"
-            @icon="lock"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           />
         </div>
       {{/if}}
 
       <div class="chat-form__field">
         <DButton
-<<<<<<< HEAD
           @action={{this.onDeleteChannel}}
           @label="chat.channel_settings.delete_channel"
           @icon="trash-alt"
           class="delete-btn chat-form__btn btn-flat"
-=======
-          @action={{action "onDeleteChannel"}}
-          @label="chat.channel_settings.delete_channel"
-          @class="delete-btn chat-form__btn btn-flat"
-          @icon="trash-alt"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         />
       </div>
     {{/if}}
   </div>
-<<<<<<< HEAD
 {{/unless}}
-=======
-{{/unless}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

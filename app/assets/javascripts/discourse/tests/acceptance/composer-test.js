@@ -1277,11 +1277,7 @@ acceptance("Composer - Default category", function (needs) {
         name: "General",
         slug: "general",
         permission: 1,
-<<<<<<< HEAD
         topic_template: null,
-=======
-        ltopic_template: null,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       },
       {
         id: 2,
@@ -1318,11 +1314,7 @@ acceptance("Composer - Uncategorized category", function (needs) {
         name: "General",
         slug: "general",
         permission: 1,
-<<<<<<< HEAD
         topic_template: null,
-=======
-        ltopic_template: null,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       },
       {
         id: 2,
@@ -1353,11 +1345,7 @@ acceptance("Composer - default category not set", function (needs) {
         name: "General",
         slug: "general",
         permission: 1,
-<<<<<<< HEAD
         topic_template: null,
-=======
-        ltopic_template: null,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       },
       {
         id: 2,
@@ -1380,7 +1368,6 @@ acceptance("Composer - default category not set", function (needs) {
   });
 });
 // END: Default Composer Category tests
-<<<<<<< HEAD
 
 acceptance("Composer - current time", function (needs) {
   needs.user();
@@ -1407,5 +1394,3 @@ acceptance("Composer - current time", function (needs) {
     );
   });
 });
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

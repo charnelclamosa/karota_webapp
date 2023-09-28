@@ -625,11 +625,7 @@ class Group < ActiveRecord::Base
   end
 
   def self.reset_groups_user_count!(only_group_ids: [])
-<<<<<<< HEAD
     where_sql = ""
-=======
-    where_sql = ''
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     if only_group_ids.present?
       where_sql = "WHERE group_id IN (#{only_group_ids.map(&:to_i).join(",")})"

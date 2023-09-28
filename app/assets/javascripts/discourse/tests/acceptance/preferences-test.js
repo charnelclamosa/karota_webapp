@@ -71,11 +71,7 @@ acceptance("User Preferences", function (needs) {
     await click(".pref-activity-summary input[type=checkbox]");
     await savePreferences();
 
-<<<<<<< HEAD
     await click(".user-nav__preferences-tracking a");
-=======
-    await click(".preferences-nav .nav-notifications a");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     await selectKit(
       ".user-preferences_tracking-topics-controls .combo-box.duration"
@@ -87,11 +83,7 @@ acceptance("User Preferences", function (needs) {
 
     await savePreferences();
 
-<<<<<<< HEAD
     await click(".user-nav__preferences-tracking a");
-=======
-    await click(".preferences-nav .nav-categories a");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     const categorySelector = selectKit(
       ".tracking-controls .category-selector "
@@ -108,33 +100,16 @@ acceptance("User Preferences", function (needs) {
 
     this.siteSettings.tagging_enabled = false;
 
-<<<<<<< HEAD
     await visit("/u/eviltrout/preferences/tracking");
 
     assert.notOk(
       exists(".tag-notifications"),
       "updating tags tracking preferences isn't visible when tags are disabled"
-=======
-    await visit("/");
-    await visit("/u/eviltrout/preferences");
-
-    assert.ok(
-      !exists(".preferences-nav .nav-tags a"),
-      "tags tab isn't there when tags are disabled"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
 
     await click(".user-nav__preferences-interface a");
     await click(".control-group.other input[type=checkbox]:nth-of-type(1)");
     await savePreferences();
-<<<<<<< HEAD
-=======
-
-    assert.ok(
-      !exists(".preferences-nav .nav-apps a"),
-      "apps tab isn't there when you have no authorized apps"
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 });
 

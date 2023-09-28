@@ -57,54 +57,6 @@ export function replaceFormatter(fn) {
   _usernameFormatDelegate = fn;
 }
 
-<<<<<<< HEAD
-=======
-export function avatarUrl(template, size, { customGetURL } = {}) {
-  if (!template) {
-    return "";
-  }
-  const rawSize = getRawSize(translateSize(size));
-  const templatedPath = template.replace(/\{size\}/g, rawSize);
-  return (customGetURL || getURLWithCDN)(templatedPath);
-}
-
-export function getRawSize(size) {
-  const pixelRatio = window.devicePixelRatio || 1;
-  let rawSize = 1;
-  if (pixelRatio > 1.1 && pixelRatio < 2.1) {
-    rawSize = 2;
-  } else if (pixelRatio >= 2.1) {
-    rawSize = 3;
-  }
-  return size * rawSize;
-}
-
-export function avatarImg(options, customGetURL) {
-  const size = translateSize(options.size);
-  let url = avatarUrl(options.avatarTemplate, size, { customGetURL });
-
-  // We won't render an invalid url
-  if (!url) {
-    return "";
-  }
-
-  const classes =
-    "avatar" + (options.extraClasses ? " " + options.extraClasses : "");
-
-  let title = "";
-  if (options.title) {
-    const escaped = escapeExpression(options.title || "");
-    title = ` title='${escaped}' aria-label='${escaped}'`;
-  }
-
-  return `<img loading='lazy' alt='' width='${size}' height='${size}' src='${url}' class='${classes}'${title}>`;
-}
-
-export function tinyAvatar(avatarTemplate, options) {
-  return avatarImg(deepMerge({ avatarTemplate, size: "tiny" }, options));
-}
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 export function postUrl(slug, topicId, postNumber) {
   let url = getURL("/t/");
   if (slug) {

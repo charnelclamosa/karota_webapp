@@ -513,16 +513,10 @@ class Reviewable < ActiveRecord::Base
     end
 
     if !include_claimed_by_others
-<<<<<<< HEAD
       result =
         result.joins(
           "LEFT JOIN reviewable_claimed_topics rct ON reviewables.topic_id = rct.topic_id",
         ).where("rct.user_id IS NULL OR rct.user_id = ?", user.id)
-=======
-      result = result
-        .joins("LEFT JOIN reviewable_claimed_topics rct ON reviewables.topic_id = rct.topic_id")
-        .where("rct.user_id IS NULL OR rct.user_id = ?", user.id)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
     result = result.limit(limit) if limit
     result = result.offset(offset) if offset

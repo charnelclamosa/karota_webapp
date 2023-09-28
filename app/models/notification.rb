@@ -12,7 +12,6 @@ class Notification < ActiveRecord::Base
   validates_presence_of :notification_type
 
   scope :unread, lambda { where(read: false) }
-<<<<<<< HEAD
   scope :recent,
         lambda { |n = nil|
           n ||= 10
@@ -52,36 +51,6 @@ class Notification < ActiveRecord::Base
         ->(user_id, limit: 30) {
           where(user_id: user_id).visible.prioritized.includes(:topic).limit(limit)
         }
-=======
-  scope :recent, lambda { |n = nil| n ||= 10; order('notifications.created_at desc').limit(n) }
-  scope :visible , lambda { joins('LEFT JOIN topics ON notifications.topic_id = topics.id')
-    .where('topics.id IS NULL OR topics.deleted_at IS NULL') }
-  scope :unread_type, ->(user, type, limit = 30) do
-    unread_types(user, [type], limit)
-  end
-  scope :unread_types, ->(user, types, limit = 30) do
-    where(user_id: user.id, read: false, notification_type: types)
-      .visible
-      .includes(:topic)
-      .limit(limit)
-  end
-  scope :prioritized, ->(deprioritized_types = []) do
-    scope = order("notifications.high_priority AND NOT notifications.read DESC")
-    if deprioritized_types.present?
-      scope = scope.order(DB.sql_fragment("NOT notifications.read AND notifications.notification_type NOT IN (?) DESC", deprioritized_types))
-    else
-      scope = scope.order("NOT notifications.read DESC")
-    end
-    scope.order("notifications.created_at DESC")
-  end
-  scope :for_user_menu, ->(user_id, limit: 30) do
-    where(user_id: user_id)
-      .visible
-      .prioritized
-      .includes(:topic)
-      .limit(limit)
-  end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   attr_accessor :skip_send_email
 
@@ -284,18 +253,13 @@ class Notification < ActiveRecord::Base
     [
       Notification.types[:liked],
       Notification.types[:liked_consolidated],
-<<<<<<< HEAD
       Notification.types[:reaction],
-=======
-      Notification.types[:reaction]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ]
   end
 
   def self.prioritized_list(user, count: 30, types: [])
     return [] if !user&.user_option
 
-<<<<<<< HEAD
     notifications =
       user
         .notifications
@@ -310,21 +274,6 @@ class Notification < ActiveRecord::Base
           UserOption.like_notification_frequency_type[:never]
       like_types.each do |notification_type|
         notifications = notifications.where("notification_type <> ?", notification_type)
-=======
-    notifications = user.notifications
-      .includes(:topic)
-      .visible
-      .prioritized(types.present? ? [] : like_types)
-      .limit(count)
-
-    if types.present?
-      notifications = notifications.where(notification_type: types)
-    elsif user.user_option.like_notification_frequency == UserOption.like_notification_frequency_type[:never]
-      like_types.each do |notification_type|
-        notifications = notifications.where(
-          'notification_type <> ?', notification_type
-        )
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       end
     end
     notifications.to_a

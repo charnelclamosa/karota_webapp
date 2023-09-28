@@ -1,13 +1,8 @@
 const TapReporter = require("testem/lib/reporters/tap_reporter");
-<<<<<<< HEAD
 const { shouldLoadPlugins } = require("discourse-plugins");
 const fs = require("fs");
 const displayUtils = require("testem/lib/utils/displayutils");
 const colors = require("@colors/colors/safe");
-=======
-const { shouldLoadPluginTestJs } = require("discourse-plugins");
-const fs = require("fs");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 class Reporter extends TapReporter {
   failReports = [];
@@ -28,11 +23,7 @@ class Reporter extends TapReporter {
       const currentCount = this.deprecationCounts.get(id) || 0;
       this.deprecationCounts.set(id, currentCount + 1);
     } else if (tag === "summary-line") {
-<<<<<<< HEAD
       this.out.write(`\n${metadata.message}\n`);
-=======
-      process.stdout.write(`\n${metadata.message}\n`);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     } else {
       super.reportMetadata(...arguments);
     }
@@ -156,24 +147,15 @@ class Reporter extends TapReporter {
     this.reportDeprecations();
 
     if (this.failReports.length > 0) {
-<<<<<<< HEAD
       this.out.write("\nFailures:\n\n");
-=======
-      process.stdout.write("\nFailures:\n\n");
->>>>>>> 85d03045c7 (Sync to forked branch)
 
       this.failReports.forEach(([prefix, data, id]) => {
         if (process.env.GITHUB_ACTIONS) {
           this.out.write(`::error ::QUnit Test Failure: ${data.name}\n`);
         }
 
-<<<<<<< HEAD
         this.id = id;
         super.report(prefix, data);
-=======
-        this._tapReporter.id = id;
-        this._tapReporter.report(prefix, data);
->>>>>>> 85d03045c7 (Sync to forked branch)
       });
     }
   }

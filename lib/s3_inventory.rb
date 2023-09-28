@@ -89,11 +89,7 @@ class S3Inventory
                 inventory_date: inventory_date,
                 invalid_etag: Upload.verification_statuses[:invalid_etag],
                 verified: Upload.verification_statuses[:verified],
-<<<<<<< HEAD
                 seeded_id_threshold: model::SEEDED_ID_THRESHOLD,
-=======
-                seeded_id_threshold: model::SEEDED_ID_THRESHOLD
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               }
 
               DB.exec(<<~SQL, sql_params)

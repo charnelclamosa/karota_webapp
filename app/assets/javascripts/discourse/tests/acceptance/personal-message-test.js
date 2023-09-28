@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { click, currentURL, visit } from "@ember/test-helpers";
 import DiscourseURL from "discourse/lib/url";
 import {
@@ -6,9 +5,6 @@ import {
   publishToMessageBus,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
-=======
-import { acceptance, query } from "discourse/tests/helpers/qunit-helpers";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import I18n from "I18n";
 import { test } from "qunit";
 import sinon from "sinon";

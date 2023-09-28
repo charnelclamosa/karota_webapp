@@ -413,11 +413,7 @@ const DiscourseURL = EmberObject.extend({
   },
 
   get isComposerOpen() {
-<<<<<<< HEAD
     return this.container.lookup("service:composer")?.visible;
-=======
-    return this.controllerFor("composer")?.visible;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   get router() {

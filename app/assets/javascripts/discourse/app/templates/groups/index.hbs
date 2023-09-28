@@ -46,16 +46,12 @@
         <div class="container">
           <div class="groups-boxes">
             {{#each this.groups as |group|}}
-<<<<<<< HEAD
               <LinkTo
                 @route="group.members"
                 @model={{group.name}}
                 class="group-box"
                 data-group-name={{group.name}}
               >
-=======
-              <LinkTo @route="group.members" @model={{group.name}} class="group-box" data-group-name={{group.name}}>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                 <div class="group-box-inner">
                   <div class="group-info-wrapper">
                     {{#if group.flair_url}}

@@ -2,15 +2,12 @@
 // To style group content differently, use the existing classes with a .group parent class.
 // For example: .group .user-secondary-navigation
 
-<<<<<<< HEAD
 @use "sass:math";
 
 .container.group {
   background: var(--d-content-background);
 }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 .group-details-container {
   background: var(--primary-very-low);
   padding: 20px;

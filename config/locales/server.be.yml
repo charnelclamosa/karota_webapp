@@ -2347,15 +2347,6 @@ be:
                 label: "Катэгорыі і Апошнія тэмы"
               categories_and_top_topics:
                 label: "Катэгорыі і асноўныя тэмы"
-<<<<<<< HEAD
-=======
-      branding:
-        fields:
-          logo:
-            label: "першасны Logo"
-          logo_small:
-            label: "плошчу лагатыпа"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

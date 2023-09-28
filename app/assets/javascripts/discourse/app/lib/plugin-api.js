@@ -54,7 +54,6 @@ import { addGlobalNotice } from "discourse/components/global-notice";
 import { addNavItem } from "discourse/models/nav-item";
 import { addPluginDocumentTitleCounter } from "discourse/components/d-document";
 import { addPluginOutletDecorator } from "discourse/components/plugin-connector";
-<<<<<<< HEAD
 import {
   addPluginReviewableParam,
   registerReviewableActionModal,
@@ -63,13 +62,6 @@ import {
   addComposerSaveErrorCallback,
   addPopupMenuOptionsCallback,
 } from "discourse/services/composer";
-=======
-import { addPluginReviewableParam } from "discourse/components/reviewable-item";
-import {
-  addComposerSaveErrorCallback,
-  addPopupMenuOptionsCallback,
-} from "discourse/controllers/composer";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { addPostClassesCallback } from "discourse/widgets/post";
 import {
   addGroupPostSmallActionCode,
@@ -131,25 +123,18 @@ import { registerNotificationTypeRenderer } from "discourse/lib/notification-typ
 import { registerUserMenuTab } from "discourse/lib/user-menu/tab";
 import { registerModelTransformer } from "discourse/lib/model-transformers";
 import { registerCustomUserNavMessagesDropdownRow } from "discourse/controllers/user-private-messages";
-<<<<<<< HEAD
 import { registerFullPageSearchType } from "discourse/controllers/full-page-search";
 import { registerHashtagType } from "discourse/lib/hashtag-autocomplete";
 import { _addBulkButton } from "discourse/components/modal/topic-bulk-actions";
 import { addBeforeAuthCompleteCallback } from "discourse/instance-initializers/auth-complete";
 import { isTesting } from "discourse-common/config/environment";
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 // If you add any methods to the API ensure you bump up the version number
 // based on Semantic Versioning 2.0.0. Please update the changelog at
 // docs/CHANGELOG-JAVASCRIPT-PLUGIN-API.md whenever you change the version
 // using the format described at https://keepachangelog.com/en/1.0.0/.
-<<<<<<< HEAD
 
 export const PLUGIN_API_VERSION = "1.12.0";
-=======
-const PLUGIN_API_VERSION = "1.5.0";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 // This helper prevents us from applying the same `modifyClass` over and over in test mode.
 function canModify(klass, type, resolverName, changes) {
@@ -2411,10 +2396,6 @@ class PluginApi {
   }
 
   /**
-<<<<<<< HEAD
-=======
-   * EXPERIMENTAL. Do not use.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
    * Adds a row to the dropdown used on the `userPrivateMessages` route used to navigate between the different user
    * messages pages.
    *
@@ -2424,7 +2405,6 @@ class PluginApi {
    */
   addUserMessagesNavigationDropdownRow(routeName, name, icon) {
     registerCustomUserNavMessagesDropdownRow(routeName, name, icon);
-<<<<<<< HEAD
   }
 
   /**
@@ -2501,8 +2481,6 @@ class PluginApi {
    */
   addBulkActionButton(opts) {
     _addBulkButton(opts);
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }
 

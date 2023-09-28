@@ -5,11 +5,7 @@ import I18n from "I18n";
 import { query } from "discourse/tests/helpers/qunit-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import selectKit from "discourse/tests/helpers/select-kit-helper";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function buildTopic(opts) {
   return this.store.createRecord("topic", {
@@ -89,11 +85,7 @@ module(
     });
 
     test("notification reason text - user mailing list mode", async function (assert) {
-<<<<<<< HEAD
       this.currentUser.set("user_option.mailing_list_mode", true);
-=======
-      this.currentUser.set("mailing_list_mode", true);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.set("topic", buildTopic.call(this, { level: 2 }));
 
       await render(hbs`

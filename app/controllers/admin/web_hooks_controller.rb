@@ -110,11 +110,7 @@ class Admin::WebHooksController < Admin::AdminController
       web_hook = web_hook_event.web_hook
       emitter = WebHookEmitter.new(web_hook, web_hook_event)
       emitter.emit!(headers: MultiJson.load(web_hook_event.headers), body: web_hook_event.payload)
-<<<<<<< HEAD
       render_serialized(web_hook_event, AdminWebHookEventSerializer, root: "web_hook_event")
-=======
-      render_serialized(web_hook_event, AdminWebHookEventSerializer, root: 'web_hook_event')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     else
       render json: failed_json
     end

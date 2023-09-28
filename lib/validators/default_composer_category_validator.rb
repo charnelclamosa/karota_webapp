@@ -14,10 +14,6 @@ class DefaultComposerCategoryValidator
   end
 
   def error_message
-<<<<<<< HEAD
     I18n.t("site_settings.errors.invalid_uncategorized_category_setting")
-=======
-    I18n.t('site_settings.errors.invalid_uncategorized_category_setting')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 end

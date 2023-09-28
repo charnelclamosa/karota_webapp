@@ -83,27 +83,15 @@ acceptance(
   }
 );
 
-<<<<<<< HEAD
 let fetchedNew;
 let fetchUserNew;
 let fetchedGroupNew;
 
 function withGroupMessagesSetup(needs) {
-=======
-function testUserPrivateMessagesWithGroupMessages(needs, customUserProps) {
-  let fetchedNew;
-  let fetchUserNew;
-  let fetchedGroupNew;
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   needs.user({
     id: 5,
     username: "charlie",
     groups: [{ id: 14, name: "awesome_group", has_messages: true }],
-<<<<<<< HEAD
-=======
-    ...(customUserProps || {}),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   needs.site({
@@ -236,110 +224,6 @@ function testUserPrivateMessagesWithGroupMessages(needs, customUserProps) {
       return helper.response({
         topic_ids: [1, 2, 3],
       });
-<<<<<<< HEAD
-=======
-    });
-  });
-
-  const publishReadToMessageBus = function (opts = {}) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/user/${opts.userId || 5}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "read",
-        payload: {
-          last_read_post_number: 2,
-          highest_post_number: 2,
-          notification_level: 2,
-        },
-      }
-    );
-  };
-
-  const publishUnreadToMessageBus = function (opts = {}) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/user/${opts.userId || 5}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "unread",
-        payload: {
-          last_read_post_number: 1,
-          highest_post_number: 2,
-          notification_level: 2,
-          group_ids: opts.groupIds || [],
-        },
-      }
-    );
-  };
-
-  const publishNewToMessageBus = function (opts = {}) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/user/${opts.userId || 5}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "new_topic",
-        payload: {
-          last_read_post_number: null,
-          highest_post_number: 1,
-          group_ids: opts.groupIds || [],
-        },
-      }
-    );
-  };
-
-  const publishGroupArchiveToMessageBus = function (opts) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/group/${opts.groupIds[0]}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "group_archive",
-        payload: {
-          group_ids: opts.groupIds,
-          acting_user_id: opts.actingUserId,
-        },
-      }
-    );
-  };
-
-  const publishGroupUnreadToMessageBus = function (opts) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/group/${opts.groupIds[0]}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "unread",
-        payload: {
-          last_read_post_number: 1,
-          highest_post_number: 2,
-          notification_level: 2,
-          group_ids: opts.groupIds || [],
-        },
-      }
-    );
-  };
-
-  const publishGroupNewToMessageBus = function (opts) {
-    return publishToMessageBus(
-      `/private-message-topic-tracking-state/group/${opts.groupIds[0]}`,
-      {
-        topic_id: opts.topicId,
-        message_type: "new_topic",
-        payload: {
-          last_read_post_number: null,
-          highest_post_number: 1,
-          group_ids: opts.groupIds || [],
-        },
-      }
-    );
-  };
-
-  test("incoming group archive message acted by current user", async function (assert) {
-    await visit("/u/charlie/messages");
-
-    await publishGroupArchiveToMessageBus({
-      groupIds: [14],
-      topicId: 1,
-      actingUserId: 5,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   });
 }
@@ -912,7 +796,6 @@ acceptance(
         resetCustomUserNavMessagesDropdownRows();
       }
     });
-<<<<<<< HEAD
 
     test("incoming unread and new messages on all filter", async function (assert) {
       await visit("/u/charlie/messages");
@@ -1277,20 +1160,10 @@ acceptance(
         resetCustomUserNavMessagesDropdownRows();
       }
     });
-=======
-  }
-}
-
-acceptance(
-  "User Private Messages - user with group messages",
-  function (needs) {
-    return testUserPrivateMessagesWithGroupMessages(needs);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 );
 
 acceptance(
-<<<<<<< HEAD
   "User Private Messages - user with group messages - browse more message",
   function (needs) {
     withGroupMessagesSetup(needs);
@@ -1370,12 +1243,6 @@ acceptance(
           ),
         "displays the right browse more message"
       );
-=======
-  "User Private Messages - user with group messages - redesigned user page nav enabled",
-  function (needs) {
-    return testUserPrivateMessagesWithGroupMessages(needs, {
-      redesigned_user_page_nav_enabled: true,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   }
 );

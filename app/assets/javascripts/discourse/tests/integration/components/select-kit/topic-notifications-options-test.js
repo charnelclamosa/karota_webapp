@@ -4,11 +4,7 @@ import { render } from "@ember/test-helpers";
 import I18n from "I18n";
 import { hbs } from "ember-cli-htmlbars";
 import selectKit from "discourse/tests/helpers/select-kit-helper";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function extractDescriptions(rows) {
   return [...rows].map((el) => el.querySelector(".desc").textContent.trim());

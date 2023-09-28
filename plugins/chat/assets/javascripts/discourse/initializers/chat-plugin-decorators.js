@@ -34,22 +34,6 @@ export default {
         }
       );
     }
-<<<<<<< HEAD
-=======
-
-    api.decorateChatMessage(
-      (element) => {
-        element
-          .querySelectorAll(".lazyYT:not(.lazyYT-video-loaded)")
-          .forEach((iframe) => {
-            $(iframe).lazyYT();
-          });
-      },
-      {
-        id: "lazy-yt",
-      }
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   initialize(container) {

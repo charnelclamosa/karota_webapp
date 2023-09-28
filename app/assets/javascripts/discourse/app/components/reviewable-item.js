@@ -9,12 +9,8 @@ import { popupAjaxError } from "discourse/lib/ajax-error";
 import { action, set } from "@ember/object";
 import showModal from "discourse/lib/show-modal";
 import { inject as service } from "@ember/service";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
 import ExplainReviewableModal from "discourse/components/modal/explain-reviewable";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let _components = {};
 

@@ -1,11 +1,5 @@
 import { test } from "qunit";
-<<<<<<< HEAD
 import { click, settled, visit, waitFor } from "@ember/test-helpers";
-=======
-
-import { click, settled, visit, waitUntil } from "@ember/test-helpers";
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { acceptance, exists } from "discourse/tests/helpers/qunit-helpers";
 
 acceptance("Sidebar - Narrow Desktop", function (needs) {
@@ -22,33 +16,18 @@ acceptance("Sidebar - Narrow Desktop", function (needs) {
 
     await click(".header-sidebar-toggle .btn");
 
-<<<<<<< HEAD
     assert.ok(!exists("#d-sidebar"), "wide sidebar is collapsed");
-=======
-    assert.ok(!exists("#d-sidebar"), "widge sidebar is collapsed");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     await click(".header-sidebar-toggle .btn");
 
     assert.ok(exists("#d-sidebar"), "wide sidebar is displayed");
 
     const bodyElement = document.querySelector("body");
-<<<<<<< HEAD
     bodyElement.style.width = "767px";
 
     await waitFor(".btn-sidebar-toggle.narrow-desktop", {
       timeout: 5000,
     });
-=======
-    bodyElement.style.width = "990px";
-
-    await waitUntil(
-      () => document.querySelector(".btn-sidebar-toggle.narrow-desktop"),
-      {
-        timeout: 5000,
-      }
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     await click(".btn-sidebar-toggle");
 
     assert.ok(
@@ -63,11 +42,7 @@ acceptance("Sidebar - Narrow Desktop", function (needs) {
     );
 
     bodyElement.style.width = "1200px";
-<<<<<<< HEAD
     await waitFor("#d-sidebar", {
-=======
-    await waitUntil(() => document.querySelector("#d-sidebar"), {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       timeout: 5000,
     });
     assert.ok(exists("#d-sidebar"), "wide sidebar is displayed");
@@ -80,7 +55,6 @@ acceptance("Sidebar - Narrow Desktop", function (needs) {
     await settled();
 
     const bodyElement = document.querySelector("body");
-<<<<<<< HEAD
     bodyElement.style.width = "767px";
 
     await waitFor(".btn-sidebar-toggle.narrow-desktop", {
@@ -90,20 +64,6 @@ acceptance("Sidebar - Narrow Desktop", function (needs) {
 
     bodyElement.style.width = "1200px";
     await waitFor("#d-sidebar", {
-=======
-    bodyElement.style.width = "990px";
-
-    await waitUntil(
-      () => document.querySelector(".btn-sidebar-toggle.narrow-desktop"),
-      {
-        timeout: 5000,
-      }
-    );
-    await click(".btn-sidebar-toggle");
-
-    bodyElement.style.width = "1200px";
-    await waitUntil(() => document.querySelector("#d-sidebar"), {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       timeout: 5000,
     });
     await click(".header-dropdown-toggle.current-user");

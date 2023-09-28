@@ -2,10 +2,7 @@
 import Component from "@ember/component";
 import EmberObject from "@ember/object";
 import { actionModifier } from "./ember-action-modifier";
-<<<<<<< HEAD
 import Ember from "ember";
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 /**
  * Classic Ember components (i.e. "@ember/component") rely upon "event

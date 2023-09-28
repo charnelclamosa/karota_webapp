@@ -109,15 +109,7 @@
   </div>
 {{/if}}
 
-<<<<<<< HEAD
 <UserPreferences::UserApiKeys @model={{@model}} />
-=======
-{{#if this.currentUser.redesigned_user_page_nav_enabled}}
-  <UserPreferences::UserApiKeys @model={{@model}}/>
-{{/if}}
-
-<PluginOutlet @name="user-preferences-security" @tagName="span" @connectorTagName="div" @args={{hash model=this.model save=(action "save")}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 <span>
   <PluginOutlet

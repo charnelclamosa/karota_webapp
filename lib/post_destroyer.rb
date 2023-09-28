@@ -400,7 +400,6 @@ class PostDestroyer
         flagged_post_raw_content: notify_responders ? options[:parent_post].raw : @post.raw,
         flagged_post_response_raw_content: @post.raw,
         url: notify_responders ? options[:parent_post].url : @post.url,
-<<<<<<< HEAD
         flag_reason:
           I18n.t(
             "flag_reasons#{".responder" if notify_responders}.#{flag_type}",
@@ -408,14 +407,6 @@ class PostDestroyer
             base_path: Discourse.base_path,
           ),
       },
-=======
-        flag_reason: I18n.t(
-          "flag_reasons#{".responder" if notify_responders}.#{flag_type}",
-          locale: SiteSetting.default_locale,
-          base_path: Discourse.base_path
-        )
-      }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     )
   end
 

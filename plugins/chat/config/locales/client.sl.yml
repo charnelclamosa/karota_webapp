@@ -6,7 +6,6 @@
 
 sl:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -14,9 +13,6 @@ sl:
           never: "Nikoli"
     chat:
       deleted_chat_username: izbrisano
-=======
-    chat:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Ustvari"
       cancel: "Prekliči"
       channel_settings:
@@ -25,28 +21,18 @@ sl:
         join: "Pridruži se"
         leave: "Zapusti"
       close: "Zapri"
-<<<<<<< HEAD
       remove: "Odstrani"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Izbriši"
       edited: "urejen"
       muted: "utišani"
       joined: "pridružen"
       email_frequency:
         never: "Nikoli"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Nikoli"
       flag: "Prijavi"
       join: "Pridruži se"
       last_visit: "zadnji obisk"
-=======
-      flag: "Prijavi"
-      join: "Pridruži se"
-      mention_warning:
-        dismiss: "opusti"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Odgovori"
       edit: "Uredi"
       rebake_message: "Obnovi HTML"
@@ -67,10 +53,7 @@ sl:
         yesterday: Včeraj
       about_view:
         title: Naziv
-<<<<<<< HEAD
         name: Ime
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Opis
       channel_info:
         back_to_channel: "Nazaj"
@@ -94,11 +77,8 @@ sl:
       settings:
         follow: "Pridruži se"
         followed: "Pridružen"
-<<<<<<< HEAD
         threading_enabled: "Vključeno"
         threading_disabled: "Onemogočeno"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Obvestila"
         preview: "Predogled"
         save: "Shrani"
@@ -130,7 +110,6 @@ sl:
         activities: "Dejavnosti"
         flags: "Zastave"
         symbols: "Simboli"
-<<<<<<< HEAD
       thread:
         title: "Naziv"
         replies:
@@ -150,8 +129,6 @@ sl:
           two: "+%{count}"
           few: "+%{count}"
           other: "+%{count}"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Novo zasebno sporočilo"
         cancel: "Prekliči"
@@ -163,10 +140,3 @@ sl:
           fields:
             message:
               label: Opozorilo
-<<<<<<< HEAD
-=======
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Prijavljen od"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

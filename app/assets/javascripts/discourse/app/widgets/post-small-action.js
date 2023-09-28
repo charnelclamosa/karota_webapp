@@ -179,18 +179,12 @@ export default createWidget("post-small-action", {
     }
 
     if (!attrs.actionDescriptionWidget && attrs.cooked) {
-<<<<<<< HEAD
       const fragment = document.createElement("div");
       fragment.innerHTML = attrs.cooked;
       decorateHashtags(fragment, this.site);
       customMessage.push(
         new RawHtml({
           html: `<div class='small-action-custom-message'>${fragment.innerHTML}</div>`,
-=======
-      customMessage.push(
-        new RawHtml({
-          html: `<div class='small-action-custom-message'>${attrs.cooked}</div>`,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         })
       );
     }

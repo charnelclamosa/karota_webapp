@@ -7,13 +7,7 @@ import { UNREAD_LIST_DESTINATION } from "discourse/controllers/preferences/sideb
 const USER_DRAFTS_CHANGED_EVENT = "user-drafts:changed";
 
 export default class MyPostsSectionLink extends BaseSectionLink {
-<<<<<<< HEAD
   @tracked draftCount = this.currentUser?.draft_count;
-=======
-  @tracked draftCount = this.currentUser.draft_count;
-  @tracked hideCount =
-    this.currentUser?.sidebarListDestination !== UNREAD_LIST_DESTINATION;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   constructor() {
     super(...arguments);
@@ -89,7 +83,6 @@ export default class MyPostsSectionLink extends BaseSectionLink {
   }
 
   get badgeText() {
-<<<<<<< HEAD
     if (!this.showCount || !this._hasDraft) {
       return;
     }
@@ -97,9 +90,6 @@ export default class MyPostsSectionLink extends BaseSectionLink {
     if (this.currentUser.new_new_view_enabled) {
       return this.draftCount.toString();
     } else {
-=======
-    if (this._hasDraft && !this.hideCount) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       return I18n.t("sidebar.sections.community.links.my_posts.draft_count", {
         count: this.draftCount,
       });
@@ -126,7 +116,6 @@ export default class MyPostsSectionLink extends BaseSectionLink {
   }
 
   get suffixValue() {
-<<<<<<< HEAD
     if (this._hasDraft && !this.showCount) {
       return "circle";
     }
@@ -135,10 +124,4 @@ export default class MyPostsSectionLink extends BaseSectionLink {
   get shouldDisplay() {
     return this.currentUser;
   }
-=======
-    if (this._hasDraft && this.hideCount) {
-      return "circle";
-    }
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

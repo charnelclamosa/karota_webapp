@@ -699,7 +699,6 @@ export default {
       ],
       displayed_about_plugin_stat_groups: ["chat_messages"],
       hashtag_configurations: { "topic-composer": ["category", "tag"] },
-<<<<<<< HEAD
       hashtag_icons: { "category": "folder", "tag": "tag" },
       anonymous_sidebar_sections: [
         {
@@ -784,9 +783,6 @@ export default {
           section_type: "community",
         },
       ],
-=======
-      hashtag_icons: ["folder", "tag"]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
   },
 };

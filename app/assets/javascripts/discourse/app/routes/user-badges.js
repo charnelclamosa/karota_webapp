@@ -18,18 +18,7 @@ export default DiscourseRoute.extend(ViewingActionType, {
     this.viewingActionType(-1);
   },
 
-<<<<<<< HEAD
   titleToken() {
     return I18n.t("badges.title");
-=======
-  renderTemplate() {
-    this.render("user/badges");
-  },
-
-  @action
-  didTransition() {
-    this.controllerFor("application").set("showFooter", true);
-    return true;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 });

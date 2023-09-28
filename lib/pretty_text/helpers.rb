@@ -96,7 +96,6 @@ module PrettyText
       end
     end
 
-<<<<<<< HEAD
     def hashtag_lookup(slug, cooking_user_id, types_in_priority_order)
       # NOTE: This is _somewhat_ expected since we need to be able to cook posts
       # etc. without a user sometimes, but it is still an edge case.
@@ -107,18 +106,6 @@ module PrettyText
       # secure categories, so hashtags that are secure will not render.
       if cooking_user_id.blank?
         cooking_user = Discourse.system_user
-=======
-    # TODO (martin) Remove this when everything is using hashtag_lookup
-    # after enable_experimental_hashtag_autocomplete is default.
-    def category_tag_hashtag_lookup(text)
-      is_tag = text =~ /#{TAG_HASHTAG_POSTFIX}$/
-
-      if !is_tag && category = Category.query_from_hashtag_slug(text)
-        [category.url, text]
-      elsif (!is_tag && tag = Tag.find_by(name: text)) ||
-            (is_tag && tag = Tag.find_by(name: text.gsub!(TAG_HASHTAG_POSTFIX, '')))
-        [tag.url, text]
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       else
         cooking_user = User.find(cooking_user_id)
       end

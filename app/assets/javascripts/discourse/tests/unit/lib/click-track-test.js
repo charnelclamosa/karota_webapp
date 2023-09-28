@@ -136,10 +136,6 @@ module("Unit | Utility | click-track", function (hooks) {
   });
 
   skip("tracks external URLs when opening in another window", async function (assert) {
-<<<<<<< HEAD
-=======
-    assert.expect(3);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     User.currentProp("user_option.external_links_in_new_tab", true);
 
     const done = assert.async();

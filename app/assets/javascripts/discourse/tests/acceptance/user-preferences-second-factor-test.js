@@ -41,15 +41,12 @@ acceptance("User Preferences - Second Factor", function (needs) {
       });
     });
 
-<<<<<<< HEAD
     server.put("/u/security_key.json", () => {
       return helper.response({
         success: "OK",
       });
     });
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     server.put("/u/second_factors_backup.json", () => {
       return helper.response({
         backup_codes: ["dsffdsd", "fdfdfdsf", "fddsds"],
@@ -69,7 +66,6 @@ acceptance("User Preferences - Second Factor", function (needs) {
     await click(".new-totp");
     assert.ok(exists(".qr-code img"), "shows qr code image");
 
-<<<<<<< HEAD
     await click(".modal a.show-second-factor-key");
     assert.ok(
       exists(".modal .second-factor-key"),
@@ -77,10 +73,6 @@ acceptance("User Preferences - Second Factor", function (needs) {
     );
 
     await click(".add-totp");
-=======
-    await click(".add-totp");
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.ok(
       query(".alert-error").innerHTML.includes("provide a name and the code"),
       "shows name/token missing error message"
@@ -121,20 +113,15 @@ acceptance("User Preferences - Second Factor", function (needs) {
 
     await fillIn("#password", "secrets");
     await click(".user-preferences .btn-primary");
-<<<<<<< HEAD
     await click(".token-based-auth-dropdown .select-kit-header");
     await click("li[data-name='Disable']");
 
-=======
-    await click(".totp .btn-danger");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.strictEqual(
       query("#dialog-title").innerText.trim(),
       "Deleting an authenticator"
     );
     await click(".dialog-close");
 
-<<<<<<< HEAD
     assert.ok(
       exists(".security-key .second-factor-item"),
       "User has a physical security key"
@@ -143,14 +130,10 @@ acceptance("User Preferences - Second Factor", function (needs) {
     await click(".security-key-dropdown .select-kit-header");
     await click("li[data-name='Disable'");
 
-=======
-    await click(".security-key .btn-danger");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.strictEqual(
       query("#dialog-title").innerText.trim(),
       "Deleting an authenticator"
     );
-<<<<<<< HEAD
     await click(".dialog-footer .btn-danger");
     assert.notOk(
       exists(".security-key .second-factor-item"),
@@ -158,11 +141,6 @@ acceptance("User Preferences - Second Factor", function (needs) {
     );
 
     await click(".pref-second-factor-disable-all .btn-danger");
-=======
-    await click(".dialog-close");
-
-    await click(".btn-danger.btn-icon-text");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     assert.strictEqual(
       query("#dialog-title").innerText.trim(),
       "Are you sure you want to disable two-factor authentication?"

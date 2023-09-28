@@ -2,7 +2,6 @@
 
 <div class="user-preferences__tracking-topics-wrapper">
   <label class="control-label">{{i18n "user.topics_settings"}}</label>
-<<<<<<< HEAD
 
   <div class="user-preferences_tracking-topics-controls">
     <div
@@ -90,30 +89,3 @@
     @saved={{this.saved}}
   />
 {{/if}}
-=======
-  <UserPreferences::TopicTracking
-    @considerNewTopicOptions={{this.considerNewTopicOptions}}
-    @model={{this.model}}
-    @autoTrackDurations={{this.autoTrackDurations}}
-    @notificationLevelsForReplying={{this.notificationLevelsForReplying}} />
-</div>
-
-<div class="user-preferences__tracking-categories-tags-wrapper">
-  <UserPreferences::Categories
-    @canSee={{this.canSee}}
-    @model={{this.model}}
-    @selectedCategories={{this.selectedCategories}}
-    @hideMutedTags={{this.hideMutedTags}}
-    @siteSettings={{this.siteSettings}} />
-
-  <UserPreferences::Tags
-    @model={{this.model}}
-    @selectedTags={{this.selectedTags}}
-    @save={{this.save}}
-    @siteSettings={{this.siteSettings}} />
-</div>
-
-{{#if this.canSave}}
-  <SaveControls @model={{this.model}} @action={{this.save}} @saved={{this.saved}} />
-{{/if}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

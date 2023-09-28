@@ -65,12 +65,7 @@ export default class DocumentElement extends Service {
   }
 
   _displayCount() {
-<<<<<<< HEAD
     return this.currentUser?.user_option.title_count_mode === "notifications"
-=======
-    return this.currentUser &&
-      this.currentUser.user_option.title_count_mode === "notifications"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ? this.notificationCount
       : this.contextCount;
   }

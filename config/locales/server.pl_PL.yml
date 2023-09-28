@@ -278,10 +278,7 @@ pl_PL:
       invalid_access: "Nie masz uprawnień do przeglądania żądanego zasobu."
     requires_groups: "Zaproszenie nie zostało zapisane, ponieważ podany temat jest niedostępny. Dodaj jedną z następujących grup: %{groups}."
     domain_not_allowed: "Twój adres e-mail nie może zostać użyty do zrealizowania tego zaproszenia."
-<<<<<<< HEAD
     max_redemptions_allowed_one: "dla zaproszeń e-mail powinno wynosić 1."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     redemption_count_less_than_max: "powinien być mniejszy niż %{max_redemptions_allowed}."
     email_xor_domain: "Pola adresu e-mail i domeny nie są dozwolone jednocześnie"
     existing_user_success: "Zaproszenie zostało pomyślnie zrealizowane"
@@ -683,14 +680,9 @@ pl_PL:
   staff_category_name: "Zespół"
   staff_category_description: "Ukryta kategoria dla rozmów zespołu. Tematy są widoczne tylko dla adminów i moderatorów."
   discourse_welcome_topic:
-<<<<<<< HEAD
     title: "Witamy w %{site_title}! :wave:"
     body: |
       Bardzo się cieszymy, że do nas dołączyłeś.
-=======
-    title: "Witamy w naszej społeczności!"
-    body: |2
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       %{site_info_quote}
 
@@ -722,10 +714,7 @@ pl_PL:
       disallowed_tags_generic: "W tym temacie niedozwolone są tagi."
       slug_contains_non_ascii_chars: "zawiera znaki inne niż ascii"
       is_already_in_use: "jest już w użyciu"
-<<<<<<< HEAD
       move_topic_to_category_disallowed: "Nie możesz przenieść tego tematu do kategorii, w której nie masz uprawnień do tworzenia nowych tematów."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     cannot_delete:
       uncategorized: "Ta kategoria ma specjalny charakter. Jest przeznaczona jako miejsce do przechowywania tematów nieprzypisanych do żadnej kategorii i jako taka nie może zostać usunięta."
       has_subcategories: "Nie można usunąć tej kategorii ponieważ posiada podkategorie. "
@@ -904,13 +893,6 @@ pl_PL:
         other: "prawie %{count} lat temu"
   password_reset:
     no_token: 'Ups! Link, którego użyłeś, już nie działa. Możesz <a href="%{base_url}/login">zalogować się</a> teraz. Jeśli nie pamiętasz swojego hasła, możesz <a href="%{base_url}/password-reset">poprosić o łącze</a>, aby je zresetować.'
-<<<<<<< HEAD
-=======
-    choose_new: "Wprowadź nowe hasło"
-    choose: "Wprowadź hasło"
-    update: "Aktualizuj hasło"
-    save: "Ustaw hasło"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Zresetuj hasło"
     success: "Twoje hasło zostało pomyślnie zmienione, zalogowano."
     success_unapproved: "Zmieniłeś(-a) swoje hasło."
@@ -1109,11 +1091,7 @@ pl_PL:
     mailing_list_mode: "Wyłącz tryb listy mailingowej"
     all: "Nie wysyłaj mi żadnych wiadomości z %{sitename}"
     different_user_description: "Jesteś zalogowany jako inny użytkownik niż ten do którego wysłano wysłaliśmy emaila. proszę wyloguj się, lub przejść do trybu incognito i spróbuj ponownie."
-<<<<<<< HEAD
     not_found_description: "Przepraszamy: nie mogliśmy Cię wypisać. Możliwe, że link wysłany w wiadomości email wygasł."
-=======
-    not_found_description: Przykro nam, nie udało nam się znaleźć tej subskrypcji. Możliwe, że link w twoim mailu jest zbyt stary i stracił ważność?".
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     user_not_found_description: "Przepraszamy, nie mogliśmy znaleźć użytkownika dla tej subskrypcji. Prawdopodobnie próbujesz zrezygnować z subskrypcji z konta, które już nie istnieje."
     log_out: "Wyloguj"
     submit: "Zapisz ustawienia"
@@ -1245,18 +1223,12 @@ pl_PL:
         author: Autor
         edit_reason: Powód
     consolidated_api_requests:
-<<<<<<< HEAD
       title: "Skonsolidowane żądania API"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       xaxis:
         api: "API"
         user_api: "API użytkownika"
       yaxis: "Dzień"
-<<<<<<< HEAD
       description: "Żądania API dotyczące zwykłych kluczy API i kluczy API użytkownika."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     dau_by_mau:
       title: "DAU / MAU"
       xaxis: "Dzień"
@@ -1745,13 +1717,8 @@ pl_PL:
     email_token_valid_hours: "Tokeny resetujące hasło / aktywujące konto są ważne przez (n) godzin."
     enable_badges: "Włącz system odznak"
     max_favorite_badges: "Maksymalna liczba odznak, które użytkownik może wybrać"
-<<<<<<< HEAD
     whispers_allowed_groups: "Zezwalaj na prywatną komunikację w ramach tematów członkom określonych grup."
     hidden_post_visible_groups: "Zezwól członkom tych grup na przeglądanie ukrytych postów. Użytkownicy personelu zawsze mogą przeglądać ukryte posty."
-=======
-    enable_whispers: "Pozwalaj administracji na prywatną rozmowę w tematach."
-    whispers_allowed_groups: "Zezwalaj na prywatną komunikację w ramach tematów członkom określonych grup."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     allow_index_in_robots_txt: "W pliku robots.txt określ, że ta witryna może być indeksowana przez wyszukiwarki internetowe. W wyjątkowych przypadkach możesz trwale <a href='%{base_path}/admin/customize/robots'>zastąpić plik robots.txt</a>."
     blocked_email_domains: "Rozdzielona pionową kreską lista domen poczty e-mail, z których użytkownicy nie mogą rejestrować kont. Subdomeny są obsługiwane automatycznie dla określonych domen. Symbole wieloznaczne * i ? nie są obsługiwane. Przykład: mailinator.com|trashmail.net"
     allowed_email_domains: "Rozdzielona pionową kreską lista domen e-mail, z których użytkownicy MUSZĄ zarejestrować konta. Subdomeny są obsługiwane automatycznie dla określonych domen. Symbole wieloznaczne * i ? nie są obsługiwane. OSTRZEŻENIE: Użytkownicy z domenami e-mail innymi niż wymienione nie będą mogli się zarejestrować!"
@@ -1803,11 +1770,8 @@ pl_PL:
     google_oauth2_prompt: "Opcjonalna lista wartości łańcuchowych rozdzielanych spacjami, która określa, czy serwer autoryzacji monituje użytkownika o ponowne uwierzytelnienie i zgodę. Możliwe wartości można znaleźć na <a href='https://developers.google.com/identity/protocols/OpenIDConnect#prompt' target='_blank'>https://developers.google.com/identity/protocols/OpenIDConnect#prompt</a> ."
     google_oauth2_hd: "Opcjonalna domena Google Apps Hosted, do której logowanie będzie ograniczone. Więcej informacji można znaleźć na <a href='https://developers.google.com/identity/protocols/OpenIDConnect#hd-param' target='_blank'>https://developers.google.com/identity/protocols/OpenIDConnect#hd-param</a>"
     google_oauth2_hd_groups: "(eksperymentalne) Pobierz grupy dyskusyjne Google użytkowników w domenie hostowanej po uwierzytelnieniu. Pobrane grupy dyskusyjne Google mogą być używane do przyznawania automatycznego członkostwa w grupach Discourse (zobacz ustawienia grupy). Więcej informacji znajdziesz na https://meta.discourse.org/t/226850"
-<<<<<<< HEAD
     google_oauth2_hd_groups_service_account_admin_email: "Adres e-mail należący do konta administratora Google Workspace. Będzie używany z poświadczeniami konta usługi do pobierania informacji o grupie."
     google_oauth2_hd_groups_service_account_json: "Kluczowe informacje w formacie JSON dla konta usługi. Będą używane do pobierania informacji o grupie."
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     enable_twitter_logins: "Włącz uwierzytelnianie przez Twittera, wymaga twitter_consumer_key i twitter_consumer_secret. Zobacz <a href='https://meta.discourse.org/t/13395' target='_blank'>Konfigurowanie logowania przez Twittera (i bogatych embedów) dla Discourse</a>."
     twitter_consumer_key: "Klucz klienta do uwierzytelnienia na Twitterze, zarejestrowany na <a href='https://developer.twitter.com/apps' target='_blank'>https://developer.twitter.com/apps</a>"
     twitter_consumer_secret: "Sekret klienta dotyczący uwierzytelniania na Twitterze, zarejestrowany na <a href='https://developer.twitter.com/apps' target='_blank'>stronie https://developer.twitter.com/apps</a>"
@@ -3942,10 +3906,7 @@ pl_PL:
     png_to_jpg_conversion_failure_message: "Wystąpił błąd podczas konwersji z PNG na JPG."
     optimize_failure_message: "Wystąpił błąd podczas optymalizacji przesłanego obrazu."
     download_failure: "Pobieranie pliku od zewnętrznego dostawcy nie powiodło się."
-<<<<<<< HEAD
     size_mismatch_failure: "Rozmiar pliku przesłanego do S3 nie odpowiadał zamierzonemu rozmiarowi zewnętrznego przesyłania. %{additional_detail}"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     create_multipart_failure: "Nie udało się utworzyć wieloczęściowego przesyłania w zewnętrznym sklepie."
     abort_multipart_failure: "Nie udało się przerwać przesyłania wieloczęściowego do magazynu zewnętrznego."
     complete_multipart_failure: "Nie udało się ukończyć przesyłania wieloczęściowego w magazynie zewnętrznym."
@@ -4794,16 +4755,10 @@ pl_PL:
             description: "Zalecany rozmiar: 600 x 200"
           logo_small:
             label: "Kwadratowe logo"
-<<<<<<< HEAD
             description: "Zalecany rozmiar: 512 x 512. Używany również jako favicon i ikona aplikacji mobilnej na ekranie głównym."
       corporate:
         title: "Twoja organizacja"
         description: "Następujące informacje zostaną użyte na stronach warunki użytkowania serwisu i o witrynie. Możesz pominąć, jeśli żadna firma nie istnieje."
-=======
-            description: "Kwadratowa wersja Twojego logo. Wyświetlana w lewym górnym rogu podczas przewijania w dół i podczas udostępniania na platformach społecznościowych. Najlepiej w rozmiarze co najmniej 512x512."
-      corporate:
-        title: "Twoja organizacja"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         fields:
           company_name:
             label: "Nazwa firmy"

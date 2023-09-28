@@ -109,20 +109,12 @@ export default Controller.extend(
 
     @discourseComputed
     disclaimerHtml() {
-<<<<<<< HEAD
       if (this.site.tos_url && this.site.privacy_policy_url) {
         return I18n.t("create_account.disclaimer", {
           tos_link: this.site.tos_url,
           privacy_link: this.site.privacy_policy_url,
         });
       }
-=======
-      return I18n.t("create_account.disclaimer", {
-        tos_link: this.siteSettings.tos_url || getURL("/tos"),
-        privacy_link:
-          this.siteSettings.privacy_policy_url || getURL("/privacy"),
-      });
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
 
     // Check the email address

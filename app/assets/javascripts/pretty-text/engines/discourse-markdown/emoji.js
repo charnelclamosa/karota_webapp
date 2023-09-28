@@ -196,12 +196,8 @@ function applyEmoji(
   enableShortcuts,
   inlineEmoji,
   customEmojiTranslation,
-<<<<<<< HEAD
   watchedWordsReplacer,
   emojiDenyList
-=======
-  watchedWordsReplacer
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 ) {
   let result = null;
   let start = 0;
@@ -229,7 +225,6 @@ function applyEmoji(
     });
   }
 
-<<<<<<< HEAD
   // prevent denied emoji and aliases from being rendered
   if (emojiDenyList?.length > 0) {
     emojiDenyList.forEach((emoji) => {
@@ -240,8 +235,6 @@ function applyEmoji(
     });
   }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   let end = content.length;
 
   for (let i = 0; i < content.length - 1; i++) {
@@ -377,12 +370,8 @@ export function setup(helper) {
           md.options.discourse.features.emojiShortcuts,
           md.options.discourse.features.inlineEmoji,
           md.options.discourse.customEmojiTranslation,
-<<<<<<< HEAD
           md.options.discourse.watchedWordsReplace,
           md.options.discourse.emojiDenyList
-=======
-          md.options.discourse.watchedWordsReplace
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         )
       )
     );

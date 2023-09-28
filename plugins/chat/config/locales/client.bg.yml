@@ -6,7 +6,6 @@
 
 bg:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         categories:
@@ -48,16 +47,11 @@ bg:
           one: "Вие премествате <strong>%{count}</strong> съобщение. Изберете целеви канал. Заместващо съобщение ще бъде създадено в канала <strong>%{channelTitle}</strong> , за да покаже, че това съобщение е преместено. Обърнете внимание, че веригите за отговори няма да бъдат запазени в новия канал и съобщенията в стария канал вече няма да се показват като отговарящи на преместени съобщения."
           other: "Вие премествате <strong>%{count}</strong> съобщения. Изберете целеви канал. Заместващо съобщение ще бъде създадено в канала <strong>%{channelTitle}</strong> , за да покаже, че тези съобщения са били преместени. Обърнете внимание, че веригите за отговори няма да бъдат запазени в новия канал и съобщенията в стария канал вече няма да се показват като отговарящи на преместени съобщения."
         confirm_move: "Преместване на съобщения"
-=======
-    chat:
-      cancel: "Прекрати"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       channel_settings:
         edit: "Редактирай"
         add: "Добави "
         join: "Влизане"
         leave: "Напусни"
-<<<<<<< HEAD
       channel_delete:
         instructions: "<p>Изтрива канала <strong>%{name}</strong> и историята на чата. Всички съобщения и свързани с тях данни, като реакции и качвания, ще бъдат изтрити за постоянно. Ако искате да запазите историята на канала и да го деактивирате, може вместо това да архивирате канала.</p> <p>Сигурни ли сте, че искате да <strong>изтриете окончателно</strong> канала? За да потвърдите, въведете името на канала в полето по-долу.</p>"
       close: "Затвори"
@@ -66,15 +60,11 @@ bg:
       deleted:
         one: "Едно съобщение беше изтрито. [view]"
         other: "%{count} съобщения бяха изтрити. [виж всички]"
-=======
-      close: "Затвори"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Изтрий"
       muted: "заглуши"
       joined: "присъединен"
       email_frequency:
         never: "Никога"
-<<<<<<< HEAD
       header_indicator_preference:
         title: "Показване на индикатора за активност в хедъра"
         all_new: "Всички нови съобщения"
@@ -85,12 +75,6 @@ bg:
       last_visit: "последно посещение"
       summarization:
         summarize: "Обобщаване"
-=======
-      flag: "Сигнализиране"
-      join: "Влизане"
-      mention_warning:
-        dismiss: "отмени"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Отговорете"
       edit: "Редактирай"
       rebake_message: "Прегенерирай HTML "
@@ -112,10 +96,7 @@ bg:
         yesterday: Вчера
       about_view:
         title: Заглавие
-<<<<<<< HEAD
         name: Име
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Описание
       channel_info:
         back_to_channel: "Назад"
@@ -139,11 +120,8 @@ bg:
       settings:
         follow: "Влизане"
         followed: "Присъединен"
-<<<<<<< HEAD
         threading_enabled: "Да е включен"
         threading_disabled: "Деактивирани"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Известия"
         save: "Запази "
         saved: "Запазено"
@@ -172,7 +150,6 @@ bg:
         activities: "Дейности"
         flags: "Сигнали"
         symbols: "Символи"
-<<<<<<< HEAD
       thread:
         title: "Заглавие"
         replies:
@@ -188,8 +165,6 @@ bg:
         participants_other_count:
           one: "+%{count}"
           other: "+%{count}"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Ново Съобщение"
         cancel: "Прекрати"
@@ -199,7 +174,6 @@ bg:
           fields:
             message:
               label: Съобщение
-<<<<<<< HEAD
     styleguide:
       sections:
         chat:
@@ -208,9 +182,3 @@ bg:
       panels:
         chat:
           label: "Чат"
-=======
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Означено от"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

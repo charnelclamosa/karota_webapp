@@ -36,12 +36,8 @@ class ReviewableClaimedTopicsController < ApplicationController
   def notify_users(topic, claimed_by)
     group_ids = Set.new([Group::AUTO_GROUPS[:staff]])
 
-<<<<<<< HEAD
     if SiteSetting.enable_category_group_moderation? &&
          group_id = topic.category&.reviewable_by_group_id.presence
-=======
-    if SiteSetting.enable_category_group_moderation? && group_id = topic.category&.reviewable_by_group_id.presence
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       group_ids.add(group_id)
     end
 

@@ -10,12 +10,7 @@ import {
 import { hbs } from "ember-cli-htmlbars";
 import EmberObject from "@ember/object";
 import I18n from "I18n";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import User from "discourse/models/user";
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Integration | Component | Widget | post", function (hooks) {
   setupRenderingTest(hooks);

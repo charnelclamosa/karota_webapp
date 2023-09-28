@@ -8,7 +8,6 @@
     "ember-addon"
   ],
   "dependencies": {
-<<<<<<< HEAD
     "a11y-dialog": "8.0.1",
     "ember-auto-import": "^2.6.3",
     "ember-cli-babel": "^8.1.0",
@@ -16,15 +15,6 @@
   },
   "devDependencies": {
     "webpack": "^5.88.2"
-=======
-    "a11y-dialog": "7.5.2",
-    "ember-auto-import": "^2.5.0",
-    "ember-cli-babel": "^7.26.10",
-    "ember-cli-htmlbars": "^6.1.1"
-  },
-  "devDependencies": {
-    "webpack": "^5.75.0"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
   "engines": {
     "node": "16.* || >= 18",

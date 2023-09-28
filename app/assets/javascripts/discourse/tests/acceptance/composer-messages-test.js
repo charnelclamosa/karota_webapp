@@ -3,7 +3,6 @@ import {
   exists,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
-<<<<<<< HEAD
 import {
   click,
   fillIn,
@@ -11,9 +10,6 @@ import {
   visit,
   waitUntil,
 } from "@ember/test-helpers";
-=======
-import { click, fillIn, triggerKeyEvent, visit } from "@ember/test-helpers";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { test } from "qunit";
 import selectKit from "discourse/tests/helpers/select-kit-helper";
 import I18n from "I18n";

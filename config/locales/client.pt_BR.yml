@@ -1080,12 +1080,9 @@ pt_BR:
       dismiss_notifications_tooltip: "Marcar todas as notificações não lidas como lidas"
       dismiss_bookmarks_tooltip: "Marcar todos os lembretes de favoritos não lidos como lidos"
       dismiss_messages_tooltip: "Marcar todas as notificações de mensagens pessoais não lidas como lidas"
-<<<<<<< HEAD
       no_likes_title: "Você ainda não recebeu nenhuma curtida"
       no_likes_body: >
         Você receberá uma notificação aqui sempre que alguém curtir uma de suas postagens, para que possa saber o que os outros estão achando valioso. Outros também verão o mesmo quando você curtir as postagens deles! <br><br> Notificações de curtidas nunca são enviadas para seu e-mail, mas você pode configurar a forma de receber notificações sobre curtidas no site ajustando suas <a href='%{preferencesUrl}'>preferências de notificação</a>.
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       no_messages_title: "Você não tem mensagens"
       no_messages_body: >
         Precisa ter uma conversa pessoal direta, fora do fluxo de conversa normal? Envie uma mensagem ao selecionar o seu avatar e usar o botão de mensagem %{icon}.<br><br> Se precisar de ajuda, envie uma <a href='%{aboutUrl}'>mensagem a um membro da equipe</a>.
@@ -1125,25 +1122,12 @@ pt_BR:
       enable_quoting: "Ativar resposta citando o texto destacado"
       enable_defer: "Ativar adiamento para marcar tópicos como não lidos"
       experimental_sidebar:
-<<<<<<< HEAD
         enable: "Ativar barra lateral"
         options: "Opções"
         navigation_section: "Navegação"
         navigation_section_instruction: "Quando uma lista de tópicos no menu de navegação tem itens novos ou não lidos…"
         link_to_filtered_list_checkbox_description: "Link para a lista filtrada"
         show_count_new_items_checkbox_description: "Exibir a contagem dos novos itens"
-=======
-        enable: "Habilitar barra lateral"
-        options: "Opções"
-        categories_section: "Seção de Categorias"
-        categories_section_instruction: "As categorias selecionadas serão exibidas na seção de categorias do painel lateral."
-        tags_section: "Seção de Etiquetas"
-        tags_section_instruction: "As etiquetas selecionadas serão exibidas na seção de etiquetas da barra lateral."
-        navigation_section: "Navegação"
-        list_destination_instruction: "Quando houver conteúdo novo na barra lateral..."
-        list_destination_default: "usar o link padrão e mostrar um emblema para novos itens"
-        list_destination_unread_new: "link para novos/não lidos e mostrar contagem de itens novos"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "alterar"
       featured_topic: "Tópico em destaque"
       moderator: "%{user} é moderador(a)"
@@ -1779,12 +1763,7 @@ pt_BR:
       pause_notifications: "Pausar notificações"
       remove_status: "Remover status"
     user_tips:
-<<<<<<< HEAD
       button: "Entendi!"
-=======
-      primary: "Entendi!"
-      secondary: "não me mostre essas dicas"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "Sua primeira notificação!"
         content: "As notificações são usadas para que você se atualize sobre o que está acontecendo na comunidade."
@@ -1800,14 +1779,10 @@ pt_BR:
       suggested_topics:
         title: "Continue lendo!"
         content: "Confira alguns tópicos que achamos que você possa gostar de ler em seguida."
-<<<<<<< HEAD
       admin_guide:
         title: "Boas-vindas ao nosso novo site!"
         content: "<a href='%{admin_guide_url}'>Leia o guia da administração</a> para continuar criando seu site e comunidade."
         content_no_url: "Leia o guia da administração para continuar criando seu site e comunidade."
-=======
-    loading: "Carregando..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "ao tentar carregar"
       reasons:
@@ -1869,12 +1844,9 @@ pt_BR:
       hidden_for_session: "Ok, vamos perguntar amanhã. Você sempre pode usar \"Entrar\" para criar uma conta também."
       intro: "Olá! Parece que você está gostando da discussão, mas ainda não cadastou uma conta."
       value_prop: "Cansou de ver as mesmas postagens? Ao criar uma conta, você sempre volta de onde parou. Com uma conta, você também pode receber notificações de novas respostas, salvar favoritos e usar curtidas para agradecer aos outros. Todos nós podemos trabalhar juntos para tornar esta comunidade excelente. :heart:"
-<<<<<<< HEAD
     offline_indicator:
       no_internet: "Sem conexão à internet."
       refresh_page: "Atualizar página"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     summary:
       in_progress: "Resumindo tópico usando IA"
       summarized_on: "Resumo feito com a IA em %{date}"
@@ -3114,13 +3086,8 @@ pt_BR:
       sr_collapse_replies: "Recolher respostas incorporadas"
       sr_date: "Data da postagem"
       sr_expand_replies:
-<<<<<<< HEAD
         one: "Esta publicação tem %{count} resposta"
         other: "Esta postagem tem %{count} respostas"
-=======
-        one: "Esta postagem tem %{count} resposta. Clique para expandir"
-        other: "Esta postagem tem %{count} respostas. Clique para expandir"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       expand_collapse: "expandir/recolher"
       sr_below_embedded_posts_description: "poste #%{post_number} respostas"
       sr_embedded_reply_description: "resposta por @%{username} à postagem #%{post_number}"
@@ -3360,10 +3327,6 @@ pt_BR:
         description: "Exigir que novos tópicos tenham etiquetas de grupos de etiquetas:"
         delete: "Excluir"
         add: "Adicionar grupo de tags necessário"
-<<<<<<< HEAD
-=======
-        placeholder: "selecionar grupo de etiquetas..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "Permitir links em destaque nesta categoria"
       delete: "Excluir categoria"
       create: "Nova categoria"
@@ -3691,13 +3654,7 @@ pt_BR:
         this_month: "Mês"
         this_week: "Semana"
         today: "Hoje"
-<<<<<<< HEAD
     browser_update: 'Infelizmente, <a href="https://www.discourse.org/faq/#browser">seu navegador não é compatível</a>. <a href="https://browsehappy.com">Use um navegador compatível</a> para visualizar um conteúdo interessante, entrar com a conta e responder.'
-=======
-        other_periods: "ver melhores:"
-    browser_update: 'Infelizmente, <a href="https://www.discourse.org/faq/#browser">seu navegador não é compatível</a>. <a href="https://browsehappy.com">Use um navegador compatível</a> para visualizar um conteúdo interessante, entrar com a conta e responder.'
-    safari_13_warning: Este site em breve removerá o suporte para iOS e Safari versões 13 e anteriores. Uma versão simplificada somente para leitura permanecerá disponível. (<a href="https://meta.discourse.org/t/224747">mais informações</a>)
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     permission_types:
       full: "Criar/Responder/Ver"
       create_post: "Responder/Ver"
@@ -3871,15 +3828,6 @@ pt_BR:
       changed: "etiquetas alteradas:"
       tags: "Etiquetas"
       choose_for_topic: "etiquetas opcionais"
-<<<<<<< HEAD
-=======
-      choose_for_topic_required:
-        one: "selecione pelo menos %{count} etiqueta..."
-        other: "selecione pelo menos %{count} etiquetas..."
-      choose_for_topic_required_group:
-        one: "selecione %{count} etiqueta de '%{name}'..."
-        other: "selecione %{count} etiquetas de '%{name}'..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       info: "Informações"
       default_info: "Esta etiqueta não está restrita a nenhuma categorias e não possui sinônimos."
       staff_info: "Para adicionar restrições, coloque esta etiqueta em um <a href=%{basePath}/tag_groups>grupo de etiquetas</a>."
@@ -4054,11 +4002,7 @@ pt_BR:
       new_count:
         one: "%{count} nova"
         other: "%{count} novas"
-<<<<<<< HEAD
       toggle_section: "Alternar seção"
-=======
-      toggle_section: "alternar seção"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       more: "Mais"
       all_categories: "Todas as categorias"
       all_tags: "Todas as etiquetas"
@@ -4121,11 +4065,7 @@ pt_BR:
           header_link_text: "Sobre"
         messages:
           header_link_text: "Mensagens"
-<<<<<<< HEAD
           header_action_title: "Criar uma mensagem pessoal"
-=======
-          header_action_title: "criar uma mensagem pessoal"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             inbox: "Caixa de entrada"
             sent: "Enviadas"
@@ -4142,11 +4082,7 @@ pt_BR:
           none: "Você não adicionou nenhuma etiqueta."
           click_to_get_started: "Clique aqui para começar."
           header_link_text: "Etiquetas"
-<<<<<<< HEAD
           header_action_title: "Editar suas etiquetas da barra lateral"
-=======
-          header_action_title: "editar as suas etiquetas da barra lateral"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           configure_defaults: "Configurar padrões"
         categories:
           links:
@@ -4156,20 +4092,12 @@ pt_BR:
           none: "Você não adicionou nenhuma categoria."
           click_to_get_started: "Clique aqui para começar."
           header_link_text: "Categorias"
-<<<<<<< HEAD
           header_action_title: "Editar suas categorias de barra lateral"
           configure_defaults: "Configurar padrões"
         community:
           edit_section:
             sidebar: "Personalize esta seção"
             header_dropdown: "Personalizar"
-=======
-          header_action_title: "editar suas categorias de barra lateral"
-          configure_defaults: "Configurar padrões"
-        community:
-          header_link_text: "Comunidade"
-          header_action_title: "criar um novo tópico"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             about:
               content: "Sobre"
@@ -4185,10 +4113,7 @@ pt_BR:
               title: "Todos os tópicos"
             faq:
               content: "FAQ"
-<<<<<<< HEAD
               title: "Diretrizes para usar este site"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             groups:
               content: "Grupos"
               title: "Lista de grupos de usuários disponíveis"
@@ -4197,28 +4122,20 @@ pt_BR:
               title: "Lista de todos os usuários"
             my_posts:
               content: "Minhas postagens"
-<<<<<<< HEAD
               content_drafts: "Meus Rascunhos"
               title: "Minha atividade de tópico recente"
               title_drafts: "Meus rascunhos não publicados"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               draft_count:
                 one: "%{count} rascunho"
                 other: "%{count} rascunhos"
             review:
               content: "Revisar"
-<<<<<<< HEAD
               title: "Publicações sinalizadas e outros itens na fila"
               pending_count: "%{count} pendente"
         global_section: "Seção global, visível para todos"
       panels:
         forum:
           label: Fórum
-=======
-              title: "revisar"
-              pending_count: "%{count} pendente"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     welcome_topic_banner:
       title: "Crie seu Tópico de Boas-Vindas"
       description: "Seu tópico de boas-vindas é a primeira coisa que os novos membros vão ler. Pense nisso como seu “argumento de elevador” ou “declaração de missão”. Informe a todos sobre quem é o público desta comunidade, o que eles podem esperar encontrar aqui e o que você gostaria que eles fizessem primeiro."
@@ -4412,7 +4329,6 @@ pt_BR:
         about: "Edite a associação no seu grupo e os nomes aqui"
         group_members: "Membros do grupo"
         delete: "Apagar"
-<<<<<<< HEAD
         delete_confirm: "Tem certeza de que deseja excluir %{group}?"
         delete_details:
           one: "%{count} pessoa perderá o acesso a este grupo"
@@ -4421,8 +4337,6 @@ pt_BR:
           one: "%{count} mensagem ficará inacessível para os membros do grupo"
           other: "%{count} mensagens ficarão inacessíveis aos membros do grupo"
         delete_warning: "Os grupos excluídos não podem ser recuperados"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         delete_failed: "Não é possível excluir o grupo. Se for um grupo automático, não poderá ser desfeito."
         delete_automatic_group: Este é um grupo automático e não pode ser excluído.
         delete_owner_confirm: "Remover privilégio de proprietário(a) de \"%{username}\"?"
@@ -4488,23 +4402,16 @@ pt_BR:
             topics:
               read: Leia um tópico ou uma postagem específica nele. RSS também é compatível.
               write: Crie um novo tópico ou poste em algum que já existe.
-<<<<<<< HEAD
               update: Atualize um tópico. Altere o título, categoria, etiquetas, status, arquétipo, featured_link etc.
               delete: Exclua um tópico.
-=======
-              update: Atualize um tópico. Altere o título, categoria, etiquetas, etc.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               read_lists: Leia listas de tópico como melhores, novidades, mais recentes. RSS também é compatível.
               status: "Atualiza o status de um tópico. Status: fechado, arquivado, visível, fixado. Ativado: verdadeiro, falso. Especifique um category_id aqui e no conteúdo do pedido para permitir apenas mudanças de status em tópicos dessa categoria."
             posts:
               edit: Edite qualquer postagem ou especifique uma.
-<<<<<<< HEAD
               delete: Exclua uma postagem.
               list: Liste as postagens mais recentes e postagens privadas. RSS também é compatível.
             tags:
               list: Liste etiquetas.
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             categories:
               list: Obtenha uma lista de categorias.
               show: Obtenha uma categoria simples por id.
@@ -4536,15 +4443,12 @@ pt_BR:
               list_user_badges: Liste emblemas de usuário(a).
               assign_badge_to_user: Atribua um emblema a um(a) usuário(a).
               revoke_badge_from_user: Revogue um emblema de um(a) usuário(a).
-<<<<<<< HEAD
             groups:
               manage_groups: Liste, adicione e remova membros do grupo.
               administer_groups: Liste, mostre, crie, atualize e exclua grupos.
             search:
               show: Pesquise usando o ponto de extremidade `/search.json?q=term`.
               query: Pesquise usando o ponto de extremidade `/search/query?term=term'.
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             wordpress:
               publishing: Necessário para os recursos de publicação do plugin WP Discourse (obrigatório).
               commenting: Necessário para os recursos de publicação do plugin WP Discourse.
@@ -4656,7 +4560,6 @@ pt_BR:
         is_enabled: "S"
         not_enabled: "N"
         change_settings_short: "Configurações"
-<<<<<<< HEAD
         howto: "Como instalo plugins?"
         official: "Plugin oficial"
         broken_route: "Não foi possível configurar o link para \"%{name}\". Verifique se os bloqueadores de anúncios estão desativados e tente recarregar a página."
@@ -4664,11 +4567,6 @@ pt_BR:
         sidebar: "Barra lateral"
         header_dropdown: "Menu dropdown de cabeçalho"
         legacy: "Legado"
-=======
-        howto: "Como instalo plug-ins?"
-        official: "Plug-in oficial"
-        broken_route: "Não foi possível configurar o link para \"%{name}\". Verifique se os bloqueadores de anúncios estão desativados e tente recarregar a página."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       backups:
         title: "Backups"
         menu:
@@ -5791,11 +5689,7 @@ pt_BR:
           search: "Pesquisar"
           groups: "Grupos"
           dashboard: "Painel de controle"
-<<<<<<< HEAD
           navigation: "Navegação"
-=======
-          sidebar: "Barra Lateral"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "Os campos de entrada não podem estar vazios ou conter o caractere de barra vertical."
         default_categories:
@@ -5908,16 +5802,12 @@ pt_BR:
       embedding:
         get_started: "Se você deseja incorporar Discourse em outro site, começe adicionando seu host."
         confirm_delete: "Você tem certeza que deseja excluir este host?"
-<<<<<<< HEAD
         sample: |
           <p>Cole o seguinte código HTML em seu site para criar e incorporar tópicos do Discourse. Substitua <b>EMBED_URL</b> pelo URL canônico da página na qual você o está incorporando.</p>
 
           <p>Se quiser personalizar o estilo, remova o comentário e substitua <b>CLASS_NAME</b> por uma classe CSS definida no <i>CSS Incorporado</i> do seu tema.</p>
 
           <p>Substitua <b>DISCOURSE_USERNAME</b> pelo nome de usuário do Discourse do autor que deve criar o tópico. O Discourse procurará automaticamente o usuário pelo atributo <code>content</code> das etiquetas <code>&lt;meta&gt;</code> com atributo <code>name</code> definido como <code>discourse-username</code> ou <code>author</code>. O parâmetro <code>discourseUserName</code> foi preterido e será removido no Discourse 3.2.</p>
-=======
-        sample: "Cole o seguinte código HTML no seu site para criar e incorporar tópicos do discourse. Substitua <b>REPLACE_ME</b> pela URL canônica da página na qual você está incorporando."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         title: "Incorporar"
         host: "Hosts permitidos"
         allowed_paths: "Caminho Allowlist"

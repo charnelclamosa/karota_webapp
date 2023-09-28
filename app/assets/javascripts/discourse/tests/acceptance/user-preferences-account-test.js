@@ -306,7 +306,6 @@ acceptance("User Preferences - Account", function (needs) {
       "includes the right pick avatar request params"
     );
   });
-<<<<<<< HEAD
 });
 
 acceptance("User Preferences — Account - Download Archive", function (needs) {
@@ -333,6 +332,4 @@ acceptance("User Preferences — Account - Download Archive", function (needs) {
 
     await click("#dialog-holder .btn-primary");
   });
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

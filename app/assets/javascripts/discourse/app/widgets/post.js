@@ -21,12 +21,8 @@ import { relativeAgeMediumSpan } from "discourse/lib/formatter";
 import { transformBasicPost } from "discourse/lib/transform-post";
 import autoGroupFlairForUser from "discourse/lib/avatar-flair";
 import { nativeShare } from "discourse/lib/pwa-utils";
-<<<<<<< HEAD
 import ShareTopicModal from "discourse/components/modal/share-topic";
 import { getOwner } from "@ember/application";
-=======
-import { hideUserTip } from "discourse/lib/user-tips";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 function transformWithCallbacks(post) {
   let transformed = transformBasicPost(post);

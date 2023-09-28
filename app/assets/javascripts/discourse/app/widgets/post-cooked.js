@@ -9,16 +9,11 @@ import { spinnerHTML } from "discourse/helpers/loading-spinner";
 import { escape } from "pretty-text/sanitizer";
 import domFromString from "discourse-common/lib/dom-from-string";
 import getURL from "discourse-common/lib/get-url";
-<<<<<<< HEAD
 import {
   destroyUserStatusOnMentions,
   updateUserStatusOnMention,
 } from "discourse/lib/update-user-status-on-mention";
 import { getOwnerWithFallback } from "discourse-common/lib/get-owner";
-=======
-import { emojiUnescape } from "discourse/lib/text";
-import { escapeExpression } from "discourse/lib/utilities";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 let _beforeAdoptDecorators = [];
 let _afterAdoptDecorators = [];
@@ -85,10 +80,7 @@ export default class PostCooked {
 
   destroy() {
     this._stopTrackingMentionedUsersStatus();
-<<<<<<< HEAD
     destroyUserStatusOnMentions();
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   _decorateAndAdopt(cooked) {
@@ -394,10 +386,7 @@ export default class PostCooked {
   }
 
   _rerenderUserStatusOnMentions() {
-<<<<<<< HEAD
     destroyUserStatusOnMentions();
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this._post()?.mentioned_users?.forEach((user) =>
       this._rerenderUserStatusOnMention(this.cookedDiv, user)
     );
@@ -408,7 +397,6 @@ export default class PostCooked {
     const mentions = postElement.querySelectorAll(`a.mention[href="${href}"]`);
 
     mentions.forEach((mention) => {
-<<<<<<< HEAD
       updateUserStatusOnMention(
         getOwnerWithFallback(this._post()),
         mention,
@@ -421,61 +409,13 @@ export default class PostCooked {
     this._post()?.mentioned_users?.forEach((user) => {
       user.trackStatus?.();
       user.on?.("status-changed", this, "_rerenderUserStatusOnMentions");
-=======
-      this._updateUserStatus(mention, user.status);
-    });
-  }
-
-  _updateUserStatus(mention, status) {
-    this._removeUserStatus(mention);
-    if (status) {
-      this._insertUserStatus(mention, status);
-    }
-  }
-
-  _insertUserStatus(mention, status) {
-    const emoji = escapeExpression(`:${status.emoji}:`);
-    const statusHtml = emojiUnescape(emoji, {
-      class: "user-status",
-      title: this._userStatusTitle(status),
-    });
-    mention.insertAdjacentHTML("beforeend", statusHtml);
-  }
-
-  _removeUserStatus(mention) {
-    mention.querySelector("img.user-status")?.remove();
-  }
-
-  _userStatusTitle(status) {
-    if (!status.ends_at) {
-      return status.description;
-    }
-
-    const until_ = until(
-      status.ends_at,
-      this.currentUser.timezone,
-      this.currentUser.locale
-    );
-    return escapeExpression(`${status.description} ${until_}`);
-  }
-
-  _trackMentionedUsersStatus() {
-    this._post()?.mentioned_users?.forEach((user) => {
-      user.trackStatus();
-      user.on("status-changed", this, "_rerenderUserStatusOnMentions");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   }
 
   _stopTrackingMentionedUsersStatus() {
     this._post()?.mentioned_users?.forEach((user) => {
-<<<<<<< HEAD
       user.stopTrackingStatus?.();
       user.off?.("status-changed", this, "_rerenderUserStatusOnMentions");
-=======
-      user.stopTrackingStatus();
-      user.off("status-changed", this, "_rerenderUserStatusOnMentions");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
   }
 

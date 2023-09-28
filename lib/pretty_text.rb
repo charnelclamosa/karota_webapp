@@ -197,10 +197,6 @@ module PrettyText
         __optInput.lookupPrimaryUserGroup = __lookupPrimaryUserGroup;
         __optInput.formatUsername = __formatUsername;
         __optInput.getTopicInfo = __getTopicInfo;
-<<<<<<< HEAD
-=======
-        __optInput.categoryHashtagLookup = __categoryLookup;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         __optInput.hashtagLookup = __hashtagLookup;
         __optInput.customEmoji = #{custom_emoji.to_json};
         __optInput.customEmojiTranslation = #{Plugin::CustomEmoji.translations.to_json};
@@ -220,7 +216,6 @@ module PrettyText
         buffer << "__optInput.forceQuoteLink = #{opts[:force_quote_link]};\n"
       end
 
-<<<<<<< HEAD
       buffer << "__optInput.userId = #{opts[:user_id].to_i};\n" if opts[:user_id]
 
       opts[:hashtag_context] = opts[:hashtag_context] || "topic-composer"
@@ -231,18 +226,6 @@ module PrettyText
           .join(",")
       buffer << "__optInput.hashtagTypesInPriorityOrder = [#{hashtag_types_as_js}];\n"
       buffer << "__optInput.hashtagIcons = #{HashtagAutocompleteService.data_source_icon_map.to_json};\n"
-=======
-      if opts[:user_id]
-        buffer << "__optInput.userId = #{opts[:user_id].to_i};\n"
-
-        # NOTE: If using this for server-side cooking you will end up
-        # with a Hash once it is passed to a PrettyText::Helper. If
-        # you use that hash to instanciate a User model, you will want to do
-        # user.reload before accessing data on this parsed User, otherwise
-        # AR relations will not be loaded.
-        buffer << "__optInput.currentUser = #{User.find(opts[:user_id]).to_json}\n"
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       opts[:hashtag_context] = opts[:hashtag_context] || "topic-composer"
       hashtag_types_as_js = HashtagAutocompleteService.ordered_types_for_context(
@@ -470,7 +453,6 @@ module PrettyText
   end
 
   def self.extract_mentions(cooked)
-<<<<<<< HEAD
     mentions =
       cooked
         .css(".mention, .mention-group")
@@ -484,15 +466,6 @@ module PrettyText
 
     mentions =
       DiscoursePluginRegistry.apply_modifier(:pretty_text_extract_mentions, mentions, cooked)
-=======
-    mentions = cooked.css('.mention, .mention-group').map do |e|
-      if (name = e.inner_text)
-        name = name[1..-1]
-        name = User.normalize_username(name)
-        name
-      end
-    end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     mentions.compact!
     mentions.uniq!

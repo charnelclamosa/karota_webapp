@@ -19,13 +19,6 @@ import {
   linkSeenHashtagsInContext,
 } from "discourse/lib/hashtag-autocomplete";
 import {
-<<<<<<< HEAD
-=======
-  fetchUnseenHashtagsInContext,
-  linkSeenHashtagsInContext,
-} from "discourse/lib/hashtag-autocomplete";
-import {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   fetchUnseenMentions,
   linkSeenMentions,
 } from "discourse/lib/link-mentions";
@@ -493,33 +486,12 @@ export default Component.extend(ComposerUploadUppy, {
   },
 
   _renderUnseenHashtags(preview) {
-<<<<<<< HEAD
     const hashtagContext = this.site.hashtag_configurations["topic-composer"];
     const unseen = linkSeenHashtagsInContext(hashtagContext, preview);
     if (unseen.length > 0) {
       fetchUnseenHashtagsInContext(hashtagContext, unseen).then(() => {
         linkSeenHashtagsInContext(hashtagContext, preview);
       });
-=======
-    let unseen;
-    const hashtagContext = this.site.hashtag_configurations["topic-composer"];
-    if (this.siteSettings.enable_experimental_hashtag_autocomplete) {
-      unseen = linkSeenHashtagsInContext(hashtagContext, preview);
-    } else {
-      unseen = linkSeenHashtags(preview);
-    }
-
-    if (unseen.length > 0) {
-      if (this.siteSettings.enable_experimental_hashtag_autocomplete) {
-        fetchUnseenHashtagsInContext(hashtagContext, unseen).then(() => {
-          linkSeenHashtagsInContext(hashtagContext, preview);
-        });
-      } else {
-        fetchUnseenHashtags(unseen).then(() => {
-          linkSeenHashtags(preview);
-        });
-      }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   },
 
@@ -939,19 +911,8 @@ export default Component.extend(ComposerUploadUppy, {
       this._warnCannotSeeMention(preview);
 
       // Paint category, tag, and other data source hashtags
-<<<<<<< HEAD
       const hashtagContext = this.site.hashtag_configurations["topic-composer"];
       if (linkSeenHashtagsInContext(hashtagContext, preview).length > 0) {
-=======
-      let unseenHashtags;
-      const hashtagContext = this.site.hashtag_configurations["topic-composer"];
-      if (this.siteSettings.enable_experimental_hashtag_autocomplete) {
-        unseenHashtags = linkSeenHashtagsInContext(hashtagContext, preview);
-      } else {
-        unseenHashtags = linkSeenHashtags(preview);
-      }
-      if (unseenHashtags.length > 0) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         discourseDebounce(this, this._renderUnseenHashtags, preview, 450);
       }
 

@@ -3,28 +3,17 @@
     <div class="chat-channel-header-details">
       <div class="chat-full-page-header__left-actions">
         {{#if this.chatChannelInfoRouteOriginManager.isBrowse}}
-<<<<<<< HEAD
           <LinkTo
             @route="chat.browse"
             class="chat-full-page-header__back-btn no-text btn-flat btn"
             title={{i18n "chat.channel_info.back_to_all_channel"}}
           >
-=======
-          <LinkTo @route="chat.browse" class="chat-full-page-header__back-btn no-text btn-flat btn" title={{i18n "chat.channel_info.back_to_all_channel"}}>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             {{d-icon "chevron-left"}}
           </LinkTo>
         {{else}}
           <LinkTo
             @route="chat.channel"
-<<<<<<< HEAD
             @models={{this.model.routeModels}}
-=======
-            @models={{array
-              this.model.chatChannel.id
-              (slugify-channel this.model.chatChannel)
-            }}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             class="chat-full-page-header__back-btn no-text btn-flat btn"
             title={{i18n "chat.channel_info.back_to_channel"}}
           >
@@ -33,19 +22,12 @@
         {{/if}}
       </div>
 
-<<<<<<< HEAD
       <ChatChannelTitle @channel={{this.model}} />
     </div>
   </div>
 
   <ChatChannelStatus @channel={{this.model}} />
 
-=======
-      <ChatChannelTitle @channel={{this.model.chatChannel}} />
-    </div>
-  </div>
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   <div class="chat-tabs chat-info-tabs">
     <ul class="chat-tabs-list nav-pills" role="tablist">
       {{#each this.tabs as |tab|}}
@@ -56,24 +38,13 @@
         >
           <LinkTo
             @route={{concat "chat.channel.info." tab}}
-<<<<<<< HEAD
             @models={{this.model.routeModels}}
-=======
-            @models={{array
-              this.model.chatChannel.id
-              (slugify-channel this.model.chatChannel)
-            }}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             class="chat-tabs-list__link"
           >
             <span>{{i18n (concat "chat.channel_info.tabs." tab)}}</span>
             {{#if (eq tab "members")}}
               <span class="chat-tabs__memberships-count">
-<<<<<<< HEAD
                 ({{this.model.membershipsCount}})
-=======
-                ({{this.model.chatChannel.membershipsCount}})
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               </span>
             {{/if}}
           </LinkTo>
@@ -91,8 +62,4 @@
       {{outlet}}
     </div>
   </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

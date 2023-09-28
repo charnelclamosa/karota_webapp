@@ -345,10 +345,7 @@ const SiteHeaderComponent = MountWidget.extend(
         canSignUp: this.canSignUp,
         sidebarEnabled: this.sidebarEnabled,
         showSidebar: this.showSidebar,
-<<<<<<< HEAD
         navigationMenuQueryParamOverride: this.navigationMenuQueryParamOverride,
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       };
     },
 
@@ -370,10 +367,6 @@ const SiteHeaderComponent = MountWidget.extend(
         return;
       }
 
-<<<<<<< HEAD
-=======
-      const windowWidth = document.body.offsetWidth;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       const viewMode =
         this.site.mobileView || this.site.narrowDesktopView
           ? "slide-in"
@@ -404,28 +397,7 @@ const SiteHeaderComponent = MountWidget.extend(
           headerCloak.style.setProperty("--opacity", 0);
         }
 
-<<<<<<< HEAD
         if (viewMode === "slide-in") {
-=======
-        const panelBody = panel.querySelector(".panel-body");
-
-        // We use a mutationObserver to check for style changes, so it's important
-        // we don't set it if it doesn't change. Same goes for the panelBody!
-
-        if (!this.site.mobileView && !this.site.narrowDesktopView) {
-          const buttonPanel = document.querySelectorAll("header ul.icons");
-          if (buttonPanel.length === 0) {
-            return;
-          }
-
-          // These values need to be set here, not in the css file - this is to deal with the
-          // possibility of the window being resized and the menu changing from .slide-in to .drop-down.
-          if (panel.style.top !== "100%" || panel.style.height !== "auto") {
-            panel.style.setProperty("top", "100%");
-            panel.style.setProperty("height", "auto");
-          }
-        } else {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           headerCloak.style.display = "block";
         }
         if (this._animate) {
@@ -492,14 +464,9 @@ export default SiteHeaderComponent.extend({
 
     this.appEvents.on("site-header:force-refresh", this, "queueRerender");
 
-<<<<<<< HEAD
     this.headerWrap = document.querySelector(".d-header-wrap");
 
     if (this.headerWrap) {
-=======
-    const header = document.querySelector(".d-header-wrap");
-    if (header) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       schedule("afterRender", () => {
         this.header = this.headerWrap.querySelector("header.d-header");
         this.updateHeaderOffset();

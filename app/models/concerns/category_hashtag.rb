@@ -4,7 +4,6 @@ module CategoryHashtag
   extend ActiveSupport::Concern
 
   class_methods do
-<<<<<<< HEAD
     ##
     # Finds any categories that match the provided slugs, supporting
     # the parent:child format for category slugs (only one level of
@@ -23,15 +22,6 @@ module CategoryHashtag
             slug_path.map! { |slug| CGI.escape(slug) }
           end
           parent_slug, child_slug = slug_path.last(2)
-=======
-    # TODO (martin) Remove this when enable_experimental_hashtag_autocomplete
-    # becomes the norm, it is reimplemented below for CategoryHashtagDataSourcee
-    def query_from_hashtag_slug(category_slug)
-      slug_path = category_slug.split(SEPARATOR)
-      return nil if slug_path.empty? || slug_path.size > 2
-
-      slug_path.map! { |slug| CGI.escape(slug) } if SiteSetting.slug_generation_method == "encoded"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
           # Category slugs can be in the parent:child format, if there
           # is no child then the "parent" part of the slug is just the

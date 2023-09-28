@@ -33,11 +33,7 @@ const chatNotificationItem = {
     const title = this.notificationTitle(notificationName, data);
     const text = this.text(notificationName, data);
     const html = new RawHtml({ html: `<div>${text}</div>` });
-<<<<<<< HEAD
     const contents = [iconNode("d-chat"), html];
-=======
-    const contents = [iconNode("comment"), html];
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     const href = this.url(data);
 
     return h(
@@ -52,7 +48,6 @@ const chatNotificationItem = {
       title: data.chat_channel_title,
       slug: data.chat_channel_slug,
     });
-<<<<<<< HEAD
 
     let notificationRoute = `/chat/c/${slug || "-"}/${data.chat_channel_id}`;
     if (data.chat_thread_id) {
@@ -62,11 +57,6 @@ const chatNotificationItem = {
     }
 
     return notificationRoute;
-=======
-    return `/chat/channel/${data.chat_channel_id}/${slug || "-"}?messageId=${
-      data.chat_message_id
-    }`;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 };
 

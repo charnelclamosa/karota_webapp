@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { cached } from "@glimmer/tracking";
 
 import { debounce } from "discourse-common/utils/decorators";
 import Category from "discourse/models/category";
-=======
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
-import Category from "discourse/models/category";
-import { cached } from "@glimmer/tracking";
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import SidebarCommonCategoriesSection from "discourse/components/sidebar/common/categories-section";
 import { hasDefaultSidebarCategories } from "discourse/lib/sidebar/helpers";
 import SidebarEditNavigationMenuCategoriesModal from "discourse/components/sidebar/edit-navigation-menu/categories-modal";
@@ -47,7 +39,6 @@ export default class SidebarUserCategoriesSection extends SidebarCommonCategorie
     );
   }
 
-<<<<<<< HEAD
   // TopicTrackingState changes or plugins can trigger this function so we debounce to ensure we're not refreshing
   // unnecessarily.
   @debounce(300)
@@ -72,11 +63,6 @@ export default class SidebarUserCategoriesSection extends SidebarCommonCategorie
 
   get hasDefaultSidebarCategories() {
     return hasDefaultSidebarCategories(this.siteSettings);
-=======
-  @cached
-  get categories() {
-    return Category.findByIds(this.currentUser.sidebarCategoryIds);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   /**

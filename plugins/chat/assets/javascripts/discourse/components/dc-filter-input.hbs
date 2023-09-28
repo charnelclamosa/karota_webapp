@@ -11,10 +11,7 @@
 
   <Input
     class="dc-filter-input"
-<<<<<<< HEAD
     @value={{@value}}
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     {{on "input" (if @filterAction @filterAction (noop))}}
     {{on "focusin" (action (mut this.isFocused) true)}}
     {{on "focusout" (action (mut this.isFocused) false)}}
@@ -26,8 +23,4 @@
   {{#if @icons.right}}
     {{d-icon @icons.right class="-right"}}
   {{/if}}
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

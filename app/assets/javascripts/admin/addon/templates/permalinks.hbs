@@ -7,7 +7,6 @@
 
 <ConditionalLoadingSpinner @condition={{this.loading}}>
   <div class="permalink-search">
-<<<<<<< HEAD
     <TextField
       @value={{this.filter}}
       @class="url-input"
@@ -15,9 +14,6 @@
       @autocorrect="off"
       @autocapitalize="off"
     />
-=======
-    <TextField @value={{this.filter}} @class="url-input" @placeholderKey="admin.permalink.form.filter" @autocorrect="off" @autocapitalize="off" />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   </div>
 
   <div class="permalink-results">
@@ -25,20 +21,15 @@
       <table class="admin-logs-table permalinks grid">
         <thead class="heading-container">
           <th class="col heading first url">{{i18n "admin.permalink.url"}}</th>
-<<<<<<< HEAD
           <th class="col heading destination">{{i18n
               "admin.permalink.destination"
             }}</th>
-=======
-          <th class="col heading destination">{{i18n "admin.permalink.destination"}}</th>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           <th class="col heading actions"></th>
         </thead>
         <tbody>
           {{#each this.model as |pl|}}
             <tr class="admin-list-item">
               <td class="col first url">
-<<<<<<< HEAD
                 <FlatButton
                   @title="admin.permalink.copy_to_clipboard"
                   @icon="far-clipboard"
@@ -48,22 +39,14 @@
                   id="admin-permalink-{{pl.id}}"
                   title={{pl.url}}
                 >{{pl.url}}</span>
-=======
-                <FlatButton @title="admin.permalink.copy_to_clipboard" @icon="far-clipboard" @action={{action "copyUrl" pl}} />
-                <span id="admin-permalink-{{pl.id}}" title={{pl.url}}>{{pl.url}}</span>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               </td>
               <td class="col destination">
                 {{#if pl.topic_id}}
                   <a href={{pl.topic_url}}>{{pl.topic_title}}</a>
                 {{/if}}
                 {{#if pl.post_id}}
-<<<<<<< HEAD
                   <a href={{pl.post_url}}>{{pl.post_topic_title}}
                     #{{pl.post_number}}</a>
-=======
-                  <a href={{pl.post_url}}>{{pl.post_topic_title}} #{{pl.post_number}}</a>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                 {{/if}}
                 {{#if pl.category_id}}
                   {{category-link pl.category}}
@@ -79,15 +62,11 @@
                 {{/if}}
               </td>
               <td class="col action" style="text-align: right;">
-<<<<<<< HEAD
                 <DButton
                   @action={{fn this.destroyRecord pl}}
                   @icon="far-trash-alt"
                   class="btn-danger"
                 />
-=======
-                <DButton @action={{action "destroy"}} @actionParam={{pl}} @icon="far-trash-alt" @class="btn-danger" />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               </td>
             </tr>
           {{/each}}
@@ -97,7 +76,6 @@
       {{#if this.filter}}
         <p class="permalink-results__no-result">{{i18n "search.no_results"}}</p>
       {{else}}
-<<<<<<< HEAD
         <p class="permalink-results__no-permalinks">{{i18n
             "admin.permalink.no_permalinks"
           }}</p>
@@ -105,10 +83,3 @@
     {{/if}}
   </div>
 </ConditionalLoadingSpinner>
-=======
-        <p class="permalink-results__no-permalinks">{{i18n "admin.permalink.no_permalinks"}}</p>
-      {{/if}}
-    {{/if}}
-  </div>
-</ConditionalLoadingSpinner>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

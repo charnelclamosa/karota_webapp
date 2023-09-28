@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import Component from "@glimmer/component";
-=======
-import Component from "@ember/component";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { htmlSafe } from "@ember/template";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
@@ -44,24 +40,17 @@ export default class ChatEmojiPicker extends Component {
   @service chatEmojiPickerManager;
   @service emojiPickerScrollObserver;
   @service chatEmojiReactionStore;
-<<<<<<< HEAD
   @service capabilities;
   @service site;
 
   @tracked filteredEmojis = null;
   @tracked isExpandedFitzpatrickScale = false;
-=======
-  @tracked filteredEmojis = null;
-  @tracked isExpandedFitzpatrickScale = false;
-  tagName = "";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   fitzpatrickModifiers = FITZPATRICK_MODIFIERS;
 
   get groups() {
     const emojis = this.chatEmojiPickerManager.emojis;
     const favorites = {
-<<<<<<< HEAD
       favorites: this.chatEmojiReactionStore.favorites
         .filter((f) => !this.site.denied_emojis?.includes(f))
         .map((name) => {
@@ -71,15 +60,6 @@ export default class ChatEmojiPicker extends Component {
             url: emojiUrlFor(name),
           };
         }),
-=======
-      favorites: this.chatEmojiReactionStore.favorites.map((name) => {
-        return {
-          name,
-          group: "favorites",
-          url: emojiUrlFor(name),
-        };
-      }),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     };
 
     return {
@@ -89,13 +69,10 @@ export default class ChatEmojiPicker extends Component {
   }
 
   get flatEmojis() {
-<<<<<<< HEAD
     if (!this.chatEmojiPickerManager.emojis) {
       return [];
     }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     // eslint-disable-next-line no-unused-vars
     let { favorites, ...rest } = this.chatEmojiPickerManager.emojis;
     return Object.values(rest).flat();
@@ -190,11 +167,7 @@ export default class ChatEmojiPicker extends Component {
       }
     }
 
-<<<<<<< HEAD
     this.isExpandedFitzpatrickScale = !this.isExpandedFitzpatrickScale;
-=======
-    this.toggleProperty("isExpandedFitzpatrickScale");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   @action
@@ -230,38 +203,20 @@ export default class ChatEmojiPicker extends Component {
   }
 
   @action
-<<<<<<< HEAD
   didInputFilter(value) {
     if (!value?.length) {
-=======
-  didInputFilter(event) {
-    if (!event.target.value.length) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       this.filteredEmojis = null;
       return;
     }
 
-<<<<<<< HEAD
     discourseDebounce(this, this.debouncedDidInputFilter, value, INPUT_DELAY);
-=======
-    discourseDebounce(
-      this,
-      this.debouncedDidInputFilter,
-      event.target.value,
-      INPUT_DELAY
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   @action
   focusFilter(target) {
-<<<<<<< HEAD
     schedule("afterRender", () => {
       target?.focus();
     });
-=======
-    target.focus();
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   debouncedDidInputFilter(filter = "") {
@@ -287,7 +242,6 @@ export default class ChatEmojiPicker extends Component {
   }
 
   @action
-<<<<<<< HEAD
   onSectionsKeyDown(event) {
     if (event.key === "Enter") {
       this.didSelectEmoji(event);
@@ -297,8 +251,6 @@ export default class ChatEmojiPicker extends Component {
   }
 
   @action
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   didNavigateSection(event) {
     const sectionsEmojis = (section) => [...section.querySelectorAll(".emoji")];
     const focusSectionsLastEmoji = (section) => {
@@ -314,11 +266,7 @@ export default class ChatEmojiPicker extends Component {
     };
     const allEmojis = () => [
       ...document.querySelectorAll(
-<<<<<<< HEAD
         ".chat-emoji-picker__section:not(.hidden) .emoji"
-=======
-        ".chat-emoji-picker__scrollable-content .emoji"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ),
     ];
 
@@ -405,27 +353,11 @@ export default class ChatEmojiPicker extends Component {
         emoji = `${emoji}:t${diversity}`;
       }
 
-<<<<<<< HEAD
       this.args.didSelectEmoji?.(emoji);
-=======
-      this.chatEmojiPickerManager.didSelectEmoji(emoji);
-      this.appEvents.trigger("chat:focus-composer");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
   @action
-<<<<<<< HEAD
-=======
-  didFocusFirstEmoji(event) {
-    event.preventDefault();
-    const section = event.target.closest(".chat-emoji-picker__section").dataset
-      .section;
-    this.didRequestSection(section);
-  }
-
-  @action
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   didRequestSection(section) {
     const scrollableContent = document.querySelector(
       ".chat-emoji-picker__scrollable-content"
@@ -447,7 +379,6 @@ export default class ChatEmojiPicker extends Component {
     }
 
     schedule("afterRender", () => {
-<<<<<<< HEAD
       const firstEmoji = document.querySelector(
         `.chat-emoji-picker__section[data-section="${section}"] .emoji:nth-child(1)`
       );
@@ -460,15 +391,6 @@ export default class ChatEmojiPicker extends Component {
         ].find((emoji) => emoji.offsetTop > firstEmoji.offsetTop) || firstEmoji;
 
       targetEmoji.focus();
-=======
-      document
-        .querySelector(`.chat-emoji-picker__section[data-section="${section}"]`)
-        .scrollIntoView({
-          behavior: "auto",
-          block: "start",
-          inline: "nearest",
-        });
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       later(() => {
         // iOS hack to avoid blank div when requesting section during momentum

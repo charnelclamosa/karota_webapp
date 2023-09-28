@@ -147,7 +147,6 @@
                       <span class="required">*</span>
                     {{/if}}
                   </label>
-<<<<<<< HEAD
                   <div class="create-account__password-info">
                     <div class="create-account__password-tip-validation">
                       <InputTip
@@ -169,13 +168,6 @@
                       @maskPassword={{this.maskPassword}}
                       @togglePasswordMask={{this.togglePasswordMask}}
                     />
-=======
-
-                  <InputTip @validation={{this.passwordValidation}} @id="password-validation" />
-                  <span class="more-info">{{this.passwordInstructions}}</span>
-                  <div class="caps-lock-warning {{unless this.capsLockOn "hidden"}}">
-                    {{d-icon "exclamation-triangle"}} {{i18n "login.caps_lock_warning"}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
                   </div>
                 {{/if}}
 

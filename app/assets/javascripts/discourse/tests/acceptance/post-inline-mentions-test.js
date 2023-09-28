@@ -4,17 +4,12 @@ import {
   publishToMessageBus,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
-<<<<<<< HEAD
 import { triggerEvent, visit } from "@ember/test-helpers";
-=======
-import { visit } from "@ember/test-helpers";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { test } from "qunit";
 import { cloneJSON } from "discourse-common/lib/object";
 import topicFixtures from "../fixtures/topic";
 import pretender, { response } from "discourse/tests/helpers/create-pretender";
 
-<<<<<<< HEAD
 function topicWithoutUserStatus(topicId, mentionedUserId) {
   const topic = cloneJSON(topicFixtures[`/t/${topicId}.json`]);
   topic.archetype = "regular";
@@ -38,9 +33,6 @@ function topicWithUserStatus(topicId, mentionedUserId, status) {
 }
 
 acceptance("Post inline mentions", function (needs) {
-=======
-acceptance("Post inline mentions test", function (needs) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   needs.user();
 
   const topicId = 130;
@@ -51,57 +43,19 @@ acceptance("Post inline mentions test", function (needs) {
     ends_at: null,
   };
 
-<<<<<<< HEAD
   test("shows user status on inline mentions", async function (assert) {
     pretender.get(`/t/${topicId}.json`, () => {
       return response(topicWithUserStatus(topicId, mentionedUserId, status));
-=======
-  function topicWithoutUserStatus() {
-    const topic = cloneJSON(topicFixtures[`/t/${topicId}.json`]);
-    const firstPost = topic.post_stream.posts[0];
-    firstPost.cooked =
-      '<p>I am mentioning <a class="mention" href="/u/user1">@user1</a> again.</p>';
-    firstPost.mentioned_users = [
-      {
-        id: mentionedUserId,
-        username: "user1",
-        avatar_template: "/letter_avatar_proxy/v4/letter/a/bbce88/{size}.png",
-      },
-    ];
-    return topic;
-  }
-
-  function topicWithUserStatus() {
-    const topic = topicWithoutUserStatus();
-    topic.post_stream.posts[0].mentioned_users[0].status = status;
-    return topic;
-  }
-
-  test("shows user status on inline mentions", async function (assert) {
-    pretender.get(`/t/${topicId}.json`, () => {
-      return response(topicWithUserStatus());
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     await visit(`/t/lorem-ipsum-dolor-sit-amet/${topicId}`);
 
     assert.ok(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
       "user status is shown"
     );
     const statusElement = query(
       ".topic-post .cooked .mention .user-status-message img"
-=======
-      exists(".topic-post .cooked .mention .user-status"),
-      "user status is shown"
-    );
-    const statusElement = query(".topic-post .cooked .mention .user-status");
-    assert.equal(
-      statusElement.title,
-      status.description,
-      "status description is correct"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
     assert.ok(
       statusElement.src.includes(status.emoji),
@@ -111,20 +65,12 @@ acceptance("Post inline mentions test", function (needs) {
 
   test("inserts user status on message bus message", async function (assert) {
     pretender.get(`/t/${topicId}.json`, () => {
-<<<<<<< HEAD
       return response(topicWithoutUserStatus(topicId, mentionedUserId));
-=======
-      return response(topicWithoutUserStatus());
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
     await visit(`/t/lorem-ipsum-dolor-sit-amet/${topicId}`);
 
     assert.notOk(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
-=======
-      exists(".topic-post .cooked .mention .user-status"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "user status isn't shown"
     );
 
@@ -136,22 +82,11 @@ acceptance("Post inline mentions test", function (needs) {
     });
 
     assert.ok(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
       "user status is shown"
     );
     const statusElement = query(
       ".topic-post .cooked .mention .user-status-message img"
-=======
-      exists(".topic-post .cooked .mention .user-status"),
-      "user status is shown"
-    );
-    const statusElement = query(".topic-post .cooked .mention .user-status");
-    assert.equal(
-      statusElement.title,
-      status.description,
-      "status description is correct"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
     assert.ok(
       statusElement.src.includes(status.emoji),
@@ -161,20 +96,12 @@ acceptance("Post inline mentions test", function (needs) {
 
   test("updates user status on message bus message", async function (assert) {
     pretender.get(`/t/${topicId}.json`, () => {
-<<<<<<< HEAD
       return response(topicWithUserStatus(topicId, mentionedUserId, status));
-=======
-      return response(topicWithUserStatus());
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
     await visit(`/t/lorem-ipsum-dolor-sit-amet/${topicId}`);
 
     assert.ok(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
-=======
-      exists(".topic-post .cooked .mention .user-status"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "initial user status is shown"
     );
 
@@ -190,22 +117,11 @@ acceptance("Post inline mentions test", function (needs) {
     });
 
     assert.ok(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
       "updated user status is shown"
     );
     const statusElement = query(
       ".topic-post .cooked .mention .user-status-message img"
-=======
-      exists(".topic-post .cooked .mention .user-status"),
-      "updated user status is shown"
-    );
-    const statusElement = query(".topic-post .cooked .mention .user-status");
-    assert.equal(
-      statusElement.title,
-      newStatus.description,
-      "updated status description is correct"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
     assert.ok(
       statusElement.src.includes(newStatus.emoji),
@@ -215,20 +131,12 @@ acceptance("Post inline mentions test", function (needs) {
 
   test("removes user status on message bus message", async function (assert) {
     pretender.get(`/t/${topicId}.json`, () => {
-<<<<<<< HEAD
       return response(topicWithUserStatus(topicId, mentionedUserId, status));
-=======
-      return response(topicWithUserStatus());
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
     await visit(`/t/lorem-ipsum-dolor-sit-amet/${topicId}`);
 
     assert.ok(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
-=======
-      exists(".topic-post .cooked .mention .user-status"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "initial user status is shown"
     );
 
@@ -237,16 +145,11 @@ acceptance("Post inline mentions test", function (needs) {
     });
 
     assert.notOk(
-<<<<<<< HEAD
       exists(".topic-post .cooked .mention .user-status-message"),
-=======
-      exists(".topic-post .cooked .mention .user-status"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       "updated user has disappeared"
     );
   });
 });
-<<<<<<< HEAD
 
 acceptance("Post inline mentions – user status tooltip", function (needs) {
   needs.user();
@@ -333,5 +236,3 @@ acceptance("Post inline mentions as an anonymous user", function () {
     );
   });
 });
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

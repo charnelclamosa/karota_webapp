@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Admin::ScreenedEmailsController < Admin::StaffController
-<<<<<<< HEAD
-=======
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   def index
     screened_emails = ScreenedEmail.limit(200).order("last_match_at desc").to_a
     render_serialized(screened_emails, ScreenedEmailSerializer)

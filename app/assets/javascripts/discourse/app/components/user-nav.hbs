@@ -1,12 +1,8 @@
 <section class="user-navigation user-navigation-primary">
-<<<<<<< HEAD
   <HorizontalOverflowNav
     @className="main-nav nav user-nav"
     @ariaLabel="User primary"
   >
-=======
-  <HorizontalOverflowNav @className="main-nav nav user-nav">
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     {{#unless @user.profile_hidden}}
       <DNavigationItem @route="user.summary" class="user-nav__summary">
         {{d-icon "user"}}
@@ -36,7 +32,6 @@
     {{/if}}
 
     {{#if @showPrivateMessages}}
-<<<<<<< HEAD
       <DNavigationItem
         @route="userPrivateMessages"
         @ariaCurrentContext="parentNav"
@@ -45,14 +40,6 @@
         {{d-icon "envelope"}}
         <span>{{i18n "user.private_messages"}}</span>
       </DNavigationItem>
-=======
-      <li class="private-messages">
-        <LinkTo @route="userPrivateMessages">
-          {{d-icon "envelope"}}
-          <span>{{i18n "user.private_messages"}}</span>
-        </LinkTo>
-      </li>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     {{/if}}
 
     {{#if @canInviteToForum}}
@@ -98,8 +85,4 @@
       </li>
     {{/if}}
   </HorizontalOverflowNav>
-<<<<<<< HEAD
 </section>
-=======
-</section>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

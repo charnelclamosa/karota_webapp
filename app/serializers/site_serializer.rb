@@ -246,11 +246,7 @@ class SiteSerializer < ApplicationSerializer
   end
 
   def hashtag_icons
-<<<<<<< HEAD
     HashtagAutocompleteService.data_source_icon_map
-=======
-    HashtagAutocompleteService.data_source_icons
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   def displayed_about_plugin_stat_groups
@@ -271,7 +267,6 @@ class SiteSerializer < ApplicationSerializer
     end
   end
 
-<<<<<<< HEAD
   def include_navigation_menu_site_top_tags?
     !SiteSetting.legacy_navigation_menu? && SiteSetting.tagging_enabled
   end
@@ -335,14 +330,6 @@ class SiteSerializer < ApplicationSerializer
 
   def include_privacy_policy_url?
     privacy_policy_url.present?
-=======
-  def anonymous_default_sidebar_tags
-    SiteSetting.default_sidebar_tags.split("|") - DiscourseTagging.hidden_tag_names(scope)
-  end
-
-  def include_anonymous_default_sidebar_tags?
-    scope.anonymous? && !SiteSetting.legacy_navigation_menu? && SiteSetting.tagging_enabled && SiteSetting.default_sidebar_tags.present?
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   end
 
   private

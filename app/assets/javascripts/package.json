@@ -6,10 +6,7 @@
   "workspaces": [
     "admin",
     "bootstrap-json",
-<<<<<<< HEAD
     "deprecation-silencer",
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     "dialog-holder",
     "discourse",
     "discourse-common",

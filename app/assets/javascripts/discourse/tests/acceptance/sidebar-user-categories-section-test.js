@@ -168,23 +168,12 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
     );
 
     assert.ok(
-<<<<<<< HEAD
       exists(".sidebar-section[data-section-name='categories']"),
       "categories section is shown"
     );
 
     const categorySectionLinks = queryAll(
       ".sidebar-section[data-section-name='categories'] .sidebar-section-link-wrapper[data-category-id]"
-=======
-      exists(
-        ".sidebar-section-categories .sidebar-section-link-configure-categories"
-      ),
-      "section link to add categories to sidebar is displayed"
-    );
-
-    await click(
-      ".sidebar-section-categories .sidebar-section-link-configure-categories"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
 
     assert.strictEqual(
@@ -333,11 +322,7 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
     await visit("/");
 
     const categorySectionLinks = queryAll(
-<<<<<<< HEAD
       ".sidebar-section[data-section-name='categories'] .sidebar-section-link:not(.sidebar-section-link[data-link-name='all-categories'])"
-=======
-      ".sidebar-section-categories .sidebar-section-link:not(.sidebar-section-link-all-categories)"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
 
     const categoryNames = [...categorySectionLinks].map((categorySectionLink) =>
@@ -400,11 +385,7 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
     await visit("/");
 
     const categorySectionLinks = queryAll(
-<<<<<<< HEAD
       ".sidebar-section[data-section-name='categories'] .sidebar-section-link:not(.sidebar-section-link[data-link-name='all-categories'])"
-=======
-      ".sidebar-section-categories .sidebar-section-link:not(.sidebar-section-link-all-categories)"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     );
 
     const categoryNames = [...categorySectionLinks].map((categorySectionLink) =>
@@ -798,13 +779,9 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
     const { category1 } = setupUserSidebarCategories();
 
     updateCurrentUser({
-<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: false,
       },
-=======
-      sidebar_list_destination: "default",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([
@@ -834,11 +811,7 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
 
     assert.ok(
       exists(
-<<<<<<< HEAD
         `.sidebar-section-link-wrapper[data-category-id="${category1.id}"] .sidebar-section-link-suffix`
-=======
-        `.sidebar-section-link-${category1.slug} .sidebar-section-link-suffix`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ),
       "shows suffix indicator for unread content on categories link"
     );
@@ -854,11 +827,7 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
 
     assert.ok(
       exists(
-<<<<<<< HEAD
         `.sidebar-section-link-wrapper[data-category-id="${category1.id}"] .sidebar-section-link-suffix`
-=======
-        `.sidebar-section-link-${category1.slug} .sidebar-section-link-suffix`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ),
       "shows suffix indicator for new topics on categories link"
     );
@@ -874,11 +843,7 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
 
     assert.ok(
       !exists(
-<<<<<<< HEAD
         `.sidebar-section-link-wrapper[data-category-id="${category1.id}"] .sidebar-section-link-suffix`
-=======
-        `.sidebar-section-link-${category1.slug} .sidebar-section-link-suffix`
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       ),
       "hides suffix indicator when there's no new/unread content on category link"
     );
@@ -888,13 +853,9 @@ acceptance("Sidebar - Logged on user - Categories Section", function (needs) {
     const { category1, category2 } = setupUserSidebarCategories();
 
     updateCurrentUser({
-<<<<<<< HEAD
       user_option: {
         sidebar_show_count_of_new_items: true,
       },
-=======
-      sidebar_list_destination: "unread_new",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
 
     this.container.lookup("service:topic-tracking-state").loadStates([

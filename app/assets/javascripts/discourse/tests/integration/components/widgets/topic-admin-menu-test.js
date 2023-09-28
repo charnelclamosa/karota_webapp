@@ -4,11 +4,7 @@ import { render } from "@ember/test-helpers";
 import { exists } from "discourse/tests/helpers/qunit-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import Category from "discourse/models/category";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 const createArgs = (topic) => {
   return {

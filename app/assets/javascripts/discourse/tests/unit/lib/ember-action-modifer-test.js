@@ -2,15 +2,9 @@ import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { click, doubleClick, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-<<<<<<< HEAD
 import ClassicComponent from "@ember/component";
 
 module("Unit | Lib | ember-action-modifier", function (hooks) {
-=======
-import { default as ClassicComponent } from "@ember/component";
-
-module("Unit | Lib | ember-action-modifer", function (hooks) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   setupRenderingTest(hooks);
 
   test("`{{action}}` can target a function", async function (assert) {

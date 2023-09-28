@@ -1,7 +1,6 @@
 <div class="user-preferences_tracking-topics-controls">
   <div class="controls controls-dropdown">
     <label>{{i18n "user.new_topic_duration.label"}}</label>
-<<<<<<< HEAD
     <ComboBox
       @class="duration"
       @valueProperty="value"
@@ -9,14 +8,10 @@
       @value={{@model.user_option.new_topic_duration_minutes}}
       @onChange={{action (mut @model.user_option.new_topic_duration_minutes)}}
     />
-=======
-    <ComboBox @class="duration" @valueProperty="value" @content={{@considerNewTopicOptions}} @value={{@model.user_option.new_topic_duration_minutes}} @onChange={{action (mut @model.user_option.new_topic_duration_minutes)}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   </div>
 
   <div class="controls controls-dropdown">
     <label>{{i18n "user.auto_track_topics"}}</label>
-<<<<<<< HEAD
     <ComboBox
       @valueProperty="value"
       @content={{@autoTrackDurations}}
@@ -25,14 +20,10 @@
         (mut @model.user_option.auto_track_topics_after_msecs)
       }}
     />
-=======
-    <ComboBox @valueProperty="value" @content={{@autoTrackDurations}} @value={{@model.user_option.auto_track_topics_after_msecs}} @onChange={{action (mut @model.user_option.auto_track_topics_after_msecs)}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   </div>
 
   <div class="controls controls-dropdown">
     <label>{{i18n "user.notification_level_when_replying"}}</label>
-<<<<<<< HEAD
     <ComboBox
       @valueProperty="value"
       @content={{@notificationLevelsForReplying}}
@@ -43,8 +34,3 @@
     />
   </div>
 </div>
-=======
-    <ComboBox @valueProperty="value" @content={{@notificationLevelsForReplying}} @value={{@model.user_option.notification_level_when_replying}} @onChange={{action (mut @model.user_option.notification_level_when_replying)}} />
-  </div>
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

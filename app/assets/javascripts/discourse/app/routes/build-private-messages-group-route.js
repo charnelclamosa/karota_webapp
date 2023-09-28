@@ -23,11 +23,7 @@ export default (inboxType, filter) => {
 
     model() {
       const username = this.modelFor("user").get("username_lower");
-<<<<<<< HEAD
       const groupName = this.modelFor("userPrivateMessages.group").name;
-=======
-      const groupName = this.modelFor("userPrivateMessages.group");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       let topicListFilter = `topics/private-messages-group/${username}/${groupName}`;
 

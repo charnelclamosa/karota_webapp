@@ -523,13 +523,6 @@ hy:
         one: "գրեթե %{count} տարի առաջ"
         other: "գրեթե %{count} տարի առաջ"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "Ընտրել նոր գաղտնաբառ"
-    choose: "Ընտրել գաղտնաբառ"
-    update: "Թարմացնել Գաղտնաբառը"
-    save: "Սահմանել Գաղտնաբառ"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Վերականգնել Գաղտնաբառը"
     success: "Դուք հաջողությամբ փոփոխել եք Ձեր գաղտնաբառը և այժմ մուտքագրված եք:"
     success_unapproved: "Դուք հաջողությամբ փոփոխել եք Ձեր գաղտնաբառը:"
@@ -2850,13 +2843,6 @@ hy:
                 label: "Կատեգորիաները և Վերջին Թեմաները"
               categories_and_top_topics:
                 label: "Կատեգորիաները և Թոփ Թեմաները"
-<<<<<<< HEAD
-=======
-      branding:
-        fields:
-          logo:
-            label: "Հիմնական Լոգո"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       corporate:
         fields:
           governing_law:

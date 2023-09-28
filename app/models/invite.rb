@@ -104,11 +104,7 @@ class Invite < ActiveRecord::Base
   end
 
   def domain_matches?(email)
-<<<<<<< HEAD
     _, domain = email.split("@")
-=======
-    _, domain = email.split('@')
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     self.domain == domain
   end
 
@@ -228,11 +224,7 @@ class Invite < ActiveRecord::Base
       ip_address: ip_address,
       session: session,
       email_token: email_token,
-<<<<<<< HEAD
       redeeming_user: redeeming_user,
-=======
-      redeeming_user: redeeming_user
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ).redeem
   end
 

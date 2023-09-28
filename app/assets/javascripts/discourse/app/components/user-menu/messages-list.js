@@ -102,18 +102,4 @@ export default class UserMenuMessagesList extends UserMenuNotificationsList {
 
     return content;
   }
-<<<<<<< HEAD
-=======
-
-  dismissWarningModal() {
-    const modalController = showModal("dismiss-notification-confirmation");
-    modalController.set(
-      "confirmationMessage",
-      I18n.t("notifications.dismiss_confirmation.body.messages", {
-        count: this.#unreadMessagesNotifications,
-      })
-    );
-    return modalController;
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

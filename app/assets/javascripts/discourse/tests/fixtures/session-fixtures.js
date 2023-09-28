@@ -25,10 +25,6 @@ export default {
       custom_fields: {},
       muted_category_ids: [],
       dismissed_banner_key: null,
-<<<<<<< HEAD
-=======
-      akismet_review_count: 0,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       can_review: true,
       ignored_users: [],
       groups: [
@@ -54,7 +50,6 @@ export default {
         skip_new_user_tips: false,
         should_be_redirected_to_top: false,
       },
-<<<<<<< HEAD
       sidebar_sections: [
         {
           id: 111,
@@ -137,8 +132,6 @@ export default {
           ],
         },
       ]
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     },
   },
 };

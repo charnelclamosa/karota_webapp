@@ -3,11 +3,8 @@ import { inject as service } from "@ember/service";
 
 export default class ChatController extends Controller {
   @service chat;
-<<<<<<< HEAD
   @service chatStateManager;
   @service router;
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   get shouldUseChatSidebar() {
     if (this.site.mobileView) {
@@ -24,7 +21,6 @@ export default class ChatController extends Controller {
   get shouldUseCoreSidebar() {
     return this.siteSettings.navigation_menu === "sidebar";
   }
-<<<<<<< HEAD
 
   get mainOutletModifierClasses() {
     let modifierClasses = [];
@@ -42,6 +38,4 @@ export default class ChatController extends Controller {
 
     return modifierClasses.join(" ");
   }
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

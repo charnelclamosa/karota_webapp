@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 //appears in: header of chat pane, channel info, preview card
 .chat-channel-title-wrapper {
   display: flex;
   align-items: center;
   overflow: hidden;
-=======
-.chat-channel-title-wrapper {
-  display: flex;
-  align-items: center;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 .chat-channel-title {
@@ -16,7 +10,6 @@
   align-items: center;
   @include ellipsis;
 
-<<<<<<< HEAD
   .chat-channel-preview-card & {
     max-width: 100%;
   }
@@ -25,20 +18,15 @@
     overflow: hidden;
   }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   .user-status-message {
     display: none; // we only show when in channels list
   }
 
-<<<<<<< HEAD
   &__user-status-message {
     flex-shrink: 3;
     overflow: hidden;
   }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   .chat-name,
   .category-chat-name,
   &__usernames,

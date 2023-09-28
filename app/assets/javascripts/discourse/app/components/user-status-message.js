@@ -11,16 +11,9 @@ export default class UserStatusMessage extends Component {
     }
 
     const timezone = this.currentUser
-<<<<<<< HEAD
       ? this.currentUser.user_option?.timezone
       : moment.tz.guess();
 
     return until(this.args.status.ends_at, timezone, this.currentUser?.locale);
-=======
-      ? this.currentUser.timezone
-      : moment.tz.guess();
-
-    return until(this.status.ends_at, timezone, this.currentUser?.locale);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

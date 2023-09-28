@@ -151,11 +151,7 @@ module("Unit | Utility | uploads", function (hooks) {
     sinon.stub(dialog, "alert");
     assert.notOk(
       validateUploadedFiles([{ name: "test.jpg" }], {
-<<<<<<< HEAD
         user: this.store.createRecord("user"),
-=======
-        user: User.create(),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         siteSettings: this.siteSettings,
       })
     );
@@ -171,11 +167,7 @@ module("Unit | Utility | uploads", function (hooks) {
     sinon.stub(dialog, "alert");
     assert.notOk(
       validateUploadedFiles([{ name: "test.jpg" }], {
-<<<<<<< HEAD
         user: this.store.createRecord("user", { staff: true }),
-=======
-        user: User.create({ staff: true }),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         siteSettings: this.siteSettings,
       })
     );

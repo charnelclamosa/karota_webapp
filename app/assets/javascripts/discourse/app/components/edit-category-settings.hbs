@@ -16,7 +16,6 @@
 
   {{#unless this.showPositionInput}}
     <section class="field position-disabled">
-<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/edit-category-settings.hbs
       {{html-safe
         (i18n
           "category.position_disabled"
@@ -25,9 +24,6 @@
           )
         )
       }}
-=======
-      {{html-safe (i18n "category.position_disabled" url=(get-url "/admin/site_settings/category/all_results?filter=fixed_category_positions"))}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/templates/components/edit-category-settings.hbs
     </section>
   {{/unless}}
 
@@ -332,20 +328,12 @@
         {{d-icon "envelope"}}
         {{i18n "category.email_in"}}
       </label>
-<<<<<<< HEAD:app/assets/javascripts/discourse/app/components/edit-category-settings.hbs
       <TextField
         @id="category-email-in"
         @class="email-in"
         @value={{this.category.email_in}}
       />
 
-=======
-      <TextField @id="category-email-in" @class="email-in" @value={{this.category.email_in}} />
-      <span>
-        {{d-icon "info-circle"}}
-        <DTooltip>{{i18n "category.email_in_tooltip"}}</DTooltip>
-      </span>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/templates/components/edit-category-settings.hbs
     </section>
 
     <section class="field email-in-allow-strangers">

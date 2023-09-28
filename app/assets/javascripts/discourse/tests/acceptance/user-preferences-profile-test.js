@@ -61,14 +61,9 @@ acceptance(
     needs.pretender((server, helper) => {
       server.get("/u/eviltrout.json", () => {
         const cloned = cloneJSON(userFixtures["/u/eviltrout.json"]);
-<<<<<<< HEAD
         cloned.user.can_edit = true;
         cloned.user.user_option.default_calendar = "none_selected";
         return helper.response(cloned);
-=======
-        cloned.user.user_option.default_calendar = "none_selected";
-        return helper.response(200, cloned);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       });
     });
 
@@ -90,14 +85,9 @@ acceptance(
     needs.pretender((server, helper) => {
       server.get("/u/eviltrout.json", () => {
         const cloned = cloneJSON(userFixtures["/u/eviltrout.json"]);
-<<<<<<< HEAD
         cloned.user.can_edit = true;
         cloned.user.user_option.default_calendar = "google";
         return helper.response(cloned);
-=======
-        cloned.user.user_option.default_calendar = "google";
-        return helper.response(200, cloned);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       });
     });
 

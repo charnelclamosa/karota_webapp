@@ -1,6 +1,5 @@
 <div class="chat-message-text">
   {{#if this.isCollapsible}}
-<<<<<<< HEAD
     <ChatMessageCollapser
       @cooked={{@cooked}}
       @uploads={{@uploads}}
@@ -11,20 +10,8 @@
   {{/if}}
 
   {{#if this.isEdited}}
-=======
-    <ChatMessageCollapser @cooked={{this.cooked}} @uploads={{this.uploads}} />
-  {{else}}
-    {{html-safe this.cooked}}
-  {{/if}}
-
-  {{#if this.edited}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <span class="chat-message-edited">({{i18n "chat.edited"}})</span>
   {{/if}}
 
   {{yield}}
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

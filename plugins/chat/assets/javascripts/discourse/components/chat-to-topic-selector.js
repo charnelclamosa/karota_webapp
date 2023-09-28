@@ -3,15 +3,9 @@ import { htmlSafe } from "@ember/template";
 import discourseComputed from "discourse-common/utils/decorators";
 import { alias, equal } from "@ember/object/computed";
 
-<<<<<<< HEAD
 export const NEW_TOPIC_SELECTION = "new_topic";
 export const EXISTING_TOPIC_SELECTION = "existing_topic";
 export const NEW_MESSAGE_SELECTION = "new_message";
-=======
-export const NEW_TOPIC_SELECTION = "newTopic";
-export const EXISTING_TOPIC_SELECTION = "existingTopic";
-export const NEW_MESSAGE_SELECTION = "newMessage";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Component.extend({
   newTopicSelection: NEW_TOPIC_SELECTION,

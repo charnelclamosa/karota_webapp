@@ -103,7 +103,6 @@
       </div>
     {{else}}
       <div class="controls">
-<<<<<<< HEAD
         <DButton
           @action={{fn (route-action "checkEmail") this.model}}
           @title="admin.users.check_email.title"
@@ -111,9 +110,6 @@
           @label="admin.users.check_email.text"
           class="btn-default"
         />
-=======
-        <DButton @action={{route-action "checkEmail"}} @class="btn-default" @actionParam={{this.model}} @title="admin.users.check_email.title" @icon="envelope" @label="admin.users.check_email.text" />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     {{/if}}
   </div>
@@ -178,16 +174,12 @@
       </table>
     {{else}}
       <div class="controls">
-<<<<<<< HEAD
         <DButton
           @action={{fn (route-action "checkEmail") this.model}}
           @title="admin.users.check_email.title"
           @icon="envelope"
           @label="admin.users.check_email.text"
         />
-=======
-        <DButton @action={{route-action "checkEmail"}} @actionParam={{this.model}} @title="admin.users.check_email.title" @icon="envelope" @label="admin.users.check_email.text" />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       </div>
     {{/if}}
   </div>

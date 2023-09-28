@@ -1,6 +1,5 @@
 {{body-class "user-summary-page"}}
 
-<<<<<<< HEAD
 <div class="user-content" id="user-content">
   <PluginOutlet
     @name="above-user-summary-stats"
@@ -39,46 +38,6 @@
               @type="string"
             />
           </li>
-=======
-    <PluginOutlet @name="below-user-summary-stats" @args={{hash model=this.model user=this.user}} />
-
-    <div class="top-section">
-      <UserSummarySection @title="top_replies" @class="replies-section pull-left">
-        <UserSummaryTopicsList @type="replies" @items={{this.model.replies}} @user={{this.user}} as |reply|>
-          <UserSummaryTopic @createdAt={{reply.createdAt}} @topic={{reply.topic}} @likes={{reply.like_count}} @url={{reply.url}} />
-        </UserSummaryTopicsList>
-      </UserSummarySection>
-
-      <UserSummarySection @title="top_topics" @class="topics-section pull-right">
-        <UserSummaryTopicsList @type="topics" @items={{this.model.topics}} @user={{this.user}} as |topic|>
-          <UserSummaryTopic @createdAt={{topic.created_at}} @topic={{topic}} @likes={{topic.like_count}} @url={{topic.url}} />
-        </UserSummaryTopicsList>
-      </UserSummarySection>
-    </div>
-
-    <div class="top-section">
-      <UserSummarySection @title="top_links" @class="links-section pull-left">
-        {{#if this.model.links.length}}
-          <ul>
-            {{!-- template-lint-disable --}}
-            {{#each this.model.links as |link|}}
-              <li>
-                <a class='domain'
-                   href={{link.url}}
-                   title={{link.title}}
-                   rel='noopener {{unless this.user.removeNoFollow 'nofollow ugc'}}'
-                   target='_blank'>
-                  {{shorten-url link.url}}
-                </a>
-                <span class='badge badge-notification clicks' title='{{i18n 'topic_map.clicks' count=link.clicks}}'>{{number link.clicks}}</span>
-                <br>
-                <a href="{{link.post_url}}">{{html-safe link.topic.fancyTitle}}</a>
-              </li>
-            {{/each}}
-          </ul>
-        {{else}}
-          <p>{{i18n "user.summary.no_links"}}</p>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         {{/if}}
         <li class="stats-topics-entered">
           <UserStat

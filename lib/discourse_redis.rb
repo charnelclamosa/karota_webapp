@@ -46,7 +46,6 @@ class DiscourseRedis
   end
 
   # Proxy key methods through, but prefix the keys with the namespace
-<<<<<<< HEAD
   %i[
     append
     blpop
@@ -144,17 +143,6 @@ class DiscourseRedis
     dump
     restore
   ].each do |m|
-=======
-  [:append, :blpop, :brpop, :brpoplpush, :decr, :decrby, :expire, :expireat, :get, :getbit, :getrange, :getset,
-   :hdel, :hexists, :hget, :hgetall, :hincrby, :hincrbyfloat, :hkeys, :hlen, :hmget, :hmset, :hset, :hsetnx, :hvals, :incr,
-   :incrby, :incrbyfloat, :lindex, :linsert, :llen, :lpop, :lpush, :lpushx, :lrange, :lrem, :lset, :ltrim,
-   :mapped_hmset, :mapped_hmget, :mapped_mget, :mapped_mset, :mapped_msetnx, :move, :mset,
-   :msetnx, :persist, :pexpire, :pexpireat, :psetex, :pttl, :rename, :renamenx, :rpop, :rpoplpush, :rpush, :rpushx, :sadd, :sadd?, :scard,
-   :sdiff, :set, :setbit, :setex, :setnx, :setrange, :sinter, :sismember, :smembers, :sort, :spop, :srandmember, :srem, :srem?, :strlen,
-   :sunion, :ttl, :type, :watch, :zadd, :zcard, :zcount, :zincrby, :zrange, :zrangebyscore, :zrank, :zrem, :zremrangebyrank,
-   :zremrangebyscore, :zrevrange, :zrevrangebyscore, :zrevrank, :zrangebyscore,
-   :dump, :restore].each do |m|
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     define_method m do |*args, **kwargs|
       args[0] = "#{namespace}:#{args[0]}" if @namespace
       DiscourseRedis.ignore_readonly { @redis.public_send(m, *args, **kwargs) }

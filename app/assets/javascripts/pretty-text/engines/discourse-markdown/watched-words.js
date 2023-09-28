@@ -117,14 +117,9 @@ export function setup(helper) {
             currentToken.attrs.some(
               (attr) =>
                 attr[0] === "class" &&
-<<<<<<< HEAD
                 (attr[1] === "hashtag" ||
                   attr[1] === "hashtag-cooked" ||
                   attr[1] === "hashtag-raw")
-=======
-                (attr[1].includes("hashtag") ||
-                  attr[1].includes("hashtag-cooked"))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             )
           ) {
             lastType =

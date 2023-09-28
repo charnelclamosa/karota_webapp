@@ -6,30 +6,15 @@
 .chat-message-actions {
   .chat-message-reaction {
     @include chat-reaction;
-<<<<<<< HEAD
-=======
-
-    &:not(.show) {
-      display: none;
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }
 
 .chat-message-actions-container {
   @include unselectable;
-<<<<<<< HEAD
   z-index: z("dropdown") - 1;
 }
 
 .chat-message-actions {
-=======
-  position: relative;
-}
-
-.chat-message-actions {
-  border-radius: 0.25em;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   background-color: var(--secondary);
   display: flex;
   box-shadow: 0 0.75px 0px rgba(0, 0, 0, 0.15);
@@ -54,23 +39,17 @@
 
   .react-btn,
   .reply-btn,
-<<<<<<< HEAD
   .chat-message-thread-btn,
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   .bookmark-btn {
     margin-right: -1px;
     padding: 0.5em 0;
     width: 2.5em;
     transition: background 0.2s, border-color 0.2s;
 
-<<<<<<< HEAD
     > * {
       pointer-events: none;
     }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     &:focus {
       .d-icon {
         color: var(--primary);
@@ -83,11 +62,7 @@
     }
 
     &:first-child:not(:hover) {
-<<<<<<< HEAD
       border-color: var(--primary-300);
-=======
-      border-color: var(--primary-low);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       border-right-color: transparent;
     }
 
@@ -100,7 +75,6 @@
     }
   }
 
-<<<<<<< HEAD
   &.has-no-secondary-actions {
     .reply-btn {
       border-right: 1px solid var(--primary-300);
@@ -122,20 +96,6 @@
 
       &:focus {
         border-color: var(--primary-300);
-=======
-  .more-buttons.dropdown-select-box {
-    .select-kit-header {
-      background: none;
-      border: 1px solid var(--primary-low);
-      border-left-color: transparent;
-      border-radius: 0 0.25em 0.25em 0;
-      padding: 0.5em 0;
-      width: 2.5em;
-      transition: background 0.2s, border-color 0.2s;
-
-      &:focus {
-        border-color: var(--primary-low);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         border-left-color: transparent;
 
         .select-kit-header-wrapper .d-icon {
@@ -166,13 +126,8 @@
 
     .select-kit-body {
       padding: 0.5rem;
-<<<<<<< HEAD
       box-shadow: var(--shadow-card);
       border: 1px solid var(--primary-300);
-=======
-      box-shadow: shadow("card");
-      border: 1px solid var(--primary-low);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     .select-kit-row {
@@ -207,15 +162,9 @@
     }
 
     &:first-child {
-<<<<<<< HEAD
       border-left-color: var(--primary-300);
       border-top-left-radius: var(--d-border-radius);
       border-bottom-left-radius: var(--d-border-radius);
-=======
-      border-bottom-left-radius: 0.25em;
-      border-left-color: var(--primary-low);
-      border-top-left-radius: 0.25em;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
 
     &.reacted {

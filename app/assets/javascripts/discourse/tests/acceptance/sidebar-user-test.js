@@ -209,11 +209,7 @@ acceptance(
 
       assert.ok(
         exists(
-<<<<<<< HEAD
           ".sidebar-section[data-section-name='categories'] .sidebar-section-header[aria-expanded='true'][aria-controls='sidebar-section-content-categories']"
-=======
-          ".sidebar-section-community .sidebar-section-header[aria-expanded='true'][aria-controls='sidebar-section-content-community']"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ),
         "accessibility attributes are set correctly on sidebar section header when section is expanded"
       );
@@ -222,11 +218,7 @@ acceptance(
 
       assert.ok(
         exists(
-<<<<<<< HEAD
           ".sidebar-section[data-section-name='categories'] .sidebar-section-header[aria-expanded='false'][aria-controls='sidebar-section-content-categories']"
-=======
-          ".sidebar-section-community .sidebar-section-header[aria-expanded='false'][aria-controls='sidebar-section-content-community']"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         ),
         "accessibility attributes are set correctly on sidebar section header when section is collapsed"
       );

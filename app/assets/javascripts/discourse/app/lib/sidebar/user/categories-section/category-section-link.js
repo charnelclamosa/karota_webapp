@@ -105,14 +105,7 @@ export function resetCustomCategorySectionLinkPrefix() {
 }
 
 export default class CategorySectionLink {
-<<<<<<< HEAD
   @tracked activeCountable;
-=======
-  @tracked totalUnread = 0;
-  @tracked totalNew = 0;
-  @tracked hideCount =
-    this.currentUser?.sidebarListDestination !== UNREAD_LIST_DESTINATION;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   constructor({ category, topicTrackingState, currentUser }) {
     this.category = category;
@@ -227,7 +220,6 @@ export default class CategorySectionLink {
   }
 
   get badgeText() {
-<<<<<<< HEAD
     if (!this.showCount) {
       return;
     }
@@ -238,19 +230,6 @@ export default class CategorySectionLink {
       return activeCountable.badgeTextFunction(
         get(this, activeCountable.propertyName)
       );
-=======
-    if (this.hideCount) {
-      return;
-    }
-    if (this.totalUnread > 0) {
-      return I18n.t("sidebar.unread_count", {
-        count: this.totalUnread,
-      });
-    } else if (this.totalNew > 0) {
-      return I18n.t("sidebar.new_count", {
-        count: this.totalNew,
-      });
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     }
   }
 
@@ -266,7 +245,6 @@ export default class CategorySectionLink {
     return "discovery.category";
   }
 
-<<<<<<< HEAD
   get query() {
     if (this.currentUser?.sidebarLinkToFilteredList) {
       const activeCountable = this.activeCountable;
@@ -277,8 +255,6 @@ export default class CategorySectionLink {
     }
   }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   get suffixCSSClass() {
     return "unread";
   }
@@ -288,7 +264,6 @@ export default class CategorySectionLink {
   }
 
   get suffixValue() {
-<<<<<<< HEAD
     if (!this.showCount && this.activeCountable) {
       return "circle";
     }
@@ -297,10 +272,4 @@ export default class CategorySectionLink {
   get #newNewViewEnabled() {
     return !!this.currentUser?.new_new_view_enabled;
   }
-=======
-    if (this.hideCount && (this.totalUnread || this.totalNew)) {
-      return "circle";
-    }
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }

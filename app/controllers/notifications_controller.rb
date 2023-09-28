@@ -31,20 +31,10 @@ class NotificationsController < ApplicationController
 
       include_reviewables = false
 
-<<<<<<< HEAD
       notifications =
         Notification.prioritized_list(current_user, count: limit, types: notification_types)
       # notification_types is blank for the "all notifications" user menu tab
       include_reviewables = notification_types.blank? && guardian.can_see_review_queue?
-=======
-      if SiteSetting.legacy_navigation_menu?
-        notifications = Notification.recent_report(current_user, limit, notification_types)
-      else
-        notifications = Notification.prioritized_list(current_user, count: limit, types: notification_types)
-        # notification_types is blank for the "all notifications" user menu tab
-        include_reviewables = notification_types.blank? && guardian.can_see_review_queue?
-      end
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
       if notifications.present? && !(params.has_key?(:silent) || @readonly_mode)
         if current_user.bump_last_seen_notification!
@@ -93,7 +83,6 @@ class NotificationsController < ApplicationController
       total_rows = notifications.dup.count
       notifications = notifications.offset(offset).limit(60)
       notifications = filter_inaccessible_notifications(notifications)
-<<<<<<< HEAD
       render_json_dump(
         notifications: serialize_data(notifications, NotificationSerializer),
         total_rows_notifications: total_rows,
@@ -101,12 +90,6 @@ class NotificationsController < ApplicationController
         load_more_notifications:
           notifications_path(username: user.username, offset: offset + 60, filter: params[:filter]),
       )
-=======
-      render_json_dump(notifications: serialize_data(notifications, NotificationSerializer),
-                       total_rows_notifications: total_rows,
-                       seen_notification_id: user.seen_notification_id,
-                       load_more_notifications: notifications_path(username: user.username, offset: offset + 60, filter: params[:filter]))
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     end
   end
 

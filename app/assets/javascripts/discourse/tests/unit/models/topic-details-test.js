@@ -1,10 +1,6 @@
 import { module, test } from "qunit";
 import User from "discourse/models/user";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { setupTest } from "ember-qunit";
 
 module("Unit | Model | topic-details", function (hooks) {

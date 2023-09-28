@@ -4,13 +4,7 @@ import PreloadStore from "discourse/lib/preload-store";
 import sinon from "sinon";
 import { settled } from "@ember/test-helpers";
 import User from "discourse/models/user";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import pretender, { response } from "discourse/tests/helpers/create-pretender";
-import { getOwner } from "discourse-common/lib/get-owner";
-import * as userTips from "discourse/lib/user-tips";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Unit | Model | user", function (hooks) {
   setupTest(hooks);

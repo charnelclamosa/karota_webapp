@@ -4,11 +4,7 @@ import { click, render } from "@ember/test-helpers";
 import { exists } from "discourse/tests/helpers/qunit-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import TopicStatusIcons from "discourse/helpers/topic-status-icons";
-<<<<<<< HEAD
 import { getOwner } from "@ember/application";
-=======
-import { getOwner } from "discourse-common/lib/get-owner";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 module("Integration | Component | Widget | topic-status", function (hooks) {
   setupRenderingTest(hooks);

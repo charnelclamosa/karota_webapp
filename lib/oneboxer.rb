@@ -436,14 +436,10 @@ module Oneboxer
         original_url: url,
         title: PrettyText.unescape_emoji(CGI.escapeHTML(topic.title)),
         category_html: CategoryBadge.html_for(topic.category),
-<<<<<<< HEAD
         quote:
           PrettyText.unescape_emoji(
             post.excerpt(SiteSetting.post_onebox_maxlength, keep_svg: true),
           ),
-=======
-        quote: PrettyText.unescape_emoji(post.excerpt(SiteSetting.post_onebox_maxlength, keep_svg: true)),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       }
 
       template = template("discourse_topic_onebox")

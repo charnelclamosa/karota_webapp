@@ -1,20 +1,7 @@
 .chat-browse-view {
   position: relative;
-<<<<<<< HEAD
   box-sizing: border-box;
   padding: 1rem 1rem env(safe-area-inset-bottom) 1rem;
-=======
-  height: calc(100vh - var(--header-offset) - var(--chat-header-offset));
-  padding-top: 1em;
-  padding-bottom: 41px;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  @include chat-scrollbar(var(--secondary));
-
-  @include breakpoint(mobile-large) {
-    padding-right: 1rem; //fix for different scroll behaviour on mobile where overflow-y:scroll acts like auto
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   &__header {
     display: flex;
@@ -32,27 +19,14 @@
   }
 
   &__content_wrapper {
-<<<<<<< HEAD
     box-sizing: border-box;
     margin-top: 1rem;
-=======
-    margin: 2rem 0 0 1rem;
-    box-sizing: border-box;
-
-    @include breakpoint(tablet) {
-      margin-top: 1rem;
-    }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 
   &__cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-<<<<<<< HEAD
     grid-gap: 2rem;
-=======
-    grid-gap: 2.5rem;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     @include breakpoint(tablet) {
       grid-template-columns: repeat(1, 1fr);
@@ -64,10 +38,6 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-<<<<<<< HEAD
-=======
-    margin: 0 0 0 1rem;
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     @include breakpoint(tablet) {
       flex-direction: column;

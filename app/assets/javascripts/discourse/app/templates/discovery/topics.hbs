@@ -6,7 +6,6 @@
   <div class="alert alert-info">{{this.redirectedReason}}</div>
 {{/if}}
 
-<<<<<<< HEAD
 <TopicDismissButtons
   @position="top"
   @selectedTopics={{this.selected}}
@@ -15,9 +14,6 @@
   @showDismissRead={{this.showDismissRead}}
   @resetNew={{action "resetNew"}}
 />
-=======
-<TopicDismissButtons @position="top" @selectedTopics={{this.selected}} @model={{this.model}} @showResetNew={{this.showResetNew}} @showDismissRead={{this.showDismissRead}} @resetNew={{action "resetNew"}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 {{#if this.model.sharedDrafts}}
   <TopicList

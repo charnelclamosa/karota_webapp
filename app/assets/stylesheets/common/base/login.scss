@@ -36,18 +36,6 @@ body.invite-page {
   background-color: var(--primary-50);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, Arial, sans-serif;
-<<<<<<< HEAD
-=======
-  @include breakpoint("mobile-extra-large") {
-    background: $invite-mobile-bg;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-  .d-header .panel.clearfix {
-    display: none;
-  }
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 }
 
 // Create Account + Login
@@ -342,14 +330,11 @@ body.invite-page {
   }
 }
 
-<<<<<<< HEAD
 .toggle-password-mask {
   align-self: start;
   line-height: 1.4; // aligns with input description text
 }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 // admin invite page
 .invites-show {
   display: grid;
@@ -525,11 +510,8 @@ button#new-account-link {
     }
   }
 }
-<<<<<<< HEAD
 
 .create-account__password-info {
   display: flex;
   justify-content: space-between;
 }
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

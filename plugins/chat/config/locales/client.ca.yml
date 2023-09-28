@@ -6,7 +6,6 @@
 
 ca:
   js:
-<<<<<<< HEAD
     admin:
       site_settings:
         chat_separate_sidebar_mode:
@@ -14,9 +13,6 @@ ca:
           never: "Mai"
     chat:
       deleted_chat_username: suprimit
-=======
-    chat:
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       create: "Crea"
       cancel: "Cancel·la"
       channel_settings:
@@ -25,28 +21,18 @@ ca:
         join: "Registre"
         leave: "Abandona"
       close: "Tanca"
-<<<<<<< HEAD
       remove: "Elimina"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       delete: "Suprimeix"
       edited: "editat"
       muted: "silenciat"
       joined: "registrat"
       email_frequency:
         never: "Mai"
-<<<<<<< HEAD
       header_indicator_preference:
         never: "Mai"
       flag: "Bandera"
       join: "Registre"
       last_visit: "darrera visita"
-=======
-      flag: "Bandera"
-      join: "Registre"
-      mention_warning:
-        dismiss: "descarta-ho"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       reply: "Respon"
       edit: "Edita"
       rebake_message: "Refés HTML"
@@ -68,10 +54,7 @@ ca:
         yesterday: Ahir
       about_view:
         title: Títol
-<<<<<<< HEAD
         name: Nom
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         description: Descripció
       channel_info:
         back_to_channel: "Enrere"
@@ -79,11 +62,8 @@ ca:
           about: Quant a
           members: Membres
           settings: Configuració
-<<<<<<< HEAD
       new_message_modal:
         no_items: "Sense elements"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       direct_message_creator:
         title: Missatge nou
         prefix: "A:"
@@ -95,20 +75,14 @@ ca:
       composer:
         italic_text: "text en cursiva"
         bold_text: "text en negreta"
-<<<<<<< HEAD
         send: "Envia"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       notification_levels:
         never: "Mai"
       settings:
         follow: "Registre"
         followed: "Registrat"
-<<<<<<< HEAD
         threading_enabled: "Activat"
         threading_disabled: "Desactivat"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         notifications: "Notificacions"
         preview: "Previsualitza"
         save: "Desa"
@@ -140,7 +114,6 @@ ca:
         activities: "Activitats"
         flags: "Banderes"
         symbols: "Símbols"
-<<<<<<< HEAD
       thread:
         title: "Títol"
         replies:
@@ -153,8 +126,6 @@ ca:
             title: "Normal"
           tracking:
             title: "Seguint"
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       draft_channel_screen:
         header: "Missatge nou"
         cancel: "Cancel·la"
@@ -166,10 +137,3 @@ ca:
           fields:
             message:
               label: Missatge
-<<<<<<< HEAD
-=======
-    review:
-      types:
-        reviewable_chat_message:
-          flagged_by: "Marcat amb bandera per"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

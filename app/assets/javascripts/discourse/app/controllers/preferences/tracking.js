@@ -101,7 +101,6 @@ export default class extends Controller {
       )
       .filter((t) => t);
   }
-<<<<<<< HEAD
   @computed(
     "model.watchedCategories",
     "model.mutedCategories",
@@ -121,8 +120,6 @@ export default class extends Controller {
     }
     return show;
   }
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   @computed(
     "model.watchedCategories",
@@ -169,10 +166,7 @@ export default class extends Controller {
       "watched_category_ids",
       "tracked_category_ids",
       "watched_first_post_category_ids",
-<<<<<<< HEAD
       "watched_precedence_over_muted",
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     ];
 
     if (this.siteSettings.tagging_enabled) {

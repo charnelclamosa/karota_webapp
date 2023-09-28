@@ -12,17 +12,12 @@ acceptance("Sidebar - Anonymous - Categories Section", function (needs) {
     navigation_menu: "sidebar",
   });
 
-<<<<<<< HEAD
   test("category section links ordered by category's topic count when default_navigation_menu_categories has not been configured and site setting to fix categories positions is disabled", async function (assert) {
-=======
-  test("category section links ordered by category's topic count when default_sidebar_categories has not been configured and site setting to fix categories positions is disabled", async function (assert) {
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.siteSettings.fixed_category_positions = false;
 
     await visit("/");
 
     const categorySectionLinks = queryAll(
-<<<<<<< HEAD
       ".sidebar-section[data-section-name='categories'] .sidebar-section-link-wrapper"
     );
 
@@ -56,41 +51,6 @@ acceptance("Sidebar - Anonymous - Categories Section", function (needs) {
       categorySectionLinks[4].textContent.trim(),
       sidebarCategories[4].name
     );
-=======
-      ".sidebar-section-categories .sidebar-section-link-wrapper"
-    );
-
-    const sidebarCategories = Site.current()
-      .categories.filter((category) => !category.parent_category_id)
-      .sort((a, b) => b.topic_count - a.topic_count);
-
-    assert.strictEqual(categorySectionLinks.length, 6);
-
-    assert.strictEqual(
-      categorySectionLinks[0].textContent.trim(),
-      sidebarCategories[0].name
-    );
-
-    assert.strictEqual(
-      categorySectionLinks[1].textContent.trim(),
-      sidebarCategories[1].name
-    );
-
-    assert.strictEqual(
-      categorySectionLinks[2].textContent.trim(),
-      sidebarCategories[2].name
-    );
-
-    assert.strictEqual(
-      categorySectionLinks[3].textContent.trim(),
-      sidebarCategories[3].name
-    );
-
-    assert.strictEqual(
-      categorySectionLinks[4].textContent.trim(),
-      sidebarCategories[4].name
-    );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
     assert.ok(
       exists("a.sidebar-section-link[data-link-name='all-categories']"),
@@ -98,60 +58,9 @@ acceptance("Sidebar - Anonymous - Categories Section", function (needs) {
     );
   });
 
-<<<<<<< HEAD
   test("category section links ordered by default category's position when default_navigation_menu_categories has not been configured and site setting to fix categories positions is enabled", async function (assert) {
     this.siteSettings.fixed_category_positions = true;
 
-=======
-  test("category section links ordered by default category's position when default_sidebar_categories has not been configured and site setting to fix categories positions is enabled", async function (assert) {
-    this.siteSettings.fixed_category_positions = true;
-
-    await visit("/");
-
-    const categories = queryAll(
-      ".sidebar-section-categories .sidebar-section-link-wrapper"
-    );
-
-    const siteCategories = Site.current().categories;
-
-    assert.strictEqual(categories.length, 6);
-
-    assert.strictEqual(
-      categories[0].textContent.trim(),
-      siteCategories[0].name
-    );
-
-    assert.strictEqual(
-      categories[1].textContent.trim(),
-      siteCategories[1].name
-    );
-
-    assert.strictEqual(
-      categories[2].textContent.trim(),
-      siteCategories[3].name
-    );
-
-    assert.strictEqual(
-      categories[3].textContent.trim(),
-      siteCategories[4].name
-    );
-
-    assert.strictEqual(
-      categories[4].textContent.trim(),
-      siteCategories[5].name
-    );
-
-    assert.ok(
-      exists("a.sidebar-section-link-all-categories"),
-      "all categories link is visible"
-    );
-  });
-
-  test("category section links in sidebar when default_sidebar_categories site setting has been configured and site setting to fix category position is enabled", async function (assert) {
-    this.siteSettings.fixed_category_positions = true;
-    this.siteSettings.default_sidebar_categories = "1|3|13";
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     await visit("/");
 
     const categories = queryAll(

@@ -7,14 +7,9 @@ import { observes } from "@ember-decorators/object";
 import Component from "@ember/component";
 import I18n from "I18n";
 import WatchedWord from "admin/models/watched-word";
-<<<<<<< HEAD
-=======
-import { equal, not } from "@ember/object/computed";
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 import { isEmpty } from "@ember/utils";
 import { schedule } from "@ember/runloop";
 
-<<<<<<< HEAD
 @tagName("form")
 @classNames("watched-word-form")
 export default class WatchedWordForm extends Component {
@@ -33,21 +28,6 @@ export default class WatchedWordForm extends Component {
   @equal("actionKey", "tag") canTag;
 
   @equal("actionKey", "link") canLink;
-=======
-export default Component.extend({
-  tagName: "form",
-  dialog: service(),
-  classNames: ["watched-word-form"],
-  formSubmitted: false,
-  actionKey: null,
-  showMessage: false,
-  selectedTags: null,
-  isCaseSensitive: false,
-  submitDisabled: not("word"),
-  canReplace: equal("actionKey", "replace"),
-  canTag: equal("actionKey", "tag"),
-  canLink: equal("actionKey", "link"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   didInsertElement() {
     super.didInsertElement(...arguments);

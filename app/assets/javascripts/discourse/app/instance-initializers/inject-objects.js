@@ -18,11 +18,7 @@ export default {
           `use injected siteSettings instead of Discourse.SiteSettings`,
           {
             since: "2.8",
-<<<<<<< HEAD:app/assets/javascripts/discourse/app/instance-initializers/inject-objects.js
             dropFrom: "3.2",
-=======
-            dropFrom: "2.9",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/initializers/inject-objects.js
             id: "discourse.global.site-settings",
           }
         );
@@ -35,11 +31,7 @@ export default {
           `import discourse/models/user instead of using Discourse.User`,
           {
             since: "2.8",
-<<<<<<< HEAD:app/assets/javascripts/discourse/app/instance-initializers/inject-objects.js
             dropFrom: "3.2",
-=======
-            dropFrom: "2.9",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/initializers/inject-objects.js
             id: "discourse.global.user",
           }
         );
@@ -52,11 +44,7 @@ export default {
           `import discourse/models/site instead of using Discourse.Site`,
           {
             since: "2.8",
-<<<<<<< HEAD:app/assets/javascripts/discourse/app/instance-initializers/inject-objects.js
             dropFrom: "3.2",
-=======
-            dropFrom: "2.9",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream):app/assets/javascripts/discourse/app/initializers/inject-objects.js
             id: "discourse.global.site",
           }
         );

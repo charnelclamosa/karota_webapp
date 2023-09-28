@@ -25,12 +25,8 @@ createWidget("header-contents", {
       {{/if}}
     {{/if}}
 
-<<<<<<< HEAD
     {{before-header-panel-outlet attrs=attrs}}
 
     <div class="panel" role="navigation">{{yield}}</div>
-=======
-    <div class="panel clearfix" role="navigation">{{yield}}</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   `,
 });

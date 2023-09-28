@@ -8,7 +8,6 @@ import Permalink from "admin/models/permalink";
 import discourseDebounce from "discourse-common/lib/debounce";
 import { observes } from "@ember-decorators/object";
 import { clipboardCopy } from "discourse/lib/utilities";
-<<<<<<< HEAD
 
 export default class AdminPermalinksController extends Controller {
   @service dialog;
@@ -17,16 +16,6 @@ export default class AdminPermalinksController extends Controller {
   filter = null;
 
   @or("model.length", "filter") showSearch;
-=======
-import { inject as service } from "@ember/service";
-import { or } from "@ember/object/computed";
-
-export default Controller.extend({
-  dialog: service(),
-  loading: false,
-  filter: null,
-  showSearch: or("model.length", "filter"),
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   _debouncedShow() {
     Permalink.findAll(this.filter).then((result) => {

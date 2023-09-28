@@ -90,7 +90,6 @@ module("Integration | Component | Widget | post-menu", function (hooks) {
 
     assert.ok(!exists(".actions .reply"), "it removes reply button");
   });
-<<<<<<< HEAD
 
   createWidget("post-menu-replacement", {
     html(attrs) {
@@ -138,6 +137,4 @@ module("Integration | Component | Widget | post-menu", function (hooks) {
     );
     assert.ok(exists(".actions .reply"), "reply button is present");
   });
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

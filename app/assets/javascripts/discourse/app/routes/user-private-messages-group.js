@@ -1,5 +1,4 @@
 import DiscourseRoute from "discourse/routes/discourse";
-<<<<<<< HEAD
 import { inject as service } from "@ember/service";
 
 export default class extends DiscourseRoute {
@@ -22,15 +21,5 @@ export default class extends DiscourseRoute {
 
   setupController(controller, model) {
     controller.set("group", model);
-=======
-
-export default class extends DiscourseRoute {
-  model(params) {
-    return params.name;
-  }
-
-  setupController(controller, model) {
-    controller.set("groupName", model);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   }
 }

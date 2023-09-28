@@ -19,13 +19,10 @@ export default {
 
     withPluginApi("0.12.1", (api) => {
       api.registerDesktopNotificationHandler((data, siteSettings, user) => {
-<<<<<<< HEAD
         if (user.isInDoNotDisturb()) {
           return;
         }
 
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         if (!user.chat_sound) {
           return;
         }

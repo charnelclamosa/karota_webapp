@@ -396,7 +396,6 @@ module("Integration | Component | dialog-holder", function (hooks) {
       ".btn-primary element is not present in the dialog"
     );
   });
-<<<<<<< HEAD
 
   test("delete confirm with confirmation phrase component", async function (assert) {
     await render(hbs`<DialogHolder />`);
@@ -404,19 +403,10 @@ module("Integration | Component | dialog-holder", function (hooks) {
     this.dialog.deleteConfirm({
       bodyComponent: SecondFactorConfirmPhrase,
       confirmButtonDisabled: true,
-=======
-  test("delete confirm with confirmation phase", async function (assert) {
-    await render(hbs`<DialogHolder />`);
-
-    this.dialog.deleteConfirm({
-      message: "A delete confirm message",
-      confirmPhrase: "test",
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     });
     await settled();
 
     assert.strictEqual(query(".btn-danger").disabled, true);
-<<<<<<< HEAD
     await fillIn("#confirm-phrase", "Disa");
     assert.strictEqual(query(".btn-danger").disabled, true);
     await fillIn("#confirm-phrase", "Disable");
@@ -443,9 +433,4 @@ module("Integration | Component | dialog-holder", function (hooks) {
       "correct message is shown in dialog"
     );
   });
-=======
-    await fillIn("#confirm-phrase", "test");
-    assert.strictEqual(query(".btn-danger").disabled, false);
-  });
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

@@ -30,19 +30,6 @@ acceptance("Topic - Quote button - logged in", function (needs) {
       })
     );
   });
-<<<<<<< HEAD
-=======
-
-  chromeTest(
-    "Does not show the quote share buttons by default",
-    async function (assert) {
-      await visit("/t/internationalization-localization/280");
-      await selectText("#post_5 blockquote");
-      assert.ok(exists(".insert-quote"), "it shows the quote button");
-      assert.ok(!exists(".quote-sharing"), "it does not show quote sharing");
-    }
-  );
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   test("Does not show the quote share buttons by default", async function (assert) {
     await visit("/t/internationalization-localization/280");

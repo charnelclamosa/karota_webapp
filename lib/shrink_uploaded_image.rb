@@ -163,12 +163,8 @@ class ShrinkUploadedImage
         post.update_columns(raw: post.raw, updated_at: Time.zone.now) if post.raw_changed?
 
         if existing_upload
-<<<<<<< HEAD
           post
             .post_hotlinked_media
-=======
-          post.post_hotlinked_media
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             .where(upload_id: original_upload.id)
             .update_all(upload_id: upload.id)
         end

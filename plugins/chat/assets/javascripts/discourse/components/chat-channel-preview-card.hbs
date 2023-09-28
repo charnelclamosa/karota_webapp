@@ -2,7 +2,6 @@
   class={{concat-class
     "chat-channel-preview-card"
     (unless this.hasDescription "-no-description")
-<<<<<<< HEAD
     (unless this.showJoinButton "-no-button")
   }}
 >
@@ -10,32 +9,15 @@
   {{#if this.hasDescription}}
     <p class="chat-channel-preview-card__description">
       {{@channel.description}}
-=======
-  }}
->
-  <ChatChannelTitle @channel={{this.channel}} />
-  {{#if this.hasDescription}}
-    <p class="chat-channel-preview-card__description">
-      {{this.channel.description}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     </p>
   {{/if}}
   {{#if this.showJoinButton}}
     <ToggleChannelMembershipButton
-<<<<<<< HEAD
       @channel={{@channel}}
-=======
-      @channel={{this.channel}}
-      @onToggle={{this.afterMembershipToggle}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       @options={{hash joinClass="btn-primary"}}
     />
   {{/if}}
   <LinkTo @route="chat.browse" class="chat-channel-preview-card__browse-all">
     {{i18n "chat.browse_all_channels"}}
   </LinkTo>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)

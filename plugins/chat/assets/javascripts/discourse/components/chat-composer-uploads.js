@@ -5,10 +5,7 @@ import { inject as service } from "@ember/service";
 import UppyMediaOptimization from "discourse/lib/uppy-media-optimization-plugin";
 import discourseComputed, { bind } from "discourse-common/utils/decorators";
 import UppyUploadMixin from "discourse/mixins/uppy-upload";
-<<<<<<< HEAD
 import { cloneJSON } from "discourse-common/lib/object";
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 export default Component.extend(UppyUploadMixin, {
   classNames: ["chat-composer-uploads"],
@@ -16,20 +13,14 @@ export default Component.extend(UppyUploadMixin, {
   chatStateManager: service(),
   id: "chat-composer-uploader",
   type: "chat-composer",
-<<<<<<< HEAD
   existingUploads: null,
   uploads: null,
   useMultipartUploadsIfAvailable: true,
   uploadDropZone: null,
-=======
-  uploads: null,
-  useMultipartUploadsIfAvailable: true,
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
   init() {
     this._super(...arguments);
     this.setProperties({
-<<<<<<< HEAD
       fileInputSelector: `#${this.fileUploadElementId}`,
     });
   },
@@ -44,31 +35,15 @@ export default Component.extend(UppyUploadMixin, {
       "uploads",
       this.existingUploads ? cloneJSON(this.existingUploads) : []
     );
-=======
-      uploads: [],
-      fileInputSelector: `#${this.fileUploadElementId}`,
-    });
-    this.appEvents.on("chat-composer:load-uploads", this, "_loadUploads");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   didInsertElement() {
     this._super(...arguments);
-<<<<<<< HEAD
-
-=======
-    this.composerInputEl = document.querySelector(".chat-composer-input");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.composerInputEl?.addEventListener("paste", this._pasteEventListener);
   },
 
   willDestroyElement() {
     this._super(...arguments);
-<<<<<<< HEAD
-
-=======
-    this.appEvents.off("chat-composer:load-uploads", this, "_loadUploads");
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     this.composerInputEl?.removeEventListener(
       "paste",
       this._pasteEventListener
@@ -77,11 +52,7 @@ export default Component.extend(UppyUploadMixin, {
 
   uploadDone(upload) {
     this.uploads.pushObject(upload);
-<<<<<<< HEAD
     this._triggerUploadsChanged();
-=======
-    this.onUploadChanged(this.uploads);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   @discourseComputed("uploads.length", "inProgressUploads.length")
@@ -94,18 +65,12 @@ export default Component.extend(UppyUploadMixin, {
     this.appEvents.trigger(`upload-mixin:${this.id}:cancel-upload`, {
       fileId: upload.id,
     });
-<<<<<<< HEAD
     this.removeUpload(upload);
-=======
-    this.uploads.removeObject(upload);
-    this.onUploadChanged(this.uploads);
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   },
 
   @action
   removeUpload(upload) {
     this.uploads.removeObject(upload);
-<<<<<<< HEAD
     this._triggerUploadsChanged();
   },
 
@@ -115,33 +80,6 @@ export default Component.extend(UppyUploadMixin, {
     };
   },
 
-=======
-    this.onUploadChanged(this.uploads);
-  },
-
-  _uploadDropTargetOptions() {
-    let targetEl;
-    if (this.chatStateManager.isFullPageActive) {
-      targetEl = document.querySelector(".full-page-chat");
-    } else {
-      targetEl = document.querySelector(".chat-drawer.is-expanded");
-    }
-
-    if (!targetEl) {
-      return this._super();
-    }
-
-    return {
-      target: targetEl,
-    };
-  },
-
-  _loadUploads(uploads) {
-    this._uppyInstance?.cancelAll();
-    this.set("uploads", uploads);
-  },
-
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   _uppyReady() {
     if (this.siteSettings.composer_media_optimization_image_enabled) {
       this._useUploadPlugin(UppyMediaOptimization, {
@@ -183,7 +121,6 @@ export default Component.extend(UppyUploadMixin, {
       this._addFiles([...event.clipboardData.files], { pasted: true });
     }
   },
-<<<<<<< HEAD
 
   onProgressUploadsChanged() {
     this._triggerUploadsChanged(this.uploads, {
@@ -196,6 +133,4 @@ export default Component.extend(UppyUploadMixin, {
       inProgressUploadsCount: this.inProgressUploads?.length,
     });
   },
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 });

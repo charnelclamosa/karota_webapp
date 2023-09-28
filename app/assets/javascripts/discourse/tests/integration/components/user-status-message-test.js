@@ -13,10 +13,7 @@ module("Integration | Component | user-status-message", function (hooks) {
 
   hooks.beforeEach(function () {
     this.currentUser.user_option.timezone = "UTC";
-<<<<<<< HEAD
     this.status = { emoji: "tooth", description: "off to dentist" };
-=======
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   });
 
   hooks.afterEach(function () {

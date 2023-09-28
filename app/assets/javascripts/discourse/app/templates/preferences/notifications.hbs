@@ -1,22 +1,10 @@
 <div class="control-group notifications">
   <label class="control-label">{{i18n "user.notifications"}}</label>
 
-<<<<<<< HEAD
   <div
     class="controls controls-dropdown"
     data-setting-name="user-like-notification-frequency"
   >
-=======
-  {{#unless this.currentUser.redesigned_user_page_nav_enabled}}
-    <UserPreferences::TopicTracking
-      @considerNewTopicOptions={{this.considerNewTopicOptions}}
-      @model={{this.model}}
-      @autoTrackDurations={{this.autoTrackDurations}}
-      @notificationLevelsForReplying={{this.notificationLevelsForReplying}} />
-  {{/unless}}
-
-  <div class="controls controls-dropdown">
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     <label>{{i18n "user.like_notification_frequency.title"}}</label>
     <ComboBox
       @valueProperty="value"
@@ -53,7 +41,6 @@
 
 <UserNotificationSchedule @model={{this.model}} />
 
-<<<<<<< HEAD
 <span>
   <PluginOutlet
     @name="user-preferences-notifications"
@@ -63,13 +50,6 @@
 </span>
 
 <br />
-=======
-{{#if this.showMessageSettings}}
-  {{#unless this.currentUser.redesigned_user_page_nav_enabled}}
-    <UserPreferences::AllowPrivateMessages @model={{this.model}} />
-  {{/unless}}
-{{/if}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
 
 <span>
   <PluginOutlet

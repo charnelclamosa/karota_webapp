@@ -326,13 +326,6 @@ ko:
     save: "변경사항 저장"
     saved: "저장되었습니다!"
     upload: "업로드"
-<<<<<<< HEAD
-=======
-    uploading: "업로드 중..."
-    processing: "처리 중..."
-    uploading_filename: "업로드 중: %{filename}..."
-    processing_filename: "처리 중: %{filename}..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     clipboard: "클립보드"
     uploaded: "업로드되었습니다!"
     enable: "활성화"
@@ -1023,10 +1016,6 @@ ko:
         categories_section: "카테고리 섹션"
         tags_section: "태그 섹션"
         navigation_section: "내비게이션"
-<<<<<<< HEAD
-=======
-        list_destination_instruction: "사이드바에 새로운 콘텐츠가 있을 때..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       change: "변경"
       featured_topic: "추천 주제"
       moderator: "%{user} 님은 운영자입니다"
@@ -1559,20 +1548,11 @@ ko:
     user_status:
       save: "저장"
     user_tips:
-<<<<<<< HEAD
       button: "알았어요!"
-=======
-      primary: "알았어요!"
-      secondary: "이 도움말을 표시하지 않음"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       first_notification:
         title: "첫 번째 알림!"
       post_menu:
         title: "글쓰기 메뉴"
-<<<<<<< HEAD
-=======
-    loading: "로드 중..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     errors:
       prev_page: "로드하는 중"
       reasons:
@@ -1604,11 +1584,6 @@ ko:
       enabled: "이 사이트는 현재 읽기 전용 모드입니다. 탐색은 가능하지만 댓글, 좋아요 및 기타 작업은 일시적으로 비활성화되었습니다."
       login_disabled: "사이트가 읽기 전용 모드인 동안에는 로그인이 비활성화됩니다."
       logout_disabled: "사이트가 읽기 전용 모드인 동안에는 로그아웃이 비활성화됩니다."
-<<<<<<< HEAD
-=======
-    too_few_posts_notice_MF: >-
-      <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">토론을 시작</a> 합시다 <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/">!</a> {currentPosts, plural, one {is <strong>#</strong> post} other {are <strong>#</strong> posts}}가 있습니다. 방문자는 더 읽고 답장해야합니다. – {requiredPosts, plural, one { <strong>#</strong> post} other { <strong>#</strong> posts}} 이상을 권장합니다. 직원 만이 메시지를 볼 수 있습니다.
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     logs_error_rate_notice:
       reached_hour_MF: |
         <b>{relativeAge}</b> – <a href='{url}' target='_blank'>{rate, plural, one {#개의 오류/시간} other {#개의 오류/시간}}</a>이 사이트 설정 한계인 {limit, plural, one {#개의 오류/시간} other {#개의 오류/시간}}에 도달했습니다.
@@ -2884,10 +2859,6 @@ ko:
       required_tag_group:
         delete: "삭제"
         add: "필수 태그 그룹 추가"
-<<<<<<< HEAD
-=======
-        placeholder: "태그 그룹 선택..."
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
       topic_featured_link_allowed: "이 카테고리에 추천 링크 허용"
       delete: "카테고리 삭제"
       create: "새 카테고리"
@@ -3523,7 +3494,6 @@ ko:
             unread_with_count: "읽지 않음(%{count})"
             archive: "보관"
         tags:
-<<<<<<< HEAD
           none: "태그를 추가하지 않았습니다."
           click_to_get_started: "시작하려면 여기를 클릭하십시오."
           header_link_text: "태그"
@@ -3535,26 +3505,6 @@ ko:
         community:
           edit_section:
             header_dropdown: "사용자 지정"
-=======
-          links:
-            add_tags:
-              content: "태그 추가"
-          none: "태그를 추가하지 않았습니다."
-          click_to_get_started: "시작하려면 여기를 클릭하십시오."
-          header_link_text: "태그"
-          header_action_title: "사이드바 태그 편집"
-          configure_defaults: "기본값 구성"
-        categories:
-          links:
-            add_categories:
-              content: "카테고리 추가"
-          click_to_get_started: "시작하려면 여기를 클릭하십시오."
-          header_link_text: "카테고리"
-          header_action_title: "사이드바 카테고리 편집"
-        community:
-          header_link_text: "커뮤니티"
-          header_action_title: "새글 쓰기"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
           links:
             about:
               content: "소개"
@@ -3562,13 +3512,8 @@ ko:
               content: "관리자"
             badges:
               content: "배지"
-<<<<<<< HEAD
             topics:
               content: "글"
-=======
-            everything:
-              content: "모두"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
               title: "모든 글"
             faq:
               content: "자주하는 질문"
@@ -3583,7 +3528,6 @@ ko:
                 other: "초안 %{count}"
             review:
               content: "검토"
-<<<<<<< HEAD
     welcome_topic_banner:
       title: "환영 글 만들기"
       button_title: "편집 시작"
@@ -3592,12 +3536,6 @@ ko:
       errors:
         typeMismatch:
           default: "유효한 값을 입력하십시오."
-=======
-              title: "검토"
-    welcome_topic_banner:
-      title: "환영 글 만들기"
-      button_title: "편집 시작"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   admin_js:
     type_to_filter: "필터 입력..."
     admin:
@@ -4962,11 +4900,7 @@ ko:
           search: "검색"
           groups: "그룹"
           dashboard: "대시보드"
-<<<<<<< HEAD
           navigation: "내비게이션"
-=======
-          sidebar: "사이드바"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         secret_list:
           invalid_input: "입력 필드는 비워 두거나 수직 막대 문자를 포함할 수 없습니다."
         default_categories:

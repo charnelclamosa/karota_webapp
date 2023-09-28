@@ -299,13 +299,6 @@ sq:
         one: "pothuajse %{count} vit më parë"
         other: "pothuajse %{count} vite më parë"
   password_reset:
-<<<<<<< HEAD
-=======
-    choose_new: "Zgjidhni një fjalëkalim të ri"
-    choose: "Zgjidhni një fjalëkalim të ri"
-    update: "Rifresko Fjalëkalimin"
-    save: "Vendos Fjalëkalim"
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
     title: "Rivendos Fjalëkalimin"
     success: "Ndryshimi i fjalëkalimit u krye me sukses dhe tashmë ju jeni futur në faqe."
     success_unapproved: "Ndryshimi i fjalëkalimit u krye me sukses."

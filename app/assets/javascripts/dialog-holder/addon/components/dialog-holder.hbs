@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 <div
   id="dialog-holder"
   class="dialog-container {{this.dialog.class}}"
   aria-labelledby={{this.dialog.titleElementId}}
   aria-hidden="true"
 >
-=======
-<div id="dialog-holder" class="dialog-container {{this.dialog.class}}" aria-labelledby={{this.dialog.titleElementId}} aria-hidden="true">
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
   <div class="dialog-overlay" data-a11y-dialog-hide></div>
 
   {{#if this.dialog.type}}
@@ -15,7 +11,6 @@
       {{#if this.dialog.title}}
         <div class="dialog-header">
           <h3 id={{this.dialog.titleElementId}}>{{this.dialog.title}}</h3>
-<<<<<<< HEAD
           <DButton
             @icon="times"
             @action={{action this.dialog.cancel}}
@@ -34,27 +29,12 @@
           {{else if this.dialog.message}}
             <p>{{this.dialog.message}}</p>
           {{/if}}
-=======
-          <DButton @icon="times" @action={{action this.dialog.cancel}} @class="btn-flat dialog-close close" @title="modal.close" />
-        </div>
-      {{/if}}
-
-      {{#if (or this.dialog.message this.dialog.confirmPhrase)}}
-        <div class="dialog-body">
-          {{#if this.dialog.message}}
-            <p>{{this.dialog.message}}</p>
-          {{/if}}
-          {{#if this.dialog.confirmPhrase}}
-            <TextField @value={{this.dialog.confirmPhraseInput}} {{on "input" this.dialog.onConfirmPhraseInput}} @id="confirm-phrase" @autocorrect="off" @autocapitalize="off" />
-          {{/if}}
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
         </div>
       {{/if}}
 
       {{#if (notEq this.dialog.type "notice")}}
         <div class="dialog-footer">
           {{#each this.dialog.buttons as |button|}}
-<<<<<<< HEAD
             <DButton
               @icon={{button.icon}}
               @action={{fn this.handleButtonAction button}}
@@ -75,21 +55,10 @@
                 @label={{this.dialog.cancelButtonLabel}}
                 class={{this.dialog.cancelButtonClass}}
               />
-=======
-            <DButton @icon={{button.icon}} @class={{button.class}} @action={{action "handleButtonAction" button}} @translatedLabel={{button.label}} />
-          {{else}}
-            <DButton @class={{this.dialog.confirmButtonClass}} @disabled={{this.dialog.confirmButtonDisabled}} @action={{this.dialog.didConfirmWrapped}} @icon={{this.dialog.confirmButtonIcon}} @label={{this.dialog.confirmButtonLabel}} />
-            {{#if this.dialog.shouldDisplayCancel}}
-              <DButton @class={{this.dialog.cancelButtonClass}} @action={{this.dialog.cancel}} @label={{this.dialog.cancelButtonLabel}} />
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
             {{/if}}
           {{/each}}
         </div>
       {{/if}}
     </div>
   {{/if}}
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 887f49d048 (Fix merge conflicts to sync to the main upstream)
